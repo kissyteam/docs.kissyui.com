@@ -1,4 +1,4 @@
 docs.kissyui.com
 ================
 
-new website of docs.kissyui.com
+new website of http://docs.kissyui.com
