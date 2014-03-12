@@ -1,6 +1,6 @@
 /**
 * util模块，包含Class Util
-* @module Util
+* @module util
 */
 
 /**

@@ -1,6 +1,6 @@
 {
     "project": {
-        "name": "The KISSY API",
+        "name": "API Documentation — KISSY v1.5 Documentation",
         "description": "The KISSY API : KISSY is a powerfull javascript framework for building cross end web application such as desktop, mobile and pad.",
         "version": "1.0.0",
         "url": "docs.kissyui.com"
@@ -42,7 +42,7 @@
         "src\\api\\ua.js": {
             "name": "src\\api\\ua.js",
             "modules": {
-                "UA": 1
+                "ua": 1
             },
             "classes": {
                 "UA": 1
@@ -53,7 +53,7 @@
         "src\\api\\util.js": {
             "name": "src\\api\\util.js",
             "modules": {
-                "Util": 1
+                "util": 1
             },
             "classes": {
                 "Util": 1
@@ -102,8 +102,8 @@
             "line": 6,
             "description": "loader模块,定义KISSY初始对象及模块化机制用到的方法，所有方法都通过KISSY直接引用"
         },
-        "UA": {
-            "name": "UA",
+        "ua": {
+            "name": "ua",
             "submodules": {},
             "classes": {
                 "UA": 1
@@ -115,8 +115,8 @@
             "line": 6,
             "description": "UA模块将UA挂在在全局对象KISSY上，通过 KISSY.UA 的属性，你可以获取浏览器等用户代理的信息。"
         },
-        "Util": {
-            "name": "Util",
+        "util": {
+            "name": "util",
             "submodules": {},
             "classes": {
                 "Util": 1
@@ -190,7 +190,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "UA",
+            "module": "ua",
             "namespace": "",
             "file": "src\\api\\ua.js",
             "line": 6,
@@ -205,7 +205,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "Util",
+            "module": "util",
             "namespace": "",
             "file": "src\\api\\util.js",
             "line": 6,
@@ -635,7 +635,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -646,7 +646,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -657,7 +657,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -668,7 +668,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -679,7 +679,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -690,7 +690,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -701,7 +701,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -712,7 +712,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -723,7 +723,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -734,7 +734,7 @@
             "type": "String",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -745,7 +745,7 @@
             "type": "String",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -756,7 +756,7 @@
             "type": "String",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -767,7 +767,7 @@
             "type": "String",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -778,7 +778,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -789,7 +789,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -800,7 +800,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -811,7 +811,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\ua.js",
@@ -822,7 +822,7 @@
             "type": "Number",
             "static": 1,
             "class": "UA",
-            "module": "UA"
+            "module": "ua"
         },
         {
             "file": "src\\api\\util.js",
@@ -861,7 +861,7 @@
                 "type": "Class"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -883,7 +883,7 @@
                 }
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -918,7 +918,7 @@
                 " ### 改变运行上下文\nbind 最简单的用法是生成一个新的函数，无论它如何调用，都运行在一个固定的 this 值中.入门者常犯的错误时从一个对象获得一个方法引用， 然后在后面的调用中期望这个方法的this就是原来的对象(eg.g 把这个方法用在某个回调中). 如果没有特例，那么这个原始对象就丢失了. 但是如果从原方法中得到一个绑定原始对象的函数，这个问题就解决了！\n  ```\n  var x = 9;\n\tvar module = {\n\t\tx: 81,\n\t\tgetX: function() { return this.x; }\n\t};\n\n\tmodule.getX(); // 81\n\n\tvar getX = module.getX;\n\tgetX(); // 9, because in this case, \"this\" refers to the global object\n\n\t// create a new function with 'this' bound to module\n\tvar boundGetX = KISSY.bind(getX,module);\n\tboundGetX(); // 81\n  ```\n### Currying\nbind 的下一个简单用法是产生一个具备默认参数的函数. 这些参数跟在 context 后面，无论何时调用绑定函数， 当绑定函数调用目标函数时会把它们放在参数列表开头，然后才是传递给绑定函数的用户参数\n  ```\n  function list() {\n\t\treturn Array.prototype.slice.call(arguments);\n\t}\n\n\tvar list1 = list(1, 2, 3); // [1, 2, 3]\n\n\t//  Create a function with a preset leading argument\n\tvar leadingZeroList = KISSY.bind(list,undefined, 37);\n\n\tvar list2 = leadingZeroList(); // [37]\n\tvar list3 = leadingZeroList(1, 2, 3); // [37, 1, 2, 3]\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -952,7 +952,7 @@
                 "\n  ```\n  self.__onResize = S.buffer(doResize, 100, this);\n  $(window).on(\"resize\", self.__onResize);\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -982,7 +982,7 @@
                 "\n  ```\n  var S = KISSY;\n  var a={x:{y:{z:1}}}\n  var b=S.clone(a); // => b={x:y:{z:1}} , b!==a\n  var c=S.clone(a,function(v,k){if(k==\"z\") return false;}) // => c={x:{y:{}}}\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1014,7 +1014,7 @@
                 "\n  ```\nvar S = KISSY,\narr = [1, 2, 3, 4, 5],\nobj = {\n   'hi': 'kissy',\n   'bye': 'world'\n},\nsum = 0;\n\nS.each(arr, function(item) {\n   sum += item;\n});\nS.log(sum); // => 15\n\n\nS.each(obj, function(v,k) {\n   S.log([v,k]);\n});\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1040,7 +1040,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1057,7 +1057,7 @@
                 }
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1077,7 +1077,7 @@
                 "type": "String"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1118,7 +1118,7 @@
                 "\n  ```\nvar S = KISSY;\n\nfunction Bird(name) { this.name = name; }\nBird.prototype.fly = function() { alert(this.name + ' is flying now!'); };\n\nfunction Chicken(name) {\n   Chicken.superclass.constructor.call(this, name);\n}\nS.extend(Chicken, Bird,{\n   fly:function(){\n       Chicken.superclass.fly.call(this)\n       alert(\"it's my turn\");\n   }\n});\n\nnew Chicken('kissy').fly();\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1153,7 +1153,7 @@
                 "\n  ```\nvar S = KISSY,\narr = [1, 2, 3, 4, 5];\n\nvar ret = S.filter(arr, function(item) {\n   return item % 2 === 0;\n});\nS.log(ret); // => [2, 4]\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1177,7 +1177,7 @@
                 "\n`KISSY.fromUnicode(\"\\\\u627F\\\\u7389\") // => \"承玉\"`"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1201,7 +1201,7 @@
                 "\n  ```\nvar logger = KISSY.getLogger('KISSY');\nlogger.debug(\"test\"); // => \"KISSY: test\";\n  ```\n### Note\n可以在配置中设置logger的级别，以及是否显示。 当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先\n```\nS.config('logger', {\n   includes: [\n       {\n           logger: /^xx\\//\n       }\n   ],\n   excludes: [\n       {\n           logger: /^xx\\//， //以xx/开头的不显示\n           maxLevel: 'info' //不显示 info 及 info 以下的 log\n       }\n   ]\n});\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1218,7 +1218,7 @@
                 }
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1239,7 +1239,7 @@
                 "type": "String"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1265,7 +1265,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1291,7 +1291,7 @@
                 "type": "Number"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1312,7 +1312,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1333,7 +1333,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1354,7 +1354,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1375,7 +1375,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1396,7 +1396,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1417,7 +1417,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1438,7 +1438,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1459,7 +1459,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1480,7 +1480,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1501,7 +1501,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1522,7 +1522,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1543,7 +1543,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1564,7 +1564,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1585,7 +1585,7 @@
                 "type": "Array"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1611,7 +1611,7 @@
                 "type": "Number"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1659,7 +1659,7 @@
                 "\n  ```\nvar S = KISSY;\n\nS.later(function(data) {\n   S.log(data);\n}, 0, false, null, 'I am later data.');\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1686,7 +1686,7 @@
                 }
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1707,7 +1707,7 @@
                 "type": "Array"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1739,7 +1739,7 @@
                 "type": "Array"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1768,7 +1768,7 @@
                 "\n  ```\nvar S = KISSY,\na = { a: 'a' },\nb = { b: 'b' },\nc = { b: 'b2', c: 'c' };\n\nvar o = S.merge(a, b, c);\nS.log(o.a); // => 'a'\nS.log(o.b); // => 'b2'\nS.log(o.c); // => 'c'\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1813,7 +1813,7 @@
                 "\n简单 mix:\n\n  ```\nvar S = KISSY,\nr = { a: 'a', b: 'b' };\n\nS.mix(r, { c: 'c' });\nS.log(r.c); // => 'c'\n\nS.mix(r, { a: 'a2' }, false);\nS.log(r.a); // => 'a'\n\nS.mix(r, { e: 'e', f: 'f' }, true, ['f']);\nS.log(r.e); // => undefined\nS.log(r.f); // => 'f'\n  ```\n\n深度 mix:\n  ```\nvar object1 = {\n apple: 0,\n banana: {weight: 52, price: 100},\n cherry: 97\n};\nvar object2 = {\n banana: {price: 200},\n durian: 100\n};\n\n//merge object2 into object1, recursively \nS.mix(object1,object2,undefined,undefined,true);\n\nS.log(object1); // => { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }\n  ```\n该方法在 KISSY 里具有非常重要的地位. JavaScript 是一门动态语言, 利用 mixin 特性, 可以很方便的实现特性的静态复制和动态修改."
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1840,7 +1840,7 @@
                 "type": "Object"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1854,7 +1854,7 @@
                 "type": "Number"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1895,7 +1895,7 @@
                 "\n```\nvar S = KISSY;\n\nS.param({ foo: 1, bar: 2 }); // => foo=1&bar=2\nS.param({ foo: 1, bar: [2, 3] }); // => foo=1&bar%5B%5D=2&bar%5B%5D=3\nS.param({ foo: 1, bar: [2, 3] },'&','=',false); // => foo=1&bar=2&bar=3\nS.param({ foo: '', bar: 2 }); // => foo=&bar=2\nS.param({ foo: undefined, bar: 2 }); // => foo&bar=2\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1915,7 +1915,7 @@
                 "\n  ```\nvar xml = \"<rss version='2.0'><channel><title>RSS Title</title></channel></rss>\";\nvar xmlDoc=KISSY.all(KISSY.parseXML(xml));\nalert(xmlDoc.one(\"title\").text()); // => RSS Title\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1932,7 +1932,7 @@
                 }
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1965,7 +1965,7 @@
                 "\n  ```\nKISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){\n return previousValue + currentValue;\n});\n\n// First call\npreviousValue = 0, currentValue = 1, index = 1\n\n// Second call\npreviousValue = 1, currentValue = 2, index = 2\n\n// Third call\npreviousValue = 3, currentValue = 3, index = 3\n\n// Fourth call\npreviousValue = 6, currentValue = 4, index = 4\n\n// array is always the object [0,1,2,3,4] upon which reduce was called\n\n// Return Value: 10\n  ```\n\n  ```\nKISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){\n return previousValue + currentValue;\n}, 10);\n\n// First call\npreviousValue = 10, currentValue = 0, index = 0\n\n// Second call\npreviousValue = 10, currentValue = 1, index = 1\n\n// Third call\npreviousValue = 11, currentValue = 2, index = 2\n\n// Fourth call\npreviousValue = 13, currentValue = 3, index = 3\n\n// Fifth call\npreviousValue = 16, currentValue = 4, index = 4\n\n// array is always the object [0,1,2,3,4] upon which reduce was called\n\n// Return Value: 20\n  ```\n\n### 得到数组的值总和\n`var total = KISSY.reduce([0, 1, 2, 3],function(a, b){ return a + b; }); // total == 6`\n\n### 嵌套数组平坦化\n  ```\nvar flattened = KISSY.reduce([[0,1], [2,3], [4,5]],function(a,b) {\n return a.concat(b);\n});\n// flattened is [0, 1, 2, 3, 4, 5]\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -1991,7 +1991,7 @@
                 "type": "Boolean"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -2020,7 +2020,7 @@
                 "\n  ```\nvar S = KISSY,\nstr = '{name} is {prop_1} and {prop_2}.',\nobj = {name: 'Jack Bauer', prop_1: 'our lord', prop_2: 'savior'};\n\nS.substitute(str, obj); // => 'Jack Bauer is our lord and savior.'\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -2054,7 +2054,7 @@
                 "\n  ```\nfunction sayHi() {\n   alert('hi');\n}\n\nsay = S.throttle(sayHi, 300, this);\nsay();              // 忽略\nS.later(say, 200);  // 忽略\nS.later(say, 350);  // 超过300ms后, 终于执行\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -2075,7 +2075,7 @@
                 "type": "String"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -2099,7 +2099,7 @@
                 "\n`KISSY.unEscapeHTML(\"&lt;a&gt;x&lt;/a&gt;\"); // =>  \"<a>x</a>\"`\n### Note\n该函数只会 unescape 以下字符序列（正则式\n`&amp; &lt; &gt; &#x60; &#x2F; &quot; &#x27; &#\\d{1,5}`"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -2125,7 +2125,7 @@
                 "type": "Array"
             },
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
@@ -2163,13 +2163,13 @@
                 "\n  ```\nvar S = KISSY;\n\nS.unparam('foo=1&bar=2'); // => { foo: 1, bar: 2 }\nS.unparam('foo=%81%47'); // gbk 编码 => { foo: \"%81%47\" } 而不是 {foo: \"丢\"}\nS.unparam('foo=1&bar=2&bar=3'); // => { foo: 1, bar: [2, 3] }\nS.unparam('foo=1&bar%5B%5D=2&bar%5B%5D=3'); // => { foo: 1, bar: [2, 3] }\n  ```"
             ],
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         },
         {
             "file": "src\\api\\util.js",
             "line": 794,
             "class": "Util",
-            "module": "Util"
+            "module": "util"
         }
     ],
     "warnings": [

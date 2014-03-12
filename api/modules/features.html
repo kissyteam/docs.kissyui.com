@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>features - The KISSY API</title>
+    <title>features - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -15,15 +15,11 @@
     <div id="hd" class="yui3-g header">
         <div class="yui3-u-3-4">
             
-                <h1><img src="../assets/css/logo.png" title="The KISSY API"></h1>
+                <h1><img src="../assets/css/logo.png" title="API Documentation — KISSY v1.5 Documentation"></h1>
             
-        </div>
-        <div class="yui3-u-1-4 version">
-            <em>API Docs for: 1.0.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
-
         <div class="yui3-u-1-4">
             <div id="docs-sidebar" class="sidebar apidocs">
                 <div id="api-list">
@@ -61,9 +57,9 @@
             
                 <li><a href="../modules/loader.html">loader</a></li>
             
-                <li><a href="../modules/UA.html">UA</a></li>
+                <li><a href="../modules/ua.html">ua</a></li>
             
-                <li><a href="../modules/Util.html">Util</a></li>
+                <li><a href="../modules/util.html">util</a></li>
             
             </ul>
         </div>
@@ -149,6 +145,24 @@
                     </div>
                 </div>
             </div>
+            <div id="disqus_thread"></div>
+            <script>
+                if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
+
+                // The following are highly recommended additional parameters. Remove the slashes in front to use.
+                 //var disqus_identifier = '/anim';
+                 //var disqus_url = window.location;
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+                }
+            </script>
         </div>
     </div>
 </div>

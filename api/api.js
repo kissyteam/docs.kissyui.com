@@ -8,11 +8,11 @@ YUI.add("yuidoc-meta", function(Y) {
         "Util"
     ],
     "modules": [
-        "UA",
-        "Util",
         "anim",
         "features",
-        "loader"
+        "loader",
+        "ua",
+        "util"
     ],
     "allModules": [
         {
@@ -31,13 +31,13 @@ YUI.add("yuidoc-meta", function(Y) {
             "description": "loader模块,定义KISSY初始对象及模块化机制用到的方法，所有方法都通过KISSY直接引用"
         },
         {
-            "displayName": "UA",
-            "name": "UA",
+            "displayName": "ua",
+            "name": "ua",
             "description": "UA模块将UA挂在在全局对象KISSY上，通过 KISSY.UA 的属性，你可以获取浏览器等用户代理的信息。"
         },
         {
-            "displayName": "Util",
-            "name": "Util",
+            "displayName": "util",
+            "name": "util",
             "description": "util模块，包含Class Util"
         }
     ]

@@ -1,6 +1,6 @@
 /**
 * UA模块将UA挂在在全局对象KISSY上，通过 KISSY.UA 的属性，你可以获取浏览器等用户代理的信息。
-* @module UA
+* @module ua
 */
 
 /**
