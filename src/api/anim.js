@@ -1,5 +1,5 @@
 /**
-* 提供Class Anim,动画支持
+* 提供类Anim,动画支持
 * @module anim
 */
 

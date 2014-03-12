@@ -2,6 +2,7 @@ YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
         "Anim",
+        "Cookie",
         "Features",
         "Loader",
         "UA",
@@ -9,6 +10,7 @@ YUI.add("yuidoc-meta", function(Y) {
     ],
     "modules": [
         "anim",
+        "cookie",
         "features",
         "loader",
         "ua",
@@ -18,7 +20,12 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "anim",
             "name": "anim",
-            "description": "提供Class Anim,动画支持"
+            "description": "提供类Anim,动画支持"
+        },
+        {
+            "displayName": "cookie",
+            "name": "cookie",
+            "description": "提供类Cookie"
         },
         {
             "displayName": "features",

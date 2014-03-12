@@ -17,6 +17,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\cookie.js": {
+            "name": "src\\api\\cookie.js",
+            "modules": {
+                "cookie": 1
+            },
+            "classes": {
+                "Cookie": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\features.js": {
             "name": "src\\api\\features.js",
             "modules": {
@@ -74,7 +85,20 @@
             "tag": "module",
             "file": "src\\api\\anim.js",
             "line": 6,
-            "description": "提供Class Anim,动画支持"
+            "description": "提供类Anim,动画支持"
+        },
+        "cookie": {
+            "name": "cookie",
+            "submodules": {},
+            "classes": {
+                "Cookie": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\cookie.js",
+            "line": 6,
+            "description": "提供类Cookie"
         },
         "features": {
             "name": "features",
@@ -164,12 +188,85 @@
                 },
                 {
                     "name": "easing",
-                    "description": "默认为 ‘easeNone’ , 动画平滑函数, \n可取值 “swing”, “easeNone”, “linear”, “easeIn”, “easeOut”, “easeBoth”,”easeInStrong”, “easeOutStrong”,”easeBothStrong”,”elasticIn”,”elasticOut”, “elasticBoth”,”backIn”,”backOut”,”backBoth”, “bounceIn”,”bounceOut”,”bounceBoth”, “cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）”. \n效果预览, 可以参考[easing可视化](/1.5/examples/anim/easing.html)",
+                    "description": "默认为 \"easeNone\", 动画平滑函数, \n可取值 \"swing\", \"easeNone\", \"linear\", \"easeIn\", \"easeOut\", \"easeBoth\",\"easeInStrong\", \"easeOutStrong\",\"easeBothStrong\",\"elasticIn\",\"elasticOut\", \"elasticBoth\",\"backIn\",\"backOut\",\"backBoth\", \"bounceIn\",\"bounceOut\",\"bounceBoth\", \"cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）\". \n效果预览, 可以参考[easing可视化](/1.5/examples/anim/easing.html)和[cubic-bezier可视化](/1.5/examples/anim/cubic-bezier.html)",
                     "type": "String",
                     "optional": true,
                     "optdefault": "\"easeNone\""
+                },
+                {
+                    "name": "completeFn",
+                    "description": "动画到最后一帧后的回调函数\n\n### Note: 构造器也可以如下面这样传参\n`Anim (elem, props[, config])` 得到绑定于某个 dom 节点的动画实例",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "elem",
+                    "description": "作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）",
+                    "type": "String|HTMLElement|KISSY.Node|window|普通的Object"
+                },
+                {
+                    "name": "props",
+                    "description": "动画结束的 dom 样式值",
+                    "type": "Object"
+                },
+                {
+                    "name": "config",
+                    "description": "动画配置项",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "duration",
+                            "description": "单位秒。默认 1 秒.动画持续时间",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "1"
+                        },
+                        {
+                            "name": "easing",
+                            "description": "默认 ‘easeNone’. 动画平滑函数",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "\"easeNone\""
+                        },
+                        {
+                            "name": "queue",
+                            "description": "所属队列名称. 默认undefined. 属于系统内置队列, 设置 false 则表示该动画不排队立即执行",
+                            "type": "String|false|undefined",
+                            "optional": true,
+                            "optdefault": "undefined"
+                        },
+                        {
+                            "name": "complete",
+                            "description": "动画到最后一帧后的回调函数",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "useTransition",
+                            "description": "是否使用css3 transition提升性能。\n在 useTransition 为 true 的时候，easing 的值必须是 w3c 规定的时间函数名称。\n具体为： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(p1x, p1y, p2x, p2y)",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        }
+                    ]
                 }
             ]
+        },
+        "Cookie": {
+            "name": "Cookie",
+            "shortname": "Cookie",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cookie",
+            "namespace": "",
+            "file": "src\\api\\cookie.js",
+            "line": 6,
+            "description": "操作cookie\n### Note\n推荐阅读 NCZ 的这篇文章： [HTTP cookies explained](http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/)",
+            "static": 1
         },
         "Features": {
             "name": "Features",
@@ -233,6 +330,299 @@
         }
     },
     "classitems": [
+        {
+            "file": "src\\api\\anim.js",
+            "line": 32,
+            "description": "判断当前动画对象是否在执行动画过程",
+            "itemtype": "method",
+            "name": "isRunning",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 37,
+            "description": "判断当前动画对象是否被暂停",
+            "itemtype": "method",
+            "name": "isPaused",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 43,
+            "description": "在动画实例上调用, 开始当前动画实例的动画",
+            "itemtype": "method",
+            "name": "run",
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 48,
+            "description": "在动画实例上调用, 结束当前动画实例的动画",
+            "itemtype": "method",
+            "name": "stop",
+            "params": [
+                {
+                    "name": "finish",
+                    "description": "默认为false. false 时, 动画会在当前帧直接停止（不触发 complete 回调）. 为 true 时, 动画停止时会立刻跳到最后一帧（触发 complete 回调）",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                }
+            ],
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 54,
+            "description": "在动画实例上调用, 暂停当前动画实例的动画",
+            "itemtype": "method",
+            "name": "pause",
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 59,
+            "description": "在动画实例上调用, 继续当前动画实例的动画",
+            "itemtype": "method",
+            "name": "resume",
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 64,
+            "description": "Anim 的静态方法, 用于判断 elem 上是否有动画对象在执行",
+            "itemtype": "method",
+            "name": "isRunning",
+            "static": 1,
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "作用动画的元素节点",
+                    "type": "HTMLElement|window"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 72,
+            "description": "Anim 的静态方法, 用于判断 elem 上是否有动画对象在暂停",
+            "itemtype": "method",
+            "name": "isPaused",
+            "static": 1,
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "作用动画的元素节点",
+                    "type": "HTMLElement|window"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 80,
+            "description": "Anim 的静态方法, 结束某元素上的动画（集合）",
+            "itemtype": "method",
+            "name": "stop",
+            "static": 1,
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "作用动画的元素节点",
+                    "type": "HTMLElement|window"
+                },
+                {
+                    "name": "end",
+                    "description": "此参数同实例方法 [stop](#method_stop) 中的 finish 参数",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "clearQueue=false",
+                    "description": "默认为 false, 是否清除动画队列中余下的动画",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "queueName",
+                    "description": "队列名字。设置 queueName 后, 表示结束元素上指定队列中的所有动画：\n- null 表示默认队列的动画\n- false 表示不排队的动画\n- string 类型表示指定名称的队列的动画\n- 不设置时, 表示结束所有队列中的所有动画",
+                    "type": "String"
+                }
+            ],
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 94,
+            "description": "Anim 的静态方法, 暂停某元素上的动画（集合）",
+            "itemtype": "method",
+            "name": "pause",
+            "static": 1,
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "作用动画的元素节点",
+                    "type": "HTMLElement|window"
+                },
+                {
+                    "name": "queueName",
+                    "description": "队列名字。设置 queueName 后, 表示暂停元素上指定队列中的所有动画：\n- null 表示默认队列的动画\n- false 表示不排队的动画\n- string 类型表示指定名称的队列的动画\n- 不设置时, 表示暂停所有队列中的所有动画",
+                    "type": "String"
+                }
+            ],
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 106,
+            "description": "Anim 的静态方法, 继续某元素上的动画（集合）",
+            "itemtype": "method",
+            "name": "resume",
+            "static": 1,
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "作用动画的元素节点",
+                    "type": "HTMLElement|window"
+                },
+                {
+                    "name": "queueName",
+                    "description": "队列名字。设置 queueName 后, 表示继续元素上指定队列中的所有动画：\n- null 表示默认队列的动画\n- false 表示不排队的动画\n- string 类型表示指定名称的队列的动画\n- 不设置时, 表示继续所有队列中的所有动画",
+                    "type": "String"
+                }
+            ],
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 118,
+            "description": "动画结束后, 触发该事件",
+            "itemtype": "event",
+            "name": "complete",
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\cookie.js",
+            "line": 14,
+            "description": "获取cookie值",
+            "itemtype": "method",
+            "name": "get",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "cookie的名称",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Cookie",
+            "module": "cookie"
+        },
+        {
+            "file": "src\\api\\cookie.js",
+            "line": 22,
+            "description": "置空cookie值，并立刻过期",
+            "itemtype": "method",
+            "name": "remove",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "cookie的名称",
+                    "type": "String"
+                },
+                {
+                    "name": "domain",
+                    "description": "域",
+                    "type": "String"
+                },
+                {
+                    "name": "path",
+                    "description": "路径",
+                    "type": "String"
+                },
+                {
+                    "name": "secure",
+                    "description": "安全标志",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "Cookie",
+            "module": "cookie"
+        },
+        {
+            "file": "src\\api\\cookie.js",
+            "line": 32,
+            "description": "设置cookie值",
+            "itemtype": "method",
+            "name": "set",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "cookie的名称",
+                    "type": "String"
+                },
+                {
+                    "name": "val",
+                    "description": "cookie的值",
+                    "type": "String"
+                },
+                {
+                    "name": "expires",
+                    "description": "失效时间. number 类型时单位为天，不设置表示生效时间为本次浏览器进程",
+                    "type": "Number|Date"
+                },
+                {
+                    "name": "domain",
+                    "description": "域",
+                    "type": "String"
+                },
+                {
+                    "name": "path",
+                    "description": "路径",
+                    "type": "String"
+                },
+                {
+                    "name": "secure",
+                    "description": "安全标志",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "Cookie",
+            "module": "cookie"
+        },
         {
             "file": "src\\api\\features.js",
             "line": 30,
@@ -2183,18 +2573,7 @@
             ],
             "class": "Util",
             "module": "util"
-        },
-        {
-            "file": "src\\api\\util.js",
-            "line": 794,
-            "class": "Util",
-            "module": "util"
         }
     ],
-    "warnings": [
-        {
-            "message": "Missing item type",
-            "line": " src\\api\\util.js:794"
-        }
-    ]
+    "warnings": []
 }
