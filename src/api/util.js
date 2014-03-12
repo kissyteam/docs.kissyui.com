@@ -790,6 +790,4 @@ S.unparam('foo=1&bar=2&bar=3'); // => { foo: 1, bar: [2, 3] }
 S.unparam('foo=1&bar%5B%5D=2&bar%5B%5D=3'); // => { foo: 1, bar: [2, 3] }
 *   ```
 */
-
-/**
-* 
+ 

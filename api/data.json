@@ -149,6 +149,25 @@
                     "name": "elem",
                     "description": "作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）",
                     "type": "String|HTMLElement|KISSY.Node|window|普通的Object"
+                },
+                {
+                    "name": "props",
+                    "description": "动画结束的 dom 样式值",
+                    "type": "Object"
+                },
+                {
+                    "name": "duration",
+                    "description": "默认为 1 , 动画持续时间, 以秒为单位",
+                    "type": "Number",
+                    "optional": true,
+                    "optdefault": "1"
+                },
+                {
+                    "name": "easing",
+                    "description": "默认为 ‘easeNone’ , 动画平滑函数, \n可取值 “swing”, “easeNone”, “linear”, “easeIn”, “easeOut”, “easeBoth”,”easeInStrong”, “easeOutStrong”,”easeBothStrong”,”elasticIn”,”elasticOut”, “elasticBoth”,”backIn”,”backOut”,”backBoth”, “bounceIn”,”bounceOut”,”bounceBoth”, “cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）”. \n效果预览, 可以参考[easing可视化](/1.5/examples/anim/easing.html)",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "\"easeNone\""
                 }
             ]
         },
