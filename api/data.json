@@ -1,0 +1,2181 @@
+{
+    "project": {
+        "name": "The KISSY API",
+        "description": "The KISSY API : KISSY is a powerfull javascript framework for building cross end web application such as desktop, mobile and pad.",
+        "version": "1.0.0",
+        "url": "docs.kissyui.com"
+    },
+    "files": {
+        "src\\api\\anim.js": {
+            "name": "src\\api\\anim.js",
+            "modules": {
+                "anim": 1
+            },
+            "classes": {
+                "Anim": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\features.js": {
+            "name": "src\\api\\features.js",
+            "modules": {
+                "features": 1
+            },
+            "classes": {
+                "Features": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\loader.js": {
+            "name": "src\\api\\loader.js",
+            "modules": {
+                "loader": 1
+            },
+            "classes": {
+                "Loader": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\ua.js": {
+            "name": "src\\api\\ua.js",
+            "modules": {
+                "UA": 1
+            },
+            "classes": {
+                "UA": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\util.js": {
+            "name": "src\\api\\util.js",
+            "modules": {
+                "Util": 1
+            },
+            "classes": {
+                "Util": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "anim": {
+            "name": "anim",
+            "submodules": {},
+            "classes": {
+                "Anim": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\anim.js",
+            "line": 6,
+            "description": "提供Class Anim,动画支持"
+        },
+        "features": {
+            "name": "features",
+            "submodules": {},
+            "classes": {
+                "Features": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\features.js",
+            "line": 6,
+            "description": "features模块提供了Features来进行硬件环境关键特性检测，直接通过KISSY全局对象调用"
+        },
+        "loader": {
+            "name": "loader",
+            "submodules": {},
+            "classes": {
+                "Loader": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\loader.js",
+            "line": 6,
+            "description": "loader模块,定义KISSY初始对象及模块化机制用到的方法，所有方法都通过KISSY直接引用"
+        },
+        "UA": {
+            "name": "UA",
+            "submodules": {},
+            "classes": {
+                "UA": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\ua.js",
+            "line": 6,
+            "description": "UA模块将UA挂在在全局对象KISSY上，通过 KISSY.UA 的属性，你可以获取浏览器等用户代理的信息。"
+        },
+        "Util": {
+            "name": "Util",
+            "submodules": {},
+            "classes": {
+                "Util": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\util.js",
+            "line": 6,
+            "description": "util模块，包含Class Util"
+        }
+    },
+    "classes": {
+        "Anim": {
+            "name": "Anim",
+            "shortname": "Anim",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "anim",
+            "namespace": "",
+            "file": "src\\api\\anim.js",
+            "line": 6,
+            "description": "动画支持",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）",
+                    "type": "String|HTMLElement|KISSY.Node|window|普通的Object"
+                }
+            ]
+        },
+        "Features": {
+            "name": "Features",
+            "shortname": "Features",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "features",
+            "namespace": "",
+            "file": "src\\api\\features.js",
+            "line": 6,
+            "description": "硬件环境关键特性检测，直接通过KISSY全局对象调用\n这类功能通常在判断硬件环境时使用，比如在KISSY的modules定义的代码：\n  ```\n  KISSY.config('modules',{\n       \"dom/basic\": {\n               \"alias\": [\n                       'dom/base',\n                       KISSY.Features.isIELessThan(9) ? 'dom/ie' : '',\n                       KISSY.Features.isClassListSupported() ? '' : 'dom/class-list'\n               ]\n       },\n       \"dom\": {\n               \"alias\": [\n                       'dom/basic',\n                       !KISSY.Features.isQuerySelectorSupported() ? 'dom/selector' : ''\n               ]\n       }\n\t});\n  ```",
+            "static": 1
+        },
+        "Loader": {
+            "name": "Loader",
+            "shortname": "Loader",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "loader",
+            "namespace": "",
+            "file": "src\\api\\loader.js",
+            "line": 6,
+            "description": "弥补 javascript 语言机制的不足, 提供类似其他语言原生的模块化机制.\nLoader中定义的所有方法都直接通过KISSY对象直接引用，如 `KISSY.add`",
+            "static": 1
+        },
+        "UA": {
+            "name": "UA",
+            "shortname": "UA",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UA",
+            "namespace": "",
+            "file": "src\\api\\ua.js",
+            "line": 6,
+            "description": "通过 KISSY.UA 的属性，你可以获取浏览器等用户代理的信息。属性值遵循以下规则：\n  \n   - 表示当前引擎或浏览器的版本。版本号 1.2.3.4 会转换为数值 1.234\n   - 如果不是当前引擎或浏览器，返回 0 或者 undefined\n   - 如果当前浏览器版本号无法准确判定，均返回 0.1",
+            "static": 1
+        },
+        "Util": {
+            "name": "Util",
+            "shortname": "Util",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Util",
+            "namespace": "",
+            "file": "src\\api\\util.js",
+            "line": 6,
+            "description": "是underscore风格的工具集，提供一些常用的工具函数",
+            "static": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "src\\api\\features.js",
+            "line": 30,
+            "description": "判断当前宿主环境是否支持手势事件\n\n  ```\n  KISSY.Features.isDeviceMotionSupported();\n  ```",
+            "itemtype": "method",
+            "name": "isDeviceMotionSupported",
+            "static": 1,
+            "return": {
+                "description": "当前宿主环境是否支持手势事件",
+                "type": "Boolean"
+            },
+            "class": "Features",
+            "module": "features"
+        },
+        {
+            "file": "src\\api\\features.js",
+            "line": 42,
+            "description": "判断当前宿主环境是否支持ie8的Pointer事件",
+            "itemtype": "method",
+            "name": "isMsPointerSupported",
+            "static": 1,
+            "return": {
+                "description": "当前宿主环境是否支持ie8的Pointer事件",
+                "type": "Boolean"
+            },
+            "class": "Features",
+            "module": "features"
+        },
+        {
+            "file": "src\\api\\features.js",
+            "line": 49,
+            "description": "判断当前宿主环境是否支持触屏事件",
+            "itemtype": "method",
+            "name": "isTouchEventSupported",
+            "static": 1,
+            "return": {
+                "description": "当前宿主环境是否支持触屏事件",
+                "type": "Boolean"
+            },
+            "class": "Features",
+            "module": "features"
+        },
+        {
+            "file": "src\\api\\features.js",
+            "line": 56,
+            "description": "判断当前环境是否支持hashChange事件",
+            "itemtype": "method",
+            "name": "isHashChangeSupported",
+            "static": 1,
+            "return": {
+                "description": "当前环境是否支持hashChange事件",
+                "type": "Boolean"
+            },
+            "class": "Features",
+            "module": "features"
+        },
+        {
+            "file": "src\\api\\features.js",
+            "line": 63,
+            "description": "判断当前环境是否支持Transition动画",
+            "itemtype": "method",
+            "name": "isTransitionSupported",
+            "static": 1,
+            "return": {
+                "description": "当前环境是否支持Transition动画",
+                "type": "Boolean"
+            },
+            "class": "Features",
+            "module": "features"
+        },
+        {
+            "file": "src\\api\\features.js",
+            "line": 70,
+            "description": "判断当前环境是否支持Transform动画",
+            "itemtype": "method",
+            "name": "isTransformSupported",
+            "static": 1,
+            "return": {
+                "description": "当前环境是否支持Transform动画",
+                "type": "Boolean"
+            },
+            "class": "Features",
+            "module": "features"
+        },
+        {
+            "file": "src\\api\\features.js",
+            "line": 77,
+            "description": "判断当前环境是否支持ClassList",
+            "itemtype": "method",
+            "name": "isClassListSupported",
+            "static": 1,
+            "return": {
+                "description": "当前环境是否支持ClassList",
+                "type": "Boolean"
+            },
+            "class": "Features",
+            "module": "features"
+        },
+        {
+            "file": "src\\api\\features.js",
+            "line": 84,
+            "description": "判断当前环境是否支持QuerySelector方法",
+            "itemtype": "method",
+            "name": "isQuerySelectorSupported",
+            "static": 1,
+            "return": {
+                "description": "当前环境是否支持QuerySelector方法",
+                "type": "Boolean"
+            },
+            "class": "Features",
+            "module": "features"
+        },
+        {
+            "file": "src\\api\\features.js",
+            "line": 91,
+            "description": "得到Transition属性的前缀",
+            "itemtype": "method",
+            "name": "getTransitionPrefix",
+            "static": 1,
+            "return": {
+                "description": "Transition属性的前缀",
+                "type": "Boolean"
+            },
+            "class": "Features",
+            "module": "features"
+        },
+        {
+            "file": "src\\api\\features.js",
+            "line": 98,
+            "description": "得到Transform属性的前缀",
+            "itemtype": "method",
+            "name": "getTransformPrefix",
+            "static": 1,
+            "return": {
+                "description": "Transform属性的前缀",
+                "type": "Boolean"
+            },
+            "class": "Features",
+            "module": "features"
+        },
+        {
+            "file": "src\\api\\loader.js",
+            "line": 13,
+            "description": "添加模块",
+            "itemtype": "method",
+            "name": "add",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "模块名\n### Note\n如果模块名name省略不写，部署阶段需要使用 [KISSY Module Compiler](https://github.com/daxingplay/grunt-kmc)",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "fn",
+                    "description": "模块定义函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "config",
+                    "description": "模块的一些格外属性",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "requires",
+                            "description": "模块的一些依赖项, 如果需要载入 css 则, 数组项为 .css 结尾名字",
+                            "type": "Array",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n\n- 添加模块\n```\nKISSY.add(\"yourmod\",function(S){},\n   {\n       requires:['depMod1','depMod2','./mod.css'] // 该模块的一些依赖项,\n                                                  // 注意 css 为和模块 js 同目录下的 mod.css\n   }\n);\n```\n\n- 添加匿名模块\n```\nKISSY.add(function(S){},\n   {\n       requires:['depMod1','depMod2','./mod.css'] // 该模块的一些依赖项,\n                                                  // 注意 css 为和模块 js 同目录下的 mod.css\n   }\n);\n```\n\n- 如果依赖的模块 depMod1 以及 depMod2 的定义函数有返回值, 例如\n```\n// depMod11.js\nKISSY.add(function(){\n   function Mod(){}\n   return Mod;\n});\n// depMod2.js\nKISSY.add(function(){\n   function Mod(){}\n   return Mod;\n});\n```\n那么该返回值会作为参数传入依赖 depMod1 以及 depMod2 的模块的定义函数, 例如\n```\nKISSY.add(function(S,DepMod1,DepMod2){\n   //use DepMod1 to refer depmod1's return value\n},{requires:[\"depmod1\",\"depmod2\"]});\n```\n\n- 当模块名称 name 为包内模块,则requires的模块名称可使用相对路径来引入包内其他模块\n```\n// tc/mods/mod1.js\n// 依赖于 tc/mods/mod2\nKISSY.add(function(){},{requires:['./mod2']});\n```\n\n- 也支持commonjs 的模块书写方式，如：\n```\n/ a/b.js\nKISSY.add(function(S,require,exports,module){\n   var c = require('a/c');\n   return c; // or module.exports=c;\n});\n```\n\n### Note\n* #### 压缩模块\n若线上环境使用 kissy-min.js , 则请使用 closure compiler 对所有模块文件进行压缩, 例如 mod.js 压缩为 mod-min.js , 放在模块文件的同级目录下.\n* #### 代码更新机制\n由于动态加载的 js 文件不是写在页面中, 所以不能从页面添加时间戳, 并且1.2 loader新增的约定加载也不能配置具体模块文件路径, 因此 1.2 loader 提供了在包级别添加时间戳的机制.如：\n```\nKISSY.config({\n   packages:{\n       //包名\n       \"1.2\":{\n           base: \"http://xx.com/\"\n       }\n   }\n});\n```\n当更改包内模块后, 只需修改tag属性.\n```\nKISSY.config({\n   packages:{\n   //包名\n       \"1.2\":{\n           tag:\"20110323\",\n           base:\"http://xx.com/\"\n       }\n   }\n});\n```\n那么下载动态加载的 js 文件路径后面会自动加上： ?t=20110323.\n> 也可以不修改时间戳 tag 而是直接修改 path , 这样的话每次更新都需要新建一个目录包括更新后的全部代码,不建议这样\n* #### 静态部署\n部署时也可以不采用动态加载, 仅仅将 kissy loader 作为代码组织的一种方式, 将所有的模块打包到一个文件静态引入放在页面中, 当使用 KISSY.use 时如果模块已经过静态引入在页面中, 则不会发送请求."
+            ],
+            "class": "Loader",
+            "module": "loader"
+        },
+        {
+            "file": "src\\api\\loader.js",
+            "line": 114,
+            "description": "设置或获取 KISSY 配置参数",
+            "itemtype": "method",
+            "name": "config",
+            "static": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "KISSY配置参数",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "debug",
+                            "description": "是否开启调试模式",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "group",
+                            "description": "所有包的默认组配置，group的介绍详见下面的Note:group介绍",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "base",
+                            "description": "KISSY 框架所在的基地址",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "comboMaxUrlLength",
+                            "description": "Combo url 的最长长度，默认 1024",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "1024"
+                        },
+                        {
+                            "name": "comboPrefix",
+                            "description": "Combo 前缀，默认 ”??”",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "\"??\""
+                        },
+                        {
+                            "name": "comboSep",
+                            "description": "Combo 分隔符，默认 ”,”",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "\",\""
+                        },
+                        {
+                            "name": "tag",
+                            "description": "KISSY 内置模块请求的时间戳",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "combine",
+                            "description": "是否开启自动 combo 模式，默认 false 不开启. 自动 combo 模式要求 use 前配置好依赖关系",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "packages",
+                            "description": "以包名为键，包配置对象为值的键值对对象\n### Note\n包配置对象包括：\n- group String类型 表示包所属的组名\n- debug Boolean类型 包内的脚本请求是是否加 -min 后缀，默认和 KISSY.config(“debug”) 相同\n- tag 类型字符串, 最好为时间戳, 用于刷新客户端本包的模块文件缓存\n- combine 类型Boolean, 如果总和 combine 设置为 true，但是单个包 combine 设置为 false，则该包内文件不进行自动 combo\n- ignorePackageNameInUri 类型Boolean, 默认 false. 是否在请求的模块路径中省去 package name. 例如 use('xx/a') 配置 xx package 的 base 为 `http://test.com/` 则设置 ignorePackageNameInUri 后请求地址为： `http://test.com/a.js`\n- 类型字符串, 表示包所在的 url 路径, 相对路径表示相对于当前页面路径.\n- path 作用同 base 配置\n- charset 类型字符串, 表示宝贝所有模块定义文件的编码格式, 默认 utf-8",
+                            "type": "Object",
+                            "optional": true
+                        },
+                        {
+                            "name": "modules",
+                            "description": "以单个模块为键，单个模块配置对象为值的键值对对象\n### Note\n单个模块配置对象包括：\n- requires 类型String,该模块的依赖模块名数组。当设置 combine 为 true 时需要配置，否则不建议配置.\n- tag 类型 String，单个模块的时间戳。仅在 combine 为 false 时生效。 combine:true 时取对应包的 tag.",
+                            "type": "Object",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n* #### 总配置范例概览\n```\nKISSY.config({\n   // 开启自动 combo 模式\n   combine:true,\n   // kissy 库内置模块的时间戳\n   tag:'2012',\n   // kissy 的基准路径\n   base:'http://x.com/a',\n   packages:{\n       x:{\n           // x 包的基准路径\n           base:'http://x.com/biz/',\n           // x 包的时间戳\n           tag:'x',\n           // 开启 x 包 debug 模式\n           debug:true\n       },\n       y:{\n          // y 包的基准路径\n          base:'http://x.com/biz/',\n          // y 包不开启自动 combo\n          combine:false\n          // 不配置 tag，则取 kissy 内置模块的时间戳\n       }\n   },\n   modules:{\n       \"x/b1\":{\n           // \"x/b1\" 模块的依赖信息\n           requires:[\"x/b2\",\"x/b3\"]\n       },\n       \"y/b2\":{\n           // y/b2 模块单独的时间戳\n           tag:'234'\n       }\n   }\n});\n```\n\n* #### packages 范例: 包配置\n```\nKISSY.config({\n   packages:{\n       // 包名\n       \"tc\": {\n           tag:\"20110323\", // 动态加载包内的模块js文件时,\n                           // 自动加上 ?t=20110323, 用于文件更新\n           base:\"../\", // 包对应路径, 相对路径指相对于当前页面路径\n           charset:\"gbk\" // 包里模块文件编码格式\n       }\n   }\n});\n```\n\n### Note : group组介绍概览\n- #### 简单使用(如果想将多个包combo到一起，需要通过配置参数group来实现。例如，对于以下包进行combo：)\n```\nKISSY.config({\n\tpackages:{\n\t\t\"pkg-a\": {\n\t\t    base: \"http://example.com/pkg-a\",\n\t\t    group: \"group1\",\n\t\t    combine: true,\n\t\t    tag: \"20120222\"\n\t\t},\n\t\t\"pkg-b\": {\n\t\t    base: \"http://example.com/pkg-b\",\n\t\t    group: \"group1\",\n\t\t    combine: true,\n\t\t    tag: \"20130303\"\n\t\t},\n\t\t\"pkg-c\": {\n\t\t    base: \"http://example.com/pkg-c\",\n\t\t    combine: true,\n\t\t    tag: \"20111111\"\n\t\t}\n\t}\n})\n```\n由于pkg-a和pkg-b的group设置为”group1”，则KISSY会对这两个包的模块进行combo。而pkg-c则单独combo。产生URL如下：\n```\nhttp://example.com/??pkg-a/mod1.js,pkg-a/mod2.js,pkg-b/mod1.js,...?t=-389697156.js\nhttp://example.com/pkg-c/??mod1.js,...?t=20111111.js\n```\n其中，时间戳?t=-389697156.js是根据pkg-a和pkg-b的时间戳tag来计算的。如果修改了其中一个包的时间戳，则combo后的时间戳也会变化。\n\n- #### 容错\n  极端情况下，即使要combo的包路径path没有统一的前缀，也没有关系，KISSY可以自动识别和容错，分别对两个包进行combo。例如：\n```\nKISSY.config({\n\tpackages:{\n\t\t\"pkg-a\": {\n\t\t    base: \"http://example.com/pkg-a\",\n\t\t    group: \"group2\",\n\t\t    combine: true,\n\t\t    tag: \"20120222\"\n\t\t},\n\t\t\"test\": {\n\t\t    base: \"http://g.tbcdn.cn\",\n\t\t    group: \"group2\",\n\t\t    combine: true,\n\t\t    tag: \"20130303\"\n\t\t}\n\t}\n})\n```\ncombo后的URL如下：\n```\nhttp://example.com/pkg-a/??mod1.js,mod2.js,...\nhttp://g.tbcdn.cn/test/??mod1.js,...\n```\n\n- #### 和 kissy 一起 combo\n如果你的应用代码和 kissy 部署在同一台机器上，那么应用代码还可以和 kissy 一起 combo\n> KISSY.config('group','tb');   //// 所有包都 combo 到 tb 组"
+            ],
+            "class": "Loader",
+            "module": "loader"
+        },
+        {
+            "file": "src\\api\\loader.js",
+            "line": 263,
+            "description": "设置或获取 KISSY 配置参数",
+            "itemtype": "method",
+            "name": "config",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "参数名称. 取值范围参见上面函数",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "参数值. 如果不设置则返回参数名称对应的参数值"
+                }
+            ],
+            "return": {
+                "description": "如果设置了参数值无返回。否则返回参数名称对应的参数值.",
+                "type": "Any"
+            },
+            "class": "Loader",
+            "module": "loader"
+        },
+        {
+            "file": "src\\api\\loader.js",
+            "line": 272,
+            "description": "动态加载目标地址的资源文件",
+            "itemtype": "method",
+            "name": "getScript",
+            "static": 1,
+            "params": [
+                {
+                    "name": "url",
+                    "description": "js/css 的资源地址",
+                    "type": "String"
+                },
+                {
+                    "name": "config",
+                    "description": "配置对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "charset",
+                            "description": "资源文件的字符编码",
+                            "type": "String"
+                        },
+                        {
+                            "name": "success",
+                            "description": "资源加载成功后回调函数",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "error",
+                            "description": "超时或发生错误时回调函数. 当资源文件为 css 文件时不支持",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "timeout",
+                            "description": "单位为秒, 默认无限大. 超时后触发 error 回调. 当资源文件为 css 文件是不支持",
+                            "type": "Number"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "创建的 link 节点或 script 节点",
+                "type": "HTMLElement"
+            },
+            "class": "Loader",
+            "module": "loader"
+        },
+        {
+            "file": "src\\api\\loader.js",
+            "line": 285,
+            "description": "使用模块,和KISSY.add一起使用, 形成KISSY的模块加载体系",
+            "itemtype": "method",
+            "name": "use",
+            "static": 1,
+            "params": [
+                {
+                    "name": "modName",
+                    "description": "以 , 分割的模块名称集合字符串,例如 KISSY.use(\"custommod,custommod2\");",
+                    "type": "String|Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "回调对象，包括成功与失败回调配置",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "success",
+                            "description": "当 modNames 中所有模块加载完毕后执行的函数",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "error",
+                            "description": "当前 use 失败时调用的函数，参数为失败的模块对象",
+                            "type": "Function"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use(\"depMod1,depMod2\",function(S,DepMod1,DepMod2){\n});\n\nKISSY.use(\"depMod1,depMod2\",{\n   success:function(S,DepMod1,DepMod2){\n   },\n   error:function(){\n       var errorMods = KISSY.makeArray(arguments);\n   }\n});\n```\n### Note\n如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 use 即可, 如果模块名以 / 结尾, 则自动加后缀 index , 例如 use(\"mods/m1/\") 相当于 use(\"mods/m1/index\") , 即自动加载 m1 目录下的 index.js"
+            ],
+            "class": "Loader",
+            "module": "loader"
+        },
+        {
+            "file": "src\\api\\loader.js",
+            "line": 310,
+            "description": "阻塞加载 css 模块或 js 模块依赖的 css 模块, 和 KISSY.add 中的 require 配置一起使用.",
+            "itemtype": "method",
+            "name": "importStyle",
+            "params": [
+                {
+                    "name": "modName",
+                    "description": "以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use(\"mod1,mod2/xx.css\");\n### Note\nImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。\n- 先决条件\n头部引入`<script src='http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js'></script>`\n- 使用指南\n\n```\n\tKISSY.config('modules', {\n\t  'components/nav/index': {requires: ['components/nav/index.css']},\n\t  'components/layout/index': {requires: ['components/layout/index.css']},\n\t  'components/home/index': {requires: ['components/nav/index','components/layout/index']}\n\t});\n\n\tKISSY.config({\n\t  'combine':true,\n\t  'packages':[{\n\t    'name':'components',\n\t    'base':'http://assets.etao.net/apps/e/hotel/130716',\n\t    'debug':'true'\n\t  }]\n\t});\n\n\t//下面是要我们手工维护的模块列表\n\tKISSY.importStyle('components/home/index');\n```",
+                    "type": "String|Array"
+                }
+            ],
+            "class": "Loader",
+            "module": "loader"
+        },
+        {
+            "file": "src\\api\\loader.js",
+            "line": 341,
+            "description": "添加模块",
+            "itemtype": "method",
+            "name": "require",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "模块名",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\nrequire 是一个语法糖，提供了快捷引用已经注册的模块。\n```\nKISSY.add(\"yourmod\",function(S){\n       var Mod1 = S.require('depMod1');\n       var Mod2 = S.require('depMod2');\n   },{\n       requires:['depMod1','depMod2']\n   }\n);\n```"
+            ],
+            "class": "Loader",
+            "module": "loader"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 17,
+            "description": "trident 的版本号。IE 浏览器 8 系列以下都无法准确探测 Trident 内核的版本号。",
+            "itemtype": "property",
+            "name": "trident",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 24,
+            "description": "webkit 的版本号",
+            "itemtype": "property",
+            "name": "webkit",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 31,
+            "description": "gecko 的版本号",
+            "itemtype": "property",
+            "name": "gecko",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 38,
+            "description": "presto 的版本号",
+            "itemtype": "property",
+            "name": "presto",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 45,
+            "description": "chrome 的版本号",
+            "itemtype": "property",
+            "name": "chrome",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 52,
+            "description": "safari 的版本号",
+            "itemtype": "property",
+            "name": "safari",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 59,
+            "description": "firefox 的版本号",
+            "itemtype": "property",
+            "name": "firefox",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 66,
+            "description": "ie 的版本号",
+            "itemtype": "property",
+            "name": "ie",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 73,
+            "description": "opera 的版本号",
+            "itemtype": "property",
+            "name": "opera",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 80,
+            "description": "mobile 的标志符。 若无法探测或非移动设备浏览器，将返回空字符串。",
+            "itemtype": "property",
+            "name": "mobile",
+            "type": "String",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 87,
+            "description": "core 的标志符。此标识符表示浏览器的内核标识。若浏览器内核不是 trident, webkit, gecko, presto 将返回空字符串。",
+            "itemtype": "property",
+            "name": "core",
+            "type": "String",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 94,
+            "description": "shell 的标志符。此标识符表示用户所用浏览器的外壳标识。\n此处的外壳表示广义的外壳，即 IE, Firefox, Chrome, Opera, Safari 等浏览器都属于外壳。可以利用此标识符直接识别浏览器类型。 可以首先使用 UA.shell 返回的标识符判断当前浏览器类型，若需浏览器具体版本信息，可以再通过 UA[UA.shell] 取出版本号。 * UA.core 返回字符串，目前支持 trident, webkit, gecko, presto 四大浏览器内核. * UA.shell 返回字符串，比如 firefox, opera, chrome, ie, safari * UA.mobile 返回字符串，目前支持 apple, nokia, android, opera mini/mobile 等设备/浏览器的探测.",
+            "itemtype": "property",
+            "name": "shell",
+            "type": "String",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 102,
+            "description": "操作系统标志符。例如 windows android ios linux",
+            "itemtype": "property",
+            "name": "os",
+            "type": "String",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 109,
+            "description": "ipad ios 版本号。例如 5.0",
+            "itemtype": "property",
+            "name": "ipad",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 116,
+            "description": "iphone ios 版本号。例如 5.0",
+            "itemtype": "property",
+            "name": "iphone",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 123,
+            "description": "ipod ios 版本号。例如 5.0",
+            "itemtype": "property",
+            "name": "ipod",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 130,
+            "description": "ios 版本号。例如 5.0",
+            "itemtype": "property",
+            "name": "ios",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\ua.js",
+            "line": 137,
+            "description": "android版本号。例如 5.0",
+            "itemtype": "property",
+            "name": "android",
+            "type": "Number",
+            "static": 1,
+            "class": "UA",
+            "module": "UA"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 12,
+            "description": "将source自身或其prototype属性的成员复制到targetClass.prototype上",
+            "itemtype": "method",
+            "name": "augment",
+            "static": 1,
+            "params": [
+                {
+                    "name": "targetClass",
+                    "description": "将要扩充的类",
+                    "type": "Function"
+                },
+                {
+                    "name": "source",
+                    "description": "扩充来源函数或对象. 非函数对象时复制的就是 source 自身",
+                    "type": "Function|Object"
+                },
+                {
+                    "name": "overite",
+                    "description": "是否覆盖 Class.prototype 同名属性",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
+                },
+                {
+                    "name": "whitelist",
+                    "description": "属性来源对象的属性白名单, 仅在名单中的属性进行复制",
+                    "type": "Array",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "扩充后的类",
+                "type": "Class"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 23,
+            "description": "在页面id元素生效时立刻执行回调函数fn，当需要比 KISSY.ready() 反应更快的探测到某个元素可用时使用",
+            "itemtype": "method",
+            "name": "available",
+            "static": 1,
+            "params": [
+                {
+                    "name": "id",
+                    "description": "页面元素id",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "回调函数，在id元素可用时立刻执行",
+                    "type": "Function"
+                }
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 31,
+            "description": "创建一个新函数，该函数可以在固定的上下文以及传递部分固定参数放在用户参数前面给原函数并执行",
+            "itemtype": "method",
+            "name": "bind",
+            "static": 1,
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "需要固定上下文以及固定部分参数的函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "context",
+                    "description": "执行fn时的this值. 如果新函数用于构造器则该参数无用",
+                    "type": "Object"
+                },
+                {
+                    "name": "args",
+                    "description": "需要给新函数固定的部分参数",
+                    "type": "Any",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "符合需求的新函数",
+                "type": "Function"
+            },
+            "example": [
+                " ### 改变运行上下文\nbind 最简单的用法是生成一个新的函数，无论它如何调用，都运行在一个固定的 this 值中.入门者常犯的错误时从一个对象获得一个方法引用， 然后在后面的调用中期望这个方法的this就是原来的对象(eg.g 把这个方法用在某个回调中). 如果没有特例，那么这个原始对象就丢失了. 但是如果从原方法中得到一个绑定原始对象的函数，这个问题就解决了！\n  ```\n  var x = 9;\n\tvar module = {\n\t\tx: 81,\n\t\tgetX: function() { return this.x; }\n\t};\n\n\tmodule.getX(); // 81\n\n\tvar getX = module.getX;\n\tgetX(); // 9, because in this case, \"this\" refers to the global object\n\n\t// create a new function with 'this' bound to module\n\tvar boundGetX = KISSY.bind(getX,module);\n\tboundGetX(); // 81\n  ```\n### Currying\nbind 的下一个简单用法是产生一个具备默认参数的函数. 这些参数跟在 context 后面，无论何时调用绑定函数， 当绑定函数调用目标函数时会把它们放在参数列表开头，然后才是传递给绑定函数的用户参数\n  ```\n  function list() {\n\t\treturn Array.prototype.slice.call(arguments);\n\t}\n\n\tvar list1 = list(1, 2, 3); // [1, 2, 3]\n\n\t//  Create a function with a preset leading argument\n\tvar leadingZeroList = KISSY.bind(list,undefined, 37);\n\n\tvar list2 = leadingZeroList(); // [37]\n\tvar list3 = leadingZeroList(1, 2, 3); // [37, 1, 2, 3]\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 74,
+            "description": "将fn缓存一段时间后再回调执行\n### Note:\n- 此方法为了避免在 ms 段时间内, 执行 fn 多次. 常用于 resize , scroll , mousemove 等连续性事件中;\n- 当 ms 设置为 -1, 表示立即执行 fn, 即和直接调用 fn 一样;",
+            "itemtype": "method",
+            "name": "buffer",
+            "static": 1,
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "要缓存的函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "ms=150",
+                    "description": "要缓存多长时间后执行，默认是150ms",
+                    "type": "Number"
+                },
+                {
+                    "name": "context",
+                    "description": "函数fn执行时的上下文环境，默认是this",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "返回缓存后的函数对象",
+                "type": "Function"
+            },
+            "example": [
+                "\n  ```\n  self.__onResize = S.buffer(doResize, 100, this);\n  $(window).on(\"resize\", self.__onResize);\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 92,
+            "description": "创建一个普通对象或数组的深拷贝, 并且返回",
+            "itemtype": "method",
+            "name": "clone",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "待拷贝的对象或数组",
+                    "type": "Object"
+                },
+                {
+                    "name": "filter",
+                    "description": "过滤函数，返回false则不拷贝该元素。传入参数为：\n- 待克隆值为数组, 参数同 KISSY.filter() , 上下文对象为全局 window\n- 待克隆值为普通对象, 参数为对象的每个键, 每个键对应的值, 当前对象, 上下文对象为当前对象",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "拷贝后的新对象",
+                "type": "Object"
+            },
+            "example": [
+                "\n  ```\n  var S = KISSY;\n  var a={x:{y:{z:1}}}\n  var b=S.clone(a); // => b={x:y:{z:1}} , b!==a\n  var c=S.clone(a,function(v,k){if(k==\"z\") return false;}) // => c={x:{y:{}}}\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 110,
+            "description": "遍历数组中的每一项, 执行指定方法.",
+            "itemtype": "method",
+            "name": "each",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "需要遍历的对象或数组",
+                    "type": "Object"
+                },
+                {
+                    "name": "fn",
+                    "description": "执行时，接受三个参数：\n- 当 o 为数组时, 参数为当前数组单项值, 当前 index, 数组 o\n- 当 o 为对象时, 参数为当前值 (value), 当前键 (key), 对象 o",
+                    "type": "Function"
+                },
+                {
+                    "name": "context",
+                    "description": "fn的上下文对象",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "window"
+                }
+            ],
+            "example": [
+                "\n  ```\nvar S = KISSY,\narr = [1, 2, 3, 4, 5],\nobj = {\n   'hi': 'kissy',\n   'bye': 'world'\n},\nsum = 0;\n\nS.each(arr, function(item) {\n   sum += item;\n});\nS.log(sum); // => 15\n\n\nS.each(obj, function(v,k) {\n   S.log([v,k]);\n});\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 141,
+            "description": "判断str是否已suffix结尾",
+            "itemtype": "method",
+            "name": "endsWith",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "查找的字符串",
+                    "type": "String"
+                },
+                {
+                    "name": "suffix",
+                    "description": "后缀字符创",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "str是否以suffix结尾",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 150,
+            "description": "抛出错误异常\n### Note\n- 只有在 debug 模式下并且载入 seed.js, 才会抛出异常. debug 模式的说明请参考 Config",
+            "itemtype": "method",
+            "name": "error",
+            "static": 1,
+            "params": [
+                {
+                    "name": "msg",
+                    "description": "异常信息",
+                    "type": "String"
+                }
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 159,
+            "description": "将字符串经过 html 转义得到适合在页面中显示的内容, 例如替换 < 为 &lt;\n### Note\n- 此函数只会对以下符号进行 escape：`& > < ` / \" '`",
+            "itemtype": "method",
+            "name": "escapeHTML",
+            "params": [
+                {
+                    "name": "str",
+                    "description": "要显示在页面中的真实内容",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "经过 html 转义后的字符串",
+                "type": "String"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 168,
+            "description": "让子类 SubClass 继承父类 ParentClass",
+            "itemtype": "method",
+            "name": "extend",
+            "static": 1,
+            "params": [
+                {
+                    "name": "subClass",
+                    "description": "将要继承的子类函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "parentClass",
+                    "description": "继承自的父类函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "prototypeMembers",
+                    "description": "需要添加/覆盖的原型成员",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "staticMembers",
+                    "description": "需要添加/覆盖的静态成员",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "subClass  需要的子类函数",
+                "type": "Function"
+            },
+            "example": [
+                "\n  ```\nvar S = KISSY;\n\nfunction Bird(name) { this.name = name; }\nBird.prototype.fly = function() { alert(this.name + ' is flying now!'); };\n\nfunction Chicken(name) {\n   Chicken.superclass.constructor.call(this, name);\n}\nS.extend(Chicken, Bird,{\n   fly:function(){\n       Chicken.superclass.fly.call(this)\n       alert(\"it's my turn\");\n   }\n});\n\nnew Chicken('kissy').fly();\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 198,
+            "description": "遍历数组, 过滤出符合条件的数组项",
+            "itemtype": "method",
+            "name": "filter",
+            "static": 1,
+            "params": [
+                {
+                    "name": "arr",
+                    "description": "需要遍历的数组",
+                    "type": "Array"
+                },
+                {
+                    "name": "fn",
+                    "description": "过滤函数. 执行时, 接收 3 个参数：当前项、当前 index, 数组.",
+                    "type": "Function"
+                },
+                {
+                    "name": "context",
+                    "description": "fn 执行的上下文对象",
+                    "optional": true,
+                    "optdefault": "window"
+                }
+            ],
+            "return": {
+                "description": "返回符合过滤函数的新数组",
+                "type": "Array"
+            },
+            "example": [
+                "\n  ```\nvar S = KISSY,\narr = [1, 2, 3, 4, 5];\n\nvar ret = S.filter(arr, function(item) {\n   return item % 2 === 0;\n});\nS.log(ret); // => [2, 4]\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 218,
+            "description": "将 str 中 unicode 转义的字符替换成真实字符. 主要用于 taobao 用户名 cookie 读取.",
+            "itemtype": "method",
+            "name": "fromUnicode",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "包含 unicode 转义的字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "unicode 转义后的字符串",
+                "type": "String"
+            },
+            "example": [
+                "\n`KISSY.fromUnicode(\"\\\\u627F\\\\u7389\") // => \"承玉\"`"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 228,
+            "description": "将 str 作为输出的 log 的前缀",
+            "itemtype": "method",
+            "name": "getLogger",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "log 的前缀",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "logger对象",
+                "type": "Object"
+            },
+            "example": [
+                "\n  ```\nvar logger = KISSY.getLogger('KISSY');\nlogger.debug(\"test\"); // => \"KISSY: test\";\n  ```\n### Note\n可以在配置中设置logger的级别，以及是否显示。 当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先\n```\nS.config('logger', {\n   includes: [\n       {\n           logger: /^xx\\//\n       }\n   ],\n   excludes: [\n       {\n           logger: /^xx\\//， //以xx/开头的不显示\n           maxLevel: 'info' //不显示 info 及 info 以下的 log\n       }\n   ]\n});\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 258,
+            "description": "在全局作用域下执行代码字符串, 避免 eval 的作用域链",
+            "itemtype": "method",
+            "name": "globalEval",
+            "static": 1,
+            "params": [
+                {
+                    "name": "code",
+                    "description": "代码字符串",
+                    "type": "String"
+                }
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 265,
+            "description": "返回全局唯一 id",
+            "itemtype": "method",
+            "name": "guid",
+            "static": 1,
+            "params": [
+                {
+                    "name": "prefix",
+                    "description": "唯一 id 前缀",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "全局唯一 id",
+                "type": "String"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 273,
+            "description": "判断元素 elem 是否在数组 arr 中",
+            "itemtype": "method",
+            "name": "inArray",
+            "static": 1,
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "任意对象",
+                    "type": "Any"
+                },
+                {
+                    "name": "arr",
+                    "description": "数组",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "元素 elem 是否在数组 arr 中",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 282,
+            "description": "返回元素 elem 在数组 arr 中的序号",
+            "itemtype": "method",
+            "name": "indexOf",
+            "static": 1,
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "任意对象",
+                    "type": "Any"
+                },
+                {
+                    "name": "arr",
+                    "description": "数组",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "元素 elem 在数组 arr 中的序号",
+                "type": "Number"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 291,
+            "description": "判断是否数组",
+            "itemtype": "method",
+            "name": "isArray",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "是否是数组",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 299,
+            "description": "判断是否布尔值",
+            "itemtype": "method",
+            "name": "isBoolean",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "是否是布尔值",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 307,
+            "description": "判断是否日期",
+            "itemtype": "method",
+            "name": "isDate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "是否是日期",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 315,
+            "description": "判断是否空对象(没有任何可遍历的属性)",
+            "itemtype": "method",
+            "name": "isEmptyObject",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 323,
+            "description": "判断是否函数",
+            "itemtype": "method",
+            "name": "isFunction",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 331,
+            "description": "判断是否 null",
+            "itemtype": "method",
+            "name": "isNull",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 339,
+            "description": "判断是否有效数值",
+            "itemtype": "method",
+            "name": "isNumber",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 347,
+            "description": "判断是否为对象",
+            "itemtype": "method",
+            "name": "isObject",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 355,
+            "description": "判断是否是普通对象, 通过 {} 或 new FunctionClass/Object() 创建的, 不包括内置对象以及宿主对象.",
+            "itemtype": "method",
+            "name": "isPlainObject",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 363,
+            "description": "判断是否正则表达式",
+            "itemtype": "method",
+            "name": "isRegExp",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 371,
+            "description": "判断是否字符串",
+            "itemtype": "method",
+            "name": "isString",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 379,
+            "description": "判断是否 undefined",
+            "itemtype": "method",
+            "name": "isUndefined",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 387,
+            "description": "判断参数是否为浏览器 window",
+            "itemtype": "method",
+            "name": "isWindow",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "判断参数",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 395,
+            "description": "将对象的所有属性名作为数组返回",
+            "itemtype": "method",
+            "name": "keys",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "需要遍历的对象",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "返回的数组",
+                "type": "Array"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 403,
+            "description": "返回元素 elem 在数组 arr 中最后出现的序号",
+            "itemtype": "method",
+            "name": "lastIndexOf",
+            "static": 1,
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "任意对象",
+                    "type": "Any"
+                },
+                {
+                    "name": "arr",
+                    "description": "数组",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 412,
+            "description": "延迟执行指定函数 fn",
+            "itemtype": "method",
+            "name": "later",
+            "static": 1,
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "延迟执行的函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "when",
+                    "description": "延迟时间，单位是ms",
+                    "type": "Number"
+                },
+                {
+                    "name": "periodic",
+                    "description": "是否周期执行",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                },
+                {
+                    "name": "o",
+                    "description": "fn的上下文对象",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "data",
+                    "description": "传递的参数. 可以为单个对象, 最后会转换成数组, 依次传递给执行函数.",
+                    "type": "Object|Array",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "timer 对象.包含属性：\n- `interval` 是否周期执行\n- `cancel` 取消定时器",
+                "type": "Object"
+            },
+            "example": [
+                "\n  ```\nvar S = KISSY;\n\nS.later(function(data) {\n   S.log(data);\n}, 0, false, null, 'I am later data.');\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 434,
+            "description": "输出调试信息",
+            "itemtype": "method",
+            "name": "log",
+            "static": 1,
+            "params": [
+                {
+                    "name": "msg",
+                    "description": "调试信息",
+                    "type": "String"
+                },
+                {
+                    "name": "cat=\"log\"",
+                    "description": "调试信息类别. 可以取 info, warn, error, dir, time 等 console 对象的方法名, 默认为 log.",
+                    "type": "String"
+                },
+                {
+                    "name": "src",
+                    "description": "调试代码所在的源信息\n### Note\n只有在 debug 模式下并且载入 seed.js, 才会输出调试信息. debug 模式的说明请参考 Config",
+                    "type": "String"
+                }
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 445,
+            "description": "将对象 o 转换为数组.",
+            "itemtype": "method",
+            "name": "makeArray",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "arguments, NodeList 等 array-like 对象或单个对象",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "o  转换后的数组",
+                "type": "Array"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 453,
+            "description": "创建一个新数组, 数组结果是在对每个原数组元素调用指定函数的返回值.",
+            "itemtype": "method",
+            "name": "map",
+            "static": 1,
+            "params": [
+                {
+                    "name": "arr",
+                    "description": "需要遍历的数组",
+                    "type": "Array"
+                },
+                {
+                    "name": "fn",
+                    "description": "能够根据原数组当前元素返回新数组元素的函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "context",
+                    "description": "执行 fn 时的 this 值",
+                    "optional": true,
+                    "optdefault": "window"
+                }
+            ],
+            "return": {
+                "description": "返回符合根据指定函数调用得到新数组",
+                "type": "Array"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 463,
+            "description": "将多个对象的成员合并到一个新对象上. 参数中, 后面的对象成员会覆盖前面的.",
+            "itemtype": "method",
+            "name": "merge",
+            "static": 1,
+            "params": [
+                {
+                    "name": "s1",
+                    "description": "属性源",
+                    "type": "Object"
+                },
+                {
+                    "name": "...",
+                    "description": "属性源",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "合并属性后的新对象",
+                "type": "Object"
+            },
+            "example": [
+                "\n  ```\nvar S = KISSY,\na = { a: 'a' },\nb = { b: 'b' },\nc = { b: 'b2', c: 'c' };\n\nvar o = S.merge(a, b, c);\nS.log(o.a); // => 'a'\nS.log(o.b); // => 'b2'\nS.log(o.c); // => 'c'\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 484,
+            "description": "将 supplier 对象的成员复制到 receiver 对象上.",
+            "itemtype": "method",
+            "name": "mix",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "属性接受者对象",
+                    "type": "Object"
+                },
+                {
+                    "name": "supplier",
+                    "description": "属性来源对象",
+                    "type": "Object"
+                },
+                {
+                    "name": "overwrite",
+                    "description": "是否覆盖接受者同名属性",
+                    "optional": true,
+                    "optdefault": "true"
+                },
+                {
+                    "name": "whitelist",
+                    "description": "属性来源对象的属性白名单, 仅在名单中的属性进行复制",
+                    "type": "Array<String>"
+                },
+                {
+                    "name": "deep",
+                    "description": "是否进行深度 mix (deep copy)",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "receiver 属性接受者对象\n### Note\nreceiver 会被改变，如果想要保留原始的 receiver ，可以使用 KISSY.merge()\n`var object=S.merge(object1,object2);`\n\nS.mix 默认不是递归进行的. 如果其中一个属性为对象或者数组，那么他将会被接下来对象的同名属性对应的值所代替，即值不会被合并。 如果设置了参数 deep = true ，那么会对数组和简单对象( `KISSY.isPlainObject()` )递归合并\nsupplier undefined 的属性值不会被复制，不过对象从原型继承下来下的值则会被复制\n该方法仅适用于 javascript 对象，不要再浏览器对象上调用，例如 node.style\n\nmix 支持函数作为白名单参数\n  ```\nvar a = {},\nb = {\n   b1: 1,\n   b2: {\n       b2: 22\n   }\n};\n\nS.mix(a, b, {\n   deep: true,\n   whitelist: function (name, v) {\n       if (name == 'b1') {\n           return v;\n       }\n       if (this.b1 && name == 'b2') {\n           return v;\n       }\n       return undefined;\n   }\n});\n  ```",
+                "type": "Object"
+            },
+            "example": [
+                "\n简单 mix:\n\n  ```\nvar S = KISSY,\nr = { a: 'a', b: 'b' };\n\nS.mix(r, { c: 'c' });\nS.log(r.c); // => 'c'\n\nS.mix(r, { a: 'a2' }, false);\nS.log(r.a); // => 'a'\n\nS.mix(r, { e: 'e', f: 'f' }, true, ['f']);\nS.log(r.e); // => undefined\nS.log(r.f); // => 'f'\n  ```\n\n深度 mix:\n  ```\nvar object1 = {\n apple: 0,\n banana: {weight: 52, price: 100},\n cherry: 97\n};\nvar object2 = {\n banana: {price: 200},\n durian: 100\n};\n\n//merge object2 into object1, recursively \nS.mix(object1,object2,undefined,undefined,true);\n\nS.log(object1); // => { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }\n  ```\n该方法在 KISSY 里具有非常重要的地位. JavaScript 是一门动态语言, 利用 mixin 特性, 可以很方便的实现特性的静态复制和动态修改."
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 563,
+            "description": "根据参数创建命名空间对象",
+            "itemtype": "method",
+            "name": "namespace",
+            "static": 1,
+            "params": [
+                {
+                    "name": "n1",
+                    "description": "命名空间字符串, 如 \"fp.search\" 或 \"KISSY.fp.ad\"",
+                    "type": "String"
+                },
+                {
+                    "name": "global",
+                    "description": "是否第一个点之前的字符串作为全局变量, 默认 false 添加到 KISSY",
+                    "optional": true,
+                    "optdefault": "false"
+                }
+            ],
+            "return": {
+                "description": "最后创建的命名空间对象",
+                "type": "Object"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 572,
+            "description": "返回 new Date().getTime()",
+            "itemtype": "method",
+            "name": "date",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 579,
+            "description": "将对象 o 转换为参数字符串, 用于发送 http 请求",
+            "itemtype": "method",
+            "name": "param",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "参数键值对对象",
+                    "type": "Object"
+                },
+                {
+                    "name": "seq",
+                    "description": "参数间分隔符, 默认 &",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "\"&\""
+                },
+                {
+                    "name": "eq",
+                    "description": "参数与参数值间的分隔符, 默认 =",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "\""
+                },
+                {
+                    "name": "arr",
+                    "description": "参数值为数组时, 参数键是否加 [] 即 %5B%5D , 默认 true\nreturn {String} 可用于发送请求的参数字符串",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
+                }
+            ],
+            "example": [
+                "\n```\nvar S = KISSY;\n\nS.param({ foo: 1, bar: 2 }); // => foo=1&bar=2\nS.param({ foo: 1, bar: [2, 3] }); // => foo=1&bar%5B%5D=2&bar%5B%5D=3\nS.param({ foo: 1, bar: [2, 3] },'&','=',false); // => foo=1&bar=2&bar=3\nS.param({ foo: '', bar: 2 }); // => foo=&bar=2\nS.param({ foo: undefined, bar: 2 }); // => foo&bar=2\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 600,
+            "description": "将字符串转化为 xml 文档",
+            "itemtype": "method",
+            "name": "parseXML",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "有效的 xml 文档字符串\nreturn {XML} xml 文档",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n  ```\nvar xml = \"<rss version='2.0'><channel><title>RSS Title</title></channel></rss>\";\nvar xmlDoc=KISSY.all(KISSY.parseXML(xml));\nalert(xmlDoc.one(\"title\").text()); // => RSS Title\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 614,
+            "description": "在 DOM 加载完毕时执行回调函数fn",
+            "itemtype": "method",
+            "name": "ready",
+            "static": 1,
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "回调函数",
+                    "type": "Function"
+                }
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 621,
+            "description": "从左向右对每个数组元素调用给定函数，并把返回值累积起来",
+            "itemtype": "method",
+            "name": "reduce",
+            "static": 1,
+            "params": [
+                {
+                    "name": "arr",
+                    "description": "需要遍历的数组",
+                    "type": "Array"
+                },
+                {
+                    "name": "fn",
+                    "description": "在每个数组元素上执行的函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "initialValue",
+                    "description": "初次执行 fn 时的第一个参数值，如果不指定则为第一个元素值，后续从第二个元素开始遍历",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "累计值\n### Note\nreduce 对数组中的每个元素执行 fn 函数，该 fn 接受四个参数：initialValue (或者上次调用 fn 的返回值)， 数组的当前元素，数组的当前位置以及用于遍历的数组.\n调用 reduce 类似于：`KISSY.reduce([],function(previousValue, currentValue, index, array));`\n当第一次调用 fn 时 :\n - 如果调用 reduce 时没有设定 initialValue，previousValue 和 currentValue 是数组的前两个值.\n - 如果调用 reduce 时设定了 initialValue，那么 previousValue 和 initialValue 相等 ，而 currentValue 则和数组的第一个元素相等."
+            },
+            "example": [
+                "\n  ```\nKISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){\n return previousValue + currentValue;\n});\n\n// First call\npreviousValue = 0, currentValue = 1, index = 1\n\n// Second call\npreviousValue = 1, currentValue = 2, index = 2\n\n// Third call\npreviousValue = 3, currentValue = 3, index = 3\n\n// Fourth call\npreviousValue = 6, currentValue = 4, index = 4\n\n// array is always the object [0,1,2,3,4] upon which reduce was called\n\n// Return Value: 10\n  ```\n\n  ```\nKISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){\n return previousValue + currentValue;\n}, 10);\n\n// First call\npreviousValue = 10, currentValue = 0, index = 0\n\n// Second call\npreviousValue = 10, currentValue = 1, index = 1\n\n// Third call\npreviousValue = 11, currentValue = 2, index = 2\n\n// Fourth call\npreviousValue = 13, currentValue = 3, index = 3\n\n// Fifth call\npreviousValue = 16, currentValue = 4, index = 4\n\n// array is always the object [0,1,2,3,4] upon which reduce was called\n\n// Return Value: 20\n  ```\n\n### 得到数组的值总和\n`var total = KISSY.reduce([0, 1, 2, 3],function(a, b){ return a + b; }); // total == 6`\n\n### 嵌套数组平坦化\n  ```\nvar flattened = KISSY.reduce([[0,1], [2,3], [4,5]],function(a,b) {\n return a.concat(b);\n});\n// flattened is [0, 1, 2, 3, 4, 5]\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 695,
+            "description": "判断 str 是否以 prefix 开头",
+            "itemtype": "method",
+            "name": "startsWith",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "查找字符串",
+                    "type": "String"
+                },
+                {
+                    "name": "prefix",
+                    "description": "前缀字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "str 是否以 prefix 开头",
+                "type": "Boolean"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 704,
+            "description": "将字符串中的占位符替换为对应的键值",
+            "itemtype": "method",
+            "name": "substitute",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "包含数据占位符的模板字符串, 占位符用 {} 包起来",
+                    "type": "String"
+                },
+                {
+                    "name": "o",
+                    "description": "数据",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "将模板和数据结合起来的最终字符串",
+                "type": "String"
+            },
+            "example": [
+                "\n  ```\nvar S = KISSY,\nstr = '{name} is {prop_1} and {prop_2}.',\nobj = {name: 'Jack Bauer', prop_1: 'our lord', prop_2: 'savior'};\n\nS.substitute(str, obj); // => 'Jack Bauer is our lord and savior.'\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 721,
+            "description": "ms 时间内只执行 fn 一次, 即使这段时间内 fn 被调用多次.",
+            "itemtype": "method",
+            "name": "throttle",
+            "static": 1,
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "要缓存的函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "ms",
+                    "description": "要缓存多长时间后执行, 默认是 150 ms;",
+                    "type": "Number"
+                },
+                {
+                    "name": "context",
+                    "description": "函数 fn 要执行时的上下文环境, 默认是 this",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "返回缓存后的函数对象\n### Note\n- 当 ms 设置为 -1, 表示立即执行 fn, 即和直接调用 fn 一样;\n- throttle 和 buffer 的区别在于, 前者表示间隔内的函数触发被忽略, 后者表示间隔内的触发被放到下个间隔触发",
+                "type": "Function"
+            },
+            "example": [
+                "\n  ```\nfunction sayHi() {\n   alert('hi');\n}\n\nsay = S.throttle(sayHi, 300, this);\nsay();              // 忽略\nS.later(say, 200);  // 忽略\nS.later(say, 350);  // 超过300ms后, 终于执行\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 745,
+            "description": "去除字符串两端的空白字符",
+            "itemtype": "method",
+            "name": "$.trim",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "原始字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "去除空白后新的字符串",
+                "type": "String"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 753,
+            "description": "将字符串中的 html 实体字符替换成对应字符",
+            "itemtype": "method",
+            "name": "unEscapeHTML",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "包含 html 实体字符的字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "替换实体字符后的字符串",
+                "type": "String"
+            },
+            "example": [
+                "\n`KISSY.unEscapeHTML(\"&lt;a&gt;x&lt;/a&gt;\"); // =>  \"<a>x</a>\"`\n### Note\n该函数只会 unescape 以下字符序列（正则式\n`&amp; &lt; &gt; &#x60; &#x2F; &quot; &#x27; &#\\d{1,5}`"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 766,
+            "description": "返回一个新数组, 仅包含 arr 去重后的值",
+            "itemtype": "method",
+            "name": "unique",
+            "static": 1,
+            "params": [
+                {
+                    "name": "arr",
+                    "description": "包含重复元素的数组",
+                    "type": "Array"
+                },
+                {
+                    "name": "keepLast",
+                    "description": "遇到重复值是保留第一次出现还是保留最后一次出现的元素",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "包含 arr 去重后的数组",
+                "type": "Array"
+            },
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 775,
+            "description": "将参数字符串 str 还原为对象",
+            "itemtype": "method",
+            "name": "unparam",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "参数字符串",
+                    "type": "String"
+                },
+                {
+                    "name": "seq",
+                    "description": "参数间分隔符, 默认 &",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "\"&\""
+                },
+                {
+                    "name": "eq",
+                    "description": "参数与参数值间的分割符, 默认 =",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "\""
+                }
+            ],
+            "return": {
+                "description": "参数的对象表示",
+                "type": "Object"
+            },
+            "example": [
+                "\n  ```\nvar S = KISSY;\n\nS.unparam('foo=1&bar=2'); // => { foo: 1, bar: 2 }\nS.unparam('foo=%81%47'); // gbk 编码 => { foo: \"%81%47\" } 而不是 {foo: \"丢\"}\nS.unparam('foo=1&bar=2&bar=3'); // => { foo: 1, bar: [2, 3] }\nS.unparam('foo=1&bar%5B%5D=2&bar%5B%5D=3'); // => { foo: 1, bar: [2, 3] }\n  ```"
+            ],
+            "class": "Util",
+            "module": "Util"
+        },
+        {
+            "file": "src\\api\\util.js",
+            "line": 794,
+            "class": "Util",
+            "module": "Util"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type",
+            "line": " src\\api\\util.js:794"
+        }
+    ]
+}
