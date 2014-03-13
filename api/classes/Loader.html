@@ -41,6 +41,8 @@
             
                 <li><a href="../classes/Cookie.html">Cookie</a></li>
             
+                <li><a href="../classes/DOM.html">DOM</a></li>
+            
                 <li><a href="../classes/Features.html">Features</a></li>
             
                 <li><a href="../classes/Loader.html">Loader</a></li>
@@ -56,6 +58,8 @@
                 <li><a href="../modules/anim.html">anim</a></li>
             
                 <li><a href="../modules/cookie.html">cookie</a></li>
+            
+                <li><a href="../modules/dom.html">dom</a></li>
             
                 <li><a href="../modules/features.html">features</a></li>
             
@@ -317,8 +321,8 @@ Loader中定义的所有方法都直接通过KISSY对象直接引用，如 <code
                     
 
                     <div class="param-description">
-                        <p>模块名</p>
-<h3 id="note">Note</h3>
+                        <p>模块名
+<strong>Note</strong></p>
 <p>如果模块名name省略不写，部署阶段需要使用 <a href="https://github.com/daxingplay/grunt-kmc">KISSY Module Compiler</a></p>
 
                     </div>
@@ -435,11 +439,11 @@ KISSY.add(function(S,require,exports,module){
 });</code></pre>
 </li>
 </ul>
-<h3 id="note">Note</h3>
+<p><strong>Note</strong></p>
 <ul>
-<li><h4 id="-">压缩模块</h4>
+<li>压缩模块
 若线上环境使用 kissy-min.js , 则请使用 closure compiler 对所有模块文件进行压缩, 例如 mod.js 压缩为 mod-min.js , 放在模块文件的同级目录下.</li>
-<li><h4 id="-">代码更新机制</h4>
+<li>代码更新机制
 由于动态加载的 js 文件不是写在页面中, 所以不能从页面添加时间戳, 并且1.2 loader新增的约定加载也不能配置具体模块文件路径, 因此 1.2 loader 提供了在包级别添加时间戳的机制.如：<pre class="code prettyprint"><code>KISSY.config({
  packages:{
      //包名
@@ -515,7 +519,7 @@ KISSY.add(function(S,require,exports,module){
             
         
         
-        <a href="../files/src_api_loader.js.html#l114"><code>src\api\loader.js:114</code></a>
+        <a href="../files/src_api_loader.js.html#l116"><code>src\api\loader.js:116</code></a>
         
         </p>
 
@@ -680,8 +684,8 @@ KISSY.add(function(S,require,exports,module){
                                 
 
                                 <div class="param-description">
-                                    <p>以包名为键，包配置对象为值的键值对对象</p>
-<h3 id="note">Note</h3>
+                                    <p>以包名为键，包配置对象为值的键值对对象
+<strong>Note</strong></p>
 <p>包配置对象包括：</p>
 <ul>
 <li>group String类型 表示包所属的组名</li>
@@ -707,8 +711,8 @@ KISSY.add(function(S,require,exports,module){
                                 
 
                                 <div class="param-description">
-                                    <p>以单个模块为键，单个模块配置对象为值的键值对对象</p>
-<h3 id="note">Note</h3>
+                                    <p>以单个模块为键，单个模块配置对象为值的键值对对象
+<strong>Note</strong></p>
 <p>单个模块配置对象包括：</p>
 <ul>
 <li>requires 类型String,该模块的依赖模块名数组。当设置 combine 为 true 时需要配置，否则不建议配置.</li>
@@ -787,7 +791,7 @@ KISSY.add(function(S,require,exports,module){
 });</code></pre>
 </li>
 </ul>
-<h3 id="note-group-">Note : group组介绍概览</h3>
+<p><strong>Note : group组介绍概览</strong></p>
 <ul>
 <li><h4 id="-combo-group-combo-">简单使用(如果想将多个包combo到一起，需要通过配置参数group来实现。例如，对于以下包进行combo：)</h4>
 <pre class="code prettyprint"><code>KISSY.config({
@@ -906,7 +910,7 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
             
         
         
-        <a href="../files/src_api_loader.js.html#l263"><code>src\api\loader.js:263</code></a>
+        <a href="../files/src_api_loader.js.html#l268"><code>src\api\loader.js:268</code></a>
         
         </p>
 
@@ -1037,7 +1041,7 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
             
         
         
-        <a href="../files/src_api_loader.js.html#l272"><code>src\api\loader.js:272</code></a>
+        <a href="../files/src_api_loader.js.html#l277"><code>src\api\loader.js:277</code></a>
         
         </p>
 
@@ -1216,7 +1220,7 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
             
         
         
-        <a href="../files/src_api_loader.js.html#l310"><code>src\api\loader.js:310</code></a>
+        <a href="../files/src_api_loader.js.html#l316"><code>src\api\loader.js:316</code></a>
         
         </p>
 
@@ -1246,8 +1250,8 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
                     
 
                     <div class="param-description">
-                        <p>以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use(&quot;mod1,mod2/xx.css&quot;);</p>
-<h3 id="note">Note</h3>
+                        <p>以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use(&quot;mod1,mod2/xx.css&quot;);
+<strong>Note</strong></p>
 <p>ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。</p>
 <ul>
 <li>先决条件
@@ -1331,7 +1335,7 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
             
         
         
-        <a href="../files/src_api_loader.js.html#l341"><code>src\api\loader.js:341</code></a>
+        <a href="../files/src_api_loader.js.html#l348"><code>src\api\loader.js:348</code></a>
         
         </p>
 
@@ -1444,7 +1448,7 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
             
         
         
-        <a href="../files/src_api_loader.js.html#l285"><code>src\api\loader.js:285</code></a>
+        <a href="../files/src_api_loader.js.html#l290"><code>src\api\loader.js:290</code></a>
         
         </p>
 
@@ -1550,7 +1554,7 @@ KISSY.use(&quot;depMod1,depMod2&quot;,{
        var errorMods = KISSY.makeArray(arguments);
    }
 });</code></pre>
-<h3 id="note">Note</h3>
+<p><strong>Note</strong></p>
 <p>如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 use 即可, 如果模块名以 / 结尾, 则自动加后缀 index , 例如 use(&quot;mods/m1/&quot;) 相当于 use(&quot;mods/m1/index&quot;) , 即自动加载 m1 目录下的 index.js</p>
 
             </div>

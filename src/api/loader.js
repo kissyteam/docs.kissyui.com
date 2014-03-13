@@ -15,7 +15,8 @@
 * @method add
 * @static
 * @param [name] {String} 模块名
-* ### Note
+* __Note__
+*
 * 如果模块名name省略不写，部署阶段需要使用 [KISSY Module Compiler](https://github.com/daxingplay/grunt-kmc)
 * @param fn {Function} 模块定义函数
 * @param [config] {Object} 模块的一些格外属性
@@ -78,10 +79,11 @@ KISSY.add(function(S,require,exports,module){
 });
 * ```
 
-* ### Note
-* * #### 压缩模块
+* __Note__
+*
+* * 压缩模块
 * 若线上环境使用 kissy-min.js , 则请使用 closure compiler 对所有模块文件进行压缩, 例如 mod.js 压缩为 mod-min.js , 放在模块文件的同级目录下.
-* * #### 代码更新机制
+* * 代码更新机制
 * 由于动态加载的 js 文件不是写在页面中, 所以不能从页面添加时间戳, 并且1.2 loader新增的约定加载也不能配置具体模块文件路径, 因此 1.2 loader 提供了在包级别添加时间戳的机制.如：
 * ```
 KISSY.config({
@@ -125,7 +127,8 @@ KISSY.config({
 * @param [config.tag] {String}  KISSY 内置模块请求的时间戳
 * @param [config.combine=false] {Boolean} 是否开启自动 combo 模式，默认 false 不开启. 自动 combo 模式要求 use 前配置好依赖关系
 * @param [config.packages] {Object} 以包名为键，包配置对象为值的键值对对象
-* ### Note
+* __Note__
+*
 * 包配置对象包括：
 * - group String类型 表示包所属的组名
 * - debug Boolean类型 包内的脚本请求是是否加 -min 后缀，默认和 KISSY.config(“debug”) 相同
@@ -137,7 +140,8 @@ KISSY.config({
 * - charset 类型字符串, 表示宝贝所有模块定义文件的编码格式, 默认 utf-8
 
 * @param [config.modules] {Object} 以单个模块为键，单个模块配置对象为值的键值对对象
-* ### Note
+* __Note__
+*
 * 单个模块配置对象包括：
 * - requires 类型String,该模块的依赖模块名数组。当设置 combine 为 true 时需要配置，否则不建议配置.
 * - tag 类型 String，单个模块的时间戳。仅在 combine 为 false 时生效。 combine:true 时取对应包的 tag.
@@ -197,7 +201,8 @@ KISSY.config({
 });
 * ```
 *
-* ### Note : group组介绍概览
+* __Note : group组介绍概览__
+
 * - #### 简单使用(如果想将多个包combo到一起，需要通过配置参数group来实现。例如，对于以下包进行combo：)
 * ```
 KISSY.config({
@@ -303,7 +308,8 @@ KISSY.use("depMod1,depMod2",{
     }
 });
 * ```
-* ### Note
+* __Note__
+*
 * 如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 use 即可, 如果模块名以 / 结尾, 则自动加后缀 index , 例如 use("mods/m1/") 相当于 use("mods/m1/index") , 即自动加载 m1 目录下的 index.js
 */
 
@@ -311,7 +317,8 @@ KISSY.use("depMod1,depMod2",{
 * 阻塞加载 css 模块或 js 模块依赖的 css 模块, 和 KISSY.add 中的 require 配置一起使用.
 * @method importStyle
 * @param modName {String|Array} 以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use("mod1,mod2/xx.css");
-* ### Note
+* __Note__
+*
 * ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。
 * - 先决条件
 * 头部引入`<script src='http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js'></script>`

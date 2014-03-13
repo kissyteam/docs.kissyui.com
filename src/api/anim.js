@@ -15,7 +15,8 @@
 * 效果预览, 可以参考[easing可视化](/1.5/examples/anim/easing.html)和[cubic-bezier可视化](/1.5/examples/anim/cubic-bezier.html)
 * @param [completeFn] {Function} 动画到最后一帧后的回调函数
 
-* ### Note: 构造器也可以如下面这样传参
+* __Note: 构造器也可以如下面这样传参__
+
 * `Anim (elem, props[, config])` 得到绑定于某个 dom 节点的动画实例
 * @param elem {String|HTMLElement|KISSY.Node|window|普通的Object} 作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）
 * @param props {Object} 动画结束的 dom 样式值

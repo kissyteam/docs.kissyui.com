@@ -1,5 +1,5 @@
 /**
-* util模块，包含Class Util
+* util模块，包含类Util
 * @module util
 */
 
@@ -73,7 +73,8 @@
 
 /**
 * 将fn缓存一段时间后再回调执行
-* ### Note:
+* __Note:__
+*
 * - 此方法为了避免在 ms 段时间内, 执行 fn 多次. 常用于 resize , scroll , mousemove 等连续性事件中;
 * - 当 ms 设置为 -1, 表示立即执行 fn, 即和直接调用 fn 一样;
 * @method buffer
@@ -149,7 +150,8 @@ S.each(obj, function(v,k) {
 
 /**
 * 抛出错误异常
-* ### Note
+* __Note__
+*
 * - 只有在 debug 模式下并且载入 seed.js, 才会抛出异常. debug 模式的说明请参考 Config
 * @method error
 * @static
@@ -158,7 +160,8 @@ S.each(obj, function(v,k) {
 
 /**
 * 将字符串经过 html 转义得到适合在页面中显示的内容, 例如替换 < 为 &lt;
-* ### Note
+* __Note__
+*
 * - 此函数只会对以下符号进行 escape：`& > < ` / " '`
 * @method escapeHTML
 * @param str {String} 要显示在页面中的真实内容
@@ -236,7 +239,7 @@ S.log(ret); // => [2, 4]
 var logger = KISSY.getLogger('KISSY');
 logger.debug("test"); // => "KISSY: test";
 *   ```
-* ### Note
+* __Note__
 * 可以在配置中设置logger的级别，以及是否显示。 当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先
 * ```
 S.config('logger', {
@@ -438,7 +441,7 @@ S.later(function(data) {
 * @param msg {String} 调试信息
 * @param cat="log" {String}  调试信息类别. 可以取 info, warn, error, dir, time 等 console 对象的方法名, 默认为 log.
 * @param src {String} 调试代码所在的源信息
-* ### Note
+* __Note__
 * 只有在 debug 模式下并且载入 seed.js, 才会输出调试信息. debug 模式的说明请参考 Config
 */
 
@@ -491,7 +494,7 @@ S.log(o.c); // => 'c'
 * @param whitelist {Array<String>} 属性来源对象的属性白名单, 仅在名单中的属性进行复制
 * @param deep {Boolean} 是否进行深度 mix (deep copy)
 * @return {Object} receiver 属性接受者对象
-* ### Note
+* __Note__
 * receiver 会被改变，如果想要保留原始的 receiver ，可以使用 KISSY.merge()
 * `var object=S.merge(object1,object2);`
 *
@@ -626,7 +629,7 @@ alert(xmlDoc.one("title").text()); // => RSS Title
 * @param fn {Function} 在每个数组元素上执行的函数
 * @param initialValue {Object}  初次执行 fn 时的第一个参数值，如果不指定则为第一个元素值，后续从第二个元素开始遍历
 * @return 累计值
-* ### Note
+* __Note__
 * reduce 对数组中的每个元素执行 fn 函数，该 fn 接受四个参数：initialValue (或者上次调用 fn 的返回值)， 数组的当前元素，数组的当前位置以及用于遍历的数组.
 * 调用 reduce 类似于：`KISSY.reduce([],function(previousValue, currentValue, index, array){});`
 * 当第一次调用 fn 时 :
@@ -726,7 +729,7 @@ S.substitute(str, obj); // => 'Jack Bauer is our lord and savior.'
 * @param ms {Number} 要缓存多长时间后执行, 默认是 150 ms;
 * @param context {Object} 函数 fn 要执行时的上下文环境, 默认是 this
 * @return {Function} 返回缓存后的函数对象
-* ### Note
+* __Note__
 * - 当 ms 设置为 -1, 表示立即执行 fn, 即和直接调用 fn 一样;
 * - throttle 和 buffer 的区别在于, 前者表示间隔内的函数触发被忽略, 后者表示间隔内的触发被放到下个间隔触发
 * @example
@@ -758,7 +761,7 @@ S.later(say, 350);  // 超过300ms后, 终于执行
 * @return {String} 替换实体字符后的字符串
 * @example
 * `KISSY.unEscapeHTML("&lt;a&gt;x&lt;/a&gt;"); // =>  "<a>x</a>"`
-* ### Note
+* __Note__
 * 该函数只会 unescape 以下字符序列（正则式
 * `&amp; &lt; &gt; &#x60; &#x2F; &quot; &#x27; &#\d{1,5}`
 */

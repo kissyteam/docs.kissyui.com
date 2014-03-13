@@ -3,6 +3,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         "Anim",
         "Cookie",
+        "DOM",
         "Features",
         "Loader",
         "UA",
@@ -11,6 +12,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "modules": [
         "anim",
         "cookie",
+        "dom",
         "features",
         "loader",
         "ua",
@@ -26,6 +28,11 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "cookie",
             "name": "cookie",
             "description": "提供类Cookie"
+        },
+        {
+            "displayName": "dom",
+            "name": "dom",
+            "description": "提供类DOM"
         },
         {
             "displayName": "features",
@@ -45,7 +52,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "util",
             "name": "util",
-            "description": "util模块，包含Class Util"
+            "description": "util模块，包含类Util"
         }
     ]
 } };

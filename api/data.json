@@ -28,6 +28,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\dom.js": {
+            "name": "src\\api\\dom.js",
+            "modules": {
+                "dom": 1
+            },
+            "classes": {
+                "DOM": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\features.js": {
             "name": "src\\api\\features.js",
             "modules": {
@@ -100,6 +111,19 @@
             "line": 6,
             "description": "提供类Cookie"
         },
+        "dom": {
+            "name": "dom",
+            "submodules": {},
+            "classes": {
+                "DOM": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\dom.js",
+            "line": 6,
+            "description": "提供类DOM"
+        },
         "features": {
             "name": "features",
             "submodules": {},
@@ -150,7 +174,7 @@
             "tag": "module",
             "file": "src\\api\\util.js",
             "line": 6,
-            "description": "util模块，包含Class Util"
+            "description": "util模块，包含类Util"
         }
     },
     "classes": {
@@ -195,7 +219,7 @@
                 },
                 {
                     "name": "completeFn",
-                    "description": "动画到最后一帧后的回调函数\n\n### Note: 构造器也可以如下面这样传参\n`Anim (elem, props[, config])` 得到绑定于某个 dom 节点的动画实例",
+                    "description": "动画到最后一帧后的回调函数\n\n__Note: 构造器也可以如下面这样传参__\n\n`Anim (elem, props[, config])` 得到绑定于某个 dom 节点的动画实例",
                     "type": "Function",
                     "optional": true
                 },
@@ -265,7 +289,22 @@
             "namespace": "",
             "file": "src\\api\\cookie.js",
             "line": 6,
-            "description": "操作cookie\n### Note\n推荐阅读 NCZ 的这篇文章： [HTTP cookies explained](http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/)",
+            "description": "操作cookie\n__Note__\n\n推荐阅读 NCZ 的这篇文章： [HTTP cookies explained](http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/)",
+            "static": 1
+        },
+        "DOM": {
+            "name": "DOM",
+            "shortname": "DOM",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "dom",
+            "namespace": "",
+            "file": "src\\api\\dom.js",
+            "line": 6,
+            "description": "类DOM，操作DOM",
             "static": 1
         },
         "Features": {
@@ -332,7 +371,7 @@
     "classitems": [
         {
             "file": "src\\api\\anim.js",
-            "line": 32,
+            "line": 33,
             "description": "判断当前动画对象是否在执行动画过程",
             "itemtype": "method",
             "name": "isRunning",
@@ -345,7 +384,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 37,
+            "line": 38,
             "description": "判断当前动画对象是否被暂停",
             "itemtype": "method",
             "name": "isPaused",
@@ -358,7 +397,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 43,
+            "line": 44,
             "description": "在动画实例上调用, 开始当前动画实例的动画",
             "itemtype": "method",
             "name": "run",
@@ -367,7 +406,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 48,
+            "line": 49,
             "description": "在动画实例上调用, 结束当前动画实例的动画",
             "itemtype": "method",
             "name": "stop",
@@ -385,7 +424,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 54,
+            "line": 55,
             "description": "在动画实例上调用, 暂停当前动画实例的动画",
             "itemtype": "method",
             "name": "pause",
@@ -394,7 +433,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 59,
+            "line": 60,
             "description": "在动画实例上调用, 继续当前动画实例的动画",
             "itemtype": "method",
             "name": "resume",
@@ -403,7 +442,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 64,
+            "line": 65,
             "description": "Anim 的静态方法, 用于判断 elem 上是否有动画对象在执行",
             "itemtype": "method",
             "name": "isRunning",
@@ -424,7 +463,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 72,
+            "line": 73,
             "description": "Anim 的静态方法, 用于判断 elem 上是否有动画对象在暂停",
             "itemtype": "method",
             "name": "isPaused",
@@ -445,7 +484,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 80,
+            "line": 81,
             "description": "Anim 的静态方法, 结束某元素上的动画（集合）",
             "itemtype": "method",
             "name": "stop",
@@ -477,7 +516,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 94,
+            "line": 95,
             "description": "Anim 的静态方法, 暂停某元素上的动画（集合）",
             "itemtype": "method",
             "name": "pause",
@@ -499,7 +538,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 106,
+            "line": 107,
             "description": "Anim 的静态方法, 继续某元素上的动画（集合）",
             "itemtype": "method",
             "name": "resume",
@@ -521,7 +560,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 118,
+            "line": 119,
             "description": "动画结束后, 触发该事件",
             "itemtype": "event",
             "name": "complete",
@@ -530,7 +569,7 @@
         },
         {
             "file": "src\\api\\cookie.js",
-            "line": 14,
+            "line": 15,
             "description": "获取cookie值",
             "itemtype": "method",
             "name": "get",
@@ -551,7 +590,7 @@
         },
         {
             "file": "src\\api\\cookie.js",
-            "line": 22,
+            "line": 23,
             "description": "置空cookie值，并立刻过期",
             "itemtype": "method",
             "name": "remove",
@@ -583,7 +622,7 @@
         },
         {
             "file": "src\\api\\cookie.js",
-            "line": 32,
+            "line": 33,
             "description": "设置cookie值",
             "itemtype": "method",
             "name": "set",
@@ -622,6 +661,2061 @@
             ],
             "class": "Cookie",
             "module": "cookie"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 12,
+            "description": "获取符合选择器的所有元素",
+            "itemtype": "method",
+            "name": "query",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "context",
+                    "description": "选择器参考上下文",
+                    "type": "String|HTMLCollection|Array<HTMLElement>",
+                    "optional": true,
+                    "optdefault": "document"
+                }
+            ],
+            "return": {
+                "description": "符合选择器字符串的 dom 节点数组",
+                "type": "Array"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 21,
+            "description": "获取符合选择器的第一个元素. 相当于调用 query(selector,context)[0]",
+            "itemtype": "method",
+            "name": "get",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "context",
+                    "description": "选择器参考上下文",
+                    "type": "String|HTMLCollection|Array<HTMLElement>",
+                    "optional": true,
+                    "optdefault": "document"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素\n\n__Note__\nDOM.get有个快捷调用方式，可以直接通过KISSY.get调用",
+                "type": "Object"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 33,
+            "description": "获取符合选择器以及过滤参数的所有元素",
+            "itemtype": "method",
+            "name": "filter",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "filter",
+                    "description": "过滤选择器或函数\n- 类型 string 时, 格式为 tag.cls , 其他格式需要引入模块 sizzle\n- 类型 function 时, 传入参数当前 dom 节点, 返回 true 表示保留",
+                    "type": "String|Function"
+                },
+                {
+                    "name": "context",
+                    "description": "选择器参考上下文",
+                    "type": "String|HTMLCollection|Array<HTMLElement>",
+                    "optional": true,
+                    "optdefault": "document"
+                }
+            ],
+            "return": {
+                "description": "符合选择器字符串的 dom 节点数组",
+                "type": "Array"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 45,
+            "description": "判断根据选择器获取的所有元素是否都符合过滤条件",
+            "itemtype": "method",
+            "name": "test",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "filter",
+                    "description": "过滤选择器或函数,详见[DOM.filter](#method_filter)",
+                    "type": "String|Function"
+                },
+                {
+                    "name": "context",
+                    "description": "选择器参考上下文",
+                    "type": "String|HTMLCollection|Array<HTMLElement>",
+                    "optional": true,
+                    "optdefault": "document"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 55,
+            "description": "获取符合选择器的第一个元素的克隆元素",
+            "itemtype": "method",
+            "name": "clone",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "deep",
+                    "description": "是否深度克隆（克隆节点的子孙节点）",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                },
+                {
+                    "name": "withDataAndEvent",
+                    "description": "节点是否具备源节点的[dom.data](#method_data)属性以及[事件](#/1.5/api/modules/event.html)",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                },
+                {
+                    "name": "deepWithDataAndEvent",
+                    "description": "子孙节点是否具备源节点对应子孙节点的[dom.data](#method_data)属性以及[事件](#module_event)",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的克隆元素\n__Note__\n普通对象和普通数组请用 `KISSY.clone`",
+                "type": "HTMLElement"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 68,
+            "description": "判断符合选择器的所有元素中是否有某个元素含有特定 class",
+            "itemtype": "method",
+            "name": "hasClass",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "value",
+                    "description": "样式类 class, 多个用空格分隔, 表示同时包含多个样式类",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "是否符合选择器的元素中存在某个元素含有特定样式类 value",
+                "type": "Boolean"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 77,
+            "description": "给符合选择器的所有元素添加指定 class",
+            "itemtype": "method",
+            "name": "addClass",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "value",
+                    "description": "样式类 class, 多个用空格分隔",
+                    "type": "String"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 85,
+            "description": "给符合选择器的所有元素添加指定 class",
+            "itemtype": "method",
+            "name": "removeClass",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "value",
+                    "description": "样式类 class, 多个用空格分隔",
+                    "type": "String"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 93,
+            "description": "将符合选择器的所有元素的老 class 替换为新 class",
+            "itemtype": "method",
+            "name": "replaceClass",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "oldClassName",
+                    "description": "样式类 class, 多个用空格分隔 , 需要删除的样式类",
+                    "type": "String"
+                },
+                {
+                    "name": "newClassName",
+                    "description": "样式类 class, 多个用空格分隔 , 需要添加的样式类",
+                    "type": "String"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 102,
+            "description": "操作符合选择器的所有元素, 如果存在值为 classNames 的 class, 则移除掉, 反之添加",
+            "itemtype": "method",
+            "name": "toggleClass",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "classNames",
+                    "description": "样式类 class, 多个用空格分隔 , 需要 toggle 的样式类",
+                    "type": "String"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 110,
+            "description": "移除符合选择器的所有元素的指定属性",
+            "itemtype": "method",
+            "name": "removeAttr",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "属性名称",
+                    "type": "String"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 118,
+            "description": "获取符合选择器的第一个元素的属性值",
+            "itemtype": "method",
+            "name": "attr",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "属性名称",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "对应属性名的属性值"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 127,
+            "description": "给符合选择器的所有元素设置属性值",
+            "itemtype": "method",
+            "name": "attr",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "属性名称",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "属性值"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 136,
+            "description": "给符合选择器的所有元素设置属性值",
+            "itemtype": "method",
+            "name": "attr",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "kv",
+                    "description": "属性名与属性值的键值对",
+                    "type": "Object"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 144,
+            "description": "判断符合选择器的所有元素中是否有某个元素含有特定属性",
+            "itemtype": "method",
+            "name": "hasAttr",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "attrName",
+                    "description": "属性名称",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 153,
+            "description": "获取符合选择器的第一个元素的对应 property 值",
+            "itemtype": "method",
+            "name": "prop",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "property 名称",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "对应 property 的值\n\n__Note__\n- 对于不存在的 property , 该方法返回 undefined\n- 注意区别该方法与 dom.attr, 也即区别 [DOM property 与 attribute](http://javascript.info/tutorial/attributes-and-custom-properties)\n- 请使用 [dom.data](#method_data) 方法来处理自定义属性, 而不要使用 dom.prop 方法, 否则在 ie<9 下会有内存泄露\n- prop 方法可以改变 DOM 元素的状态而不改变其对应的序列化 html 属性 ( IE <9 除外)\n- 例如设置 input 或 button 的 disabled property 或者 checkbox 的 checked property . 最常见的情况即是用 prop 来设置 disabled 以及 checked 而不是 dom.attr . 而 dom.val 方法用来设置和读取 value property"
+            },
+            "example": [
+                "\n```\nvar S = KISSY, DOM = S.DOM;\nvar c=DOM.create(\"<input type='checkbox' checked='checked'/>\");\nDOM.attr(c,\"checked\") // => \"checked\"\nDOM.prop(c,\"checked\") // => true\nDOM.attr(c,\"nodeName\") // => null\nDOM.prop(c,\"nodeName\").toLowerCase() // => input\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 179,
+            "description": "给符合选择器的所有元素设置 property 值",
+            "itemtype": "method",
+            "name": "prop",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "property 名称",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "property值"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 188,
+            "description": "给符合选择器的所有元素设置 property 值",
+            "itemtype": "method",
+            "name": "prop",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "kv",
+                    "description": "property 名与 property 值的键值对",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n__selectionStart/End 兼容__\n\n__在 ie 下对于 selectionStart/End 做了兼容处理，[demo](/1.5/examples/dom/selection-start.html)__"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 200,
+            "description": "判断符合选择器的第一个元素是否含有特定 property 属性",
+            "itemtype": "method",
+            "name": "hasProp",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "property 名称",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 208,
+            "description": "获取符合选择器的第一个元素所的 value 值",
+            "itemtype": "method",
+            "name": "val",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "return": {
+                "description": "获取符合选择器的第一个元素所的 value 值. 无值时, 返回空字符串."
+            },
+            "example": [
+                "\n```\nKISSY.use(\"dom\",function(S,DOM){\n        // 获取 id 是 J_username 的元素的 value 值\n        DOM.val(\"#J_username\");\n});\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 223,
+            "description": "给符合选择器的所有元素设置 value 值",
+            "itemtype": "method",
+            "name": "val",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "value",
+                    "description": "将要设置的 value 值",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use(\"dom\",function(S,DOM){\n        // 将 id 是 J_username 的元素的 value 值设置成“张三”\n        DOM.val(\"#J_username\",\"张三\");\n});\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 238,
+            "description": "获取符合选择器的第一个元素所包含的文本值",
+            "itemtype": "method",
+            "name": "text",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "return": {
+                "description": "获取符合选择器的第一个元素所包含的文本值. 无值时, 返回空字符串."
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 246,
+            "description": "给符合选择器的所有元素设置文本值.",
+            "itemtype": "method",
+            "name": "text",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "value",
+                    "description": "将要设置的文本值\n\n__相当于 ie 下调用 innerText 以及其他浏览器下调用 textContent__",
+                    "type": "String"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 256,
+            "description": "获取符合选择器的第一个元素的样式值",
+            "itemtype": "method",
+            "name": "css",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "css 样式属性名",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 265,
+            "description": "给符合选择器的所有元素设置样式值",
+            "itemtype": "method",
+            "name": "css",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "css 样式属性名",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "将要设置的样式值",
+                    "type": "String"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 274,
+            "description": "给符合选择器的所有元素设置样式值",
+            "itemtype": "method",
+            "name": "css",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "kv",
+                    "description": "样式名与样式值的键值对",
+                    "type": "Object"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 282,
+            "description": "获取符合选择器的第一个元素 style 属性中 name 的值",
+            "itemtype": "method",
+            "name": "style",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "style属性名",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "指定元素 style 属性中, name 的值\n__Note__\n\n请注意 style() 和 css() 在 获取元素样式值上的区别 :\n-前者获取的是元素style属性中相应的样式值, 是个字面量;\n-后者是获取元素真实渲染到页面上的样式值, 是个计算值.",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nvar tag = S.guid(\"float\");\nDOM.addStyleSheet(\".\" + tag + \" {float:left}\")\n\nvar d = DOM.create(\"<div class='\" + tag + \"' style='float:right'><\" + \"/div>\")\nDOM.append(d, document.body);\nS.log(DOM.css(d, \"float\"));     // \"right\"\nS.log(DOM.style(d, \"float\"));   // \"right\"\n\nDOM.css(d, \"float\", \"\");\n\nS.log(DOM.css(d, \"float\"));     // \"left\"\nS.log(DOM.style(d, \"float\"));   // \"\"\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 311,
+            "description": "给符合选择器的所有元素, 给其 style 属性中名为 name 的样式设置值为 value.",
+            "itemtype": "method",
+            "name": "style",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "style属性名",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "将要设置的样式值",
+                    "type": "String"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 320,
+            "description": "给符合选择器的所有元素, 给其 style 属性中名为 name 的样式设置值为 value.",
+            "itemtype": "method",
+            "name": "style",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "kv",
+                    "description": "样式名与样式值的键值对",
+                    "type": "Object"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 328,
+            "description": "获取符合选择器的第一个元素的宽度值",
+            "itemtype": "method",
+            "name": "width",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的宽度值\n__Note__\n- 该方法获取的是元素的真实宽度, 不包含 padding, border, margin. 且始终返回像素值\n- 注意: 该方法与 [innerWidth()](#method_innerWidth) 和 [outerWidth()](#method_outerWidth) 的区别.",
+                "type": "Number"
+            },
+            "example": [
+                "\n```\n<div style=\"width: 100px;\">\n    <div id=\"test\" style=\"width: 80%; height: 20px\"></div>\n</div>\n<script>\n    var S = KISSY, DOM = S.DOM,\n    elem = S.get('#test');\n\n    DOM.style(elem, 'width'); // 返回 80%\n    DOM.css(elem, 'width'); // 返回 80px\n    DOM.css(elem, 'height'); // 返回 20px\n\n    DOM.width(elem); // 返回 80\n    DOM.height(elem); // 返回 20\n</script>\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 356,
+            "description": "获取符合选择器的第一个元素的宽度值",
+            "itemtype": "method",
+            "name": "width",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "value",
+                    "description": "宽度值",
+                    "type": "String"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 364,
+            "description": "获取符合选择器的第一个元素的宽度值",
+            "itemtype": "method",
+            "name": "height",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的高度值",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 372,
+            "description": "获取符合选择器的第一个元素的高度值",
+            "itemtype": "method",
+            "name": "height",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "value",
+                    "description": "高度值",
+                    "type": "String"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 380,
+            "description": "获取符合选择器的第一个元素的宽度值, 注意: 该值包含 padding",
+            "itemtype": "method",
+            "name": "innerWidth",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 388,
+            "description": "获取符合选择器的第一个元素的高度值, 注意: 该值包含 padding",
+            "itemtype": "method",
+            "name": "innerHeight",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 396,
+            "description": "获取符合选择器的第一个元素的宽度值, 注意: 值除了包含元素本身宽度和 padding 外, 还包含 border或margin",
+            "itemtype": "method",
+            "name": "outerWidth",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "includeMargin",
+                    "description": "是否包含 margin, 默认仅包含 border",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的宽度值",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 405,
+            "description": "获取符合选择器的第一个元素的高度值, 注意: 值除了包含元素本身宽度和 padding 外, 还包含 border或margin",
+            "itemtype": "method",
+            "name": "outerHeight",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "includeMargin",
+                    "description": "是否包含 margin, 默认仅包含 border",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的高度值",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 414,
+            "description": "将 cssText 字符串作为内联样式表内容添加到文档中",
+            "itemtype": "method",
+            "name": "addStyleSheet",
+            "static": 1,
+            "params": [
+                {
+                    "name": "cssText",
+                    "description": "样式内容",
+                    "type": "String"
+                },
+                {
+                    "name": "id",
+                    "description": "内联样式表所在 style 节点的 id",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 422,
+            "description": "显示符合选择器的所有元素",
+            "itemtype": "method",
+            "name": "show",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 429,
+            "description": "隐藏符合选择器的所有元素",
+            "itemtype": "method",
+            "name": "hide",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 436,
+            "description": "将符合选择器的所有元素切换显示/隐藏两个状态",
+            "itemtype": "method",
+            "name": "toggle",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 443,
+            "description": "获取符合选择器的第一个元素相对页面文档左上角的偏移值",
+            "itemtype": "method",
+            "name": "offset",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "return": {
+                "description": "相对页面文档左上角的偏移值,包括两个属性\n- left {Number} 相对页面文档左上角的横坐标\n- top {Number} 相对页面文档左上角的纵坐标",
+                "type": "Object"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 453,
+            "description": "设置符合选择器的第一个元素相对页面文档左上角的偏移值",
+            "itemtype": "method",
+            "name": "offset",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "value",
+                    "description": "相对页面文档左上角的偏移值,包含left和top两个属性",
+                    "type": "Object"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 461,
+            "description": "获取窗口或元素的 scrollTop 值",
+            "itemtype": "method",
+            "name": "scrollTop",
+            "static": 1,
+            "params": [
+                {
+                    "name": "node",
+                    "description": "某个 iframe 的 contentWindow 或当前 window 或某个节点",
+                    "type": "Window|HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "窗口或元素的 scrollTop 值",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 469,
+            "description": "设置窗口 scrollTop 值",
+            "itemtype": "method",
+            "name": "scrollTop",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "设置的值",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 477,
+            "description": "设置窗口或元素的 scrollTop 值",
+            "itemtype": "method",
+            "name": "scrollTop",
+            "static": 1,
+            "params": [
+                {
+                    "name": "node",
+                    "description": "某个 iframe 的 contentWindow 或当前 window 或某个节点",
+                    "type": "Window|HTMLElement"
+                },
+                {
+                    "name": "num",
+                    "description": "设置的值",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 486,
+            "description": "获取窗口或元素的 scrollLeft 值",
+            "itemtype": "method",
+            "name": "scrollLeft",
+            "static": 1,
+            "params": [
+                {
+                    "name": "node",
+                    "description": "某个 iframe 的 contentWindow 或当前 window 或某个节点",
+                    "type": "Window|HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "窗口或元素的 scrollLeft 值",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 494,
+            "description": "设置窗口 scrollLeft 值",
+            "itemtype": "method",
+            "name": "scrollLeft",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "设置的值",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 502,
+            "description": "设置窗口或元素的 scrollLeft 值",
+            "itemtype": "method",
+            "name": "scrollLeft",
+            "static": 1,
+            "params": [
+                {
+                    "name": "node",
+                    "description": "某个 iframe 的 contentWindow 或当前 window 或某个节点",
+                    "type": "Window|HTMLElement"
+                },
+                {
+                    "name": "num",
+                    "description": "设置的值",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 511,
+            "description": "获取页面文档 document 的总高度",
+            "itemtype": "method",
+            "name": "docHeight",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 518,
+            "description": "获取页面文档 document 的总宽度",
+            "itemtype": "method",
+            "name": "docWidth",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 525,
+            "description": "获取当前可视区域(viewport)的高度值",
+            "itemtype": "method",
+            "name": "viewpointHeight",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 532,
+            "description": "获取当前可视区域(viewport)的宽度值",
+            "itemtype": "method",
+            "name": "viewpointWidth",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 539,
+            "description": "使当前选择器匹配的第一个元素出现在指定容器可视区域内",
+            "itemtype": "method",
+            "name": "scrollIntoView",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "container",
+                    "description": "指定容器",
+                    "type": "Window|HTMLElement",
+                    "optional": true,
+                    "optdefault": "window"
+                },
+                {
+                    "name": "top",
+                    "description": "是否强制元素的上边界与容器的上边界对齐, 左边界和左边界对齐",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
+                },
+                {
+                    "name": "hsroll",
+                    "description": "是否允许容器左右滚动以保证元素显示在其可视区域",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 549,
+            "description": "获取元素在另一批元素的位置信息",
+            "itemtype": "method",
+            "name": "index",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "refer",
+                    "description": "参考节点\n- 如果 refer 不填，则为匹配 selector 的第一个元素在其兄弟节点的下标位置\n- 如果 refer 为选择器字符串，则为为匹配 selector 的第一个元素在匹配 refer 的所有元素中的位置下标\n- 如果 refer 为 dom 元素或 KISSY Node，则为 refer 在匹配 selector 的元素列表中的位置",
+                    "type": "String|HTMLElement|KISSY.Node",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 562,
+            "description": "获取符合选择器的第一个元素的祖先元素",
+            "itemtype": "method",
+            "name": "parent",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "filter",
+                    "description": "数组表示会返回所有符合 filter 的祖先元素，否则只会返回第一个符合条件的祖先元素。 整数以及数组外的例子参见 [dom.filter](#method_filter) 的相应参数.详见下面例子解释",
+                    "type": "Number|string|function|string[]|function[]"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的祖先元素",
+                "type": "HTMLElement"
+            },
+            "example": [
+                "\n```\nvar S = KISSY, DOM = S.DOM,\nelem = S.get('#id');\n\n// 返回 elem.parentNode\nDOM.parent(elem);\n\n// 返回 elem.parentNode.parentNode\nDOM.parent(elem, 2);\n\n// 寻找 elem 的祖先节点, 返回第一个拥有 container class 值的祖先\nDOM.parent(elem, '.container');\n\n// 寻找 elem 的祖先节点, 返回所有拥有 container class 值的祖先\nDOM.parent(elem, ['.container']);\n\n// 寻找 elem 的祖先节点, 返回第一个 tagName 为 ul 的祖先\nDOM.parent(elem, 'ul');\n\n// 寻找 elem 的祖先节点, 返回第一个 rel 属性为 data 值的祖先\nDOM.parent(elem, function(p) {\n    return DOM.attr(p, 'rel') == 'data';\n});\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 596,
+            "description": "获取符合选择器的第一个元素的下一个同级节点",
+            "itemtype": "method",
+            "name": "next",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "filter",
+                    "description": "过滤条件, 格式参见 [dom.filter](#method_filter) 的相应参数",
+                    "type": "String|function"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的下一个同级节点",
+                "type": "HTMLElement"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 605,
+            "description": "获取符合选择器的第一个元素的上一个同级节点",
+            "itemtype": "method",
+            "name": "prev",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "filter",
+                    "description": "过滤条件, 格式参见 [dom.filter](#method_filter) 的相应参数",
+                    "type": "String|function"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的上一个同级节点",
+                "type": "HTMLElement"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 614,
+            "description": "获取符合选择器的第一个元素的第一个子节点",
+            "itemtype": "method",
+            "name": "first",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "filter",
+                    "description": "过滤条件, 格式参见 [dom.filter](#method_filter) 的相应参数",
+                    "type": "String|function"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的第一个子节点",
+                "type": "HTMLElement"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 623,
+            "description": "获取符合选择器的第一个元素的最后一个子节点",
+            "itemtype": "method",
+            "name": "last",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "filter",
+                    "description": "过滤条件, 格式参见 [dom.filter](#method_filter) 的相应参数",
+                    "type": "String|function"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的最后一个子节点",
+                "type": "HTMLElement"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 632,
+            "description": "获取符合选择器的第一个元素的相应同级节点",
+            "itemtype": "method",
+            "name": "siblings",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "filter",
+                    "description": "过滤条件, 格式参见 [dom.filter](#method_filter) 的相应参数",
+                    "type": "String|function"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的相应同级节点",
+                "type": "Array<HTMLElement>"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 641,
+            "description": "获取符合选择器的所有非文字节点的子节点",
+            "itemtype": "method",
+            "name": "children",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "filter",
+                    "description": "过滤条件, 格式参见 [dom.filter](#method_filter) 的相应参数",
+                    "type": "String|function"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的所有非文字节点的子节点",
+                "type": "Array<HTMLElement>"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 650,
+            "description": "判断某一容器(container)是否包含另一(contained)节点.",
+            "itemtype": "method",
+            "name": "contains",
+            "static": 1,
+            "params": [
+                {
+                    "name": "container",
+                    "description": "容器节点\n- 字符串表示 css3 选择器 获取匹配的第一个元素\n- ArrayList<HTMLElement> : 取列表第一个元素",
+                    "type": "String|HTMLElement|ArrayList<HTMLElement>|HTMLDcoument|TextNode"
+                },
+                {
+                    "name": "contained",
+                    "description": "检测节点\n- 字符串表示 css3 选择器 获取匹配的第一个元素\n- ArrayList<HTMLElement> : 取列表第一个元素",
+                    "type": "String|HTMLElement|ArrayList<HTMLElement>|HTMLDcoument|TextNode"
+                }
+            ],
+            "return": {
+                "description": "container 是否包含 contained 节点.两个元素如果相等, 则返回 false",
+                "type": "Boolean"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 663,
+            "description": "创建 dom 节点",
+            "itemtype": "method",
+            "name": "create",
+            "static": 1,
+            "params": [
+                {
+                    "name": "html",
+                    "description": "dom 节点的 html",
+                    "type": "String"
+                },
+                {
+                    "name": "props",
+                    "description": "属性键值对象",
+                    "type": "Object"
+                },
+                {
+                    "name": "ownerDoc",
+                    "description": "节点所属文档",
+                    "type": "HTMLDocument"
+                }
+            ],
+            "return": {
+                "description": "创建出的 dom 节点或碎片列表",
+                "type": "HTMLFragment|HTMLElement"
+            },
+            "example": [
+                "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 等价 document.createElement('div')\nDOM.create('<div>');\nDOM.create('<div />');\nDOM.create('<div></div>');\n\n// 等价 document.createTextNode('text')\nDOM.create('text');\n\n// 创建时, 同时添加属性值\nDOM.create('<a>', { href: 'hot.html', title: 'Hot Page' });\n\n// KISSY v1.1.5+,  创建时, 支持添加更多的属性；\n// 新增属性有： val, css, html, text, data, width, height, offset\nDOM.create('<a>', { href: 'hot.html',\n                    title: 'Hot Page',\n                    css: {color: 'blue'},\n                    text: 'Test Link'\n          });\n\n// 直接内联属性\nDOM.create('<img src=\"logo.png\" alt=\"logo\" />');\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 699,
+            "description": "获取符合选择器的第一个元素的 innerHTML",
+            "itemtype": "method",
+            "name": "html",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 707,
+            "description": "给符合选择器的所有元素设置 innerHTML 值",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "html",
+                    "description": "将要设置的 html 值",
+                    "type": "String"
+                },
+                {
+                    "name": "loadScripts",
+                    "description": "是否执行 html 中的内嵌脚本，默认 false\n__Note__\n\n内嵌脚本指 <script>xx</script> or <script src='yy'></script>",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 717,
+            "description": "将符合选择器的所有元素从 DOM 中移除",
+            "itemtype": "method",
+            "name": "remove",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)\n__Note__\n\nDOM.remove 会清除当前节点以及其子孙节点上已经注册的事件",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 727,
+            "description": "清除节点的所有子孙节点以及子孙节点上的事件和 data() 信息",
+            "itemtype": "method",
+            "name": "empty",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 734,
+            "description": "将 newNode 插入到 refNode 之前",
+            "itemtype": "method",
+            "name": "insertBefore",
+            "static": 1,
+            "params": [
+                {
+                    "name": "newNode",
+                    "description": "插入的节点. 字符串表示 css3 选择器, 获取匹配的第一个元素",
+                    "type": "String|HTMLElement"
+                },
+                {
+                    "name": "refNode",
+                    "description": "参考节点. 字符串表示 css3 选择器, 获取匹配的第一个元素",
+                    "type": "String|HTMLElement"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 742,
+            "description": "将 newNode 插入到 refNode 之后",
+            "itemtype": "method",
+            "name": "insertAfter",
+            "static": 1,
+            "params": [
+                {
+                    "name": "newNode",
+                    "description": "插入的节点. 字符串表示 css3 选择器, 获取匹配的第一个元素",
+                    "type": "String|HTMLElement"
+                },
+                {
+                    "name": "refNode",
+                    "description": "参考节点. 字符串表示 css3 选择器, 获取匹配的第一个元素",
+                    "type": "String|HTMLElement"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 750,
+            "description": "将 node 追加到 parent 子节点最后",
+            "itemtype": "method",
+            "name": "append",
+            "static": 1,
+            "params": [
+                {
+                    "name": "node",
+                    "description": "插入的节点. 字符串表示 css3 选择器 , 获取匹配的第一个元素",
+                    "type": "String|HTMLElement"
+                },
+                {
+                    "name": "parent",
+                    "description": "参照父节点. 字符串表示 css3 选择器 , 获取匹配的第一个元素.",
+                    "type": "String|HTMLElement"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 758,
+            "description": "将 node 追加到 parent 子节点最前",
+            "itemtype": "method",
+            "name": "prepend",
+            "static": 1,
+            "params": [
+                {
+                    "name": "node",
+                    "description": "插入的节点. 字符串表示 css3 选择器 , 获取匹配的第一个元素",
+                    "type": "String|HTMLElement"
+                },
+                {
+                    "name": "parent",
+                    "description": "参照父节点. 字符串表示 css3 选择器 , 获取匹配的第一个元素.",
+                    "type": "String|HTMLElement"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 766,
+            "description": "将 node 节点（数组）替换为新的节点（数组） newNode",
+            "itemtype": "method",
+            "name": "replaceWith",
+            "static": 1,
+            "params": [
+                {
+                    "name": "nodes",
+                    "description": "被替换的节点（数组）. 字符串表示 css3 选择器",
+                    "type": "String|HTMLElement|HTMLElement[]"
+                },
+                {
+                    "name": "newNodes",
+                    "description": "新节点（数组）. 字符串表示 css3 选择器",
+                    "type": "String|HTMLElement|HTMLElement[]"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 774,
+            "description": "获取符合选择器的第一个元素的扩展属性(expando)",
+            "itemtype": "method",
+            "name": "data",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "扩展属性名称",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "\n- 对应扩展属性名的属性值, 如果不存在返回 undefined\n- 如不指定扩展属性名, 则取得所有扩展属性键值对象 , 如果当前还没设置过扩展属性, 则返回空对象, 可以直接在该空对象上设置",
+                "type": "Undefined|String"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 785,
+            "description": "给符合选择器的所有元素的扩展属性(expando).设置扩展属性 name 为 value",
+            "itemtype": "method",
+            "name": "data",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "扩展属性名称",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "扩展属性值"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 794,
+            "description": "给符合选择器的所有元素的扩展属性(expando).设置扩展属性 name 为 value",
+            "itemtype": "method",
+            "name": "data",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "kv",
+                    "description": "扩展属性名与扩展属性值的键值对\n__Note__\n\n- embed, object, applet 这三个标签不能设置 expando\n- 如果判断是否设置了扩展属性, 请使用 dom.hasData\n- 该函数并不能读取 data-xx 伪属性，例如 <div data-x=\"y\"></div>",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 设置所有 img 的名为 data-size 的 expando , 值为 400;\nDOM.data('img', 'data-size', 400);\n\n// 获取第一个 img 元素中, 名为 data-size 的 expando 值;\nDOM.data('img', 'data-size');\n\nvar p=DOM.create(\"<p>\");\n\nDOM.hasData(p); // => false\n\nvar store=DOM.data(p); // => store={}\n\nstore.x=\"y\"; // => 相当于 DOM.data(p,\"x\",\"y\");\n\nDOM.removeData(p,\"x\");\n\nDOM.data(p,\"x\"); // => undefined\n\nDOM.hasData(p,\"x\"); // => false\n\nDOM.hasData(p) // => false\n\nDOM.data(\"p\") // => 返回存储对象\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 835,
+            "description": "将符合选择器的所有元素的对应扩展属性( expando )删除",
+            "itemtype": "method",
+            "name": "removeData",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "扩展属性名称. 如果指定 name, 则只删除名为 name 的 expando . 如果不指定 name, 则删除元素的整个 expando",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 删除 img 元素的名为 data-size 的 expando;\nDOM.removeData('img', 'data-size');\n\n// 删除 img 元素的 expando;\nDOM.removeData('img');\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 853,
+            "description": "判断是否符合选择器的所有元素中的一个存在对应的扩展属性( expando )值",
+            "itemtype": "method",
+            "name": "hasData",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "name",
+                    "description": "扩展属性名称.如果指定 name, 则判断是否存在指定的扩展属性值. 否则判断是否存在任意扩展属性值",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "是否具有扩展属性",
+                "type": "Boolean"
+            },
+            "example": [
+                "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 给所有的段落节点设置扩展属性 ``x`` , 值为 ``y``\nDOM.data(\"p\",\"x\",\"y\");\n\nDOM.hasData(\"p\"); // => true , 设置过扩展属性\n\nDOM.hasData(\"p\",\"x\") // => true , 设置过扩展属性 ``x`` 的值\n\nDOM.hasData(\"p\",\"z\") // => false , 没有设置过扩展属性 ``z`` 的值\n\nDOM.removeData(\"p\",\"x\"); // => 删除扩展属性 ``x`` 的值\n\nDOM.hasData(\"p\",\"x\"); //=> false\n\nDOM.hasData(\"p\"); //=> false\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 881,
+            "description": "使符合选择器的所有元素都不可以作为选择区域的开始",
+            "itemtype": "method",
+            "name": "unselectable",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)\n__Note__\n\n在 ie 下会引发该元素鼠标点击获取不到焦点, 在 firefox 下要得到同样的效果则需要阻止 mousedown 事件",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 891,
+            "description": "获取符合选择器的所有子节点（包括文字节点）",
+            "itemtype": "method",
+            "name": "contents",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "filter",
+                    "description": "过滤条件, 格式参见 [dom.filter](#method_filter) 的相应参数",
+                    "type": "String|function"
+                }
+            ],
+            "return": {
+                "description": "获取符合选择器的所有子节点（包括文字节点）",
+                "type": "Array<HTMLElement>"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 900,
+            "description": "用 wrapperNode 分别包装符合 selector 的节点",
+            "itemtype": "method",
+            "name": "wrap",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "wrapperNode",
+                    "description": "包装节点",
+                    "type": "HTMLElement"
+                }
+            ],
+            "example": [
+                "\n```\n<div class=\"container\">\n  <div class=\"inner\">Hello</div>\n  <div class=\"inner\">Goodbye</div>\n</div>\n```\n_after_\n```\nDOM.wrap(\".inner\",DOM.create('<div class=\"new\" />'));\n```\n_become_\n```\n<div class=\"container\">\n  <div class=\"new\">\n    <div class=\"inner\">Hello</div>\n  </div>\n  <div class=\"new\">\n    <div class=\"inner\">Goodbye</div>\n  </div>\n</div>\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 930,
+            "description": "用 wrapperNode 包装所有符合 selector 的节点",
+            "itemtype": "method",
+            "name": "wrapAll",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "wrapperNode",
+                    "description": "包装节点",
+                    "type": "HTMLElement"
+                }
+            ],
+            "example": [
+                "\n```\n<div class=\"container\">\n  <div class=\"inner\">Hello</div>\n  <div class=\"inner\">Goodbye</div>\n</div>\n```\n_after_\n```\nDOM.wrapAll(\".inner\",DOM.create('<div class=\"new\" />'));\n```\n_become_\n```\n<div class=\"container\">\n  <div class=\"new\">\n    <div class=\"inner\">Hello</div>\n    <div class=\"inner\">Goodbye</div>\n  </div>\n</div>\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 958,
+            "description": "移除符合 selector 的节点的父节点",
+            "itemtype": "method",
+            "name": "unwrap",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "example": [
+                "\n```\n<div class=\"container\">\n  <div class=\"new\">\n    <div class=\"inner\">Hello</div>\n  </div>\n  <div class=\"new\">\n    <div class=\"inner\">Goodbye</div>\n  </div>\n</div>\n```\n_after_\n```\nDOM.unwrap(\".inner\");\n```\n_become_\n```\n <div class=\"container\">\n  <div class=\"inner\">Hello</div>\n  <div class=\"inner\">Goodbye</div>\n</div>\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 987,
+            "description": "用 wrapperNode 分别包装符合 selector 的节点的子节点",
+            "itemtype": "method",
+            "name": "wrapInner",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "wrapperNode",
+                    "description": "包装节点",
+                    "type": "HTMLElement"
+                }
+            ],
+            "example": [
+                "\n```\n<div class=\"container\">\n  <div class=\"inner\">Hello</div>\n  <div class=\"inner\">Goodbye</div>\n</div>\n```\n_after_\n```\nDOM.wrapInner(\".inner\",DOM.create('<div class=\"new\" />'));\n```\n_become_\n```\n<div class=\"container\">\n  <div class=\"inner\">\n    <div class=\"new\">Hello</div>\n  </div>\n  <div class=\"inner\">\n    <div class=\"new\">Goodbye</div>\n  </div>\n</div>\n```"
+            ],
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 1017,
+            "description": "获取符合选择器的第一个元素的小写 nodeName 值",
+            "itemtype": "method",
+            "name": "nodeName",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的小写 nodeName 值",
+                "type": "String"
+            },
+            "class": "DOM",
+            "module": "dom"
+        },
+        {
+            "file": "src\\api\\dom.js",
+            "line": 1025,
+            "description": "获取符合选择器的第一个元素的 outerHTML",
+            "itemtype": "method",
+            "name": "outerHTML",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                }
+            ],
+            "return": {
+                "description": "符合选择器的第一个元素的 outerHTML",
+                "type": "String"
+            },
+            "class": "DOM",
+            "module": "dom"
         },
         {
             "file": "src\\api\\features.js",
@@ -773,7 +2867,7 @@
             "params": [
                 {
                     "name": "name",
-                    "description": "模块名\n### Note\n如果模块名name省略不写，部署阶段需要使用 [KISSY Module Compiler](https://github.com/daxingplay/grunt-kmc)",
+                    "description": "模块名\n__Note__\n\n如果模块名name省略不写，部署阶段需要使用 [KISSY Module Compiler](https://github.com/daxingplay/grunt-kmc)",
                     "type": "String",
                     "optional": true
                 },
@@ -798,14 +2892,14 @@
                 }
             ],
             "example": [
-                "\n\n- 添加模块\n```\nKISSY.add(\"yourmod\",function(S){},\n   {\n       requires:['depMod1','depMod2','./mod.css'] // 该模块的一些依赖项,\n                                                  // 注意 css 为和模块 js 同目录下的 mod.css\n   }\n);\n```\n\n- 添加匿名模块\n```\nKISSY.add(function(S){},\n   {\n       requires:['depMod1','depMod2','./mod.css'] // 该模块的一些依赖项,\n                                                  // 注意 css 为和模块 js 同目录下的 mod.css\n   }\n);\n```\n\n- 如果依赖的模块 depMod1 以及 depMod2 的定义函数有返回值, 例如\n```\n// depMod11.js\nKISSY.add(function(){\n   function Mod(){}\n   return Mod;\n});\n// depMod2.js\nKISSY.add(function(){\n   function Mod(){}\n   return Mod;\n});\n```\n那么该返回值会作为参数传入依赖 depMod1 以及 depMod2 的模块的定义函数, 例如\n```\nKISSY.add(function(S,DepMod1,DepMod2){\n   //use DepMod1 to refer depmod1's return value\n},{requires:[\"depmod1\",\"depmod2\"]});\n```\n\n- 当模块名称 name 为包内模块,则requires的模块名称可使用相对路径来引入包内其他模块\n```\n// tc/mods/mod1.js\n// 依赖于 tc/mods/mod2\nKISSY.add(function(){},{requires:['./mod2']});\n```\n\n- 也支持commonjs 的模块书写方式，如：\n```\n/ a/b.js\nKISSY.add(function(S,require,exports,module){\n   var c = require('a/c');\n   return c; // or module.exports=c;\n});\n```\n\n### Note\n* #### 压缩模块\n若线上环境使用 kissy-min.js , 则请使用 closure compiler 对所有模块文件进行压缩, 例如 mod.js 压缩为 mod-min.js , 放在模块文件的同级目录下.\n* #### 代码更新机制\n由于动态加载的 js 文件不是写在页面中, 所以不能从页面添加时间戳, 并且1.2 loader新增的约定加载也不能配置具体模块文件路径, 因此 1.2 loader 提供了在包级别添加时间戳的机制.如：\n```\nKISSY.config({\n   packages:{\n       //包名\n       \"1.2\":{\n           base: \"http://xx.com/\"\n       }\n   }\n});\n```\n当更改包内模块后, 只需修改tag属性.\n```\nKISSY.config({\n   packages:{\n   //包名\n       \"1.2\":{\n           tag:\"20110323\",\n           base:\"http://xx.com/\"\n       }\n   }\n});\n```\n那么下载动态加载的 js 文件路径后面会自动加上： ?t=20110323.\n> 也可以不修改时间戳 tag 而是直接修改 path , 这样的话每次更新都需要新建一个目录包括更新后的全部代码,不建议这样\n* #### 静态部署\n部署时也可以不采用动态加载, 仅仅将 kissy loader 作为代码组织的一种方式, 将所有的模块打包到一个文件静态引入放在页面中, 当使用 KISSY.use 时如果模块已经过静态引入在页面中, 则不会发送请求."
+                "\n\n- 添加模块\n```\nKISSY.add(\"yourmod\",function(S){},\n   {\n       requires:['depMod1','depMod2','./mod.css'] // 该模块的一些依赖项,\n                                                  // 注意 css 为和模块 js 同目录下的 mod.css\n   }\n);\n```\n\n- 添加匿名模块\n```\nKISSY.add(function(S){},\n   {\n       requires:['depMod1','depMod2','./mod.css'] // 该模块的一些依赖项,\n                                                  // 注意 css 为和模块 js 同目录下的 mod.css\n   }\n);\n```\n\n- 如果依赖的模块 depMod1 以及 depMod2 的定义函数有返回值, 例如\n```\n// depMod11.js\nKISSY.add(function(){\n   function Mod(){}\n   return Mod;\n});\n// depMod2.js\nKISSY.add(function(){\n   function Mod(){}\n   return Mod;\n});\n```\n那么该返回值会作为参数传入依赖 depMod1 以及 depMod2 的模块的定义函数, 例如\n```\nKISSY.add(function(S,DepMod1,DepMod2){\n   //use DepMod1 to refer depmod1's return value\n},{requires:[\"depmod1\",\"depmod2\"]});\n```\n\n- 当模块名称 name 为包内模块,则requires的模块名称可使用相对路径来引入包内其他模块\n```\n// tc/mods/mod1.js\n// 依赖于 tc/mods/mod2\nKISSY.add(function(){},{requires:['./mod2']});\n```\n\n- 也支持commonjs 的模块书写方式，如：\n```\n/ a/b.js\nKISSY.add(function(S,require,exports,module){\n   var c = require('a/c');\n   return c; // or module.exports=c;\n});\n```\n\n__Note__\n\n* 压缩模块\n若线上环境使用 kissy-min.js , 则请使用 closure compiler 对所有模块文件进行压缩, 例如 mod.js 压缩为 mod-min.js , 放在模块文件的同级目录下.\n* 代码更新机制\n由于动态加载的 js 文件不是写在页面中, 所以不能从页面添加时间戳, 并且1.2 loader新增的约定加载也不能配置具体模块文件路径, 因此 1.2 loader 提供了在包级别添加时间戳的机制.如：\n```\nKISSY.config({\n   packages:{\n       //包名\n       \"1.2\":{\n           base: \"http://xx.com/\"\n       }\n   }\n});\n```\n当更改包内模块后, 只需修改tag属性.\n```\nKISSY.config({\n   packages:{\n   //包名\n       \"1.2\":{\n           tag:\"20110323\",\n           base:\"http://xx.com/\"\n       }\n   }\n});\n```\n那么下载动态加载的 js 文件路径后面会自动加上： ?t=20110323.\n> 也可以不修改时间戳 tag 而是直接修改 path , 这样的话每次更新都需要新建一个目录包括更新后的全部代码,不建议这样\n* #### 静态部署\n部署时也可以不采用动态加载, 仅仅将 kissy loader 作为代码组织的一种方式, 将所有的模块打包到一个文件静态引入放在页面中, 当使用 KISSY.use 时如果模块已经过静态引入在页面中, 则不会发送请求."
             ],
             "class": "Loader",
             "module": "loader"
         },
         {
             "file": "src\\api\\loader.js",
-            "line": 114,
+            "line": 116,
             "description": "设置或获取 KISSY 配置参数",
             "itemtype": "method",
             "name": "config",
@@ -870,13 +2964,13 @@
                         },
                         {
                             "name": "packages",
-                            "description": "以包名为键，包配置对象为值的键值对对象\n### Note\n包配置对象包括：\n- group String类型 表示包所属的组名\n- debug Boolean类型 包内的脚本请求是是否加 -min 后缀，默认和 KISSY.config(“debug”) 相同\n- tag 类型字符串, 最好为时间戳, 用于刷新客户端本包的模块文件缓存\n- combine 类型Boolean, 如果总和 combine 设置为 true，但是单个包 combine 设置为 false，则该包内文件不进行自动 combo\n- ignorePackageNameInUri 类型Boolean, 默认 false. 是否在请求的模块路径中省去 package name. 例如 use('xx/a') 配置 xx package 的 base 为 `http://test.com/` 则设置 ignorePackageNameInUri 后请求地址为： `http://test.com/a.js`\n- 类型字符串, 表示包所在的 url 路径, 相对路径表示相对于当前页面路径.\n- path 作用同 base 配置\n- charset 类型字符串, 表示宝贝所有模块定义文件的编码格式, 默认 utf-8",
+                            "description": "以包名为键，包配置对象为值的键值对对象\n__Note__\n\n包配置对象包括：\n- group String类型 表示包所属的组名\n- debug Boolean类型 包内的脚本请求是是否加 -min 后缀，默认和 KISSY.config(“debug”) 相同\n- tag 类型字符串, 最好为时间戳, 用于刷新客户端本包的模块文件缓存\n- combine 类型Boolean, 如果总和 combine 设置为 true，但是单个包 combine 设置为 false，则该包内文件不进行自动 combo\n- ignorePackageNameInUri 类型Boolean, 默认 false. 是否在请求的模块路径中省去 package name. 例如 use('xx/a') 配置 xx package 的 base 为 `http://test.com/` 则设置 ignorePackageNameInUri 后请求地址为： `http://test.com/a.js`\n- 类型字符串, 表示包所在的 url 路径, 相对路径表示相对于当前页面路径.\n- path 作用同 base 配置\n- charset 类型字符串, 表示宝贝所有模块定义文件的编码格式, 默认 utf-8",
                             "type": "Object",
                             "optional": true
                         },
                         {
                             "name": "modules",
-                            "description": "以单个模块为键，单个模块配置对象为值的键值对对象\n### Note\n单个模块配置对象包括：\n- requires 类型String,该模块的依赖模块名数组。当设置 combine 为 true 时需要配置，否则不建议配置.\n- tag 类型 String，单个模块的时间戳。仅在 combine 为 false 时生效。 combine:true 时取对应包的 tag.",
+                            "description": "以单个模块为键，单个模块配置对象为值的键值对对象\n__Note__\n\n单个模块配置对象包括：\n- requires 类型String,该模块的依赖模块名数组。当设置 combine 为 true 时需要配置，否则不建议配置.\n- tag 类型 String，单个模块的时间戳。仅在 combine 为 false 时生效。 combine:true 时取对应包的 tag.",
                             "type": "Object",
                             "optional": true
                         }
@@ -884,14 +2978,14 @@
                 }
             ],
             "example": [
-                "\n* #### 总配置范例概览\n```\nKISSY.config({\n   // 开启自动 combo 模式\n   combine:true,\n   // kissy 库内置模块的时间戳\n   tag:'2012',\n   // kissy 的基准路径\n   base:'http://x.com/a',\n   packages:{\n       x:{\n           // x 包的基准路径\n           base:'http://x.com/biz/',\n           // x 包的时间戳\n           tag:'x',\n           // 开启 x 包 debug 模式\n           debug:true\n       },\n       y:{\n          // y 包的基准路径\n          base:'http://x.com/biz/',\n          // y 包不开启自动 combo\n          combine:false\n          // 不配置 tag，则取 kissy 内置模块的时间戳\n       }\n   },\n   modules:{\n       \"x/b1\":{\n           // \"x/b1\" 模块的依赖信息\n           requires:[\"x/b2\",\"x/b3\"]\n       },\n       \"y/b2\":{\n           // y/b2 模块单独的时间戳\n           tag:'234'\n       }\n   }\n});\n```\n\n* #### packages 范例: 包配置\n```\nKISSY.config({\n   packages:{\n       // 包名\n       \"tc\": {\n           tag:\"20110323\", // 动态加载包内的模块js文件时,\n                           // 自动加上 ?t=20110323, 用于文件更新\n           base:\"../\", // 包对应路径, 相对路径指相对于当前页面路径\n           charset:\"gbk\" // 包里模块文件编码格式\n       }\n   }\n});\n```\n\n### Note : group组介绍概览\n- #### 简单使用(如果想将多个包combo到一起，需要通过配置参数group来实现。例如，对于以下包进行combo：)\n```\nKISSY.config({\n\tpackages:{\n\t\t\"pkg-a\": {\n\t\t    base: \"http://example.com/pkg-a\",\n\t\t    group: \"group1\",\n\t\t    combine: true,\n\t\t    tag: \"20120222\"\n\t\t},\n\t\t\"pkg-b\": {\n\t\t    base: \"http://example.com/pkg-b\",\n\t\t    group: \"group1\",\n\t\t    combine: true,\n\t\t    tag: \"20130303\"\n\t\t},\n\t\t\"pkg-c\": {\n\t\t    base: \"http://example.com/pkg-c\",\n\t\t    combine: true,\n\t\t    tag: \"20111111\"\n\t\t}\n\t}\n})\n```\n由于pkg-a和pkg-b的group设置为”group1”，则KISSY会对这两个包的模块进行combo。而pkg-c则单独combo。产生URL如下：\n```\nhttp://example.com/??pkg-a/mod1.js,pkg-a/mod2.js,pkg-b/mod1.js,...?t=-389697156.js\nhttp://example.com/pkg-c/??mod1.js,...?t=20111111.js\n```\n其中，时间戳?t=-389697156.js是根据pkg-a和pkg-b的时间戳tag来计算的。如果修改了其中一个包的时间戳，则combo后的时间戳也会变化。\n\n- #### 容错\n  极端情况下，即使要combo的包路径path没有统一的前缀，也没有关系，KISSY可以自动识别和容错，分别对两个包进行combo。例如：\n```\nKISSY.config({\n\tpackages:{\n\t\t\"pkg-a\": {\n\t\t    base: \"http://example.com/pkg-a\",\n\t\t    group: \"group2\",\n\t\t    combine: true,\n\t\t    tag: \"20120222\"\n\t\t},\n\t\t\"test\": {\n\t\t    base: \"http://g.tbcdn.cn\",\n\t\t    group: \"group2\",\n\t\t    combine: true,\n\t\t    tag: \"20130303\"\n\t\t}\n\t}\n})\n```\ncombo后的URL如下：\n```\nhttp://example.com/pkg-a/??mod1.js,mod2.js,...\nhttp://g.tbcdn.cn/test/??mod1.js,...\n```\n\n- #### 和 kissy 一起 combo\n如果你的应用代码和 kissy 部署在同一台机器上，那么应用代码还可以和 kissy 一起 combo\n> KISSY.config('group','tb');   //// 所有包都 combo 到 tb 组"
+                "\n* #### 总配置范例概览\n```\nKISSY.config({\n   // 开启自动 combo 模式\n   combine:true,\n   // kissy 库内置模块的时间戳\n   tag:'2012',\n   // kissy 的基准路径\n   base:'http://x.com/a',\n   packages:{\n       x:{\n           // x 包的基准路径\n           base:'http://x.com/biz/',\n           // x 包的时间戳\n           tag:'x',\n           // 开启 x 包 debug 模式\n           debug:true\n       },\n       y:{\n          // y 包的基准路径\n          base:'http://x.com/biz/',\n          // y 包不开启自动 combo\n          combine:false\n          // 不配置 tag，则取 kissy 内置模块的时间戳\n       }\n   },\n   modules:{\n       \"x/b1\":{\n           // \"x/b1\" 模块的依赖信息\n           requires:[\"x/b2\",\"x/b3\"]\n       },\n       \"y/b2\":{\n           // y/b2 模块单独的时间戳\n           tag:'234'\n       }\n   }\n});\n```\n\n* #### packages 范例: 包配置\n```\nKISSY.config({\n   packages:{\n       // 包名\n       \"tc\": {\n           tag:\"20110323\", // 动态加载包内的模块js文件时,\n                           // 自动加上 ?t=20110323, 用于文件更新\n           base:\"../\", // 包对应路径, 相对路径指相对于当前页面路径\n           charset:\"gbk\" // 包里模块文件编码格式\n       }\n   }\n});\n```\n\n__Note : group组介绍概览__\n\n- #### 简单使用(如果想将多个包combo到一起，需要通过配置参数group来实现。例如，对于以下包进行combo：)\n```\nKISSY.config({\n\tpackages:{\n\t\t\"pkg-a\": {\n\t\t    base: \"http://example.com/pkg-a\",\n\t\t    group: \"group1\",\n\t\t    combine: true,\n\t\t    tag: \"20120222\"\n\t\t},\n\t\t\"pkg-b\": {\n\t\t    base: \"http://example.com/pkg-b\",\n\t\t    group: \"group1\",\n\t\t    combine: true,\n\t\t    tag: \"20130303\"\n\t\t},\n\t\t\"pkg-c\": {\n\t\t    base: \"http://example.com/pkg-c\",\n\t\t    combine: true,\n\t\t    tag: \"20111111\"\n\t\t}\n\t}\n})\n```\n由于pkg-a和pkg-b的group设置为”group1”，则KISSY会对这两个包的模块进行combo。而pkg-c则单独combo。产生URL如下：\n```\nhttp://example.com/??pkg-a/mod1.js,pkg-a/mod2.js,pkg-b/mod1.js,...?t=-389697156.js\nhttp://example.com/pkg-c/??mod1.js,...?t=20111111.js\n```\n其中，时间戳?t=-389697156.js是根据pkg-a和pkg-b的时间戳tag来计算的。如果修改了其中一个包的时间戳，则combo后的时间戳也会变化。\n\n- #### 容错\n  极端情况下，即使要combo的包路径path没有统一的前缀，也没有关系，KISSY可以自动识别和容错，分别对两个包进行combo。例如：\n```\nKISSY.config({\n\tpackages:{\n\t\t\"pkg-a\": {\n\t\t    base: \"http://example.com/pkg-a\",\n\t\t    group: \"group2\",\n\t\t    combine: true,\n\t\t    tag: \"20120222\"\n\t\t},\n\t\t\"test\": {\n\t\t    base: \"http://g.tbcdn.cn\",\n\t\t    group: \"group2\",\n\t\t    combine: true,\n\t\t    tag: \"20130303\"\n\t\t}\n\t}\n})\n```\ncombo后的URL如下：\n```\nhttp://example.com/pkg-a/??mod1.js,mod2.js,...\nhttp://g.tbcdn.cn/test/??mod1.js,...\n```\n\n- #### 和 kissy 一起 combo\n如果你的应用代码和 kissy 部署在同一台机器上，那么应用代码还可以和 kissy 一起 combo\n> KISSY.config('group','tb');   //// 所有包都 combo 到 tb 组"
             ],
             "class": "Loader",
             "module": "loader"
         },
         {
             "file": "src\\api\\loader.js",
-            "line": 263,
+            "line": 268,
             "description": "设置或获取 KISSY 配置参数",
             "itemtype": "method",
             "name": "config",
@@ -916,7 +3010,7 @@
         },
         {
             "file": "src\\api\\loader.js",
-            "line": 272,
+            "line": 277,
             "description": "动态加载目标地址的资源文件",
             "itemtype": "method",
             "name": "getScript",
@@ -964,7 +3058,7 @@
         },
         {
             "file": "src\\api\\loader.js",
-            "line": 285,
+            "line": 290,
             "description": "使用模块,和KISSY.add一起使用, 形成KISSY的模块加载体系",
             "itemtype": "method",
             "name": "use",
@@ -994,21 +3088,21 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use(\"depMod1,depMod2\",function(S,DepMod1,DepMod2){\n});\n\nKISSY.use(\"depMod1,depMod2\",{\n   success:function(S,DepMod1,DepMod2){\n   },\n   error:function(){\n       var errorMods = KISSY.makeArray(arguments);\n   }\n});\n```\n### Note\n如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 use 即可, 如果模块名以 / 结尾, 则自动加后缀 index , 例如 use(\"mods/m1/\") 相当于 use(\"mods/m1/index\") , 即自动加载 m1 目录下的 index.js"
+                "\n```\nKISSY.use(\"depMod1,depMod2\",function(S,DepMod1,DepMod2){\n});\n\nKISSY.use(\"depMod1,depMod2\",{\n   success:function(S,DepMod1,DepMod2){\n   },\n   error:function(){\n       var errorMods = KISSY.makeArray(arguments);\n   }\n});\n```\n__Note__\n\n如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 use 即可, 如果模块名以 / 结尾, 则自动加后缀 index , 例如 use(\"mods/m1/\") 相当于 use(\"mods/m1/index\") , 即自动加载 m1 目录下的 index.js"
             ],
             "class": "Loader",
             "module": "loader"
         },
         {
             "file": "src\\api\\loader.js",
-            "line": 310,
+            "line": 316,
             "description": "阻塞加载 css 模块或 js 模块依赖的 css 模块, 和 KISSY.add 中的 require 配置一起使用.",
             "itemtype": "method",
             "name": "importStyle",
             "params": [
                 {
                     "name": "modName",
-                    "description": "以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use(\"mod1,mod2/xx.css\");\n### Note\nImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。\n- 先决条件\n头部引入`<script src='http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js'></script>`\n- 使用指南\n\n```\n\tKISSY.config('modules', {\n\t  'components/nav/index': {requires: ['components/nav/index.css']},\n\t  'components/layout/index': {requires: ['components/layout/index.css']},\n\t  'components/home/index': {requires: ['components/nav/index','components/layout/index']}\n\t});\n\n\tKISSY.config({\n\t  'combine':true,\n\t  'packages':[{\n\t    'name':'components',\n\t    'base':'http://assets.etao.net/apps/e/hotel/130716',\n\t    'debug':'true'\n\t  }]\n\t});\n\n\t//下面是要我们手工维护的模块列表\n\tKISSY.importStyle('components/home/index');\n```",
+                    "description": "以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use(\"mod1,mod2/xx.css\");\n__Note__\n\nImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。\n- 先决条件\n头部引入`<script src='http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js'></script>`\n- 使用指南\n\n```\n\tKISSY.config('modules', {\n\t  'components/nav/index': {requires: ['components/nav/index.css']},\n\t  'components/layout/index': {requires: ['components/layout/index.css']},\n\t  'components/home/index': {requires: ['components/nav/index','components/layout/index']}\n\t});\n\n\tKISSY.config({\n\t  'combine':true,\n\t  'packages':[{\n\t    'name':'components',\n\t    'base':'http://assets.etao.net/apps/e/hotel/130716',\n\t    'debug':'true'\n\t  }]\n\t});\n\n\t//下面是要我们手工维护的模块列表\n\tKISSY.importStyle('components/home/index');\n```",
                     "type": "String|Array"
                 }
             ],
@@ -1017,7 +3111,7 @@
         },
         {
             "file": "src\\api\\loader.js",
-            "line": 341,
+            "line": 348,
             "description": "添加模块",
             "itemtype": "method",
             "name": "require",
@@ -1332,7 +3426,7 @@
         {
             "file": "src\\api\\util.js",
             "line": 74,
-            "description": "将fn缓存一段时间后再回调执行\n### Note:\n- 此方法为了避免在 ms 段时间内, 执行 fn 多次. 常用于 resize , scroll , mousemove 等连续性事件中;\n- 当 ms 设置为 -1, 表示立即执行 fn, 即和直接调用 fn 一样;",
+            "description": "将fn缓存一段时间后再回调执行\n__Note:__\n\n- 此方法为了避免在 ms 段时间内, 执行 fn 多次. 常用于 resize , scroll , mousemove 等连续性事件中;\n- 当 ms 设置为 -1, 表示立即执行 fn, 即和直接调用 fn 一样;",
             "itemtype": "method",
             "name": "buffer",
             "static": 1,
@@ -1365,7 +3459,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 92,
+            "line": 93,
             "description": "创建一个普通对象或数组的深拷贝, 并且返回",
             "itemtype": "method",
             "name": "clone",
@@ -1395,7 +3489,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 110,
+            "line": 111,
             "description": "遍历数组中的每一项, 执行指定方法.",
             "itemtype": "method",
             "name": "each",
@@ -1427,7 +3521,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 141,
+            "line": 142,
             "description": "判断str是否已suffix结尾",
             "itemtype": "method",
             "name": "endsWith",
@@ -1453,8 +3547,8 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 150,
-            "description": "抛出错误异常\n### Note\n- 只有在 debug 模式下并且载入 seed.js, 才会抛出异常. debug 模式的说明请参考 Config",
+            "line": 151,
+            "description": "抛出错误异常\n__Note__\n\n- 只有在 debug 模式下并且载入 seed.js, 才会抛出异常. debug 模式的说明请参考 Config",
             "itemtype": "method",
             "name": "error",
             "static": 1,
@@ -1470,8 +3564,8 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 159,
-            "description": "将字符串经过 html 转义得到适合在页面中显示的内容, 例如替换 < 为 &lt;\n### Note\n- 此函数只会对以下符号进行 escape：`& > < ` / \" '`",
+            "line": 161,
+            "description": "将字符串经过 html 转义得到适合在页面中显示的内容, 例如替换 < 为 &lt;\n__Note__\n\n- 此函数只会对以下符号进行 escape：`& > < ` / \" '`",
             "itemtype": "method",
             "name": "escapeHTML",
             "params": [
@@ -1490,7 +3584,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 168,
+            "line": 171,
             "description": "让子类 SubClass 继承父类 ParentClass",
             "itemtype": "method",
             "name": "extend",
@@ -1531,7 +3625,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 198,
+            "line": 201,
             "description": "遍历数组, 过滤出符合条件的数组项",
             "itemtype": "method",
             "name": "filter",
@@ -1566,7 +3660,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 218,
+            "line": 221,
             "description": "将 str 中 unicode 转义的字符替换成真实字符. 主要用于 taobao 用户名 cookie 读取.",
             "itemtype": "method",
             "name": "fromUnicode",
@@ -1590,7 +3684,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 228,
+            "line": 231,
             "description": "将 str 作为输出的 log 的前缀",
             "itemtype": "method",
             "name": "getLogger",
@@ -1607,14 +3701,14 @@
                 "type": "Object"
             },
             "example": [
-                "\n  ```\nvar logger = KISSY.getLogger('KISSY');\nlogger.debug(\"test\"); // => \"KISSY: test\";\n  ```\n### Note\n可以在配置中设置logger的级别，以及是否显示。 当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先\n```\nS.config('logger', {\n   includes: [\n       {\n           logger: /^xx\\//\n       }\n   ],\n   excludes: [\n       {\n           logger: /^xx\\//， //以xx/开头的不显示\n           maxLevel: 'info' //不显示 info 及 info 以下的 log\n       }\n   ]\n});\n  ```"
+                "\n  ```\nvar logger = KISSY.getLogger('KISSY');\nlogger.debug(\"test\"); // => \"KISSY: test\";\n  ```\n__Note__\n可以在配置中设置logger的级别，以及是否显示。 当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先\n```\nS.config('logger', {\n   includes: [\n       {\n           logger: /^xx\\//\n       }\n   ],\n   excludes: [\n       {\n           logger: /^xx\\//， //以xx/开头的不显示\n           maxLevel: 'info' //不显示 info 及 info 以下的 log\n       }\n   ]\n});\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src\\api\\util.js",
-            "line": 258,
+            "line": 261,
             "description": "在全局作用域下执行代码字符串, 避免 eval 的作用域链",
             "itemtype": "method",
             "name": "globalEval",
@@ -1631,7 +3725,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 265,
+            "line": 268,
             "description": "返回全局唯一 id",
             "itemtype": "method",
             "name": "guid",
@@ -1652,7 +3746,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 273,
+            "line": 276,
             "description": "判断元素 elem 是否在数组 arr 中",
             "itemtype": "method",
             "name": "inArray",
@@ -1678,7 +3772,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 282,
+            "line": 285,
             "description": "返回元素 elem 在数组 arr 中的序号",
             "itemtype": "method",
             "name": "indexOf",
@@ -1704,7 +3798,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 291,
+            "line": 294,
             "description": "判断是否数组",
             "itemtype": "method",
             "name": "isArray",
@@ -1725,7 +3819,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 299,
+            "line": 302,
             "description": "判断是否布尔值",
             "itemtype": "method",
             "name": "isBoolean",
@@ -1746,7 +3840,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 307,
+            "line": 310,
             "description": "判断是否日期",
             "itemtype": "method",
             "name": "isDate",
@@ -1767,7 +3861,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 315,
+            "line": 318,
             "description": "判断是否空对象(没有任何可遍历的属性)",
             "itemtype": "method",
             "name": "isEmptyObject",
@@ -1788,7 +3882,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 323,
+            "line": 326,
             "description": "判断是否函数",
             "itemtype": "method",
             "name": "isFunction",
@@ -1809,7 +3903,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 331,
+            "line": 334,
             "description": "判断是否 null",
             "itemtype": "method",
             "name": "isNull",
@@ -1830,7 +3924,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 339,
+            "line": 342,
             "description": "判断是否有效数值",
             "itemtype": "method",
             "name": "isNumber",
@@ -1851,7 +3945,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 347,
+            "line": 350,
             "description": "判断是否为对象",
             "itemtype": "method",
             "name": "isObject",
@@ -1872,7 +3966,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 355,
+            "line": 358,
             "description": "判断是否是普通对象, 通过 {} 或 new FunctionClass/Object() 创建的, 不包括内置对象以及宿主对象.",
             "itemtype": "method",
             "name": "isPlainObject",
@@ -1893,7 +3987,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 363,
+            "line": 366,
             "description": "判断是否正则表达式",
             "itemtype": "method",
             "name": "isRegExp",
@@ -1914,7 +4008,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 371,
+            "line": 374,
             "description": "判断是否字符串",
             "itemtype": "method",
             "name": "isString",
@@ -1935,7 +4029,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 379,
+            "line": 382,
             "description": "判断是否 undefined",
             "itemtype": "method",
             "name": "isUndefined",
@@ -1956,7 +4050,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 387,
+            "line": 390,
             "description": "判断参数是否为浏览器 window",
             "itemtype": "method",
             "name": "isWindow",
@@ -1977,7 +4071,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 395,
+            "line": 398,
             "description": "将对象的所有属性名作为数组返回",
             "itemtype": "method",
             "name": "keys",
@@ -1998,7 +4092,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 403,
+            "line": 406,
             "description": "返回元素 elem 在数组 arr 中最后出现的序号",
             "itemtype": "method",
             "name": "lastIndexOf",
@@ -2024,7 +4118,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 412,
+            "line": 415,
             "description": "延迟执行指定函数 fn",
             "itemtype": "method",
             "name": "later",
@@ -2072,7 +4166,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 434,
+            "line": 437,
             "description": "输出调试信息",
             "itemtype": "method",
             "name": "log",
@@ -2090,7 +4184,7 @@
                 },
                 {
                     "name": "src",
-                    "description": "调试代码所在的源信息\n### Note\n只有在 debug 模式下并且载入 seed.js, 才会输出调试信息. debug 模式的说明请参考 Config",
+                    "description": "调试代码所在的源信息\n__Note__\n只有在 debug 模式下并且载入 seed.js, 才会输出调试信息. debug 模式的说明请参考 Config",
                     "type": "String"
                 }
             ],
@@ -2099,7 +4193,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 445,
+            "line": 448,
             "description": "将对象 o 转换为数组.",
             "itemtype": "method",
             "name": "makeArray",
@@ -2120,7 +4214,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 453,
+            "line": 456,
             "description": "创建一个新数组, 数组结果是在对每个原数组元素调用指定函数的返回值.",
             "itemtype": "method",
             "name": "map",
@@ -2152,7 +4246,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 463,
+            "line": 466,
             "description": "将多个对象的成员合并到一个新对象上. 参数中, 后面的对象成员会覆盖前面的.",
             "itemtype": "method",
             "name": "merge",
@@ -2181,7 +4275,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 484,
+            "line": 487,
             "description": "将 supplier 对象的成员复制到 receiver 对象上.",
             "itemtype": "method",
             "name": "mix",
@@ -2215,7 +4309,7 @@
                 }
             ],
             "return": {
-                "description": "receiver 属性接受者对象\n### Note\nreceiver 会被改变，如果想要保留原始的 receiver ，可以使用 KISSY.merge()\n`var object=S.merge(object1,object2);`\n\nS.mix 默认不是递归进行的. 如果其中一个属性为对象或者数组，那么他将会被接下来对象的同名属性对应的值所代替，即值不会被合并。 如果设置了参数 deep = true ，那么会对数组和简单对象( `KISSY.isPlainObject()` )递归合并\nsupplier undefined 的属性值不会被复制，不过对象从原型继承下来下的值则会被复制\n该方法仅适用于 javascript 对象，不要再浏览器对象上调用，例如 node.style\n\nmix 支持函数作为白名单参数\n  ```\nvar a = {},\nb = {\n   b1: 1,\n   b2: {\n       b2: 22\n   }\n};\n\nS.mix(a, b, {\n   deep: true,\n   whitelist: function (name, v) {\n       if (name == 'b1') {\n           return v;\n       }\n       if (this.b1 && name == 'b2') {\n           return v;\n       }\n       return undefined;\n   }\n});\n  ```",
+                "description": "receiver 属性接受者对象\n__Note__\nreceiver 会被改变，如果想要保留原始的 receiver ，可以使用 KISSY.merge()\n`var object=S.merge(object1,object2);`\n\nS.mix 默认不是递归进行的. 如果其中一个属性为对象或者数组，那么他将会被接下来对象的同名属性对应的值所代替，即值不会被合并。 如果设置了参数 deep = true ，那么会对数组和简单对象( `KISSY.isPlainObject()` )递归合并\nsupplier undefined 的属性值不会被复制，不过对象从原型继承下来下的值则会被复制\n该方法仅适用于 javascript 对象，不要再浏览器对象上调用，例如 node.style\n\nmix 支持函数作为白名单参数\n  ```\nvar a = {},\nb = {\n   b1: 1,\n   b2: {\n       b2: 22\n   }\n};\n\nS.mix(a, b, {\n   deep: true,\n   whitelist: function (name, v) {\n       if (name == 'b1') {\n           return v;\n       }\n       if (this.b1 && name == 'b2') {\n           return v;\n       }\n       return undefined;\n   }\n});\n  ```",
                 "type": "Object"
             },
             "example": [
@@ -2226,7 +4320,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 563,
+            "line": 566,
             "description": "根据参数创建命名空间对象",
             "itemtype": "method",
             "name": "namespace",
@@ -2253,7 +4347,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 572,
+            "line": 575,
             "description": "返回 new Date().getTime()",
             "itemtype": "method",
             "name": "date",
@@ -2267,7 +4361,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 579,
+            "line": 582,
             "description": "将对象 o 转换为参数字符串, 用于发送 http 请求",
             "itemtype": "method",
             "name": "param",
@@ -2308,7 +4402,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 600,
+            "line": 603,
             "description": "将字符串转化为 xml 文档",
             "itemtype": "method",
             "name": "parseXML",
@@ -2328,7 +4422,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 614,
+            "line": 617,
             "description": "在 DOM 加载完毕时执行回调函数fn",
             "itemtype": "method",
             "name": "ready",
@@ -2345,7 +4439,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 621,
+            "line": 624,
             "description": "从左向右对每个数组元素调用给定函数，并把返回值累积起来",
             "itemtype": "method",
             "name": "reduce",
@@ -2368,7 +4462,7 @@
                 }
             ],
             "return": {
-                "description": "累计值\n### Note\nreduce 对数组中的每个元素执行 fn 函数，该 fn 接受四个参数：initialValue (或者上次调用 fn 的返回值)， 数组的当前元素，数组的当前位置以及用于遍历的数组.\n调用 reduce 类似于：`KISSY.reduce([],function(previousValue, currentValue, index, array));`\n当第一次调用 fn 时 :\n - 如果调用 reduce 时没有设定 initialValue，previousValue 和 currentValue 是数组的前两个值.\n - 如果调用 reduce 时设定了 initialValue，那么 previousValue 和 initialValue 相等 ，而 currentValue 则和数组的第一个元素相等."
+                "description": "累计值\n__Note__\nreduce 对数组中的每个元素执行 fn 函数，该 fn 接受四个参数：initialValue (或者上次调用 fn 的返回值)， 数组的当前元素，数组的当前位置以及用于遍历的数组.\n调用 reduce 类似于：`KISSY.reduce([],function(previousValue, currentValue, index, array));`\n当第一次调用 fn 时 :\n - 如果调用 reduce 时没有设定 initialValue，previousValue 和 currentValue 是数组的前两个值.\n - 如果调用 reduce 时设定了 initialValue，那么 previousValue 和 initialValue 相等 ，而 currentValue 则和数组的第一个元素相等."
             },
             "example": [
                 "\n  ```\nKISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){\n return previousValue + currentValue;\n});\n\n// First call\npreviousValue = 0, currentValue = 1, index = 1\n\n// Second call\npreviousValue = 1, currentValue = 2, index = 2\n\n// Third call\npreviousValue = 3, currentValue = 3, index = 3\n\n// Fourth call\npreviousValue = 6, currentValue = 4, index = 4\n\n// array is always the object [0,1,2,3,4] upon which reduce was called\n\n// Return Value: 10\n  ```\n\n  ```\nKISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){\n return previousValue + currentValue;\n}, 10);\n\n// First call\npreviousValue = 10, currentValue = 0, index = 0\n\n// Second call\npreviousValue = 10, currentValue = 1, index = 1\n\n// Third call\npreviousValue = 11, currentValue = 2, index = 2\n\n// Fourth call\npreviousValue = 13, currentValue = 3, index = 3\n\n// Fifth call\npreviousValue = 16, currentValue = 4, index = 4\n\n// array is always the object [0,1,2,3,4] upon which reduce was called\n\n// Return Value: 20\n  ```\n\n### 得到数组的值总和\n`var total = KISSY.reduce([0, 1, 2, 3],function(a, b){ return a + b; }); // total == 6`\n\n### 嵌套数组平坦化\n  ```\nvar flattened = KISSY.reduce([[0,1], [2,3], [4,5]],function(a,b) {\n return a.concat(b);\n});\n// flattened is [0, 1, 2, 3, 4, 5]\n  ```"
@@ -2378,7 +4472,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 695,
+            "line": 698,
             "description": "判断 str 是否以 prefix 开头",
             "itemtype": "method",
             "name": "startsWith",
@@ -2404,7 +4498,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 704,
+            "line": 707,
             "description": "将字符串中的占位符替换为对应的键值",
             "itemtype": "method",
             "name": "substitute",
@@ -2433,7 +4527,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 721,
+            "line": 724,
             "description": "ms 时间内只执行 fn 一次, 即使这段时间内 fn 被调用多次.",
             "itemtype": "method",
             "name": "throttle",
@@ -2456,7 +4550,7 @@
                 }
             ],
             "return": {
-                "description": "返回缓存后的函数对象\n### Note\n- 当 ms 设置为 -1, 表示立即执行 fn, 即和直接调用 fn 一样;\n- throttle 和 buffer 的区别在于, 前者表示间隔内的函数触发被忽略, 后者表示间隔内的触发被放到下个间隔触发",
+                "description": "返回缓存后的函数对象\n__Note__\n- 当 ms 设置为 -1, 表示立即执行 fn, 即和直接调用 fn 一样;\n- throttle 和 buffer 的区别在于, 前者表示间隔内的函数触发被忽略, 后者表示间隔内的触发被放到下个间隔触发",
                 "type": "Function"
             },
             "example": [
@@ -2467,7 +4561,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 745,
+            "line": 748,
             "description": "去除字符串两端的空白字符",
             "itemtype": "method",
             "name": "$.trim",
@@ -2488,7 +4582,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 753,
+            "line": 756,
             "description": "将字符串中的 html 实体字符替换成对应字符",
             "itemtype": "method",
             "name": "unEscapeHTML",
@@ -2505,14 +4599,14 @@
                 "type": "String"
             },
             "example": [
-                "\n`KISSY.unEscapeHTML(\"&lt;a&gt;x&lt;/a&gt;\"); // =>  \"<a>x</a>\"`\n### Note\n该函数只会 unescape 以下字符序列（正则式\n`&amp; &lt; &gt; &#x60; &#x2F; &quot; &#x27; &#\\d{1,5}`"
+                "\n`KISSY.unEscapeHTML(\"&lt;a&gt;x&lt;/a&gt;\"); // =>  \"<a>x</a>\"`\n__Note__\n该函数只会 unescape 以下字符序列（正则式\n`&amp; &lt; &gt; &#x60; &#x2F; &quot; &#x27; &#\\d{1,5}`"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src\\api\\util.js",
-            "line": 766,
+            "line": 769,
             "description": "返回一个新数组, 仅包含 arr 去重后的值",
             "itemtype": "method",
             "name": "unique",
@@ -2538,7 +4632,7 @@
         },
         {
             "file": "src\\api\\util.js",
-            "line": 775,
+            "line": 778,
             "description": "将参数字符串 str 还原为对象",
             "itemtype": "method",
             "name": "unparam",
@@ -2575,5 +4669,10 @@
             "module": "util"
         }
     ],
-    "warnings": []
+    "warnings": [
+        {
+            "message": "Missing item type\n给符合选择器的所有元素设置 innerHTML 值",
+            "line": " src\\api\\dom.js:707"
+        }
+    ]
 }
