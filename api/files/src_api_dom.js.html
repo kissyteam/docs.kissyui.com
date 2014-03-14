@@ -41,11 +41,15 @@
             
                 <li><a href="../classes/Cookie.html">Cookie</a></li>
             
-                <li><a href="../classes/DOM.html">DOM</a></li>
+                <li><a href="../classes/Dom.html">Dom</a></li>
             
-                <li><a href="../classes/Features.html">Features</a></li>
+                <li><a href="../classes/Event.html">Event</a></li>
+            
+                <li><a href="../classes/Feature.html">Feature</a></li>
             
                 <li><a href="../classes/Loader.html">Loader</a></li>
+            
+                <li><a href="../classes/Target.html">Target</a></li>
             
                 <li><a href="../classes/UA.html">UA</a></li>
             
@@ -61,7 +65,9 @@
             
                 <li><a href="../modules/dom.html">dom</a></li>
             
-                <li><a href="../modules/features.html">features</a></li>
+                <li><a href="../modules/event.html">event</a></li>
+            
+                <li><a href="../modules/feature.html">feature</a></li>
             
                 <li><a href="../modules/loader.html">loader</a></li>
             
@@ -115,7 +121,7 @@
 
 /**
 类DOM，操作DOM
-@class DOM
+@class Dom
 @static
 */
 
@@ -816,6 +822,7 @@ DOM.create(&#x27;&lt;img src=&quot;logo.png&quot; alt=&quot;logo&quot; /&gt;&#x2
 
 /**
 给符合选择器的所有元素设置 innerHTML 值
+@method html
 @param selector {string|HTMLCollection|Array&lt;HTMLElement&gt;} 字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)
 @param html {String} 将要设置的 html 值
 @param [loadScripts=false]  {Boolean} 是否执行 html 中的内嵌脚本，默认 false

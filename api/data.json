@@ -34,18 +34,30 @@
                 "dom": 1
             },
             "classes": {
-                "DOM": 1
+                "Dom": 1
             },
             "fors": {},
             "namespaces": {}
         },
-        "src\\api\\features.js": {
-            "name": "src\\api\\features.js",
+        "src\\api\\event.js": {
+            "name": "src\\api\\event.js",
             "modules": {
-                "features": 1
+                "event": 1
             },
             "classes": {
-                "Features": 1
+                "Event": 1,
+                "Target": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\feature.js": {
+            "name": "src\\api\\feature.js",
+            "modules": {
+                "feature": 1
+            },
+            "classes": {
+                "Feature": 1
             },
             "fors": {},
             "namespaces": {}
@@ -115,7 +127,7 @@
             "name": "dom",
             "submodules": {},
             "classes": {
-                "DOM": 1
+                "Dom": 1
             },
             "fors": {},
             "namespaces": {},
@@ -124,16 +136,30 @@
             "line": 6,
             "description": "提供类DOM"
         },
-        "features": {
-            "name": "features",
+        "event": {
+            "name": "event",
             "submodules": {},
             "classes": {
-                "Features": 1
+                "Event": 1,
+                "Target": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\event.js",
+            "line": 501,
+            "description": "提供类Event"
+        },
+        "feature": {
+            "name": "feature",
+            "submodules": {},
+            "classes": {
+                "Feature": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\feature.js",
             "line": 6,
             "description": "features模块提供了Features来进行硬件环境关键特性检测，直接通过KISSY全局对象调用"
         },
@@ -292,9 +318,9 @@
             "description": "操作cookie\n__Note__\n\n推荐阅读 NCZ 的这篇文章： [HTTP cookies explained](http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/)",
             "static": 1
         },
-        "DOM": {
-            "name": "DOM",
-            "shortname": "DOM",
+        "Dom": {
+            "name": "Dom",
+            "shortname": "Dom",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -307,17 +333,46 @@
             "description": "类DOM，操作DOM",
             "static": 1
         },
-        "Features": {
-            "name": "Features",
-            "shortname": "Features",
+        "Event": {
+            "name": "Event",
+            "shortname": "Event",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "features",
+            "module": "event",
             "namespace": "",
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\event.js",
+            "line": 6,
+            "description": "类Event",
+            "static": 1
+        },
+        "Target": {
+            "name": "Target",
+            "shortname": "Target",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "event",
+            "namespace": "",
+            "file": "src\\api\\event.js",
+            "line": 501,
+            "description": "通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件.具体用法看它提供的方法\n\n__Note__\n\n注意 S.EventTarget 仅用于 mix/augment ，不可以直接使用，例如需要全局事件的话可以：\n```\nvar globalEvent=S.mix({},S.EventTarget);\nglobalEvent.on('Login:session:pass', function(){\n  isSessionPass = true;\n});\n```"
+        },
+        "Feature": {
+            "name": "Feature",
+            "shortname": "Feature",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "feature",
+            "namespace": "",
+            "file": "src\\api\\feature.js",
             "line": 6,
             "description": "硬件环境关键特性检测，直接通过KISSY全局对象调用\n这类功能通常在判断硬件环境时使用，比如在KISSY的modules定义的代码：\n  ```\n  KISSY.config('modules',{\n       \"dom/basic\": {\n               \"alias\": [\n                       'dom/base',\n                       KISSY.Features.isIELessThan(9) ? 'dom/ie' : '',\n                       KISSY.Features.isClassListSupported() ? '' : 'dom/class-list'\n               ]\n       },\n       \"dom\": {\n               \"alias\": [\n                       'dom/basic',\n                       !KISSY.Features.isQuerySelectorSupported() ? 'dom/selector' : ''\n               ]\n       }\n\t});\n  ```",
             "static": 1
@@ -687,7 +742,7 @@
                 "description": "符合选择器字符串的 dom 节点数组",
                 "type": "Array"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -715,7 +770,7 @@
                 "description": "符合选择器的第一个元素\n\n__Note__\nDOM.get有个快捷调用方式，可以直接通过KISSY.get调用",
                 "type": "Object"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -748,7 +803,7 @@
                 "description": "符合选择器字符串的 dom 节点数组",
                 "type": "Array"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -781,7 +836,7 @@
                 "description": "",
                 "type": "Boolean"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -823,7 +878,7 @@
                 "description": "符合选择器的第一个元素的克隆元素\n__Note__\n普通对象和普通数组请用 `KISSY.clone`",
                 "type": "HTMLElement"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -849,7 +904,7 @@
                 "description": "是否符合选择器的元素中存在某个元素含有特定样式类 value",
                 "type": "Boolean"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -871,7 +926,7 @@
                     "type": "String"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -893,7 +948,7 @@
                     "type": "String"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -920,7 +975,7 @@
                     "type": "String"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -942,7 +997,7 @@
                     "type": "String"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -964,7 +1019,7 @@
                     "type": "String"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -989,7 +1044,7 @@
             "return": {
                 "description": "对应属性名的属性值"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1015,7 +1070,7 @@
                     "description": "属性值"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1037,7 +1092,7 @@
                     "type": "Object"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1063,7 +1118,7 @@
                 "description": "",
                 "type": "Boolean"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1091,7 +1146,7 @@
             "example": [
                 "\n```\nvar S = KISSY, DOM = S.DOM;\nvar c=DOM.create(\"<input type='checkbox' checked='checked'/>\");\nDOM.attr(c,\"checked\") // => \"checked\"\nDOM.prop(c,\"checked\") // => true\nDOM.attr(c,\"nodeName\") // => null\nDOM.prop(c,\"nodeName\").toLowerCase() // => input\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1117,7 +1172,7 @@
                     "description": "property值"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1142,7 +1197,7 @@
             "example": [
                 "\n__selectionStart/End 兼容__\n\n__在 ie 下对于 selectionStart/End 做了兼容处理，[demo](/1.5/examples/dom/selection-start.html)__"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1167,7 +1222,7 @@
                 "description": "",
                 "type": "Boolean"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1190,7 +1245,7 @@
             "example": [
                 "\n```\nKISSY.use(\"dom\",function(S,DOM){\n        // 获取 id 是 J_username 的元素的 value 值\n        DOM.val(\"#J_username\");\n});\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1215,7 +1270,7 @@
             "example": [
                 "\n```\nKISSY.use(\"dom\",function(S,DOM){\n        // 将 id 是 J_username 的元素的 value 值设置成“张三”\n        DOM.val(\"#J_username\",\"张三\");\n});\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1235,7 +1290,7 @@
             "return": {
                 "description": "获取符合选择器的第一个元素所包含的文本值. 无值时, 返回空字符串."
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1257,7 +1312,7 @@
                     "type": "String"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1283,7 +1338,7 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1310,7 +1365,7 @@
                     "type": "String"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1332,7 +1387,7 @@
                     "type": "Object"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1361,7 +1416,7 @@
             "example": [
                 "\n```\nvar tag = S.guid(\"float\");\nDOM.addStyleSheet(\".\" + tag + \" {float:left}\")\n\nvar d = DOM.create(\"<div class='\" + tag + \"' style='float:right'><\" + \"/div>\")\nDOM.append(d, document.body);\nS.log(DOM.css(d, \"float\"));     // \"right\"\nS.log(DOM.style(d, \"float\"));   // \"right\"\n\nDOM.css(d, \"float\", \"\");\n\nS.log(DOM.css(d, \"float\"));     // \"left\"\nS.log(DOM.style(d, \"float\"));   // \"\"\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1388,7 +1443,7 @@
                     "type": "String"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1410,7 +1465,7 @@
                     "type": "Object"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1434,7 +1489,7 @@
             "example": [
                 "\n```\n<div style=\"width: 100px;\">\n    <div id=\"test\" style=\"width: 80%; height: 20px\"></div>\n</div>\n<script>\n    var S = KISSY, DOM = S.DOM,\n    elem = S.get('#test');\n\n    DOM.style(elem, 'width'); // 返回 80%\n    DOM.css(elem, 'width'); // 返回 80px\n    DOM.css(elem, 'height'); // 返回 20px\n\n    DOM.width(elem); // 返回 80\n    DOM.height(elem); // 返回 20\n</script>\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1456,7 +1511,7 @@
                     "type": "String"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1477,7 +1532,7 @@
                 "description": "符合选择器的第一个元素的高度值",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1499,7 +1554,7 @@
                     "type": "String"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1520,7 +1575,7 @@
                 "description": "",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1541,7 +1596,7 @@
                 "description": "",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1567,7 +1622,7 @@
                 "description": "符合选择器的第一个元素的宽度值",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1593,7 +1648,7 @@
                 "description": "符合选择器的第一个元素的高度值",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1616,7 +1671,7 @@
                     "optional": true
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1633,7 +1688,7 @@
                     "type": "String|HTMLCollection|Array<HTMLElement>"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1650,7 +1705,7 @@
                     "type": "String|HTMLCollection|Array<HTMLElement>"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1667,7 +1722,7 @@
                     "type": "String|HTMLCollection|Array<HTMLElement>"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1688,7 +1743,7 @@
                 "description": "相对页面文档左上角的偏移值,包括两个属性\n- left {Number} 相对页面文档左上角的横坐标\n- top {Number} 相对页面文档左上角的纵坐标",
                 "type": "Object"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1710,7 +1765,7 @@
                     "type": "Object"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1731,7 +1786,7 @@
                 "description": "窗口或元素的 scrollTop 值",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1752,7 +1807,7 @@
                 "description": "",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1778,7 +1833,7 @@
                 "description": "",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1799,7 +1854,7 @@
                 "description": "窗口或元素的 scrollLeft 值",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1820,7 +1875,7 @@
                 "description": "",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1846,7 +1901,7 @@
                 "description": "",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1860,7 +1915,7 @@
                 "description": "",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1874,7 +1929,7 @@
                 "description": "",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1888,7 +1943,7 @@
                 "description": "",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1902,7 +1957,7 @@
                 "description": "",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1940,7 +1995,7 @@
                     "optdefault": "true"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1967,7 +2022,7 @@
                 "description": "",
                 "type": "Number"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -1996,7 +2051,7 @@
             "example": [
                 "\n```\nvar S = KISSY, DOM = S.DOM,\nelem = S.get('#id');\n\n// 返回 elem.parentNode\nDOM.parent(elem);\n\n// 返回 elem.parentNode.parentNode\nDOM.parent(elem, 2);\n\n// 寻找 elem 的祖先节点, 返回第一个拥有 container class 值的祖先\nDOM.parent(elem, '.container');\n\n// 寻找 elem 的祖先节点, 返回所有拥有 container class 值的祖先\nDOM.parent(elem, ['.container']);\n\n// 寻找 elem 的祖先节点, 返回第一个 tagName 为 ul 的祖先\nDOM.parent(elem, 'ul');\n\n// 寻找 elem 的祖先节点, 返回第一个 rel 属性为 data 值的祖先\nDOM.parent(elem, function(p) {\n    return DOM.attr(p, 'rel') == 'data';\n});\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -2022,7 +2077,7 @@
                 "description": "符合选择器的第一个元素的下一个同级节点",
                 "type": "HTMLElement"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -2048,7 +2103,7 @@
                 "description": "符合选择器的第一个元素的上一个同级节点",
                 "type": "HTMLElement"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -2074,7 +2129,7 @@
                 "description": "符合选择器的第一个元素的第一个子节点",
                 "type": "HTMLElement"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -2100,7 +2155,7 @@
                 "description": "符合选择器的第一个元素的最后一个子节点",
                 "type": "HTMLElement"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -2126,7 +2181,7 @@
                 "description": "符合选择器的第一个元素的相应同级节点",
                 "type": "Array<HTMLElement>"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -2152,7 +2207,7 @@
                 "description": "符合选择器的所有非文字节点的子节点",
                 "type": "Array<HTMLElement>"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -2178,7 +2233,7 @@
                 "description": "container 是否包含 contained 节点.两个元素如果相等, 则返回 false",
                 "type": "Boolean"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -2212,7 +2267,7 @@
             "example": [
                 "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 等价 document.createElement('div')\nDOM.create('<div>');\nDOM.create('<div />');\nDOM.create('<div></div>');\n\n// 等价 document.createTextNode('text')\nDOM.create('text');\n\n// 创建时, 同时添加属性值\nDOM.create('<a>', { href: 'hot.html', title: 'Hot Page' });\n\n// KISSY v1.1.5+,  创建时, 支持添加更多的属性；\n// 新增属性有： val, css, html, text, data, width, height, offset\nDOM.create('<a>', { href: 'hot.html',\n                    title: 'Hot Page',\n                    css: {color: 'blue'},\n                    text: 'Test Link'\n          });\n\n// 直接内联属性\nDOM.create('<img src=\"logo.png\" alt=\"logo\" />');\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
@@ -2233,13 +2288,15 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
             "line": 707,
             "description": "给符合选择器的所有元素设置 innerHTML 值",
+            "itemtype": "method",
+            "name": "html",
             "params": [
                 {
                     "name": "selector",
@@ -2259,12 +2316,12 @@
                     "optdefault": "false"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 717,
+            "line": 718,
             "description": "将符合选择器的所有元素从 DOM 中移除",
             "itemtype": "method",
             "name": "remove",
@@ -2276,12 +2333,12 @@
                     "type": "String|HTMLCollection|Array<HTMLElement>"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 727,
+            "line": 728,
             "description": "清除节点的所有子孙节点以及子孙节点上的事件和 data() 信息",
             "itemtype": "method",
             "name": "empty",
@@ -2293,12 +2350,12 @@
                     "type": "String|HTMLCollection|Array<HTMLElement>"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 734,
+            "line": 735,
             "description": "将 newNode 插入到 refNode 之前",
             "itemtype": "method",
             "name": "insertBefore",
@@ -2315,12 +2372,12 @@
                     "type": "String|HTMLElement"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 742,
+            "line": 743,
             "description": "将 newNode 插入到 refNode 之后",
             "itemtype": "method",
             "name": "insertAfter",
@@ -2337,12 +2394,12 @@
                     "type": "String|HTMLElement"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 750,
+            "line": 751,
             "description": "将 node 追加到 parent 子节点最后",
             "itemtype": "method",
             "name": "append",
@@ -2359,12 +2416,12 @@
                     "type": "String|HTMLElement"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 758,
+            "line": 759,
             "description": "将 node 追加到 parent 子节点最前",
             "itemtype": "method",
             "name": "prepend",
@@ -2381,12 +2438,12 @@
                     "type": "String|HTMLElement"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 766,
+            "line": 767,
             "description": "将 node 节点（数组）替换为新的节点（数组） newNode",
             "itemtype": "method",
             "name": "replaceWith",
@@ -2403,12 +2460,12 @@
                     "type": "String|HTMLElement|HTMLElement[]"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 774,
+            "line": 775,
             "description": "获取符合选择器的第一个元素的扩展属性(expando)",
             "itemtype": "method",
             "name": "data",
@@ -2429,12 +2486,12 @@
                 "description": "\n- 对应扩展属性名的属性值, 如果不存在返回 undefined\n- 如不指定扩展属性名, 则取得所有扩展属性键值对象 , 如果当前还没设置过扩展属性, 则返回空对象, 可以直接在该空对象上设置",
                 "type": "Undefined|String"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 785,
+            "line": 786,
             "description": "给符合选择器的所有元素的扩展属性(expando).设置扩展属性 name 为 value",
             "itemtype": "method",
             "name": "data",
@@ -2455,12 +2512,12 @@
                     "description": "扩展属性值"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 794,
+            "line": 795,
             "description": "给符合选择器的所有元素的扩展属性(expando).设置扩展属性 name 为 value",
             "itemtype": "method",
             "name": "data",
@@ -2480,12 +2537,12 @@
             "example": [
                 "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 设置所有 img 的名为 data-size 的 expando , 值为 400;\nDOM.data('img', 'data-size', 400);\n\n// 获取第一个 img 元素中, 名为 data-size 的 expando 值;\nDOM.data('img', 'data-size');\n\nvar p=DOM.create(\"<p>\");\n\nDOM.hasData(p); // => false\n\nvar store=DOM.data(p); // => store={}\n\nstore.x=\"y\"; // => 相当于 DOM.data(p,\"x\",\"y\");\n\nDOM.removeData(p,\"x\");\n\nDOM.data(p,\"x\"); // => undefined\n\nDOM.hasData(p,\"x\"); // => false\n\nDOM.hasData(p) // => false\n\nDOM.data(\"p\") // => 返回存储对象\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 835,
+            "line": 836,
             "description": "将符合选择器的所有元素的对应扩展属性( expando )删除",
             "itemtype": "method",
             "name": "removeData",
@@ -2505,12 +2562,12 @@
             "example": [
                 "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 删除 img 元素的名为 data-size 的 expando;\nDOM.removeData('img', 'data-size');\n\n// 删除 img 元素的 expando;\nDOM.removeData('img');\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 853,
+            "line": 854,
             "description": "判断是否符合选择器的所有元素中的一个存在对应的扩展属性( expando )值",
             "itemtype": "method",
             "name": "hasData",
@@ -2534,12 +2591,12 @@
             "example": [
                 "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 给所有的段落节点设置扩展属性 ``x`` , 值为 ``y``\nDOM.data(\"p\",\"x\",\"y\");\n\nDOM.hasData(\"p\"); // => true , 设置过扩展属性\n\nDOM.hasData(\"p\",\"x\") // => true , 设置过扩展属性 ``x`` 的值\n\nDOM.hasData(\"p\",\"z\") // => false , 没有设置过扩展属性 ``z`` 的值\n\nDOM.removeData(\"p\",\"x\"); // => 删除扩展属性 ``x`` 的值\n\nDOM.hasData(\"p\",\"x\"); //=> false\n\nDOM.hasData(\"p\"); //=> false\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 881,
+            "line": 882,
             "description": "使符合选择器的所有元素都不可以作为选择区域的开始",
             "itemtype": "method",
             "name": "unselectable",
@@ -2551,12 +2608,12 @@
                     "type": "String|HTMLCollection|Array<HTMLElement>"
                 }
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 891,
+            "line": 892,
             "description": "获取符合选择器的所有子节点（包括文字节点）",
             "itemtype": "method",
             "name": "contents",
@@ -2577,12 +2634,12 @@
                 "description": "获取符合选择器的所有子节点（包括文字节点）",
                 "type": "Array<HTMLElement>"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 900,
+            "line": 901,
             "description": "用 wrapperNode 分别包装符合 selector 的节点",
             "itemtype": "method",
             "name": "wrap",
@@ -2602,12 +2659,12 @@
             "example": [
                 "\n```\n<div class=\"container\">\n  <div class=\"inner\">Hello</div>\n  <div class=\"inner\">Goodbye</div>\n</div>\n```\n_after_\n```\nDOM.wrap(\".inner\",DOM.create('<div class=\"new\" />'));\n```\n_become_\n```\n<div class=\"container\">\n  <div class=\"new\">\n    <div class=\"inner\">Hello</div>\n  </div>\n  <div class=\"new\">\n    <div class=\"inner\">Goodbye</div>\n  </div>\n</div>\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 930,
+            "line": 931,
             "description": "用 wrapperNode 包装所有符合 selector 的节点",
             "itemtype": "method",
             "name": "wrapAll",
@@ -2627,12 +2684,12 @@
             "example": [
                 "\n```\n<div class=\"container\">\n  <div class=\"inner\">Hello</div>\n  <div class=\"inner\">Goodbye</div>\n</div>\n```\n_after_\n```\nDOM.wrapAll(\".inner\",DOM.create('<div class=\"new\" />'));\n```\n_become_\n```\n<div class=\"container\">\n  <div class=\"new\">\n    <div class=\"inner\">Hello</div>\n    <div class=\"inner\">Goodbye</div>\n  </div>\n</div>\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 958,
+            "line": 959,
             "description": "移除符合 selector 的节点的父节点",
             "itemtype": "method",
             "name": "unwrap",
@@ -2647,12 +2704,12 @@
             "example": [
                 "\n```\n<div class=\"container\">\n  <div class=\"new\">\n    <div class=\"inner\">Hello</div>\n  </div>\n  <div class=\"new\">\n    <div class=\"inner\">Goodbye</div>\n  </div>\n</div>\n```\n_after_\n```\nDOM.unwrap(\".inner\");\n```\n_become_\n```\n <div class=\"container\">\n  <div class=\"inner\">Hello</div>\n  <div class=\"inner\">Goodbye</div>\n</div>\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 987,
+            "line": 988,
             "description": "用 wrapperNode 分别包装符合 selector 的节点的子节点",
             "itemtype": "method",
             "name": "wrapInner",
@@ -2672,12 +2729,12 @@
             "example": [
                 "\n```\n<div class=\"container\">\n  <div class=\"inner\">Hello</div>\n  <div class=\"inner\">Goodbye</div>\n</div>\n```\n_after_\n```\nDOM.wrapInner(\".inner\",DOM.create('<div class=\"new\" />'));\n```\n_become_\n```\n<div class=\"container\">\n  <div class=\"inner\">\n    <div class=\"new\">Hello</div>\n  </div>\n  <div class=\"inner\">\n    <div class=\"new\">Goodbye</div>\n  </div>\n</div>\n```"
             ],
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 1017,
+            "line": 1018,
             "description": "获取符合选择器的第一个元素的小写 nodeName 值",
             "itemtype": "method",
             "name": "nodeName",
@@ -2693,12 +2750,12 @@
                 "description": "符合选择器的第一个元素的小写 nodeName 值",
                 "type": "String"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src\\api\\dom.js",
-            "line": 1025,
+            "line": 1026,
             "description": "获取符合选择器的第一个元素的 outerHTML",
             "itemtype": "method",
             "name": "outerHTML",
@@ -2714,11 +2771,558 @@
                 "description": "符合选择器的第一个元素的 outerHTML",
                 "type": "String"
             },
-            "class": "DOM",
+            "class": "Dom",
             "module": "dom"
         },
         {
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\event.js",
+            "line": 12,
+            "description": "为符合匹配的 dom 节点的相应事件添加事件处理器",
+            "itemtype": "method",
+            "name": "on",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "当事件触发时的回调函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "scope",
+                    "description": "回调函数的 this 值. 如果不指定默认为绑定事件的当前元素\n\n__Note__\n\non 方法是给文档添加行为的主要方式. 所有的事件类型, 例如 focus , mouseover , resize 都是有效的事件类型\n\nwindow 的 beforeunload 和 error 事件使用了不标准的方式, 该方法不支持, 请直接在 window 对象上注册事件处理器\n\n当一个节点的某个事件出发时, 绑定该事件的所有处理器都会被调用.如果有多个事件处理器, 则他们的执行顺序和绑定的顺序保持一致, 当所有的事件处理器执行完毕后, 事件才继续向上传播\n\n__Note__\n\n支持 Event.on(target,type,opts), opts 可以是对象描述，例如 opts.once/opts.filter\n\n支持 Event.on(target,opts), opts 为事件与对象描述对\n```\nEvent.on(document.body,{\n    'click':{\n        fn:function(){\n        },\n        filter: '' // delegate,\n        once:true // 绑定一次\n    },\n    'mouseenter':function(){}\n});\n```",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 47,
+            "description": "为符合匹配的 dom 节点的相应事件添加事件处理器, 并在该节点的子孙节点中匹配 filter 的节点上触发事件时调用",
+            "itemtype": "method",
+            "name": "delegate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"",
+                    "type": "String"
+                },
+                {
+                    "name": "filter",
+                    "description": "可参见 `dom.filter()` 的 filter 参数",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "当事件触发时的回调函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "scope",
+                    "description": "回调函数的 this 值. 如果不指定默认为绑定事件的当前元素",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "example": [
+                "\n__Note1__\n\n该方法是 on 方法的增强. 当 on 方法被调用时, 符合选择器的元素被绑定事件处理器, 而后面添加的元素则没有, 即他们需要另外一次绑定, 例如\n```\n<body>\n  <div class=\"clickme\">\n    Click here\n  </div>\n</body>\n```\n绑定一个 click 事件的事件触发器：\n```\nEvent.on('.clickme','click', function() {\n  // Bound handler called.\n});\n```\n当该元素被点击时, 调用对应的事件处理器. 但是如果新加入一个元素：\n\n`KISSY.Node.all('body').append('<div class=\"clickme\">Another target</div>');`\n\n新元素匹配选择器 clickme ,但是他如果不再次 on , 则在他上面的点击不会有任何效果.\ndelegate 方法提供了解决方法, 如果这样调用：\n```\nEvent.delegate(document,'click','.clickme',function(){\n   // Bound handler called.\n});\n```\n这样的话如果今后又添加了一个元素\n```\nKISSY.Node.all('body').append('<div class=\"clickme\">Another target</div>');\n```\n在新元素上点击仍然会调用之前的事件处理器.\n\n可以使用 undelegate 来移除之前的绑定:\n```\nfunction d(){\n}\n\nEvent.delegate(document,'click','.clickme',d);\n\nEvent.undelegate(document,'click','.clickme',d);\n```\n\n__Note2__\n\n- 不能在 object , embed , applet 元素上注册事件\n- 事件处理器回调函数中 this 指向 scope (没指定指向绑定事件的元素), 传入的参数为 event , event.target 指向事件触发源, event.currentTarget 指向当前事件处理器调用所在的匹配 filter 的元素\n- 可以使用 stopPropagation() 来停止事件的向上冒泡, 这样就不会在同样符合 filter 条件的祖先节点上调用事件处理器\n- 同样可以对 mouseenter , mouseleave 进行委托\n- 因为 delegate 是在事件冒泡到代理元素后才开始处理的，那么通过 on 注册到代理元素的子节点的事件处理器已经被触发， 而无法被 delegate 绑定的事件处理器阻止 ( stopPropagation )，但 delegate 事件处理器可以阻止绑定到同一元素但是匹配元素在当前事件处理器之上的 delegate 事件处理器\n\n__这里有三个demo供参考理解__\n1. [委托实现点击通知](/1.5/examples/event/delegate.html)\n2. [阻止事件向上冒泡](/1.5/examples/event/delegate_2.html)\n3. [委托 mouseenter/mouseleave](/1.5/examples/event/delegate_3.html)"
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 114,
+            "description": "从符合匹配的 dom 节点中移去相应事件的事件处理器",
+            "itemtype": "method",
+            "name": "detach",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "fn",
+                    "description": "当事件触发时的回调函数",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "scope",
+                    "description": "回调函数的 this 值. 如果不指定默认为绑定事件的当前元素\n\n__Note__\n\n- 用 on 绑定的事件处理器可以用 detach 解除绑定. 最简单的情况 detach(elem) 解除该元素上的所有绑定\n```\nEvent.detach('#foo');\n```\n- 上面的代码解除了 foo 元素上所有事件的事件处理器, 我们也可以解除某一个事件的全部事件处理器:\n```\nEvent.detach('#foo','click');\n```\n- 当时如果程序对同一事件指定了不同的事件处理器, 这时就需要后面两个参数了\n```\nvar handler = function() {\n  alert('The quick brown fox jumps over the lazy dog.');\n};\nEvent.on('#foo','click', handler);\nEvent.detach('#foo','click', handler);\n```\n- 通过指定第三个参数, 我们可以保证该事件的其他事件处理器不受影响, 注意下面的代码则不会生效：\n\t```\n\tvar handler = function() {\n\t  alert('The quick brown fox jumps over the lazy dog.');\n\t};\n\tvar obj={x:1};\n\tEvent.on('#foo','click', handler,obj);\n\n\tEvent.detach('#foo','click', function() {\n\t  alert('The quick brown fox jumps over the lazy dog.');\n\t},obj);\n\n\tEvent.detach('#foo','click', handler,{x:1});\n\n\t//虽然后面的两个 detach 参数从字面上来看完全一样, 但是由于是不同的对象, 所有仍然不会生效. 如果需要解除特定的事件处理器, 我们需要同一个对象( 函数 )引用, 而不是恰好字面上相同的不同对象\n\t```\n- Event.detach 支持 deep ，递归移除子节点事件\n```\nEvent.detach(document.body,{\n    'click':{\n        deep:true\n    }\n});\nEvent.detach(document.body,{\n    // 全部事件\n    '':{\n        deep:true\n    }\n});\n```",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 173,
+            "description": "为符合匹配的 dom 节点的相应事件去除事件处理器",
+            "itemtype": "method",
+            "name": "undelegate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"",
+                    "type": "String"
+                },
+                {
+                    "name": "filter",
+                    "description": "可参见 `dom.filter()` 的 filter 参数",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "当事件触发时的回调函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "scope",
+                    "description": "回调函数的 this 值. 如果不指定默认为绑定事件的当前元素\n__Note__\n和 Event.detach 一样, 如果移除特定的委托事件处理器必须保证参数和调用 delegate 时保持一致.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 186,
+            "description": "执行符合匹配的 dom 节点的相应事件的事件处理器（并冒泡）和默认行为",
+            "itemtype": "method",
+            "name": "fire",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"",
+                    "type": "String"
+                },
+                {
+                    "name": "domEvent",
+                    "description": "模拟原生事件的一些属性值信息",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值\n\n__Note__\n\n用 Event.on 绑定的事件处理器可以被用户触发的原生事件调用. 但是这些事件处理器也可以使用 fire 手动调用. 调用 fire() 和用户触发导致的处理器调用调用是一样的顺序\n```\nEvent.on('#foo','click',function(){\n    alert(DOM.text(this));\n});\n\nEvent.fire('#foo','click');\n```",
+                "type": "Boolean"
+            },
+            "example": [
+                "\n这里有个[demo](/1.5/examples/event/fire.html),点击第二个按钮手动触发第一个按钮的点击, 简便起见使用node模块提供的接口."
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 210,
+            "description": "执行符合匹配的 dom 节点的相应事件的事件处理器",
+            "itemtype": "method",
+            "name": "fireHandler",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"",
+                    "type": "String"
+                },
+                {
+                    "name": "domEvent",
+                    "description": "模拟原生事件的一些属性值信息",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值\n\n__Note__\n\nfireHandler 和 fire 的区别在于:\n- fire 会冒泡以及执行对应事件的默认行为\n- fireHandler 只会执行当前节点的处理函数",
+                "type": "Boolean"
+            },
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 226,
+            "description": "原生只有 ie 支持 focusin 事件，而 kissy 对这一事件进行了 [兼容性处理](http://yiminghe.iteye.com/blog/813255)\n但一个元素获得焦点或者其子孙元素获得焦点时， focusin 会在该元素上触发（没被子孙元素阻止）。这就是和 focus 事件的区别之处 : 你可以在父元素上监控子元素的 focus 事件，即 focusin 事件支持冒泡.\n\n这个事件常常和 focusout 一起使用",
+            "itemtype": "event",
+            "name": "focusin",
+            "example": [
+                "\n[监听 form 中输入域的聚焦情况](/1.5/examples/event/focusin.html)"
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 236,
+            "description": "原生只有 ie 支持 focusout 事件，而 kissy 对这一事件进行了 [兼容性处理](http://yiminghe.iteye.com/blog/813255)\n但一个元素获得焦点或者其子孙元素获得焦点时， focusout 会在该元素上触发（没被子孙元素阻止）。这就是和 focus 事件的区别之处 : 你可以在父元素上监控子元素的 focus 事件，即 focusout 事件支持冒泡.\n\n这个事件常常和 focusin 一起使用",
+            "itemtype": "event",
+            "name": "focusout",
+            "example": [
+                "\n[监听 form 中输入域的聚焦情况](/1.5/examples/event/focusout.html)"
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 246,
+            "description": "目前除了 ie67 外都原生支持 hashchange 事件，kissy 对 ie67 也模拟兼容了该事件.\n\n当浏览器的 hash 值发生变化时会触发此事件，常常被用来实现单页面应用[存在广泛争议](http://danwebb.net/2011/5/28/it-is-about-the-hashbangs)\n\n当用户点击后退与前进进行浏览器导航时会引起 hash 变化\n\n此事件只能在当前 window 上注册，注册到其他类型元素上无效！ hash 值推荐为 !/xx/ 形式, 前面用 !/ 后面用 / 包起来，否则 ie67 可能有诡异现象",
+            "itemtype": "event",
+            "name": "hashchange",
+            "example": [
+                "\n```\nvar $=KISSY.all;\n$(window).on(\"hashchange\",function(){\n    // location.hash -> 当前 hash 值\n});\n```\n[hash 驱动的单页面应用设计](/1.5/examples/event/hashchange.html)"
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 266,
+            "description": "监控 input/textarea 的值变化，当值发生变化时在绑定元素上触发该事件\n\n__为什么不使用原生的 change keydown keyup__\n- change 只有在输入框失去焦点时触发\n- keyup/down 对于国际语言的输入法不能全面支持（鼠标从输入法中选词）\n- keydown/up 需要过滤不可见字符\n- 程序设值不可以触发原生事件\n- 从浏览器自带的 input 自动提示列表中鼠标选择项，不会触发 keydown keyup，但 input 值变化\n- 右键鼠标黏贴不能支持\n\n__注意__\n- 当输入框获得焦点，程序动态设值可触发 valuechange 事件，否则不触发该事件\n- 此事件只能在 input 以及 textarea 上注册，注册到其他类型元素上无效！\n- 触发事件包括两个特殊属性:prevVal(变化前的值)和newVal(当前变化后的值)",
+            "itemtype": "event",
+            "name": "valuechange",
+            "example": [
+                "\n```\nKISSY.Event.on(input,\"valuechange\",function(e){\n        alert(e.prevVal); // => 旧值\n        alert(e.newVal); // => 新值\n});\n```\n[打开拼音输入法，输入时直接鼠标选词demo](/1.5/examples/event/valuechange.html)"
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 292,
+            "description": "模拟 ie 有但是其他浏览器却没的最有用的事件[mouseenter](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-mouseenter)\n\n__mouseenter 不会冒泡，想要代理这个事件的话用 delegate() 方法__",
+            "itemtype": "event",
+            "name": "mouseenter",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 299,
+            "description": "模拟 ie 有但是其他浏览器却没的最有用的事件[mouseleave](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-mouseleave)\n\n__mouseleave 不会冒泡，想要代理这个事件的话用 delegate() 方法__",
+            "itemtype": "event",
+            "name": "mouseleave",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 306,
+            "description": "对 mousewheel 事件做了浏览器兼容性处理\n滚轮事件有两个属性:\n- e.deltaY (Number) – 纵向滚动幅度，一般是正数表示向上滚动，负数表示向下滚动\n- e.deltaX (Number) – 横向滚动幅度，一般是正数表示向左滚动，负数表示向右滚动",
+            "itemtype": "event",
+            "name": "mousewheel",
+            "example": [
+                "\n[demo](/1.5/examples/event/mousewheel.html)"
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 316,
+            "description": "触屏上的双击事件",
+            "itemtype": "event",
+            "name": "doubleTap",
+            "example": [
+                "\n需要在移动设备上面打开：[demo](/1.5/examples/event/double-tap.html)"
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 323,
+            "description": "触屏上的单击事件,和双击互斥\n\n当快速点击某个 dom 节点一次（短时间没有再次点击）后触发",
+            "itemtype": "event",
+            "name": "singleTap",
+            "example": [
+                "\n需要在移动设备上面打开：[demo](/1.5/examples/event/singel-tap.html)\n```\n<!doctype html>\n<html>\n<head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\"\n          content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"apple-touch-fullscreen\" content=\"yes\">\n    <script src=\"http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js\" data-config=\"{combine:true}\"></script>\n</head>\n<body>\n\n<h1>open in ios safari to test doubleTap event</h1>\n\n<div id='t' tabindex='0'\n     style='border:1px solid green;\n     width:100px;height:100px;margin:10px'>\n    tap me\n</div>\n\n<script>\n\n    KISSY.use('event', function (S, Event) {\n\n        Event.on('#t', \"singleTap doubleTap\", function (e) {\n            alert(e.type + ' : fired');\n        });\n\n    });\n\n</script>\n</body>\n</html>\n```"
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 367,
+            "description": "触屏上的单击事件,许 preventDefault 防止链接点击跳转\n\n当点击某个 dom 节点后触发， 和 singleTap 的不同支持载入： 触发 doubleTap 就不会触发 singleTap， 而触发 doubleTap 前会触发 tap",
+            "itemtype": "event",
+            "name": "tap",
+            "example": [
+                "\n需要在移动设备上面打开：[demo](/1.5/examples/event/tap.html)\n```\n\n<!doctype html>\n<html>\n<head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\"\n          content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"apple-touch-fullscreen\" content=\"yes\">\n    <script src=\"http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js\" data-config=\"{combine:true}\"></script>\n</head>\n<body>\n\n<h1>open in ios safari to test tap event</h1>\n\n<div id='t' tabindex='0'\n     style='border:1px solid green;\n     width:100px;height:100px;margin:10px'>\n    tap me\n</div>\n\n<script>\n\n    KISSY.use('event', function (S, Event) {\n\n        Event.on('#t', \"tap singleTap doubleTap\", function (e) {\n            alert(e.type + ' : fired');\n        });\n\n    });\n\n</script>\n</body>\n</html>\n```"
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 412,
+            "description": "当长按某个 dom 节点超过 1s 后触发",
+            "itemtype": "event",
+            "name": "tapHold",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 417,
+            "description": "触屏上开始用双指旋转某个 dom 元素时触发\n包括格外下面的属性：\n- angle {Number} 开始时双指的角度值\n- rotation {Number} 固定为 0",
+            "itemtype": "event",
+            "name": "rotateStart",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 425,
+            "description": "触屏上用双指旋转某个 dom 元素时出现\n包括格外下面的属性：\n- angle {Number} 开始时双指的角度值\n- rotation {Number} 双指和开始相比改变的角度值",
+            "itemtype": "event",
+            "name": "rotate",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 433,
+            "description": "触屏上用双指旋转某个 dom 元素结束时触发",
+            "itemtype": "event",
+            "name": "rotateEnd",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 438,
+            "description": "触屏上开始用双指调整某个 dom 元素大小时触发\n包括格外下面的属性：\n- distance {Number} 开始时双指的绝对距离\n- scale {Number} 固定为 1",
+            "itemtype": "event",
+            "name": "pinchStart",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 446,
+            "description": "触屏上开始用双指调整某个 dom 元素大小时出现\n包括格外下面的属性：\n- distance {Number} 开始时双指的绝对距离\n- scale {Number} 固定为 1",
+            "itemtype": "event",
+            "name": "pinch",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 454,
+            "description": "触屏上用双指调整某个 dom 元素大小后触发",
+            "itemtype": "event",
+            "name": "pinchEnd",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 459,
+            "description": "当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备",
+            "itemtype": "event",
+            "name": "shake",
+            "example": [
+                "\n需要在移动设备上面打开：[demo](/1.5/examples/event/shake.html)\n```\n var S = KISSY;\n\n    S.use('event', function (S, Event) {\n        Event.on(window, 'shake', function (e) {\n            alert('i know u shake !');\n        });\n    });\n```"
+            ],
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 475,
+            "description": "为了兼容移动与pc， kissy event 提供了手势事件.\n\n__手势开始事件__",
+            "itemtype": "event",
+            "name": "start",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 482,
+            "description": "为了兼容移动与pc， kissy event 提供了手势事件.\n\n__手势进行事件__",
+            "itemtype": "event",
+            "name": "move",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 489,
+            "description": "为了兼容移动与pc， kissy event 提供了手势事件.\n\n__手势结束事件__",
+            "itemtype": "event",
+            "name": "end",
+            "class": "Event",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 516,
+            "description": "触发绑定 type 类型的事件处理器, 并给触发的事件处理器的事件对象参数中混入数据 eventData",
+            "itemtype": "method",
+            "name": "fire",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "要触发的自定义事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "eventData",
+                    "description": "要混入触发事件对象的数据对象",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值",
+                "type": "Boolean"
+            },
+            "class": "Target",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 524,
+            "description": "配置自定义事件的一些特有信息",
+            "itemtype": "method",
+            "name": "publish",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "要触发的自定义事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "cfg",
+                    "description": "事件的具体配置对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "bubbles",
+                            "description": "类型 boolean. 是否支持冒泡。 默认 true",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "defaultFn",
+                            "description": "",
+                            "type": "Function",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "class": "Target",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 533,
+            "description": "添加冒泡事件源对象",
+            "itemtype": "method",
+            "name": "addTarget",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "事件往上冒泡的事件源",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use(\"event\", function(S, Event) {\n    function Custom(id){\n        this.id = id;\n        this.publish(\"run\",{\n            bubbles:1\n        });\n    }\n\n    S.augment(Custom, Event.Target);\n\n    var c1 = new Custom(\"c1\");\n\n    var c2 = new Custom(\"c1\");\n\n    c1.addTarget(c2);\n\n    c2.on(\"run\",function(e){\n        S.log(e.target.id +\" fires event run\"); // => c1 fires event run\n    });\n\n    c1.fire(\"run\");\n});\n```"
+            ],
+            "class": "Target",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 564,
+            "description": "删除冒泡事件源对象",
+            "itemtype": "method",
+            "name": "removeTarget",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "事件往上冒泡的事件源",
+                    "type": "Object"
+                }
+            ],
+            "class": "Target",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 570,
+            "description": "绑定事件处理器,参数可参考Event.on，这里不重复了",
+            "itemtype": "method",
+            "name": "on",
+            "class": "Target",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\event.js",
+            "line": 575,
+            "description": "解除绑定的事件处理器,可参考Event.detach",
+            "itemtype": "method",
+            "name": "detach",
+            "example": [
+                "\n```\nvar S = KISSY;\n\n// 定义 Dog 类\nfunction Dog(name) {\n    this.name = name;\n}\n\n// 让 Dog 成为事件目标\nS.augment(Dog, S.EventTarget);\n\n// 给 Dog 添加 run 方法\nS.augment(Dog, {\n   run: function() {\n       // 触发 running 事件\n       this.fire('running', {speed: '80km/h'});\n   }\n});\n\nvar dog = new Dog('Lady Gogo');\n\n// 添加监听函数\ndog.on('running', function(ev) {\n    // 注意 ev 的参数传递大使身份\n    alert(this.name + ' is running now. Its speed is ' + ev.speed);\n});\n\n// 让可爱的小狗跑起来吧\ndog.run();\n```"
+            ],
+            "class": "Target",
+            "module": "event"
+        },
+        {
+            "file": "src\\api\\feature.js",
             "line": 30,
             "description": "判断当前宿主环境是否支持手势事件\n\n  ```\n  KISSY.Features.isDeviceMotionSupported();\n  ```",
             "itemtype": "method",
@@ -2728,11 +3332,11 @@
                 "description": "当前宿主环境是否支持手势事件",
                 "type": "Boolean"
             },
-            "class": "Features",
-            "module": "features"
+            "class": "Feature",
+            "module": "feature"
         },
         {
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\feature.js",
             "line": 42,
             "description": "判断当前宿主环境是否支持ie8的Pointer事件",
             "itemtype": "method",
@@ -2742,11 +3346,11 @@
                 "description": "当前宿主环境是否支持ie8的Pointer事件",
                 "type": "Boolean"
             },
-            "class": "Features",
-            "module": "features"
+            "class": "Feature",
+            "module": "feature"
         },
         {
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\feature.js",
             "line": 49,
             "description": "判断当前宿主环境是否支持触屏事件",
             "itemtype": "method",
@@ -2756,11 +3360,11 @@
                 "description": "当前宿主环境是否支持触屏事件",
                 "type": "Boolean"
             },
-            "class": "Features",
-            "module": "features"
+            "class": "Feature",
+            "module": "feature"
         },
         {
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\feature.js",
             "line": 56,
             "description": "判断当前环境是否支持hashChange事件",
             "itemtype": "method",
@@ -2770,11 +3374,11 @@
                 "description": "当前环境是否支持hashChange事件",
                 "type": "Boolean"
             },
-            "class": "Features",
-            "module": "features"
+            "class": "Feature",
+            "module": "feature"
         },
         {
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\feature.js",
             "line": 63,
             "description": "判断当前环境是否支持Transition动画",
             "itemtype": "method",
@@ -2784,11 +3388,11 @@
                 "description": "当前环境是否支持Transition动画",
                 "type": "Boolean"
             },
-            "class": "Features",
-            "module": "features"
+            "class": "Feature",
+            "module": "feature"
         },
         {
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\feature.js",
             "line": 70,
             "description": "判断当前环境是否支持Transform动画",
             "itemtype": "method",
@@ -2798,11 +3402,11 @@
                 "description": "当前环境是否支持Transform动画",
                 "type": "Boolean"
             },
-            "class": "Features",
-            "module": "features"
+            "class": "Feature",
+            "module": "feature"
         },
         {
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\feature.js",
             "line": 77,
             "description": "判断当前环境是否支持ClassList",
             "itemtype": "method",
@@ -2812,11 +3416,11 @@
                 "description": "当前环境是否支持ClassList",
                 "type": "Boolean"
             },
-            "class": "Features",
-            "module": "features"
+            "class": "Feature",
+            "module": "feature"
         },
         {
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\feature.js",
             "line": 84,
             "description": "判断当前环境是否支持QuerySelector方法",
             "itemtype": "method",
@@ -2826,11 +3430,11 @@
                 "description": "当前环境是否支持QuerySelector方法",
                 "type": "Boolean"
             },
-            "class": "Features",
-            "module": "features"
+            "class": "Feature",
+            "module": "feature"
         },
         {
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\feature.js",
             "line": 91,
             "description": "得到Transition属性的前缀",
             "itemtype": "method",
@@ -2840,11 +3444,11 @@
                 "description": "Transition属性的前缀",
                 "type": "Boolean"
             },
-            "class": "Features",
-            "module": "features"
+            "class": "Feature",
+            "module": "feature"
         },
         {
-            "file": "src\\api\\features.js",
+            "file": "src\\api\\feature.js",
             "line": 98,
             "description": "得到Transform属性的前缀",
             "itemtype": "method",
@@ -2854,8 +3458,8 @@
                 "description": "Transform属性的前缀",
                 "type": "Boolean"
             },
-            "class": "Features",
-            "module": "features"
+            "class": "Feature",
+            "module": "feature"
         },
         {
             "file": "src\\api\\loader.js",
@@ -4669,10 +5273,5 @@
             "module": "util"
         }
     ],
-    "warnings": [
-        {
-            "message": "Missing item type\n给符合选择器的所有元素设置 innerHTML 值",
-            "line": " src\\api\\dom.js:707"
-        }
-    ]
+    "warnings": []
 }

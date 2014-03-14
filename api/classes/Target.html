@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Cookie - API Documentation — KISSY v1.5 Documentation</title>
+    <title>Target - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -110,7 +110,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Cookie Class</h1>
+                        <h1>Target Class</h1>
 <div class="box meta">
     
 
@@ -118,13 +118,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_cookie.js.html#l6"><code>src\api\cookie.js:6</code></a>
+            Defined in: <a href="../files/src_api_event.js.html#l501"><code>src\api\event.js:501</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/cookie.html">cookie</a>
+            Module: <a href="../modules/event.html">event</a>
         
     
 
@@ -134,9 +134,13 @@
 
 
 <div class="box intro">
-    <p>操作cookie
-<strong>Note</strong></p>
-<p>推荐阅读 NCZ 的这篇文章： <a href="http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/">HTTP cookies explained</a></p>
+    <p>通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件.具体用法看它提供的方法</p>
+<p><strong>Note</strong></p>
+<p>注意 S.EventTarget 仅用于 mix/augment ，不可以直接使用，例如需要全局事件的话可以：</p>
+<pre class="code prettyprint"><code>var globalEvent=S.mix({},S.EventTarget);
+globalEvent.on(&#39;Login:session:pass&#39;, function(){
+  isSessionPass = true;
+});</code></pre>
 
 </div>
 
@@ -165,28 +169,43 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_get">get</a>
+                                <a href="#method_addTarget">addTarget</a>
 
-                                
-                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_remove">remove</a>
+                                <a href="#method_detach">detach</a>
 
-                                
-                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_set">set</a>
+                                <a href="#method_fire">fire</a>
 
                                 
-                                    <span class="flag static">static</span>
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_on">on</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_publish">publish</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_removeTarget">removeTarget</a>
+
                                 
                                 
                             </li>
@@ -207,8 +226,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_get" class="method item">
-    <h3 class="name"><code>get</code></h3>
+                    <div id="method_addTarget" class="method item">
+    <h3 class="name"><code>addTarget</code></h3>
 
     
         <div class="args">
@@ -216,7 +235,7 @@
             
                 <li class="arg">
                     
-                        <code>name</code>
+                        <code>target</code>
                     
                 </li>
             
@@ -225,10 +244,6 @@
     
 
     
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-        </span>
-    
 
     
 
@@ -236,8 +251,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -255,7 +268,7 @@
             
         
         
-        <a href="../files/src_api_cookie.js.html#l15"><code>src\api\cookie.js:15</code></a>
+        <a href="../files/src_api_event.js.html#l533"><code>src\api\event.js:533</code></a>
         
         </p>
 
@@ -266,7 +279,7 @@
     </div>
 
     <div class="description">
-        <p>获取cookie值</p>
+        <p>添加冒泡事件源对象</p>
 
     </div>
 
@@ -278,14 +291,250 @@
             
                 <li class="param">
                     
-                        <code class="param-name">name</code>
+                        <code class="param-name">target</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>事件往上冒泡的事件源</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use(&quot;event&quot;, function(S, Event) {
+    function Custom(id){
+        this.id = id;
+        this.publish(&quot;run&quot;,{
+            bubbles:1
+        });
+    }
+
+    S.augment(Custom, Event.Target);
+
+    var c1 = new Custom(&quot;c1&quot;);
+
+    var c2 = new Custom(&quot;c1&quot;);
+
+    c1.addTarget(c2);
+
+    c2.on(&quot;run&quot;,function(e){
+        S.log(e.target.id +&quot; fires event run&quot;); // =&gt; c1 fires event run
+    });
+
+    c1.fire(&quot;run&quot;);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_detach" class="method item">
+    <h3 class="name"><code>detach</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_event.js.html#l575"><code>src\api\event.js:575</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>解除绑定的事件处理器,可参考Event.detach</p>
+
+    </div>
+
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var S = KISSY;
+
+// 定义 Dog 类
+function Dog(name) {
+    this.name = name;
+}
+
+// 让 Dog 成为事件目标
+S.augment(Dog, S.EventTarget);
+
+// 给 Dog 添加 run 方法
+S.augment(Dog, {
+   run: function() {
+       // 触发 running 事件
+       this.fire(&#39;running&#39;, {speed: &#39;80km/h&#39;});
+   }
+});
+
+var dog = new Dog(&#39;Lady Gogo&#39;);
+
+// 添加监听函数
+dog.on(&#39;running&#39;, function(ev) {
+    // 注意 ev 的参数传递大使身份
+    alert(this.name + &#39; is running now. Its speed is &#39; + ev.speed);
+});
+
+// 让可爱的小狗跑起来吧
+dog.run();</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_fire" class="method item">
+    <h3 class="name"><code>fire</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>type</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>eventData</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_event.js.html#l516"><code>src\api\event.js:516</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>触发绑定 type 类型的事件处理器, 并给触发的事件处理器的事件对象参数中混入数据 eventData</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">type</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>cookie的名称</p>
+                        <p>要触发的自定义事件名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">eventData</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要混入触发事件对象的数据对象</p>
 
                     </div>
 
@@ -303,8 +552,10 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
                     
+                    <p>如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值</p>
+
                 
             </div>
         </div>
@@ -314,39 +565,11 @@
 </div>
 
                 
-                    <div id="method_remove" class="method item">
-    <h3 class="name"><code>remove</code></h3>
+                    <div id="method_on" class="method item">
+    <h3 class="name"><code>on</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>name</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>domain</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>path</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>secure</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
     
@@ -357,8 +580,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -376,7 +597,7 @@
             
         
         
-        <a href="../files/src_api_cookie.js.html#l23"><code>src\api\cookie.js:23</code></a>
+        <a href="../files/src_api_event.js.html#l570"><code>src\api\event.js:570</code></a>
         
         </p>
 
@@ -387,7 +608,78 @@
     </div>
 
     <div class="description">
-        <p>置空cookie值，并立刻过期</p>
+        <p>绑定事件处理器,参数可参考Event.on，这里不重复了</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_publish" class="method item">
+    <h3 class="name"><code>publish</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>type</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>cfg</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_event.js.html#l524"><code>src\api\event.js:524</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>配置自定义事件的一些特有信息</p>
 
     </div>
 
@@ -399,14 +691,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">name</code>
+                        <code class="param-name">type</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>cookie的名称</p>
+                        <p>要触发的自定义事件名称</p>
 
                     </div>
 
@@ -415,49 +707,50 @@
             
                 <li class="param">
                     
-                        <code class="param-name">domain</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <code class="param-name">cfg</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>域</p>
+                        <p>事件的具体配置对象</p>
 
                     </div>
 
                     
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">path</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[bubbles=true]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
 
-                    
+                                <div class="param-description">
+                                    <p>类型 boolean. 是否支持冒泡。 默认 true</p>
 
-                    <div class="param-description">
-                        <p>路径</p>
+                                </div>
 
-                    </div>
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[defaultFn]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
 
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">secure</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                    
+                                <div class="param-description">
+                                    
+                                </div>
 
-                    
-
-                    <div class="param-description">
-                        <p>安全标志</p>
-
-                    </div>
-
+                                
+                            </li>
+                            
+                        </ul>
                     
                 </li>
             
@@ -471,8 +764,8 @@
 </div>
 
                 
-                    <div id="method_set" class="method item">
-    <h3 class="name"><code>set</code></h3>
+                    <div id="method_removeTarget" class="method item">
+    <h3 class="name"><code>removeTarget</code></h3>
 
     
         <div class="args">
@@ -480,37 +773,7 @@
             
                 <li class="arg">
                     
-                        <code>name</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>val</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>expires</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>domain</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>path</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>secure</code>
+                        <code>target</code>
                     
                 </li>
             
@@ -526,8 +789,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -545,7 +806,7 @@
             
         
         
-        <a href="../files/src_api_cookie.js.html#l33"><code>src\api\cookie.js:33</code></a>
+        <a href="../files/src_api_event.js.html#l564"><code>src\api\event.js:564</code></a>
         
         </p>
 
@@ -556,7 +817,7 @@
     </div>
 
     <div class="description">
-        <p>设置cookie值</p>
+        <p>删除冒泡事件源对象</p>
 
     </div>
 
@@ -568,94 +829,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">name</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <code class="param-name">target</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>cookie的名称</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">val</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>cookie的值</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">expires</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date" class="crosslink external" target="_blank">Date</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>失效时间. number 类型时单位为天，不设置表示生效时间为本次浏览器进程</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">domain</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>域</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">path</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>路径</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">secure</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>安全标志</p>
+                        <p>事件往上冒泡的事件源</p>
 
                     </div>
 

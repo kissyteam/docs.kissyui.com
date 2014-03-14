@@ -5,7 +5,7 @@
 
 /**
 类DOM，操作DOM
-@class DOM
+@class Dom
 @static
 */
 
@@ -706,6 +706,7 @@ DOM.create('<img src="logo.png" alt="logo" />');
 
 /**
 给符合选择器的所有元素设置 innerHTML 值
+@method html
 @param selector {string|HTMLCollection|Array<HTMLElement>} 字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)
 @param html {String} 将要设置的 html 值
 @param [loadScripts=false]  {Boolean} 是否执行 html 中的内嵌脚本，默认 false

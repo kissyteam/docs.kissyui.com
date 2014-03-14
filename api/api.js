@@ -3,9 +3,11 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         "Anim",
         "Cookie",
-        "DOM",
-        "Features",
+        "Dom",
+        "Event",
+        "Feature",
         "Loader",
+        "Target",
         "UA",
         "Util"
     ],
@@ -13,7 +15,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "anim",
         "cookie",
         "dom",
-        "features",
+        "event",
+        "feature",
         "loader",
         "ua",
         "util"
@@ -35,8 +38,13 @@ YUI.add("yuidoc-meta", function(Y) {
             "description": "提供类DOM"
         },
         {
-            "displayName": "features",
-            "name": "features",
+            "displayName": "event",
+            "name": "event",
+            "description": "提供类Event"
+        },
+        {
+            "displayName": "feature",
+            "name": "feature",
             "description": "features模块提供了Features来进行硬件环境关键特性检测，直接通过KISSY全局对象调用"
         },
         {
