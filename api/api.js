@@ -9,6 +9,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "IO",
         "Json",
         "Loader",
+        "Path",
         "Target",
         "UA",
         "Util"
@@ -22,6 +23,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "io",
         "json",
         "loader",
+        "path",
         "ua",
         "util"
     ],
@@ -64,6 +66,10 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "loader",
             "name": "loader",
             "description": "loader模块,定义KISSY初始对象及模块化机制用到的方法，所有方法都通过KISSY直接引用"
+        },
+        {
+            "displayName": "path",
+            "name": "path"
         },
         {
             "displayName": "ua",

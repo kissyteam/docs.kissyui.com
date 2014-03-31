@@ -95,6 +95,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\path.js": {
+            "name": "src\\api\\path.js",
+            "modules": {
+                "path": 1
+            },
+            "classes": {
+                "Path": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\ua.js": {
             "name": "src\\api\\ua.js",
             "modules": {
@@ -222,6 +233,18 @@
             "file": "src\\api\\loader.js",
             "line": 6,
             "description": "loader模块,定义KISSY初始对象及模块化机制用到的方法，所有方法都通过KISSY直接引用"
+        },
+        "path": {
+            "name": "path",
+            "submodules": {},
+            "classes": {
+                "Path": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\path.js",
+            "line": 5
         },
         "ua": {
             "name": "ua",
@@ -631,6 +654,21 @@
             "line": 6,
             "description": "弥补 javascript 语言机制的不足, 提供类似其他语言原生的模块化机制.\nLoader中定义的所有方法都直接通过KISSY对象直接引用，如 `KISSY.add`",
             "static": 1
+        },
+        "Path": {
+            "name": "Path",
+            "shortname": "Path",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "path",
+            "namespace": "",
+            "file": "src\\api\\path.js",
+            "line": 5,
+            "description": "地址操作工具类",
+            "static": "```\nKISSY.use('path',function(S,Path){\n        Path.do_sth();// 执行操作\n});\n```"
         },
         "UA": {
             "name": "UA",
@@ -4333,6 +4371,149 @@
             ],
             "class": "Loader",
             "module": "loader"
+        },
+        {
+            "file": "src\\api\\path.js",
+            "line": 16,
+            "description": "获取域名中的文件名",
+            "itemtype": "method",
+            "name": "basename",
+            "static": 1,
+            "params": [
+                {
+                    "name": "path",
+                    "description": "路径字符串",
+                    "type": "String"
+                },
+                {
+                    "name": "ext",
+                    "description": "需要过滤的扩展名，比如`.html`",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "返回结果字符串",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nPath.basename('http://www.taobao.com/index.html','.html');//=> index\n```"
+            ],
+            "class": "Path",
+            "module": "path"
+        },
+        {
+            "file": "src\\api\\path.js",
+            "line": 29,
+            "description": "返回path所指的文件所在的目录路径",
+            "itemtype": "method",
+            "name": "dirname",
+            "static": 1,
+            "params": [
+                {
+                    "name": "path",
+                    "description": "路径字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nPath.dirname('/home/bachi/daily/index.html');//=>/home/bachi/daily\n```"
+            ],
+            "class": "Path",
+            "module": "path"
+        },
+        {
+            "file": "src\\api\\path.js",
+            "line": 41,
+            "description": "获取路径所指文件的扩展名，比如`.html`",
+            "itemtype": "method",
+            "name": "extname",
+            "static": 1,
+            "params": [
+                {
+                    "name": "path",
+                    "description": "路径字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nPath.extname('/home/bachi/daily/index.html');//=> .html\n```"
+            ],
+            "class": "Path",
+            "module": "path"
+        },
+        {
+            "file": "src\\api\\path.js",
+            "line": 53,
+            "description": "将path中的无关内容清理掉，返回直接的路径信息",
+            "itemtype": "method",
+            "name": "normalize",
+            "static": 1,
+            "params": [
+                {
+                    "name": "path",
+                    "description": "路径字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nPath.normalize('x/y/../z'); // => x/z/\nPath.normalize('x/y/z/../'); // => x/y/\n```"
+            ],
+            "class": "Path",
+            "module": "path"
+        },
+        {
+            "file": "src\\api\\path.js",
+            "line": 66,
+            "description": "计算相对路径",
+            "itemtype": "method",
+            "name": "relative",
+            "static": 1,
+            "params": [
+                {
+                    "name": "from",
+                    "description": "要比较的源地址",
+                    "type": "String"
+                },
+                {
+                    "name": "to",
+                    "description": "要比较的目标地址",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nPath.relative('x/','x/y/z'); // => 'y/z'\nPath.relative('x/t/z','x/'); // => '../../'\n```"
+            ],
+            "class": "Path",
+            "module": "path"
+        },
+        {
+            "file": "src\\api\\path.js",
+            "line": 80,
+            "description": "得到绝对地址，算法逻辑参照 [NodeJS](http://nodejs.org/api/path.html#path_path_resolve_from_to)",
+            "itemtype": "method",
+            "name": "resolve",
+            "static": 1,
+            "example": [
+                "\n```\nKISSY.Path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif')\n// => 'wwwroot/static_files/gif/image.gif'\n\nKISSY.Path.resolve('/foo/bar', '/tmp/file/')\n// =>   '/tmp/file'\n```"
+            ],
+            "class": "Path",
+            "module": "path"
         },
         {
             "file": "src\\api\\ua.js",

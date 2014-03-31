@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Target - API Documentation — KISSY v1.5 Documentation</title>
+    <title>Path - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -122,7 +122,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Target Class</h1>
+                        <h1>Path Class</h1>
 <div class="box meta">
     
 
@@ -130,13 +130,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_event.js.html#l501"><code>src\api\event.js:501</code></a>
+            Defined in: <a href="../files/src_api_path.js.html#l5"><code>src\api\path.js:5</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/event.html">event</a>
+            Module: <a href="../modules/path.html">path</a>
         
     
 
@@ -146,13 +146,7 @@
 
 
 <div class="box intro">
-    <p>通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件.具体用法看它提供的方法</p>
-<p><strong>Note</strong></p>
-<p>注意 S.EventTarget 仅用于 mix/augment ，不可以直接使用，例如需要全局事件的话可以：</p>
-<pre class="code prettyprint"><code>var globalEvent=S.mix({},S.EventTarget);
-globalEvent.on(&#39;Login:session:pass&#39;, function(){
-  isSessionPass = true;
-});</code></pre>
+    <p>地址操作工具类</p>
 
 </div>
 
@@ -181,43 +175,55 @@ globalEvent.on(&#39;Login:session:pass&#39;, function(){
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_addTarget">addTarget</a>
+                                <a href="#method_basename">basename</a>
 
+                                
+                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_detach">detach</a>
+                                <a href="#method_dirname">dirname</a>
 
+                                
+                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_fire">fire</a>
+                                <a href="#method_extname">extname</a>
 
+                                
+                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_on">on</a>
+                                <a href="#method_normalize">normalize</a>
 
+                                
+                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_publish">publish</a>
+                                <a href="#method_relative">relative</a>
 
+                                
+                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_removeTarget">removeTarget</a>
+                                <a href="#method_resolve">resolve</a>
 
+                                
+                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
@@ -238,8 +244,8 @@ globalEvent.on(&#39;Login:session:pass&#39;, function(){
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_addTarget" class="method item">
-    <h3 class="name"><code>addTarget</code></h3>
+                    <div id="method_basename" class="method item">
+    <h3 class="name"><code>basename</code></h3>
 
     
         <div class="args">
@@ -247,223 +253,13 @@ globalEvent.on(&#39;Login:session:pass&#39;, function(){
             
                 <li class="arg">
                     
-                        <code>target</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_event.js.html#l533"><code>src\api\event.js:533</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>添加冒泡事件源对象</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">target</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>事件往上冒泡的事件源</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&quot;event&quot;, function(S, Event) {
-    function Custom(id){
-        this.id = id;
-        this.publish(&quot;run&quot;,{
-            bubbles:1
-        });
-    }
-
-    S.augment(Custom, Event.Target);
-
-    var c1 = new Custom(&quot;c1&quot;);
-
-    var c2 = new Custom(&quot;c1&quot;);
-
-    c1.addTarget(c2);
-
-    c2.on(&quot;run&quot;,function(e){
-        S.log(e.target.id +&quot; fires event run&quot;); // =&gt; c1 fires event run
-    });
-
-    c1.fire(&quot;run&quot;);
-});</code></pre>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_detach" class="method item">
-    <h3 class="name"><code>detach</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_event.js.html#l575"><code>src\api\event.js:575</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>解除绑定的事件处理器,可参考Event.detach</p>
-
-    </div>
-
-    
-
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY;
-
-// 定义 Dog 类
-function Dog(name) {
-    this.name = name;
-}
-
-// 让 Dog 成为事件目标
-S.augment(Dog, S.EventTarget);
-
-// 给 Dog 添加 run 方法
-S.augment(Dog, {
-   run: function() {
-       // 触发 running 事件
-       this.fire(&#39;running&#39;, {speed: &#39;80km/h&#39;});
-   }
-});
-
-var dog = new Dog(&#39;Lady Gogo&#39;);
-
-// 添加监听函数
-dog.on(&#39;running&#39;, function(ev) {
-    // 注意 ev 的参数传递大使身份
-    alert(this.name + &#39; is running now. Its speed is &#39; + ev.speed);
-});
-
-// 让可爱的小狗跑起来吧
-dog.run();</code></pre>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_fire" class="method item">
-    <h3 class="name"><code>fire</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>type</code>
+                        <code>path</code>
                     
                 </li>
             
                 <li class="arg">
                     
-                        <code>eventData</code>
+                        <code>ext</code>
                     
                 </li>
             
@@ -473,7 +269,7 @@ dog.run();</code></pre>
 
     
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
         </span>
     
 
@@ -484,6 +280,8 @@ dog.run();</code></pre>
     
 
     
+        <span class="flag static">static</span>
+    
 
     
 
@@ -500,7 +298,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_event.js.html#l516"><code>src\api\event.js:516</code></a>
+        <a href="../files/src_api_path.js.html#l16"><code>src\api\path.js:16</code></a>
         
         </p>
 
@@ -511,7 +309,7 @@ dog.run();</code></pre>
     </div>
 
     <div class="description">
-        <p>触发绑定 type 类型的事件处理器, 并给触发的事件处理器的事件对象参数中混入数据 eventData</p>
+        <p>获取域名中的文件名</p>
 
     </div>
 
@@ -523,14 +321,14 @@ dog.run();</code></pre>
             
                 <li class="param">
                     
-                        <code class="param-name">type</code>
+                        <code class="param-name">path</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>要触发的自定义事件名称</p>
+                        <p>路径字符串</p>
 
                     </div>
 
@@ -539,14 +337,14 @@ dog.run();</code></pre>
             
                 <li class="param">
                     
-                        <code class="param-name">eventData</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <code class="param-name">ext</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>要混入触发事件对象的数据对象</p>
+                        <p>需要过滤的扩展名，比如<code>.html</code></p>
 
                     </div>
 
@@ -564,9 +362,9 @@ dog.run();</code></pre>
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
                     
-                    <p>如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值</p>
+                    <p>返回结果字符串</p>
 
                 
             </div>
@@ -574,11 +372,508 @@ dog.run();</code></pre>
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Path.basename(&#39;http://www.taobao.com/index.html&#39;,&#39;.html&#39;);//=&gt; index</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
                 
-                    <div id="method_on" class="method item">
-    <h3 class="name"><code>on</code></h3>
+                    <div id="method_dirname" class="method item">
+    <h3 class="name"><code>dirname</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>path</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_path.js.html#l29"><code>src\api\path.js:29</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>返回path所指的文件所在的目录路径</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">path</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>路径字符串</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Path.dirname(&#39;/home/bachi/daily/index.html&#39;);//=&gt;/home/bachi/daily</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_extname" class="method item">
+    <h3 class="name"><code>extname</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>path</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_path.js.html#l41"><code>src\api\path.js:41</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>获取路径所指文件的扩展名，比如<code>.html</code></p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">path</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>路径字符串</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Path.extname(&#39;/home/bachi/daily/index.html&#39;);//=&gt; .html</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_normalize" class="method item">
+    <h3 class="name"><code>normalize</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>path</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_path.js.html#l53"><code>src\api\path.js:53</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>将path中的无关内容清理掉，返回直接的路径信息</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">path</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>路径字符串</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Path.normalize(&#39;x/y/../z&#39;); // =&gt; x/z/
+Path.normalize(&#39;x/y/z/../&#39;); // =&gt; x/y/</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_relative" class="method item">
+    <h3 class="name"><code>relative</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>from</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_path.js.html#l66"><code>src\api\path.js:66</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>计算相对路径</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">from</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要比较的源地址</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要比较的目标地址</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Path.relative(&#39;x/&#39;,&#39;x/y/z&#39;); // =&gt; &#39;y/z&#39;
+Path.relative(&#39;x/t/z&#39;,&#39;x/&#39;); // =&gt; &#39;../../&#39;</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_resolve" class="method item">
+    <h3 class="name"><code>resolve</code></h3>
 
     
         <span class="paren">()</span>
@@ -593,76 +888,7 @@ dog.run();</code></pre>
     
 
     
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_event.js.html#l570"><code>src\api\event.js:570</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>绑定事件处理器,参数可参考Event.on，这里不重复了</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_publish" class="method item">
-    <h3 class="name"><code>publish</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>type</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>cfg</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
+        <span class="flag static">static</span>
     
 
     
@@ -680,7 +906,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_event.js.html#l524"><code>src\api\event.js:524</code></a>
+        <a href="../files/src_api_path.js.html#l80"><code>src\api\path.js:80</code></a>
         
         </p>
 
@@ -691,176 +917,27 @@ dog.run();</code></pre>
     </div>
 
     <div class="description">
-        <p>配置自定义事件的一些特有信息</p>
+        <p>得到绝对地址，算法逻辑参照 <a href="http://nodejs.org/api/path.html#path_path_resolve_from_to">NodeJS</a></p>
 
     </div>
 
     
-        <div class="params">
-            <h4>Parameters:</h4>
 
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">type</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
+    
 
-                    
+    
+        <div class="example">
+            <h4>Example:</h4>
 
-                    <div class="param-description">
-                        <p>要触发的自定义事件名称</p>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.Path.resolve(&#39;wwwroot&#39;, &#39;static_files/png/&#39;, &#39;../gif/image.gif&#39;)
+// =&gt; &#39;wwwroot/static_files/gif/image.gif&#39;
 
-                    </div>
+KISSY.Path.resolve(&#39;/foo/bar&#39;, &#39;/tmp/file/&#39;)
+// =&gt;   &#39;/tmp/file&#39;</code></pre>
 
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">cfg</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>事件的具体配置对象</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[bubbles=true]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>类型 boolean. 是否支持冒泡。 默认 true</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[defaultFn]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
+            </div>
         </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_removeTarget" class="method item">
-    <h3 class="name"><code>removeTarget</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>target</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_event.js.html#l564"><code>src\api\event.js:564</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>删除冒泡事件源对象</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">target</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>事件往上冒泡的事件源</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
     
 </div>
 
