@@ -73,6 +73,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\json.js": {
+            "name": "src\\api\\json.js",
+            "modules": {
+                "json": 1
+            },
+            "classes": {
+                "Json": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\loader.js": {
             "name": "src\\api\\loader.js",
             "modules": {
@@ -186,6 +197,18 @@
             "file": "src\\api\\io.js",
             "line": 6,
             "description": "提供类IO"
+        },
+        "json": {
+            "name": "json",
+            "submodules": {},
+            "classes": {
+                "Json": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\json.js",
+            "line": 5
         },
         "loader": {
             "name": "loader",
@@ -579,6 +602,20 @@
             "example": [
                 "\n载入并执行一段脚本\n```\nnew IO({\n   type: \"GET\",\n   url: \"test.js\",\n   dataType: \"script\"\n });\n ```\n 发送数据给服务器，服务器返回后通知用户\n ```\n new IO({\n   type: \"POST\",\n   url: \"some.php\",\n   data: {\n    x:'y'\n   },\n   success: function(msg){\n     alert( \"Data Saved: \" + msg );\n   }\n });\n ```\n 取得最新的 html 并显示\n ```\n new IO({\n  url: \"test.html\",\n  cache: false,\n  success: function(html){\n    KISSY.one(\"#results\").html(html);\n  }\n});\n```\n发送 xml 文档给服务器\n```\nvar xmlDocument=S.parseXML(\"<a>h</a>\");\n\nnew IO({\n   url: \"page.php\",\n   processData: false,\n   contentType:'text/xml',\n   data: xmlDocument,\n   type:'post'\n });\n ```\n 通过 xhr 发送 form 内容,自动序列化 form 为查询串通过 xhr 发送给服务器端\n ```\n <form>\n    <input name='test' value='v' />\n</form>\n\n<script>\n    new IO({\n        url:'send.php',\n        form:'#test',\n        type:'post',\n        dataType:'json',\n        success:function(d,s,xhr){\n            alert('success');\n        }\n    });\n</script>\n```"
             ]
+        },
+        "Json": {
+            "name": "Json",
+            "shortname": "Json",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "json",
+            "namespace": "",
+            "file": "src\\api\\json.js",
+            "line": 5,
+            "static": 1
         },
         "Loader": {
             "name": "Loader",
@@ -3953,9 +3990,77 @@
                     "type": "string|Array<HTMLElement>|HTMLElement|KISSY.NodeList"
                 }
             ],
-            "retrun": "{String} 序列化后的字符串",
+            "return": {
+                "description": "序列化后的字符串",
+                "type": "String"
+            },
             "class": "IO",
             "module": "io"
+        },
+        {
+            "file": "src\\api\\json.js",
+            "line": 10,
+            "description": "将字符串解析为json对象",
+            "itemtype": "method",
+            "name": "parse",
+            "static": 1,
+            "params": [
+                {
+                    "name": "text",
+                    "description": "字符串",
+                    "type": "String"
+                },
+                {
+                    "name": "reviver",
+                    "description": "过滤器，可选",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "解析之后返回传入数据的一个对象表示",
+                "type": "Object"
+            },
+            "example": [
+                "\n注意 json 字符串的格式，属性必须要双引号括起来\n```\nKISSY.JSON.parse('{\"x\":1}'); // => ok\nKISSY.JSON.parse(\"{'x':1}\"); // => exception : SyntaxError\nKISSY.JSON.parse(\"{x:1}\"); // => exception : SyntaxError\n```"
+            ],
+            "class": "Json",
+            "module": "json"
+        },
+        {
+            "file": "src\\api\\json.js",
+            "line": 26,
+            "description": "将json对象或者数组转化为字符串，序列化器",
+            "itemtype": "method",
+            "name": "stringify",
+            "static": 1,
+            "params": [
+                {
+                    "name": "value",
+                    "description": "要序列化的对象",
+                    "type": "Object|Array"
+                },
+                {
+                    "name": "replacer",
+                    "description": "替换函数，可选",
+                    "type": "Function|Array",
+                    "optional": true
+                },
+                {
+                    "name": "space",
+                    "description": "缩进说明符，可选",
+                    "type": "String|Number",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "返回JSON字符串",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nKISSY.JSON.stringify({\"x\":1}); // => '{\"x\":1}'\nKISSY.JSON.stringify({x:1}); // => '{\"x\":1}'\nKISSY.JSON.stringify({'x':1}); // => '{\"x\":1}'\n```"
+            ],
+            "class": "Json",
+            "module": "json"
         },
         {
             "file": "src\\api\\loader.js",
@@ -5769,10 +5874,5 @@
             "module": "util"
         }
     ],
-    "warnings": [
-        {
-            "message": "unknown tag: retrun",
-            "line": " src\\api\\io.js:282"
-        }
-    ]
+    "warnings": []
 }

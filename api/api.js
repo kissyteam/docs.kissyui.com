@@ -7,6 +7,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Event",
         "Feature",
         "IO",
+        "Json",
         "Loader",
         "Target",
         "UA",
@@ -19,6 +20,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "event",
         "feature",
         "io",
+        "json",
         "loader",
         "ua",
         "util"
@@ -53,6 +55,10 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "io",
             "name": "io",
             "description": "提供类IO"
+        },
+        {
+            "displayName": "json",
+            "name": "json"
         },
         {
             "displayName": "loader",

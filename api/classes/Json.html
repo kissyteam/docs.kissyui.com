@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Cookie - API Documentation — KISSY v1.5 Documentation</title>
+    <title>Json - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -118,7 +118,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Cookie Class</h1>
+                        <h1>Json Class</h1>
 <div class="box meta">
     
 
@@ -126,13 +126,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_cookie.js.html#l6"><code>src\api\cookie.js:6</code></a>
+            Defined in: <a href="../files/src_api_json.js.html#l5"><code>src\api\json.js:5</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/cookie.html">cookie</a>
+            Module: <a href="../modules/json.html">json</a>
         
     
 
@@ -142,10 +142,7 @@
 
 
 <div class="box intro">
-    <p>操作cookie
-<strong>Note</strong></p>
-<p>推荐阅读 NCZ 的这篇文章： <a href="http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/">HTTP cookies explained</a></p>
-
+    
 </div>
 
 
@@ -173,7 +170,7 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_get">get</a>
+                                <a href="#method_parse">parse</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -182,16 +179,7 @@
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_remove">remove</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_set">set</a>
+                                <a href="#method_stringify">stringify</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -215,8 +203,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_get" class="method item">
-    <h3 class="name"><code>get</code></h3>
+                    <div id="method_parse" class="method item">
+    <h3 class="name"><code>parse</code></h3>
 
     
         <div class="args">
@@ -224,7 +212,163 @@
             
                 <li class="arg">
                     
-                        <code>name</code>
+                        <code>text</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[reviver]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_json.js.html#l10"><code>src\api\json.js:10</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>将字符串解析为json对象</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">text</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>字符串</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[reviver]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>过滤器，可选</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    
+                    <p>解析之后返回传入数据的一个对象表示</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p>注意 json 字符串的格式，属性必须要双引号括起来</p>
+<pre class="code prettyprint"><code>KISSY.JSON.parse(&#39;{&quot;x&quot;:1}&#39;); // =&gt; ok
+KISSY.JSON.parse(&quot;{&#39;x&#39;:1}&quot;); // =&gt; exception : SyntaxError
+KISSY.JSON.parse(&quot;{x:1}&quot;); // =&gt; exception : SyntaxError</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_stringify" class="method item">
+    <h3 class="name"><code>stringify</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>value</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[replacer]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[space]</code>
                     
                 </li>
             
@@ -263,7 +407,7 @@
             
         
         
-        <a href="../files/src_api_cookie.js.html#l15"><code>src\api\cookie.js:15</code></a>
+        <a href="../files/src_api_json.js.html#l26"><code>src\api\json.js:26</code></a>
         
         </p>
 
@@ -274,7 +418,7 @@
     </div>
 
     <div class="description">
-        <p>获取cookie值</p>
+        <p>将json对象或者数组转化为字符串，序列化器</p>
 
     </div>
 
@@ -286,14 +430,48 @@
             
                 <li class="param">
                     
-                        <code class="param-name">name</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <code class="param-name">value</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>cookie的名称</p>
+                        <p>要序列化的对象</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[replacer]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>替换函数，可选</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[space]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>缩进说明符，可选</p>
 
                     </div>
 
@@ -313,369 +491,24 @@
                     
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
                     
+                    <p>返回JSON字符串</p>
+
                 
             </div>
         </div>
     
 
     
-</div>
+        <div class="example">
+            <h4>Example:</h4>
 
-                
-                    <div id="method_remove" class="method item">
-    <h3 class="name"><code>remove</code></h3>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.JSON.stringify({&quot;x&quot;:1}); // =&gt; &#39;{&quot;x&quot;:1}&#39;
+KISSY.JSON.stringify({x:1}); // =&gt; &#39;{&quot;x&quot;:1}&#39;
+KISSY.JSON.stringify({&#39;x&#39;:1}); // =&gt; &#39;{&quot;x&quot;:1}&#39;</code></pre>
 
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>name</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>domain</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>path</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>secure</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
+            </div>
         </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_cookie.js.html#l23"><code>src\api\cookie.js:23</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>置空cookie值，并立刻过期</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">name</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>cookie的名称</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">domain</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>域</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">path</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>路径</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">secure</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>安全标志</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_set" class="method item">
-    <h3 class="name"><code>set</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>name</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>val</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>expires</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>domain</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>path</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>secure</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_cookie.js.html#l33"><code>src\api\cookie.js:33</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>设置cookie值</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">name</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>cookie的名称</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">val</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>cookie的值</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">expires</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date" class="crosslink external" target="_blank">Date</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>失效时间. number 类型时单位为天，不设置表示生效时间为本次浏览器进程</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">domain</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>域</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">path</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>路径</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">secure</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>安全标志</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
     
 </div>
 

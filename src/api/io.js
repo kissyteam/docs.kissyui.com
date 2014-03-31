@@ -284,5 +284,5 @@ IO({
 @method serialize
 @static
 @param elements {string|Array<HTMLElement>|HTMLElement|KISSY.NodeList} 代表表单元素(input form select ...)的集合，参数格式同query()
-@retrun {String} 序列化后的字符串
+@return {String} 序列化后的字符串
 */
