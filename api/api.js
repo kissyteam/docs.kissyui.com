@@ -6,6 +6,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Dom",
         "Event",
         "Feature",
+        "IO",
         "Loader",
         "Target",
         "UA",
@@ -17,6 +18,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "dom",
         "event",
         "feature",
+        "io",
         "loader",
         "ua",
         "util"
@@ -46,6 +48,11 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "feature",
             "name": "feature",
             "description": "features模块提供了Features来进行硬件环境关键特性检测，直接通过KISSY全局对象调用"
+        },
+        {
+            "displayName": "io",
+            "name": "io",
+            "description": "提供类IO"
         },
         {
             "displayName": "loader",
