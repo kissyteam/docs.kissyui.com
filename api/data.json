@@ -95,6 +95,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\node.js": {
+            "name": "src\\api\\node.js",
+            "modules": {
+                "node": 1
+            },
+            "classes": {
+                "Node": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\path.js": {
             "name": "src\\api\\path.js",
             "modules": {
@@ -233,6 +244,19 @@
             "file": "src\\api\\loader.js",
             "line": 6,
             "description": "loader模块,定义KISSY初始对象及模块化机制用到的方法，所有方法都通过KISSY直接引用"
+        },
+        "node": {
+            "name": "node",
+            "submodules": {},
+            "classes": {
+                "Node": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\node.js",
+            "line": 6,
+            "description": "node 包括 dom , event , anim 模块的所有功能, 推荐采用 Node 模块"
         },
         "path": {
             "name": "path",
@@ -654,6 +678,44 @@
             "line": 6,
             "description": "弥补 javascript 语言机制的不足, 提供类似其他语言原生的模块化机制.\nLoader中定义的所有方法都直接通过KISSY对象直接引用，如 `KISSY.add`",
             "static": 1
+        },
+        "Node": {
+            "name": "Node",
+            "shortname": "Node",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "node",
+            "namespace": "",
+            "file": "src\\api\\node.js",
+            "line": 6,
+            "description": "由node模块提供的类 Node,你只需要把 Node.all 看做 jquery 中的 $ 就可以了,非常方便",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "html",
+                    "description": "不同类型有不同意义，如下：\n- string : html 字符串, 例如 `<div>` , 根据该字符串生成 Node 对象\n- HTMLElement|Text|Window|HTMLDocument : 把原生 DOM 节点包装成一个 Node 对象, 这个情景一般可用 `Node.all` 代替\n- HTMLCollection|ArrayList<HTMLElement> : 将原生节点列表包装为一个 Node 对象\n- Node : 从当前 Node 对象中克隆一个新对象返回",
+                    "type": "String|HTMLElement|Text|Window|HTMLDocument|HTMLCollection|ArrayList<HTMLElement>|Node"
+                },
+                {
+                    "name": "props",
+                    "description": "属性键值对, 对生成的 Node 对象代表的原生 DOM 节点设置属性. 仅当 html 参数为 html 字符串时使用",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "ownerDocument",
+                    "description": "该 Node 产生的原生 DOM 节点所属的文档对象. 仅当 html 参数为 html 字符串时使用",
+                    "type": "HTMLDocument",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "返回Node对象\n### Note1\n\n#### 推荐除了需要生成文本节点的情况下, 统统使用 Node.all() 代替\n\n### Note2\n\n以下的这些方法, filter() , test() , clone() , empty() , replaceWith() , hasClass(), addClass(), removeClass(), replaceClass(), toggleClass(), removeAttr(), attr(), hasAttr(), prop(), hasProp(), val(), text(), css(), toggle(), offset(), scrollIntoView(), parent(), index(), next(), prev(), first(), last(), siblings(), children(), contains(), html(), remove(), data(), removeData(), hasData(), unselectable(), contains(), innerWidth(), innerHeight(), outerWidth(), outerHeight(), on(), detach(), fire(), 的调用都会被转发给 dom , event , 原 DOM , Event 对应方法的第一个参数传入一个原生 DOM 节点数组, 而这个原生 DOM 节点数组则是由当前的 KISSY Node 对象得到的",
+                "type": "Node"
+            }
         },
         "Path": {
             "name": "Path",
@@ -4371,6 +4433,878 @@
             ],
             "class": "Loader",
             "module": "loader"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 27,
+            "description": "根据选择器字符串得到节点列表",
+            "itemtype": "method",
+            "name": "all",
+            "static": 1,
+            "params": [
+                {
+                    "name": "html",
+                    "description": "不同参数类型有不同意义，意义请参考Node构造函数说明",
+                    "type": "String|HTMLElement|Text|Window|HTMLDocument|HTMLCollection|ArrayList<HTMLElement>|Node"
+                },
+                {
+                    "name": "context",
+                    "description": "选择器上下文",
+                    "type": "HTMLElement|Document|Node"
+                }
+            ],
+            "return": {
+                "description": "返回相应的Node对象",
+                "type": "Node"
+            },
+            "example": [
+                "\n- 选择器上下文\n默认情况下是在文档根节点开始依据选择器字符串开始匹配元素查找. 但是一个上下文可以作为可选的第二个参数来限定查找范围, 例如在事件处理器 范围内进行查找匹配元素：\n```\nvar $=Node.all;\n$('div.foo').on(\"click\",function() {\n  $('span', this).addClass('bar');\n});\n```\n当对 span 的选择限定在 this 中时, 只有位于点击元素内的 span 节点会被设置格外的 class.也可以通过 $(this).all(\"span\") 来实现限定搜索范围\n- 使用原生 DOM 节点\n```\nvar $=Node.all;\n$('div.foo').on(\"click\",function() {\n  $(this).slideUp();\n});\n```"
+            ],
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 53,
+            "description": "返回匹配的第一个Node对象",
+            "itemtype": "method",
+            "name": "one",
+            "static": 1,
+            "params": [
+                {
+                    "name": "arg..",
+                    "description": "如果参数为选择字符串, 找不到则返回 null,其他情况参考[Node.all](#method_all)说明"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 61,
+            "description": "得到当前节点列表内符合选择器字符串的子孙节点列表",
+            "itemtype": "method",
+            "name": "all",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "选择器字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "example": [
+                "\n查看[demo](/1.5/examples/node/instance_all.html)"
+            ],
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 70,
+            "description": "得到当前节点列表内符合选择器字符串的子孙节点列表的第一个Node对象",
+            "itemtype": "method",
+            "name": "one",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "选择器字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "返回null或者Node对象",
+                "type": "Null|Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 77,
+            "description": "得到该 Node 对象包含的原生节点数组",
+            "itemtype": "method",
+            "name": "getDomNodes",
+            "return": {
+                "description": "返回该 Node 对象包含的原生节点数组",
+                "type": "Array<HTMLElement>"
+            },
+            "example": [
+                "\n```\n<p id='p1'>1</p><p id='p2'>2</p>\n\n<script>\n\tKISSY.use(\"node\",function(S,Node){\n\t\tvar $ = Node.all,\n\t\t    pdiv = $(\"p\"),\n\t\t    all=pdiv.getDOMNodes(); // => all == [document.getElementById(\"p1\"),document.getElementById(\"p2\")]\n\n\t})\n</script>\n```"
+            ],
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 96,
+            "description": "得到该 NodeList 对象包含的第一个原生节点",
+            "itemtype": "method",
+            "name": "getDomNode",
+            "return": {
+                "description": "返回该 Node 对象包含的第一个原生节点",
+                "type": "Array<HTMLElement>"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 102,
+            "description": "得到上一次 Node.one() / Node.all() 操作前的 Node 对象,引入该方法是为了更好的进行链式调用",
+            "itemtype": "method",
+            "name": "end",
+            "example": [
+                "\n```\n<div class='d1'>\n    d1\n</div>\n\n<div class='d2'>\n    d2\n</div>\n\n<script>\n    KISSY.use('node', function (S,Node) {\n        var $ = Node.all;\n        $(\"body\").all(\".d1\").css(\"color\", \"red\").end().all(\".d2\").css(\"color\", \"green\");\n\n    });\n</script>\n```"
+            ],
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 125,
+            "description": "比较当前节点列表和 others 代表的节点列表是否完全相同",
+            "itemtype": "method",
+            "name": "equals",
+            "params": [
+                {
+                    "name": "others",
+                    "description": "要比较的目标节点列表",
+                    "type": "Node"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 132,
+            "description": "返回包含合并选择器字符串匹配的元素和当前节点列表元素的新 NodeList 对象",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "html",
+                    "description": "参数意义同Node.all",
+                    "type": "String|HTMLElement|Text|Window|HTMLDocument|HTMLCollection|ArrayList<HTMLElement>|Node"
+                },
+                {
+                    "name": "context",
+                    "description": "",
+                    "optional": true
+                }
+            ],
+            "example": [
+                "\n```\n<p>1</p><div>2</div>\n\n<script>\n    var pdiv = $(\"p\");\n    var all=pdiv.add(\"div\");  //  pdiv will not change\n    all.css(\"color\",\"red\"); // => 1,2 都为红字\n</script>\n```"
+            ],
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 149,
+            "description": "获取包含当前节点列表 index 位置处的单个原生节点的新 Node 对象",
+            "itemtype": "method",
+            "name": "item",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "null 或者包含一个原生节点的 NodeList 对象",
+                "type": "Null|Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 156,
+            "description": "获取包含当前节点列表选定范围内原生节点的新 Node 对象,调用该方法并不会改变当前 Node 实例",
+            "itemtype": "method",
+            "name": "slice",
+            "params": [
+                {
+                    "name": "start",
+                    "description": "范围开始位置",
+                    "type": "Number"
+                },
+                {
+                    "name": "end",
+                    "description": "范围结束位置，忽略的话结束坐标为当前列表末尾",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 164,
+            "description": "得到/设置当前节点列表第一个节点的滚动条的垂直位置",
+            "itemtype": "method",
+            "name": "scrollTop",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "\n- 当忽略value不填，则是“获取”\n- 当value为数值，则是“设置”",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "自身this"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 173,
+            "description": "得到/设置当前节点列表第一个节点的滚动条的横向位置",
+            "itemtype": "method",
+            "name": "scrollLeft",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "\n- 当忽略value不填，则是“获取”\n- 当value为数值，则是“设置”",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "自身this"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 182,
+            "description": "得到/设置当前节点列表第一个节点的计算高度，不含margin/padding/border",
+            "itemtype": "method",
+            "name": "height",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "\n- 当忽略value不填，则是“获取”\n- 当value为数值，则是“设置”",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "自身this"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 191,
+            "description": "得到/设置当前节点列表第一个节点的计算宽度，不含margin/padding/border",
+            "itemtype": "method",
+            "name": "width",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "\n- 当忽略value不填，则是“获取”\n- 当value为数值，则是“设置”",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "自身this"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 200,
+            "description": "将 cssText 字符串作为内联样式表内容添加到节点所属的文档中",
+            "itemtype": "method",
+            "name": "addStyleSheet",
+            "params": [
+                {
+                    "name": "cssText",
+                    "description": "样式内容",
+                    "type": "String"
+                },
+                {
+                    "name": "id",
+                    "description": "内联样式表所在 style 节点的 id",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 207,
+            "description": "将参数内容插入到当前节点列表中的每个元素的末尾.",
+            "itemtype": "method",
+            "name": "append",
+            "params": [
+                {
+                    "name": "content",
+                    "description": "将要插入的内容",
+                    "type": "HTMLElement|string|Node"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "example": [
+                "\n```\n<h2>Greetings</h2>\n<div class=\"container\">\n  <div class=\"inner\">Hello</div>\n  <div class=\"inner\">Goodbye</div>\n</div>\n```\n```\nKISSY.use(\"node\",function(S,Node){\n    Node.all('.inner').append('<p>Test</p>');\n});\n\n```\n内层的每个 div 元素都得到了新内容\n```\n<h2>Greetings</h2>\n<div class=\"container\">\n  <div class=\"inner\">\n    Hello\n    <p>Test</p>\n  </div>\n  <div class=\"inner\">\n    Goodbye\n    <p>Test</p>\n  </div>\n</div>\n```\n### Note\n\n当把页面上已有的元素添加到目标容器中，若目标容器有多个，则只有第一个被添加进去的是参数节点，其他的都是参数节点的克隆节点"
+            ],
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 245,
+            "description": "将当前节点列表中的每个元素插入到容器列表的每个元素的最后一个子节点后面,功能与append已有，只是参数意义不同",
+            "itemtype": "method",
+            "name": "appendTo",
+            "params": [
+                {
+                    "name": "content",
+                    "description": "将要插入的内容\n- HTMLElement|Node: 已有或新创建的节点\n- string: 选择器字符串, 查找已有的容器节点",
+                    "type": "HTMLElement|string|Node"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 254,
+            "description": "将参数内容插入到当前节点列表中的每个元素的开头.",
+            "itemtype": "method",
+            "name": "prepend",
+            "params": [
+                {
+                    "name": "content",
+                    "description": "将要插入的内容",
+                    "type": "HTMLElement|string|Node"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 261,
+            "description": "将当前节点列表中的每个元素插入到容器列表的每个元素的最后一个子节点开头,功能与prependTo已有，只是参数意义不同",
+            "itemtype": "method",
+            "name": "prependTo",
+            "params": [
+                {
+                    "name": "content",
+                    "description": "将要插入的内容\n- HTMLElement|Node: 已有或新创建的节点\n- string: 选择器字符串, 查找已有的容器节点",
+                    "type": "HTMLElement|string|Node"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 270,
+            "description": "将当前列表中的每个元素插入到目标元素之前",
+            "itemtype": "method",
+            "name": "insertBefore",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "目标元素\n- HTMLElement|Node: 已有或新创建的节点\n- string: 选择器字符串, 查找已有的容器节点",
+                    "type": "HTMLElement|string|Node"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 279,
+            "description": "将当前列表中的每个元素插入到目标元素后面",
+            "itemtype": "method",
+            "name": "insertAfter",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "目标元素\n- HTMLElement|Node: 已有或新创建的节点\n- string: 选择器字符串, 查找已有的容器节点",
+                    "type": "HTMLElement|string|Node"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 288,
+            "description": "将参数内容插入到当前列表中每个元素之前,功能和insertBefore一样，只是参数意义不同",
+            "itemtype": "method",
+            "name": "before",
+            "params": [
+                {
+                    "name": "content",
+                    "description": "将要插入的元素\n- HTMLElement|Node: 已有或新创建的节点\n- string: 选择器字符串, 查找已有的容器节点",
+                    "type": "HTMLElement|string|Node"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 297,
+            "description": "将参数内容插入到当前列表中每个元素后面,功能和insertAfter一样，只是参数意义不同",
+            "itemtype": "method",
+            "name": "after",
+            "params": [
+                {
+                    "name": "content",
+                    "description": "将要插入的元素\n- HTMLElement|Node: 已有或新创建的节点\n- string: 选择器字符串, 查找已有的容器节点",
+                    "type": "HTMLElement|string|Node"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 306,
+            "description": "在当前节点列表上开始动画",
+            "itemtype": "method",
+            "name": "animate",
+            "params": [
+                {
+                    "name": "arg...",
+                    "description": "参数参考[Anim的构造函数](/1.5/api/classes/Anim.html)"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 313,
+            "description": "停止当前节点列表的动画, end, clearQueue, queueName, 涵义同 Anim.stop().",
+            "itemtype": "method",
+            "name": "stop",
+            "params": [
+                {
+                    "name": "args..",
+                    "description": "参考[Anim.stop](/1.5/api/classes/Anim.html#method_stop)",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 320,
+            "description": "暂停当前节点列表的动画",
+            "itemtype": "method",
+            "name": "pause",
+            "params": [
+                {
+                    "name": "queueName",
+                    "description": "涵义同 [Anim.pause](/1.5/api/classes/Anim.html#method_pause)",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 327,
+            "description": "继续当前节点列表的动画",
+            "itemtype": "method",
+            "name": "resume",
+            "params": [
+                {
+                    "name": "queueName",
+                    "description": "涵义同 [Anim.pause](/1.5/api/classes/Anim.html#method_pause)",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 334,
+            "description": "判断当前 Node 对象是否在动画中, Node对象列表 中只要有一个 Node对象 在动画, 就会返回 true 值",
+            "itemtype": "method",
+            "name": "isRunning",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 340,
+            "description": "判断当前 Node 对象是否在暂停中, Node对象列表 中只要有一个 Node对象 在暂停, 就会返回 true 值",
+            "itemtype": "method",
+            "name": "isPaused",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 346,
+            "description": "当前节点列表元素以动画效果显示",
+            "itemtype": "method",
+            "name": "show",
+            "params": [
+                {
+                    "name": "speed",
+                    "description": "单位秒, 动画持续时间, 不设置无动画",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "每个动画结束后回调函数",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 354,
+            "description": "当前节点列表元素以动画效果隐藏",
+            "itemtype": "method",
+            "name": "hide",
+            "params": [
+                {
+                    "name": "speed",
+                    "description": "单位秒, 动画持续时间, 不设置无动画",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "每个动画结束后回调函数",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 362,
+            "description": "当前节点列表元素为显示时动画效果隐藏, 否则动画效果显示",
+            "itemtype": "method",
+            "name": "toggle",
+            "params": [
+                {
+                    "name": "speed",
+                    "description": "单位秒, 动画持续时间, 不设置无动画",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "每个动画结束后回调函数",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 370,
+            "description": "当前节点列表元素以渐隐效果显示",
+            "itemtype": "method",
+            "name": "fadeIn",
+            "params": [
+                {
+                    "name": "speed",
+                    "description": "单位秒, 动画持续时间, 不设置无动画",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "每个动画结束后回调函数",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "easing",
+                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 379,
+            "description": "当前节点列表元素以渐隐效果隐藏",
+            "itemtype": "method",
+            "name": "fadeOut",
+            "params": [
+                {
+                    "name": "speed",
+                    "description": "单位秒, 动画持续时间, 不设置无动画",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "每个动画结束后回调函数",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "easing",
+                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 388,
+            "description": "当前节点列表元素为显示时, 切换显示或隐藏, 且动画效果为渐隐",
+            "itemtype": "method",
+            "name": "fadeToggle",
+            "params": [
+                {
+                    "name": "speed",
+                    "description": "单位秒, 动画持续时间, 不设置无动画",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "每个动画结束后回调函数",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "easing",
+                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 397,
+            "description": "当前节点列表元素从上到下滑动显示",
+            "itemtype": "method",
+            "name": "slideDown",
+            "params": [
+                {
+                    "name": "speed",
+                    "description": "单位秒, 动画持续时间, 不设置无动画",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "每个动画结束后回调函数",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "easing",
+                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 406,
+            "description": "当前节点列表元素从上到下滑动隐藏",
+            "itemtype": "method",
+            "name": "slideUp",
+            "params": [
+                {
+                    "name": "speed",
+                    "description": "单位秒, 动画持续时间, 不设置无动画",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "每个动画结束后回调函数",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "easing",
+                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
+        },
+        {
+            "file": "src\\api\\node.js",
+            "line": 415,
+            "description": "当前节点列表元素为显示时, 切换显示或隐藏, 且动画效果为滑动展开折叠",
+            "itemtype": "method",
+            "name": "slideToggle",
+            "params": [
+                {
+                    "name": "speed",
+                    "description": "单位秒, 动画持续时间, 不设置无动画",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "每个动画结束后回调函数",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "easing",
+                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Node"
+            },
+            "class": "Node",
+            "module": "node"
         },
         {
             "file": "src\\api\\path.js",
