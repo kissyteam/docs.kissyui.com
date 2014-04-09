@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src\api\path.js - API Documentation — KISSY v1.5 Documentation</title>
+    <title>uri - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -132,103 +132,56 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: src\api\path.js</h1>
+                        <h1>uri Module</h1>
+<div class="box clearfix meta">
+    
 
-<div class="file">
-    <pre class="code prettyprint linenums">
-/**
-@module path
-*/
+    
 
-/**
-地址操作工具类
-@class Path
-@static
-&#x60;&#x60;&#x60;
-KISSY.use(&#x27;path&#x27;,function(S,Path){
-        Path.do_sth();// 执行操作
-});
-&#x60;&#x60;&#x60;
-*/
+    
+        <div class="foundat">
+            Defined in: <a href="../files/src_api_uri.js.html#l206"><code>src\api\uri.js:206</code></a>
+        </div>
+    
 
-/**
-获取域名中的文件名
-@method basename
-@static
-@param path {String} 路径字符串
-@param ext {String} 需要过滤的扩展名，比如&#x60;.html&#x60;
-@return {String} 返回结果字符串
-@example
-&#x60;&#x60;&#x60;
-Path.basename(&#x27;http://www.taobao.com/index.html&#x27;,&#x27;.html&#x27;);//=&gt; index
-&#x60;&#x60;&#x60;
-*/
+    
+</div>
 
-/**
-返回path所指的文件所在的目录路径
-@method dirname
-@static
-@param path {String} 路径字符串
-@return {String}
-@example
-&#x60;&#x60;&#x60;
-Path.dirname(&#x27;/home/bachi/daily/index.html&#x27;);//=&gt;/home/bachi/daily
-&#x60;&#x60;&#x60;
-*/
 
-/**
-获取路径所指文件的扩展名，比如&#x60;.html&#x60;
-@method extname
-@static
-@param path {String} 路径字符串
-@return {String}
-@example
-&#x60;&#x60;&#x60;
-Path.extname(&#x27;/home/bachi/daily/index.html&#x27;);//=&gt; .html
-&#x60;&#x60;&#x60;
-*/
 
-/**
-将path中的无关内容清理掉，返回直接的路径信息
-@method normalize
-@static
-@param path {String} 路径字符串
-@return {String}
-@example
-&#x60;&#x60;&#x60;
-Path.normalize(&#x27;x/y/../z&#x27;); // =&gt; x/z/
-Path.normalize(&#x27;x/y/z/../&#x27;); // =&gt; x/y/
-&#x60;&#x60;&#x60;
-*/
+<div class="box intro">
+    <p>uri解析模块</p>
 
-/**
-计算相对路径
-@method relative
-@static
-@param from {String} 要比较的源地址
-@param to {String} 要比较的目标地址
-@return {String}
-@example
-&#x60;&#x60;&#x60;
-Path.relative(&#x27;x/&#x27;,&#x27;x/y/z&#x27;); // =&gt; &#x27;y/z&#x27;
-Path.relative(&#x27;x/t/z&#x27;,&#x27;x/&#x27;); // =&gt; &#x27;../../&#x27;
-&#x60;&#x60;&#x60;
-*/
+</div>
 
-/**
-得到绝对地址，算法逻辑参照 [NodeJS](http://nodejs.org/api/path.html#path_path_resolve_from_to)
-@method resolve
-@static
-@example
-&#x60;&#x60;&#x60;
-KISSY.Path.resolve(&#x27;wwwroot&#x27;, &#x27;static_files/png/&#x27;, &#x27;../gif/image.gif&#x27;)
-// =&gt; &#x27;wwwroot/static_files/gif/image.gif&#x27;
 
-KISSY.Path.resolve(&#x27;/foo/bar&#x27;, &#x27;/tmp/file/&#x27;)
-// =&gt;   &#x27;/tmp/file&#x27;
-&#x60;&#x60;&#x60;
-*/
-    </pre>
+
+<div class="yui3-g">
+    <div class="yui3-u-1-2">
+        
+            <p>This module provides the following classes:</p>
+
+            <ul class="module-classes">
+            
+                <li class="module-class">
+                    <a href="../classes/Query.html">
+                        Query
+                    </a>
+                </li>
+            
+                <li class="module-class">
+                    <a href="../classes/Uri.html">
+                        Uri
+                    </a>
+                </li>
+            
+            </ul>
+        
+    </div>
+
+    <div class="yui3-u-1-2">
+        
+    </div>
 </div>
 
                     </div>

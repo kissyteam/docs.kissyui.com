@@ -11,8 +11,10 @@ YUI.add("yuidoc-meta", function(Y) {
         "Loader",
         "Node",
         "Path",
+        "Query",
         "Target",
         "UA",
+        "Uri",
         "Util"
     ],
     "modules": [
@@ -27,6 +29,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "node",
         "path",
         "ua",
+        "uri",
         "util"
     ],
     "allModules": [
@@ -82,6 +85,11 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "ua",
             "name": "ua",
             "description": "UA模块将UA挂在在全局对象KISSY上，通过 KISSY.UA 的属性，你可以获取浏览器等用户代理的信息。"
+        },
+        {
+            "displayName": "uri",
+            "name": "uri",
+            "description": "uri解析模块"
         },
         {
             "displayName": "util",
