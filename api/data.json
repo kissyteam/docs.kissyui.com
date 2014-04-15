@@ -17,6 +17,18 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\base.js": {
+            "name": "src\\api\\base.js",
+            "modules": {
+                "base": 1
+            },
+            "classes": {
+                "Base": 1,
+                "Attribute": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\cookie.js": {
             "name": "src\\api\\cookie.js",
             "modules": {
@@ -177,6 +189,20 @@
             "file": "src\\api\\anim.js",
             "line": 6,
             "description": "提供类Anim,动画支持"
+        },
+        "base": {
+            "name": "base",
+            "submodules": {},
+            "classes": {
+                "Base": 1,
+                "Attribute": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\base.js",
+            "line": 193,
+            "description": "鉴于不同浏览器对属性描述符的支持并不统一, KISSY 的 attribute 模块, 模拟实现了属性描述符, 提供属性的获取和设置操作, 即属性的 getter 和 setter 动作.\n\n而 KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 让继承 Base 的子类自动具有 attribute 的功能.如果你想让自定义类默认就支持 attribute 功能, 请直接继承 Base"
         },
         "cookie": {
             "name": "cookie",
@@ -447,6 +473,55 @@
                     ]
                 }
             ]
+        },
+        "Base": {
+            "name": "Base",
+            "shortname": "Base",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "base",
+            "namespace": "",
+            "file": "src\\api\\base.js",
+            "line": 9,
+            "description": "[augment()](/1.5/api/classes/Util.html#method_augment)自[Attribute](/1.5/api/classes/Attribute.html)\n如果你想让类默认就支持 attribute 功能, 请直接继承Base\n\n简单实用：\n```\nKISSY.use('base', function(S, Base) {\n    // 自定义类\n    // 继承 Base\n    var myClass = Base.extend({},{\n        size: {\n            value: 0,\n            setter: function(v) {\n                if (S.isString(v) && v.indexOf('inch')!== -1) {\n                    return parseFloat(v)*10/3;\n                }\n                return parseFloat(v);\n            },\n            getter: function(v) {\n                return v;\n            }\n        }\n    });\n\n    var cls = new myClass();\n\n    // 绑定事件\n    cls.on('afterSizeChange', function(ev){\n        console.log('change '+ ev.attrName + ': '+ev.prevVal+' --> '+ev.newVal);\n    });\n\n    // 设置属性\n    cls.set('size', 20);\n\n    // 获取属性\n    alert(cls.get('size'));\n\n    // 重置\n    cls.reset();\n    alert(cls.get('size'));\n});\n```",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "属性名/配置信息对",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "listeners",
+                            "description": "配置组件的事件绑定,例如:\n```\n{\n    listeners:{\n        customEvent:function(e){\n            alert(e.type); // => \"customEvent\"\n        }\n    }\n}\n\nor\n\n{\n    listeners:{\n        customEvent:{\n            fn:function(e){\n                // e.type // => customEvent\n                // this.xx => 1\n            },\n            context:{xx:1}\n        }\n    }\n}\n```",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "plugins",
+                            "description": "插件构造器数组或插件对象数组. 例如\n```\n{\n    plugins: [ Plugin1,Plugin2 ]\n}\n\n// or\n\n{\n    plugins: [new Plugin1(cfg),new Plugin2(cfg)]\n}\n```",
+                            "type": "Function[]|Object[]"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Attribute": {
+            "name": "Attribute",
+            "shortname": "Attribute",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "base",
+            "namespace": "",
+            "file": "src\\api\\base.js",
+            "line": 193,
+            "description": "包含一些属性操作的方法，仅用于 [augment()](/1.5/api/classes/Util.html#method_augment)]",
+            "is_constructor": 1
         },
         "Cookie": {
             "name": "Cookie",
@@ -1089,6 +1164,473 @@
             "name": "complete",
             "class": "Anim",
             "module": "anim"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 92,
+            "description": "从当前类上扩展出一个子类",
+            "itemtype": "method",
+            "name": "extend",
+            "static": 1,
+            "params": [
+                {
+                    "name": "extensions",
+                    "description": "扩展类数组",
+                    "type": "Function[]",
+                    "optional": true
+                },
+                {
+                    "name": "methodDesc",
+                    "description": "方法集合键值对",
+                    "type": "Object"
+                },
+                {
+                    "name": "staticAttributes",
+                    "description": "放到新产生组件类上的静态属性集合键值对，其中 ATTRS 属性特殊对待",
+                    "type": "Object"
+                },
+                {
+                    "name": "desc",
+                    "description": "类元信息",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "类名",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 103,
+            "description": "调用父类的对应方法，如果没有，则返回undefined",
+            "itemtype": "method",
+            "name": "callSuper",
+            "example": [
+                "\n```\nKISSY.use('base', function(S, Base) {\n    var A = Base.extend({\n        m: function (value) {\n            return 'am:' + value;\n        },\n        m2: function (value) {\n            return 'am2:' + value;\n        }\n    });\n\n    var B = A.extend({\n        m: function(value) {\n            return 'bm:(' + this.callSuper(value) + ')';\n        },\n        m2: function(value) {\n            return 'bm2(' + this.callSuper.apply(this, arguments) + ')';\n        }\n    });\n\n    var b = new B();\n    console.log(b.m(1));\n    console.log(b.m2(2));\n});\n```"
+            ],
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 134,
+            "description": "安装指定插件",
+            "itemtype": "method",
+            "name": "plug",
+            "params": [
+                {
+                    "name": "plugin",
+                    "description": "指定的插件构造器或者插件对象",
+                    "type": "Function|Object"
+                }
+            ],
+            "return": {
+                "description": "自身"
+            },
+            "example": [
+                "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    new Overlay({\n        content:'test'\n    }).plug(new Resize({\n        handlers:['t','t']\n    }));\n});\n```"
+            ],
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 151,
+            "description": "卸载指定插件",
+            "itemtype": "method",
+            "name": "unplug",
+            "params": [
+                {
+                    "name": "plugin",
+                    "description": "指定的插件构造器或者插件对象",
+                    "type": "Function|Object"
+                }
+            ],
+            "return": {
+                "description": "自身"
+            },
+            "example": [
+                "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    var o= new Overlay({\n        content:'test'\n    }).plug(new Resize({\n        handlers:['t','t']\n    }));\n\n    o.unplug('component/plugin/resize'); // 卸载 resize 插件\n});\n```"
+            ],
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 170,
+            "description": "根据指定的 id 获取对应的plugin实例",
+            "itemtype": "method",
+            "name": "getPlugin",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "plugin实例的id",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "对应的plugin实例"
+            },
+            "example": [
+                "\n```\ndialog.getPlugin('component/plugin/drag')\n   .getPlugin('dd/plugin/constrain')\n   .set('constrain', false);\n```"
+            ],
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 183,
+            "description": "销毁实例",
+            "itemtype": "method",
+            "name": "destroy",
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 199,
+            "description": "给宿主对象增加一个属性",
+            "itemtype": "method",
+            "name": "addAttr",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "属性名",
+                    "type": "String"
+                },
+                {
+                    "name": "attrConfig",
+                    "description": "属性配置信息, 支持下面的配置项:",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "value",
+                            "description": "属性默认值。注意默认值请不要设置为复杂对象（通过自定义构造器 new 出来的），复杂对象可设置 valueFn 返回.如果配置项中没有设置 value, 会调用 valueFn 函数获取默认值并赋给 value",
+                            "type": "String|Number"
+                        },
+                        {
+                            "name": "valueFn",
+                            "description": "提供属性默认值的函数，传入对象内部对应的属性值和属性名，取该函数的返回值作为最终值给用户",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "setter",
+                            "description": "写属性时的处理函数，传入从 set() 参数得到的属性值和属性名，如果返回非 undefined 则作为新的属性设置值",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "getter",
+                            "description": "读属性时的处理函数",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "validator",
+                            "description": "写属性时的验证函数，传入从 set() 参数得到的属性值和属性名，返回 false 则不改变该属性值",
+                            "type": "Function"
+                        }
+                    ]
+                }
+            ],
+            "class": "Attribute",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 211,
+            "description": "批量添加属性",
+            "itemtype": "method",
+            "name": "addAttrs",
+            "params": [
+                {
+                    "name": "attrConfigs",
+                    "description": "属性名/配置信息对",
+                    "type": "Object"
+                },
+                {
+                    "name": "values",
+                    "description": "属性名/值对, 批量设置当前对象的属性值",
+                    "type": "Object"
+                }
+            ],
+            "class": "Attribute",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 218,
+            "description": "判断是否有名为 name 的属性",
+            "itemtype": "method",
+            "name": "hasAttr",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "属性名",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Attribute",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 225,
+            "description": "删除名为 name 的属性",
+            "itemtype": "method",
+            "name": "removeAttr",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "属性名",
+                    "type": "String"
+                }
+            ],
+            "class": "Attribute",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 231,
+            "description": "设置属性 name 的值为 value",
+            "itemtype": "method",
+            "name": "set",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "属性名.也可以为 “x.y” 形式，此时要求 x 属性为包含 y 属性的普通 Object，这时会设置 x 属性值的 y 属性.但只会触发 x 的相关 change 事件",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "属性的值",
+                    "type": "String"
+                },
+                {
+                    "name": "opts",
+                    "description": "控制对象，包括以下控制选项",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "silent=false",
+                            "description": "默认 false , 是否触发 change 系列事件",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "error",
+                            "description": "验证失败的回调，包括失败原因",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "force",
+                            "description": "是否强制触发 change 事件，默认值为 false，当值发生变化时才触发",
+                            "type": "Function"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "该次属性设置是否生效（是否通过了 validator 验证）",
+                "type": "Boolean"
+            },
+            "class": "Attribute",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 243,
+            "description": "获取属性 name 的值",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "属性名.也可以为 “x.y” 形式. 此时要求 x 属性为包含 y 属性的普通 Object.当没有设置属性值时, 会取该属性的默认值",
+                    "type": "String"
+                }
+            ],
+            "class": "Attribute",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 249,
+            "description": "获取目前实例的所有属性键值对集合",
+            "itemtype": "method",
+            "name": "getAttrVals",
+            "return": {
+                "description": "属性键值对集合",
+                "type": "Object"
+            },
+            "class": "Attribute",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 255,
+            "description": "重置属性 name 为初始值. (调用一次 set() )",
+            "itemtype": "method",
+            "name": "reset",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "属性",
+                    "type": "String"
+                },
+                {
+                    "name": "opts",
+                    "description": "控制对象，包括以下控制选项",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "silent=false",
+                            "description": "默认 false , 是否触发 change 系列事件",
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            ],
+            "class": "Attribute",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 263,
+            "description": "将所有属性全部重置为初始值. (调用一次 set() )",
+            "itemtype": "method",
+            "name": "reset",
+            "params": [
+                {
+                    "name": "opts",
+                    "description": "控制对象，包括以下控制选项",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "silent=false",
+                            "description": "默认 false , 是否触发 change 系列事件",
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            ],
+            "class": "Attribute",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 270,
+            "description": "名为 “attrName” 的属性, 在改变它的值之前触发该事件",
+            "itemtype": "event",
+            "name": "beforeAttrNameChange",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "回调函数传入的对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "newVal",
+                            "description": "将要改变到的属性值"
+                        },
+                        {
+                            "name": "prevVal",
+                            "description": "当前的属性值"
+                        },
+                        {
+                            "name": "attrName",
+                            "description": "当前的属性名，例如 “x”",
+                            "type": "String"
+                        },
+                        {
+                            "name": "subAttrName",
+                            "description": "当前的完整属性名，例如 “x.y”",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "Attribute",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 280,
+            "description": "名为 “attrName” 的属性, 在改变它的值之后触发该事件",
+            "itemtype": "event",
+            "name": "afterAttrNameChange",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "回调函数传入的对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "newVal",
+                            "description": "当前的属性值"
+                        },
+                        {
+                            "name": "prevVal",
+                            "description": "当前改变前的属性值"
+                        },
+                        {
+                            "name": "attrName",
+                            "description": "当前的属性名，例如 “x”",
+                            "type": "String"
+                        },
+                        {
+                            "name": "subAttrName",
+                            "description": "当前的完整属性名，例如 “x.y”",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "Attribute",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 290,
+            "description": "每调用 [set()](/1.5/api/classes/Attribute.html#method_set) 一次后就触发一次该事件",
+            "itemtype": "event",
+            "name": "*change",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "回调函数传入的对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "newVal",
+                            "description": "本次 set 导致的属性当前值集合"
+                        },
+                        {
+                            "name": "prevVal",
+                            "description": "本次 set 导致的属性在 set 前的值集合"
+                        },
+                        {
+                            "name": "attrName",
+                            "description": "本次 set 导致改变的属性名集合",
+                            "type": "String"
+                        },
+                        {
+                            "name": "subAttrName",
+                            "description": "本次 set 导致的属性全名集合",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "Attribute",
+            "module": "base"
         },
         {
             "file": "src\\api\\cookie.js",
