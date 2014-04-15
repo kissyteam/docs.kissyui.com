@@ -5,7 +5,7 @@
 	"url" : "docs.kissyui.com",
 	"options" : {
 		"linkNatives": "true",        
-        "attributesEmit": "true",
+        "attributesEmit": "false",
         "selleck": "true",
         "paths" : "./src/api/",
 		"outdir" : "./api/",

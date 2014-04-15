@@ -6,6 +6,17 @@
         "url": "docs.kissyui.com"
     },
     "files": {
+        "src\\api\\component\\control.js": {
+            "name": "src\\api\\component\\control.js",
+            "modules": {
+                "component/control": 1
+            },
+            "classes": {
+                "Control": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\anim.js": {
             "name": "src\\api\\anim.js",
             "modules": {
@@ -177,6 +188,19 @@
         }
     },
     "modules": {
+        "component/control": {
+            "name": "component/control",
+            "submodules": {},
+            "classes": {
+                "Control": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\component\\control.js",
+            "line": 7,
+            "description": "合并了原来的 box\n组件基类.仅用于 KISSY 内部组件继承，目前不建议外部使用，欢迎 review"
+        },
         "anim": {
             "name": "anim",
             "submodules": {},
@@ -375,6 +399,144 @@
         }
     },
     "classes": {
+        "Control": {
+            "name": "Control",
+            "shortname": "Control",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "component/control",
+            "namespace": "",
+            "file": "src\\api\\component\\control.js",
+            "line": 7,
+            "description": "继承自 [Base](/1.5/classes/Base.html) , 包含其全部配置,属性,方法,事件",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，有如下配置：",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "content",
+                            "description": "可选, 设置内容 html",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "disabled",
+                            "description": "可选，该组件是否初始禁用",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "elAttrs",
+                            "description": "可选，附加给组件根节点的属性键值对",
+                            "type": "Object",
+                            "optional": true
+                        },
+                        {
+                            "name": "elBefore",
+                            "description": "可选，组件根节点的渲染到该节点之前",
+                            "type": "KISSY.Node",
+                            "optional": true
+                        },
+                        {
+                            "name": "elCls",
+                            "description": "可选，附加给组件根节点的样式类",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "elStyle",
+                            "description": "可选，附加给组件根节点的内联样式",
+                            "type": "Object",
+                            "optional": true
+                        },
+                        {
+                            "name": "focused",
+                            "description": "可选，该组件是否初始获得焦点",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "height",
+                            "description": "可选，组件的高度，单位像素",
+                            "optional": true
+                        },
+                        {
+                            "name": "parent",
+                            "description": "可选，该组件的父组件",
+                            "type": "Control",
+                            "optional": true
+                        },
+                        {
+                            "name": "prefixCls",
+                            "description": "可选，默认 “ks-” . 组件的 css 样式类前缀 . 例如假设组件为 menu ，则该组件内的样式类名为 {prefixCls}menu，默认为 “ks-menu”.可用于实现自定义皮肤",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "prefixXClass",
+                            "description": "可选，组件 prefix 的超类。只在config中使用。当超类未被指定时，用这个做超类",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "render",
+                            "description": "组件要应用的节点。默认 S.all(“body”)，组件根节点的渲染为该节点最后一个节点",
+                            "type": "KISSY.Node",
+                            "optional": true
+                        },
+                        {
+                            "name": "srcNode",
+                            "description": "可选，组件从页面中已存在的该节点中渲染而来.srcNode 时设置其他属性不起作用，属性通通在 html 标签中指定，并且 html 标签必须包含完整结构，例如 content 节点必须存在",
+                            "type": "KISSY.Node",
+                            "optional": true
+                        },
+                        {
+                            "name": "visible",
+                            "description": "默认 true ，是否显示.只是为组件的根节点添加/删除 {component}-hidden 形式的 css class，自行指定具体的 css 样式",
+                            "type": "Prefix",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "width",
+                            "description": "可选，组件的宽度，单位像素",
+                            "type": "Number",
+                            "optional": true
+                        },
+                        {
+                            "name": "x",
+                            "description": "横轴位置",
+                            "type": "Number",
+                            "optional": true
+                        },
+                        {
+                            "name": "y",
+                            "description": "纵轴位置",
+                            "type": "Number",
+                            "optional": true
+                        },
+                        {
+                            "name": "xy",
+                            "description": "横纵坐标",
+                            "type": "Number[]",
+                            "optional": true
+                        },
+                        {
+                            "name": "zIndex",
+                            "description": "z-index 值",
+                            "type": "Number",
+                            "optional": true
+                        }
+                    ]
+                }
+            ]
+        },
         "Anim": {
             "name": "Anim",
             "shortname": "Anim",
@@ -967,6 +1129,494 @@
         }
     },
     "classitems": [
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 33,
+            "description": "只读属性，组件结构是否已经创建",
+            "itemtype": "attribute",
+            "name": "created",
+            "type": "Boolean",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 38,
+            "description": "只读属性，组件是否已经渲染",
+            "itemtype": "attribute",
+            "name": "rendered",
+            "type": "Boolean",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 43,
+            "description": "组件是否已经激活",
+            "itemtype": "attribute",
+            "name": "active",
+            "type": "Boolean",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 48,
+            "description": "设置的 content 属性",
+            "itemtype": "attribute",
+            "name": "content",
+            "type": "String|KISSY.Node",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 53,
+            "description": "该组件是否禁用状态",
+            "itemtype": "attribute",
+            "name": "disabled",
+            "type": "Boolean",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 58,
+            "description": "只读属性，该组件的根节点. 注意调用 render() 后才可以取得",
+            "itemtype": "attribute",
+            "name": "el",
+            "type": "KISSY.Node",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 63,
+            "description": "该组件是否获得焦点",
+            "itemtype": "attribute",
+            "name": "focused",
+            "type": "Boolean",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 68,
+            "description": "组件的高",
+            "itemtype": "attribute",
+            "name": "height",
+            "type": "Number",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 73,
+            "description": "该组件是否处于高亮状态",
+            "itemtype": "attribute",
+            "name": "highlighted",
+            "type": "Boolean",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 78,
+            "description": "标记当前实例是 Control 的实例",
+            "itemtype": "attribute",
+            "name": "isControl",
+            "type": "Boolean",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 83,
+            "description": "只读属性，该组件的父组件",
+            "itemtype": "attribute",
+            "name": "parent",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 88,
+            "description": "该组件是否显示，同 config 中的 visible，只是添加/删除样式",
+            "itemtype": "attribute",
+            "name": "visible",
+            "type": "Boolean",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 93,
+            "description": "组件的宽度，单位像素",
+            "itemtype": "attribute",
+            "name": "width",
+            "type": "Number",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 98,
+            "description": "横轴位置",
+            "itemtype": "attribute",
+            "name": "x",
+            "type": "Number",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 103,
+            "description": "纵轴位置",
+            "itemtype": "attribute",
+            "name": "y",
+            "type": "Number",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 108,
+            "description": "横纵轴位置",
+            "itemtype": "attribute",
+            "name": "xy",
+            "type": "Number[]",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 113,
+            "description": "z-index 值",
+            "itemtype": "attribute",
+            "name": "zIndex",
+            "type": "Number",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 120,
+            "description": "从当前组件类上扩展出一个子类组件",
+            "itemtype": "method",
+            "name": "extend",
+            "params": [
+                {
+                    "name": "extensions",
+                    "description": "扩展类数组",
+                    "type": "Function[]",
+                    "optional": true
+                },
+                {
+                    "name": "methodDesc",
+                    "description": "方法集合键值对",
+                    "type": "Object"
+                },
+                {
+                    "name": "staticAttributes",
+                    "description": "放到新产生组件类上的静态属性集合键值对，其中 ATTRS 属性特殊对待.",
+                    "type": "Object"
+                },
+                {
+                    "name": "desc",
+                    "description": "组件元信息",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "xclass",
+                            "description": "组件的 xclass",
+                            "type": "String"
+                        },
+                        {
+                            "name": "name",
+                            "description": "组件的名称，不写则等于 xclass",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 131,
+            "description": "创建当前组件的DOM结构，control将会代理给render",
+            "itemtype": "method",
+            "name": "create",
+            "return": {
+                "description": "自身"
+            },
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 137,
+            "description": "把当前组件的DOM结构放入 DOM 文档中，并绑定事件，同步属性",
+            "itemtype": "method",
+            "name": "render",
+            "return": {
+                "description": "自身"
+            },
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 143,
+            "description": "同步属性值.组件基类增加 sync 函数，调用后可调用父类、扩展类、插件对应的 syncUI 方法",
+            "itemtype": "method",
+            "name": "sync",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 148,
+            "description": "隐藏组件",
+            "itemtype": "method",
+            "name": "hide",
+            "return": {
+                "description": "自身"
+            },
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 154,
+            "description": "显示组件",
+            "itemtype": "method",
+            "name": "show",
+            "return": {
+                "description": "自身"
+            },
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 160,
+            "description": "移动到(x,y)",
+            "itemtype": "method",
+            "name": "move",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "横轴位置",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "纵轴位置",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "自身"
+            },
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 168,
+            "description": "使组件失去焦点",
+            "itemtype": "method",
+            "name": "blur",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 173,
+            "description": "使组件获得焦点",
+            "itemtype": "method",
+            "name": "focus",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 178,
+            "description": "当组件内部事件绑定完之后触发",
+            "itemtype": "event",
+            "name": "afterBindUI",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "KISSY CustomEvent 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 184,
+            "description": "当组件根节点创建的时候触发",
+            "itemtype": "event",
+            "name": "afterCreateDom",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "KISSY CustomEvent 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 190,
+            "description": "当组件根节点渲染到 DOM 文档后触发",
+            "itemtype": "event",
+            "name": "afterRenderUI",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "KISSY CustomEvent 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 196,
+            "description": "当组件内部的状态同步完之后触发",
+            "itemtype": "event",
+            "name": "afterSyncUI",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "KISSY CustomEvent 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 202,
+            "description": "在组件内部事件绑定前触发",
+            "itemtype": "event",
+            "name": "beforeBindUI",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "KISSY CustomEvent 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 208,
+            "description": "在组件根节点创建前触发",
+            "itemtype": "event",
+            "name": "beforeCreateDom",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "KISSY CustomEvent 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 214,
+            "description": "在组件根节点渲染之前触发",
+            "itemtype": "event",
+            "name": "beforeRenderUI",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "KISSY CustomEvent 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 220,
+            "description": "在同步组件内部状态前触发",
+            "itemtype": "event",
+            "name": "beforeSyncUI",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "KISSY CustomEvent 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 226,
+            "description": "在组件 show 的时候触发",
+            "itemtype": "event",
+            "name": "show",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "KISSY CustomEvent 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 232,
+            "description": "在组件 hide 的时候触发",
+            "itemtype": "event",
+            "name": "hide",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "KISSY CustomEvent 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 238,
+            "description": "在组件 visible 属性发生变化时触发",
+            "itemtype": "event",
+            "name": "beforeVisibleChange",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "KISSY CustomEvent 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Control",
+            "module": "component/control"
+        },
         {
             "file": "src\\api\\anim.js",
             "line": 33,
