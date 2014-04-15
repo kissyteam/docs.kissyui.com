@@ -117,6 +117,18 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\promise.js": {
+            "name": "src\\api\\promise.js",
+            "modules": {
+                "promise": 1
+            },
+            "classes": {
+                "Promise": 1,
+                "Defer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\ua.js": {
             "name": "src\\api\\ua.js",
             "modules": {
@@ -281,6 +293,19 @@
             "tag": "module",
             "file": "src\\api\\path.js",
             "line": 5
+        },
+        "promise": {
+            "name": "promise",
+            "submodules": {},
+            "classes": {
+                "Promise": 1,
+                "Defer": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\promise.js",
+            "line": 111
         },
         "ua": {
             "name": "ua",
@@ -757,6 +782,41 @@
             "line": 5,
             "description": "地址操作工具类",
             "static": "```\nKISSY.use('path',function(S,Path){\n        Path.do_sth();// 执行操作\n});\n```"
+        },
+        "Promise": {
+            "name": "Promise",
+            "shortname": "Promise",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "promise",
+            "namespace": "",
+            "file": "src\\api\\promise.js",
+            "line": 5,
+            "description": "### 简单使用\n```\nKISSY.use('promise',function(S,Promise){\n\tvar d = new Promise.Defer();\n    var promise = d.promise;\n    promise.then(function (v) {\n        return v + 1;\n    }).then(function (v) {\n            alert(v); // => 2\n        });\n    d.resolve(1); // 该位置也可以放在 then 前面\n});\n```",
+            "is_constructor": 1,
+            "return": {
+                "description": "promise 实例，外部不允许初始化。要通过[Defer()](/1.5/api/classes/Defer.html)来获取"
+            }
+        },
+        "Defer": {
+            "name": "Defer",
+            "shortname": "Defer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "promise",
+            "namespace": "",
+            "file": "src\\api\\promise.js",
+            "line": 111,
+            "is_constructor": 1,
+            "return": {
+                "description": "Defer 实例，用于逻辑内部控制成功或失败，返回 promise 供外部监听"
+            }
         },
         "UA": {
             "name": "UA",
@@ -5516,6 +5576,275 @@
             ],
             "class": "Path",
             "module": "path"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 24,
+            "description": "当前 promise 实例已完成时注册一个 callback, 如果 promise fail, 则这下一个事件循环中抛出错误。",
+            "itemtype": "method",
+            "name": "done",
+            "params": [
+                {
+                    "name": "fulfilled",
+                    "description": "该 promise 成功时的回调，参数为 defer resolve 时的 value",
+                    "type": "Function"
+                },
+                {
+                    "name": "rejected",
+                    "description": "该 promise 失败时的回调，参数为 defer reject 时的 reason",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "Promise",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 31,
+            "description": "监听当前实例的成功和失败并返回新的 promise 实例",
+            "itemtype": "method",
+            "name": "then",
+            "params": [
+                {
+                    "name": "fulfilled",
+                    "description": "该 promise 成功时的回调，参数为 defer resolve 时的 value",
+                    "type": "Function"
+                },
+                {
+                    "name": "rejected",
+                    "description": "该 promise 失败时的回调，参数为 defer reject 时的 reason",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "一个新的 promise. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败",
+                "type": "Promise"
+            },
+            "class": "Promise",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 39,
+            "description": "监听当前实例的失败并返回新的 promise 实例.相当于调用 this.then(null,rejected)",
+            "itemtype": "method",
+            "name": "fail",
+            "params": [
+                {
+                    "name": "rejected",
+                    "description": "该 promise 失败时的回调，参数为 defer reject 时的 reason",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "一个新的 promise. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败",
+                "type": "Promise"
+            },
+            "class": "Promise",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 46,
+            "description": "监听当前实例的成功和失败并返回新的 promise 实例",
+            "itemtype": "method",
+            "name": "fin",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "该 promise 成功或失败时的回调， 成功时参数为 defer resolve 时的 value 和 true. 失败时参数为 defer reject 时的 reason 和 false",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "一个新的 promise. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败",
+                "type": "Promise"
+            },
+            "class": "Promise",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 53,
+            "description": "返回当前 promise 是否成功了",
+            "itemtype": "method",
+            "name": "isResolved",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Promise",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 59,
+            "description": "返回当前 promise 是否失败了",
+            "itemtype": "method",
+            "name": "isRejected",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Promise",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 65,
+            "description": "返回参数 promise 是否成功了",
+            "itemtype": "method",
+            "name": "isResolved",
+            "params": [
+                {
+                    "name": "promise",
+                    "description": "需要查询的promise实例",
+                    "type": "Promise"
+                }
+            ],
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Promise",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 73,
+            "description": "返回参数 promise 是否失败了",
+            "itemtype": "method",
+            "name": "isRejected",
+            "params": [
+                {
+                    "name": "promise",
+                    "description": "需要查询的promise实例",
+                    "type": "Promise"
+                }
+            ],
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Promise",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 81,
+            "description": "返回参数 promise 是否是 promise",
+            "itemtype": "method",
+            "name": "isPromise",
+            "params": [
+                {
+                    "name": "promise",
+                    "description": "需要查询的对象",
+                    "type": "Object"
+                }
+            ],
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Promise",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 89,
+            "description": "返回一个新的 promise",
+            "itemtype": "method",
+            "name": "when",
+            "static": 1,
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "监听的对象.如果 obj 为 promise 类型，相当于 obj.then(fulfilled, rejected);否则直接调用 fulfilled(obj)，并返回一个成功的 promise",
+                    "type": "Object"
+                },
+                {
+                    "name": "fulfilled",
+                    "description": "",
+                    "type": "Function"
+                },
+                {
+                    "name": "rejected",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Promise",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 99,
+            "description": "返回一个新的 promise.当 objects 全部成功后新的 promise 成功，否以第一个 promise 的失败值为失败",
+            "itemtype": "method",
+            "name": "all",
+            "static": 1,
+            "params": [
+                {
+                    "name": "objects",
+                    "description": "promise或普通对象数组",
+                    "type": "Promise|Array<Object>"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "Promise",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 117,
+            "description": "用于外部监听成功失败的 promise 对象",
+            "itemtype": "property",
+            "name": "promise",
+            "type": "Promise",
+            "class": "Defer",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 122,
+            "description": "使得内部的 promise 成功，并设置成功值为 value，\n如果 value 也是 promise，只有等 value 成功后改 defer 内部的 promise 才算成功",
+            "itemtype": "method",
+            "name": "resolve",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "任意值（ 包括 promise ）"
+                }
+            ],
+            "class": "Defer",
+            "module": "promise"
+        },
+        {
+            "file": "src\\api\\promise.js",
+            "line": 129,
+            "description": "设置内部 promise 为失败状态，失败回调参数为 reason",
+            "itemtype": "method",
+            "name": "reject",
+            "params": [
+                {
+                    "name": "reason",
+                    "description": "设置给失败回调函数的参数"
+                }
+            ],
+            "class": "Defer",
+            "module": "promise"
         },
         {
             "file": "src\\api\\ua.js",

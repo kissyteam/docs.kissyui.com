@@ -3,6 +3,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         "Anim",
         "Cookie",
+        "Defer",
         "Dom",
         "Event",
         "Feature",
@@ -11,6 +12,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Loader",
         "Node",
         "Path",
+        "Promise",
         "Query",
         "Target",
         "UA",
@@ -28,6 +30,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "loader",
         "node",
         "path",
+        "promise",
         "ua",
         "uri",
         "util"
@@ -80,6 +83,10 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "path",
             "name": "path"
+        },
+        {
+            "displayName": "promise",
+            "name": "promise"
         },
         {
             "displayName": "ua",
