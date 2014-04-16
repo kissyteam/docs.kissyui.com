@@ -17,6 +17,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\component\\extension\\delegate-children.js": {
+            "name": "src\\api\\component\\extension\\delegate-children.js",
+            "modules": {
+                "component/extension/delegate-children": 1
+            },
+            "classes": {
+                "DelegateChildren": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\component\\extension\\shim.js": {
             "name": "src\\api\\component\\extension\\shim.js",
             "modules": {
@@ -243,6 +254,18 @@
             "tag": "module",
             "file": "src\\api\\component\\extension\\align.js",
             "line": 7
+        },
+        "component/extension/delegate-children": {
+            "name": "component/extension/delegate-children",
+            "submodules": {},
+            "classes": {
+                "DelegateChildren": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\component\\extension\\delegate-children.js",
+            "line": 5
         },
         "component/extension/shim": {
             "name": "component/extension/shim",
@@ -519,6 +542,20 @@
                     ]
                 }
             ]
+        },
+        "DelegateChildren": {
+            "name": "DelegateChildren",
+            "shortname": "DelegateChildren",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "component/extension/delegate-children",
+            "namespace": "",
+            "file": "src\\api\\component\\extension\\delegate-children.js",
+            "line": 5,
+            "description": "为组件的子组件代理事件，用来 mixin"
         },
         "Shim": {
             "name": "Shim",

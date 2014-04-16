@@ -9,6 +9,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Control",
         "Cookie",
         "Defer",
+        "DelegateChildren",
         "Dom",
         "Event",
         "Feature",
@@ -32,6 +33,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "component_container",
         "component_control",
         "component_extension_align",
+        "component_extension_delegate-children",
         "component_extension_shim",
         "component_manager",
         "cookie",
@@ -71,6 +73,10 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "component/extension/align",
             "name": "component_extension_align"
+        },
+        {
+            "displayName": "component/extension/delegate-children",
+            "name": "component_extension_delegate-children"
         },
         {
             "displayName": "component/extension/shim",
