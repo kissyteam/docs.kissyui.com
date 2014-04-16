@@ -14,6 +14,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "IO",
         "Json",
         "Loader",
+        "Manager",
         "Node",
         "Path",
         "Promise",

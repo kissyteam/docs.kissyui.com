@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Container - API Documentation — KISSY v1.5 Documentation</title>
+    <title>Manager - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -156,7 +156,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Container Class</h1>
+                        <h1>Manager Class</h1>
 <div class="box meta">
     
 
@@ -164,13 +164,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_component_container.js.html#l6"><code>src\api\component\container.js:6</code></a>
+            Defined in: <a href="../files/src_api_component_manager.js.html#l7"><code>src\api\component\manager.js:7</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/component_container.html">component/container</a>
+            Module: <a href="../modules/component_manager.html">component/manager</a>
         
     
 
@@ -180,28 +180,18 @@
 
 
 <div class="box intro">
-    <p>扩展自 <a href="/1.5/api/classes/Control.html">Control</a> , 包含其全部配置,属性,方法,事件</p>
+    <p>提供组件元数据管理功能</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Container" class="method item">
-    <h3 class="name"><code>Container</code></h3>
+        <div id="method_Manager" class="method item">
+    <h3 class="name"><code>Manager</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>config</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
     
@@ -229,7 +219,7 @@
             
         
         
-        <a href="../files/src_api_component_container.js.html#l6"><code>src\api\component\container.js:6</code></a>
+        <a href="../files/src_api_component_manager.js.html#l7"><code>src\api\component\manager.js:7</code></a>
         
         </p>
 
@@ -243,49 +233,6 @@
         
     </div>
 
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">config</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>配置项</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[children]</code>
-                                    <span class="type"><a href="..\classes\Control.html" class="crosslink">Control[]</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选，当前组件的子组件</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
-        </div>
     
 
     
@@ -319,28 +266,35 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_addChild">addChild</a>
+                                <a href="#method_addComponent">addComponent</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_getChildAt">getChildAt</a>
+                                <a href="#method_getComponent">getComponent</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_removeChild">removeChild</a>
+                                <a href="#method_getConstructorByXClass">getConstructorByXClass</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_removeChildren">removeChildren</a>
+                                <a href="#method_removeComponent">removeComponent</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_setConstructorByXClass">setConstructorByXClass</a>
 
                                 
                                 
@@ -362,8 +316,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_addChild" class="method item">
-    <h3 class="name"><code>addChild</code></h3>
+                    <div id="method_addComponent" class="method item">
+    <h3 class="name"><code>addComponent</code></h3>
 
     
         <div class="args">
@@ -371,13 +325,13 @@
             
                 <li class="arg">
                     
-                        <code>c</code>
+                        <code>id</code>
                     
                 </li>
             
                 <li class="arg">
                     
-                        <code class="optional">[index]</code>
+                        <code>component</code>
                     
                 </li>
             
@@ -410,7 +364,7 @@
             
         
         
-        <a href="../files/src_api_component_container.js.html#l14"><code>src\api\component\container.js:14</code></a>
+        <a href="../files/src_api_component_manager.js.html#l13"><code>src\api\component\manager.js:13</code></a>
         
         </p>
 
@@ -421,7 +375,7 @@
     </div>
 
     <div class="description">
-        <p>添加一个指定的组件作为当前组件的子组件</p>
+        <p>把 id 和组件对象关联起来</p>
 
     </div>
 
@@ -433,14 +387,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">c</code>
-                        <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <code class="param-name">id</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>要添加的子组件实例或者子组件的对象描述</p>
+                        <p>组件 ID</p>
 
                     </div>
 
@@ -449,15 +403,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name optional">[index]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                        <code class="param-name">component</code>
+                        <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>子组件的索引，可选。从 0 开始，新子组件被插入时的索引。如果未指定，新组件将会被插入在最后</p>
+                        <p>组件对象</p>
 
                     </div>
 
@@ -474,8 +427,8 @@
 </div>
 
                 
-                    <div id="method_getChildAt" class="method item">
-    <h3 class="name"><code>getChildAt</code></h3>
+                    <div id="method_getComponent" class="method item">
+    <h3 class="name"><code>getComponent</code></h3>
 
     
         <div class="args">
@@ -483,7 +436,7 @@
             
                 <li class="arg">
                     
-                        <code>index</code>
+                        <code>id</code>
                     
                 </li>
             
@@ -520,7 +473,7 @@
             
         
         
-        <a href="../files/src_api_component_container.js.html#l21"><code>src\api\component\container.js:21</code></a>
+        <a href="../files/src_api_component_manager.js.html#l20"><code>src\api\component\manager.js:20</code></a>
         
         </p>
 
@@ -531,7 +484,7 @@
     </div>
 
     <div class="description">
-        <p>返回所给索引对应的子组件，如果索引超出返回，则返回 null</p>
+        <p>根据 id 获取对应的组件对象</p>
 
     </div>
 
@@ -543,14 +496,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">index</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                        <code class="param-name">id</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>从 0 开始的索引</p>
+                        <p>组件 ID</p>
 
                     </div>
 
@@ -570,7 +523,7 @@
                     
                         <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a></span>:
                     
-                    <p>所给索引对应的子组件对象。如果不存在则返回 null</p>
+                    <p>要获取的组件对象</p>
 
                 
             </div>
@@ -581,8 +534,8 @@
 </div>
 
                 
-                    <div id="method_removeChild" class="method item">
-    <h3 class="name"><code>removeChild</code></h3>
+                    <div id="method_getConstructorByXClass" class="method item">
+    <h3 class="name"><code>getConstructorByXClass</code></h3>
 
     
         <div class="args">
@@ -590,13 +543,114 @@
             
                 <li class="arg">
                     
-                        <code>c</code>
+                        <code>classNames</code>
                     
                 </li>
             
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_component_manager.js.html#l27"><code>src\api\component\manager.js:27</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>通过传入的 css classNames 获取对应的组件的构造函数</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">classNames</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>css class name, 多个用空格隔开</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>:
+                    
+                    <p>要获取的构造函数</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_removeComponent" class="method item">
+    <h3 class="name"><code>removeComponent</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
                 <li class="arg">
                     
-                        <code class="optional">[destroy=true]</code>
+                        <code>id</code>
                     
                 </li>
             
@@ -629,7 +683,7 @@
             
         
         
-        <a href="../files/src_api_component_container.js.html#l28"><code>src\api\component\container.js:28</code></a>
+        <a href="../files/src_api_component_manager.js.html#l34"><code>src\api\component\manager.js:34</code></a>
         
         </p>
 
@@ -640,8 +694,7 @@
     </div>
 
     <div class="description">
-        <p>从当前组件中移除所给子组件，并返回这个子组件对象。
-如果 destroy 是 true，调用要移除的组件的 destroy() 方法，随后从 DOM 文档中移除子组件的 DOM。否则，清除子组件 DOM 的工作就要由调用者做。</p>
+        <p>移除对应 id 与组件之间的联系</p>
 
     </div>
 
@@ -653,31 +706,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">c</code>
-                        <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <code class="param-name">id</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>要添加的子组件实例或者子组件的对象描述</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[destroy=true]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>默认为 true, 在移除的子组件上调用 destroy()方法</p>
+                        <p>组件 ID</p>
 
                     </div>
 
@@ -694,8 +730,8 @@
 </div>
 
                 
-                    <div id="method_removeChildren" class="method item">
-    <h3 class="name"><code>removeChildren</code></h3>
+                    <div id="method_setConstructorByXClass" class="method item">
+    <h3 class="name"><code>setConstructorByXClass</code></h3>
 
     
         <div class="args">
@@ -703,7 +739,13 @@
             
                 <li class="arg">
                     
-                        <code class="optional">[destroy=true]</code>
+                        <code>classNames</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>ComponentConstructor</code>
                     
                 </li>
             
@@ -736,7 +778,7 @@
             
         
         
-        <a href="../files/src_api_component_container.js.html#l36"><code>src\api\component\container.js:36</code></a>
+        <a href="../files/src_api_component_manager.js.html#l40"><code>src\api\component\manager.js:40</code></a>
         
         </p>
 
@@ -747,7 +789,7 @@
     </div>
 
     <div class="description">
-        <p>移除所有包含的子组件</p>
+        <p>将 css class 和组件的构造函数对应</p>
 
     </div>
 
@@ -759,15 +801,30 @@
             
                 <li class="param">
                     
-                        <code class="param-name optional">[destroy=true]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                        <code class="param-name">classNames</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>默认为 true, 在移除的子组件上调用 destroy()方法</p>
+                        <p>css class name, 多个用空格隔开</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">ComponentConstructor</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>组件的构造函数</p>
 
                     </div>
 

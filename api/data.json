@@ -33,7 +33,9 @@
             "modules": {
                 "component/manager": 1
             },
-            "classes": {},
+            "classes": {
+                "Manager": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -236,12 +238,14 @@
         "component/manager": {
             "name": "component/manager",
             "submodules": {},
-            "classes": {},
+            "classes": {
+                "Manager": 1
+            },
             "fors": {},
             "namespaces": {},
             "tag": "module",
             "file": "src\\api\\component\\manager.js",
-            "line": 1
+            "line": 7
         },
         "anim": {
             "name": "anim",
@@ -608,6 +612,21 @@
                     ]
                 }
             ]
+        },
+        "Manager": {
+            "name": "Manager",
+            "shortname": "Manager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "component/manager",
+            "namespace": "",
+            "file": "src\\api\\component\\manager.js",
+            "line": 7,
+            "description": "提供组件元数据管理功能",
+            "is_constructor": 1
         },
         "Anim": {
             "name": "Anim",
@@ -1770,6 +1789,104 @@
             ],
             "class": "Control",
             "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\manager.js",
+            "line": 13,
+            "description": "把 id 和组件对象关联起来",
+            "itemtype": "method",
+            "name": "addComponent",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "组件 ID",
+                    "type": "String"
+                },
+                {
+                    "name": "component",
+                    "description": "组件对象",
+                    "type": "Control"
+                }
+            ],
+            "class": "Manager",
+            "module": "component/manager"
+        },
+        {
+            "file": "src\\api\\component\\manager.js",
+            "line": 20,
+            "description": "根据 id 获取对应的组件对象",
+            "itemtype": "method",
+            "name": "getComponent",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "组件 ID",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "要获取的组件对象",
+                "type": "Control"
+            },
+            "class": "Manager",
+            "module": "component/manager"
+        },
+        {
+            "file": "src\\api\\component\\manager.js",
+            "line": 27,
+            "description": "通过传入的 css classNames 获取对应的组件的构造函数",
+            "itemtype": "method",
+            "name": "getConstructorByXClass",
+            "params": [
+                {
+                    "name": "classNames",
+                    "description": "css class name, 多个用空格隔开",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "要获取的构造函数",
+                "type": "Function"
+            },
+            "class": "Manager",
+            "module": "component/manager"
+        },
+        {
+            "file": "src\\api\\component\\manager.js",
+            "line": 34,
+            "description": "移除对应 id 与组件之间的联系",
+            "itemtype": "method",
+            "name": "removeComponent",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "组件 ID",
+                    "type": "String"
+                }
+            ],
+            "class": "Manager",
+            "module": "component/manager"
+        },
+        {
+            "file": "src\\api\\component\\manager.js",
+            "line": 40,
+            "description": "将 css class 和组件的构造函数对应",
+            "itemtype": "method",
+            "name": "setConstructorByXClass",
+            "params": [
+                {
+                    "name": "classNames",
+                    "description": "css class name, 多个用空格隔开",
+                    "type": "String"
+                },
+                {
+                    "name": "ComponentConstructor",
+                    "description": "组件的构造函数",
+                    "type": "Function"
+                }
+            ],
+            "class": "Manager",
+            "module": "component/manager"
         },
         {
             "file": "src\\api\\anim.js",
