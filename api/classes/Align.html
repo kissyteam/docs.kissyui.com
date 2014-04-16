@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Manager - API Documentation — KISSY v1.5 Documentation</title>
+    <title>Align - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -160,7 +160,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Manager Class</h1>
+                        <h1>Align Class</h1>
 <div class="box meta">
     
 
@@ -168,13 +168,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_component_manager.js.html#l7"><code>src\api\component\manager.js:7</code></a>
+            Defined in: <a href="../files/src_api_component_extension_align.js.html#l8"><code>src\api\component\extension\align.js:8</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/component_manager.html">component/manager</a>
+            Module: <a href="../modules/component_extension_align.html">component/extension/align</a>
         
     
 
@@ -184,18 +184,27 @@
 
 
 <div class="box intro">
-    <p>提供组件元数据管理功能</p>
-
+    
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Manager" class="method item">
-    <h3 class="name"><code>Manager</code></h3>
+        <div id="method_Align" class="method item">
+    <h3 class="name"><code>Align</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>config</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
     
 
     
@@ -223,7 +232,7 @@
             
         
         
-        <a href="../files/src_api_component_manager.js.html#l7"><code>src\api\component\manager.js:7</code></a>
+        <a href="../files/src_api_component_extension_align.js.html#l8"><code>src\api\component\extension\align.js:8</code></a>
         
         </p>
 
@@ -237,6 +246,62 @@
         
     </div>
 
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">config</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>配置项，如下</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[align]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>可选, 组件节点对齐的相关配置, 例如：</p>
+<pre><code>{
+    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域
+    points: [&#39;tr&#39;,&#39;tl&#39;], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐
+    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,
+                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.
+    overflow:{
+        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标
+        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标
+    }
+}</code></pre>
+<p>points 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围
+第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示</p>
+<p><img src="/1.5/api/assets/img/project-img/align.png" alt="alt text"></p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
     
 
     
@@ -270,35 +335,14 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_addComponent">addComponent</a>
+                                <a href="#method_align">align</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_getComponent">getComponent</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_getConstructorByXClass">getConstructorByXClass</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_removeComponent">removeComponent</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_setConstructorByXClass">setConstructorByXClass</a>
+                                <a href="#method_center">center</a>
 
                                 
                                 
@@ -320,8 +364,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_addComponent" class="method item">
-    <h3 class="name"><code>addComponent</code></h3>
+                    <div id="method_align" class="method item">
+    <h3 class="name"><code>align</code></h3>
 
     
         <div class="args">
@@ -329,13 +373,25 @@
             
                 <li class="arg">
                     
-                        <code>id</code>
+                        <code>node</code>
                     
                 </li>
             
                 <li class="arg">
                     
-                        <code>component</code>
+                        <code>points</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>offset</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>overflow</code>
                     
                 </li>
             
@@ -368,7 +424,7 @@
             
         
         
-        <a href="../files/src_api_component_manager.js.html#l13"><code>src\api\component\manager.js:13</code></a>
+        <a href="../files/src_api_component_extension_align.js.html#l31"><code>src\api\component\extension\align.js:31</code></a>
         
         </p>
 
@@ -379,7 +435,7 @@
     </div>
 
     <div class="description">
-        <p>把 id 和组件对象关联起来</p>
+        <p>设置组件根节点对齐</p>
 
     </div>
 
@@ -391,14 +447,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">id</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <code class="param-name">node</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | KISSY.Node | HTMLDOMNode</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>组件 ID</p>
+                        <p>对齐的参考元素</p>
 
                     </div>
 
@@ -407,14 +463,46 @@
             
                 <li class="param">
                     
-                        <code class="param-name">component</code>
-                        <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a></span>
+                        <code class="param-name">points</code>
+                        <span class="type">Array<String></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>组件对象</p>
+                        <p>对齐的参考位置</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">offset</code>
+                        <span class="type">Array<Number></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>相对对齐元素的偏移</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">overflow</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>超出可视区域后如何处理</p>
 
                     </div>
 
@@ -431,235 +519,11 @@
 </div>
 
                 
-                    <div id="method_getComponent" class="method item">
-    <h3 class="name"><code>getComponent</code></h3>
+                    <div id="method_center" class="method item">
+    <h3 class="name"><code>center</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>id</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_manager.js.html#l20"><code>src\api\component\manager.js:20</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>根据 id 获取对应的组件对象</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">id</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>组件 ID</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a></span>:
-                    
-                    <p>要获取的组件对象</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_getConstructorByXClass" class="method item">
-    <h3 class="name"><code>getConstructorByXClass</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>classNames</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_manager.js.html#l27"><code>src\api\component\manager.js:27</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>通过传入的 css classNames 获取对应的组件的构造函数</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">classNames</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>css class name, 多个用空格隔开</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>:
-                    
-                    <p>要获取的构造函数</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_removeComponent" class="method item">
-    <h3 class="name"><code>removeComponent</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>id</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
     
@@ -687,7 +551,7 @@
             
         
         
-        <a href="../files/src_api_component_manager.js.html#l34"><code>src\api\component\manager.js:34</code></a>
+        <a href="../files/src_api_component_extension_align.js.html#l40"><code>src\api\component\extension\align.js:40</code></a>
         
         </p>
 
@@ -698,145 +562,10 @@
     </div>
 
     <div class="description">
-        <p>移除对应 id 与组件之间的联系</p>
+        <p>将组件根节点放在当前视窗中央</p>
 
     </div>
 
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">id</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>组件 ID</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_setConstructorByXClass" class="method item">
-    <h3 class="name"><code>setConstructorByXClass</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>classNames</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>ComponentConstructor</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_manager.js.html#l40"><code>src\api\component\manager.js:40</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>将 css class 和组件的构造函数对应</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">classNames</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>css class name, 多个用空格隔开</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">ComponentConstructor</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>组件的构造函数</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
     
 
     

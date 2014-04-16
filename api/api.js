@@ -1,6 +1,7 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
+        "Align",
         "Anim",
         "Attribute",
         "Base",
@@ -29,6 +30,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "base",
         "component_container",
         "component_control",
+        "component_extension_align",
         "component_manager",
         "cookie",
         "dom",
@@ -63,6 +65,10 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "component/control",
             "name": "component_control",
             "description": "合并了原来的 box\n组件基类.仅用于 KISSY 内部组件继承，目前不建议外部使用，欢迎 review"
+        },
+        {
+            "displayName": "component/extension/align",
+            "name": "component_extension_align"
         },
         {
             "displayName": "component/manager",

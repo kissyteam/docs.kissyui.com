@@ -6,6 +6,17 @@
         "url": "docs.kissyui.com"
     },
     "files": {
+        "src\\api\\component\\extension\\align.js": {
+            "name": "src\\api\\component\\extension\\align.js",
+            "modules": {
+                "component/extension/align": 1
+            },
+            "classes": {
+                "Align": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\component\\container.js": {
             "name": "src\\api\\component\\container.js",
             "modules": {
@@ -210,6 +221,18 @@
         }
     },
     "modules": {
+        "component/extension/align": {
+            "name": "component/extension/align",
+            "submodules": {},
+            "classes": {
+                "Align": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\component\\extension\\align.js",
+            "line": 8
+        },
         "component/container": {
             "name": "component/container",
             "submodules": {},
@@ -445,6 +468,35 @@
         }
     },
     "classes": {
+        "Align": {
+            "name": "Align",
+            "shortname": "Align",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "component/extension/align",
+            "namespace": "",
+            "file": "src\\api\\component\\extension\\align.js",
+            "line": 8,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，如下",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "align",
+                            "description": "可选, 组件节点对齐的相关配置, 例如：\n```\n{\n    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域\n    points: ['tr','tl'], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐\n    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,\n                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.\n    overflow:{\n        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标\n        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标\n    }\n}\n```\npoints 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围\n第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示\n\n![alt text](/1.5/api/assets/img/project-img/align.png)",
+                            "type": "Object",
+                            "optional": true
+                        }
+                    ]
+                }
+            ]
+        },
         "Container": {
             "name": "Container",
             "shortname": "Container",
@@ -1220,6 +1272,46 @@
         }
     },
     "classitems": [
+        {
+            "file": "src\\api\\component\\extension\\align.js",
+            "line": 31,
+            "description": "设置组件根节点对齐",
+            "itemtype": "method",
+            "name": "align",
+            "params": [
+                {
+                    "name": "node",
+                    "description": "对齐的参考元素",
+                    "type": "String|KISSY.Node|HTMLDOMNode"
+                },
+                {
+                    "name": "points",
+                    "description": "对齐的参考位置",
+                    "type": "Array<String>"
+                },
+                {
+                    "name": "offset",
+                    "description": "相对对齐元素的偏移",
+                    "type": "Array<Number>"
+                },
+                {
+                    "name": "overflow",
+                    "description": "超出可视区域后如何处理",
+                    "type": "Object"
+                }
+            ],
+            "class": "Align",
+            "module": "component/extension/align"
+        },
+        {
+            "file": "src\\api\\component\\extension\\align.js",
+            "line": 40,
+            "description": "将组件根节点放在当前视窗中央",
+            "itemtype": "method",
+            "name": "center",
+            "class": "Align",
+            "module": "component/extension/align"
+        },
         {
             "file": "src\\api\\component\\container.js",
             "line": 14,
