@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>base - API Documentation — KISSY v1.5 Documentation</title>
+    <title>src\api\button.js - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -180,57 +180,58 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>base Module</h1>
-<div class="box clearfix meta">
-    
+                        <h1 class="file-heading">File: src\api\button.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+@module button
+*/
 
-    
-        <div class="foundat">
-            Defined in: <a href="../files/src_api_base.js.html#l193"><code>src\api\base.js:193</code></a>
-        </div>
-    
+/**
+继承自 [Control](/1.5/api/classes/Control.html) , 包含其全部配置,属性,方法,事件
+@class Button
+@constructor
+@param config {Object} 配置项，详细见下方:
+@param config.content {String} 按钮的显示内容
+@param config.checkable {String} 按钮是 toggle button
+@param config.value {String} 可选，按钮值
+@param config.describedby {String} 可选，按钮节点的 aria-describedby 属性值
+@param config.tooltip {String} 可选，按钮节点的 title 属性值
+*/
 
-    
-</div>
+/**
+按钮的显示内容
+@attribute content {String}
+*/
 
+/**
+按钮是否是 checked 状态
+@attribute checked {Boolean}
+*/
 
+/**
+按钮值
+@attribute value {String}
+*/
 
-<div class="box intro">
-    <p>鉴于不同浏览器对属性描述符的支持并不统一, KISSY 的 attribute 模块, 模拟实现了属性描述符, 提供属性的获取和设置操作, 即属性的 getter 和 setter 动作.</p>
-<p>而 KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 让继承 Base 的子类自动具有 attribute 的功能.如果你想让自定义类默认就支持 attribute 功能, 请直接继承 Base</p>
+/**
+按钮节点的 describedby 属性值
+@attribute value {String}
+*/
 
-</div>
+/**
+按钮节点的 title 属性值
+@attribute tooltip {String}
+*/
 
-
-
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/Attribute.html">
-                        Attribute
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Base.html">
-                        Base
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+/**
+当按钮被点击或被获得焦点后按键 enter|space 触发
+@event click
+@param e {Object}  触发事件对象，类型 Event.Object
+@param e.target {Object} 触发事件的按钮实例
+*/
+    </pre>
 </div>
 
                     </div>
