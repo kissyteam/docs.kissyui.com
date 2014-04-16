@@ -6,6 +6,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Attribute",
         "Base",
         "Button",
+        "Color",
         "Container",
         "Control",
         "Cookie",
@@ -34,6 +35,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "anim",
         "base",
         "button",
+        "color",
         "component_container",
         "component_control",
         "component_extension_align",
@@ -70,6 +72,11 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "button",
             "name": "button"
+        },
+        {
+            "displayName": "color",
+            "name": "color",
+            "description": "颜色封装"
         },
         {
             "displayName": "component/container",

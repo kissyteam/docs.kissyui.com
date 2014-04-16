@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Feature - API Documentation — KISSY v1.5 Documentation</title>
+    <title>Color - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -184,7 +184,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Feature Class</h1>
+                        <h1>Color Class</h1>
 <div class="box meta">
     
 
@@ -192,13 +192,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_feature.js.html#l6"><code>src\api\feature.js:6</code></a>
+            Defined in: <a href="../files/src_api_component_color.js.html#l6"><code>src\api\component\color.js:6</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/feature.html">feature</a>
+            Module: <a href="../modules/color.html">color</a>
         
     
 
@@ -208,26 +208,159 @@
 
 
 <div class="box intro">
-    <p>硬件环境关键特性检测，直接通过KISSY全局对象调用
-这类功能通常在判断硬件环境时使用，比如在KISSY的modules定义的代码：</p>
-<pre class="code prettyprint"><code>  KISSY.config(&#39;modules&#39;,{
-       &quot;dom/basic&quot;: {
-               &quot;alias&quot;: [
-                       &#39;dom/base&#39;,
-                       KISSY.Features.isIELessThan(9) ? &#39;dom/ie&#39; : &#39;&#39;,
-                       KISSY.Features.isClassListSupported() ? &#39;&#39; : &#39;dom/class-list&#39;
-               ]
-       },
-       &quot;dom&quot;: {
-               &quot;alias&quot;: [
-                       &#39;dom/basic&#39;,
-                       !KISSY.Features.isQuerySelectorSupported() ? &#39;dom/selector&#39; : &#39;&#39;
-               ]
-       }
-    });</code></pre>
-
+    
 </div>
 
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+        <div id="method_Color" class="method item">
+    <h3 class="name"><code>Color</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>config</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_component_color.js.html#l6"><code>src\api\component\color.js:6</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">config</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">a</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>alpha 值</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">r</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>red 值</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">g</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>green 值</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">b</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>blue 值</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+    </div>
 
 
 <div id="classdocs" class="tabview">
@@ -253,7 +386,7 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_getTransformPrefix">getTransformPrefix</a>
+                                <a href="#method_fromHSL">fromHSL</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -262,7 +395,21 @@
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_getTransitionPrefix">getTransitionPrefix</a>
+                                <a href="#method_getHSL">getHSL</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getHSV">getHSV</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_parse">parse</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -271,73 +418,50 @@
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_isClassListSupported">isClassListSupported</a>
+                                <a href="#method_setHSL">setHSL</a>
 
-                                
-                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_isDeviceMotionSupported">isDeviceMotionSupported</a>
+                                <a href="#method_setHSV">setHSV</a>
 
-                                
-                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_isHashChangeSupported">isHashChangeSupported</a>
+                                <a href="#method_toHex">toHex</a>
 
-                                
-                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_isMsPointerSupported">isMsPointerSupported</a>
+                                <a href="#method_toHSL">toHSL</a>
 
-                                
-                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_isQuerySelectorSupported">isQuerySelectorSupported</a>
+                                <a href="#method_toHSLA">toHSLA</a>
 
-                                
-                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_isTouchEventSupported">isTouchEventSupported</a>
+                                <a href="#method_toRGB">toRGB</a>
 
-                                
-                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_isTransformSupported">isTransformSupported</a>
+                                <a href="#method_toRGBA">toRGBA</a>
 
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_isTransitionSupported">isTransitionSupported</a>
-
-                                
-                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
@@ -358,16 +482,26 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_getTransformPrefix" class="method item">
-    <h3 class="name"><code>getTransformPrefix</code></h3>
+                    <div id="method_fromHSL" class="method item">
+    <h3 class="name"><code>fromHSL</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>cfg</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
     
 
     
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
         </span>
     
 
@@ -396,7 +530,7 @@
             
         
         
-        <a href="../files/src_api_feature.js.html#l98"><code>src\api\feature.js:98</code></a>
+        <a href="../files/src_api_component_color.js.html#l78"><code>src\api\component\color.js:78</code></a>
         
         </p>
 
@@ -407,10 +541,33 @@
     </div>
 
     <div class="description">
-        <p>得到Transform属性的前缀</p>
+        <p>从 hsl 对象中生成颜色实例</p>
 
     </div>
 
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">cfg</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
     
 
     
@@ -420,10 +577,8 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
                     
-                    <p>Transform属性的前缀</p>
-
                 
             </div>
         </div>
@@ -433,8 +588,8 @@
 </div>
 
                 
-                    <div id="method_getTransitionPrefix" class="method item">
-    <h3 class="name"><code>getTransitionPrefix</code></h3>
+                    <div id="method_getHSL" class="method item">
+    <h3 class="name"><code>getHSL</code></h3>
 
     
         <span class="paren">()</span>
@@ -442,7 +597,7 @@
 
     
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
         </span>
     
 
@@ -452,8 +607,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -471,7 +624,7 @@
             
         
         
-        <a href="../files/src_api_feature.js.html#l91"><code>src\api\feature.js:91</code></a>
+        <a href="../files/src_api_component_color.js.html#l16"><code>src\api\component\color.js:16</code></a>
         
         </p>
 
@@ -482,7 +635,7 @@
     </div>
 
     <div class="description">
-        <p>得到Transition属性的前缀</p>
+        <p>得到当前颜色属性对应的 hsl 表示</p>
 
     </div>
 
@@ -495,10 +648,8 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
                     
-                    <p>Transition属性的前缀</p>
-
                 
             </div>
         </div>
@@ -508,8 +659,8 @@
 </div>
 
                 
-                    <div id="method_isClassListSupported" class="method item">
-    <h3 class="name"><code>isClassListSupported</code></h3>
+                    <div id="method_getHSV" class="method item">
+    <h3 class="name"><code>getHSV</code></h3>
 
     
         <span class="paren">()</span>
@@ -517,7 +668,7 @@
 
     
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
         </span>
     
 
@@ -527,8 +678,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -546,7 +695,7 @@
             
         
         
-        <a href="../files/src_api_feature.js.html#l77"><code>src\api\feature.js:77</code></a>
+        <a href="../files/src_api_component_color.js.html#l52"><code>src\api\component\color.js:52</code></a>
         
         </p>
 
@@ -557,7 +706,7 @@
     </div>
 
     <div class="description">
-        <p>判断当前环境是否支持ClassList</p>
+        <p>得到当前颜色属性对应的 hsv 表示</p>
 
     </div>
 
@@ -570,10 +719,8 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
                     
-                    <p>当前环境是否支持ClassList</p>
-
                 
             </div>
         </div>
@@ -583,16 +730,26 @@
 </div>
 
                 
-                    <div id="method_isDeviceMotionSupported" class="method item">
-    <h3 class="name"><code>isDeviceMotionSupported</code></h3>
+                    <div id="method_parse" class="method item">
+    <h3 class="name"><code>parse</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>str</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
     
 
     
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
         </span>
     
 
@@ -621,7 +778,7 @@
             
         
         
-        <a href="../files/src_api_feature.js.html#l30"><code>src\api\feature.js:30</code></a>
+        <a href="../files/src_api_component_color.js.html#l70"><code>src\api\component\color.js:70</code></a>
         
         </p>
 
@@ -632,11 +789,34 @@
     </div>
 
     <div class="description">
-        <p>判断当前宿主环境是否支持手势事件</p>
-<pre class="code prettyprint"><code>  KISSY.Features.isDeviceMotionSupported();</code></pre>
+        <p>从字符串表示的颜色值中获取颜色对象</p>
 
     </div>
 
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">str</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>支持格式： ‘#rrggbb’ ‘#rgb’ or ‘rgb(r,g,b)’ ‘rgba(r,g,b,a)’</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
     
 
     
@@ -646,10 +826,8 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
                     
-                    <p>当前宿主环境是否支持手势事件</p>
-
                 
             </div>
         </div>
@@ -659,18 +837,24 @@
 </div>
 
                 
-                    <div id="method_isHashChangeSupported" class="method item">
-    <h3 class="name"><code>isHashChangeSupported</code></h3>
+                    <div id="method_setHSL" class="method item">
+    <h3 class="name"><code>setHSL</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>hsv</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
     
 
     
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-        </span>
-    
 
     
 
@@ -678,8 +862,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -697,7 +879,7 @@
             
         
         
-        <a href="../files/src_api_feature.js.html#l56"><code>src\api\feature.js:56</code></a>
+        <a href="../files/src_api_component_color.js.html#l64"><code>src\api\component\color.js:64</code></a>
         
         </p>
 
@@ -708,7 +890,179 @@
     </div>
 
     <div class="description">
-        <p>判断当前环境是否支持hashChange事件</p>
+        <p>根据 hsl 对象修改当前颜色实例</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">hsv</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>hsl 对象</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_setHSV" class="method item">
+    <h3 class="name"><code>setHSV</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>hsv</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_component_color.js.html#l58"><code>src\api\component\color.js:58</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>根据 hsv 对象修改当前颜色实例</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">hsv</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>hsv 对象</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_toHex" class="method item">
+    <h3 class="name"><code>toHex</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_component_color.js.html#l46"><code>src\api\component\color.js:46</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>得到当前颜色属性对应的 16 进制表示字符串</p>
 
     </div>
 
@@ -721,10 +1075,8 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
                     
-                    <p>当前环境是否支持hashChange事件</p>
-
                 
             </div>
         </div>
@@ -734,8 +1086,8 @@
 </div>
 
                 
-                    <div id="method_isMsPointerSupported" class="method item">
-    <h3 class="name"><code>isMsPointerSupported</code></h3>
+                    <div id="method_toHSL" class="method item">
+    <h3 class="name"><code>toHSL</code></h3>
 
     
         <span class="paren">()</span>
@@ -743,7 +1095,7 @@
 
     
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
         </span>
     
 
@@ -753,8 +1105,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -772,7 +1122,7 @@
             
         
         
-        <a href="../files/src_api_feature.js.html#l42"><code>src\api\feature.js:42</code></a>
+        <a href="../files/src_api_component_color.js.html#l22"><code>src\api\component\color.js:22</code></a>
         
         </p>
 
@@ -783,7 +1133,7 @@
     </div>
 
     <div class="description">
-        <p>判断当前宿主环境是否支持ie8的Pointer事件</p>
+        <p>得到当前颜色属性对应的 hsl 表示字符串</p>
 
     </div>
 
@@ -796,10 +1146,8 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
                     
-                    <p>当前宿主环境是否支持ie8的Pointer事件</p>
-
                 
             </div>
         </div>
@@ -809,8 +1157,8 @@
 </div>
 
                 
-                    <div id="method_isQuerySelectorSupported" class="method item">
-    <h3 class="name"><code>isQuerySelectorSupported</code></h3>
+                    <div id="method_toHSLA" class="method item">
+    <h3 class="name"><code>toHSLA</code></h3>
 
     
         <span class="paren">()</span>
@@ -818,7 +1166,7 @@
 
     
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
         </span>
     
 
@@ -828,8 +1176,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -847,7 +1193,7 @@
             
         
         
-        <a href="../files/src_api_feature.js.html#l84"><code>src\api\feature.js:84</code></a>
+        <a href="../files/src_api_component_color.js.html#l28"><code>src\api\component\color.js:28</code></a>
         
         </p>
 
@@ -858,7 +1204,7 @@
     </div>
 
     <div class="description">
-        <p>判断当前环境是否支持QuerySelector方法</p>
+        <p>得到当前颜色属性对应的 hsla 表示字符串</p>
 
     </div>
 
@@ -871,10 +1217,8 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
                     
-                    <p>当前环境是否支持QuerySelector方法</p>
-
                 
             </div>
         </div>
@@ -884,8 +1228,8 @@
 </div>
 
                 
-                    <div id="method_isTouchEventSupported" class="method item">
-    <h3 class="name"><code>isTouchEventSupported</code></h3>
+                    <div id="method_toRGB" class="method item">
+    <h3 class="name"><code>toRGB</code></h3>
 
     
         <span class="paren">()</span>
@@ -893,7 +1237,7 @@
 
     
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
         </span>
     
 
@@ -903,8 +1247,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -922,7 +1264,7 @@
             
         
         
-        <a href="../files/src_api_feature.js.html#l49"><code>src\api\feature.js:49</code></a>
+        <a href="../files/src_api_component_color.js.html#l34"><code>src\api\component\color.js:34</code></a>
         
         </p>
 
@@ -933,7 +1275,7 @@
     </div>
 
     <div class="description">
-        <p>判断当前宿主环境是否支持触屏事件</p>
+        <p>得到当前颜色属性对应的 rgb 表示字符串</p>
 
     </div>
 
@@ -946,10 +1288,8 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
                     
-                    <p>当前宿主环境是否支持触屏事件</p>
-
                 
             </div>
         </div>
@@ -959,8 +1299,8 @@
 </div>
 
                 
-                    <div id="method_isTransformSupported" class="method item">
-    <h3 class="name"><code>isTransformSupported</code></h3>
+                    <div id="method_toRGBA" class="method item">
+    <h3 class="name"><code>toRGBA</code></h3>
 
     
         <span class="paren">()</span>
@@ -968,7 +1308,7 @@
 
     
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
         </span>
     
 
@@ -978,8 +1318,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -997,7 +1335,7 @@
             
         
         
-        <a href="../files/src_api_feature.js.html#l70"><code>src\api\feature.js:70</code></a>
+        <a href="../files/src_api_component_color.js.html#l40"><code>src\api\component\color.js:40</code></a>
         
         </p>
 
@@ -1008,7 +1346,7 @@
     </div>
 
     <div class="description">
-        <p>判断当前环境是否支持Transform动画</p>
+        <p>得到当前颜色属性对应的 rgba 表示字符串</p>
 
     </div>
 
@@ -1021,85 +1359,8 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
                     
-                    <p>当前环境是否支持Transform动画</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_isTransitionSupported" class="method item">
-    <h3 class="name"><code>isTransitionSupported</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_feature.js.html#l63"><code>src\api\feature.js:63</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>判断当前环境是否支持Transition动画</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
-                    
-                    <p>当前环境是否支持Transition动画</p>
-
                 
             </div>
         </div>
