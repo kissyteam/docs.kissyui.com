@@ -20,6 +20,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Path",
         "Promise",
         "Query",
+        "Shim",
         "Target",
         "UA",
         "Uri",
@@ -31,6 +32,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "component_container",
         "component_control",
         "component_extension_align",
+        "component_extension_shim",
         "component_manager",
         "cookie",
         "dom",
@@ -69,6 +71,10 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "component/extension/align",
             "name": "component_extension_align"
+        },
+        {
+            "displayName": "component/extension/shim",
+            "name": "component_extension_shim"
         },
         {
             "displayName": "component/manager",

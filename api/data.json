@@ -17,6 +17,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\component\\extension\\shim.js": {
+            "name": "src\\api\\component\\extension\\shim.js",
+            "modules": {
+                "component/extension/shim": 1
+            },
+            "classes": {
+                "Shim": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\component\\container.js": {
             "name": "src\\api\\component\\container.js",
             "modules": {
@@ -231,7 +242,19 @@
             "namespaces": {},
             "tag": "module",
             "file": "src\\api\\component\\extension\\align.js",
-            "line": 8
+            "line": 7
+        },
+        "component/extension/shim": {
+            "name": "component/extension/shim",
+            "submodules": {},
+            "classes": {
+                "Shim": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\component\\extension\\shim.js",
+            "line": 5
         },
         "component/container": {
             "name": "component/container",
@@ -479,7 +502,7 @@
             "module": "component/extension/align",
             "namespace": "",
             "file": "src\\api\\component\\extension\\align.js",
-            "line": 8,
+            "line": 7,
             "is_constructor": 1,
             "params": [
                 {
@@ -496,6 +519,21 @@
                     ]
                 }
             ]
+        },
+        "Shim": {
+            "name": "Shim",
+            "shortname": "Shim",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "component/extension/shim",
+            "namespace": "",
+            "file": "src\\api\\component\\extension\\shim.js",
+            "line": 5,
+            "description": "垫片。组件扩充类，仅用于 KISSY 内部组件继承，目前不建议外部使用，欢迎 review\n用于修复 IE6 下select等Form控件间遮罩住弹出层，或者在某些高级浏览器上select遮住flash等情况。",
+            "is_constructor": 1
         },
         "Container": {
             "name": "Container",
@@ -1274,7 +1312,7 @@
     "classitems": [
         {
             "file": "src\\api\\component\\extension\\align.js",
-            "line": 31,
+            "line": 30,
             "description": "设置组件根节点对齐",
             "itemtype": "method",
             "name": "align",
@@ -1305,12 +1343,22 @@
         },
         {
             "file": "src\\api\\component\\extension\\align.js",
-            "line": 40,
+            "line": 39,
             "description": "将组件根节点放在当前视窗中央",
             "itemtype": "method",
             "name": "center",
             "class": "Align",
             "module": "component/extension/align"
+        },
+        {
+            "file": "src\\api\\component\\extension\\shim.js",
+            "line": 12,
+            "description": "在IE6下默认为 true，其他默认为 false",
+            "itemtype": "attribute",
+            "name": "shim",
+            "type": "Boolean",
+            "class": "Shim",
+            "module": "component/extension/shim"
         },
         {
             "file": "src\\api\\component\\container.js",
