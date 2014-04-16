@@ -11,6 +11,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Defer",
         "DelegateChildren",
         "Dom",
+        "Drag",
         "Event",
         "Feature",
         "IO",
@@ -21,6 +22,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Path",
         "Promise",
         "Query",
+        "Resize",
         "Shim",
         "Target",
         "UA",
@@ -36,6 +38,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "component_extension_delegate-children",
         "component_extension_shim",
         "component_manager",
+        "component_plugin_drag",
+        "component_plugin_resize",
         "cookie",
         "dom",
         "event",
@@ -85,6 +89,16 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "component/manager",
             "name": "component_manager"
+        },
+        {
+            "displayName": "component/plugin/drag",
+            "name": "component_plugin_drag",
+            "description": "组件拖拽插件"
+        },
+        {
+            "displayName": "component/plugin/resize",
+            "name": "component_plugin_resize",
+            "description": "调整大小插件"
         },
         {
             "displayName": "cookie",
