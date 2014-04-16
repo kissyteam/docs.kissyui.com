@@ -4,6 +4,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Anim",
         "Attribute",
         "Base",
+        "Container",
         "Control",
         "Cookie",
         "Defer",
@@ -25,7 +26,9 @@ YUI.add("yuidoc-meta", function(Y) {
     "modules": [
         "anim",
         "base",
+        "component_container",
         "component_control",
+        "component_manager",
         "cookie",
         "dom",
         "event",
@@ -52,9 +55,17 @@ YUI.add("yuidoc-meta", function(Y) {
             "description": "鉴于不同浏览器对属性描述符的支持并不统一, KISSY 的 attribute 模块, 模拟实现了属性描述符, 提供属性的获取和设置操作, 即属性的 getter 和 setter 动作.\n\n而 KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 让继承 Base 的子类自动具有 attribute 的功能.如果你想让自定义类默认就支持 attribute 功能, 请直接继承 Base"
         },
         {
+            "displayName": "component/container",
+            "name": "component_container"
+        },
+        {
             "displayName": "component/control",
             "name": "component_control",
             "description": "合并了原来的 box\n组件基类.仅用于 KISSY 内部组件继承，目前不建议外部使用，欢迎 review"
+        },
+        {
+            "displayName": "component/manager",
+            "name": "component_manager"
         },
         {
             "displayName": "cookie",

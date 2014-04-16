@@ -6,6 +6,17 @@
         "url": "docs.kissyui.com"
     },
     "files": {
+        "src\\api\\component\\container.js": {
+            "name": "src\\api\\component\\container.js",
+            "modules": {
+                "component/container": 1
+            },
+            "classes": {
+                "Container": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\component\\control.js": {
             "name": "src\\api\\component\\control.js",
             "modules": {
@@ -14,6 +25,15 @@
             "classes": {
                 "Control": 1
             },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\component\\manager.js": {
+            "name": "src\\api\\component\\manager.js",
+            "modules": {
+                "component/manager": 1
+            },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
@@ -188,6 +208,18 @@
         }
     },
     "modules": {
+        "component/container": {
+            "name": "component/container",
+            "submodules": {},
+            "classes": {
+                "Container": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\component\\container.js",
+            "line": 6
+        },
         "component/control": {
             "name": "component/control",
             "submodules": {},
@@ -200,6 +232,16 @@
             "file": "src\\api\\component\\control.js",
             "line": 7,
             "description": "合并了原来的 box\n组件基类.仅用于 KISSY 内部组件继承，目前不建议外部使用，欢迎 review"
+        },
+        "component/manager": {
+            "name": "component/manager",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\component\\manager.js",
+            "line": 1
         },
         "anim": {
             "name": "anim",
@@ -399,6 +441,36 @@
         }
     },
     "classes": {
+        "Container": {
+            "name": "Container",
+            "shortname": "Container",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "component/container",
+            "namespace": "",
+            "file": "src\\api\\component\\container.js",
+            "line": 6,
+            "description": "扩展自 [Control](/1.5/api/classes/Control.html) , 包含其全部配置,属性,方法,事件",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "children",
+                            "description": "可选，当前组件的子组件",
+                            "type": "Control[]",
+                            "optional": true
+                        }
+                    ]
+                }
+            ]
+        },
         "Control": {
             "name": "Control",
             "shortname": "Control",
@@ -1129,6 +1201,88 @@
         }
     },
     "classitems": [
+        {
+            "file": "src\\api\\component\\container.js",
+            "line": 14,
+            "description": "添加一个指定的组件作为当前组件的子组件",
+            "itemtype": "method",
+            "name": "addChild",
+            "params": [
+                {
+                    "name": "c",
+                    "description": "要添加的子组件实例或者子组件的对象描述",
+                    "type": "Control|Object"
+                },
+                {
+                    "name": "index",
+                    "description": "子组件的索引，可选。从 0 开始，新子组件被插入时的索引。如果未指定，新组件将会被插入在最后",
+                    "optional": true
+                }
+            ],
+            "class": "Container",
+            "module": "component/container"
+        },
+        {
+            "file": "src\\api\\component\\container.js",
+            "line": 21,
+            "description": "返回所给索引对应的子组件，如果索引超出返回，则返回 null",
+            "itemtype": "method",
+            "name": "getChildAt",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "从 0 开始的索引",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "所给索引对应的子组件对象。如果不存在则返回 null",
+                "type": "Control"
+            },
+            "class": "Container",
+            "module": "component/container"
+        },
+        {
+            "file": "src\\api\\component\\container.js",
+            "line": 28,
+            "description": "从当前组件中移除所给子组件，并返回这个子组件对象。\n如果 destroy 是 true，调用要移除的组件的 destroy() 方法，随后从 DOM 文档中移除子组件的 DOM。否则，清除子组件 DOM 的工作就要由调用者做。",
+            "itemtype": "method",
+            "name": "removeChild",
+            "params": [
+                {
+                    "name": "c",
+                    "description": "要添加的子组件实例或者子组件的对象描述",
+                    "type": "Control|Object"
+                },
+                {
+                    "name": "destroy",
+                    "description": "默认为 true, 在移除的子组件上调用 destroy()方法",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
+                }
+            ],
+            "class": "Container",
+            "module": "component/container"
+        },
+        {
+            "file": "src\\api\\component\\container.js",
+            "line": 36,
+            "description": "移除所有包含的子组件",
+            "itemtype": "method",
+            "name": "removeChildren",
+            "params": [
+                {
+                    "name": "destroy",
+                    "description": "默认为 true, 在移除的子组件上调用 destroy()方法",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
+                }
+            ],
+            "class": "Container",
+            "module": "component/container"
+        },
         {
             "file": "src\\api\\component\\control.js",
             "line": 33,

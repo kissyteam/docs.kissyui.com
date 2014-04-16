@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Defer - API Documentation — KISSY v1.5 Documentation</title>
+    <title>Container - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -154,7 +154,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Defer Class</h1>
+                        <h1>Container Class</h1>
 <div class="box meta">
     
 
@@ -162,13 +162,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_promise.js.html#l111"><code>src\api\promise.js:111</code></a>
+            Defined in: <a href="../files/src_api_component_container.js.html#l6"><code>src\api\component\container.js:6</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/promise.html">promise</a>
+            Module: <a href="../modules/component_container.html">component/container</a>
         
     
 
@@ -178,22 +178,320 @@
 
 
 <div class="box intro">
-    
+    <p>扩展自 <a href="/1.5/api/classes/Control.html">Control</a> , 包含其全部配置,属性,方法,事件</p>
+
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Defer" class="method item">
-    <h3 class="name"><code>Defer</code></h3>
+        <div id="method_Container" class="method item">
+    <h3 class="name"><code>Container</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>config</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_component_container.js.html#l6"><code>src\api\component\container.js:6</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">config</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>配置项</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[children]</code>
+                                    <span class="type"><a href="..\classes\Control.html" class="crosslink">Control[]</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>可选，当前组件的子组件</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+    </div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method">
+                                <a href="#method_addChild">addChild</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getChildAt">getChildAt</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_removeChild">removeChild</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_removeChildren">removeChildren</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method_addChild" class="method item">
+    <h3 class="name"><code>addChild</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>c</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[index]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_component_container.js.html#l14"><code>src\api\component\container.js:14</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>添加一个指定的组件作为当前组件的子组件</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">c</code>
+                        <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要添加的子组件实例或者子组件的对象描述</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[index]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>子组件的索引，可选。从 0 开始，新子组件被插入时的索引。如果未指定，新组件将会被插入在最后</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_getChildAt" class="method item">
+    <h3 class="name"><code>getChildAt</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>index</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
     
 
     
         <span class="returns-inline">
-            <span class="type"></span>
+            <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a></span>
         </span>
     
 
@@ -220,7 +518,7 @@
             
         
         
-        <a href="../files/src_api_promise.js.html#l111"><code>src\api\promise.js:111</code></a>
+        <a href="../files/src_api_component_container.js.html#l21"><code>src\api\component\container.js:21</code></a>
         
         </p>
 
@@ -231,9 +529,34 @@
     </div>
 
     <div class="description">
-        
+        <p>返回所给索引对应的子组件，如果索引超出返回，则返回 null</p>
+
     </div>
 
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">index</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>从 0 开始的索引</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
     
 
     
@@ -243,7 +566,9 @@
             <div class="returns-description">
                 
                     
-                    <p>Defer 实例，用于逻辑内部控制成功或失败，返回 promise 供外部监听</p>
+                        <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a></span>:
+                    
+                    <p>所给索引对应的子组件对象。如果不存在则返回 null</p>
 
                 
             </div>
@@ -253,80 +578,9 @@
     
 </div>
 
-    </div>
-
-
-<div id="classdocs" class="tabview">
-    <ul class="api-class-tabs">
-        <li class="api-class-tab index"><a href="#index">Index</a></li>
-
-        
-            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
-        
-        
-            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
-        
-        
-        
-    </ul>
-
-    <div>
-        <div id="index" class="api-class-tabpanel index">
-            <h2 class="off-left">Item Index</h2>
-
-            
-                <div class="index-section methods">
-                    <h3>Methods</h3>
-
-                    <ul class="index-list methods">
-                        
-                            <li class="index-item method">
-                                <a href="#method_reject">reject</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_resolve">resolve</a>
-
-                                
-                                
-                            </li>
-                        
-                    </ul>
-                </div>
-            
-
-            
-                <div class="index-section properties">
-                    <h3>Properties</h3>
-
-                    <ul class="index-list properties">
-                        
-                            <li class="index-item property">
-                                <a href="#property_promise">promise</a>
-
-                                
-                                
-                            </li>
-                        
-                    </ul>
-                </div>
-            
-
-            
-
-            
-        </div>
-
-        
-            <div id="methods" class="api-class-tabpanel">
-                <h2 class="off-left">Methods</h2>
-
                 
-                    <div id="method_reject" class="method item">
-    <h3 class="name"><code>reject</code></h3>
+                    <div id="method_removeChild" class="method item">
+    <h3 class="name"><code>removeChild</code></h3>
 
     
         <div class="args">
@@ -334,7 +588,13 @@
             
                 <li class="arg">
                     
-                        <code>reason</code>
+                        <code>c</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[destroy=true]</code>
                     
                 </li>
             
@@ -367,7 +627,7 @@
             
         
         
-        <a href="../files/src_api_promise.js.html#l129"><code>src\api\promise.js:129</code></a>
+        <a href="../files/src_api_component_container.js.html#l28"><code>src\api\component\container.js:28</code></a>
         
         </p>
 
@@ -378,7 +638,8 @@
     </div>
 
     <div class="description">
-        <p>设置内部 promise 为失败状态，失败回调参数为 reason</p>
+        <p>从当前组件中移除所给子组件，并返回这个子组件对象。
+如果 destroy 是 true，调用要移除的组件的 destroy() 方法，随后从 DOM 文档中移除子组件的 DOM。否则，清除子组件 DOM 的工作就要由调用者做。</p>
 
     </div>
 
@@ -390,14 +651,31 @@
             
                 <li class="param">
                     
-                        <code class="param-name">reason</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <code class="param-name">c</code>
+                        <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>设置给失败回调函数的参数</p>
+                        <p>要添加的子组件实例或者子组件的对象描述</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[destroy=true]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>默认为 true, 在移除的子组件上调用 destroy()方法</p>
 
                     </div>
 
@@ -414,8 +692,8 @@
 </div>
 
                 
-                    <div id="method_resolve" class="method item">
-    <h3 class="name"><code>resolve</code></h3>
+                    <div id="method_removeChildren" class="method item">
+    <h3 class="name"><code>removeChildren</code></h3>
 
     
         <div class="args">
@@ -423,7 +701,7 @@
             
                 <li class="arg">
                     
-                        <code>value</code>
+                        <code class="optional">[destroy=true]</code>
                     
                 </li>
             
@@ -456,7 +734,7 @@
             
         
         
-        <a href="../files/src_api_promise.js.html#l122"><code>src\api\promise.js:122</code></a>
+        <a href="../files/src_api_component_container.js.html#l36"><code>src\api\component\container.js:36</code></a>
         
         </p>
 
@@ -467,8 +745,7 @@
     </div>
 
     <div class="description">
-        <p>使得内部的 promise 成功，并设置成功值为 value，
-如果 value 也是 promise，只有等 value 成功后改 defer 内部的 promise 才算成功</p>
+        <p>移除所有包含的子组件</p>
 
     </div>
 
@@ -480,14 +757,15 @@
             
                 <li class="param">
                     
-                        <code class="param-name">value</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <code class="param-name optional">[destroy=true]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>任意值（ 包括 promise ）</p>
+                        <p>默认为 true, 在移除的子组件上调用 destroy()方法</p>
 
                     </div>
 
@@ -507,57 +785,6 @@
             </div>
         
 
-        
-            <div id="properties" class="api-class-tabpanel">
-                <h2 class="off-left">Properties</h2>
-
-                
-                    <div id="property_promise" class="property item">
-    <h3 class="name"><code>promise</code></h3>
-    <span class="type"><a href="..\classes\Promise.html" class="crosslink">Promise</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_promise.js.html#l117"><code>src\api\promise.js:117</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>用于外部监听成功失败的 promise 对象</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-            </div>
         
 
         

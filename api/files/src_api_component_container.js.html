@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>json - API Documentation — KISSY v1.5 Documentation</title>
+    <title>src\api\component\container.js - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -154,49 +154,51 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>json Module</h1>
-<div class="box clearfix meta">
-    
+                        <h1 class="file-heading">File: src\api\component\container.js</h1>
 
-    
-
-    
-        <div class="foundat">
-            Defined in: <a href="../files/src_api_json.js.html#l5"><code>src\api\json.js:5</code></a>
-        </div>
-    
-
-    
-</div>
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+@module component/container
+*/
 
 
+/**
+扩展自 [Control](/1.5/api/classes/Control.html) , 包含其全部配置,属性,方法,事件
+@class Container
+@constructor
+@param config {Object} 配置项
+@param [config.children] {Control[]} 可选，当前组件的子组件
+*/
 
-<div class="box intro">
-    
-</div>
+/**
+添加一个指定的组件作为当前组件的子组件
+@method addChild
+@param c {Control|Object} 要添加的子组件实例或者子组件的对象描述
+@param [index] 子组件的索引，可选。从 0 开始，新子组件被插入时的索引。如果未指定，新组件将会被插入在最后
+*/
 
+/**
+返回所给索引对应的子组件，如果索引超出返回，则返回 null
+@method getChildAt
+@param index {Number} 从 0 开始的索引
+@return {Control} 所给索引对应的子组件对象。如果不存在则返回 null
+*/
 
+/**
+从当前组件中移除所给子组件，并返回这个子组件对象。
+如果 destroy 是 true，调用要移除的组件的 destroy() 方法，随后从 DOM 文档中移除子组件的 DOM。否则，清除子组件 DOM 的工作就要由调用者做。
+@method removeChild
+@param c {Control|Object} 要添加的子组件实例或者子组件的对象描述
+@param [destroy=true] {Boolean} 默认为 true, 在移除的子组件上调用 destroy()方法 
+*/
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/Json.html">
-                        Json
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+/**
+移除所有包含的子组件
+@method removeChildren
+@param [destroy=true] {Boolean} 默认为 true, 在移除的子组件上调用 destroy()方法 
+*/
+    </pre>
 </div>
 
                     </div>
