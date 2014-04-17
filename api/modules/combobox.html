@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src\api\feature.js - API Documentation — KISSY v1.5 Documentation</title>
+    <title>combobox - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -196,114 +196,73 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: src\api\feature.js</h1>
+                        <h1>combobox Module</h1>
+<div class="box clearfix meta">
+    
 
-<div class="file">
-    <pre class="code prettyprint linenums">
-/**
-* features模块提供了Features来进行硬件环境关键特性检测，直接通过KISSY全局对象调用
-* @module feature
-*/
+    
 
-/**
-* 硬件环境关键特性检测，直接通过KISSY全局对象调用
-* 这类功能通常在判断硬件环境时使用，比如在KISSY的modules定义的代码：
-*   &#x60;&#x60;&#x60;
-*   KISSY.config(&#x27;modules&#x27;,{
-*        &quot;dom/basic&quot;: {
-*                &quot;alias&quot;: [
-*                        &#x27;dom/base&#x27;,
-*                        KISSY.Features.isIELessThan(9) ? &#x27;dom/ie&#x27; : &#x27;&#x27;,
-*                        KISSY.Features.isClassListSupported() ? &#x27;&#x27; : &#x27;dom/class-list&#x27;
-*                ]
-*        },
-*        &quot;dom&quot;: {
-*                &quot;alias&quot;: [
-*                        &#x27;dom/basic&#x27;,
-*                        !KISSY.Features.isQuerySelectorSupported() ? &#x27;dom/selector&#x27; : &#x27;&#x27;
-*                ]
-*        }
-*	});
-*   &#x60;&#x60;&#x60;
-* @class Feature
-* @static
-*/
+    
+        <div class="foundat">
+            Defined in: <a href="../files/src_api_combobox.js.html#l210"><code>src\api\combobox.js:210</code></a>
+        </div>
+    
 
-/**
-* 判断当前宿主环境是否支持手势事件
-*
-*   &#x60;&#x60;&#x60;
-*   KISSY.Features.isDeviceMotionSupported();
-*   &#x60;&#x60;&#x60;
-*
-* @method isDeviceMotionSupported
-* @static
-* @return {Boolean} 当前宿主环境是否支持手势事件
-*/
+    
+</div>
 
-/**
-* 判断当前宿主环境是否支持ie8的Pointer事件
-* @method isMsPointerSupported
-* @static
-* @return {Boolean} 当前宿主环境是否支持ie8的Pointer事件
-*/
 
-/**
-* 判断当前宿主环境是否支持触屏事件
-* @method isTouchEventSupported
-* @static
-* @return {Boolean} 当前宿主环境是否支持触屏事件
-*/
 
-/**
-* 判断当前环境是否支持hashChange事件
-* @method isHashChangeSupported
-* @static
-* @return {Boolean} 当前环境是否支持hashChange事件
-*/
+<div class="box intro">
+    
+</div>
 
-/**
-* 判断当前环境是否支持Transition动画
-* @method isTransitionSupported
-* @static
-* @return {Boolean} 当前环境是否支持Transition动画
-*/
 
-/**
-* 判断当前环境是否支持Transform动画
-* @method isTransformSupported
-* @static
-* @return {Boolean} 当前环境是否支持Transform动画
-*/
 
-/**
-* 判断当前环境是否支持ClassList
-* @method isClassListSupported
-* @static
-* @return {Boolean} 当前环境是否支持ClassList
-*/
+<div class="yui3-g">
+    <div class="yui3-u-1-2">
+        
+            <p>This module provides the following classes:</p>
 
-/**
-* 判断当前环境是否支持QuerySelector方法
-* @method isQuerySelectorSupported
-* @static
-* @return {Boolean} 当前环境是否支持QuerySelector方法
-*/
+            <ul class="module-classes">
+            
+                <li class="module-class">
+                    <a href="../classes/ComboBox.html">
+                        ComboBox
+                    </a>
+                </li>
+            
+                <li class="module-class">
+                    <a href="../classes/FilterSelect.html">
+                        FilterSelect
+                    </a>
+                </li>
+            
+                <li class="module-class">
+                    <a href="../classes/LocalDataSource.html">
+                        LocalDataSource
+                    </a>
+                </li>
+            
+                <li class="module-class">
+                    <a href="../classes/MultiValueComboBox.html">
+                        MultiValueComboBox
+                    </a>
+                </li>
+            
+                <li class="module-class">
+                    <a href="../classes/RemoteDataSource.html">
+                        RemoteDataSource
+                    </a>
+                </li>
+            
+            </ul>
+        
+    </div>
 
-/**
-* 得到Transition属性的前缀
-* @method getTransitionPrefix
-* @static
-* @return {Boolean} Transition属性的前缀
-*/
-
-/**
-* 得到Transform属性的前缀
-* @method getTransformPrefix
-* @static
-* @return {Boolean} Transform属性的前缀
-*/
-    </pre>
+    <div class="yui3-u-1-2">
+        
+    </div>
 </div>
 
                     </div>

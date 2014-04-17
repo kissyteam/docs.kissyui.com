@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src\api\feature.js - API Documentation — KISSY v1.5 Documentation</title>
+    <title>FilterSelect - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -196,114 +196,188 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: src\api\feature.js</h1>
+                        <h1>FilterSelect Class</h1>
+<div class="box meta">
+    
 
-<div class="file">
-    <pre class="code prettyprint linenums">
-/**
-* features模块提供了Features来进行硬件环境关键特性检测，直接通过KISSY全局对象调用
-* @module feature
-*/
+    
 
-/**
-* 硬件环境关键特性检测，直接通过KISSY全局对象调用
-* 这类功能通常在判断硬件环境时使用，比如在KISSY的modules定义的代码：
-*   &#x60;&#x60;&#x60;
-*   KISSY.config(&#x27;modules&#x27;,{
-*        &quot;dom/basic&quot;: {
-*                &quot;alias&quot;: [
-*                        &#x27;dom/base&#x27;,
-*                        KISSY.Features.isIELessThan(9) ? &#x27;dom/ie&#x27; : &#x27;&#x27;,
-*                        KISSY.Features.isClassListSupported() ? &#x27;&#x27; : &#x27;dom/class-list&#x27;
-*                ]
-*        },
-*        &quot;dom&quot;: {
-*                &quot;alias&quot;: [
-*                        &#x27;dom/basic&#x27;,
-*                        !KISSY.Features.isQuerySelectorSupported() ? &#x27;dom/selector&#x27; : &#x27;&#x27;
-*                ]
-*        }
-*	});
-*   &#x60;&#x60;&#x60;
-* @class Feature
-* @static
-*/
+    
+        <div class="foundat">
+            Defined in: <a href="../files/src_api_combobox.js.html#l164"><code>src\api\combobox.js:164</code></a>
+        </div>
+    
 
-/**
-* 判断当前宿主环境是否支持手势事件
-*
-*   &#x60;&#x60;&#x60;
-*   KISSY.Features.isDeviceMotionSupported();
-*   &#x60;&#x60;&#x60;
-*
-* @method isDeviceMotionSupported
-* @static
-* @return {Boolean} 当前宿主环境是否支持手势事件
-*/
+    
+        
+            Module: <a href="../modules/combobox.html">combobox</a>
+        
+    
 
-/**
-* 判断当前宿主环境是否支持ie8的Pointer事件
-* @method isMsPointerSupported
-* @static
-* @return {Boolean} 当前宿主环境是否支持ie8的Pointer事件
-*/
+    
+</div>
 
-/**
-* 判断当前宿主环境是否支持触屏事件
-* @method isTouchEventSupported
-* @static
-* @return {Boolean} 当前宿主环境是否支持触屏事件
-*/
 
-/**
-* 判断当前环境是否支持hashChange事件
-* @method isHashChangeSupported
-* @static
-* @return {Boolean} 当前环境是否支持hashChange事件
-*/
 
-/**
-* 判断当前环境是否支持Transition动画
-* @method isTransitionSupported
-* @static
-* @return {Boolean} 当前环境是否支持Transition动画
-*/
+<div class="box intro">
+    <p>限定范围的输入框.</p>
+<p>继承自 <a href="/1.5/api/classes/ComboBox.html">ComboBox</a> , 包含其全部配置,属性,方法,事件.</p>
 
-/**
-* 判断当前环境是否支持Transform动画
-* @method isTransformSupported
-* @static
-* @return {Boolean} 当前环境是否支持Transform动画
-*/
+</div>
 
-/**
-* 判断当前环境是否支持ClassList
-* @method isClassListSupported
-* @static
-* @return {Boolean} 当前环境是否支持ClassList
-*/
 
-/**
-* 判断当前环境是否支持QuerySelector方法
-* @method isQuerySelectorSupported
-* @static
-* @return {Boolean} 当前环境是否支持QuerySelector方法
-*/
+    <div class="constructor">
+        <h2>Constructor</h2>
+        <div id="method_FilterSelect" class="method item">
+    <h3 class="name"><code>FilterSelect</code></h3>
 
-/**
-* 得到Transition属性的前缀
-* @method getTransitionPrefix
-* @static
-* @return {Boolean} Transition属性的前缀
-*/
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>config</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
 
-/**
-* 得到Transform属性的前缀
-* @method getTransformPrefix
-* @static
-* @return {Boolean} Transform属性的前缀
-*/
-    </pre>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l164"><code>src\api\combobox.js:164</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">config</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>配置项，如下：</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">invalidMessage</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>当用户的输入不匹配下拉提示的内容时的出错信息</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use(&#39;combobox&#39;,function(S,ComboBox){
+    // use ComboBox.FilterSelect
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+    </div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+        
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+
+            
+
+            
+
+            
+        </div>
+
+        
+
+        
+
+        
+
+        
+    </div>
 </div>
 
                     </div>

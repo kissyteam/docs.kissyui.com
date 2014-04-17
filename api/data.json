@@ -139,6 +139,21 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\combobox.js": {
+            "name": "src\\api\\combobox.js",
+            "modules": {
+                "combobox": 1
+            },
+            "classes": {
+                "ComboBox": 1,
+                "MultiValueComboBox": 1,
+                "FilterSelect": 1,
+                "LocalDataSource": 1,
+                "RemoteDataSource": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\cookie.js": {
             "name": "src\\api\\cookie.js",
             "modules": {
@@ -437,6 +452,22 @@
             "tag": "module",
             "file": "src\\api\\button.js",
             "line": 5
+        },
+        "combobox": {
+            "name": "combobox",
+            "submodules": {},
+            "classes": {
+                "ComboBox": 1,
+                "MultiValueComboBox": 1,
+                "FilterSelect": 1,
+                "LocalDataSource": 1,
+                "RemoteDataSource": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\combobox.js",
+            "line": 210
         },
         "cookie": {
             "name": "cookie",
@@ -1134,6 +1165,272 @@
                             "name": "tooltip",
                             "description": "可选，按钮节点的 title 属性值",
                             "type": "String"
+                        }
+                    ]
+                }
+            ]
+        },
+        "ComboBox": {
+            "name": "ComboBox",
+            "shortname": "ComboBox",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "combobox",
+            "namespace": "",
+            "file": "src\\api\\combobox.js",
+            "line": 6,
+            "description": "继承自 [Control](/1.5/api/classes/Control.html) , 包含其全部配置,属性,方法,事件.\n\n### 从已有元素实例 ComboBox 对象时：\n\n- 元素节点标明类名 {prefixCls}combobox .\n- html 符合一定规范，例如：\n```\n<div class=\"ks-combobox\" id=\"combobox\">\n    <div class=\"ks-combobox-input-wrap\">\n        <input style=\"width:100%;height:100%;\" aria-haspopup=\"true\"\n               aria-combobox=\"list\" role=\"combobox\" combobox=\"off\"\n               class=\"ks-combobox-input\" tabindex=\"0\"\n               id=\"inp\"\n                />\n    </div>\n</div>\n```\n\n### 使用前请加上初始样式\n```\n<style>\n    .ks-popupmenu {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n</style>\n```",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，如下：",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "hasTrigger",
+                            "description": "默认 true. 是否显示下拉按钮",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "placeholder",
+                            "description": "默认无. 输入框的提示信息",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "autoHighlightFirst",
+                            "description": "默认 false. 是否默认选中下拉提示第一项",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "menu",
+                            "description": "可选. xclass 形式的配置，例如指定特定的 align:\n```\n{\n    xclass:'popupmenu',\n    align:{\n        points:['tl','bl']\n    }\n}\n```",
+                            "type": "Object|Menu.PopupMenu",
+                            "optional": true
+                        },
+                        {
+                            "name": "dataSource",
+                            "description": "数据源配置\n例如静态数据源的配置:\n```\n{\n\tdataSource : new ComboBox.LocalDataSource({\n\t\t\t\t    data:[\"abc\",\"123\"]\n\t\t\t\t})\n} \n```",
+                            "type": "ComboBox.LocalDataSource|ComboBox.RemoteDataSource"
+                        },
+                        {
+                            "name": "maxItemCount",
+                            "description": "最多可显示的下拉菜单个数",
+                            "type": "Number",
+                            "optional": true
+                        },
+                        {
+                            "name": "matchWidth",
+                            "description": "是否下拉菜单和自动补全框宽度一致。默认 true.",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "format",
+                            "description": "可选。自定义下拉菜单属性的函数，传入参数 query(自动补全框当前值) , data(匹配数据数组)。 返回对象数组，其中对象的 content 属性表示菜单项显示内容，textContent 表示放入到自动补全框的内容，disabled 表示当前项是否被禁用.\n例如高亮的处理:\n```\n{\n    format:function(query, data){\n        var ret = [];\n        for (var i = 0; i < data.length; i++) {\n            ret[i] = {\n                content:(data[i] + \"\")\n                        .replace(new RegExp(S.escapeRegExp(query), \"g\"),\n                        \"<b>$&</b>\")\n            };\n        }\n        return ret;\n    }\n}\n```",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "updateInputOnDownUp",
+                            "description": "默认 true. 上下键是否导致高亮项填充入自动补全框",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "autoHighlightFirst",
+                            "description": "默认 false. 是否当自动补全菜单出现时高亮第一项",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use(\"node,combobox\", function (S, Node, ComboBox) {\n\tvar $ = Node.all;\n    var data = [\"a123456\", \"b12345\", \"c3464356\", \"d23434\"];\n\n    var basicComboBox = new ComboBox({\n        width:100,\n        srcNode:$(\"#combobox\"),\n        // 初始就聚焦\n        focused:true,\n        hasTrigger:false,\n        dataSource:new ComboBox.LocalDataSource({\n            data:data\n        })\n    });\n    basicComboBox.render();\n\n    // 得到焦点时展示全部\n    basicComboBox.get(\"input\").on(\"focus\", function () {\n        basicComboBox.sendRequest('');\n    });\n}\n```"
+            ]
+        },
+        "MultiValueComboBox": {
+            "name": "MultiValueComboBox",
+            "shortname": "MultiValueComboBox",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "combobox",
+            "namespace": "",
+            "file": "src\\api\\combobox.js",
+            "line": 144,
+            "description": "继承自 [ComboBox](/1.5/api/classes/ComboBox.html) , 包含其全部配置,属性,方法,事件.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，如下：",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "multiple",
+                            "description": "默认 false. 是否允许多个值的输入",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "separator",
+                            "description": "当允许多个值输入时，分割多个值的分隔符",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "\",;\""
+                        },
+                        {
+                            "name": "separatorType",
+                            "description": "默认 “suffix”. 可取枚举值（”prefix”,”suffix”）. 表示分隔符在最前面( @xx 模式)还是在最后面(gmail 模式).",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "alignWithCursor",
+                            "description": "默认 false. 自动补全菜单是否和光标对齐.",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "literal",
+                            "description": "默认 \" 在该字符内的所有字符（包括分隔符）都算作普通字符.",
+                            "optional": true,
+                            "optdefault": "'\"'"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use('combobox',function(S,ComboBox){\n    // use ComboBox.MultiValueComboBox\n});"
+            ]
+        },
+        "FilterSelect": {
+            "name": "FilterSelect",
+            "shortname": "FilterSelect",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "combobox",
+            "namespace": "",
+            "file": "src\\api\\combobox.js",
+            "line": 164,
+            "description": "限定范围的输入框.\n\n继承自 [ComboBox](/1.5/api/classes/ComboBox.html) , 包含其全部配置,属性,方法,事件.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，如下：",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "invalidMessage",
+                            "description": "当用户的输入不匹配下拉提示的内容时的出错信息",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use('combobox',function(S,ComboBox){\n    // use ComboBox.FilterSelect\n});\n```"
+            ]
+        },
+        "LocalDataSource": {
+            "name": "LocalDataSource",
+            "shortname": "LocalDataSource",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "combobox",
+            "namespace": "",
+            "file": "src\\api\\combobox.js",
+            "line": 180,
+            "description": "本地数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，如下：",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "data",
+                            "description": "静态数据数组",
+                            "type": "Object[]"
+                        },
+                        {
+                            "name": "parse",
+                            "description": "可选. 如何根据用户输入对数据进行过滤。默认为\n```\nfunction parser(inputVal, data) {\n    var ret = [],\n        count = 0;\n\n    if (!inputVal) {\n        return data;\n    }\n\n    S.each(data, function (d) {\n        if (d.indexOf(inputVal) != -1) {\n            ret.push(d);\n        }\n        count++;\n    });\n\n    return ret;\n}\n\n```",
+                            "type": "Function",
+                            "optional": true
+                        }
+                    ]
+                }
+            ]
+        },
+        "RemoteDataSource": {
+            "name": "RemoteDataSource",
+            "shortname": "RemoteDataSource",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "combobox",
+            "namespace": "",
+            "file": "src\\api\\combobox.js",
+            "line": 210,
+            "description": "数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，如下：",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "paramName='q'",
+                            "description": "用户输入发送到后端的参数名，默认 ‘q’",
+                            "type": "String"
+                        },
+                        {
+                            "name": "parse",
+                            "description": "可选. 如何根据用户输入对后台返回数据进行过滤。默认\n```\nfunction parser(\n    // 用户输入\n    inputVal,\n    // 服务器返回数据\n    data) {\n    return data;\n}\n```",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "allowEmpty=false",
+                            "description": "默认 false. 用户输入为空时是否发请求",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "cache=false",
+                            "description": "默认 false. 是否缓存服务器端数据",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "xhrCfg",
+                            "description": "传递给 IO 的其他参数",
+                            "type": "Object"
                         }
                     ]
                 }
@@ -3203,6 +3500,84 @@
             ],
             "class": "Button",
             "module": "button"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 106,
+            "description": "关联的复合输入框",
+            "itemtype": "attribute",
+            "name": "input",
+            "type": "KISSY.Node",
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 111,
+            "description": "自动补全菜单的配置（在显示后转换为实例）或实例",
+            "itemtype": "attribute",
+            "name": "menu",
+            "type": "ComboBox.Menu|Object",
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 116,
+            "description": "自动补全菜单是否已经收起",
+            "itemtype": "attribute",
+            "name": "collapsed",
+            "type": "Boolean",
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 121,
+            "description": "根据 value 自动补全并显示下拉菜单",
+            "itemtype": "method",
+            "name": "sendRequest",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "自动补全的值",
+                    "type": "String"
+                }
+            ],
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 127,
+            "description": "当用户选择自动补全下拉框内的项时触发",
+            "itemtype": "event",
+            "name": "click",
+            "params": [
+                {
+                    "name": "e.target",
+                    "description": "选择的下拉菜单项",
+                    "type": "MenuItem"
+                }
+            ],
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 133,
+            "description": "当下拉菜单显示或收起时触发",
+            "itemtype": "event",
+            "name": "afterCollapsedChange",
+            "params": [
+                {
+                    "name": "e.NewVal",
+                    "description": "当前下拉菜单是否是收起状态",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "ComboBox",
+            "module": "combobox"
         },
         {
             "file": "src\\api\\cookie.js",
