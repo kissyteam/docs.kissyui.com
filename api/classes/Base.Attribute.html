@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Base - API Documentation — KISSY v1.5 Documentation</title>
+    <title>Base.Attribute - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -196,28 +196,15 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Base Class</h1>
+                        <h1>Base.Attribute Class</h1>
 <div class="box meta">
     
-        <div class="uses">
-            Uses
-            <ul class="inline commas">
-                
-                    <li><a href="Event.Target.html">Event.Target</a></li>
-                
-            </ul>
-        </div>
-    
 
-    
-        <div class="extends">
-            Extends <a href="..\classes\Base.Attribute.html" class="crosslink">Base.Attribute</a>
-        </div>
     
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_base.js.html#l9"><code>src\api\base.js:9</code></a>
+            Defined in: <a href="../files/src_api_base.js.html#l194"><code>src\api\base.js:194</code></a>
         </div>
     
 
@@ -233,64 +220,18 @@
 
 
 <div class="box intro">
-    <p>如果你想让类默认就支持 attribute 功能, 请直接继承Base</p>
-<p>简单实用：</p>
-<pre class="code prettyprint"><code>KISSY.use(&#39;base&#39;, function(S, Base) {
-    // 自定义类
-    // 继承 Base
-    var myClass = Base.extend({},{
-        size: {
-            value: 0,
-            setter: function(v) {
-                if (S.isString(v) &amp;&amp; v.indexOf(&#39;inch&#39;)!== -1) {
-                    return parseFloat(v)*10/3;
-                }
-                return parseFloat(v);
-            },
-            getter: function(v) {
-                return v;
-            }
-        }
-    });
-
-    var cls = new myClass();
-
-    // 绑定事件
-    cls.on(&#39;afterSizeChange&#39;, function(ev){
-        console.log(&#39;change &#39;+ ev.attrName + &#39;: &#39;+ev.prevVal+&#39; --&gt; &#39;+ev.newVal);
-    });
-
-    // 设置属性
-    cls.set(&#39;size&#39;, 20);
-
-    // 获取属性
-    alert(cls.get(&#39;size&#39;));
-
-    // 重置
-    cls.reset();
-    alert(cls.get(&#39;size&#39;));
-});</code></pre>
+    <p>包含一些属性操作的方法，仅用于 <a href="/1.5/api/classes/Util.html#method_augment">augment()</a>]</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Base" class="method item">
-    <h3 class="name"><code>Base</code></h3>
+        <div id="method_Base.Attribute" class="method item">
+    <h3 class="name"><code>Base.Attribute</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>config</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
     
@@ -318,7 +259,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l9"><code>src\api\base.js:9</code></a>
+        <a href="../files/src_api_base.js.html#l194"><code>src\api\base.js:194</code></a>
         
         </p>
 
@@ -332,92 +273,6 @@
         
     </div>
 
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">config</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>属性名/配置信息对</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">listeners</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>配置组件的事件绑定,例如:</p>
-<pre><code>{
-    listeners:{
-        customEvent:function(e){
-            alert(e.type); // =&gt; &quot;customEvent&quot;
-        }
-    }
-}
-
-or
-
-{
-    listeners:{
-        customEvent:{
-            fn:function(e){
-                // e.type // =&gt; customEvent
-                // this.xx =&gt; 1
-            },
-            context:{xx:1}
-        }
-    }
-}</code></pre>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">plugins</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function[]</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object[]</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>插件构造器数组或插件对象数组. 例如</p>
-<pre><code>{
-    plugins: [ Plugin1,Plugin2 ]
-}
-
-// or
-
-{
-    plugins: [new Plugin1(cfg),new Plugin2(cfg)]
-}</code></pre>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
-        </div>
     
 
     
@@ -450,74 +305,30 @@ or
                 <div class="index-section methods">
                     <h3>Methods</h3>
 
-                    <ul class="index-list methods extends">
+                    <ul class="index-list methods">
                         
-                            <li class="index-item method inherited">
+                            <li class="index-item method">
                                 <a href="#method_addAttr">addAttr</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method inherited">
+                            <li class="index-item method">
                                 <a href="#method_addAttrs">addAttrs</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method inherited">
-                                <a href="#method_addTarget">addTarget</a>
-
-                                
-                                
-                            </li>
-                        
                             <li class="index-item method">
-                                <a href="#method_callSuper">callSuper</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_destroy">destroy</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited">
-                                <a href="#method_detach">detach</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_extend">extend</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited">
-                                <a href="#method_fire">fire</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited">
                                 <a href="#method_get">get</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method inherited">
+                            <li class="index-item method">
                                 <a href="#method_getAttrVals">getAttrVals</a>
 
                                 
@@ -525,70 +336,35 @@ or
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_getPlugin">getPlugin</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited">
                                 <a href="#method_hasAttr">hasAttr</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method inherited">
-                                <a href="#method_on">on</a>
-
-                                
-                                
-                            </li>
-                        
                             <li class="index-item method">
-                                <a href="#method_plug">plug</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited">
-                                <a href="#method_publish">publish</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited">
                                 <a href="#method_removeAttr">removeAttr</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method inherited">
-                                <a href="#method_removeTarget">removeTarget</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited inherited">
+                            <li class="index-item method">
                                 <a href="#method_reset">reset</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method inherited">
-                                <a href="#method_set">set</a>
+                            <li class="index-item method">
+                                <a href="#method_reset">reset</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_unplug">unplug</a>
+                                <a href="#method_set">set</a>
 
                                 
                                 
@@ -606,23 +382,23 @@ or
                 <div class="index-section events">
                     <h3>Events</h3>
 
-                    <ul class="index-list events extends">
+                    <ul class="index-list events">
                         
-                            <li class="index-item event inherited">
+                            <li class="index-item event">
                                 <a href="#event_*change">*change</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item event inherited">
+                            <li class="index-item event">
                                 <a href="#event_afterAttrNameChange">afterAttrNameChange</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item event inherited">
+                            <li class="index-item event">
                                 <a href="#event_beforeAttrNameChange">beforeAttrNameChange</a>
 
                                 
@@ -639,7 +415,7 @@ or
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_addAttr" class="method item inherited">
+                    <div id="method_addAttr" class="method item">
     <h3 class="name"><code>addAttr</code></h3>
 
     
@@ -679,8 +455,11 @@ or
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="..\classes\Base.Attribute.html#method_addAttr">Base.Attribute</a>:
+                
+                <p>
+                
+                Defined in
+                
             
         
         
@@ -821,7 +600,7 @@ or
 </div>
 
                 
-                    <div id="method_addAttrs" class="method item inherited">
+                    <div id="method_addAttrs" class="method item">
     <h3 class="name"><code>addAttrs</code></h3>
 
     
@@ -861,8 +640,11 @@ or
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="..\classes\Base.Attribute.html#method_addAttrs">Base.Attribute</a>:
+                
+                <p>
+                
+                Defined in
+                
             
         
         
@@ -929,654 +711,7 @@ or
 </div>
 
                 
-                    <div id="method_addTarget" class="method item inherited">
-    <h3 class="name"><code>addTarget</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>target</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="..\classes\Event.Target.html#method_addTarget">Event.Target</a>:
-            
-        
-        
-        <a href="../files/src_api_event.js.html#l534"><code>src\api\event.js:534</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>添加冒泡事件源对象</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">target</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>事件往上冒泡的事件源</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&quot;event&quot;, function(S, Event) {
-    function Custom(id){
-        this.id = id;
-        this.publish(&quot;run&quot;,{
-            bubbles:1
-        });
-    }
-
-    S.augment(Custom, Event.Target);
-
-    var c1 = new Custom(&quot;c1&quot;);
-
-    var c2 = new Custom(&quot;c1&quot;);
-
-    c1.addTarget(c2);
-
-    c2.on(&quot;run&quot;,function(e){
-        S.log(e.target.id +&quot; fires event run&quot;); // =&gt; c1 fires event run
-    });
-
-    c1.fire(&quot;run&quot;);
-});</code></pre>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_callSuper" class="method item">
-    <h3 class="name"><code>callSuper</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_base.js.html#l104"><code>src\api\base.js:104</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>调用父类的对应方法，如果没有，则返回undefined</p>
-
-    </div>
-
-    
-
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;base&#39;, function(S, Base) {
-    var A = Base.extend({
-        m: function (value) {
-            return &#39;am:&#39; + value;
-        },
-        m2: function (value) {
-            return &#39;am2:&#39; + value;
-        }
-    });
-
-    var B = A.extend({
-        m: function(value) {
-            return &#39;bm:(&#39; + this.callSuper(value) + &#39;)&#39;;
-        },
-        m2: function(value) {
-            return &#39;bm2(&#39; + this.callSuper.apply(this, arguments) + &#39;)&#39;;
-        }
-    });
-
-    var b = new B();
-    console.log(b.m(1));
-    console.log(b.m2(2));
-});</code></pre>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_destroy" class="method item">
-    <h3 class="name"><code>destroy</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_base.js.html#l184"><code>src\api\base.js:184</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>销毁实例</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_detach" class="method item inherited">
-    <h3 class="name"><code>detach</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="..\classes\Event.Target.html#method_detach">Event.Target</a>:
-            
-        
-        
-        <a href="../files/src_api_event.js.html#l576"><code>src\api\event.js:576</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>解除绑定的事件处理器,可参考Event.detach</p>
-
-    </div>
-
-    
-
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY;
-
-// 定义 Dog 类
-function Dog(name) {
-    this.name = name;
-}
-
-// 让 Dog 成为事件目标
-S.augment(Dog, S.EventTarget);
-
-// 给 Dog 添加 run 方法
-S.augment(Dog, {
-   run: function() {
-       // 触发 running 事件
-       this.fire(&#39;running&#39;, {speed: &#39;80km/h&#39;});
-   }
-});
-
-var dog = new Dog(&#39;Lady Gogo&#39;);
-
-// 添加监听函数
-dog.on(&#39;running&#39;, function(ev) {
-    // 注意 ev 的参数传递大使身份
-    alert(this.name + &#39; is running now. Its speed is &#39; + ev.speed);
-});
-
-// 让可爱的小狗跑起来吧
-dog.run();</code></pre>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_extend" class="method item">
-    <h3 class="name"><code>extend</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code class="optional">[extensions]</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>methodDesc</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>staticAttributes</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>desc</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_base.js.html#l93"><code>src\api\base.js:93</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>从当前类上扩展出一个子类</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[extensions]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function[]</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>扩展类数组</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">methodDesc</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>方法集合键值对</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">staticAttributes</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>放到新产生组件类上的静态属性集合键值对，其中 ATTRS 属性特殊对待</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">desc</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>类元信息</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">name</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>类名</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_fire" class="method item inherited">
-    <h3 class="name"><code>fire</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>type</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>eventData</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="..\classes\Event.Target.html#method_fire">Event.Target</a>:
-            
-        
-        
-        <a href="../files/src_api_event.js.html#l517"><code>src\api\event.js:517</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>触发绑定 type 类型的事件处理器, 并给触发的事件处理器的事件对象参数中混入数据 eventData</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">type</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>要触发的自定义事件名称</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">eventData</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>要混入触发事件对象的数据对象</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
-                    
-                    <p>如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_get" class="method item inherited">
+                    <div id="method_get" class="method item">
     <h3 class="name"><code>get</code></h3>
 
     
@@ -1610,8 +745,11 @@ dog.run();</code></pre>
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="..\classes\Base.Attribute.html#method_get">Base.Attribute</a>:
+                
+                <p>
+                
+                Defined in
+                
             
         
         
@@ -1662,7 +800,7 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="method_getAttrVals" class="method item inherited">
+                    <div id="method_getAttrVals" class="method item">
     <h3 class="name"><code>getAttrVals</code></h3>
 
     
@@ -1690,8 +828,11 @@ dog.run();</code></pre>
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="..\classes\Base.Attribute.html#method_getAttrVals">Base.Attribute</a>:
+                
+                <p>
+                
+                Defined in
+                
             
         
         
@@ -1732,123 +873,7 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="method_getPlugin" class="method item">
-    <h3 class="name"><code>getPlugin</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>id</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_base.js.html#l171"><code>src\api\base.js:171</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>根据指定的 id 获取对应的plugin实例</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">id</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>plugin实例的id</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                    <p>对应的plugin实例</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <pre class="code prettyprint"><code>dialog.getPlugin(&#39;component/plugin/drag&#39;)
-   .getPlugin(&#39;dd/plugin/constrain&#39;)
-   .set(&#39;constrain&#39;, false);</code></pre>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_hasAttr" class="method item inherited">
+                    <div id="method_hasAttr" class="method item">
     <h3 class="name"><code>hasAttr</code></h3>
 
     
@@ -1886,8 +911,11 @@ dog.run();</code></pre>
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="..\classes\Base.Attribute.html#method_hasAttr">Base.Attribute</a>:
+                
+                <p>
+                
+                Defined in
+                
             
         
         
@@ -1950,320 +978,7 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="method_on" class="method item inherited">
-    <h3 class="name"><code>on</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="..\classes\Event.Target.html#method_on">Event.Target</a>:
-            
-        
-        
-        <a href="../files/src_api_event.js.html#l571"><code>src\api\event.js:571</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>绑定事件处理器,参数可参考Event.on，这里不重复了</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_plug" class="method item">
-    <h3 class="name"><code>plug</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>plugin</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_base.js.html#l135"><code>src\api\base.js:135</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>安装指定插件</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">plugin</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>指定的插件构造器或者插件对象</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                    <p>自身</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
-    new Overlay({
-        content:&#39;test&#39;
-    }).plug(new Resize({
-        handlers:[&#39;t&#39;,&#39;t&#39;]
-    }));
-});</code></pre>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_publish" class="method item inherited">
-    <h3 class="name"><code>publish</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>type</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>cfg</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="..\classes\Event.Target.html#method_publish">Event.Target</a>:
-            
-        
-        
-        <a href="../files/src_api_event.js.html#l525"><code>src\api\event.js:525</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>配置自定义事件的一些特有信息</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">type</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>要触发的自定义事件名称</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">cfg</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>事件的具体配置对象</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[bubbles=true]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>类型 boolean. 是否支持冒泡。 默认 true</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[defaultFn]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_removeAttr" class="method item inherited">
+                    <div id="method_removeAttr" class="method item">
     <h3 class="name"><code>removeAttr</code></h3>
 
     
@@ -2297,8 +1012,11 @@ dog.run();</code></pre>
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="..\classes\Base.Attribute.html#method_removeAttr">Base.Attribute</a>:
+                
+                <p>
+                
+                Defined in
+                
             
         
         
@@ -2349,93 +1067,7 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="method_removeTarget" class="method item inherited">
-    <h3 class="name"><code>removeTarget</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>target</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="..\classes\Event.Target.html#method_removeTarget">Event.Target</a>:
-            
-        
-        
-        <a href="../files/src_api_event.js.html#l565"><code>src\api\event.js:565</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>删除冒泡事件源对象</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">target</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>事件往上冒泡的事件源</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_reset" class="method item inherited">
+                    <div id="method_reset" class="method item">
     <h3 class="name"><code>reset</code></h3>
 
     
@@ -2474,12 +1106,12 @@ dog.run();</code></pre>
 
     <div class="meta">
         
-            <p>Inherited from
-            <a href="..\classes\Base.Attribute.html#method_reset">
-                Base.Attribute
-            </a>
             
-            but overwritten in
+                
+                <p>
+                
+                Defined in
+                
             
         
         
@@ -2564,7 +1196,114 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="method_set" class="method item inherited">
+                    <div id="method_reset" class="method item">
+    <h3 class="name"><code>reset</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>opts</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_base.js.html#l265"><code>src\api\base.js:265</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>将所有属性全部重置为初始值. (调用一次 set() )</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">opts</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>控制对象，包括以下控制选项</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">silent=false</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>默认 false , 是否触发 change 系列事件</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_set" class="method item">
     <h3 class="name"><code>set</code></h3>
 
     
@@ -2614,8 +1353,11 @@ dog.run();</code></pre>
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="..\classes\Base.Attribute.html#method_set">Base.Attribute</a>:
+                
+                <p>
+                
+                Defined in
+                
             
         
         
@@ -2758,32 +1500,21 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="method_unplug" class="method item">
-    <h3 class="name"><code>unplug</code></h3>
+            </div>
+        
 
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>plugin</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
+        
 
-    
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-    
+        
 
-    
+        
+            <div id="events" class="api-class-tabpanel">
+                <h2 class="off-left">Events</h2>
 
-    
+                
+                    <div id="event_*change" class="events item">
+    <h3 class="name"><code>*change</code></h3>
+    <span class="type"></span>
 
     
 
@@ -2801,114 +1532,6 @@ dog.run();</code></pre>
                 
                 Defined in
                 
-            
-        
-        
-        <a href="../files/src_api_base.js.html#l152"><code>src\api\base.js:152</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>卸载指定插件</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">plugin</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>指定的插件构造器或者插件对象</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                    <p>自身</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
-    var o= new Overlay({
-        content:&#39;test&#39;
-    }).plug(new Resize({
-        handlers:[&#39;t&#39;,&#39;t&#39;]
-    }));
-
-    o.unplug(&#39;component/plugin/resize&#39;); // 卸载 resize 插件
-});</code></pre>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-            </div>
-        
-
-        
-
-        
-
-        
-            <div id="events" class="api-class-tabpanel">
-                <h2 class="off-left">Events</h2>
-
-                
-                    <div id="event_*change" class="events item inherited">
-    <h3 class="name"><code>*change</code></h3>
-    <span class="type"></span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="..\classes\Base.Attribute.html#event_*change">Base.Attribute</a>:
             
         
         
@@ -3017,7 +1640,7 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="event_afterAttrNameChange" class="events item inherited">
+                    <div id="event_afterAttrNameChange" class="events item">
     <h3 class="name"><code>afterAttrNameChange</code></h3>
     <span class="type"></span>
 
@@ -3032,8 +1655,11 @@ dog.run();</code></pre>
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="..\classes\Base.Attribute.html#event_afterAttrNameChange">Base.Attribute</a>:
+                
+                <p>
+                
+                Defined in
+                
             
         
         
@@ -3142,7 +1768,7 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="event_beforeAttrNameChange" class="events item inherited">
+                    <div id="event_beforeAttrNameChange" class="events item">
     <h3 class="name"><code>beforeAttrNameChange</code></h3>
     <span class="type"></span>
 
@@ -3157,8 +1783,11 @@ dog.run();</code></pre>
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="..\classes\Base.Attribute.html#event_beforeAttrNameChange">Base.Attribute</a>:
+                
+                <p>
+                
+                Defined in
+                
             
         
         

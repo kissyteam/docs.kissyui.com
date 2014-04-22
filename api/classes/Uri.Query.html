@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Color - API Documentation — KISSY v1.5 Documentation</title>
+    <title>Uri.Query - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -196,7 +196,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Color Class</h1>
+                        <h1>Uri.Query Class</h1>
 <div class="box meta">
     
 
@@ -204,13 +204,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_component_color.js.html#l6"><code>src\api\component\color.js:6</code></a>
+            Defined in: <a href="../files/src_api_uri.js.html#l206"><code>src\api\uri.js:206</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/color.html">color</a>
+            Module: <a href="../modules/uri.html">uri</a>
         
     
 
@@ -226,8 +226,8 @@
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Color" class="method item">
-    <h3 class="name"><code>Color</code></h3>
+        <div id="method_Uri.Query" class="method item">
+    <h3 class="name"><code>Uri.Query</code></h3>
 
     
         <div class="args">
@@ -235,7 +235,7 @@
             
                 <li class="arg">
                     
-                        <code>config</code>
+                        <code>queryStr</code>
                     
                 </li>
             
@@ -268,7 +268,7 @@
             
         
         
-        <a href="../files/src_api_component_color.js.html#l6"><code>src\api\component\color.js:6</code></a>
+        <a href="../files/src_api_uri.js.html#l206"><code>src\api\uri.js:206</code></a>
         
         </p>
 
@@ -290,76 +290,17 @@
             
                 <li class="param">
                     
-                        <code class="param-name">config</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <code class="param-name">queryStr</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                         
+                        <p>查询字符串</p>
+
                     </div>
 
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">a</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>alpha 值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">r</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>red 值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">g</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>green 值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">b</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>blue 值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -398,81 +339,70 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_fromHSL">fromHSL</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_getHSL">getHSL</a>
+                                <a href="#method_add">add</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_getHSV">getHSV</a>
+                                <a href="#method_clone">clone</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_parse">parse</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_setHSL">setHSL</a>
+                                <a href="#method_count">count</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_setHSV">setHSV</a>
+                                <a href="#method_get">get</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_toHex">toHex</a>
+                                <a href="#method_has">has</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_toHSL">toHSL</a>
+                                <a href="#method_keys">keys</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_toHSLA">toHSLA</a>
+                                <a href="#method_remove">remove</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_toRGB">toRGB</a>
+                                <a href="#method_reset">reset</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_toRGBA">toRGBA</a>
+                                <a href="#method_set">set</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_toString">toString</a>
 
                                 
                                 
@@ -494,8 +424,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_fromHSL" class="method item">
-    <h3 class="name"><code>fromHSL</code></h3>
+                    <div id="method_add" class="method item">
+    <h3 class="name"><code>add</code></h3>
 
     
         <div class="args">
@@ -503,7 +433,13 @@
             
                 <li class="arg">
                     
-                        <code>cfg</code>
+                        <code>key</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>value</code>
                     
                 </li>
             
@@ -513,7 +449,7 @@
 
     
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+            <span class="type"></span>
         </span>
     
 
@@ -523,8 +459,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -542,7 +476,7 @@
             
         
         
-        <a href="../files/src_api_component_color.js.html#l78"><code>src\api\component\color.js:78</code></a>
+        <a href="../files/src_api_uri.js.html#l274"><code>src\api\uri.js:274</code></a>
         
         </p>
 
@@ -553,7 +487,7 @@
     </div>
 
     <div class="description">
-        <p>从 hsl 对象中生成颜色实例</p>
+        <p>增加对应键值</p>
 
     </div>
 
@@ -565,8 +499,290 @@
             
                 <li class="param">
                     
-                        <code class="param-name">cfg</code>
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | Query</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>键名或query实例</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">value</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>键值</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    <p>当前实例</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>new Query(&#39;x=2&amp;y=3&#39;).add(&#39;y&#39;,4).toString(false) =&gt; x=2&amp;y=4&amp;y=3
+new Query(&#39;x=2&amp;y=3&#39;).add(new Query(&#39;y=4&#39;)).toString(false) =&gt; x=2&amp;y=3&amp;y=4</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_clone" class="method item">
+    <h3 class="name"><code>clone</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="..\classes\Uri.Query.html" class="crosslink">Uri.Query</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_uri.js.html#l213"><code>src\api\uri.js:213</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>返回新的查询对象</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="..\classes\Uri.Query.html" class="crosslink">Uri.Query</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_count" class="method item">
+    <h3 class="name"><code>count</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_uri.js.html#l225"><code>src\api\uri.js:225</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>返回参数个数</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>new Query(&#39;x=2&amp;y=3&#39;).count() // =&gt; 2</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_get" class="method item">
+    <h3 class="name"><code>get</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>key</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_uri.js.html#l249"><code>src\api\uri.js:249</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>返回指定的查询参数对应的值或查询参数键值对象</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
@@ -589,161 +805,29 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
-                    
+                    <p>指定 key 时返回对应值，不指定 key 时返回全部键值对</p>
+
                 
             </div>
         </div>
     
 
     
-</div>
+        <div class="example">
+            <h4>Example:</h4>
 
-                
-                    <div id="method_getHSL" class="method item">
-    <h3 class="name"><code>getHSL</code></h3>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>new Query(&#39;x=2&amp;y=3&#39;).get(&#39;x&#39;) // =&gt; 2
+new Query(&#39;x=2&amp;y=3&#39;).get() // =&gt; {x:&#39;2&#39;,y:&#39;3&#39;}</code></pre>
 
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_color.js.html#l16"><code>src\api\component\color.js:16</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>得到当前颜色属性对应的 hsl 表示</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
-                    
-                
             </div>
         </div>
     
-
-    
 </div>
 
                 
-                    <div id="method_getHSV" class="method item">
-    <h3 class="name"><code>getHSV</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_color.js.html#l52"><code>src\api\component\color.js:52</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>得到当前颜色属性对应的 hsv 表示</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
-                    
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_parse" class="method item">
-    <h3 class="name"><code>parse</code></h3>
+                    <div id="method_has" class="method item">
+    <h3 class="name"><code>has</code></h3>
 
     
         <div class="args">
@@ -751,7 +835,7 @@
             
                 <li class="arg">
                     
-                        <code>str</code>
+                        <code>key</code>
                     
                 </li>
             
@@ -761,7 +845,7 @@
 
     
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
         </span>
     
 
@@ -771,8 +855,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -790,7 +872,7 @@
             
         
         
-        <a href="../files/src_api_component_color.js.html#l70"><code>src\api\component\color.js:70</code></a>
+        <a href="../files/src_api_uri.js.html#l235"><code>src\api\uri.js:235</code></a>
         
         </p>
 
@@ -801,7 +883,7 @@
     </div>
 
     <div class="description">
-        <p>从字符串表示的颜色值中获取颜色对象</p>
+        <p>返回是否包含指定查询参数键名或是否有查询参数</p>
 
     </div>
 
@@ -813,15 +895,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">str</code>
+                        <code class="param-name">key</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>支持格式： ‘#rrggbb’ ‘#rgb’ or ‘rgb(r,g,b)’ ‘rgba(r,g,b,a)’</p>
-
+                         
                     </div>
 
                     
@@ -838,7 +919,7 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
                     
                 
             </div>
@@ -846,26 +927,32 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>new Query(&#39;x=2&amp;y&#39;).has(&#39;y&#39;) // =&gt;true
+new Query(&#39;x=2&amp;y&#39;).has(&#39;z&#39;) // =&gt;false
+new Query(&#39;&#39;).has() // =&gt; false
+new Query(&#39;z&#39;).has() // =&gt; true</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
                 
-                    <div id="method_setHSL" class="method item">
-    <h3 class="name"><code>setHSL</code></h3>
+                    <div id="method_keys" class="method item">
+    <h3 class="name"><code>keys</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>hsv</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
     
 
     
@@ -891,7 +978,7 @@
             
         
         
-        <a href="../files/src_api_component_color.js.html#l64"><code>src\api\component\color.js:64</code></a>
+        <a href="../files/src_api_uri.js.html#l299"><code>src\api\uri.js:299</code></a>
         
         </p>
 
@@ -902,7 +989,97 @@
     </div>
 
     <div class="description">
-        <p>根据 hsl 对象修改当前颜色实例</p>
+        <p>返回参数名数组</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>new Query(&#39;x=2&amp;y=3&#39;).keys() // =&gt; [&#39;x&#39;,&#39;y&#39;]</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_remove" class="method item">
+    <h3 class="name"><code>remove</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>key</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_uri.js.html#l287"><code>src\api\uri.js:287</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>删除指定键名或全部查询参数</p>
 
     </div>
 
@@ -914,14 +1091,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">hsv</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | Query</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>hsl 对象</p>
+                        <p>键名或query实例</p>
 
                     </div>
 
@@ -933,28 +1110,44 @@
     
 
     
+        <div class="returns">
+            <h4>Returns:</h4>
 
+            <div class="returns-description">
+                
+                    
+                    <p>当前实例</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>new Query(&#39;x=2&amp;y=3&#39;).remove(&#39;y&#39;).toString() =&gt; x=2
+new Query(&#39;x=2&amp;y=3&#39;).remove().toString() =&gt; &#39;&#39;</code></pre>
+
+            </div>
+        </div>
     
 </div>
 
                 
-                    <div id="method_setHSV" class="method item">
-    <h3 class="name"><code>setHSV</code></h3>
+                    <div id="method_reset" class="method item">
+    <h3 class="name"><code>reset</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>hsv</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
+    
+        <span class="returns-inline">
+            <span class="type"><a href="..\classes\Uri.Query.html" class="crosslink">Uri.Query</a></span>
+        </span>
     
 
     
@@ -980,7 +1173,7 @@
             
         
         
-        <a href="../files/src_api_component_color.js.html#l58"><code>src\api\component\color.js:58</code></a>
+        <a href="../files/src_api_uri.js.html#l219"><code>src\api\uri.js:219</code></a>
         
         </p>
 
@@ -991,7 +1184,94 @@
     </div>
 
     <div class="description">
-        <p>根据 hsv 对象修改当前颜色实例</p>
+        <p>重置查询字符串</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="..\classes\Uri.Query.html" class="crosslink">Uri.Query</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_set" class="method item">
+    <h3 class="name"><code>set</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>key</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>value</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_uri.js.html#l261"><code>src\api\uri.js:261</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>设置对应键值</p>
 
     </div>
 
@@ -1003,14 +1283,30 @@
             
                 <li class="param">
                     
-                        <code class="param-name">hsv</code>
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | Query</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>键名或query实例</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">value</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>hsv 对象</p>
+                        <p>键值</p>
 
                     </div>
 
@@ -1022,16 +1318,48 @@
     
 
     
+        <div class="returns">
+            <h4>Returns:</h4>
 
+            <div class="returns-description">
+                
+                    
+                    <p>当前实例</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>new Query(&#39;x=2&amp;y=3&#39;).set(&#39;y&#39;,4).toString() =&gt; x=2&amp;y=4
+new Query(&#39;x=2&amp;y=3&#39;).set(new Query(&#39;z=4&#39;)).toString() =&gt; x=2&amp;y=3&amp;z=4</code></pre>
+
+            </div>
+        </div>
     
 </div>
 
                 
-                    <div id="method_toHex" class="method item">
-    <h3 class="name"><code>toHex</code></h3>
+                    <div id="method_toString" class="method item">
+    <h3 class="name"><code>toString</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>arr</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
     
 
     
@@ -1063,7 +1391,7 @@
             
         
         
-        <a href="../files/src_api_component_color.js.html#l46"><code>src\api\component\color.js:46</code></a>
+        <a href="../files/src_api_uri.js.html#l309"><code>src\api\uri.js:309</code></a>
         
         </p>
 
@@ -1074,10 +1402,34 @@
     </div>
 
     <div class="description">
-        <p>得到当前颜色属性对应的 16 进制表示字符串</p>
+        <p>序列化查询参数</p>
 
     </div>
 
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">arr</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>同 param() 同名参数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
     
 
     
@@ -1095,289 +1447,15 @@
     
 
     
-</div>
+        <div class="example">
+            <h4>Example:</h4>
 
-                
-                    <div id="method_toHSL" class="method item">
-    <h3 class="name"><code>toHSL</code></h3>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>new Query(&#39;x=2&amp;y=3&amp;y=4&#39;).toString(false)// =&gt; &#39;x=2&amp;y=3&amp;y=4&#39;
+new Query(&#39;x=2&amp;y=3&amp;y=4&#39;).toString(true)// =&gt; &#39;x=2&amp;y%5b%5d=3&amp;y%5b%5d=4&#39;</code></pre>
 
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_color.js.html#l22"><code>src\api\component\color.js:22</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>得到当前颜色属性对应的 hsl 表示字符串</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
-                    
-                
             </div>
         </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_toHSLA" class="method item">
-    <h3 class="name"><code>toHSLA</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_color.js.html#l28"><code>src\api\component\color.js:28</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>得到当前颜色属性对应的 hsla 表示字符串</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
-                    
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_toRGB" class="method item">
-    <h3 class="name"><code>toRGB</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_color.js.html#l34"><code>src\api\component\color.js:34</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>得到当前颜色属性对应的 rgb 表示字符串</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
-                    
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_toRGBA" class="method item">
-    <h3 class="name"><code>toRGBA</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_color.js.html#l40"><code>src\api\component\color.js:40</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>得到当前颜色属性对应的 rgba 表示字符串</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
-                    
-                
-            </div>
-        </div>
-    
-
     
 </div>
 

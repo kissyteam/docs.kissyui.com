@@ -123,10 +123,12 @@
             },
             "classes": {
                 "Base": 1,
-                "Attribute": 1
+                "Base.Attribute": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Base": 1
+            }
         },
         "src\\api\\button.js": {
             "name": "src\\api\\button.js",
@@ -146,13 +148,15 @@
             },
             "classes": {
                 "ComboBox": 1,
-                "MultiValueComboBox": 1,
-                "FilterSelect": 1,
-                "LocalDataSource": 1,
-                "RemoteDataSource": 1
+                "ComboBox.MultiValueComboBox": 1,
+                "ComboBox.FilterSelect": 1,
+                "ComboBox.LocalDataSource": 1,
+                "ComboBox.RemoteDataSource": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "ComboBox": 1
+            }
         },
         "src\\api\\cookie.js": {
             "name": "src\\api\\cookie.js",
@@ -183,10 +187,12 @@
             },
             "classes": {
                 "Event": 1,
-                "Target": 1
+                "Event.Target": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Event": 1
+            }
         },
         "src\\api\\feature.js": {
             "name": "src\\api\\feature.js",
@@ -261,10 +267,12 @@
             },
             "classes": {
                 "Promise": 1,
-                "Defer": 1
+                "Promise.Defer": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Promise": 1
+            }
         },
         "src\\api\\ua.js": {
             "name": "src\\api\\ua.js",
@@ -284,10 +292,12 @@
             },
             "classes": {
                 "Uri": 1,
-                "Query": 1
+                "Uri.Query": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Uri": 1
+            }
         },
         "src\\api\\util.js": {
             "name": "src\\api\\util.js",
@@ -432,13 +442,15 @@
             "submodules": {},
             "classes": {
                 "Base": 1,
-                "Attribute": 1
+                "Base.Attribute": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Base": 1
+            },
             "tag": "module",
             "file": "src\\api\\base.js",
-            "line": 193,
+            "line": 194,
             "description": "鉴于不同浏览器对属性描述符的支持并不统一, KISSY 的 attribute 模块, 模拟实现了属性描述符, 提供属性的获取和设置操作, 即属性的 getter 和 setter 动作.\n\n而 KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 让继承 Base 的子类自动具有 attribute 的功能.如果你想让自定义类默认就支持 attribute 功能, 请直接继承 Base"
         },
         "button": {
@@ -458,16 +470,18 @@
             "submodules": {},
             "classes": {
                 "ComboBox": 1,
-                "MultiValueComboBox": 1,
-                "FilterSelect": 1,
-                "LocalDataSource": 1,
-                "RemoteDataSource": 1
+                "ComboBox.MultiValueComboBox": 1,
+                "ComboBox.FilterSelect": 1,
+                "ComboBox.LocalDataSource": 1,
+                "ComboBox.RemoteDataSource": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "ComboBox": 1
+            },
             "tag": "module",
             "file": "src\\api\\combobox.js",
-            "line": 210
+            "line": 211
         },
         "cookie": {
             "name": "cookie",
@@ -500,10 +514,12 @@
             "submodules": {},
             "classes": {
                 "Event": 1,
-                "Target": 1
+                "Event.Target": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Event": 1
+            },
             "tag": "module",
             "file": "src\\api\\event.js",
             "line": 501,
@@ -590,10 +606,12 @@
             "submodules": {},
             "classes": {
                 "Promise": 1,
-                "Defer": 1
+                "Promise.Defer": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Promise": 1
+            },
             "tag": "module",
             "file": "src\\api\\promise.js",
             "line": 111
@@ -616,10 +634,12 @@
             "submodules": {},
             "classes": {
                 "Uri": 1,
-                "Query": 1
+                "Uri.Query": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Uri": 1
+            },
             "tag": "module",
             "file": "src\\api\\uri.js",
             "line": 206,
@@ -710,14 +730,8 @@
             "namespace": "",
             "file": "src\\api\\component\\plugin\\drag.js",
             "line": 6,
-            "description": "继承自 [dd.Draggable](/1.5/api/classes/Draggable.html) 包括 draggable 的所有配置",
             "is_constructor": 1,
-            "params": [
-                {
-                    "name": "config",
-                    "description": "配置项，参考[dd.Draggable](/1.5/api/classes/Draggable.html)"
-                }
-            ],
+            "extends": "DD.Draggable",
             "example": [
                 "\n```\nKISSY.use('overlay,component/plugin/drag',function(S,Overlay,Drag){\n    new Overlay({\n        plugins:[ new Drag({\n            handlers: ['.ks-overlay-header']\n        }) ]\n    });\n});\n```"
             ]
@@ -734,15 +748,8 @@
             "namespace": "",
             "file": "src\\api\\component\\plugin\\resize.js",
             "line": 6,
-            "description": "继承自 [Resizable](/1.5/api/classes/Resizable.html) 包括 resizable 的所有配置",
             "is_constructor": 1,
-            "params": [
-                {
-                    "name": "config",
-                    "description": "配置项，参考[Resizable](/1.5/api/classes/Resizable.html)",
-                    "type": "Object"
-                }
-            ],
+            "extends": "Resizable",
             "example": [
                 "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    new Overlay({\n        plugins:[\n            new Resize({\n                minWidth:100,\n                maxWidth:200,\n                handlers:['l','r']\n            })\n        ]\n    });\n});\n```"
             ]
@@ -802,7 +809,7 @@
             "namespace": "",
             "file": "src\\api\\component\\container.js",
             "line": 6,
-            "description": "扩展自 [Control](/1.5/api/classes/Control.html) , 包含其全部配置,属性,方法,事件",
+            "extends": "Control",
             "is_constructor": 1,
             "params": [
                 {
@@ -832,8 +839,8 @@
             "namespace": "",
             "file": "src\\api\\component\\control.js",
             "line": 7,
-            "description": "继承自 [Base](/1.5/classes/Base.html) , 包含其全部配置,属性,方法,事件",
             "is_constructor": 1,
+            "extends": "Base",
             "params": [
                 {
                     "name": "config",
@@ -1084,8 +1091,12 @@
             "namespace": "",
             "file": "src\\api\\base.js",
             "line": 9,
-            "description": "[augment()](/1.5/api/classes/Util.html#method_augment)自[Attribute](/1.5/api/classes/Attribute.html)\n如果你想让类默认就支持 attribute 功能, 请直接继承Base\n\n简单实用：\n```\nKISSY.use('base', function(S, Base) {\n    // 自定义类\n    // 继承 Base\n    var myClass = Base.extend({},{\n        size: {\n            value: 0,\n            setter: function(v) {\n                if (S.isString(v) && v.indexOf('inch')!== -1) {\n                    return parseFloat(v)*10/3;\n                }\n                return parseFloat(v);\n            },\n            getter: function(v) {\n                return v;\n            }\n        }\n    });\n\n    var cls = new myClass();\n\n    // 绑定事件\n    cls.on('afterSizeChange', function(ev){\n        console.log('change '+ ev.attrName + ': '+ev.prevVal+' --> '+ev.newVal);\n    });\n\n    // 设置属性\n    cls.set('size', 20);\n\n    // 获取属性\n    alert(cls.get('size'));\n\n    // 重置\n    cls.reset();\n    alert(cls.get('size'));\n});\n```",
+            "description": "如果你想让类默认就支持 attribute 功能, 请直接继承Base\n\n简单实用：\n```\nKISSY.use('base', function(S, Base) {\n    // 自定义类\n    // 继承 Base\n    var myClass = Base.extend({},{\n        size: {\n            value: 0,\n            setter: function(v) {\n                if (S.isString(v) && v.indexOf('inch')!== -1) {\n                    return parseFloat(v)*10/3;\n                }\n                return parseFloat(v);\n            },\n            getter: function(v) {\n                return v;\n            }\n        }\n    });\n\n    var cls = new myClass();\n\n    // 绑定事件\n    cls.on('afterSizeChange', function(ev){\n        console.log('change '+ ev.attrName + ': '+ev.prevVal+' --> '+ev.newVal);\n    });\n\n    // 设置属性\n    cls.set('size', 20);\n\n    // 获取属性\n    alert(cls.get('size'));\n\n    // 重置\n    cls.reset();\n    alert(cls.get('size'));\n});\n```",
             "is_constructor": 1,
+            "extends": "Base.Attribute",
+            "uses": [
+                "Event.Target"
+            ],
             "params": [
                 {
                     "name": "config",
@@ -1106,18 +1117,18 @@
                 }
             ]
         },
-        "Attribute": {
-            "name": "Attribute",
-            "shortname": "Attribute",
+        "Base.Attribute": {
+            "name": "Base.Attribute",
+            "shortname": "Base.Attribute",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "base",
-            "namespace": "",
+            "namespace": "Base",
             "file": "src\\api\\base.js",
-            "line": 193,
+            "line": 194,
             "description": "包含一些属性操作的方法，仅用于 [augment()](/1.5/api/classes/Util.html#method_augment)]",
             "is_constructor": 1
         },
@@ -1133,8 +1144,8 @@
             "namespace": "",
             "file": "src\\api\\button.js",
             "line": 5,
-            "description": "继承自 [Control](/1.5/api/classes/Control.html) , 包含其全部配置,属性,方法,事件",
             "is_constructor": 1,
+            "extends": "Control",
             "params": [
                 {
                     "name": "config",
@@ -1182,8 +1193,9 @@
             "namespace": "",
             "file": "src\\api\\combobox.js",
             "line": 6,
-            "description": "继承自 [Control](/1.5/api/classes/Control.html) , 包含其全部配置,属性,方法,事件.\n\n### 从已有元素实例 ComboBox 对象时：\n\n- 元素节点标明类名 {prefixCls}combobox .\n- html 符合一定规范，例如：\n```\n<div class=\"ks-combobox\" id=\"combobox\">\n    <div class=\"ks-combobox-input-wrap\">\n        <input style=\"width:100%;height:100%;\" aria-haspopup=\"true\"\n               aria-combobox=\"list\" role=\"combobox\" combobox=\"off\"\n               class=\"ks-combobox-input\" tabindex=\"0\"\n               id=\"inp\"\n                />\n    </div>\n</div>\n```\n\n### 使用前请加上初始样式\n```\n<style>\n    .ks-popupmenu {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n</style>\n```",
+            "description": "### 从已有元素实例 ComboBox 对象时：\n\n- 元素节点标明类名 {prefixCls}combobox .\n- html 符合一定规范，例如：\n```\n<div class=\"ks-combobox\" id=\"combobox\">\n    <div class=\"ks-combobox-input-wrap\">\n        <input style=\"width:100%;height:100%;\" aria-haspopup=\"true\"\n               aria-combobox=\"list\" role=\"combobox\" combobox=\"off\"\n               class=\"ks-combobox-input\" tabindex=\"0\"\n               id=\"inp\"\n                />\n    </div>\n</div>\n```\n\n### 使用前请加上初始样式\n```\n<style>\n    .ks-popupmenu {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n</style>\n```",
             "is_constructor": 1,
+            "extends": "Control",
             "params": [
                 {
                     "name": "config",
@@ -1260,20 +1272,20 @@
                 "\n```\nKISSY.use(\"node,combobox\", function (S, Node, ComboBox) {\n\tvar $ = Node.all;\n    var data = [\"a123456\", \"b12345\", \"c3464356\", \"d23434\"];\n\n    var basicComboBox = new ComboBox({\n        width:100,\n        srcNode:$(\"#combobox\"),\n        // 初始就聚焦\n        focused:true,\n        hasTrigger:false,\n        dataSource:new ComboBox.LocalDataSource({\n            data:data\n        })\n    });\n    basicComboBox.render();\n\n    // 得到焦点时展示全部\n    basicComboBox.get(\"input\").on(\"focus\", function () {\n        basicComboBox.sendRequest('');\n    });\n}\n```"
             ]
         },
-        "MultiValueComboBox": {
-            "name": "MultiValueComboBox",
-            "shortname": "MultiValueComboBox",
+        "ComboBox.MultiValueComboBox": {
+            "name": "ComboBox.MultiValueComboBox",
+            "shortname": "ComboBox.MultiValueComboBox",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "combobox",
-            "namespace": "",
+            "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
-            "line": 144,
-            "description": "继承自 [ComboBox](/1.5/api/classes/ComboBox.html) , 包含其全部配置,属性,方法,事件.",
+            "line": 143,
             "is_constructor": 1,
+            "extends": "ComboBox",
             "params": [
                 {
                     "name": "config",
@@ -1320,20 +1332,21 @@
                 "\n```\nKISSY.use('combobox',function(S,ComboBox){\n    // use ComboBox.MultiValueComboBox\n});"
             ]
         },
-        "FilterSelect": {
-            "name": "FilterSelect",
-            "shortname": "FilterSelect",
+        "ComboBox.FilterSelect": {
+            "name": "ComboBox.FilterSelect",
+            "shortname": "ComboBox.FilterSelect",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "combobox",
-            "namespace": "",
+            "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
             "line": 164,
-            "description": "限定范围的输入框.\n\n继承自 [ComboBox](/1.5/api/classes/ComboBox.html) , 包含其全部配置,属性,方法,事件.",
+            "description": "限定范围的输入框.",
             "is_constructor": 1,
+            "extends": "ComboBox",
             "params": [
                 {
                     "name": "config",
@@ -1352,16 +1365,16 @@
                 "\n```\nKISSY.use('combobox',function(S,ComboBox){\n    // use ComboBox.FilterSelect\n});\n```"
             ]
         },
-        "LocalDataSource": {
-            "name": "LocalDataSource",
-            "shortname": "LocalDataSource",
+        "ComboBox.LocalDataSource": {
+            "name": "ComboBox.LocalDataSource",
+            "shortname": "ComboBox.LocalDataSource",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "combobox",
-            "namespace": "",
+            "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
             "line": 180,
             "description": "本地数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用",
@@ -1387,18 +1400,18 @@
                 }
             ]
         },
-        "RemoteDataSource": {
-            "name": "RemoteDataSource",
-            "shortname": "RemoteDataSource",
+        "ComboBox.RemoteDataSource": {
+            "name": "ComboBox.RemoteDataSource",
+            "shortname": "ComboBox.RemoteDataSource",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "combobox",
-            "namespace": "",
+            "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
-            "line": 210,
+            "line": 211,
             "description": "数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用",
             "is_constructor": 1,
             "params": [
@@ -1481,16 +1494,18 @@
             "description": "类Event",
             "static": 1
         },
-        "Target": {
-            "name": "Target",
-            "shortname": "Target",
+        "Event.Target": {
+            "name": "Event.Target",
+            "shortname": "Event.Target",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": [],
+            "extension_for": [
+                "Base"
+            ],
             "module": "event",
-            "namespace": "",
+            "namespace": "Event",
             "file": "src\\api\\event.js",
             "line": 501,
             "description": "通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件.具体用法看它提供的方法\n\n__Note__\n\n注意 S.EventTarget 仅用于 mix/augment ，不可以直接使用，例如需要全局事件的话可以：\n```\nvar globalEvent=S.mix({},S.EventTarget);\nglobalEvent.on('Login:session:pass', function(){\n  isSessionPass = true;\n});\n```"
@@ -1789,16 +1804,16 @@
                 "description": "promise 实例，外部不允许初始化。要通过[Defer()](/1.5/api/classes/Defer.html)来获取"
             }
         },
-        "Defer": {
-            "name": "Defer",
-            "shortname": "Defer",
+        "Promise.Defer": {
+            "name": "Promise.Defer",
+            "shortname": "Promise.Defer",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "promise",
-            "namespace": "",
+            "namespace": "Promise",
             "file": "src\\api\\promise.js",
             "line": 111,
             "is_constructor": 1,
@@ -1842,16 +1857,16 @@
                 }
             ]
         },
-        "Query": {
-            "name": "Query",
-            "shortname": "Query",
+        "Uri.Query": {
+            "name": "Uri.Query",
+            "shortname": "Uri.Query",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "uri",
-            "namespace": "",
+            "namespace": "Uri",
             "file": "src\\api\\uri.js",
             "line": 206,
             "is_constructor": 1,
@@ -2963,7 +2978,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 92,
+            "line": 93,
             "description": "从当前类上扩展出一个子类",
             "itemtype": "method",
             "name": "extend",
@@ -3003,7 +3018,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 103,
+            "line": 104,
             "description": "调用父类的对应方法，如果没有，则返回undefined",
             "itemtype": "method",
             "name": "callSuper",
@@ -3015,7 +3030,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 134,
+            "line": 135,
             "description": "安装指定插件",
             "itemtype": "method",
             "name": "plug",
@@ -3037,7 +3052,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 151,
+            "line": 152,
             "description": "卸载指定插件",
             "itemtype": "method",
             "name": "unplug",
@@ -3059,7 +3074,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 170,
+            "line": 171,
             "description": "根据指定的 id 获取对应的plugin实例",
             "itemtype": "method",
             "name": "getPlugin",
@@ -3081,7 +3096,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 183,
+            "line": 184,
             "description": "销毁实例",
             "itemtype": "method",
             "name": "destroy",
@@ -3090,7 +3105,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 199,
+            "line": 201,
             "description": "给宿主对象增加一个属性",
             "itemtype": "method",
             "name": "addAttr",
@@ -3133,12 +3148,13 @@
                     ]
                 }
             ],
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\base.js",
-            "line": 211,
+            "line": 213,
             "description": "批量添加属性",
             "itemtype": "method",
             "name": "addAttrs",
@@ -3154,12 +3170,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\base.js",
-            "line": 218,
+            "line": 220,
             "description": "判断是否有名为 name 的属性",
             "itemtype": "method",
             "name": "hasAttr",
@@ -3174,12 +3191,13 @@
                 "description": "",
                 "type": "Boolean"
             },
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\base.js",
-            "line": 225,
+            "line": 227,
             "description": "删除名为 name 的属性",
             "itemtype": "method",
             "name": "removeAttr",
@@ -3190,12 +3208,13 @@
                     "type": "String"
                 }
             ],
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\base.js",
-            "line": 231,
+            "line": 233,
             "description": "设置属性 name 的值为 value",
             "itemtype": "method",
             "name": "set",
@@ -3237,12 +3256,13 @@
                 "description": "该次属性设置是否生效（是否通过了 validator 验证）",
                 "type": "Boolean"
             },
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\base.js",
-            "line": 243,
+            "line": 245,
             "description": "获取属性 name 的值",
             "itemtype": "method",
             "name": "get",
@@ -3253,12 +3273,13 @@
                     "type": "String"
                 }
             ],
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\base.js",
-            "line": 249,
+            "line": 251,
             "description": "获取目前实例的所有属性键值对集合",
             "itemtype": "method",
             "name": "getAttrVals",
@@ -3266,12 +3287,13 @@
                 "description": "属性键值对集合",
                 "type": "Object"
             },
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\base.js",
-            "line": 255,
+            "line": 257,
             "description": "重置属性 name 为初始值. (调用一次 set() )",
             "itemtype": "method",
             "name": "reset",
@@ -3294,12 +3316,13 @@
                     ]
                 }
             ],
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\base.js",
-            "line": 263,
+            "line": 265,
             "description": "将所有属性全部重置为初始值. (调用一次 set() )",
             "itemtype": "method",
             "name": "reset",
@@ -3317,12 +3340,13 @@
                     ]
                 }
             ],
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\base.js",
-            "line": 270,
+            "line": 272,
             "description": "名为 “attrName” 的属性, 在改变它的值之前触发该事件",
             "itemtype": "event",
             "name": "beforeAttrNameChange",
@@ -3353,12 +3377,13 @@
                     ]
                 }
             ],
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\base.js",
-            "line": 280,
+            "line": 282,
             "description": "名为 “attrName” 的属性, 在改变它的值之后触发该事件",
             "itemtype": "event",
             "name": "afterAttrNameChange",
@@ -3389,12 +3414,13 @@
                     ]
                 }
             ],
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\base.js",
-            "line": 290,
+            "line": 292,
             "description": "每调用 [set()](/1.5/api/classes/Attribute.html#method_set) 一次后就触发一次该事件",
             "itemtype": "event",
             "name": "*change",
@@ -3425,8 +3451,9 @@
                     ]
                 }
             ],
-            "class": "Attribute",
-            "module": "base"
+            "class": "Base.Attribute",
+            "module": "base",
+            "namespace": "Base"
         },
         {
             "file": "src\\api\\button.js",
@@ -3503,7 +3530,7 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 106,
+            "line": 105,
             "description": "关联的复合输入框",
             "itemtype": "attribute",
             "name": "input",
@@ -3513,7 +3540,7 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 111,
+            "line": 110,
             "description": "自动补全菜单的配置（在显示后转换为实例）或实例",
             "itemtype": "attribute",
             "name": "menu",
@@ -3523,7 +3550,7 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 116,
+            "line": 115,
             "description": "自动补全菜单是否已经收起",
             "itemtype": "attribute",
             "name": "collapsed",
@@ -3533,7 +3560,7 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 121,
+            "line": 120,
             "description": "根据 value 自动补全并显示下拉菜单",
             "itemtype": "method",
             "name": "sendRequest",
@@ -3549,7 +3576,7 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 127,
+            "line": 126,
             "description": "当用户选择自动补全下拉框内的项时触发",
             "itemtype": "event",
             "name": "click",
@@ -3565,7 +3592,7 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 133,
+            "line": 132,
             "description": "当下拉菜单显示或收起时触发",
             "itemtype": "event",
             "name": "afterCollapsedChange",
@@ -6163,7 +6190,7 @@
         },
         {
             "file": "src\\api\\event.js",
-            "line": 516,
+            "line": 517,
             "description": "触发绑定 type 类型的事件处理器, 并给触发的事件处理器的事件对象参数中混入数据 eventData",
             "itemtype": "method",
             "name": "fire",
@@ -6183,12 +6210,13 @@
                 "description": "如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值",
                 "type": "Boolean"
             },
-            "class": "Target",
-            "module": "event"
+            "class": "Event.Target",
+            "module": "event",
+            "namespace": "Event"
         },
         {
             "file": "src\\api\\event.js",
-            "line": 524,
+            "line": 525,
             "description": "配置自定义事件的一些特有信息",
             "itemtype": "method",
             "name": "publish",
@@ -6219,12 +6247,13 @@
                     ]
                 }
             ],
-            "class": "Target",
-            "module": "event"
+            "class": "Event.Target",
+            "module": "event",
+            "namespace": "Event"
         },
         {
             "file": "src\\api\\event.js",
-            "line": 533,
+            "line": 534,
             "description": "添加冒泡事件源对象",
             "itemtype": "method",
             "name": "addTarget",
@@ -6238,12 +6267,13 @@
             "example": [
                 "\n```\nKISSY.use(\"event\", function(S, Event) {\n    function Custom(id){\n        this.id = id;\n        this.publish(\"run\",{\n            bubbles:1\n        });\n    }\n\n    S.augment(Custom, Event.Target);\n\n    var c1 = new Custom(\"c1\");\n\n    var c2 = new Custom(\"c1\");\n\n    c1.addTarget(c2);\n\n    c2.on(\"run\",function(e){\n        S.log(e.target.id +\" fires event run\"); // => c1 fires event run\n    });\n\n    c1.fire(\"run\");\n});\n```"
             ],
-            "class": "Target",
-            "module": "event"
+            "class": "Event.Target",
+            "module": "event",
+            "namespace": "Event"
         },
         {
             "file": "src\\api\\event.js",
-            "line": 564,
+            "line": 565,
             "description": "删除冒泡事件源对象",
             "itemtype": "method",
             "name": "removeTarget",
@@ -6254,29 +6284,32 @@
                     "type": "Object"
                 }
             ],
-            "class": "Target",
-            "module": "event"
+            "class": "Event.Target",
+            "module": "event",
+            "namespace": "Event"
         },
         {
             "file": "src\\api\\event.js",
-            "line": 570,
+            "line": 571,
             "description": "绑定事件处理器,参数可参考Event.on，这里不重复了",
             "itemtype": "method",
             "name": "on",
-            "class": "Target",
-            "module": "event"
+            "class": "Event.Target",
+            "module": "event",
+            "namespace": "Event"
         },
         {
             "file": "src\\api\\event.js",
-            "line": 575,
+            "line": 576,
             "description": "解除绑定的事件处理器,可参考Event.detach",
             "itemtype": "method",
             "name": "detach",
             "example": [
                 "\n```\nvar S = KISSY;\n\n// 定义 Dog 类\nfunction Dog(name) {\n    this.name = name;\n}\n\n// 让 Dog 成为事件目标\nS.augment(Dog, S.EventTarget);\n\n// 给 Dog 添加 run 方法\nS.augment(Dog, {\n   run: function() {\n       // 触发 running 事件\n       this.fire('running', {speed: '80km/h'});\n   }\n});\n\nvar dog = new Dog('Lady Gogo');\n\n// 添加监听函数\ndog.on('running', function(ev) {\n    // 注意 ev 的参数传递大使身份\n    alert(this.name + ' is running now. Its speed is ' + ev.speed);\n});\n\n// 让可爱的小狗跑起来吧\ndog.run();\n```"
             ],
-            "class": "Target",
-            "module": "event"
+            "class": "Event.Target",
+            "module": "event",
+            "namespace": "Event"
         },
         {
             "file": "src\\api\\feature.js",
@@ -8297,17 +8330,18 @@
         },
         {
             "file": "src\\api\\promise.js",
-            "line": 117,
+            "line": 118,
             "description": "用于外部监听成功失败的 promise 对象",
             "itemtype": "property",
             "name": "promise",
             "type": "Promise",
-            "class": "Defer",
-            "module": "promise"
+            "class": "Promise.Defer",
+            "module": "promise",
+            "namespace": "Promise"
         },
         {
             "file": "src\\api\\promise.js",
-            "line": 122,
+            "line": 123,
             "description": "使得内部的 promise 成功，并设置成功值为 value，\n如果 value 也是 promise，只有等 value 成功后改 defer 内部的 promise 才算成功",
             "itemtype": "method",
             "name": "resolve",
@@ -8317,12 +8351,13 @@
                     "description": "任意值（ 包括 promise ）"
                 }
             ],
-            "class": "Defer",
-            "module": "promise"
+            "class": "Promise.Defer",
+            "module": "promise",
+            "namespace": "Promise"
         },
         {
             "file": "src\\api\\promise.js",
-            "line": 129,
+            "line": 130,
             "description": "设置内部 promise 为失败状态，失败回调参数为 reason",
             "itemtype": "method",
             "name": "reject",
@@ -8332,8 +8367,9 @@
                     "description": "设置给失败回调函数的参数"
                 }
             ],
-            "class": "Defer",
-            "module": "promise"
+            "class": "Promise.Defer",
+            "module": "promise",
+            "namespace": "Promise"
         },
         {
             "file": "src\\api\\ua.js",
@@ -8844,7 +8880,7 @@
         },
         {
             "file": "src\\api\\uri.js",
-            "line": 212,
+            "line": 213,
             "description": "返回新的查询对象",
             "itemtype": "method",
             "name": "clone",
@@ -8852,12 +8888,13 @@
                 "description": "",
                 "type": "Uri.Query"
             },
-            "class": "Query",
-            "module": "uri"
+            "class": "Uri.Query",
+            "module": "uri",
+            "namespace": "Uri"
         },
         {
             "file": "src\\api\\uri.js",
-            "line": 218,
+            "line": 219,
             "description": "重置查询字符串",
             "itemtype": "method",
             "name": "reset",
@@ -8865,12 +8902,13 @@
                 "description": "",
                 "type": "Uri.Query"
             },
-            "class": "Query",
-            "module": "uri"
+            "class": "Uri.Query",
+            "module": "uri",
+            "namespace": "Uri"
         },
         {
             "file": "src\\api\\uri.js",
-            "line": 224,
+            "line": 225,
             "description": "返回参数个数",
             "itemtype": "method",
             "name": "count",
@@ -8881,12 +8919,13 @@
             "example": [
                 "\n```\nnew Query('x=2&y=3').count() // => 2\n```"
             ],
-            "class": "Query",
-            "module": "uri"
+            "class": "Uri.Query",
+            "module": "uri",
+            "namespace": "Uri"
         },
         {
             "file": "src\\api\\uri.js",
-            "line": 234,
+            "line": 235,
             "description": "返回是否包含指定查询参数键名或是否有查询参数",
             "itemtype": "method",
             "name": "has",
@@ -8904,12 +8943,13 @@
             "example": [
                 "\n```\nnew Query('x=2&y').has('y') // =>true\nnew Query('x=2&y').has('z') // =>false\nnew Query('').has() // => false\nnew Query('z').has() // => true\n```"
             ],
-            "class": "Query",
-            "module": "uri"
+            "class": "Uri.Query",
+            "module": "uri",
+            "namespace": "Uri"
         },
         {
             "file": "src\\api\\uri.js",
-            "line": 248,
+            "line": 249,
             "description": "返回指定的查询参数对应的值或查询参数键值对象",
             "itemtype": "method",
             "name": "get",
@@ -8926,12 +8966,13 @@
             "example": [
                 "\n```\nnew Query('x=2&y=3').get('x') // => 2\nnew Query('x=2&y=3').get() // => {x:'2',y:'3'}\n```"
             ],
-            "class": "Query",
-            "module": "uri"
+            "class": "Uri.Query",
+            "module": "uri",
+            "namespace": "Uri"
         },
         {
             "file": "src\\api\\uri.js",
-            "line": 260,
+            "line": 261,
             "description": "设置对应键值",
             "itemtype": "method",
             "name": "set",
@@ -8952,12 +8993,13 @@
             "example": [
                 "\n```\nnew Query('x=2&y=3').set('y',4).toString() => x=2&y=4\nnew Query('x=2&y=3').set(new Query('z=4')).toString() => x=2&y=3&z=4\n```"
             ],
-            "class": "Query",
-            "module": "uri"
+            "class": "Uri.Query",
+            "module": "uri",
+            "namespace": "Uri"
         },
         {
             "file": "src\\api\\uri.js",
-            "line": 273,
+            "line": 274,
             "description": "增加对应键值",
             "itemtype": "method",
             "name": "add",
@@ -8978,12 +9020,13 @@
             "example": [
                 "\n```\nnew Query('x=2&y=3').add('y',4).toString(false) => x=2&y=4&y=3\nnew Query('x=2&y=3').add(new Query('y=4')).toString(false) => x=2&y=3&y=4\n```"
             ],
-            "class": "Query",
-            "module": "uri"
+            "class": "Uri.Query",
+            "module": "uri",
+            "namespace": "Uri"
         },
         {
             "file": "src\\api\\uri.js",
-            "line": 286,
+            "line": 287,
             "description": "删除指定键名或全部查询参数",
             "itemtype": "method",
             "name": "remove",
@@ -9000,12 +9043,13 @@
             "example": [
                 "\n```\nnew Query('x=2&y=3').remove('y').toString() => x=2\nnew Query('x=2&y=3').remove().toString() => ''\n```"
             ],
-            "class": "Query",
-            "module": "uri"
+            "class": "Uri.Query",
+            "module": "uri",
+            "namespace": "Uri"
         },
         {
             "file": "src\\api\\uri.js",
-            "line": 298,
+            "line": 299,
             "description": "返回参数名数组",
             "itemtype": "method",
             "name": "keys",
@@ -9016,12 +9060,13 @@
             "example": [
                 "\n```\nnew Query('x=2&y=3').keys() // => ['x','y']\n```"
             ],
-            "class": "Query",
-            "module": "uri"
+            "class": "Uri.Query",
+            "module": "uri",
+            "namespace": "Uri"
         },
         {
             "file": "src\\api\\uri.js",
-            "line": 308,
+            "line": 309,
             "description": "序列化查询参数",
             "itemtype": "method",
             "name": "toString",
@@ -9039,8 +9084,9 @@
             "example": [
                 "\n```\nnew Query('x=2&y=3&y=4').toString(false)// => 'x=2&y=3&y=4'\nnew Query('x=2&y=3&y=4').toString(true)// => 'x=2&y%5b%5d=3&y%5b%5d=4'\n```"
             ],
-            "class": "Query",
-            "module": "uri"
+            "class": "Uri.Query",
+            "module": "uri",
+            "namespace": "Uri"
         },
         {
             "file": "src\\api\\util.js",

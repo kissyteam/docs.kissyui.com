@@ -111,6 +111,7 @@ KISSY.use('promise',function(S,Promise){
 /**
 @class Defer
 @constructor
+@namespace Promise
 @return Defer 实例，用于逻辑内部控制成功或失败，返回 promise 供外部监听
 */
 

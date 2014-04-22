@@ -41,9 +41,9 @@
             
                 <li><a href="../classes/Anim.html">Anim</a></li>
             
-                <li><a href="../classes/Attribute.html">Attribute</a></li>
-            
                 <li><a href="../classes/Base.html">Base</a></li>
+            
+                <li><a href="../classes/Base.Attribute.html">Base.Attribute</a></li>
             
                 <li><a href="../classes/Button.html">Button</a></li>
             
@@ -51,13 +51,19 @@
             
                 <li><a href="../classes/ComboBox.html">ComboBox</a></li>
             
+                <li><a href="../classes/ComboBox.FilterSelect.html">ComboBox.FilterSelect</a></li>
+            
+                <li><a href="../classes/ComboBox.LocalDataSource.html">ComboBox.LocalDataSource</a></li>
+            
+                <li><a href="../classes/ComboBox.MultiValueComboBox.html">ComboBox.MultiValueComboBox</a></li>
+            
+                <li><a href="../classes/ComboBox.RemoteDataSource.html">ComboBox.RemoteDataSource</a></li>
+            
                 <li><a href="../classes/Container.html">Container</a></li>
             
                 <li><a href="../classes/Control.html">Control</a></li>
             
                 <li><a href="../classes/Cookie.html">Cookie</a></li>
-            
-                <li><a href="../classes/Defer.html">Defer</a></li>
             
                 <li><a href="../classes/DelegateChildren.html">DelegateChildren</a></li>
             
@@ -67,9 +73,9 @@
             
                 <li><a href="../classes/Event.html">Event</a></li>
             
-                <li><a href="../classes/Feature.html">Feature</a></li>
+                <li><a href="../classes/Event.Target.html">Event.Target</a></li>
             
-                <li><a href="../classes/FilterSelect.html">FilterSelect</a></li>
+                <li><a href="../classes/Feature.html">Feature</a></li>
             
                 <li><a href="../classes/IO.html">IO</a></li>
             
@@ -77,11 +83,7 @@
             
                 <li><a href="../classes/Loader.html">Loader</a></li>
             
-                <li><a href="../classes/LocalDataSource.html">LocalDataSource</a></li>
-            
                 <li><a href="../classes/Manager.html">Manager</a></li>
-            
-                <li><a href="../classes/MultiValueComboBox.html">MultiValueComboBox</a></li>
             
                 <li><a href="../classes/Node.html">Node</a></li>
             
@@ -89,19 +91,17 @@
             
                 <li><a href="../classes/Promise.html">Promise</a></li>
             
-                <li><a href="../classes/Query.html">Query</a></li>
-            
-                <li><a href="../classes/RemoteDataSource.html">RemoteDataSource</a></li>
+                <li><a href="../classes/Promise.Defer.html">Promise.Defer</a></li>
             
                 <li><a href="../classes/Resize.html">Resize</a></li>
             
                 <li><a href="../classes/Shim.html">Shim</a></li>
             
-                <li><a href="../classes/Target.html">Target</a></li>
-            
                 <li><a href="../classes/UA.html">UA</a></li>
             
                 <li><a href="../classes/Uri.html">Uri</a></li>
+            
+                <li><a href="../classes/Uri.Query.html">Uri.Query</a></li>
             
                 <li><a href="../classes/Util.html">Util</a></li>
             
@@ -206,8 +206,6 @@
 
 
 /**
-继承自 [Control](/1.5/api/classes/Control.html) , 包含其全部配置,属性,方法,事件.
-
 ### 从已有元素实例 ComboBox 对象时：
 
 - 元素节点标明类名 {prefixCls}combobox .
@@ -236,6 +234,7 @@
 &#x60;&#x60;&#x60;
 @class ComboBox
 @constructor
+@extends Control
 @param config {Object} 配置项，如下：
 @param [config.hasTrigger=true] {Boolean} 默认 true. 是否显示下拉按钮
 @param [config.placeholder] {String} 默认无. 输入框的提示信息
@@ -344,9 +343,10 @@ KISSY.use(&quot;node,combobox&quot;, function (S, Node, ComboBox) {
 
 
 /**
-继承自 [ComboBox](/1.5/api/classes/ComboBox.html) , 包含其全部配置,属性,方法,事件.
 @class MultiValueComboBox
 @constructor
+@extends ComboBox
+@namespace ComboBox
 @param config {Object} 配置项，如下：
 @param [config.multiple=false] {Boolean}  默认 false. 是否允许多个值的输入
 @param [config.separator=&quot;,;&quot;] {String} 当允许多个值输入时，分割多个值的分隔符
@@ -365,10 +365,10 @@ KISSY.use(&#x27;combobox&#x27;,function(S,ComboBox){
 
 /**
 限定范围的输入框.
-
-继承自 [ComboBox](/1.5/api/classes/ComboBox.html) , 包含其全部配置,属性,方法,事件.
 @class FilterSelect
 @constructor
+@extends ComboBox
+@namespace ComboBox
 @param config {Object} 配置项，如下：
 @param config.invalidMessage {String} 当用户的输入不匹配下拉提示的内容时的出错信息
 @example
@@ -383,6 +383,7 @@ KISSY.use(&#x27;combobox&#x27;,function(S,ComboBox){
 本地数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用
 @class LocalDataSource
 @constructor
+@namespace ComboBox
 @param config {Object} 配置项，如下：
 @param config.data {Object[]} 静态数据数组
 @param [config.parse] {Function} 可选. 如何根据用户输入对数据进行过滤。默认为
@@ -413,6 +414,7 @@ function parser(inputVal, data) {
 数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用
 @class RemoteDataSource
 @constructor
+@namespace ComboBox
 @param config {Object} 配置项，如下：
 @param config.paramName=&#x27;q&#x27; {String} 用户输入发送到后端的参数名，默认 ‘q’
 @param config.parse {Function} 可选. 如何根据用户输入对后台返回数据进行过滤。默认

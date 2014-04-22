@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Align - API Documentation — KISSY v1.5 Documentation</title>
+    <title>Event.Target - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -196,7 +196,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Align Class</h1>
+                        <h1>Event.Target Class</h1>
 <div class="box meta">
     
 
@@ -204,13 +204,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_component_extension_align.js.html#l7"><code>src\api\component\extension\align.js:7</code></a>
+            Defined in: <a href="../files/src_api_event.js.html#l501"><code>src\api\event.js:501</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/component_extension_align.html">component/extension/align</a>
+            Module: <a href="../modules/event.html">event</a>
         
     
 
@@ -220,132 +220,16 @@
 
 
 <div class="box intro">
-    
+    <p>通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件.具体用法看它提供的方法</p>
+<p><strong>Note</strong></p>
+<p>注意 S.EventTarget 仅用于 mix/augment ，不可以直接使用，例如需要全局事件的话可以：</p>
+<pre class="code prettyprint"><code>var globalEvent=S.mix({},S.EventTarget);
+globalEvent.on(&#39;Login:session:pass&#39;, function(){
+  isSessionPass = true;
+});</code></pre>
+
 </div>
 
-
-    <div class="constructor">
-        <h2>Constructor</h2>
-        <div id="method_Align" class="method item">
-    <h3 class="name"><code>Align</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>config</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_extension_align.js.html#l7"><code>src\api\component\extension\align.js:7</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">config</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>配置项，如下</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[align]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选, 组件节点对齐的相关配置, 例如：</p>
-<pre><code>{
-    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域
-    points: [&#39;tr&#39;,&#39;tl&#39;], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐
-    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,
-                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.
-    overflow:{
-        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标
-        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标
-    }
-}</code></pre>
-<p>points 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围
-第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示</p>
-<p><img src="/1.5/api/assets/img/project-img/align.png" alt="alt text"></p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-    </div>
 
 
 <div id="classdocs" class="tabview">
@@ -371,14 +255,42 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_align">align</a>
+                                <a href="#method_addTarget">addTarget</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_center">center</a>
+                                <a href="#method_detach">detach</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_fire">fire</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_on">on</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_publish">publish</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_removeTarget">removeTarget</a>
 
                                 
                                 
@@ -400,8 +312,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_align" class="method item">
-    <h3 class="name"><code>align</code></h3>
+                    <div id="method_addTarget" class="method item">
+    <h3 class="name"><code>addTarget</code></h3>
 
     
         <div class="args">
@@ -409,25 +321,7 @@
             
                 <li class="arg">
                     
-                        <code>node</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>points</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>offset</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>overflow</code>
+                        <code>target</code>
                     
                 </li>
             
@@ -460,7 +354,7 @@
             
         
         
-        <a href="../files/src_api_component_extension_align.js.html#l30"><code>src\api\component\extension\align.js:30</code></a>
+        <a href="../files/src_api_event.js.html#l534"><code>src\api\event.js:534</code></a>
         
         </p>
 
@@ -471,7 +365,7 @@
     </div>
 
     <div class="description">
-        <p>设置组件根节点对齐</p>
+        <p>添加冒泡事件源对象</p>
 
     </div>
 
@@ -483,62 +377,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">node</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | KISSY.Node | HTMLDOMNode</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>对齐的参考元素</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">points</code>
-                        <span class="type">Array<String></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>对齐的参考位置</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">offset</code>
-                        <span class="type">Array<Number></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>相对对齐元素的偏移</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">overflow</code>
+                        <code class="param-name">target</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>超出可视区域后如何处理</p>
+                        <p>事件往上冒泡的事件源</p>
 
                     </div>
 
@@ -552,11 +398,41 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use(&quot;event&quot;, function(S, Event) {
+    function Custom(id){
+        this.id = id;
+        this.publish(&quot;run&quot;,{
+            bubbles:1
+        });
+    }
+
+    S.augment(Custom, Event.Target);
+
+    var c1 = new Custom(&quot;c1&quot;);
+
+    var c2 = new Custom(&quot;c1&quot;);
+
+    c1.addTarget(c2);
+
+    c2.on(&quot;run&quot;,function(e){
+        S.log(e.target.id +&quot; fires event run&quot;); // =&gt; c1 fires event run
+    });
+
+    c1.fire(&quot;run&quot;);
+});</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
                 
-                    <div id="method_center" class="method item">
-    <h3 class="name"><code>center</code></h3>
+                    <div id="method_detach" class="method item">
+    <h3 class="name"><code>detach</code></h3>
 
     
         <span class="paren">()</span>
@@ -587,7 +463,7 @@
             
         
         
-        <a href="../files/src_api_component_extension_align.js.html#l39"><code>src\api\component\extension\align.js:39</code></a>
+        <a href="../files/src_api_event.js.html#l576"><code>src\api\event.js:576</code></a>
         
         </p>
 
@@ -598,10 +474,463 @@
     </div>
 
     <div class="description">
-        <p>将组件根节点放在当前视窗中央</p>
+        <p>解除绑定的事件处理器,可参考Event.detach</p>
 
     </div>
 
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var S = KISSY;
+
+// 定义 Dog 类
+function Dog(name) {
+    this.name = name;
+}
+
+// 让 Dog 成为事件目标
+S.augment(Dog, S.EventTarget);
+
+// 给 Dog 添加 run 方法
+S.augment(Dog, {
+   run: function() {
+       // 触发 running 事件
+       this.fire(&#39;running&#39;, {speed: &#39;80km/h&#39;});
+   }
+});
+
+var dog = new Dog(&#39;Lady Gogo&#39;);
+
+// 添加监听函数
+dog.on(&#39;running&#39;, function(ev) {
+    // 注意 ev 的参数传递大使身份
+    alert(this.name + &#39; is running now. Its speed is &#39; + ev.speed);
+});
+
+// 让可爱的小狗跑起来吧
+dog.run();</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_fire" class="method item">
+    <h3 class="name"><code>fire</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>type</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>eventData</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_event.js.html#l517"><code>src\api\event.js:517</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>触发绑定 type 类型的事件处理器, 并给触发的事件处理器的事件对象参数中混入数据 eventData</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">type</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要触发的自定义事件名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">eventData</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要混入触发事件对象的数据对象</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    
+                    <p>如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_on" class="method item">
+    <h3 class="name"><code>on</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_event.js.html#l571"><code>src\api\event.js:571</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>绑定事件处理器,参数可参考Event.on，这里不重复了</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_publish" class="method item">
+    <h3 class="name"><code>publish</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>type</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>cfg</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_event.js.html#l525"><code>src\api\event.js:525</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>配置自定义事件的一些特有信息</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">type</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要触发的自定义事件名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">cfg</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>事件的具体配置对象</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[bubbles=true]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>类型 boolean. 是否支持冒泡。 默认 true</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[defaultFn]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_removeTarget" class="method item">
+    <h3 class="name"><code>removeTarget</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>target</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_event.js.html#l565"><code>src\api\event.js:565</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>删除冒泡事件源对象</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">target</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>事件往上冒泡的事件源</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
     
 
     

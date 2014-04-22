@@ -3,9 +3,9 @@
 */
 
 /**
-继承自 [Control](/1.5/api/classes/Control.html) , 包含其全部配置,属性,方法,事件
 @class Button
 @constructor
+@extends Control
 @param config {Object} 配置项，详细见下方:
 @param config.content {String} 按钮的显示内容
 @param config.checkable {String} 按钮是 toggle button

@@ -511,6 +511,7 @@ globalEvent.on('Login:session:pass', function(){
 });
 ```
 @class Target
+@namespace Event
 */
 
 /**

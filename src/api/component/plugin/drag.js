@@ -4,10 +4,9 @@
 */
 
 /**
-继承自 [dd.Draggable](/1.5/api/classes/Draggable.html) 包括 draggable 的所有配置
 @class Drag
 @constructor
-@param config 配置项，参考[dd.Draggable](/1.5/api/classes/Draggable.html)
+@extends DD.Draggable
 @example
 ```
 KISSY.use('overlay,component/plugin/drag',function(S,Overlay,Drag){

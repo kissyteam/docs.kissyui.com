@@ -5,9 +5,9 @@
 */
 
 /**
-继承自 [Base](/1.5/classes/Base.html) , 包含其全部配置,属性,方法,事件
 @class Control
 @constructor
+@extends Base
 @param config {Object} 配置项，有如下配置：
 @param [config.content] {String} 可选, 设置内容 html
 @param [config.disabled] {Boolean} 可选，该组件是否初始禁用

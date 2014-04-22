@@ -7,7 +7,6 @@
 
 
 /**
-[augment()](/1.5/api/classes/Util.html#method_augment)自[Attribute](/1.5/api/classes/Attribute.html)
 如果你想让类默认就支持 attribute 功能, 请直接继承Base
 
 简单实用：
@@ -50,6 +49,8 @@ KISSY.use('base', function(S, Base) {
 ```
 @class Base
 @constructor
+@extends Base.Attribute
+@uses Event.Target
 @param config {Object} 属性名/配置信息对
 @param config.listeners {Object} 配置组件的事件绑定,例如:
 ```
@@ -193,6 +194,7 @@ dialog.getPlugin('component/plugin/drag')
 /**
 包含一些属性操作的方法，仅用于 [augment()](/1.5/api/classes/Util.html#method_augment)]
 @class Attribute
+@namespace Base
 @constructor
 */ 
 

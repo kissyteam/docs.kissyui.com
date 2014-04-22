@@ -4,7 +4,7 @@
 
 
 /**
-扩展自 [Control](/1.5/api/classes/Control.html) , 包含其全部配置,属性,方法,事件
+@extends Control
 @class Container
 @constructor
 @param config {Object} 配置项

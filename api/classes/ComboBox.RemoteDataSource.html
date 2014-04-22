@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>component/extension/shim - API Documentation — KISSY v1.5 Documentation</title>
+    <title>ComboBox.RemoteDataSource - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -196,16 +196,22 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>component_extension_shim Module</h1>
-<div class="box clearfix meta">
+                        <h1>ComboBox.RemoteDataSource Class</h1>
+<div class="box meta">
     
 
     
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_component_extension_shim.js.html#l5"><code>src\api\component\extension\shim.js:5</code></a>
+            Defined in: <a href="../files/src_api_combobox.js.html#l211"><code>src\api\combobox.js:211</code></a>
         </div>
+    
+
+    
+        
+            Module: <a href="../modules/combobox.html">combobox</a>
+        
     
 
     
@@ -214,29 +220,213 @@
 
 
 <div class="box intro">
-    
+    <p>数据源，配合<a href="/1.5/api/classes/ComboBox.html">ComboBox</a>使用</p>
+
 </div>
 
 
+    <div class="constructor">
+        <h2>Constructor</h2>
+        <div id="method_ComboBox.RemoteDataSource" class="method item">
+    <h3 class="name"><code>ComboBox.RemoteDataSource</code></h3>
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
             
-                <li class="module-class">
-                    <a href="../classes/Shim.html">
-                        Shim
-                    </a>
+                <li class="arg">
+                    
+                        <code>config</code>
+                    
                 </li>
             
-            </ul>
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l211"><code>src\api\combobox.js:211</code></a>
+        
+        </p>
+
+
+        
+
         
     </div>
 
-    <div class="yui3-u-1-2">
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">config</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>配置项，如下：</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">paramName=&#x27;q&#x27;</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>用户输入发送到后端的参数名，默认 ‘q’</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">parse</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>可选. 如何根据用户输入对后台返回数据进行过滤。默认</p>
+<pre><code>function parser(
+    // 用户输入
+    inputVal,
+    // 服务器返回数据
+    data) {
+    return data;
+}</code></pre>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">allowEmpty=false</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>默认 false. 用户输入为空时是否发请求</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">cache=false</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>默认 false. 是否缓存服务器端数据</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">xhrCfg</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>传递给 IO 的其他参数</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+    </div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+        
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+
+            
+
+            
+
+            
+        </div>
+
+        
+
+        
+
+        
+
         
     </div>
 </div>

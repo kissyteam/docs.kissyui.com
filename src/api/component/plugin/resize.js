@@ -4,10 +4,9 @@
 */
 
 /**
-继承自 [Resizable](/1.5/api/classes/Resizable.html) 包括 resizable 的所有配置
 @class Resize
 @constructor
-@param config {Object} 配置项，参考[Resizable](/1.5/api/classes/Resizable.html)
+@extends Resizable
 @example
 ```
 KISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){

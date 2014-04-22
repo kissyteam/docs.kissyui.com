@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Container - API Documentation — KISSY v1.5 Documentation</title>
+    <title>ComboBox.MultiValueComboBox - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -196,25 +196,25 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Container Class</h1>
+                        <h1>ComboBox.MultiValueComboBox Class</h1>
 <div class="box meta">
     
 
     
         <div class="extends">
-            Extends <a href="..\classes\Control.html" class="crosslink">Control</a>
+            Extends <a href="..\classes\ComboBox.html" class="crosslink">ComboBox</a>
         </div>
     
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_component_container.js.html#l6"><code>src\api\component\container.js:6</code></a>
+            Defined in: <a href="../files/src_api_combobox.js.html#l143"><code>src\api\combobox.js:143</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/component_container.html">component/container</a>
+            Module: <a href="../modules/combobox.html">combobox</a>
         
     
 
@@ -230,8 +230,8 @@
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Container" class="method item">
-    <h3 class="name"><code>Container</code></h3>
+        <div id="method_ComboBox.MultiValueComboBox" class="method item">
+    <h3 class="name"><code>ComboBox.MultiValueComboBox</code></h3>
 
     
         <div class="args">
@@ -272,7 +272,7 @@
             
         
         
-        <a href="../files/src_api_component_container.js.html#l6"><code>src\api\component\container.js:6</code></a>
+        <a href="../files/src_api_combobox.js.html#l143"><code>src\api\combobox.js:143</code></a>
         
         </p>
 
@@ -301,7 +301,7 @@
                     
 
                     <div class="param-description">
-                        <p>配置项</p>
+                        <p>配置项，如下：</p>
 
                     </div>
 
@@ -310,13 +310,73 @@
                             
                             <li class="param">
                                 
-                                    <code class="param-name optional">[children]</code>
-                                    <span class="type"><a href="..\classes\Control.html" class="crosslink">Control[]</a></span>
+                                    <code class="param-name optional">[multiple=false]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
                                     <span class="flag optional" title="This parameter is optional.">optional</span>
                                 
 
                                 <div class="param-description">
-                                    <p>可选，当前组件的子组件</p>
+                                    <p>默认 false. 是否允许多个值的输入</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[separator=&quot;,;&quot;]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>当允许多个值输入时，分割多个值的分隔符</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[separatorType]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>默认 “suffix”. 可取枚举值（”prefix”,”suffix”）. 表示分隔符在最前面( @xx 模式)还是在最后面(gmail 模式).</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[alignWithCursor=false]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>默认 false. 自动补全菜单是否和光标对齐.</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[literal=&#x27;&quot;&#x27;]</code>
+                                    <span class="type"></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>默认 &quot; 在该字符内的所有字符（包括分隔符）都算作普通字符.</p>
 
                                 </div>
 
@@ -333,6 +393,18 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p><code>&#x60;</code>
+KISSY.use(&#39;combobox&#39;,function(S,ComboBox){
+    // use ComboBox.MultiValueComboBox
+});</p>
+
+            </div>
+        </div>
     
 </div>
 
@@ -374,13 +446,6 @@
                         
                             <li class="index-item method inherited">
                                 <a href="#method_addAttrs">addAttrs</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_addChild">addChild</a>
 
                                 
                                 
@@ -463,13 +528,6 @@
                                 
                             </li>
                         
-                            <li class="index-item method">
-                                <a href="#method_getChildAt">getChildAt</a>
-
-                                
-                                
-                            </li>
-                        
                             <li class="index-item method inherited">
                                 <a href="#method_getPlugin">getPlugin</a>
 
@@ -526,20 +584,6 @@
                                 
                             </li>
                         
-                            <li class="index-item method">
-                                <a href="#method_removeChild">removeChild</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_removeChildren">removeChildren</a>
-
-                                
-                                
-                            </li>
-                        
                             <li class="index-item method inherited">
                                 <a href="#method_removeTarget">removeTarget</a>
 
@@ -556,6 +600,13 @@
                         
                             <li class="index-item method inherited inherited">
                                 <a href="#method_reset">reset</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited">
+                                <a href="#method_sendRequest">sendRequest</a>
 
                                 
                                 
@@ -606,6 +657,10 @@
                             </li>
                         
                             <li class="index-item attr inherited">
+                                <a href="#attr_collapsed">collapsed</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited">
                                 <a href="#attr_content">content</a>
                             </li>
                         
@@ -634,7 +689,15 @@
                             </li>
                         
                             <li class="index-item attr inherited">
+                                <a href="#attr_input">input</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited">
                                 <a href="#attr_isControl">isControl</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited">
+                                <a href="#attr_menu">menu</a>
                             </li>
                         
                             <li class="index-item attr inherited">
@@ -701,6 +764,13 @@
                             </li>
                         
                             <li class="index-item event inherited">
+                                <a href="#event_afterCollapsedChange">afterCollapsedChange</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event inherited">
                                 <a href="#event_afterCreateDom">afterCreateDom</a>
 
                                 
@@ -758,6 +828,13 @@
                         
                             <li class="index-item event inherited">
                                 <a href="#event_beforeVisibleChange">beforeVisibleChange</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event inherited">
+                                <a href="#event_click">click</a>
 
                                 
                                 
@@ -1061,118 +1138,6 @@
 
                     <div class="param-description">
                         <p>属性名/值对, 批量设置当前对象的属性值</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_addChild" class="method item">
-    <h3 class="name"><code>addChild</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>c</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code class="optional">[index]</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_container.js.html#l14"><code>src\api\component\container.js:14</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>添加一个指定的组件作为当前组件的子组件</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">c</code>
-                        <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>要添加的子组件实例或者子组件的对象描述</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[index]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>子组件的索引，可选。从 0 开始，新子组件被插入时的索引。如果未指定，新组件将会被插入在最后</p>
 
                     </div>
 
@@ -2167,113 +2132,6 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="method_getChildAt" class="method item">
-    <h3 class="name"><code>getChildAt</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>index</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_container.js.html#l21"><code>src\api\component\container.js:21</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>返回所给索引对应的子组件，如果索引超出返回，则返回 null</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">index</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>从 0 开始的索引</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a></span>:
-                    
-                    <p>所给索引对应的子组件对象。如果不存在则返回 null</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
                     <div id="method_getPlugin" class="method item inherited">
     <h3 class="name"><code>getPlugin</code></h3>
 
@@ -3077,209 +2935,6 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="method_removeChild" class="method item">
-    <h3 class="name"><code>removeChild</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>c</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code class="optional">[destroy=true]</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_container.js.html#l28"><code>src\api\component\container.js:28</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>从当前组件中移除所给子组件，并返回这个子组件对象。
-如果 destroy 是 true，调用要移除的组件的 destroy() 方法，随后从 DOM 文档中移除子组件的 DOM。否则，清除子组件 DOM 的工作就要由调用者做。</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">c</code>
-                        <span class="type"><a href="..\classes\Control.html" class="crosslink">Control</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>要添加的子组件实例或者子组件的对象描述</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[destroy=true]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>默认为 true, 在移除的子组件上调用 destroy()方法</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_removeChildren" class="method item">
-    <h3 class="name"><code>removeChildren</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code class="optional">[destroy=true]</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_component_container.js.html#l36"><code>src\api\component\container.js:36</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>移除所有包含的子组件</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[destroy=true]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>默认为 true, 在移除的子组件上调用 destroy()方法</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="method_removeTarget" class="method item inherited">
     <h3 class="name"><code>removeTarget</code></h3>
 
@@ -3550,6 +3205,92 @@ dog.run();</code></pre>
                             </li>
                             
                         </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_sendRequest" class="method item inherited">
+    <h3 class="name"><code>sendRequest</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>value</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\ComboBox.html#method_sendRequest">ComboBox</a>:
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l120"><code>src\api\combobox.js:120</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>根据 value 自动补全并显示下拉菜单</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">value</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>自动补全的值</p>
+
+                    </div>
+
                     
                 </li>
             
@@ -4055,6 +3796,106 @@ dog.run();</code></pre>
 
             <p>
             Fires when the value for the configuration attribute <code>active</code> is
+            changed. You can listen for the event using the <code>on</code> method if you
+            wish to be notified before the attribute's value has changed, or
+            using the <code>after</code> method if you wish to be notified after the
+            attribute's value has changed.
+            </p>
+
+            <div class="params">
+                <h4>Parameters:</h4>
+
+                <ul class="params-list">
+                    <li class="param">
+                        <code class="param-name">e</code>
+                        <span class="type">EventFacade</span>
+
+                        <div class="param-description">
+                            An Event Facade object with the following
+                            attribute-specific properties added:
+                        </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                <code class="param-name">prevVal</code>
+                                <span class="type">Any</span>
+                                <div class="param-description">The value of the attribute, prior to it being set.</div>
+                            </li>
+                            <li class="param">
+                                <code class="param-name">newVal</code>
+                                <span class="type">Any</span>
+                                <div class="param-description">The value the attribute is to be set to.</div>
+                            </li>
+                            <li class="param">
+                                <code class="param-name">attrName</code>
+                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                <div class="param-description">The name of the attribute being set.</div>
+                            </li>
+                            <li class="param">
+                                <code class="param-name">subAttrName</code>
+                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                <div class="param-description">If setting a property within the attribute's value, the name of the sub-attribute property being set.</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="attr_collapsed" class="attr item inherited">
+    <a name="config_collapsed"></a> 
+    <h3 class="name"><code>collapsed</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\ComboBox.html#attr_collapsed">ComboBox</a>:
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l115"><code>src\api\combobox.js:115</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>自动补全菜单是否已经收起</p>
+
+    </div>
+
+    
+
+    
+        <div class="emits box">
+            <h4>Fires event <code>collapsedChange</code></h4>
+
+            <p>
+            Fires when the value for the configuration attribute <code>collapsed</code> is
             changed. You can listen for the event using the <code>on</code> method if you
             wish to be notified before the attribute's value has changed, or
             using the <code>after</code> method if you wish to be notified after the
@@ -4806,6 +4647,106 @@ dog.run();</code></pre>
 </div>
 
                 
+                    <div id="attr_input" class="attr item inherited">
+    <a name="config_input"></a> 
+    <h3 class="name"><code>input</code></h3>
+    <span class="type">KISSY.Node</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\ComboBox.html#attr_input">ComboBox</a>:
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l105"><code>src\api\combobox.js:105</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>关联的复合输入框</p>
+
+    </div>
+
+    
+
+    
+        <div class="emits box">
+            <h4>Fires event <code>inputChange</code></h4>
+
+            <p>
+            Fires when the value for the configuration attribute <code>input</code> is
+            changed. You can listen for the event using the <code>on</code> method if you
+            wish to be notified before the attribute's value has changed, or
+            using the <code>after</code> method if you wish to be notified after the
+            attribute's value has changed.
+            </p>
+
+            <div class="params">
+                <h4>Parameters:</h4>
+
+                <ul class="params-list">
+                    <li class="param">
+                        <code class="param-name">e</code>
+                        <span class="type">EventFacade</span>
+
+                        <div class="param-description">
+                            An Event Facade object with the following
+                            attribute-specific properties added:
+                        </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                <code class="param-name">prevVal</code>
+                                <span class="type">Any</span>
+                                <div class="param-description">The value of the attribute, prior to it being set.</div>
+                            </li>
+                            <li class="param">
+                                <code class="param-name">newVal</code>
+                                <span class="type">Any</span>
+                                <div class="param-description">The value the attribute is to be set to.</div>
+                            </li>
+                            <li class="param">
+                                <code class="param-name">attrName</code>
+                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                <div class="param-description">The name of the attribute being set.</div>
+                            </li>
+                            <li class="param">
+                                <code class="param-name">subAttrName</code>
+                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                <div class="param-description">If setting a property within the attribute's value, the name of the sub-attribute property being set.</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
                     <div id="attr_isControl" class="attr item inherited">
     <a name="config_isControl"></a> 
     <h3 class="name"><code>isControl</code></h3>
@@ -4855,6 +4796,106 @@ dog.run();</code></pre>
 
             <p>
             Fires when the value for the configuration attribute <code>isControl</code> is
+            changed. You can listen for the event using the <code>on</code> method if you
+            wish to be notified before the attribute's value has changed, or
+            using the <code>after</code> method if you wish to be notified after the
+            attribute's value has changed.
+            </p>
+
+            <div class="params">
+                <h4>Parameters:</h4>
+
+                <ul class="params-list">
+                    <li class="param">
+                        <code class="param-name">e</code>
+                        <span class="type">EventFacade</span>
+
+                        <div class="param-description">
+                            An Event Facade object with the following
+                            attribute-specific properties added:
+                        </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                <code class="param-name">prevVal</code>
+                                <span class="type">Any</span>
+                                <div class="param-description">The value of the attribute, prior to it being set.</div>
+                            </li>
+                            <li class="param">
+                                <code class="param-name">newVal</code>
+                                <span class="type">Any</span>
+                                <div class="param-description">The value the attribute is to be set to.</div>
+                            </li>
+                            <li class="param">
+                                <code class="param-name">attrName</code>
+                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                <div class="param-description">The name of the attribute being set.</div>
+                            </li>
+                            <li class="param">
+                                <code class="param-name">subAttrName</code>
+                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                <div class="param-description">If setting a property within the attribute's value, the name of the sub-attribute property being set.</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="attr_menu" class="attr item inherited">
+    <a name="config_menu"></a> 
+    <h3 class="name"><code>menu</code></h3>
+    <span class="type">ComboBox.Menu | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\ComboBox.html#attr_menu">ComboBox</a>:
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l110"><code>src\api\combobox.js:110</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>自动补全菜单的配置（在显示后转换为实例）或实例</p>
+
+    </div>
+
+    
+
+    
+        <div class="emits box">
+            <h4>Fires event <code>menuChange</code></h4>
+
+            <p>
+            Fires when the value for the configuration attribute <code>menu</code> is
             changed. You can listen for the event using the <code>on</code> method if you
             wish to be notified before the attribute's value has changed, or
             using the <code>after</code> method if you wish to be notified after the
@@ -6029,6 +6070,71 @@ dog.run();</code></pre>
 </div>
 
                 
+                    <div id="event_afterCollapsedChange" class="events item inherited">
+    <h3 class="name"><code>afterCollapsedChange</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\ComboBox.html#event_afterCollapsedChange">ComboBox</a>:
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l132"><code>src\api\combobox.js:132</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>当下拉菜单显示或收起时触发</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">e.NewVal</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>当前下拉菜单是否是收起状态</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+</div>
+
+                
                     <div id="event_afterCreateDom" class="events item inherited">
     <h3 class="name"><code>afterCreateDom</code></h3>
     <span class="type"></span>
@@ -6659,6 +6765,71 @@ dog.run();</code></pre>
 
                     <div class="param-description">
                         <p>KISSY CustomEvent 对象</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_click" class="events item inherited">
+    <h3 class="name"><code>click</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\ComboBox.html#event_click">ComboBox</a>:
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l126"><code>src\api\combobox.js:126</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>当用户选择自动补全下拉框内的项时触发</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">e.target</code>
+                        <span class="type">MenuItem</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>选择的下拉菜单项</p>
 
                     </div>
 

@@ -41,9 +41,9 @@
             
                 <li><a href="../classes/Anim.html">Anim</a></li>
             
-                <li><a href="../classes/Attribute.html">Attribute</a></li>
-            
                 <li><a href="../classes/Base.html">Base</a></li>
+            
+                <li><a href="../classes/Base.Attribute.html">Base.Attribute</a></li>
             
                 <li><a href="../classes/Button.html">Button</a></li>
             
@@ -51,13 +51,19 @@
             
                 <li><a href="../classes/ComboBox.html">ComboBox</a></li>
             
+                <li><a href="../classes/ComboBox.FilterSelect.html">ComboBox.FilterSelect</a></li>
+            
+                <li><a href="../classes/ComboBox.LocalDataSource.html">ComboBox.LocalDataSource</a></li>
+            
+                <li><a href="../classes/ComboBox.MultiValueComboBox.html">ComboBox.MultiValueComboBox</a></li>
+            
+                <li><a href="../classes/ComboBox.RemoteDataSource.html">ComboBox.RemoteDataSource</a></li>
+            
                 <li><a href="../classes/Container.html">Container</a></li>
             
                 <li><a href="../classes/Control.html">Control</a></li>
             
                 <li><a href="../classes/Cookie.html">Cookie</a></li>
-            
-                <li><a href="../classes/Defer.html">Defer</a></li>
             
                 <li><a href="../classes/DelegateChildren.html">DelegateChildren</a></li>
             
@@ -67,9 +73,9 @@
             
                 <li><a href="../classes/Event.html">Event</a></li>
             
-                <li><a href="../classes/Feature.html">Feature</a></li>
+                <li><a href="../classes/Event.Target.html">Event.Target</a></li>
             
-                <li><a href="../classes/FilterSelect.html">FilterSelect</a></li>
+                <li><a href="../classes/Feature.html">Feature</a></li>
             
                 <li><a href="../classes/IO.html">IO</a></li>
             
@@ -77,11 +83,7 @@
             
                 <li><a href="../classes/Loader.html">Loader</a></li>
             
-                <li><a href="../classes/LocalDataSource.html">LocalDataSource</a></li>
-            
                 <li><a href="../classes/Manager.html">Manager</a></li>
-            
-                <li><a href="../classes/MultiValueComboBox.html">MultiValueComboBox</a></li>
             
                 <li><a href="../classes/Node.html">Node</a></li>
             
@@ -89,19 +91,17 @@
             
                 <li><a href="../classes/Promise.html">Promise</a></li>
             
-                <li><a href="../classes/Query.html">Query</a></li>
-            
-                <li><a href="../classes/RemoteDataSource.html">RemoteDataSource</a></li>
+                <li><a href="../classes/Promise.Defer.html">Promise.Defer</a></li>
             
                 <li><a href="../classes/Resize.html">Resize</a></li>
             
                 <li><a href="../classes/Shim.html">Shim</a></li>
             
-                <li><a href="../classes/Target.html">Target</a></li>
-            
                 <li><a href="../classes/UA.html">UA</a></li>
             
                 <li><a href="../classes/Uri.html">Uri</a></li>
+            
+                <li><a href="../classes/Uri.Query.html">Uri.Query</a></li>
             
                 <li><a href="../classes/Util.html">Util</a></li>
             
@@ -209,7 +209,6 @@
 
 
 /**
-[augment()](/1.5/api/classes/Util.html#method_augment)自[Attribute](/1.5/api/classes/Attribute.html)
 如果你想让类默认就支持 attribute 功能, 请直接继承Base
 
 简单实用：
@@ -252,6 +251,8 @@ KISSY.use(&#x27;base&#x27;, function(S, Base) {
 &#x60;&#x60;&#x60;
 @class Base
 @constructor
+@extends Base.Attribute
+@uses Event.Target
 @param config {Object} 属性名/配置信息对
 @param config.listeners {Object} 配置组件的事件绑定,例如:
 &#x60;&#x60;&#x60;
@@ -395,6 +396,7 @@ dialog.getPlugin(&#x27;component/plugin/drag&#x27;)
 /**
 包含一些属性操作的方法，仅用于 [augment()](/1.5/api/classes/Util.html#method_augment)]
 @class Attribute
+@namespace Base
 @constructor
 */ 
 

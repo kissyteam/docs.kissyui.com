@@ -4,8 +4,6 @@
 
 
 /**
-继承自 [Control](/1.5/api/classes/Control.html) , 包含其全部配置,属性,方法,事件.
-
 ### 从已有元素实例 ComboBox 对象时：
 
 - 元素节点标明类名 {prefixCls}combobox .
@@ -34,6 +32,7 @@
 ```
 @class ComboBox
 @constructor
+@extends Control
 @param config {Object} 配置项，如下：
 @param [config.hasTrigger=true] {Boolean} 默认 true. 是否显示下拉按钮
 @param [config.placeholder] {String} 默认无. 输入框的提示信息
@@ -142,9 +141,10 @@ KISSY.use("node,combobox", function (S, Node, ComboBox) {
 
 
 /**
-继承自 [ComboBox](/1.5/api/classes/ComboBox.html) , 包含其全部配置,属性,方法,事件.
 @class MultiValueComboBox
 @constructor
+@extends ComboBox
+@namespace ComboBox
 @param config {Object} 配置项，如下：
 @param [config.multiple=false] {Boolean}  默认 false. 是否允许多个值的输入
 @param [config.separator=",;"] {String} 当允许多个值输入时，分割多个值的分隔符
@@ -163,10 +163,10 @@ KISSY.use('combobox',function(S,ComboBox){
 
 /**
 限定范围的输入框.
-
-继承自 [ComboBox](/1.5/api/classes/ComboBox.html) , 包含其全部配置,属性,方法,事件.
 @class FilterSelect
 @constructor
+@extends ComboBox
+@namespace ComboBox
 @param config {Object} 配置项，如下：
 @param config.invalidMessage {String} 当用户的输入不匹配下拉提示的内容时的出错信息
 @example
@@ -181,6 +181,7 @@ KISSY.use('combobox',function(S,ComboBox){
 本地数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用
 @class LocalDataSource
 @constructor
+@namespace ComboBox
 @param config {Object} 配置项，如下：
 @param config.data {Object[]} 静态数据数组
 @param [config.parse] {Function} 可选. 如何根据用户输入对数据进行过滤。默认为
@@ -211,6 +212,7 @@ function parser(inputVal, data) {
 数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用
 @class RemoteDataSource
 @constructor
+@namespace ComboBox
 @param config {Object} 配置项，如下：
 @param config.paramName='q' {String} 用户输入发送到后端的参数名，默认 ‘q’
 @param config.parse {Function} 可选. 如何根据用户输入对后台返回数据进行过滤。默认

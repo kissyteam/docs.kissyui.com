@@ -206,6 +206,7 @@ new Uri('http://www.g.cn/x?x=1&x=2').toString(true)
 /**
 @class Query
 @constructor
+@namespace Uri
 @param queryStr {String} 查询字符串
 */
 
