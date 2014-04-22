@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>ua - API Documentation — KISSY v1.5 Documentation</title>
+    <title>src\api\xtemplate.js - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -204,50 +204,82 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>ua Module</h1>
-<div class="box clearfix meta">
-    
+                        <h1 class="file-heading">File: src\api\xtemplate.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+富逻辑的 KISSY 模板引擎
+兼容 mustache
+@module xtemplate
+*/
 
-    
-        <div class="foundat">
-            Defined in: <a href="../files/src_api_ua.js.html#l6"><code>src\api\ua.js:6</code></a>
-        </div>
-    
+/**
+@class XTemplate
+@constructor
+@param tpl {String|Function} 字符串模板或编译过的模板函数
+@param config {Object} 配置项，详见下列配置
+@param config.command {Object} 局部自定义命令的键值对，例如
+&#x60;&#x60;&#x60;
+{
+    &#x27;toLowerCase&#x27;:function( scopes,option ){
+        return option.params[0].toLowerCase();
+    }
+}
+&#x60;&#x60;&#x60;
+@param name {String} 模版名称，可在 chrome dev tools 中看到以该值为名称的模板文件代码
+@param cache {Boolean} 是否缓存生成的模板函数，默认 true
+@example
+&#x60;&#x60;&#x60;
+KISSY.use(&#x27;xtemplate&#x27;,function(S,XTemplate){
+    // use XTemplate
+});
 
-    
-</div>
+// 参数只能是离线编译过的模板
+KISSY.use(&#x27;xtemplate/runtime&#x27;,function(S,XTemplate){
+    // use XTemplate
+});
+&#x60;&#x60;&#x60;
+### Note
+如果引用的是xtemplate/runtime模块，参数则只能是离线编译过的模板
+*/
+
+/**
+删除指定的局部命令
+@method removeCommand
+@param commandName {String} 命令名称
+*/
+
+/**
+添加局部命令
+@method addCommand
+@param commandName {String} 命令名称
+@param fn {Function} 命令定义
+*/
 
 
+/**
+编译模板
+@method compile
+@param subTplName  {String} 子模板名称
+@return {Function} 编译过的模板函数
+*/
 
-<div class="box intro">
-    <p>UA模块将UA挂在在全局对象KISSY上，通过 KISSY.UA 的属性，你可以获取浏览器等用户代理的信息。</p>
+/**
+渲染数据到模板
+@method render
+@param data {Object}  数据对象
+@return {String} 数据融合模版后的字符串
+*/
 
-</div>
-
-
-
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/UA.html">
-                        UA
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+/**
+添加全局命令
+@method addCommand
+@static
+@param commandName {String} 命令名称
+@param fn {Function} 命令定义
+*/
+    </pre>
 </div>
 
                     </div>

@@ -34,7 +34,9 @@ YUI.add("yuidoc-meta", function(Y) {
         "UA",
         "Uri",
         "Uri.Query",
-        "Util"
+        "Util",
+        "XTemplate",
+        "XTemplateRunTime"
     ],
     "modules": [
         "anim",
@@ -62,7 +64,9 @@ YUI.add("yuidoc-meta", function(Y) {
         "promise",
         "ua",
         "uri",
-        "util"
+        "util",
+        "xtemplate",
+        "xtemplate_runtime"
     ],
     "allModules": [
         {
@@ -184,6 +188,15 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "util",
             "name": "util",
             "description": "util模块，包含类Util"
+        },
+        {
+            "displayName": "xtemplate",
+            "name": "xtemplate",
+            "description": "富逻辑的 KISSY 模板引擎\n兼容 mustache"
+        },
+        {
+            "displayName": "xtemplate/runtime",
+            "name": "xtemplate_runtime"
         }
     ]
 } };
