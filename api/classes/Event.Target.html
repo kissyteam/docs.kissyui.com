@@ -224,7 +224,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_event.js.html#l501"><code>src\api\event.js:501</code></a>
+            Defined in: <a href="../files/src_api_event.js.html#l514"><code>src\api\event.js:514</code></a>
         </div>
     
 
@@ -298,6 +298,8 @@ globalEvent.on(&#39;Login:session:pass&#39;, function(){
                             <li class="index-item method">
                                 <a href="#method_on">on</a>
 
+                                
+                                    <span class="flag static">static</span>
                                 
                                 
                             </li>
@@ -374,7 +376,7 @@ globalEvent.on(&#39;Login:session:pass&#39;, function(){
             
         
         
-        <a href="../files/src_api_event.js.html#l534"><code>src\api\event.js:534</code></a>
+        <a href="../files/src_api_event.js.html#l547"><code>src\api\event.js:547</code></a>
         
         </p>
 
@@ -483,7 +485,7 @@ globalEvent.on(&#39;Login:session:pass&#39;, function(){
             
         
         
-        <a href="../files/src_api_event.js.html#l576"><code>src\api\event.js:576</code></a>
+        <a href="../files/src_api_event.js.html#l607"><code>src\api\event.js:607</code></a>
         
         </p>
 
@@ -594,7 +596,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_event.js.html#l517"><code>src\api\event.js:517</code></a>
+        <a href="../files/src_api_event.js.html#l530"><code>src\api\event.js:530</code></a>
         
         </p>
 
@@ -675,7 +677,29 @@ dog.run();</code></pre>
     <h3 class="name"><code>on</code></h3>
 
     
-        <span class="paren">()</span>
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>eventType</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>fn</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[scope]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
     
 
     
@@ -686,6 +710,8 @@ dog.run();</code></pre>
 
     
 
+    
+        <span class="flag static">static</span>
     
 
     
@@ -703,7 +729,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_event.js.html#l571"><code>src\api\event.js:571</code></a>
+        <a href="../files/src_api_event.js.html#l584"><code>src\api\event.js:584</code></a>
         
         </p>
 
@@ -714,10 +740,79 @@ dog.run();</code></pre>
     </div>
 
     <div class="description">
-        <p>绑定事件处理器,参数可参考Event.on，这里不重复了</p>
+        <p>为相应事件添加事件处理器</p>
 
     </div>
 
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">eventType</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <ul>
+<li>当为String时 包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 &quot;click.one&quot; , &quot;click.two&quot;</li>
+<li>当为Object时，类似这样：<pre><code>{
+  &#39;click&#39;:{
+      fn:function(){
+      },
+      filter: &#39;&#39; // delegate,
+      once:true // 绑定一次
+  },
+  &#39;mouseenter&#39;:function(){}
+}</code></pre>
+</li>
+</ul>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">fn</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>当事件触发时的回调函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[scope]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>回调函数的 this 值. 如果不指定默认为绑定事件的当前元素</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
     
 
     
@@ -774,7 +869,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_event.js.html#l525"><code>src\api\event.js:525</code></a>
+        <a href="../files/src_api_event.js.html#l538"><code>src\api\event.js:538</code></a>
         
         </p>
 
@@ -912,7 +1007,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_event.js.html#l565"><code>src\api\event.js:565</code></a>
+        <a href="../files/src_api_event.js.html#l578"><code>src\api\event.js:578</code></a>
         
         </p>
 

@@ -14,7 +14,20 @@
 @method on
 @static
 @param selector {string|HTMLCollection|Array<HTMLElement>} 字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)
-@param eventType {String} 包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 "click.one" , "click.two"
+@param eventType {String|Object} 
+- 当为String时 包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 "click.one" , "click.two"
+- 当为Object时，类似这样：
+```
+Event.on(document.body,{
+    'click':{
+        fn:function(){
+        },
+        filter: '' // delegate,
+        once:true // 绑定一次
+    },
+    'mouseenter':function(){}
+});
+```
 @param fn {Function} 当事件触发时的回调函数
 @param [scope] {Object} 回调函数的 this 值. 如果不指定默认为绑定事件的当前元素
 
@@ -569,9 +582,27 @@ KISSY.use("event", function(S, Event) {
 */
 
 /**
-绑定事件处理器,参数可参考Event.on，这里不重复了
+为相应事件添加事件处理器
 @method on
+@static
+@param eventType {String|Object} 
+- 当为String时 包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 "click.one" , "click.two"
+- 当为Object时，类似这样：
+```
+{
+    'click':{
+        fn:function(){
+        },
+        filter: '' // delegate,
+        once:true // 绑定一次
+    },
+    'mouseenter':function(){}
+}
+```
+@param fn {Function} 当事件触发时的回调函数
+@param [scope] {Object} 回调函数的 this 值. 如果不指定默认为绑定事件的当前元素
 */
+
 
 /**
 解除绑定的事件处理器,可参考Event.detach
