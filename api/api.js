@@ -15,6 +15,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "Container",
         "Control",
         "Cookie",
+        "DatePicker",
+        "DateTimeFormat",
         "DelegateChildren",
         "Dom",
         "Drag",
@@ -27,6 +29,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Manager",
         "Node",
         "Path",
+        "PopupDatePicker",
         "Promise",
         "Promise.Defer",
         "Resize",
@@ -53,6 +56,9 @@ YUI.add("yuidoc-meta", function(Y) {
         "component_plugin_drag",
         "component_plugin_resize",
         "cookie",
+        "date_format",
+        "date_picker",
+        "date_popup-picker",
         "dom",
         "event",
         "feature",
@@ -131,6 +137,20 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "cookie",
             "name": "cookie",
             "description": "提供类Cookie"
+        },
+        {
+            "displayName": "date/format",
+            "name": "date_format"
+        },
+        {
+            "displayName": "date/picker",
+            "name": "date_picker",
+            "description": "嵌入式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能"
+        },
+        {
+            "displayName": "date/popup-picker",
+            "name": "date_popup-picker",
+            "description": "浮层式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能"
         },
         {
             "displayName": "dom",

@@ -105,6 +105,39 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\date\\format.js": {
+            "name": "src\\api\\date\\format.js",
+            "modules": {
+                "date/format": 1
+            },
+            "classes": {
+                "DateTimeFormat": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\date\\picker.js": {
+            "name": "src\\api\\date\\picker.js",
+            "modules": {
+                "date/picker": 1
+            },
+            "classes": {
+                "DatePicker": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\date\\popup-picker.js": {
+            "name": "src\\api\\date\\popup-picker.js",
+            "modules": {
+                "date/popup-picker": 1
+            },
+            "classes": {
+                "PopupDatePicker": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\xtemplate\\runtime.js": {
             "name": "src\\api\\xtemplate\\runtime.js",
             "modules": {
@@ -446,6 +479,44 @@
             "file": "src\\api\\component\\manager.js",
             "line": 7
         },
+        "date/format": {
+            "name": "date/format",
+            "submodules": {},
+            "classes": {
+                "DateTimeFormat": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\date\\format.js",
+            "line": 5
+        },
+        "date/picker": {
+            "name": "date/picker",
+            "submodules": {},
+            "classes": {
+                "DatePicker": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\date\\picker.js",
+            "line": 6,
+            "description": "嵌入式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能"
+        },
+        "date/popup-picker": {
+            "name": "date/popup-picker",
+            "submodules": {},
+            "classes": {
+                "PopupDatePicker": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\date\\popup-picker.js",
+            "line": 6,
+            "description": "浮层式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能"
+        },
         "xtemplate/runtime": {
             "name": "xtemplate/runtime",
             "submodules": {},
@@ -714,7 +785,9 @@
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": [],
+            "extension_for": [
+                "PopupDatePicker"
+            ],
             "module": "component/extension/align",
             "namespace": "",
             "file": "src\\api\\component\\extension\\align.js",
@@ -757,7 +830,9 @@
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": [],
+            "extension_for": [
+                "PopupDatePicker"
+            ],
             "module": "component/extension/shim",
             "namespace": "",
             "file": "src\\api\\component\\extension\\shim.js",
@@ -1026,6 +1101,123 @@
             "line": 7,
             "description": "提供组件元数据管理功能",
             "is_constructor": 1
+        },
+        "DateTimeFormat": {
+            "name": "DateTimeFormat",
+            "shortname": "DateTimeFormat",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "date/format",
+            "namespace": "",
+            "file": "src\\api\\date\\format.js",
+            "line": 5,
+            "description": "根据传入参数，创建对应的 DateTimeFormat 对象",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "pattern",
+                    "description": "时间模式（具体写法参见下面的表格）\n![](/1.5/api/assets/img/project-img/date-format.jpg)",
+                    "type": "String"
+                },
+                {
+                    "name": "locale",
+                    "description": "时区",
+                    "type": "Object"
+                },
+                {
+                    "name": "timeZoneOffset",
+                    "description": "时区时间偏移",
+                    "type": "Number"
+                }
+            ]
+        },
+        "DatePicker": {
+            "name": "DatePicker",
+            "shortname": "DatePicker",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "date/picker",
+            "namespace": "",
+            "file": "src\\api\\date\\picker.js",
+            "line": 6,
+            "description": "根据配置创建picker",
+            "is_constructor": 1,
+            "extends": "Control",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置信息，如下：",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "disabledDate",
+                            "description": "一个过滤函数，用于判断日期是否可用.可用返回true，反之返回false\n```\ndisabledDate: function (current, value) {\n    return current.getMonth() < value.getMonth();\n}\n```",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "showWeekNumber",
+                            "description": "是否显示周的数字形式.显示为true，反之为false",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "showToday",
+                            "description": "是否显示今天.显示为true，反之为false",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "dateRender",
+                            "description": "指定每个日期单元的渲染方式.函数接受两个参数\n- current: 当前的日期值 \n- value : 初始化 picker 是设置的值，默认为当前时间",
+                            "type": "Function"
+                        }
+                    ]
+                },
+                {
+                    "name": "locale",
+                    "description": "locale 信息",
+                    "type": "Object"
+                },
+                {
+                    "name": "showClear",
+                    "description": "是否显示清除按钮，默认 true",
+                    "type": "Boolean"
+                }
+            ]
+        },
+        "PopupDatePicker": {
+            "name": "PopupDatePicker",
+            "shortname": "PopupDatePicker",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "date/popup-picker",
+            "namespace": "",
+            "file": "src\\api\\date\\popup-picker.js",
+            "line": 6,
+            "description": "根据配置创建PopupDatePicker",
+            "is_constructor": 1,
+            "extends": "DatePicker",
+            "uses": [
+                "Align",
+                "Shim"
+            ],
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置信息",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use('date/popup-picker',function(S, PopupDatePicker){\n    // use PopupDatePicker\n});\n```"
+            ]
         },
         "XTemplateRunTime": {
             "name": "XTemplateRunTime",
@@ -2916,6 +3108,30 @@
             ],
             "class": "Manager",
             "module": "component/manager"
+        },
+        {
+            "file": "src\\api\\date\\picker.js",
+            "line": 27,
+            "description": "当选择时触发的事件",
+            "itemtype": "event",
+            "name": "select",
+            "example": [
+                "\n```\npicker.on('select', function (e) {\n    var value = e.value;\n    if (value) {\n        result.html(DateFormat.getDateInstance(DateFormat.Style.FULL).format(value));\n    } else {\n        result.html('null');\n    }\n});\n```"
+            ],
+            "class": "DatePicker",
+            "module": "date/picker"
+        },
+        {
+            "file": "src\\api\\date\\popup-picker.js",
+            "line": 22,
+            "description": "当失去焦点是触发的事件",
+            "itemtype": "event",
+            "name": "blur",
+            "example": [
+                "\n```\npicker.on('blur', function (e) {\n    picker.hide();\n});\n```"
+            ],
+            "class": "PopupDatePicker",
+            "module": "date/popup-picker"
         },
         {
             "file": "src\\api\\xtemplate\\runtime.js",
