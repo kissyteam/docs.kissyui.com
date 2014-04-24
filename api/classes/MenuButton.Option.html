@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Button - API Documentation — KISSY v1.5 Documentation</title>
+    <title>MenuButton.Option - API Documentation — KISSY v1.5 Documentation</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -268,25 +268,25 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Button Class</h1>
+                        <h1>MenuButton.Option Class</h1>
 <div class="box meta">
     
 
     
         <div class="extends">
-            Extends <a href="..\classes\Control.html" class="crosslink">Control</a>
+            Extends <a href="..\classes\Menu.Item.html" class="crosslink">Menu.Item</a>
         </div>
     
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_button.js.html#l5"><code>src\api\button.js:5</code></a>
+            Defined in: <a href="../files/src_api_menubutton.js.html#l99"><code>src\api\menubutton.js:99</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/button.html">button</a>
+            Module: <a href="../modules/menubutton.html">menubutton</a>
         
     
 
@@ -302,8 +302,8 @@
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Button" class="method item">
-    <h3 class="name"><code>Button</code></h3>
+        <div id="method_MenuButton.Option" class="method item">
+    <h3 class="name"><code>MenuButton.Option</code></h3>
 
     
         <div class="args">
@@ -344,7 +344,7 @@
             
         
         
-        <a href="../files/src_api_button.js.html#l5"><code>src\api\button.js:5</code></a>
+        <a href="../files/src_api_menubutton.js.html#l99"><code>src\api\menubutton.js:99</code></a>
         
         </p>
 
@@ -373,8 +373,7 @@
                     
 
                     <div class="param-description">
-                        <p>配置项，详细见下方:</p>
-
+                         
                     </div>
 
                     
@@ -382,68 +381,12 @@
                             
                             <li class="param">
                                 
-                                    <code class="param-name">content</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                    <code class="param-name">selectable=true</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
                                 
 
                                 <div class="param-description">
-                                    <p>按钮的显示内容</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">checkable</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>按钮是 toggle button</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">value</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选，按钮值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">describedby</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选，按钮节点的 aria-describedby 属性值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">tooltip</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选，按钮节点的 title 属性值</p>
+                                    <p>是否可以被选择，可以的话，单击会添加指定 class 到根节点</p>
 
                                 </div>
 
@@ -704,11 +647,11 @@
                                 <a href="#attr_active">active</a>
                             </li>
                         
-                            <li class="index-item attr">
+                            <li class="index-item attr inherited">
                                 <a href="#attr_checked">checked</a>
                             </li>
                         
-                            <li class="index-item attr inherited">
+                            <li class="index-item attr inherited inherited">
                                 <a href="#attr_content">content</a>
                             </li>
                         
@@ -748,15 +691,11 @@
                                 <a href="#attr_rendered">rendered</a>
                             </li>
                         
-                            <li class="index-item attr">
-                                <a href="#attr_tooltip">tooltip</a>
+                            <li class="index-item attr inherited">
+                                <a href="#attr_selected">selected</a>
                             </li>
                         
-                            <li class="index-item attr">
-                                <a href="#attr_value">value</a>
-                            </li>
-                        
-                            <li class="index-item attr">
+                            <li class="index-item attr inherited">
                                 <a href="#attr_value">value</a>
                             </li>
                         
@@ -873,13 +812,6 @@
                         
                             <li class="index-item event inherited">
                                 <a href="#event_beforeVisibleChange">beforeVisibleChange</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item event">
-                                <a href="#event_click">click</a>
 
                                 
                                 
@@ -3897,7 +3829,7 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="attr_checked" class="attr item">
+                    <div id="attr_checked" class="attr item inherited">
     <a name="config_checked"></a> 
     <h3 class="name"><code>checked</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
@@ -3919,15 +3851,12 @@ dog.run();</code></pre>
     <div class="meta">
         
             
-                
-                <p>
-                
-                Defined in
-                
+                <p>Inherited from
+                <a href="..\classes\Menu.Item.html#attr_checked">Menu.Item</a>:
             
         
         
-        <a href="../files/src_api_button.js.html#l22"><code>src\api\button.js:22</code></a>
+        <a href="../files/src_api_menu.js.html#l50"><code>src\api\menu.js:50</code></a>
         
         </p>
 
@@ -3937,7 +3866,7 @@ dog.run();</code></pre>
     </div>
 
     <div class="description">
-        <p>按钮是否是 checked 状态</p>
+        <p>当前菜单选是否被多选了</p>
 
     </div>
 
@@ -4000,7 +3929,7 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="attr_content" class="attr item">
+                    <div id="attr_content" class="attr item inherited">
     <a name="config_content"></a> 
     <h3 class="name"><code>content</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
@@ -4030,7 +3959,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_button.js.html#l17"><code>src\api\button.js:17</code></a>
+        <a href="../files/src_api_menu.js.html#l60"><code>src\api\menu.js:60</code></a>
         
         </p>
 
@@ -4040,7 +3969,7 @@ dog.run();</code></pre>
     </div>
 
     <div class="description">
-        <p>按钮的显示内容</p>
+        <p>当前菜单项的显示内容</p>
 
     </div>
 
@@ -5003,10 +4932,10 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="attr_tooltip" class="attr item">
-    <a name="config_tooltip"></a> 
-    <h3 class="name"><code>tooltip</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    <div id="attr_selected" class="attr item inherited">
+    <a name="config_selected"></a> 
+    <h3 class="name"><code>selected</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
 
     
 
@@ -5025,15 +4954,12 @@ dog.run();</code></pre>
     <div class="meta">
         
             
-                
-                <p>
-                
-                Defined in
-                
+                <p>Inherited from
+                <a href="..\classes\Menu.Item.html#attr_selected">Menu.Item</a>:
             
         
         
-        <a href="../files/src_api_button.js.html#l37"><code>src\api\button.js:37</code></a>
+        <a href="../files/src_api_menu.js.html#l45"><code>src\api\menu.js:45</code></a>
         
         </p>
 
@@ -5043,7 +4969,7 @@ dog.run();</code></pre>
     </div>
 
     <div class="description">
-        <p>按钮节点的 title 属性值</p>
+        <p>当前菜单项是否被选中</p>
 
     </div>
 
@@ -5051,10 +4977,10 @@ dog.run();</code></pre>
 
     
         <div class="emits box">
-            <h4>Fires event <code>tooltipChange</code></h4>
+            <h4>Fires event <code>selectedChange</code></h4>
 
             <p>
-            Fires when the value for the configuration attribute <code>tooltip</code> is
+            Fires when the value for the configuration attribute <code>selected</code> is
             changed. You can listen for the event using the <code>on</code> method if you
             wish to be notified before the attribute's value has changed, or
             using the <code>after</code> method if you wish to be notified after the
@@ -5106,10 +5032,10 @@ dog.run();</code></pre>
 </div>
 
                 
-                    <div id="attr_value" class="attr item">
+                    <div id="attr_value" class="attr item inherited">
     <a name="config_value"></a> 
     <h3 class="name"><code>value</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+    <span class="type">Any</span>
 
     
 
@@ -5128,15 +5054,12 @@ dog.run();</code></pre>
     <div class="meta">
         
             
-                
-                <p>
-                
-                Defined in
-                
+                <p>Inherited from
+                <a href="..\classes\Menu.Item.html#attr_value">Menu.Item</a>:
             
         
         
-        <a href="../files/src_api_button.js.html#l27"><code>src\api\button.js:27</code></a>
+        <a href="../files/src_api_menu.js.html#l55"><code>src\api\menu.js:55</code></a>
         
         </p>
 
@@ -5146,110 +5069,7 @@ dog.run();</code></pre>
     </div>
 
     <div class="description">
-        <p>按钮值</p>
-
-    </div>
-
-    
-
-    
-        <div class="emits box">
-            <h4>Fires event <code>valueChange</code></h4>
-
-            <p>
-            Fires when the value for the configuration attribute <code>value</code> is
-            changed. You can listen for the event using the <code>on</code> method if you
-            wish to be notified before the attribute's value has changed, or
-            using the <code>after</code> method if you wish to be notified after the
-            attribute's value has changed.
-            </p>
-
-            <div class="params">
-                <h4>Parameters:</h4>
-
-                <ul class="params-list">
-                    <li class="param">
-                        <code class="param-name">e</code>
-                        <span class="type">EventFacade</span>
-
-                        <div class="param-description">
-                            An Event Facade object with the following
-                            attribute-specific properties added:
-                        </div>
-
-                        <ul class="params-list">
-                            <li class="param">
-                                <code class="param-name">prevVal</code>
-                                <span class="type">Any</span>
-                                <div class="param-description">The value of the attribute, prior to it being set.</div>
-                            </li>
-                            <li class="param">
-                                <code class="param-name">newVal</code>
-                                <span class="type">Any</span>
-                                <div class="param-description">The value the attribute is to be set to.</div>
-                            </li>
-                            <li class="param">
-                                <code class="param-name">attrName</code>
-                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                <div class="param-description">The name of the attribute being set.</div>
-                            </li>
-                            <li class="param">
-                                <code class="param-name">subAttrName</code>
-                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                <div class="param-description">If setting a property within the attribute's value, the name of the sub-attribute property being set.</div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="attr_value" class="attr item">
-    <a name="config_value"></a> 
-    <h3 class="name"><code>value</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_button.js.html#l32"><code>src\api\button.js:32</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>按钮节点的 describedby 属性值</p>
+        <p>当前菜单项的值</p>
 
     </div>
 
@@ -6868,92 +6688,6 @@ dog.run();</code></pre>
 
                     </div>
 
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-
-    
-</div>
-
-                
-                    <div id="event_click" class="events item">
-    <h3 class="name"><code>click</code></h3>
-    <span class="type"></span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_api_button.js.html#l42"><code>src\api\button.js:42</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>当按钮被点击或被获得焦点后按键 enter|space 触发</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Event Payload:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">e</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>触发事件对象，类型 Event.Object</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">target</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>触发事件的按钮实例</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
                     
                 </li>
             

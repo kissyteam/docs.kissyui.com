@@ -40,6 +40,9 @@ YUI.add("yuidoc-meta", function(Y) {
         "Menu.Item",
         "Menu.PopupMenu",
         "Menu.SubMenu",
+        "MenuButton",
+        "MenuButton.Option",
+        "MenuButton.Select",
         "Node",
         "Path",
         "PopupDatePicker",
@@ -87,6 +90,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "json",
         "loader",
         "menu",
+        "menubutton",
         "node",
         "path",
         "promise",
@@ -232,6 +236,10 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "menu",
             "name": "menu"
+        },
+        {
+            "displayName": "menubutton",
+            "name": "menubutton"
         },
         {
             "displayName": "node",

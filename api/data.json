@@ -371,6 +371,21 @@
                 "Menu": 1
             }
         },
+        "src\\api\\menubutton.js": {
+            "name": "src\\api\\menubutton.js",
+            "modules": {
+                "menubutton": 1
+            },
+            "classes": {
+                "MenuButton": 1,
+                "MenuButton.Select": 1,
+                "MenuButton.Option": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "MenuButton": 1
+            }
+        },
         "src\\api\\node.js": {
             "name": "src\\api\\node.js",
             "modules": {
@@ -867,6 +882,22 @@
             "tag": "module",
             "file": "src\\api\\menu.js",
             "line": 119
+        },
+        "menubutton": {
+            "name": "menubutton",
+            "submodules": {},
+            "classes": {
+                "MenuButton": 1,
+                "MenuButton.Select": 1,
+                "MenuButton.Option": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "MenuButton": 1
+            },
+            "tag": "module",
+            "file": "src\\api\\menubutton.js",
+            "line": 99
         },
         "node": {
             "name": "node",
@@ -2741,6 +2772,98 @@
                         {
                             "name": "checked=true",
                             "description": "菜单项是否 checked，默认 true",
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            ]
+        },
+        "MenuButton": {
+            "name": "MenuButton",
+            "shortname": "MenuButton",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "menubutton",
+            "namespace": "",
+            "file": "src\\api\\menubutton.js",
+            "line": 5,
+            "is_constructor": 1,
+            "extends": "Button",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "menu",
+                            "description": "可选，下拉框菜单配置/实例，具体参考 [Menu](/5.0/api/classes/Menu.html) ，默认值:\n```\n{\n    xclass:'popupmenu'\n}\n\n```",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "matchElWidth",
+                            "description": "是否下拉菜单和按钮宽度一致。默认 true",
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            ]
+        },
+        "MenuButton.Select": {
+            "name": "MenuButton.Select",
+            "shortname": "MenuButton.Select",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "menubutton",
+            "namespace": "MenuButton",
+            "file": "src\\api\\menubutton.js",
+            "line": 67,
+            "extends": "MenuButton",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "defaultCaption",
+                            "description": "可选，下拉框没有可选项时的默认显示内容.",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ]
+        },
+        "MenuButton.Option": {
+            "name": "MenuButton.Option",
+            "shortname": "MenuButton.Option",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "menubutton",
+            "namespace": "MenuButton",
+            "file": "src\\api\\menubutton.js",
+            "line": 99,
+            "is_constructor": 1,
+            "extends": "Menu.Item",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "selectable=true",
+                            "description": "是否可以被选择，可以的话，单击会添加指定 class 到根节点",
                             "type": "Boolean"
                         }
                     ]
@@ -10422,6 +10545,172 @@
             "class": "Menu.SubMenu",
             "module": "menu",
             "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 20,
+            "description": "关联的下拉菜单实例/配置项",
+            "itemtype": "attribute",
+            "name": "menu",
+            "type": "Menu",
+            "class": "MenuButton",
+            "module": "menubutton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 25,
+            "description": "下拉菜单是否弹出，设置值可控制下拉菜单弹出与否.",
+            "itemtype": "attribute",
+            "name": "collapsed",
+            "type": "Boolean",
+            "class": "MenuButton",
+            "module": "menubutton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 30,
+            "description": "添加下拉菜单项",
+            "itemtype": "method",
+            "name": "addItem",
+            "params": [
+                {
+                    "name": "item",
+                    "description": "下拉菜单项",
+                    "type": "Menu.Item"
+                },
+                {
+                    "name": "index",
+                    "description": "添加的位置，默认最后一个位置",
+                    "type": "Number"
+                }
+            ],
+            "class": "MenuButton",
+            "module": "menubutton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 37,
+            "description": "删除指定下拉菜单项",
+            "itemtype": "method",
+            "name": "removeItem",
+            "params": [
+                {
+                    "name": "item",
+                    "description": "下拉菜单项",
+                    "type": "Menu.Item"
+                },
+                {
+                    "name": "index",
+                    "description": "添加的位置，默认最后一个位置",
+                    "type": "Number"
+                }
+            ],
+            "class": "MenuButton",
+            "module": "menubutton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 44,
+            "description": "删除所有下拉菜单项",
+            "itemtype": "method",
+            "name": "removeItems",
+            "params": [
+                {
+                    "name": "destroy",
+                    "description": "删除的同时是否销毁子菜单项。默认 false",
+                    "optional": true,
+                    "optdefault": "false"
+                }
+            ],
+            "class": "MenuButton",
+            "module": "menubutton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 50,
+            "description": "取得指定位置下拉菜单项",
+            "itemtype": "method",
+            "name": "getItemAt",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "取得的位置",
+                    "type": "Number"
+                }
+            ],
+            "class": "MenuButton",
+            "module": "menubutton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 56,
+            "description": "当子菜单项被点击后触发",
+            "itemtype": "event",
+            "name": "click",
+            "params": [
+                {
+                    "name": "e.target",
+                    "description": "当前被点击的菜单项",
+                    "type": "Menu.Item"
+                }
+            ],
+            "class": "MenuButton",
+            "module": "menubutton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 76,
+            "description": "下拉框的当前值",
+            "itemtype": "attribute",
+            "name": "value",
+            "type": "Any",
+            "class": "MenuButton.Select",
+            "module": "menubutton",
+            "namespace": "MenuButton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 81,
+            "description": "下拉框没有可选项时的默认显示内容",
+            "itemtype": "attribute",
+            "name": "defaultCaption",
+            "type": "String",
+            "class": "MenuButton.Select",
+            "module": "menubutton",
+            "namespace": "MenuButton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 86,
+            "description": "直接把原生 select 元素替换成 Select",
+            "itemtype": "method",
+            "name": "decorate",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "select元素",
+                    "type": "HTMLElement|KISSY.Node"
+                },
+                {
+                    "name": "cfg",
+                    "description": "配置对象，作用于 Select",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "menuCfg",
+                            "description": "下拉菜单配置对象，参照 [menu](/5.0/api/classes/Menu.html)",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Select"
+            },
+            "class": "MenuButton.Select",
+            "module": "menubutton",
+            "namespace": "MenuButton"
         },
         {
             "file": "src\\api\\node.js",
