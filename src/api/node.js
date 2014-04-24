@@ -64,7 +64,7 @@ $('div.foo').on("click",function() {
 @param selector {String} 选择器字符串
 @return {Node}
 @example
-查看[demo](/1.5/examples/node/instance_all.html)
+查看[demo](5.0/examples/node/instance_all.html)
 */
 
 /**
@@ -306,28 +306,28 @@ KISSY.use("node",function(S,Node){
 /**
 在当前节点列表上开始动画
 @method animate
-@param arg... 参数参考[Anim的构造函数](/1.5/api/classes/Anim.html)
+@param arg... 参数参考[Anim的构造函数](5.0/api/classes/Anim.html)
 @return {Node}
 */
 
 /**
 停止当前节点列表的动画, end, clearQueue, queueName, 涵义同 Anim.stop().
 @method stop
-@param [args..] 参考[Anim.stop](/1.5/api/classes/Anim.html#method_stop)
+@param [args..] 参考[Anim.stop](5.0/api/classes/Anim.html#method_stop)
 @return {Node}
 */
 
 /**
 暂停当前节点列表的动画
 @method pause
-@param [queueName] 涵义同 [Anim.pause](/1.5/api/classes/Anim.html#method_pause)
+@param [queueName] 涵义同 [Anim.pause](5.0/api/classes/Anim.html#method_pause)
 @return {Node}
 */
 
 /**
 继续当前节点列表的动画
 @method resume
-@param [queueName] 涵义同 [Anim.pause](/1.5/api/classes/Anim.html#method_pause)
+@param [queueName] 涵义同 [Anim.pause](5.0/api/classes/Anim.html#method_pause)
 @return {Node}
 */
 
@@ -372,7 +372,7 @@ KISSY.use("node",function(S,Node){
 @method fadeIn
 @param [speed] {Number} 单位秒, 动画持续时间, 不设置无动画
 @param [callback] {Function} 每个动画结束后回调函数
-@param [easing] {String} 动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)
+@param [easing] {String} 动画平滑函数,同[Anim](5.0/api/classes/Anim.html)
 @return {Node}
 */
 
@@ -381,7 +381,7 @@ KISSY.use("node",function(S,Node){
 @method fadeOut
 @param [speed] {Number} 单位秒, 动画持续时间, 不设置无动画
 @param [callback] {Function} 每个动画结束后回调函数
-@param [easing] {String} 动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)
+@param [easing] {String} 动画平滑函数,同[Anim](5.0/api/classes/Anim.html)
 @return {Node}
 */
 
@@ -390,7 +390,7 @@ KISSY.use("node",function(S,Node){
 @method fadeToggle
 @param [speed] {Number} 单位秒, 动画持续时间, 不设置无动画
 @param [callback] {Function} 每个动画结束后回调函数
-@param [easing] {String} 动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)
+@param [easing] {String} 动画平滑函数,同[Anim](5.0/api/classes/Anim.html)
 @return {Node}
 */
 
@@ -399,7 +399,7 @@ KISSY.use("node",function(S,Node){
 @method slideDown
 @param [speed] {Number} 单位秒, 动画持续时间, 不设置无动画
 @param [callback] {Function} 每个动画结束后回调函数
-@param [easing] {String} 动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)
+@param [easing] {String} 动画平滑函数,同[Anim](5.0/api/classes/Anim.html)
 @return {Node}
 */
 
@@ -408,7 +408,7 @@ KISSY.use("node",function(S,Node){
 @method slideUp
 @param [speed] {Number} 单位秒, 动画持续时间, 不设置无动画
 @param [callback] {Function} 每个动画结束后回调函数
-@param [easing] {String} 动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)
+@param [easing] {String} 动画平滑函数,同[Anim](5.0/api/classes/Anim.html)
 @return {Node}
 */
 
@@ -417,6 +417,6 @@ KISSY.use("node",function(S,Node){
 @method slideToggle
 @param [speed] {Number} 单位秒, 动画持续时间, 不设置无动画
 @param [callback] {Function} 每个动画结束后回调函数
-@param [easing] {String} 动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)
+@param [easing] {String} 动画平滑函数,同[Anim](5.0/api/classes/Anim.html)
 @return {Node}
 */

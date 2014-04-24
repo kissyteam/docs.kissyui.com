@@ -81,6 +81,8 @@
             
                 <li><a href="../classes/Feature.html">Feature</a></li>
             
+                <li><a href="../classes/GregorianCalendar.html">GregorianCalendar</a></li>
+            
                 <li><a href="../classes/IO.html">IO</a></li>
             
                 <li><a href="../classes/Json.html">Json</a></li>
@@ -148,6 +150,8 @@
                 <li><a href="../modules/cookie.html">cookie</a></li>
             
                 <li><a href="../modules/date_format.html">date/format</a></li>
+            
+                <li><a href="../modules/date_gregorian.html">date/gregorian</a></li>
             
                 <li><a href="../modules/date_picker.html">date/picker</a></li>
             
@@ -229,9 +233,96 @@
 @class DateTimeFormat
 @constructor
 @param pattern {String} 时间模式（具体写法参见下面的表格）
-![](/1.5/api/assets/img/project-img/date-format.jpg)
+![](/5.0/api/assets/img/project-img/date-format.jpg)
 @param locale {Object} 时区
 @param timeZoneOffset {Number} 时区时间偏移
+*/
+
+/**
+日期时间格式对象，形式如下：
+
+Style.FULL: yyyy年M月d日 EEEE ahh时mm分ss秒 GMTZ
+
+Style.LONG: yyyy年M月d日 ahh时mm分ss秒
+
+Style.MEDIUM: yyyy-M-d H:mm:ss
+
+Style.SHORT: yy-M-d ah:mm
+
+@attribute Style
+@type Object
+*/
+
+/**
+格式化传入的日历中的时间
+@method format
+@param calender {GregorianCalendar} 要格式化时间的公历对象
+@return {String}
+@example
+&#x60;&#x60;&#x60;
+//GregorianCalendar是另一个Class
+var gregorianCalendar = new GregorianCalendar(2013,GregorianCalendar.JULY, 11, 12, 31, 19);
+var df = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.FULL);
+df.format(gregorianCalendar);
+&#x60;&#x60;&#x60;
+*/
+
+/**
+解析时间字符串，转换成对应的公历对象
+@method parse
+@param dateStr {String} 要解析的时间字符串
+@return {GregorianCalendar}
+@example
+&#x60;&#x60;&#x60;
+var df = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.FULL);
+var str = &#x27;2013年7月11日 星期四 下午12时31分19秒 GMT+0800&#x27;;
+var cal = df.parse(str);
+&#x60;&#x60;&#x60;
+*/
+
+/**
+获取当前日期和时间在给定区域和时差下的默认格式化的 DateTimeFormat 对象
+@method getInstance
+@static
+@param locale {Object} 时区
+@param timeZoneOffset {Number} 时区时间偏移
+@return {String}
+@example
+&#x60;&#x60;&#x60;
+//相当于
+getDateTimeInstance(DateTimeStyle.SHORT, DateTimeStyle.SHORT, locale, timeZoneOffset)
+&#x60;&#x60;&#x60;
+*/
+
+/**
+获取当前日期在给定区域和时差及格式下的 DateTimeFormat 对象
+@method getDateInstance
+@static
+@param dateStyle {String} 日期格式,枚举型 DateTimeFormat.Style
+@param locale {Object} 时区
+@param timeZoneOffset {Number} 时区时间偏移
+@return {String}
+*/
+
+/**
+获取当前日期和时间在给定区域和时差及格式下的DateTimeFormat对象
+@method getDateTimeInstance
+@static
+@param dateStyle {String} 日期格式,枚举型 DateTimeFormat.Style
+@param timeStyle {String} 时间格式，枚举型 DateTimeFormat.Style
+@param locale {Object} 时区
+@param timeZoneOffset {Number} 时区时间偏移
+@return {String}
+*/
+
+/**
+获取当前时间在给定区域和时差及格式下的DateTimeFormat对象
+@method getTimeInstance
+@static
+@param timeStyle {String} 时间格式，枚举型 DateTimeFormat.Style
+@param locale {Object} 时区
+@param timeZoneOffset {Number} 时区时间偏移
+@return {String}
 */
     </pre>
 </div>

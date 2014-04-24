@@ -23,6 +23,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Event",
         "Event.Target",
         "Feature",
+        "GregorianCalendar",
         "IO",
         "Json",
         "Loader",
@@ -57,6 +58,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "component_plugin_resize",
         "cookie",
         "date_format",
+        "date_gregorian",
         "date_picker",
         "date_popup-picker",
         "dom",
@@ -141,6 +143,11 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "date/format",
             "name": "date_format"
+        },
+        {
+            "displayName": "date/gregorian",
+            "name": "date_gregorian",
+            "description": "公历模块,提供了时间转换，范围计算等功能。"
         },
         {
             "displayName": "date/picker",

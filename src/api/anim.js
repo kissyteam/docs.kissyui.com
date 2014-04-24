@@ -12,7 +12,7 @@
 * @param [duration=1] {Number}  默认为 1 , 动画持续时间, 以秒为单位 
 * @param [easing="easeNone"] {String} 默认为 "easeNone", 动画平滑函数, 
 * 可取值 "swing", "easeNone", "linear", "easeIn", "easeOut", "easeBoth","easeInStrong", "easeOutStrong","easeBothStrong","elasticIn","elasticOut", "elasticBoth","backIn","backOut","backBoth", "bounceIn","bounceOut","bounceBoth", "cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）". 
-* 效果预览, 可以参考[easing可视化](/1.5/examples/anim/easing.html)和[cubic-bezier可视化](/1.5/examples/anim/cubic-bezier.html)
+* 效果预览, 可以参考[easing可视化](5.0/examples/anim/easing.html)和[cubic-bezier可视化](5.0/examples/anim/cubic-bezier.html)
 * @param [completeFn] {Function} 动画到最后一帧后的回调函数
 
 * __Note: 构造器也可以如下面这样传参__

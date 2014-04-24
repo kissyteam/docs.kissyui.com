@@ -58,7 +58,7 @@ DOM.get有个快捷调用方式，可以直接通过KISSY.get调用
 @static
 @param selector {string|HTMLCollection|Array<HTMLElement>} 字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)
 @param [deep=false] {Boolean} 是否深度克隆（克隆节点的子孙节点）
-@param [withDataAndEvent=false] {Boolean} 节点是否具备源节点的[dom.data](#method_data)属性以及[事件](#/1.5/api/modules/event.html)
+@param [withDataAndEvent=false] {Boolean} 节点是否具备源节点的[dom.data](#method_data)属性以及[事件](#5.0/api/modules/event.html)
 @param [deepWithDataAndEvent=false] {Boolean} 子孙节点是否具备源节点对应子孙节点的[dom.data](#method_data)属性以及[事件](#module_event)
 @return {HTMLElement} 符合选择器的第一个元素的克隆元素
 __Note__
@@ -194,7 +194,7 @@ DOM.prop(c,"nodeName").toLowerCase() // => input
 @example
 __selectionStart/End 兼容__
 
-__在 ie 下对于 selectionStart/End 做了兼容处理，[demo](/1.5/examples/dom/selection-start.html)__
+__在 ie 下对于 selectionStart/End 做了兼容处理，[demo](5.0/examples/dom/selection-start.html)__
 */
 
 /**

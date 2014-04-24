@@ -116,6 +116,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\date\\gregorian.js": {
+            "name": "src\\api\\date\\gregorian.js",
+            "modules": {
+                "date/gregorian": 1
+            },
+            "classes": {
+                "GregorianCalendar": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\date\\picker.js": {
             "name": "src\\api\\date\\picker.js",
             "modules": {
@@ -491,6 +502,19 @@
             "file": "src\\api\\date\\format.js",
             "line": 5
         },
+        "date/gregorian": {
+            "name": "date/gregorian",
+            "submodules": {},
+            "classes": {
+                "GregorianCalendar": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 6,
+            "description": "公历模块,提供了时间转换，范围计算等功能。"
+        },
         "date/picker": {
             "name": "date/picker",
             "submodules": {},
@@ -801,7 +825,7 @@
                     "props": [
                         {
                             "name": "align",
-                            "description": "可选, 组件节点对齐的相关配置, 例如：\n```\n{\n    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域\n    points: ['tr','tl'], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐\n    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,\n                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.\n    overflow:{\n        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标\n        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标\n    }\n}\n```\npoints 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围\n第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示\n\n![alt text](/1.5/api/assets/img/project-img/align.png)",
+                            "description": "可选, 组件节点对齐的相关配置, 例如：\n```\n{\n    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域\n    points: ['tr','tl'], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐\n    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,\n                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.\n    overflow:{\n        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标\n        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标\n    }\n}\n```\npoints 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围\n第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示\n\n![alt text](5.0/api/assets/img/project-img/align.png)",
                             "type": "Object",
                             "optional": true
                         }
@@ -1119,7 +1143,7 @@
             "params": [
                 {
                     "name": "pattern",
-                    "description": "时间模式（具体写法参见下面的表格）\n![](/1.5/api/assets/img/project-img/date-format.jpg)",
+                    "description": "时间模式（具体写法参见下面的表格）\n![](/5.0/api/assets/img/project-img/date-format.jpg)",
                     "type": "String"
                 },
                 {
@@ -1131,6 +1155,27 @@
                     "name": "timeZoneOffset",
                     "description": "时区时间偏移",
                     "type": "Number"
+                }
+            ]
+        },
+        "GregorianCalendar": {
+            "name": "GregorianCalendar",
+            "shortname": "GregorianCalendar",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "date/gregorian",
+            "namespace": "",
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 6,
+            "description": "公历",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "params",
+                    "description": "参数列表，可以有不同的参数，如下：\n1. 参数组合1：\n   - timezoneOffset (Number) – 时区时间偏差，以分钟形式，偏移小时数乘以60\n2. 参数组合2:\n   - locale (Object) – 区域信息，包含时差，时间符号等的对象\n3. 参数组合3：\n   - timezoneOffset (Number) – 时区时间偏差，以分钟形式，偏移小时数乘以60\n   - locale (Object) – 区域信息，包含时差，时间符号等的对象\n4. 参数组合4，按照所给日期和时间在默认时区和默认区域创建公历：\n   - year (Number) \n   - [month, day, hour, minute, seconds] (可选) 对应域的值"
                 }
             ]
         },
@@ -1299,7 +1344,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "默认为 \"easeNone\", 动画平滑函数, \n可取值 \"swing\", \"easeNone\", \"linear\", \"easeIn\", \"easeOut\", \"easeBoth\",\"easeInStrong\", \"easeOutStrong\",\"easeBothStrong\",\"elasticIn\",\"elasticOut\", \"elasticBoth\",\"backIn\",\"backOut\",\"backBoth\", \"bounceIn\",\"bounceOut\",\"bounceBoth\", \"cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）\". \n效果预览, 可以参考[easing可视化](/1.5/examples/anim/easing.html)和[cubic-bezier可视化](/1.5/examples/anim/cubic-bezier.html)",
+                    "description": "默认为 \"easeNone\", 动画平滑函数, \n可取值 \"swing\", \"easeNone\", \"linear\", \"easeIn\", \"easeOut\", \"easeBoth\",\"easeInStrong\", \"easeOutStrong\",\"easeBothStrong\",\"elasticIn\",\"elasticOut\", \"elasticBoth\",\"backIn\",\"backOut\",\"backBoth\", \"bounceIn\",\"bounceOut\",\"bounceBoth\", \"cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）\". \n效果预览, 可以参考[easing可视化](5.0/examples/anim/easing.html)和[cubic-bezier可视化](5.0/examples/anim/cubic-bezier.html)",
                     "type": "String",
                     "optional": true,
                     "optdefault": "\"easeNone\""
@@ -1414,7 +1459,7 @@
             "namespace": "Base",
             "file": "src\\api\\base.js",
             "line": 194,
-            "description": "包含一些属性操作的方法，仅用于 [augment()](/1.5/api/classes/Util.html#method_augment)]",
+            "description": "包含一些属性操作的方法，仅用于 [augment()](5.0/api/classes/Util.html#method_augment)]",
             "is_constructor": 1
         },
         "Button": {
@@ -1662,7 +1707,7 @@
             "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
             "line": 180,
-            "description": "本地数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用",
+            "description": "本地数据源，配合[ComboBox](5.0/api/classes/ComboBox.html)使用",
             "is_constructor": 1,
             "params": [
                 {
@@ -1697,7 +1742,7 @@
             "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
             "line": 211,
-            "description": "数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用",
+            "description": "数据源，配合[ComboBox](5.0/api/classes/ComboBox.html)使用",
             "is_constructor": 1,
             "params": [
                 {
@@ -2086,7 +2131,7 @@
             "description": "### 简单使用\n```\nKISSY.use('promise',function(S,Promise){\n\tvar d = new Promise.Defer();\n    var promise = d.promise;\n    promise.then(function (v) {\n        return v + 1;\n    }).then(function (v) {\n            alert(v); // => 2\n        });\n    d.resolve(1); // 该位置也可以放在 then 前面\n});\n```",
             "is_constructor": 1,
             "return": {
-                "description": "promise 实例，外部不允许初始化。要通过[Defer()](/1.5/api/classes/Defer.html)来获取"
+                "description": "promise 实例，外部不允许初始化。要通过[Defer()](5.0/api/classes/Defer.html)来获取"
             }
         },
         "Promise.Defer": {
@@ -3110,6 +3155,1197 @@
             "module": "component/manager"
         },
         {
+            "file": "src\\api\\date\\format.js",
+            "line": 15,
+            "description": "日期时间格式对象，形式如下：\n\nStyle.FULL: yyyy年M月d日 EEEE ahh时mm分ss秒 GMTZ\n\nStyle.LONG: yyyy年M月d日 ahh时mm分ss秒\n\nStyle.MEDIUM: yyyy-M-d H:mm:ss\n\nStyle.SHORT: yy-M-d ah:mm",
+            "itemtype": "attribute",
+            "name": "Style",
+            "type": "Object",
+            "class": "DateTimeFormat",
+            "module": "date/format"
+        },
+        {
+            "file": "src\\api\\date\\format.js",
+            "line": 30,
+            "description": "格式化传入的日历中的时间",
+            "itemtype": "method",
+            "name": "format",
+            "params": [
+                {
+                    "name": "calender",
+                    "description": "要格式化时间的公历对象",
+                    "type": "GregorianCalendar"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "example": [
+                "\n```\n//GregorianCalendar是另一个Class\nvar gregorianCalendar = new GregorianCalendar(2013,GregorianCalendar.JULY, 11, 12, 31, 19);\nvar df = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.FULL);\ndf.format(gregorianCalendar);\n```"
+            ],
+            "class": "DateTimeFormat",
+            "module": "date/format"
+        },
+        {
+            "file": "src\\api\\date\\format.js",
+            "line": 44,
+            "description": "解析时间字符串，转换成对应的公历对象",
+            "itemtype": "method",
+            "name": "parse",
+            "params": [
+                {
+                    "name": "dateStr",
+                    "description": "要解析的时间字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "GregorianCalendar"
+            },
+            "example": [
+                "\n```\nvar df = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.FULL);\nvar str = '2013年7月11日 星期四 下午12时31分19秒 GMT+0800';\nvar cal = df.parse(str);\n```"
+            ],
+            "class": "DateTimeFormat",
+            "module": "date/format"
+        },
+        {
+            "file": "src\\api\\date\\format.js",
+            "line": 57,
+            "description": "获取当前日期和时间在给定区域和时差下的默认格式化的 DateTimeFormat 对象",
+            "itemtype": "method",
+            "name": "getInstance",
+            "static": 1,
+            "params": [
+                {
+                    "name": "locale",
+                    "description": "时区",
+                    "type": "Object"
+                },
+                {
+                    "name": "timeZoneOffset",
+                    "description": "时区时间偏移",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "example": [
+                "\n```\n//相当于\ngetDateTimeInstance(DateTimeStyle.SHORT, DateTimeStyle.SHORT, locale, timeZoneOffset)\n```"
+            ],
+            "class": "DateTimeFormat",
+            "module": "date/format"
+        },
+        {
+            "file": "src\\api\\date\\format.js",
+            "line": 71,
+            "description": "获取当前日期在给定区域和时差及格式下的 DateTimeFormat 对象",
+            "itemtype": "method",
+            "name": "getDateInstance",
+            "static": 1,
+            "params": [
+                {
+                    "name": "dateStyle",
+                    "description": "日期格式,枚举型 DateTimeFormat.Style",
+                    "type": "String"
+                },
+                {
+                    "name": "locale",
+                    "description": "时区",
+                    "type": "Object"
+                },
+                {
+                    "name": "timeZoneOffset",
+                    "description": "时区时间偏移",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "DateTimeFormat",
+            "module": "date/format"
+        },
+        {
+            "file": "src\\api\\date\\format.js",
+            "line": 81,
+            "description": "获取当前日期和时间在给定区域和时差及格式下的DateTimeFormat对象",
+            "itemtype": "method",
+            "name": "getDateTimeInstance",
+            "static": 1,
+            "params": [
+                {
+                    "name": "dateStyle",
+                    "description": "日期格式,枚举型 DateTimeFormat.Style",
+                    "type": "String"
+                },
+                {
+                    "name": "timeStyle",
+                    "description": "时间格式，枚举型 DateTimeFormat.Style",
+                    "type": "String"
+                },
+                {
+                    "name": "locale",
+                    "description": "时区",
+                    "type": "Object"
+                },
+                {
+                    "name": "timeZoneOffset",
+                    "description": "时区时间偏移",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "DateTimeFormat",
+            "module": "date/format"
+        },
+        {
+            "file": "src\\api\\date\\format.js",
+            "line": 92,
+            "description": "获取当前时间在给定区域和时差及格式下的DateTimeFormat对象",
+            "itemtype": "method",
+            "name": "getTimeInstance",
+            "static": 1,
+            "params": [
+                {
+                    "name": "timeStyle",
+                    "description": "时间格式，枚举型 DateTimeFormat.Style",
+                    "type": "String"
+                },
+                {
+                    "name": "locale",
+                    "description": "时区",
+                    "type": "Object"
+                },
+                {
+                    "name": "timeZoneOffset",
+                    "description": "时区时间偏移",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "DateTimeFormat",
+            "module": "date/format"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 23,
+            "description": "常量，星期日",
+            "itemtype": "attribute",
+            "name": "SUNDAY",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 29,
+            "description": "常量，星期一",
+            "itemtype": "attribute",
+            "name": "MONDAY",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 35,
+            "description": "常量，星期二",
+            "itemtype": "attribute",
+            "name": "TUESDAY",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 41,
+            "description": "常量，星期三",
+            "itemtype": "attribute",
+            "name": "WEDNESDAY",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 47,
+            "description": "常量，星期四",
+            "itemtype": "attribute",
+            "name": "THURSDAY",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 53,
+            "description": "常量，星期五",
+            "itemtype": "attribute",
+            "name": "FRIDAY",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 59,
+            "description": "常量，星期六",
+            "itemtype": "attribute",
+            "name": "SATURDAY",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 65,
+            "description": "常量，一月",
+            "itemtype": "attribute",
+            "name": "JANUARY",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 71,
+            "description": "常量，二月",
+            "itemtype": "attribute",
+            "name": "FEBRUARY",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 77,
+            "description": "常量，三月",
+            "itemtype": "attribute",
+            "name": "MARCH",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 83,
+            "description": "常量，四月",
+            "itemtype": "attribute",
+            "name": "APRIL",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 89,
+            "description": "常量，五月",
+            "itemtype": "attribute",
+            "name": "MAY",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 95,
+            "description": "常量，六月",
+            "itemtype": "attribute",
+            "name": "JUNE",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 101,
+            "description": "常量，七月",
+            "itemtype": "attribute",
+            "name": "JULY",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 107,
+            "description": "常量，八月",
+            "itemtype": "attribute",
+            "name": "AUGUST",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 113,
+            "description": "常量，九月",
+            "itemtype": "attribute",
+            "name": "SEPTEMBER",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 119,
+            "description": "常量，十月",
+            "itemtype": "attribute",
+            "name": "OCTOBER",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 125,
+            "description": "常量，十一月",
+            "itemtype": "attribute",
+            "name": "NOVEMBER",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 131,
+            "description": "常量，十二月",
+            "itemtype": "attribute",
+            "name": "DECEMBER",
+            "final": 1,
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 137,
+            "description": "判断当前的年份是否是闰年",
+            "itemtype": "method",
+            "name": "isLeapYear",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 144,
+            "description": "返回毫秒形式的当前日历的时间",
+            "itemtype": "method",
+            "name": "getTime",
+            "return": {
+                "description": "时间的毫秒形式",
+                "type": "Number"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 150,
+            "description": "通过所给的毫秒形式的值设置当前日历的时间",
+            "itemtype": "method",
+            "name": "setTime",
+            "params": [
+                {
+                    "name": "time",
+                    "description": "要设置的时间的毫秒形式",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 156,
+            "description": "获得传入的field对应的值",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "field",
+                    "description": "要获得的域的名字",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "对应域的值",
+                "type": "Number"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 163,
+            "description": "获得当前的年份",
+            "itemtype": "method",
+            "name": "getYear",
+            "return": {
+                "description": "当前年份的值",
+                "type": "Number"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 169,
+            "description": "获得当前的月份",
+            "itemtype": "method",
+            "name": "getMonth",
+            "return": {
+                "description": "当前月份的值",
+                "type": "Number"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 175,
+            "description": "获得当前的月份中的哪一天",
+            "itemtype": "method",
+            "name": "getDayOfMonth",
+            "return": {
+                "description": "第几天",
+                "type": "Number"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 181,
+            "description": "获得当前的天中的哪一小时",
+            "itemtype": "method",
+            "name": "getHourOfDay",
+            "return": {
+                "description": "哪一小时",
+                "type": "Number"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 187,
+            "description": "获得当前的分钟域的值",
+            "itemtype": "method",
+            "name": "getMinutes",
+            "return": {
+                "description": "对应的值",
+                "type": "Number"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 193,
+            "description": "获得当前的秒位的值，不是整体时间的秒值",
+            "itemtype": "method",
+            "name": "getMilliseconds",
+            "return": {
+                "description": "当前的毫秒值",
+                "type": "Number"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 204,
+            "description": "当前周是当前年中的第几周",
+            "itemtype": "method",
+            "name": "getWeekOfMonth",
+            "return": {
+                "description": "第几周",
+                "type": "Number"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 210,
+            "description": "当前天是当前周中的第几天",
+            "itemtype": "method",
+            "name": "getDayOfWeek",
+            "return": {
+                "description": "第几天",
+                "type": "Number"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 216,
+            "description": "当前周是这个月中这一周的第几天",
+            "itemtype": "method",
+            "name": "getDayOfWeekInMonth",
+            "return": {
+                "description": "第几天",
+                "type": "Number"
+            },
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 222,
+            "description": "设置对应日历域的值",
+            "itemtype": "method",
+            "name": "set",
+            "params": [
+                {
+                    "name": "field",
+                    "description": "要设置的域",
+                    "type": "String"
+                },
+                {
+                    "name": "v",
+                    "description": "对应域要设置的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 229,
+            "description": "设置日历的年份.",
+            "itemtype": "method",
+            "name": "setYear",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的年份",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 235,
+            "description": "设置日历的月份",
+            "itemtype": "method",
+            "name": "setMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的月份",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 241,
+            "description": "设置日历当前月中的某一天",
+            "itemtype": "method",
+            "name": "setDayOfMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的天",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 247,
+            "description": "设置当前的天中的哪一小时",
+            "itemtype": "method",
+            "name": "setHourOfDay",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的小时",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 253,
+            "description": "设置分钟域的值",
+            "itemtype": "method",
+            "name": "setMinutes",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 259,
+            "description": "设置秒位的值",
+            "itemtype": "method",
+            "name": "setSeconds",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 265,
+            "description": "设置毫秒位的值",
+            "itemtype": "method",
+            "name": "setMilliseconds",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 271,
+            "description": "设置为当前年的第几周",
+            "itemtype": "method",
+            "name": "setWeekOfYear",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 277,
+            "description": "设置为当前月的第几周",
+            "itemtype": "method",
+            "name": "setWeekOfMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 283,
+            "description": "设置为当前年中的第几天",
+            "itemtype": "method",
+            "name": "setDayOfYear",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 289,
+            "description": "设置为当前周中的第几天",
+            "itemtype": "method",
+            "name": "setDayOfWeek",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 295,
+            "description": "设置为当前月的当前周的第几天",
+            "itemtype": "method",
+            "name": "setDayOfWeekInMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "要设置的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 301,
+            "description": "增加对应日历域的值",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "field",
+                    "description": "要增加的域",
+                    "type": "String"
+                },
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 308,
+            "description": "增加日历的年份",
+            "itemtype": "method",
+            "name": "addYear",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 314,
+            "description": "增加日历的月份",
+            "itemtype": "method",
+            "name": "addMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 320,
+            "description": "增加日历当前月中的某一天",
+            "itemtype": "method",
+            "name": "addDayOfMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 326,
+            "description": "增加当前的天中的哪一小时",
+            "itemtype": "method",
+            "name": "addHourOfDay",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 332,
+            "description": "增加分钟域的值",
+            "itemtype": "method",
+            "name": "addMinutes",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 338,
+            "description": "增加秒位的值",
+            "itemtype": "method",
+            "name": "addSeconds",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 344,
+            "description": "增加毫秒位的值",
+            "itemtype": "method",
+            "name": "addMilliseconds",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 350,
+            "description": "增加为当前年的第几周",
+            "itemtype": "method",
+            "name": "addWeekOfYear",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 356,
+            "description": "增加为当前月的第几周",
+            "itemtype": "method",
+            "name": "addWeekOfMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 362,
+            "description": "增加为当前年中的第几天",
+            "itemtype": "method",
+            "name": "addDayOfYear",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 368,
+            "description": "增加为当前周中的第几天",
+            "itemtype": "method",
+            "name": "addDayOfWeek",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 374,
+            "description": "增加为当前月的当前周的第几天",
+            "itemtype": "method",
+            "name": "addDayOfWeekInMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 380,
+            "description": "增加对应日历域的值",
+            "itemtype": "method",
+            "name": "roll",
+            "params": [
+                {
+                    "name": "field",
+                    "description": "要增加的域",
+                    "type": "String"
+                },
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 387,
+            "description": "增加日历的年份",
+            "itemtype": "method",
+            "name": "rollYear",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 393,
+            "description": "增加日历的月份",
+            "itemtype": "method",
+            "name": "rollMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 399,
+            "description": "增加日历当前月中的某一天",
+            "itemtype": "method",
+            "name": "rollDayOfMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 405,
+            "description": "增加当前的天中的哪一小时",
+            "itemtype": "method",
+            "name": "rollHourOfDay",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 411,
+            "description": "增加分钟域的值",
+            "itemtype": "method",
+            "name": "rollMinutes",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 417,
+            "description": "增加秒位的值",
+            "itemtype": "method",
+            "name": "rollSeconds",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 423,
+            "description": "增加毫秒位的值",
+            "itemtype": "method",
+            "name": "rollMilliseconds",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 429,
+            "description": "增加为当前年的第几周",
+            "itemtype": "method",
+            "name": "rollWeekOfYear",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 435,
+            "description": "增加为当前月的第几周",
+            "itemtype": "method",
+            "name": "rollWeekOfMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 441,
+            "description": "增加为当前年中的第几天",
+            "itemtype": "method",
+            "name": "rollDayOfYear",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 447,
+            "description": "增加为当前周中的第几天",
+            "itemtype": "method",
+            "name": "rollDayOfWeek",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
+            "file": "src\\api\\date\\gregorian.js",
+            "line": 453,
+            "description": "增加为当前月的当前周的第几天",
+            "itemtype": "method",
+            "name": "rollDayOfWeekInMonth",
+            "params": [
+                {
+                    "name": "v",
+                    "description": "对应域要增加的值",
+                    "type": "Number"
+                }
+            ],
+            "class": "GregorianCalendar",
+            "module": "date/gregorian"
+        },
+        {
             "file": "src\\api\\date\\picker.js",
             "line": 27,
             "description": "当选择时触发的事件",
@@ -3875,7 +5111,7 @@
         {
             "file": "src\\api\\base.js",
             "line": 292,
-            "description": "每调用 [set()](/1.5/api/classes/Attribute.html#method_set) 一次后就触发一次该事件",
+            "description": "每调用 [set()](5.0/api/classes/Attribute.html#method_set) 一次后就触发一次该事件",
             "itemtype": "event",
             "name": "*change",
             "params": [
@@ -4299,7 +5535,7 @@
                 },
                 {
                     "name": "withDataAndEvent",
-                    "description": "节点是否具备源节点的[dom.data](#method_data)属性以及[事件](#/1.5/api/modules/event.html)",
+                    "description": "节点是否具备源节点的[dom.data](#method_data)属性以及[事件](#5.0/api/modules/event.html)",
                     "type": "Boolean",
                     "optional": true,
                     "optdefault": "false"
@@ -4633,7 +5869,7 @@
                 }
             ],
             "example": [
-                "\n__selectionStart/End 兼容__\n\n__在 ie 下对于 selectionStart/End 做了兼容处理，[demo](/1.5/examples/dom/selection-start.html)__"
+                "\n__selectionStart/End 兼容__\n\n__在 ie 下对于 selectionStart/End 做了兼容处理，[demo](5.0/examples/dom/selection-start.html)__"
             ],
             "class": "Dom",
             "module": "dom"
@@ -6281,7 +7517,7 @@
                 }
             ],
             "example": [
-                "\n__Note1__\n\n该方法是 on 方法的增强. 当 on 方法被调用时, 符合选择器的元素被绑定事件处理器, 而后面添加的元素则没有, 即他们需要另外一次绑定, 例如\n```\n<body>\n  <div class=\"clickme\">\n    Click here\n  </div>\n</body>\n```\n绑定一个 click 事件的事件触发器：\n```\nEvent.on('.clickme','click', function() {\n  // Bound handler called.\n});\n```\n当该元素被点击时, 调用对应的事件处理器. 但是如果新加入一个元素：\n\n`KISSY.Node.all('body').append('<div class=\"clickme\">Another target</div>');`\n\n新元素匹配选择器 clickme ,但是他如果不再次 on , 则在他上面的点击不会有任何效果.\ndelegate 方法提供了解决方法, 如果这样调用：\n```\nEvent.delegate(document,'click','.clickme',function(){\n   // Bound handler called.\n});\n```\n这样的话如果今后又添加了一个元素\n```\nKISSY.Node.all('body').append('<div class=\"clickme\">Another target</div>');\n```\n在新元素上点击仍然会调用之前的事件处理器.\n\n可以使用 undelegate 来移除之前的绑定:\n```\nfunction d(){\n}\n\nEvent.delegate(document,'click','.clickme',d);\n\nEvent.undelegate(document,'click','.clickme',d);\n```\n\n__Note2__\n\n- 不能在 object , embed , applet 元素上注册事件\n- 事件处理器回调函数中 this 指向 scope (没指定指向绑定事件的元素), 传入的参数为 event , event.target 指向事件触发源, event.currentTarget 指向当前事件处理器调用所在的匹配 filter 的元素\n- 可以使用 stopPropagation() 来停止事件的向上冒泡, 这样就不会在同样符合 filter 条件的祖先节点上调用事件处理器\n- 同样可以对 mouseenter , mouseleave 进行委托\n- 因为 delegate 是在事件冒泡到代理元素后才开始处理的，那么通过 on 注册到代理元素的子节点的事件处理器已经被触发， 而无法被 delegate 绑定的事件处理器阻止 ( stopPropagation )，但 delegate 事件处理器可以阻止绑定到同一元素但是匹配元素在当前事件处理器之上的 delegate 事件处理器\n\n__这里有三个demo供参考理解__\n1. [委托实现点击通知](/1.5/examples/event/delegate.html)\n2. [阻止事件向上冒泡](/1.5/examples/event/delegate_2.html)\n3. [委托 mouseenter/mouseleave](/1.5/examples/event/delegate_3.html)"
+                "\n__Note1__\n\n该方法是 on 方法的增强. 当 on 方法被调用时, 符合选择器的元素被绑定事件处理器, 而后面添加的元素则没有, 即他们需要另外一次绑定, 例如\n```\n<body>\n  <div class=\"clickme\">\n    Click here\n  </div>\n</body>\n```\n绑定一个 click 事件的事件触发器：\n```\nEvent.on('.clickme','click', function() {\n  // Bound handler called.\n});\n```\n当该元素被点击时, 调用对应的事件处理器. 但是如果新加入一个元素：\n\n`KISSY.Node.all('body').append('<div class=\"clickme\">Another target</div>');`\n\n新元素匹配选择器 clickme ,但是他如果不再次 on , 则在他上面的点击不会有任何效果.\ndelegate 方法提供了解决方法, 如果这样调用：\n```\nEvent.delegate(document,'click','.clickme',function(){\n   // Bound handler called.\n});\n```\n这样的话如果今后又添加了一个元素\n```\nKISSY.Node.all('body').append('<div class=\"clickme\">Another target</div>');\n```\n在新元素上点击仍然会调用之前的事件处理器.\n\n可以使用 undelegate 来移除之前的绑定:\n```\nfunction d(){\n}\n\nEvent.delegate(document,'click','.clickme',d);\n\nEvent.undelegate(document,'click','.clickme',d);\n```\n\n__Note2__\n\n- 不能在 object , embed , applet 元素上注册事件\n- 事件处理器回调函数中 this 指向 scope (没指定指向绑定事件的元素), 传入的参数为 event , event.target 指向事件触发源, event.currentTarget 指向当前事件处理器调用所在的匹配 filter 的元素\n- 可以使用 stopPropagation() 来停止事件的向上冒泡, 这样就不会在同样符合 filter 条件的祖先节点上调用事件处理器\n- 同样可以对 mouseenter , mouseleave 进行委托\n- 因为 delegate 是在事件冒泡到代理元素后才开始处理的，那么通过 on 注册到代理元素的子节点的事件处理器已经被触发， 而无法被 delegate 绑定的事件处理器阻止 ( stopPropagation )，但 delegate 事件处理器可以阻止绑定到同一元素但是匹配元素在当前事件处理器之上的 delegate 事件处理器\n\n__这里有三个demo供参考理解__\n1. [委托实现点击通知](5.0/examples/event/delegate.html)\n2. [阻止事件向上冒泡](5.0/examples/event/delegate_2.html)\n3. [委托 mouseenter/mouseleave](5.0/examples/event/delegate_3.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -6389,7 +7625,7 @@
                 "type": "Boolean"
             },
             "example": [
-                "\n这里有个[demo](/1.5/examples/event/fire.html),点击第二个按钮手动触发第一个按钮的点击, 简便起见使用node模块提供的接口."
+                "\n这里有个[demo](5.0/examples/event/fire.html),点击第二个按钮手动触发第一个按钮的点击, 简便起见使用node模块提供的接口."
             ],
             "class": "Event",
             "module": "event"
@@ -6433,7 +7669,7 @@
             "itemtype": "event",
             "name": "focusin",
             "example": [
-                "\n[监听 form 中输入域的聚焦情况](/1.5/examples/event/focusin.html)"
+                "\n[监听 form 中输入域的聚焦情况](5.0/examples/event/focusin.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -6445,7 +7681,7 @@
             "itemtype": "event",
             "name": "focusout",
             "example": [
-                "\n[监听 form 中输入域的聚焦情况](/1.5/examples/event/focusout.html)"
+                "\n[监听 form 中输入域的聚焦情况](5.0/examples/event/focusout.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -6457,7 +7693,7 @@
             "itemtype": "event",
             "name": "hashchange",
             "example": [
-                "\n```\nvar $=KISSY.all;\n$(window).on(\"hashchange\",function(){\n    // location.hash -> 当前 hash 值\n});\n```\n[hash 驱动的单页面应用设计](/1.5/examples/event/hashchange.html)"
+                "\n```\nvar $=KISSY.all;\n$(window).on(\"hashchange\",function(){\n    // location.hash -> 当前 hash 值\n});\n```\n[hash 驱动的单页面应用设计](5.0/examples/event/hashchange.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -6469,7 +7705,7 @@
             "itemtype": "event",
             "name": "valuechange",
             "example": [
-                "\n```\nKISSY.Event.on(input,\"valuechange\",function(e){\n        alert(e.prevVal); // => 旧值\n        alert(e.newVal); // => 新值\n});\n```\n[打开拼音输入法，输入时直接鼠标选词demo](/1.5/examples/event/valuechange.html)"
+                "\n```\nKISSY.Event.on(input,\"valuechange\",function(e){\n        alert(e.prevVal); // => 旧值\n        alert(e.newVal); // => 新值\n});\n```\n[打开拼音输入法，输入时直接鼠标选词demo](5.0/examples/event/valuechange.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -6499,7 +7735,7 @@
             "itemtype": "event",
             "name": "mousewheel",
             "example": [
-                "\n[demo](/1.5/examples/event/mousewheel.html)"
+                "\n[demo](5.0/examples/event/mousewheel.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -6511,7 +7747,7 @@
             "itemtype": "event",
             "name": "doubleTap",
             "example": [
-                "\n需要在移动设备上面打开：[demo](/1.5/examples/event/double-tap.html)"
+                "\n需要在移动设备上面打开：[demo](5.0/examples/event/double-tap.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -6523,7 +7759,7 @@
             "itemtype": "event",
             "name": "singleTap",
             "example": [
-                "\n需要在移动设备上面打开：[demo](/1.5/examples/event/singel-tap.html)\n```\n<!doctype html>\n<html>\n<head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\"\n          content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"apple-touch-fullscreen\" content=\"yes\">\n    <script src=\"http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js\" data-config=\"{combine:true}\"></script>\n</head>\n<body>\n\n<h1>open in ios safari to test doubleTap event</h1>\n\n<div id='t' tabindex='0'\n     style='border:1px solid green;\n     width:100px;height:100px;margin:10px'>\n    tap me\n</div>\n\n<script>\n\n    KISSY.use('event', function (S, Event) {\n\n        Event.on('#t', \"singleTap doubleTap\", function (e) {\n            alert(e.type + ' : fired');\n        });\n\n    });\n\n</script>\n</body>\n</html>\n```"
+                "\n需要在移动设备上面打开：[demo](5.0/examples/event/singel-tap.html)\n```\n<!doctype html>\n<html>\n<head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\"\n          content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"apple-touch-fullscreen\" content=\"yes\">\n    <script src=\"http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js\" data-config=\"{combine:true}\"></script>\n</head>\n<body>\n\n<h1>open in ios safari to test doubleTap event</h1>\n\n<div id='t' tabindex='0'\n     style='border:1px solid green;\n     width:100px;height:100px;margin:10px'>\n    tap me\n</div>\n\n<script>\n\n    KISSY.use('event', function (S, Event) {\n\n        Event.on('#t', \"singleTap doubleTap\", function (e) {\n            alert(e.type + ' : fired');\n        });\n\n    });\n\n</script>\n</body>\n</html>\n```"
             ],
             "class": "Event",
             "module": "event"
@@ -6535,7 +7771,7 @@
             "itemtype": "event",
             "name": "tap",
             "example": [
-                "\n需要在移动设备上面打开：[demo](/1.5/examples/event/tap.html)\n```\n\n<!doctype html>\n<html>\n<head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\"\n          content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"apple-touch-fullscreen\" content=\"yes\">\n    <script src=\"http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js\" data-config=\"{combine:true}\"></script>\n</head>\n<body>\n\n<h1>open in ios safari to test tap event</h1>\n\n<div id='t' tabindex='0'\n     style='border:1px solid green;\n     width:100px;height:100px;margin:10px'>\n    tap me\n</div>\n\n<script>\n\n    KISSY.use('event', function (S, Event) {\n\n        Event.on('#t', \"tap singleTap doubleTap\", function (e) {\n            alert(e.type + ' : fired');\n        });\n\n    });\n\n</script>\n</body>\n</html>\n```"
+                "\n需要在移动设备上面打开：[demo](5.0/examples/event/tap.html)\n```\n\n<!doctype html>\n<html>\n<head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\"\n          content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"apple-touch-fullscreen\" content=\"yes\">\n    <script src=\"http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js\" data-config=\"{combine:true}\"></script>\n</head>\n<body>\n\n<h1>open in ios safari to test tap event</h1>\n\n<div id='t' tabindex='0'\n     style='border:1px solid green;\n     width:100px;height:100px;margin:10px'>\n    tap me\n</div>\n\n<script>\n\n    KISSY.use('event', function (S, Event) {\n\n        Event.on('#t', \"tap singleTap doubleTap\", function (e) {\n            alert(e.type + ' : fired');\n        });\n\n    });\n\n</script>\n</body>\n</html>\n```"
             ],
             "class": "Event",
             "module": "event"
@@ -6610,7 +7846,7 @@
             "itemtype": "event",
             "name": "shake",
             "example": [
-                "\n需要在移动设备上面打开：[demo](/1.5/examples/event/shake.html)\n```\n var S = KISSY;\n\n    S.use('event', function (S, Event) {\n        Event.on(window, 'shake', function (e) {\n            alert('i know u shake !');\n        });\n    });\n```"
+                "\n需要在移动设备上面打开：[demo](5.0/examples/event/shake.html)\n```\n var S = KISSY;\n\n    S.use('event', function (S, Event) {\n        Event.on(window, 'shake', function (e) {\n            alert('i know u shake !');\n        });\n    });\n```"
             ],
             "class": "Event",
             "module": "event"
@@ -7624,7 +8860,7 @@
                 "type": "Node"
             },
             "example": [
-                "\n查看[demo](/1.5/examples/node/instance_all.html)"
+                "\n查看[demo](5.0/examples/node/instance_all.html)"
             ],
             "class": "Node",
             "module": "node"
@@ -8054,7 +9290,7 @@
             "params": [
                 {
                     "name": "arg...",
-                    "description": "参数参考[Anim的构造函数](/1.5/api/classes/Anim.html)"
+                    "description": "参数参考[Anim的构造函数](5.0/api/classes/Anim.html)"
                 }
             ],
             "return": {
@@ -8073,7 +9309,7 @@
             "params": [
                 {
                     "name": "args..",
-                    "description": "参考[Anim.stop](/1.5/api/classes/Anim.html#method_stop)",
+                    "description": "参考[Anim.stop](5.0/api/classes/Anim.html#method_stop)",
                     "optional": true
                 }
             ],
@@ -8093,7 +9329,7 @@
             "params": [
                 {
                     "name": "queueName",
-                    "description": "涵义同 [Anim.pause](/1.5/api/classes/Anim.html#method_pause)",
+                    "description": "涵义同 [Anim.pause](5.0/api/classes/Anim.html#method_pause)",
                     "optional": true
                 }
             ],
@@ -8113,7 +9349,7 @@
             "params": [
                 {
                     "name": "queueName",
-                    "description": "涵义同 [Anim.pause](/1.5/api/classes/Anim.html#method_pause)",
+                    "description": "涵义同 [Anim.pause](5.0/api/classes/Anim.html#method_pause)",
                     "optional": true
                 }
             ],
@@ -8252,7 +9488,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }
@@ -8285,7 +9521,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }
@@ -8318,7 +9554,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }
@@ -8351,7 +9587,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }
@@ -8384,7 +9620,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }
@@ -8417,7 +9653,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](/1.5/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }

@@ -178,7 +178,7 @@ KISSY.use('combobox',function(S,ComboBox){
 */
 
 /**
-本地数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用
+本地数据源，配合[ComboBox](5.0/api/classes/ComboBox.html)使用
 @class LocalDataSource
 @constructor
 @namespace ComboBox
@@ -209,7 +209,7 @@ function parser(inputVal, data) {
 
 
 /**
-数据源，配合[ComboBox](/1.5/api/classes/ComboBox.html)使用
+数据源，配合[ComboBox](5.0/api/classes/ComboBox.html)使用
 @class RemoteDataSource
 @constructor
 @namespace ComboBox
