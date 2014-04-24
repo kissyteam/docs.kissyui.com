@@ -149,6 +149,39 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\dd\\plugin\\constrain.js": {
+            "name": "src\\api\\dd\\plugin\\constrain.js",
+            "modules": {
+                "dd/plugin/constrain": 1
+            },
+            "classes": {
+                "Constrain": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\dd\\plugin\\proxy.js": {
+            "name": "src\\api\\dd\\plugin\\proxy.js",
+            "modules": {
+                "dd/plugin/proxy": 1
+            },
+            "classes": {
+                "Proxy": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\dd\\plugin\\scroll.js": {
+            "name": "src\\api\\dd\\plugin\\scroll.js",
+            "modules": {
+                "dd/plugin/scroll": 1
+            },
+            "classes": {
+                "Scroll": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\xtemplate\\runtime.js": {
             "name": "src\\api\\xtemplate\\runtime.js",
             "modules": {
@@ -223,6 +256,23 @@
             },
             "fors": {},
             "namespaces": {}
+        },
+        "src\\api\\dd.js": {
+            "name": "src\\api\\dd.js",
+            "modules": {
+                "dd": 1
+            },
+            "classes": {
+                "DD.Draggable": 1,
+                "DD.Droppable": 1,
+                "DD.DDM": 1,
+                "DD.DraggableDelegate": 1,
+                "DD.DroppableDelegate": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "DD": 1
+            }
         },
         "src\\api\\dom.js": {
             "name": "src\\api\\dom.js",
@@ -541,6 +591,42 @@
             "line": 6,
             "description": "浮层式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能"
         },
+        "dd/plugin/constrain": {
+            "name": "dd/plugin/constrain",
+            "submodules": {},
+            "classes": {
+                "Constrain": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\dd\\plugin\\constrain.js",
+            "line": 5
+        },
+        "dd/plugin/proxy": {
+            "name": "dd/plugin/proxy",
+            "submodules": {},
+            "classes": {
+                "Proxy": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\dd\\plugin\\proxy.js",
+            "line": 5
+        },
+        "dd/plugin/scroll": {
+            "name": "dd/plugin/scroll",
+            "submodules": {},
+            "classes": {
+                "Scroll": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\dd\\plugin\\scroll.js",
+            "line": 5
+        },
         "xtemplate/runtime": {
             "name": "xtemplate/runtime",
             "submodules": {},
@@ -624,6 +710,25 @@
             "file": "src\\api\\cookie.js",
             "line": 6,
             "description": "提供类Cookie"
+        },
+        "dd": {
+            "name": "dd",
+            "submodules": {},
+            "classes": {
+                "DD.Draggable": 1,
+                "DD.Droppable": 1,
+                "DD.DDM": 1,
+                "DD.DraggableDelegate": 1,
+                "DD.DroppableDelegate": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "DD": 1
+            },
+            "tag": "module",
+            "file": "src\\api\\dd.js",
+            "line": 329,
+            "description": "拖放功能\n\n#Note \n支持 win8 的触摸事件"
         },
         "dom": {
             "name": "dom",
@@ -1264,6 +1369,119 @@
                 "\n```\nKISSY.use('date/popup-picker',function(S, PopupDatePicker){\n    // use PopupDatePicker\n});\n```"
             ]
         },
+        "Constrain": {
+            "name": "Constrain",
+            "shortname": "Constrain",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "dd/plugin/constrain",
+            "namespace": "",
+            "file": "src\\api\\dd\\plugin\\constrain.js",
+            "line": 5,
+            "is_constructor": 1,
+            "extends": "Base",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "constrain",
+                            "description": "\n- 取值选择器字符串时, 则在限制拖动范围为根据该选择器字符串取到的第一个节点所在区域.\n- 取 KISSY.Node 时，则限制拖动范围为该节点所在区域.\n- 取值 true 时, 只能在当前视窗范围内拖动.\n- 取值 false 时, 可任意移动, 例如以扩充了该组件的 dialog 为例\n\n\n```\nKISSY.use(\"dd,dd/plugin/constrain\",function(S,DD,Constrain){\n   new DD.Draggable({\n       node:'#drag',\n       plugins:[ new Constrain({\n           constrain:window // 限制拖动区域为视窗区域\n       }) ]\n   });\n});\n\nKISSY.use(\"dd,dd/plugin/constrain\",function(S,DD,Constrain){\n    new DD.Draggable({\n        node:'#drag',\n        plugins:[ new Constrain({\n            constrain:'#container' // 限制拖动区域为 container 节点所占据区域\n        }) ]\n    });\n });\n ```",
+                            "type": "Boolean | String | KISSY.Node"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Proxy": {
+            "name": "Proxy",
+            "shortname": "Proxy",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "dd/plugin/proxy",
+            "namespace": "",
+            "file": "src\\api\\dd\\plugin\\proxy.js",
+            "line": 5,
+            "description": "Draggable 插件,可代理拖放对象",
+            "is_constructor": 1,
+            "extends": "Base",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "node",
+                            "description": "当 Draggable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Draggable 对象, 返回值类型为 KISSY.Node . 即代理节点和当前节点保持一致,该属性有默认值,如下：\n```\nfunction(drag) {\n    return new Node(drag.get(\"node\")[0].cloneNode(true));\n}\n```",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "destroyOnEnd=false",
+                            "description": "默认 false. 指明是否代理节点需要每次拖放前 dragstart 生成, 拖放后 dragend 销毁. 用于多 Draggable 对象共享一个 Proxy 对象实例, 且要求代理节点和单个 Draggable 对象关联, 或者一个 DraggableDelegate 对象共享一个 Proxy 对象实例",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "moveOnEnd=true",
+                            "description": "默认 true. 当拖放结束时，是否移动源节点到代理节点的位置.",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "hideNodeOnDrag=false",
+                            "description": "默认 false. 拖放时是否隐藏源节点",
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Scroll": {
+            "name": "Scroll",
+            "shortname": "Scroll",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "dd/plugin/scroll",
+            "namespace": "",
+            "file": "src\\api\\dd\\plugin\\scroll.js",
+            "line": 5,
+            "is_constructor": 1,
+            "extends": "Base",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "node",
+                            "description": "自动滚动容器, 随其内的可拖放节点自动滚动.",
+                            "type": "String | HTMLElement | window"
+                        },
+                        {
+                            "name": "rate",
+                            "description": "长度为 2, 默认值 [10,10] . 表示容器自动滚动的速度, 数组元素 1 表示横向滚动的速度, 数组元素 2 表示纵向滚动的速度.",
+                            "type": "Array<number>"
+                        },
+                        {
+                            "name": "diff",
+                            "description": "长度为 2, 默认值 [20,20] . 当鼠标进入容器内边缘区域时开始自动滚动. 数组元素 1 表示横向容器内边缘宽度, 数组元素 2 表示纵向容器内边缘宽度.",
+                            "type": "Array<Number>"
+                        }
+                    ]
+                }
+            ]
+        },
         "XTemplateRunTime": {
             "name": "XTemplateRunTime",
             "shortname": "XTemplateRunTime",
@@ -1793,6 +2011,203 @@
             "line": 6,
             "description": "操作cookie\n__Note__\n\n推荐阅读 NCZ 的这篇文章： [HTTP cookies explained](http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/)",
             "static": 1
+        },
+        "DD.Draggable": {
+            "name": "DD.Draggable",
+            "shortname": "DD.Draggable",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "dd",
+            "namespace": "DD",
+            "file": "src\\api\\dd.js",
+            "line": 10,
+            "is_constructor": 1,
+            "extends": "Base",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "实例化可拖放对象的配置项, 如下：",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "node",
+                            "description": "将要进行拖放的节点",
+                            "type": "String|HTMLElement"
+                        },
+                        {
+                            "name": "groups",
+                            "description": "可拖动对象在的组。（设置后只和本组的droppable对象交互），默认值为true, 可以和所有组的 droppable 都交互。 若不需要和任何droppable 交互，为了性能，请设置 groups 为 false. 例如： {‘x’:1,’y’:1} 表示属于 x 和 y 组",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "handlers",
+                            "description": "作为鼠标在其上按下时触发节点拖放的钩子. 字符串时表示选择器字符串. 如果不设置, 则整个 node 作为触发钩子.\n#### handlers 的每个元素 DOM 节点必须位于配置项 node DOM 子树中.",
+                            "type": "Array<String|HTMLElement>"
+                        },
+                        {
+                            "name": "clickPixelThresh=3",
+                            "description": "默认 3, 表示鼠标按下后移动多少像素后触发 dragstart 事件",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "bufferTime=1000",
+                            "description": "默认 1000, 表示鼠标按下多长时间后触发 dragstart 事件. 可通过 DDM.set(“bufferTime”,xx) 设置.",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "disabled=false",
+                            "description": "是否禁用改拖对象功能",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "move=false",
+                            "description": "默认 false。关联元素是否随鼠标移动。（例如：resize 功能完全不需要关联元素移动）",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "mode='point'",
+                            "description": "枚举值, 默认值 “point”, 和 Droppable 关联, 决定何时和可放对象开始交互(触发相应事件), 可取值 “point”,”intersect”,”strict”\n- 在 “point” 模式下, 只要鼠标略过可放对象, 即开始和可放对象交互.\n- 在 “intersect” 模式下, 只要拖动对象和可放对象有交集, 即开始和可放对象交互.\n- 在 “strict” 模式下, 只有拖动对象完全位于可放对象内, 才开始和可放对象交互",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\nDraggable 默认实例化后仅表示会根据鼠标拖放触发 drag() 事件, 并不会导致节点移动， 通过以下设置来使得节点跟随鼠标移动：\n\n设置 move 为 true.\n```\nnew Draggable({\n    node:\"#d\",\n    move:true\n});\n```"
+            ]
+        },
+        "DD.Droppable": {
+            "name": "DD.Droppable",
+            "shortname": "DD.Droppable",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "dd",
+            "namespace": "DD",
+            "file": "src\\api\\dd.js",
+            "line": 140,
+            "is_constructor": 1,
+            "extends": "Base",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "node",
+                            "description": "可与拖动对象交互的节点.",
+                            "type": "String | HTMLElement"
+                        },
+                        {
+                            "name": "groups",
+                            "description": "可与拖动对象交互的节点. 例如： {‘x’:1,’y’:1} 表示属于 x 和 y 组.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "disabled=false",
+                            "description": "默认 false。是否禁用改拖对象功能.",
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            ]
+        },
+        "DD.DDM": {
+            "name": "DD.DDM",
+            "shortname": "DDM",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "dd",
+            "namespace": "DD",
+            "file": "src\\api\\dd.js",
+            "line": 187,
+            "description": "拖放的中央控制对象, 所有的拖放实例的事件都会向其冒泡.",
+            "extends": "Base",
+            "static": 1
+        },
+        "DD.DraggableDelegate": {
+            "name": "DD.DraggableDelegate",
+            "shortname": "DraggableDelegate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "dd",
+            "namespace": "DD",
+            "file": "src\\api\\dd.js",
+            "line": 305,
+            "description": "委托容器内的所有 Draggable 节点的拖放行为.",
+            "is_constructor": 1,
+            "extends": "DD.Draggable",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "container",
+                            "description": "用于委托的容器节点, 所有 Draggable 节点都在其内",
+                            "type": "String | HTMLElement"
+                        },
+                        {
+                            "name": "selector",
+                            "description": "用来获取容器内的 Draggable 节点, 格式为 tag 或 tag.cls 或 .cls",
+                            "type": "String"
+                        },
+                        {
+                            "name": "handlers",
+                            "description": "数组每个元素是选择器字符串, 格式为 tag 或 tag.cls 或 .cls, 作为鼠标在其上按下时触发节点拖放的钩子. 如果不设置, 则整个可拖放节点都作为触发钩子. 其中可拖放节点通过 selector 从容器 container 中取得",
+                            "type": "Array"
+                        }
+                    ]
+                }
+            ]
+        },
+        "DD.DroppableDelegate": {
+            "name": "DD.DroppableDelegate",
+            "shortname": "DroppableDelegate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "dd",
+            "namespace": "DD",
+            "file": "src\\api\\dd.js",
+            "line": 329,
+            "description": "为 Draggable 对象提供所需要的代理节点",
+            "is_constructor": 1,
+            "extends": "DD.Droppable",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "container",
+                            "description": "用于委托的容器节点, 所有 Draggable 节点都在其内",
+                            "type": "String | HTMLElement"
+                        },
+                        {
+                            "name": "selector",
+                            "description": "用来获取容器内的 Draggable 节点, 格式为 tag 或 tag.cls 或 .cls",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ]
         },
         "Dom": {
             "name": "Dom",
@@ -5392,6 +5807,813 @@
             "module": "cookie"
         },
         {
+            "file": "src\\api\\dd.js",
+            "line": 40,
+            "description": "等于 \"point\"",
+            "itemtype": "attribute",
+            "name": "POINT",
+            "type": "{String}",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 46,
+            "description": "等于 \"intersect\"",
+            "itemtype": "attribute",
+            "name": "INTERSECT",
+            "type": "{String}",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 52,
+            "description": "等于 \"strict\"",
+            "itemtype": "attribute",
+            "name": "STRICT",
+            "type": "{String}",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 58,
+            "description": "是否禁用或启用拖放功能",
+            "itemtype": "attribute",
+            "name": "disabled",
+            "type": "Boolean",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 64,
+            "description": "只读。表示当前拖动的节点, 在应用 DD.Proxy 时表示代理节点.",
+            "itemtype": "attribute",
+            "name": "node",
+            "type": "KISSY.Node",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 70,
+            "description": "表示配置项中 node 代表的节点.",
+            "itemtype": "attribute",
+            "name": "dragNode",
+            "type": "KISSY.Node",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 76,
+            "description": "当可拖放对象开始被用户拖放时触发.",
+            "itemtype": "event",
+            "name": "dragstart",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 83,
+            "description": "当可拖放对象拖放过程中触发.",
+            "itemtype": "event",
+            "name": "drag",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "pageX",
+                            "description": "当前鼠标的绝对横坐标.",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "pageY",
+                            "description": "当前鼠标的绝对纵坐标.",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 92,
+            "description": "当用户鼠标弹起放弃拖放时触发.",
+            "itemtype": "event",
+            "name": "dragend",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 99,
+            "description": "当前 Draggable 对象达到一个 Droppable 对象时触发, 可简单理解成 mouseenter.",
+            "itemtype": "event",
+            "name": "dragenter",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "当前交互的Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 107,
+            "description": "当前 Draggable 对象在一个 Droppable 实例上移动时触发, 可简单理解成 mouseover.",
+            "itemtype": "event",
+            "name": "dragover",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "当前交互的Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 115,
+            "description": "当前 Draggable 对象离开一个 Droppable 实例上移动时触发, 可简单理解成 mouseleave. 相当于 html5 dd API targetNode 的 dragleave 事件的概念.",
+            "itemtype": "event",
+            "name": "dragexit",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "当前交互的Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 123,
+            "description": "当前 Draggable 对象被放置在一个 Droppable 实例时触发. 相当于 html5 dd API targetNode 的 drop 事件的概念.",
+            "itemtype": "event",
+            "name": "dragdrophit",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "当前交互的Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 131,
+            "description": "当用户鼠标弹起但是没有放置当前 Draggable 对象到一个 Droppable 对象时触发.",
+            "itemtype": "event",
+            "name": "dragdropmiss",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 151,
+            "description": "当一个 Draggable 对象根据其 Draggable.mode 配置达到和当前 Droppable 实例交互条件时触发.\n一般即鼠标进入当前 Droppable 对象代表节点的区域, 可简单理解成 mouseenter. 相当于 html5 dd API targetNode 的 dragenter 事件的概念.",
+            "itemtype": "event",
+            "name": "dropenter",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "当前交互的 Draggable 对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "自身, 当前Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Droppable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 160,
+            "description": "当一个 Draggable 在当前 Droppable 实例上移动时触发, 可简单理解成 mouseover. 相当于 html5 dd API targetNode 的 dragover 事件的概念.",
+            "itemtype": "event",
+            "name": "dropover",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "当前交互的 Draggable 对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "自身, 当前Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Droppable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 168,
+            "description": "当一个 Draggable 离开当前 Droppable 实例时触发, 可简单理解成 mouseleave. 相当于 html5 dd API targetNode 的 dragleave 事件的概念.",
+            "itemtype": "event",
+            "name": "dropexit",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "当前交互的 Draggable 对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "自身, 当前Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Droppable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 176,
+            "description": "当一个 Draggable 被放置在当前 Droppable 实例时触发. 相当于 html5 dd API targetNode 的 drop 事件的概念.",
+            "itemtype": "event",
+            "name": "drophit",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "当前交互的 Draggable 对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "自身, 当前Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.Droppable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 194,
+            "description": "默认 1000, 表示鼠标按下多长时间后触发 dragstart 事件. 可通过 DDM.set(“bufferTime”,xx) 设置.",
+            "itemtype": "attribute",
+            "name": "bufferTime=1000",
+            "type": "Number",
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 199,
+            "description": "默认 3, 表示鼠标按下后移动多少像素后触发 dragstart 事件.",
+            "itemtype": "attribute",
+            "name": "clickPixelThresh",
+            "type": "Number",
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 204,
+            "description": "默认 ‘move’, 表示拖放过程中鼠标的样式.",
+            "itemtype": "attribute",
+            "name": "dragCursor",
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 209,
+            "description": "从Draggable的dragstart事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "dragstart",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 216,
+            "description": "从Draggable的drag事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "drag",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "pageX",
+                            "description": "当前鼠标的绝对横坐标.",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "pageY",
+                            "description": "当前鼠标的绝对纵坐标.",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 225,
+            "description": "从Draggable的dragend事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "dragend",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 232,
+            "description": "从Draggable的dragenter事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "dragenter",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "当前交互的Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 240,
+            "description": "从Draggable的dragover事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "dragover",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "当前交互的Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 248,
+            "description": "从Draggable的dragexit事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "dragexit",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "当前交互的Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 256,
+            "description": "从Draggable的dragdrophit事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "dragdrophit",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "当前交互的Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 264,
+            "description": "从Draggable的dragdropmiss事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "dragdropmiss",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "自身, 当前拖放对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 271,
+            "description": "从Droppable的dropenter事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "dropenter",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "当前交互的 Draggable 对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "自身, 当前Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 279,
+            "description": "从Droppable的dropover事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "dropover",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "当前交互的 Draggable 对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "自身, 当前Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 287,
+            "description": "从Droppable的dropexit事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "dropexit",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "当前交互的 Draggable 对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "自身, 当前Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 295,
+            "description": "从Droppable的drophit事件冒泡过来，在 DDM 上触发",
+            "itemtype": "event",
+            "name": "drophit",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "drag",
+                            "description": "当前交互的 Draggable 对象.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "drop",
+                            "description": "自身, 当前Droppable对象.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "class": "DD.DDM",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 316,
+            "description": "当前正在拖动的被委托的容器内子节点, 在应用 DD.Proxy 时表示委托节点",
+            "itemtype": "attribute",
+            "name": "node",
+            "type": "KISSY.Node",
+            "class": "DD.DraggableDelegate",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 321,
+            "description": "当前正在拖动的被委托的容器内子节点",
+            "itemtype": "attribute",
+            "name": "dragNode",
+            "type": "KISSY.Node",
+            "class": "DD.DraggableDelegate",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 339,
+            "description": "当前正在拖动的被委托的容器内子节点, 在应用 DD.Proxy 时表示委托节点",
+            "itemtype": "attribute",
+            "name": "node",
+            "type": "KISSY.Node",
+            "class": "DD.DroppableDelegate",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
             "file": "src\\api\\dom.js",
             "line": 12,
             "description": "获取符合选择器的所有元素",
@@ -7984,7 +9206,6 @@
             "description": "为相应事件添加事件处理器",
             "itemtype": "method",
             "name": "on",
-            "static": 1,
             "params": [
                 {
                     "name": "eventType",
@@ -8009,7 +9230,7 @@
         },
         {
             "file": "src\\api\\event.js",
-            "line": 607,
+            "line": 606,
             "description": "解除绑定的事件处理器,可参考Event.detach",
             "itemtype": "method",
             "name": "detach",

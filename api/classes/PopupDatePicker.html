@@ -59,6 +59,8 @@
             
                 <li><a href="../classes/ComboBox.RemoteDataSource.html">ComboBox.RemoteDataSource</a></li>
             
+                <li><a href="../classes/Constrain.html">Constrain</a></li>
+            
                 <li><a href="../classes/Container.html">Container</a></li>
             
                 <li><a href="../classes/Control.html">Control</a></li>
@@ -68,6 +70,16 @@
                 <li><a href="../classes/DatePicker.html">DatePicker</a></li>
             
                 <li><a href="../classes/DateTimeFormat.html">DateTimeFormat</a></li>
+            
+                <li><a href="../classes/DD.DDM.html">DD.DDM</a></li>
+            
+                <li><a href="../classes/DD.Draggable.html">DD.Draggable</a></li>
+            
+                <li><a href="../classes/DD.DraggableDelegate.html">DD.DraggableDelegate</a></li>
+            
+                <li><a href="../classes/DD.Droppable.html">DD.Droppable</a></li>
+            
+                <li><a href="../classes/DD.DroppableDelegate.html">DD.DroppableDelegate</a></li>
             
                 <li><a href="../classes/DelegateChildren.html">DelegateChildren</a></li>
             
@@ -101,7 +113,11 @@
             
                 <li><a href="../classes/Promise.Defer.html">Promise.Defer</a></li>
             
+                <li><a href="../classes/Proxy.html">Proxy</a></li>
+            
                 <li><a href="../classes/Resize.html">Resize</a></li>
+            
+                <li><a href="../classes/Scroll.html">Scroll</a></li>
             
                 <li><a href="../classes/Shim.html">Shim</a></li>
             
@@ -156,6 +172,14 @@
                 <li><a href="../modules/date_picker.html">date/picker</a></li>
             
                 <li><a href="../modules/date_popup-picker.html">date/popup-picker</a></li>
+            
+                <li><a href="../modules/dd.html">dd</a></li>
+            
+                <li><a href="../modules/dd_plugin_constrain.html">dd/plugin/constrain</a></li>
+            
+                <li><a href="../modules/dd_plugin_proxy.html">dd/plugin/proxy</a></li>
+            
+                <li><a href="../modules/dd_plugin_scroll.html">dd/plugin/scroll</a></li>
             
                 <li><a href="../modules/dom.html">dom</a></li>
             
@@ -521,6 +545,13 @@
                         
                             <li class="index-item method inherited">
                                 <a href="#method_move">move</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited">
+                                <a href="#method_on">on</a>
 
                                 
                                 
@@ -1706,7 +1737,7 @@
             
         
         
-        <a href="../files/src_api_event.js.html#l607"><code>src\api\event.js:607</code></a>
+        <a href="../files/src_api_event.js.html#l606"><code>src\api\event.js:606</code></a>
         
         </p>
 
@@ -2685,6 +2716,149 @@ dog.run();</code></pre>
                 
             </div>
         </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_on" class="method item inherited">
+    <h3 class="name"><code>on</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>eventType</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>fn</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[scope]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\Event.Target.html#method_on">Event.Target</a>:
+            
+        
+        
+        <a href="../files/src_api_event.js.html#l584"><code>src\api\event.js:584</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>为相应事件添加事件处理器</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">eventType</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <ul>
+<li>当为String时 包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 &quot;click.one&quot; , &quot;click.two&quot;</li>
+<li>当为Object时，类似这样：<pre><code>{
+  &#39;click&#39;:{
+      fn:function(){
+      },
+      filter: &#39;&#39; // delegate,
+      once:true // 绑定一次
+  },
+  &#39;mouseenter&#39;:function(){}
+}</code></pre>
+</li>
+</ul>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">fn</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>当事件触发时的回调函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[scope]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>回调函数的 this 值. 如果不指定默认为绑定事件的当前元素</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
     
 
     

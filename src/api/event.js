@@ -584,7 +584,6 @@ KISSY.use("event", function(S, Event) {
 /**
 为相应事件添加事件处理器
 @method on
-@static
 @param eventType {String|Object} 
 - 当为String时 包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 "click.one" , "click.two"
 - 当为Object时，类似这样：

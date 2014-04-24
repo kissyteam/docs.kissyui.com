@@ -12,9 +12,15 @@ YUI.add("yuidoc-meta", function(Y) {
         "ComboBox.LocalDataSource",
         "ComboBox.MultiValueComboBox",
         "ComboBox.RemoteDataSource",
+        "Constrain",
         "Container",
         "Control",
         "Cookie",
+        "DD.DDM",
+        "DD.Draggable",
+        "DD.DraggableDelegate",
+        "DD.Droppable",
+        "DD.DroppableDelegate",
         "DatePicker",
         "DateTimeFormat",
         "DelegateChildren",
@@ -33,7 +39,9 @@ YUI.add("yuidoc-meta", function(Y) {
         "PopupDatePicker",
         "Promise",
         "Promise.Defer",
+        "Proxy",
         "Resize",
+        "Scroll",
         "Shim",
         "UA",
         "Uri",
@@ -61,6 +69,10 @@ YUI.add("yuidoc-meta", function(Y) {
         "date_gregorian",
         "date_picker",
         "date_popup-picker",
+        "dd",
+        "dd_plugin_constrain",
+        "dd_plugin_proxy",
+        "dd_plugin_scroll",
         "dom",
         "event",
         "feature",
@@ -158,6 +170,23 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "date/popup-picker",
             "name": "date_popup-picker",
             "description": "浮层式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能"
+        },
+        {
+            "displayName": "dd",
+            "name": "dd",
+            "description": "拖放功能\n\n#Note \n支持 win8 的触摸事件"
+        },
+        {
+            "displayName": "dd/plugin/constrain",
+            "name": "dd_plugin_constrain"
+        },
+        {
+            "displayName": "dd/plugin/proxy",
+            "name": "dd_plugin_proxy"
+        },
+        {
+            "displayName": "dd/plugin/scroll",
+            "name": "dd_plugin_scroll"
         },
         {
             "displayName": "dom",
