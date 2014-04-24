@@ -29,11 +29,17 @@ YUI.add("yuidoc-meta", function(Y) {
         "Event",
         "Event.Target",
         "Feature",
+        "FilterMenu",
         "GregorianCalendar",
         "IO",
         "Json",
         "Loader",
         "Manager",
+        "Menu",
+        "Menu.CheckMenuItem",
+        "Menu.Item",
+        "Menu.PopupMenu",
+        "Menu.SubMenu",
         "Node",
         "Path",
         "PopupDatePicker",
@@ -76,9 +82,11 @@ YUI.add("yuidoc-meta", function(Y) {
         "dom",
         "event",
         "feature",
+        "filter-menu",
         "io",
         "json",
         "loader",
+        "menu",
         "node",
         "path",
         "promise",
@@ -204,6 +212,10 @@ YUI.add("yuidoc-meta", function(Y) {
             "description": "features模块提供了Features来进行硬件环境关键特性检测，直接通过KISSY全局对象调用"
         },
         {
+            "displayName": "filter-menu",
+            "name": "filter-menu"
+        },
+        {
             "displayName": "io",
             "name": "io",
             "description": "提供类IO"
@@ -216,6 +228,10 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "loader",
             "name": "loader",
             "description": "loader模块,定义KISSY初始对象及模块化机制用到的方法，所有方法都通过KISSY直接引用"
+        },
+        {
+            "displayName": "menu",
+            "name": "menu"
         },
         {
             "displayName": "node",

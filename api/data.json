@@ -310,6 +310,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\filter-menu.js": {
+            "name": "src\\api\\filter-menu.js",
+            "modules": {
+                "filter-menu": 1
+            },
+            "classes": {
+                "FilterMenu": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\io.js": {
             "name": "src\\api\\io.js",
             "modules": {
@@ -342,6 +353,23 @@
             },
             "fors": {},
             "namespaces": {}
+        },
+        "src\\api\\menu.js": {
+            "name": "src\\api\\menu.js",
+            "modules": {
+                "menu": 1
+            },
+            "classes": {
+                "Menu": 1,
+                "Menu.Item": 1,
+                "Menu.SubMenu": 1,
+                "Menu.PopupMenu": 1,
+                "Menu.CheckMenuItem": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Menu": 1
+            }
         },
         "src\\api\\node.js": {
             "name": "src\\api\\node.js",
@@ -772,6 +800,18 @@
             "line": 6,
             "description": "features模块提供了Features来进行硬件环境关键特性检测，直接通过KISSY全局对象调用"
         },
+        "filter-menu": {
+            "name": "filter-menu",
+            "submodules": {},
+            "classes": {
+                "FilterMenu": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\filter-menu.js",
+            "line": 5
+        },
         "io": {
             "name": "io",
             "submodules": {},
@@ -809,6 +849,24 @@
             "file": "src\\api\\loader.js",
             "line": 6,
             "description": "loader模块,定义KISSY初始对象及模块化机制用到的方法，所有方法都通过KISSY直接引用"
+        },
+        "menu": {
+            "name": "menu",
+            "submodules": {},
+            "classes": {
+                "Menu": 1,
+                "Menu.Item": 1,
+                "Menu.SubMenu": 1,
+                "Menu.PopupMenu": 1,
+                "Menu.CheckMenuItem": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Menu": 1
+            },
+            "tag": "module",
+            "file": "src\\api\\menu.js",
+            "line": 119
         },
         "node": {
             "name": "node",
@@ -915,7 +973,8 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [
-                "PopupDatePicker"
+                "PopupDatePicker",
+                "Menu.PopupMenu"
             ],
             "module": "component/extension/align",
             "namespace": "",
@@ -2270,6 +2329,46 @@
             "description": "硬件环境关键特性检测，直接通过KISSY全局对象调用\n这类功能通常在判断硬件环境时使用，比如在KISSY的modules定义的代码：\n  ```\n  KISSY.config('modules',{\n       \"dom/basic\": {\n               \"alias\": [\n                       'dom/base',\n                       KISSY.Features.isIELessThan(9) ? 'dom/ie' : '',\n                       KISSY.Features.isClassListSupported() ? '' : 'dom/class-list'\n               ]\n       },\n       \"dom\": {\n               \"alias\": [\n                       'dom/basic',\n                       !KISSY.Features.isQuerySelectorSupported() ? 'dom/selector' : ''\n               ]\n       }\n\t});\n  ```",
             "static": 1
         },
+        "FilterMenu": {
+            "name": "FilterMenu",
+            "shortname": "FilterMenu",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "filter-menu",
+            "namespace": "",
+            "file": "src\\api\\filter-menu.js",
+            "line": 5,
+            "description": "可过滤菜单",
+            "is_constructor": 1,
+            "extends": "Menu",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "allowMultiple=false",
+                            "description": "是否允许输入多个， 默认为false",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "placeholder",
+                            "description": "placeholder 内容",
+                            "type": "String"
+                        },
+                        {
+                            "name": "filterStr",
+                            "description": "过滤的字符串",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ]
+        },
         "IO": {
             "name": "IO",
             "shortname": "IO",
@@ -2477,6 +2576,176 @@
             "line": 6,
             "description": "弥补 javascript 语言机制的不足, 提供类似其他语言原生的模块化机制.\nLoader中定义的所有方法都直接通过KISSY对象直接引用，如 `KISSY.add`",
             "static": 1
+        },
+        "Menu": {
+            "name": "Menu",
+            "shortname": "Menu",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "menu",
+            "namespace": "",
+            "file": "src\\api\\menu.js",
+            "line": 5,
+            "is_constructor": 1,
+            "extends": "Control",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项\n\n#### 从已有元素实例 Menu 对象时 , 元素节点标明类名 {prefixCls}menu . prefixCls 为配置的类名前缀，默认为 ks-",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Menu.Item": {
+            "name": "Menu.Item",
+            "shortname": "Menu.Item",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "menu",
+            "namespace": "Menu",
+            "file": "src\\api\\menu.js",
+            "line": 33,
+            "is_constructor": 1,
+            "extends": "Control",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项,如下：",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "selectable",
+                            "description": "是否可以被选择，可以的话，单击会添加指定 class 到根节点.",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "checkable",
+                            "description": "是否可以被多选，可以的话，单击会添加或删除根节点的指定 class",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "value",
+                            "description": "可选，该菜单项的值",
+                            "type": "Any",
+                            "optional": true
+                        },
+                        {
+                            "name": "content",
+                            "description": "该菜单项的显示内容",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Menu.SubMenu": {
+            "name": "Menu.SubMenu",
+            "shortname": "Menu.SubMenu",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "menu",
+            "namespace": "Menu",
+            "file": "src\\api\\menu.js",
+            "line": 67,
+            "is_constructor": 1,
+            "extends": "Menu.Item",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "menuDelay",
+                            "description": "可选，默认 0.15，单位秒。鼠标掠过后多长时间显示子菜单.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "0.5"
+                        },
+                        {
+                            "name": "menu",
+                            "description": "子菜单实例",
+                            "type": "Menu"
+                        },
+                        {
+                            "name": "externalSubMenu=false",
+                            "description": "可选，默认 false . 销毁该菜单项是否顺带销毁子菜单",
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Menu.PopupMenu": {
+            "name": "Menu.PopupMenu",
+            "shortname": "PopupMenu",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "menu",
+            "namespace": "Menu",
+            "file": "src\\api\\menu.js",
+            "line": 95,
+            "is_constructor": 1,
+            "extends": "Menu",
+            "uses": [
+                "Align"
+            ],
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "autoHideOnMouseLeave=false",
+                            "description": "默认 false。鼠标移出子菜单时子菜单是否自动隐藏\n\n#### 从已有元素实例 PopupMenu 对象时 , 元素节点标明类名 {prefixCls}popupmenu . prefixCls 为配置的类名前缀，默认为 ks- .\n\n若使用默认的类名前缀，使用前请加上初始样式\n```\n<style>\n    .ks-popupmenu {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n</style>\n```",
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Menu.CheckMenuItem": {
+            "name": "Menu.CheckMenuItem",
+            "shortname": "CheckMenuItem",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "menu",
+            "namespace": "Menu",
+            "file": "src\\api\\menu.js",
+            "line": 119,
+            "description": "checkable 菜单项",
+            "is_constructor": 1,
+            "extends": "Menu.Item",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "checked=true",
+                            "description": "菜单项是否 checked，默认 true",
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            ]
         },
         "Node": {
             "name": "Node",
@@ -9382,6 +9651,33 @@
             "module": "feature"
         },
         {
+            "file": "src\\api\\filter-menu.js",
+            "line": 16,
+            "description": "根据所给字符串，过滤出响应的项\n\n可以重写此方法，进行自定义，不自定义则是简单的内容 indexOf 查找",
+            "itemtype": "method",
+            "name": "filterItems",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "需要过滤的字符串",
+                    "type": "String"
+                }
+            ],
+            "class": "FilterMenu",
+            "module": "filter-menu"
+        },
+        {
+            "file": "src\\api\\filter-menu.js",
+            "line": 25,
+            "description": "重置用户的输入以及过滤结果",
+            "itemtype": "method",
+            "name": "reset",
+            "static": 1,
+            "class": "FilterMenu",
+            "module": "filter-menu"
+        },
+        {
             "file": "src\\api\\io.js",
             "line": 163,
             "description": "表示请求完成状态。可用于判断当前请求是否完成. 4 表示完成，否则表示正在进行中.(xhr 会有更多取值，jsonp script 只有 0(初始化) 1(发送中) 4(完成))",
@@ -10013,6 +10309,119 @@
             ],
             "class": "Loader",
             "module": "loader"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 14,
+            "description": "当前高亮的儿子菜单项.",
+            "itemtype": "attribute",
+            "name": "highlightedItem",
+            "type": "Menu.Item",
+            "example": [
+                "\n```\n//Hint\n//隐藏当前菜单的子菜单只需要将该属性置 null 即可\nmenu.set(\"highlightedItem\",null);"
+            ],
+            "class": "Menu",
+            "module": "menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 24,
+            "description": "当子菜单项被点击后触发",
+            "itemtype": "event",
+            "name": "click",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "target",
+                            "description": "当前被点击的菜单项",
+                            "type": "Menu.Item"
+                        }
+                    ]
+                }
+            ],
+            "class": "Menu",
+            "module": "menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 45,
+            "description": "当前菜单项是否被选中",
+            "itemtype": "attribute",
+            "name": "selected",
+            "type": "Boolean",
+            "class": "Menu.Item",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 50,
+            "description": "当前菜单选是否被多选了",
+            "itemtype": "attribute",
+            "name": "checked",
+            "type": "Boolean",
+            "class": "Menu.Item",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 55,
+            "description": "当前菜单项的值",
+            "itemtype": "attribute",
+            "name": "value",
+            "type": "Any",
+            "class": "Menu.Item",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 60,
+            "description": "当前菜单项的显示内容",
+            "itemtype": "attribute",
+            "name": "content",
+            "type": "String",
+            "class": "Menu.Item",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 78,
+            "description": "鼠标掠过后多长时间显示子菜单.",
+            "itemtype": "attribute",
+            "name": "menuDelay",
+            "type": "Number",
+            "class": "Menu.SubMenu",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 83,
+            "description": "子菜单实例",
+            "itemtype": "attribute",
+            "name": "menu",
+            "type": "Menu",
+            "class": "Menu.SubMenu",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 88,
+            "description": "销毁该菜单项是否顺带销毁子菜单",
+            "itemtype": "attribute",
+            "name": "externalSubMenu",
+            "type": "Boolean",
+            "class": "Menu.SubMenu",
+            "module": "menu",
+            "namespace": "Menu"
         },
         {
             "file": "src\\api\\node.js",
