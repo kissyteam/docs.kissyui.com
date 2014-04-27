@@ -182,6 +182,28 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\resizable\\plugin\\proxy.js": {
+            "name": "src\\api\\resizable\\plugin\\proxy.js",
+            "modules": {
+                "resizable/plugin/proxy": 1
+            },
+            "classes": {
+                "ResizableProxyPlugin": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\scroll-view\\base.js": {
+            "name": "src\\api\\scroll-view\\base.js",
+            "modules": {
+                "scroll-view": 1
+            },
+            "classes": {
+                "ScrollView": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\xtemplate\\runtime.js": {
             "name": "src\\api\\xtemplate\\runtime.js",
             "modules": {
@@ -397,6 +419,21 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\overlay.js": {
+            "name": "src\\api\\overlay.js",
+            "modules": {
+                "overlay": 1
+            },
+            "classes": {
+                "Overlay": 1,
+                "Overlay.Dialog": 1,
+                "Overlay.Popup": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Overlay": 1
+            }
+        },
         "src\\api\\path.js": {
             "name": "src\\api\\path.js",
             "modules": {
@@ -421,6 +458,17 @@
             "namespaces": {
                 "Promise": 1
             }
+        },
+        "src\\api\\resizable.js": {
+            "name": "src\\api\\resizable.js",
+            "modules": {
+                "resizable": 1
+            },
+            "classes": {
+                "Resizable": 1
+            },
+            "fors": {},
+            "namespaces": {}
         },
         "src\\api\\ua.js": {
             "name": "src\\api\\ua.js",
@@ -670,6 +718,30 @@
             "file": "src\\api\\dd\\plugin\\scroll.js",
             "line": 5
         },
+        "resizable/plugin/proxy": {
+            "name": "resizable/plugin/proxy",
+            "submodules": {},
+            "classes": {
+                "ResizableProxyPlugin": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\resizable\\plugin\\proxy.js",
+            "line": 5
+        },
+        "scroll-view": {
+            "name": "scroll-view",
+            "submodules": {},
+            "classes": {
+                "ScrollView": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\scroll-view\\base.js",
+            "line": 8
+        },
         "xtemplate/runtime": {
             "name": "xtemplate/runtime",
             "submodules": {},
@@ -912,6 +984,22 @@
             "line": 6,
             "description": "node 包括 dom , event , anim 模块的所有功能, 推荐采用 Node 模块"
         },
+        "overlay": {
+            "name": "overlay",
+            "submodules": {},
+            "classes": {
+                "Overlay": 1,
+                "Overlay.Dialog": 1,
+                "Overlay.Popup": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Overlay": 1
+            },
+            "tag": "module",
+            "file": "src\\api\\overlay.js",
+            "line": 155
+        },
         "path": {
             "name": "path",
             "submodules": {},
@@ -938,6 +1026,18 @@
             "tag": "module",
             "file": "src\\api\\promise.js",
             "line": 111
+        },
+        "resizable": {
+            "name": "resizable",
+            "submodules": {},
+            "classes": {
+                "Resizable": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\resizable.js",
+            "line": 5
         },
         "ua": {
             "name": "ua",
@@ -1005,7 +1105,8 @@
             "plugin_for": [],
             "extension_for": [
                 "PopupDatePicker",
-                "Menu.PopupMenu"
+                "Menu.PopupMenu",
+                "Overlay"
             ],
             "module": "component/extension/align",
             "namespace": "",
@@ -1050,7 +1151,8 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [
-                "PopupDatePicker"
+                "PopupDatePicker",
+                "Overlay"
             ],
             "module": "component/extension/shim",
             "namespace": "",
@@ -1571,6 +1673,61 @@
                     ]
                 }
             ]
+        },
+        "ResizableProxyPlugin": {
+            "name": "ResizableProxyPlugin",
+            "shortname": "ResizableProxyPlugin",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "resizable/plugin/proxy",
+            "namespace": "",
+            "file": "src\\api\\resizable\\plugin\\proxy.js",
+            "line": 5,
+            "description": "[Resizable](/5.0/api/classes/Resizable.html) 插件， 可代理缩放对象",
+            "is_constructor": 1,
+            "extends": "Base",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "node",
+                            "description": "当 Resizable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Resizable 对象, 返回值类型为 KISSY.Node . 该属性有默认值:\n```\nfunction(resizable) {\n    return new Node(resizable.get(\"node\")[0].cloneNode(true));\n}\n```\n\n即代理节点和当前节点保持一致.",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "destroyOnEnd=false",
+                            "description": "默认 false. 指明在 resize 之后是否销毁代理节点",
+                            "type": "Boolean"
+                        }
+                    ]
+                },
+                {
+                    "name": "hideNodeOnResize=false",
+                    "description": "默认 false. 是否在用代理节点 resize 时隐藏原节点",
+                    "type": "Boolean"
+                }
+            ]
+        },
+        "ScrollView": {
+            "name": "ScrollView",
+            "shortname": "ScrollView",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "scroll-view",
+            "namespace": "",
+            "file": "src\\api\\scroll-view\\base.js",
+            "line": 8,
+            "is_constructor": 1,
+            "extends": "Container"
         },
         "XTemplateRunTime": {
             "name": "XTemplateRunTime",
@@ -2908,6 +3065,206 @@
                 "type": "Node"
             }
         },
+        "Overlay": {
+            "name": "Overlay",
+            "shortname": "Overlay",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "overlay",
+            "namespace": "",
+            "file": "src\\api\\overlay.js",
+            "line": 5,
+            "description": "悬浮层，如果配置里面不修改\"prefixCls\"默认值\"ks-\"的话，使用前要加上如下样式：\n```\n<style>\n    .ks-overlay {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n    .ks-overlay-hidden {\n        visibility: hidden;\n    }\n\n    .ks-overlay-mask-hidden {\n        display: none;\n    }\n\n    .ks-overlay-shown {\n        visibility: visible;\n    }\n\n    .ks-overlay-mask-shown{\n        display: block;\n    }\n</style>\n```",
+            "is_constructor": 1,
+            "extends": "Container",
+            "uses": [
+                "Shim",
+                "Align"
+            ],
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，如下：",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "effect",
+                            "description": "可选, 显示或隐藏时的特效支持, 对象包含以下配置:",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "target",
+                                    "description": "可选,动画的参考元素",
+                                    "type": "String|KISSY.Node"
+                                },
+                                {
+                                    "name": "effect",
+                                    "description": "可取值 ‘fade’(渐隐显示), ‘slide’(滑动显示)",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "easing",
+                                    "description": "同 [Anim](/5.0/api/classes/Anim.html) 的 easing 参数配置",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "duration",
+                                    "description": "可选, 动画持续时间, 以秒为单位.例如：\n```\n{\n    target:'',        // {String|KISSY.Node} - 可选，动画的参考元素\n    effect:'none',    // {String} - 可选, 默认为'none', 'none'(无特效), 'fade'(渐隐显示), 'slide'(滑动显示).\n    easing:'',        // {String} - 可选, 同 KISSY.Anim 的 easing 参数配置.\n    duration:3        // {Number} - 可选, 动画持续时间, 以秒为单位.\n}\n```",
+                                    "type": "Number"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "closable",
+                            "description": "对话框右上角是否包括关闭按钮",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "closeAction",
+                            "description": "点击关闭按钮的动作。默认 “hide” 隐藏，也可设置 “destroy” 销毁该组件",
+                            "type": "String"
+                        },
+                        {
+                            "name": "mask",
+                            "description": "组件显示时是否使用遮罩层盖住页面其他元素",
+                            "type": "Boolean|Object",
+                            "props": [
+                                {
+                                    "name": "closeOnClick",
+                                    "description": "可选. 点击遮罩层是否关闭 overlay. (具体隐藏或销毁依赖 closeAction)",
+                                    "type": "Boolean"
+                                },
+                                {
+                                    "name": "effect",
+                                    "description": "可选. 遮罩层显示隐藏效果. (取值 ‘fade’,’slide’)",
+                                    "type": "String"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "duration",
+                            "description": "可选, 动画持续时间, 以秒为单位.",
+                            "type": "Number"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Overlay.Dialog": {
+            "name": "Overlay.Dialog",
+            "shortname": "Overlay.Dialog",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "overlay",
+            "namespace": "Overlay",
+            "file": "src\\api\\overlay.js",
+            "line": 85,
+            "description": "对话框",
+            "is_constructor": 1,
+            "extends": "Overlay",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "headerContent",
+                            "description": "组件的标题 html",
+                            "type": "String"
+                        },
+                        {
+                            "name": "escapeToClose=true",
+                            "description": "默认 true. escape 键是否触发 close 动作",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "bodyContent",
+                            "description": "组件的体 html",
+                            "type": "String"
+                        },
+                        {
+                            "name": "footerContent",
+                            "description": "组件的底部 html",
+                            "type": "String"
+                        },
+                        {
+                            "name": "headerStyle",
+                            "description": "组件的标题内联样式",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "bodyStyle",
+                            "description": "组件体的内联样式.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "footerStyle",
+                            "description": "组件的底部内联样式",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n\n对话框的 DOM 结构为：\n```\n<div class='dialog'> <!-- 对话框根节点 -->\n    <div class='content'> <!-- 对话框内容节点 -->\n        <div class='header'> <!-- 对话框标题节点 -->\n        </div>\n\n        <div class='body'> <!-- 对话框体节点 -->\n        </div>\n\n        <div class='footer'> <!-- 对话框底部节点 -->\n        </div>\n    </div>\n</div>\n```"
+            ]
+        },
+        "Overlay.Popup": {
+            "name": "Overlay.Popup",
+            "shortname": "Overlay.Popup",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "overlay",
+            "namespace": "Overlay",
+            "file": "src\\api\\overlay.js",
+            "line": 155,
+            "description": "弹出框",
+            "is_constructor": 1,
+            "extends": "Overlay",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "trigger",
+                            "description": "触点集合",
+                            "type": "String|HTMLElement[]|KISSY.NodeList"
+                        },
+                        {
+                            "name": "triggerType",
+                            "description": "可选, 默认为 ‘click’, 触发类型, 可选 ‘click’, ‘mouse’.",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "\"click\""
+                        },
+                        {
+                            "name": "mouseDelay=0.1",
+                            "description": "单位秒. 可选, triggerType 为 mouse 时, Popup 显示的延迟时间, 默认为 0.1.",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "toggle",
+                            "description": "可选, triggerType 为 click 时, Popup 是否有toggle功能，默认为false，不开启",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        }
+                    ]
+                }
+            ]
+        },
         "Path": {
             "name": "Path",
             "shortname": "Path",
@@ -2957,6 +3314,66 @@
             "return": {
                 "description": "Defer 实例，用于逻辑内部控制成功或失败，返回 promise 供外部监听"
             }
+        },
+        "Resizable": {
+            "name": "Resizable",
+            "shortname": "Resizable",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "resizable",
+            "namespace": "",
+            "file": "src\\api\\resizable.js",
+            "line": 5,
+            "description": "缩放功能\n\n### 拖放 handler 的样式需要调用者自己编写.",
+            "is_constructor": 1,
+            "extends": "Base",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "node",
+                            "description": "将要进行缩放的节点",
+                            "type": "String|HTMLElement|KISSY.Node"
+                        },
+                        {
+                            "name": "minWidth",
+                            "description": "默认为0, 表示拖动缩放的最小宽度",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "minHeight",
+                            "description": "默认为0, 表示拖动缩放的最小高度",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "maxWidth",
+                            "description": "默认为0, 表示拖动缩放的最大宽度",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "maxHeight",
+                            "description": "默认为0, 表示拖动缩放的最大高度",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "handlers",
+                            "description": "默认为 [], 表示可拖动元素的哪些位置来进行缩放.\n可取下列值: “b”,”t”,”r”,”l”,”tr”,”tl”,”br”,”bl”． 其中, t,b,l,r 分别表示 top,bottom,left,right, 加上组合共八种取值, 可在上, 下, 左, 右以及左上, 左下, 右上, 右下进行拖动.",
+                            "type": "Array<String>"
+                        },
+                        {
+                            "name": "preserveRatio",
+                            "description": "是否在 resize 的过程中保持 width/height 比例",
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            ]
         },
         "UA": {
             "name": "UA",
@@ -11585,6 +12002,141 @@
             "module": "node"
         },
         {
+            "file": "src\\api\\overlay.js",
+            "line": 58,
+            "description": "设置后显示或隐藏关闭按钮",
+            "itemtype": "attribute",
+            "name": "closable",
+            "type": "{Boolean}",
+            "class": "Overlay",
+            "module": "overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 64,
+            "description": "遮罩层节点",
+            "itemtype": "attribute",
+            "name": "maskNode",
+            "type": "{KISSY.Node}",
+            "class": "Overlay",
+            "module": "overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 70,
+            "description": "生成一个加载盖住当前组件内容",
+            "itemtype": "method",
+            "name": "loading",
+            "class": "Overlay",
+            "module": "overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 75,
+            "description": "隐藏生成的加载层",
+            "itemtype": "method",
+            "name": "unloading",
+            "class": "Overlay",
+            "module": "overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 119,
+            "description": "只读, 组件的头部节点",
+            "itemtype": "attribute",
+            "name": "header",
+            "type": "KISSY.Node",
+            "readonly": "",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 125,
+            "description": "只读, 组件的体部节点",
+            "itemtype": "attribute",
+            "name": "body",
+            "type": "KISSY.Node",
+            "readonly": "",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 131,
+            "description": "只读, 组件的底部节点",
+            "itemtype": "attribute",
+            "name": "footer",
+            "type": "KISSY.Node",
+            "readonly": "",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 137,
+            "description": "可读写. 组件的标题 html.",
+            "itemtype": "attribute",
+            "name": "headerContent",
+            "type": "String",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 142,
+            "description": "可读写. 组件的体html.",
+            "itemtype": "attribute",
+            "name": "bodyContent",
+            "type": "String",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 147,
+            "description": "可读写. 组件的底部 html.",
+            "itemtype": "attribute",
+            "name": "footerContent",
+            "type": "String",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 168,
+            "description": "当前的 trigger 节点",
+            "itemtype": "attribute",
+            "name": "currentTrigger",
+            "type": "KISSY.Node",
+            "class": "Overlay.Popup",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 173,
+            "description": "当 currentTrigger 改变后触发",
+            "itemtype": "event",
+            "name": "afterCurrentTriggerChange",
+            "params": [
+                {
+                    "name": "ev.newVal",
+                    "description": "新的 trigger 元素",
+                    "type": "KISSY.Node"
+                }
+            ],
+            "class": "Overlay.Popup",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
             "file": "src\\api\\path.js",
             "line": 16,
             "description": "获取域名中的文件名",
@@ -11998,6 +12550,42 @@
             "class": "Promise.Defer",
             "module": "promise",
             "namespace": "Promise"
+        },
+        {
+            "file": "src\\api\\resizable.js",
+            "line": 23,
+            "description": "销毁该组件, 取消元素上的缩放功能.",
+            "itemtype": "method",
+            "name": "destroy",
+            "class": "Resizable",
+            "module": "resizable"
+        },
+        {
+            "file": "src\\api\\resizable.js",
+            "line": 28,
+            "description": "开始拖放后触发",
+            "itemtype": "event",
+            "name": "resizeStart",
+            "class": "Resizable",
+            "module": "resizable"
+        },
+        {
+            "file": "src\\api\\resizable.js",
+            "line": 33,
+            "description": "拖放中触发",
+            "itemtype": "event",
+            "name": "resize",
+            "class": "Resizable",
+            "module": "resizable"
+        },
+        {
+            "file": "src\\api\\resizable.js",
+            "line": 38,
+            "description": "结束拖放后触发",
+            "itemtype": "event",
+            "name": "resizeEnd",
+            "class": "Resizable",
+            "module": "resizable"
         },
         {
             "file": "src\\api\\ua.js",
@@ -14157,5 +14745,10 @@
             "module": "xtemplate"
         }
     ],
-    "warnings": []
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: extend with extends",
+            "line": " src\\api\\resizable\\plugin\\proxy.js:5"
+        }
+    ]
 }

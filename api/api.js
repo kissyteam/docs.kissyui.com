@@ -44,13 +44,19 @@ YUI.add("yuidoc-meta", function(Y) {
         "MenuButton.Option",
         "MenuButton.Select",
         "Node",
+        "Overlay",
+        "Overlay.Dialog",
+        "Overlay.Popup",
         "Path",
         "PopupDatePicker",
         "Promise",
         "Promise.Defer",
         "Proxy",
+        "Resizable",
+        "ResizableProxyPlugin",
         "Resize",
         "Scroll",
+        "ScrollView",
         "Shim",
         "UA",
         "Uri",
@@ -92,8 +98,12 @@ YUI.add("yuidoc-meta", function(Y) {
         "menu",
         "menubutton",
         "node",
+        "overlay",
         "path",
         "promise",
+        "resizable",
+        "resizable_plugin_proxy",
+        "scroll-view",
         "ua",
         "uri",
         "util",
@@ -247,12 +257,28 @@ YUI.add("yuidoc-meta", function(Y) {
             "description": "node 包括 dom , event , anim 模块的所有功能, 推荐采用 Node 模块"
         },
         {
+            "displayName": "overlay",
+            "name": "overlay"
+        },
+        {
             "displayName": "path",
             "name": "path"
         },
         {
             "displayName": "promise",
             "name": "promise"
+        },
+        {
+            "displayName": "resizable",
+            "name": "resizable"
+        },
+        {
+            "displayName": "resizable/plugin/proxy",
+            "name": "resizable_plugin_proxy"
+        },
+        {
+            "displayName": "scroll-view",
+            "name": "scroll-view"
         },
         {
             "displayName": "ua",
