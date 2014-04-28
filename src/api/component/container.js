@@ -7,9 +7,14 @@
 @extends Control
 @class Container
 @constructor
-@param config {Object} 配置项
-@param [config.children] {Control[]} 可选，当前组件的子组件
+@param config {Object} 配置项，详见Attribute
 */
+
+/**
+可选，当前组件的子组件数组
+@attribute [children] {Control[]} 
+*/
+
 
 /**
 添加一个指定的组件作为当前组件的子组件

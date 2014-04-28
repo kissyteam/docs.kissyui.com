@@ -345,13 +345,27 @@
 @class ScrollView
 @constructor
 @extends Container
-@param config {Object}
-@param config.snap {String|Boolean}
+@param config {Object} 配置对象，详情参考其Attribute
+*/
+
+/**
 - 当为String时，表示传入元素的选择器
 - 当为Boolean时，表示用来指定是否在滚动是将元素“折断”，就是在滚动停在元素上时如何处理。默认为 false ，不做操作，就停在那里，为true时滚动到下一个同类元素的起点，停止。
-@param config.snapDuration=0.3 {Number} “折断”操作动画持续时间，当snap为true时有效。
-@param config.snapEasing=&quot;easeOut&quot; {String} “折断”操作动画的时间函数
+@attribute snap {String|Boolean}
 */
+
+/**
+“折断”操作动画持续时间，当snap为true时有效。
+@attribute snapDuration {Number} 
+@default 0.3
+*/
+
+/**
+“折断”操作动画的时间函数
+@attribute snapEasing {String} 
+@default &quot;easeOut&quot;
+*/
+
 
 /**
 滚动到指定位置
@@ -390,7 +404,7 @@
 /**
 获得要滚动的步进长度
 @method getScrollStep
-return {Object} {top: xx, left: xx} 两个方向上的步进值
+@return {Object} {top: xx, left: xx} 两个方向上的步进值
 */
     </pre>
 </div>

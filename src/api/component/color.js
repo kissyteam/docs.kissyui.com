@@ -6,11 +6,28 @@
 /**
 @class Color
 @constructor
-@param config {Object}
-@param config.a {Number} alpha 值
-@param config.r {Number} red 值
-@param config.g {Number} green 值
-@param config.b {Number} blue 值
+@param config {Object} 配置项，详见Attribute
+*/
+
+
+/**
+alpha 值
+@attribute a {Number} 
+*/
+
+/**
+red 值
+@attribute r {Number} 
+*/
+
+/**
+green 值
+@attribute g {Number} 
+*/
+
+/**
+blue 值
+@attribute b {Number} 
 */
 
 /**

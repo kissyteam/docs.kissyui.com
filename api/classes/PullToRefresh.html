@@ -436,70 +436,10 @@
                     
 
                     <div class="param-description">
-                         
+                        <p>配置对象，详情参考其Attribute</p>
+
                     </div>
 
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">pullingHtml=&quot;Pull</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>down to refresh...&quot;  下拉时提示内容</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">releasingHtml=&quot;release</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>to refresh...&quot;  释放操作的提示内容</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">loadingHtml=&quot;loading...&quot;</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>加载内容时的提示内容</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">loadFn</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。
-组件内部会给loadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -547,6 +487,8 @@
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
         
         
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
         
         
             <li class="api-class-tab events"><a href="#events">Events</a></li>
@@ -702,6 +644,30 @@
 
             
 
+            
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs extends">
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_loadFn">loadFn</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_loadingHtml=&quot;loading...&quot;">loadingHtml=&quot;loading...&quot;</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_pullingHtml=&quot;Pull down to refresh...&quot;">pullingHtml=&quot;Pull down to refresh...&quot;</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_releasingHtml=&quot;release to refresh...&quot;">releasingHtml=&quot;release to refresh...&quot;</a>
+                            </li>
+                        
+                    </ul>
+                </div>
             
 
             
@@ -2887,6 +2853,221 @@ dog.run();</code></pre>
 
         
 
+        
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr_loadFn" class="attr item">
+    <a name="config_loadFn"></a> 
+    <h3 class="name"><code>loadFn</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_scroll-view_plugin_pull-to-refresh.js.html#l49"><code>src\api\scroll-view\plugin\pull-to-refresh.js:49</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。
+组件内部会给loadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_loadingHtml=&quot;loading...&quot;" class="attr item">
+    <a name="config_loadingHtml=&quot;loading...&quot;"></a> 
+    <h3 class="name"><code>loadingHtml=&quot;loading...&quot;</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_scroll-view_plugin_pull-to-refresh.js.html#l44"><code>src\api\scroll-view\plugin\pull-to-refresh.js:44</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>加载内容时的提示内容</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_pullingHtml=&quot;Pull down to refresh...&quot;" class="attr item">
+    <a name="config_pullingHtml=&quot;Pull down to refresh...&quot;"></a> 
+    <h3 class="name"><code>pullingHtml=&quot;Pull down to refresh...&quot;</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_scroll-view_plugin_pull-to-refresh.js.html#l33"><code>src\api\scroll-view\plugin\pull-to-refresh.js:33</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>下拉时提示内容</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_releasingHtml=&quot;release to refresh...&quot;" class="attr item">
+    <a name="config_releasingHtml=&quot;release to refresh...&quot;"></a> 
+    <h3 class="name"><code>releasingHtml=&quot;release to refresh...&quot;</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_scroll-view_plugin_pull-to-refresh.js.html#l38"><code>src\api\scroll-view\plugin\pull-to-refresh.js:38</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>释放操作的提示内容</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         

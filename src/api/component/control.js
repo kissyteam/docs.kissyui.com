@@ -8,26 +8,78 @@
 @class Control
 @constructor
 @extends Base
-@param config {Object} 配置项，有如下配置：
-@param [config.content] {String} 可选, 设置内容 html
-@param [config.disabled] {Boolean} 可选，该组件是否初始禁用
-@param [config.elAttrs] {Object} 可选，附加给组件根节点的属性键值对
-@param [config.elBefore] {KISSY.Node} 可选，组件根节点的渲染到该节点之前
-@param [config.elCls] {String} 可选，附加给组件根节点的样式类
-@param [config.elStyle] {Object} 可选，附加给组件根节点的内联样式
-@param [config.focused] {Boolean} 可选，该组件是否初始获得焦点
-@param [config.height] 可选，组件的高度，单位像素
-@param [config.parent] {Control} 可选，该组件的父组件
-@param [config.prefixCls] {String} 可选，默认 “ks-” . 组件的 css 样式类前缀 . 例如假设组件为 menu ，则该组件内的样式类名为 {prefixCls}menu，默认为 “ks-menu”.可用于实现自定义皮肤
-@param [config.prefixXClass] {String} 可选，组件 prefix 的超类。只在config中使用。当超类未被指定时，用这个做超类
-@param [config.render] {KISSY.Node} 组件要应用的节点。默认 S.all(“body”)，组件根节点的渲染为该节点最后一个节点
-@param [config.srcNode] {KISSY.Node} 可选，组件从页面中已存在的该节点中渲染而来.srcNode 时设置其他属性不起作用，属性通通在 html 标签中指定，并且 html 标签必须包含完整结构，例如 content 节点必须存在
-@param [config.visible=true] 默认 true ，是否显示.只是为组件的根节点添加/删除 {prefix}{component}-hidden 形式的 css class，自行指定具体的 css 样式
-@param [config.width] {Number} 可选，组件的宽度，单位像素
-@param [config.x] {Number} 横轴位置
-@param [config.y] {Number} 纵轴位置
-@param [config.xy] {Number[]} 横纵坐标
-@param [config.zIndex] {Number} z-index 值
+@param config {Object} 配置项，详见Attribute
+*/
+
+
+/**
+可选，附加给组件根节点的属性键值对
+@attribute [elAttrs] {Object} 
+*/
+
+/**
+可选，组件根节点的渲染到该节点之前
+@attribute [elBefore] {KISSY.Node} 
+*/
+
+
+/**
+可选，附加给组件根节点的样式类
+@attribute [elCls] {String}
+*/
+
+
+/**
+可选，附加给组件根节点的内联样式
+@attribute [elStyle] {Object} 
+*/
+
+
+/**
+可选，该组件是否初始获得焦点
+@attribute [focused] {Boolean} 
+*/
+
+
+/**
+可选，组件的高度，单位像素
+@attribute [height] {Number}
+*/
+
+
+/**
+可选，该组件的父组件
+@attribute [parent] {Control} 
+*/
+
+/**
+可选，默认 “ks-” . 组件的 css 样式类前缀 . 例如假设组件为 menu ，则该组件内的样式类名为 {prefixCls}menu，默认为 “ks-menu”.可用于实现自定义皮肤
+@attribute [prefixCls] {String} 
+*/
+
+/**
+可选，组件 prefix 的超类。只在config中使用。当超类未被指定时，用这个做超类
+@attribute [prefixXClass] {String} 
+*/
+
+/**
+组件要应用的节点。默认 S.all(“body”)，组件根节点的渲染为该节点最后一个节点
+@attribute [render] {KISSY.Node} 
+*/
+
+/**
+可选，组件从页面中已存在的该节点中渲染而来.srcNode 时设置其他属性不起作用，属性通通在 html 标签中指定，并且 html 标签必须包含完整结构，例如 content 节点必须存在
+@attribute [srcNode] {KISSY.Node} 
+*/
+
+/**
+默认 true ，是否显示.只是为组件的根节点添加/删除 {prefix}{component}-hidden 形式的 css class，自行指定具体的 css 样式
+@attribute [visible=true]
+*/
+
+/**
+可选，组件的宽度，单位像素
+@attribute [width] {Number} 
 */
 
 /**
@@ -60,10 +112,6 @@
 @attribute el {KISSY.Node}
 */
 
-/**
-该组件是否获得焦点
-@attribute focused {Boolean}
-*/
 
 /**
 组件的高
@@ -80,20 +128,6 @@
  @attribute isControl {Boolean}
  */
 
- /**
-只读属性，该组件的父组件
-@attribute parent
-*/
-
-/**
-该组件是否显示，同 config 中的 visible，只是添加/删除样式
-@attribute visible {Boolean}
-*/
-
-/**
-组件的宽度，单位像素
-@attribute width {Number}
-*/
 
 /**
 横轴位置

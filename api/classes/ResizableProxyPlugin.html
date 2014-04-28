@@ -378,12 +378,6 @@
                     
                 </li>
             
-                <li class="arg">
-                    
-                        <code>hideNodeOnResize=false</code>
-                    
-                </li>
-            
             </ul><span class="paren">)</span>
         </div>
     
@@ -442,58 +436,7 @@
                     
 
                     <div class="param-description">
-                         
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">node</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>当 Resizable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Resizable 对象, 返回值类型为 KISSY.Node . 该属性有默认值:</p>
-<pre><code>function(resizable) {
-    return new Node(resizable.get(&quot;node&quot;)[0].cloneNode(true));
-}</code></pre>
-<p>即代理节点和当前节点保持一致.</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">destroyOnEnd=false</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 false. 指明在 resize 之后是否销毁代理节点</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">hideNodeOnResize=false</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>默认 false. 是否在用代理节点 resize 时隐藏原节点</p>
+                        <p>配置对象，详见其Attribute</p>
 
                     </div>
 
@@ -520,6 +463,8 @@
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
         
         
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
         
         
             <li class="api-class-tab events"><a href="#events">Events</a></li>
@@ -675,6 +620,26 @@
 
             
 
+            
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs extends">
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_destroyOnEnd=false">destroyOnEnd=false</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_hideNodeOnResize=false">hideNodeOnResize=false</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_node">node</a>
+                            </li>
+                        
+                    </ul>
+                </div>
             
 
             
@@ -2860,6 +2825,172 @@ dog.run();</code></pre>
 
         
 
+        
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr_destroyOnEnd=false" class="attr item">
+    <a name="config_destroyOnEnd=false"></a> 
+    <h3 class="name"><code>destroyOnEnd=false</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_resizable_plugin_proxy.js.html#l25"><code>src\api\resizable\plugin\proxy.js:25</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 false. 指明在 resize 之后是否销毁代理节点</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_hideNodeOnResize=false" class="attr item">
+    <a name="config_hideNodeOnResize=false"></a> 
+    <h3 class="name"><code>hideNodeOnResize=false</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_resizable_plugin_proxy.js.html#l30"><code>src\api\resizable\plugin\proxy.js:30</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 false. 是否在用代理节点 resize 时隐藏原节点</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_node" class="attr item">
+    <a name="config_node"></a> 
+    <h3 class="name"><code>node</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_resizable_plugin_proxy.js.html#l13"><code>src\api\resizable\plugin\proxy.js:13</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>当 Resizable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Resizable 对象, 返回值类型为 KISSY.Node . 该属性有默认值:</p>
+<pre class="code prettyprint"><code>function(resizable) {
+    return new Node(resizable.get(&quot;node&quot;)[0].cloneNode(true));
+}</code></pre>
+<p>即代理节点和当前节点保持一致.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         

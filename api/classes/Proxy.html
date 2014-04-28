@@ -436,72 +436,10 @@
                     
 
                     <div class="param-description">
-                         
+                        <p>配置对象，详情见其Attribute</p>
+
                     </div>
 
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">node</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>当 Draggable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Draggable 对象, 返回值类型为 KISSY.Node . 即代理节点和当前节点保持一致,该属性有默认值,如下：</p>
-<pre><code>function(drag) {
-    return new Node(drag.get(&quot;node&quot;)[0].cloneNode(true));
-}</code></pre>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">destroyOnEnd=false</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 false. 指明是否代理节点需要每次拖放前 dragstart 生成, 拖放后 dragend 销毁. 用于多 Draggable 对象共享一个 Proxy 对象实例, 且要求代理节点和单个 Draggable 对象关联, 或者一个 DraggableDelegate 对象共享一个 Proxy 对象实例</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">moveOnEnd=true</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 true. 当拖放结束时，是否移动源节点到代理节点的位置.</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">hideNodeOnDrag=false</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 false. 拖放时是否隐藏源节点</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -525,6 +463,8 @@
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
         
         
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
         
         
             <li class="api-class-tab events"><a href="#events">Events</a></li>
@@ -680,6 +620,30 @@
 
             
 
+            
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs extends">
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_destroyOnEnd=false">destroyOnEnd=false</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_hideNodeOnDrag=false">hideNodeOnDrag=false</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_moveOnEnd=true">moveOnEnd=true</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_node">node</a>
+                            </li>
+                        
+                    </ul>
+                </div>
             
 
             
@@ -2865,6 +2829,223 @@ dog.run();</code></pre>
 
         
 
+        
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr_destroyOnEnd=false" class="attr item">
+    <a name="config_destroyOnEnd=false"></a> 
+    <h3 class="name"><code>destroyOnEnd=false</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_dd_plugin_proxy.js.html#l23"><code>src\api\dd\plugin\proxy.js:23</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 false. 指明是否代理节点需要每次拖放前 dragstart 生成, 拖放后 dragend 销毁. 用于多 Draggable 对象共享一个 Proxy 对象实例, 且要求代理节点和单个 Draggable 对象关联, 或者一个 DraggableDelegate 对象共享一个 Proxy 对象实例</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_hideNodeOnDrag=false" class="attr item">
+    <a name="config_hideNodeOnDrag=false"></a> 
+    <h3 class="name"><code>hideNodeOnDrag=false</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_dd_plugin_proxy.js.html#l33"><code>src\api\dd\plugin\proxy.js:33</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 false. 拖放时是否隐藏源节点</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_moveOnEnd=true" class="attr item">
+    <a name="config_moveOnEnd=true"></a> 
+    <h3 class="name"><code>moveOnEnd=true</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_dd_plugin_proxy.js.html#l28"><code>src\api\dd\plugin\proxy.js:28</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 true. 当拖放结束时，是否移动源节点到代理节点的位置.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_node" class="attr item">
+    <a name="config_node"></a> 
+    <h3 class="name"><code>node</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_dd_plugin_proxy.js.html#l13"><code>src\api\dd\plugin\proxy.js:13</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>当 Draggable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Draggable 对象, 返回值类型为 KISSY.Node . 即代理节点和当前节点保持一致,该属性有默认值,如下：</p>
+<pre class="code prettyprint"><code>function(drag) {
+    return new Node(drag.get(&quot;node&quot;)[0].cloneNode(true));
+}</code></pre>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         

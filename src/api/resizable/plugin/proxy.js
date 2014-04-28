@@ -7,8 +7,11 @@
 @class ResizableProxyPlugin
 @constructor
 @extends Base
-@param config {Object} 
-@param config.node {Function} 当 Resizable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Resizable 对象, 返回值类型为 KISSY.Node . 该属性有默认值:
+@param config {Object} 配置对象，详见其Attribute
+*/
+
+/**
+当 Resizable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Resizable 对象, 返回值类型为 KISSY.Node . 该属性有默认值:
 ```
 function(resizable) {
     return new Node(resizable.get("node")[0].cloneNode(true));
@@ -16,6 +19,15 @@ function(resizable) {
 ```
 
 即代理节点和当前节点保持一致.
-@param config.destroyOnEnd=false {Boolean}  默认 false. 指明在 resize 之后是否销毁代理节点
-@param hideNodeOnResize=false {Boolean} 默认 false. 是否在用代理节点 resize 时隐藏原节点
+@attribute node {Function}
+*/
+
+/**
+默认 false. 指明在 resize 之后是否销毁代理节点
+@attribute destroyOnEnd=false {Boolean} 
+*/
+
+/**
+默认 false. 是否在用代理节点 resize 时隐藏原节点
+@attribute hideNodeOnResize=false {Boolean} 
 */

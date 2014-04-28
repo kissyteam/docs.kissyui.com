@@ -344,12 +344,7 @@ ScrollView的下拉刷新插件
 @class PullToRefresh
 @constructor
 @extends Base
-@param config {Object} 
-@param config.pullingHtml=&quot;Pull down to refresh...&quot; {String} 下拉时提示内容
-@param config.releasingHtml=&quot;release to refresh...&quot; {String} 释放操作的提示内容
-@param config.loadingHtml=&quot;loading...&quot; {String} 加载内容时的提示内容
-@param config.loadFn {function} 加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。
-组件内部会给loadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可
+@param config {Object} 配置对象，详情参考其Attribute
 @example
 &#x60;&#x60;&#x60;
 KISSY.use(&#x27;scroll-view, scroll-view/plugin/pull-to-refresh&#x27;, function (S, ScrollView, PullToRefresh) {
@@ -369,6 +364,28 @@ KISSY.use(&#x27;scroll-view, scroll-view/plugin/pull-to-refresh&#x27;, function 
     }).render();
 }
 &#x60;&#x60;&#x60;
+*/
+
+/**
+下拉时提示内容
+@attribute pullingHtml=&quot;Pull down to refresh...&quot; {String} 
+*/
+
+/**
+释放操作的提示内容
+@attribute releasingHtml=&quot;release to refresh...&quot; {String} 
+*/
+
+
+/**
+加载内容时的提示内容
+@attribute loadingHtml=&quot;loading...&quot; {String} 
+*/
+
+/**
+加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。
+组件内部会给loadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可
+@attribute loadFn {function}
 */
     </pre>
 </div>

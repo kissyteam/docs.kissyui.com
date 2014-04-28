@@ -435,26 +435,25 @@
                     
 
                     <div class="param-description">
-                         
+                        <p>配置对象，详情见Attribute</p>
+
                     </div>
 
                     
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">constrain</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | KISSY.Node</span>
-                                
+                </li>
+            
+            </ul>
+        </div>
+    
 
-                                <div class="param-description">
-                                    <ul>
-<li>取值选择器字符串时, 则在限制拖动范围为根据该选择器字符串取到的第一个节点所在区域.</li>
-<li>取 KISSY.Node 时，则限制拖动范围为该节点所在区域.</li>
-<li>取值 true 时, 只能在当前视窗范围内拖动.</li>
-<li>取值 false 时, 可任意移动, 例如以扩充了该组件的 dialog 为例</li>
-</ul>
-<pre><code>KISSY.use(&quot;dd,dd/plugin/constrain&quot;,function(S,DD,Constrain){
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use(&quot;dd,dd/plugin/constrain&quot;,function(S,DD,Constrain){
    new DD.Draggable({
        node:&#39;#drag&#39;,
        plugins:[ new Constrain({
@@ -472,21 +471,8 @@ KISSY.use(&quot;dd,dd/plugin/constrain&quot;,function(S,DD,Constrain){
     });
  });</code></pre>
 
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
+            </div>
         </div>
-    
-
-    
-
     
 </div>
 
@@ -501,6 +487,8 @@ KISSY.use(&quot;dd,dd/plugin/constrain&quot;,function(S,DD,Constrain){
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
         
         
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
         
         
             <li class="api-class-tab events"><a href="#events">Events</a></li>
@@ -656,6 +644,18 @@ KISSY.use(&quot;dd,dd/plugin/constrain&quot;,function(S,DD,Constrain){
 
             
 
+            
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs extends">
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_constrain">constrain</a>
+                            </li>
+                        
+                    </ul>
+                </div>
             
 
             
@@ -2841,6 +2841,69 @@ dog.run();</code></pre>
 
         
 
+        
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr_constrain" class="attr item">
+    <a name="config_constrain"></a> 
+    <h3 class="name"><code>constrain</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | KISSY.Node</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_dd_plugin_constrain.js.html#l32"><code>src\api\dd\plugin\constrain.js:32</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <ul>
+<li>取值选择器字符串时, 则在限制拖动范围为根据该选择器字符串取到的第一个节点所在区域.</li>
+<li>取 KISSY.Node 时，则限制拖动范围为该节点所在区域.</li>
+<li>取值 true 时, 只能在当前视窗范围内拖动.</li>
+<li>取值 false 时, 可任意移动, 例如以扩充了该组件的 dialog 为例</li>
+</ul>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         

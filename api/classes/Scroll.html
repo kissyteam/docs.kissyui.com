@@ -435,55 +435,10 @@
                     
 
                     <div class="param-description">
-                         
+                        <p>配置对象，详情见其Attribute</p>
+
                     </div>
 
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">node</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a> | window</span>
-                                
-
-                                <div class="param-description">
-                                    <p>自动滚动容器, 随其内的可拖放节点自动滚动.</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">rate</code>
-                                    <span class="type">Array<number></span>
-                                
-
-                                <div class="param-description">
-                                    <p>长度为 2, 默认值 [10,10] . 表示容器自动滚动的速度, 数组元素 1 表示横向滚动的速度, 数组元素 2 表示纵向滚动的速度.</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">diff</code>
-                                    <span class="type">Array<Number></span>
-                                
-
-                                <div class="param-description">
-                                    <p>长度为 2, 默认值 [20,20] . 当鼠标进入容器内边缘区域时开始自动滚动. 数组元素 1 表示横向容器内边缘宽度, 数组元素 2 表示纵向容器内边缘宽度.</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -507,6 +462,8 @@
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
         
         
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
         
         
             <li class="api-class-tab events"><a href="#events">Events</a></li>
@@ -662,6 +619,26 @@
 
             
 
+            
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs extends">
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_diff">diff</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_node">node</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_rate">rate</a>
+                            </li>
+                        
+                    </ul>
+                </div>
             
 
             
@@ -2847,6 +2824,168 @@ dog.run();</code></pre>
 
         
 
+        
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr_diff" class="attr item">
+    <a name="config_diff"></a> 
+    <h3 class="name"><code>diff</code></h3>
+    <span class="type">Array<Number></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_dd_plugin_scroll.js.html#l22"><code>src\api\dd\plugin\scroll.js:22</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>长度为 2, 默认值 [20,20] . 当鼠标进入容器内边缘区域时开始自动滚动. 数组元素 1 表示横向容器内边缘宽度, 数组元素 2 表示纵向容器内边缘宽度.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_node" class="attr item">
+    <a name="config_node"></a> 
+    <h3 class="name"><code>node</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a> | window</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_dd_plugin_scroll.js.html#l12"><code>src\api\dd\plugin\scroll.js:12</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>自动滚动容器, 随其内的可拖放节点自动滚动.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_rate" class="attr item">
+    <a name="config_rate"></a> 
+    <h3 class="name"><code>rate</code></h3>
+    <span class="type">Array<number></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_dd_plugin_scroll.js.html#l17"><code>src\api\dd\plugin\scroll.js:17</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>长度为 2, 默认值 [10,10] . 表示容器自动滚动的速度, 数组元素 1 表示横向滚动的速度, 数组元素 2 表示纵向滚动的速度.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         

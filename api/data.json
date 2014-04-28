@@ -1320,16 +1320,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项，如下",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "align",
-                            "description": "可选, 组件节点对齐的相关配置, 例如：\n```\n{\n    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域\n    points: ['tr','tl'], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐\n    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,\n                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.\n    overflow:{\n        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标\n        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标\n    }\n}\n```\npoints 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围\n第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示\n\n![alt text](5.0/api/assets/img/project-img/align.png)",
-                            "type": "Object",
-                            "optional": true
-                        }
-                    ]
+                    "description": "配置项，详见Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -1417,30 +1409,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "a",
-                            "description": "alpha 值",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "r",
-                            "description": "red 值",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "g",
-                            "description": "green 值",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "b",
-                            "description": "blue 值",
-                            "type": "Number"
-                        }
-                    ]
+                    "description": "配置项，详见Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -1461,16 +1431,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "children",
-                            "description": "可选，当前组件的子组件",
-                            "type": "Control[]",
-                            "optional": true
-                        }
-                    ]
+                    "description": "配置项，详见Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -1491,124 +1453,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项，有如下配置：",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "content",
-                            "description": "可选, 设置内容 html",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "disabled",
-                            "description": "可选，该组件是否初始禁用",
-                            "type": "Boolean",
-                            "optional": true
-                        },
-                        {
-                            "name": "elAttrs",
-                            "description": "可选，附加给组件根节点的属性键值对",
-                            "type": "Object",
-                            "optional": true
-                        },
-                        {
-                            "name": "elBefore",
-                            "description": "可选，组件根节点的渲染到该节点之前",
-                            "type": "KISSY.Node",
-                            "optional": true
-                        },
-                        {
-                            "name": "elCls",
-                            "description": "可选，附加给组件根节点的样式类",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "elStyle",
-                            "description": "可选，附加给组件根节点的内联样式",
-                            "type": "Object",
-                            "optional": true
-                        },
-                        {
-                            "name": "focused",
-                            "description": "可选，该组件是否初始获得焦点",
-                            "type": "Boolean",
-                            "optional": true
-                        },
-                        {
-                            "name": "height",
-                            "description": "可选，组件的高度，单位像素",
-                            "optional": true
-                        },
-                        {
-                            "name": "parent",
-                            "description": "可选，该组件的父组件",
-                            "type": "Control",
-                            "optional": true
-                        },
-                        {
-                            "name": "prefixCls",
-                            "description": "可选，默认 “ks-” . 组件的 css 样式类前缀 . 例如假设组件为 menu ，则该组件内的样式类名为 {prefixCls}menu，默认为 “ks-menu”.可用于实现自定义皮肤",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "prefixXClass",
-                            "description": "可选，组件 prefix 的超类。只在config中使用。当超类未被指定时，用这个做超类",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "render",
-                            "description": "组件要应用的节点。默认 S.all(“body”)，组件根节点的渲染为该节点最后一个节点",
-                            "type": "KISSY.Node",
-                            "optional": true
-                        },
-                        {
-                            "name": "srcNode",
-                            "description": "可选，组件从页面中已存在的该节点中渲染而来.srcNode 时设置其他属性不起作用，属性通通在 html 标签中指定，并且 html 标签必须包含完整结构，例如 content 节点必须存在",
-                            "type": "KISSY.Node",
-                            "optional": true
-                        },
-                        {
-                            "name": "visible",
-                            "description": "默认 true ，是否显示.只是为组件的根节点添加/删除 {component}-hidden 形式的 css class，自行指定具体的 css 样式",
-                            "type": "Prefix",
-                            "optional": true,
-                            "optdefault": "true"
-                        },
-                        {
-                            "name": "width",
-                            "description": "可选，组件的宽度，单位像素",
-                            "type": "Number",
-                            "optional": true
-                        },
-                        {
-                            "name": "x",
-                            "description": "横轴位置",
-                            "type": "Number",
-                            "optional": true
-                        },
-                        {
-                            "name": "y",
-                            "description": "纵轴位置",
-                            "type": "Number",
-                            "optional": true
-                        },
-                        {
-                            "name": "xy",
-                            "description": "横纵坐标",
-                            "type": "Number[]",
-                            "optional": true
-                        },
-                        {
-                            "name": "zIndex",
-                            "description": "z-index 值",
-                            "type": "Number",
-                            "optional": true
-                        }
-                    ]
+                    "description": "配置项，详见Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -1698,40 +1544,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "配置信息，如下：",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "disabledDate",
-                            "description": "一个过滤函数，用于判断日期是否可用.可用返回true，反之返回false\n```\ndisabledDate: function (current, value) {\n    return current.getMonth() < value.getMonth();\n}\n```",
-                            "type": "Function"
-                        },
-                        {
-                            "name": "showWeekNumber",
-                            "description": "是否显示周的数字形式.显示为true，反之为false",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "showToday",
-                            "description": "是否显示今天.显示为true，反之为false",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "dateRender",
-                            "description": "指定每个日期单元的渲染方式.函数接受两个参数\n- current: 当前的日期值 \n- value : 初始化 picker 是设置的值，默认为当前时间",
-                            "type": "Function"
-                        }
-                    ]
-                },
-                {
-                    "name": "locale",
-                    "description": "locale 信息",
+                    "description": "配置对象，详情参考Attribute",
                     "type": "Object"
-                },
-                {
-                    "name": "showClear",
-                    "description": "是否显示清除按钮，默认 true",
-                    "type": "Boolean"
                 }
             ]
         },
@@ -1782,16 +1596,12 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "constrain",
-                            "description": "\n- 取值选择器字符串时, 则在限制拖动范围为根据该选择器字符串取到的第一个节点所在区域.\n- 取 KISSY.Node 时，则限制拖动范围为该节点所在区域.\n- 取值 true 时, 只能在当前视窗范围内拖动.\n- 取值 false 时, 可任意移动, 例如以扩充了该组件的 dialog 为例\n\n\n```\nKISSY.use(\"dd,dd/plugin/constrain\",function(S,DD,Constrain){\n   new DD.Draggable({\n       node:'#drag',\n       plugins:[ new Constrain({\n           constrain:window // 限制拖动区域为视窗区域\n       }) ]\n   });\n});\n\nKISSY.use(\"dd,dd/plugin/constrain\",function(S,DD,Constrain){\n    new DD.Draggable({\n        node:'#drag',\n        plugins:[ new Constrain({\n            constrain:'#container' // 限制拖动区域为 container 节点所占据区域\n        }) ]\n    });\n });\n ```",
-                            "type": "Boolean | String | KISSY.Node"
-                        }
-                    ]
+                    "description": "配置对象，详情见Attribute",
+                    "type": "Object"
                 }
+            ],
+            "example": [
+                "\n```\nKISSY.use(\"dd,dd/plugin/constrain\",function(S,DD,Constrain){\n   new DD.Draggable({\n       node:'#drag',\n       plugins:[ new Constrain({\n           constrain:window // 限制拖动区域为视窗区域\n       }) ]\n   });\n});\n\nKISSY.use(\"dd,dd/plugin/constrain\",function(S,DD,Constrain){\n    new DD.Draggable({\n        node:'#drag',\n        plugins:[ new Constrain({\n            constrain:'#container' // 限制拖动区域为 container 节点所占据区域\n        }) ]\n    });\n });\n ```"
             ]
         },
         "Proxy": {
@@ -1812,30 +1622,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "node",
-                            "description": "当 Draggable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Draggable 对象, 返回值类型为 KISSY.Node . 即代理节点和当前节点保持一致,该属性有默认值,如下：\n```\nfunction(drag) {\n    return new Node(drag.get(\"node\")[0].cloneNode(true));\n}\n```",
-                            "type": "Function"
-                        },
-                        {
-                            "name": "destroyOnEnd=false",
-                            "description": "默认 false. 指明是否代理节点需要每次拖放前 dragstart 生成, 拖放后 dragend 销毁. 用于多 Draggable 对象共享一个 Proxy 对象实例, 且要求代理节点和单个 Draggable 对象关联, 或者一个 DraggableDelegate 对象共享一个 Proxy 对象实例",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "moveOnEnd=true",
-                            "description": "默认 true. 当拖放结束时，是否移动源节点到代理节点的位置.",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "hideNodeOnDrag=false",
-                            "description": "默认 false. 拖放时是否隐藏源节点",
-                            "type": "Boolean"
-                        }
-                    ]
+                    "description": "配置对象，详情见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -1856,25 +1644,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "node",
-                            "description": "自动滚动容器, 随其内的可拖放节点自动滚动.",
-                            "type": "String | HTMLElement | window"
-                        },
-                        {
-                            "name": "rate",
-                            "description": "长度为 2, 默认值 [10,10] . 表示容器自动滚动的速度, 数组元素 1 表示横向滚动的速度, 数组元素 2 表示纵向滚动的速度.",
-                            "type": "Array<number>"
-                        },
-                        {
-                            "name": "diff",
-                            "description": "长度为 2, 默认值 [20,20] . 当鼠标进入容器内边缘区域时开始自动滚动. 数组元素 1 表示横向容器内边缘宽度, 数组元素 2 表示纵向容器内边缘宽度.",
-                            "type": "Array<Number>"
-                        }
-                    ]
+                    "description": "配置对象，详情见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -1896,25 +1667,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "node",
-                            "description": "当 Resizable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Resizable 对象, 返回值类型为 KISSY.Node . 该属性有默认值:\n```\nfunction(resizable) {\n    return new Node(resizable.get(\"node\")[0].cloneNode(true));\n}\n```\n\n即代理节点和当前节点保持一致.",
-                            "type": "Function"
-                        },
-                        {
-                            "name": "destroyOnEnd=false",
-                            "description": "默认 false. 指明在 resize 之后是否销毁代理节点",
-                            "type": "Boolean"
-                        }
-                    ]
-                },
-                {
-                    "name": "hideNodeOnResize=false",
-                    "description": "默认 false. 是否在用代理节点 resize 时隐藏原节点",
-                    "type": "Boolean"
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -1936,30 +1690,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "pullingHtml=\"Pull",
-                            "description": "down to refresh...\"  下拉时提示内容",
-                            "type": "String"
-                        },
-                        {
-                            "name": "releasingHtml=\"release",
-                            "description": "to refresh...\"  释放操作的提示内容",
-                            "type": "String"
-                        },
-                        {
-                            "name": "loadingHtml=\"loading...\"",
-                            "description": "加载内容时的提示内容",
-                            "type": "String"
-                        },
-                        {
-                            "name": "loadFn",
-                            "description": "加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。\n组件内部会给loadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可",
-                            "type": "Function"
-                        }
-                    ]
+                    "description": "配置对象，详情参考其Attribute",
+                    "type": "Object"
                 }
             ],
             "example": [
@@ -1984,24 +1716,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "props": [
-                        {
-                            "name": "minLength",
-                            "description": "滚动条的最小长度",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "autoHideX",
-                            "description": "是否自动隐藏横向滚动条",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "autoHideY",
-                            "description": "是否自动隐藏纵向滚动条",
-                            "type": "Boolean"
-                        }
-                    ]
+                    "description": "配置对象，详情参考其Attribute",
+                    "type": "Object"
                 }
             ],
             "example": [
@@ -2025,25 +1741,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "snap",
-                            "description": "\n- 当为String时，表示传入元素的选择器\n- 当为Boolean时，表示用来指定是否在滚动是将元素“折断”，就是在滚动停在元素上时如何处理。默认为 false ，不做操作，就停在那里，为true时滚动到下一个同类元素的起点，停止。",
-                            "type": "String|Boolean"
-                        },
-                        {
-                            "name": "snapDuration=0.3",
-                            "description": "“折断”操作动画持续时间，当snap为true时有效。",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "snapEasing=\"easeOut\"",
-                            "description": "“折断”操作动画的时间函数",
-                            "type": "String"
-                        }
-                    ]
+                    "description": "配置对象，详情参考其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2068,25 +1767,8 @@
                 },
                 {
                     "name": "config",
-                    "description": "配置项，详见下列配置",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "command",
-                            "description": "局部自定义命令的键值对，例如\n```\n{\n    'toLowerCase':function( scopes,option ){\n        return option.params[0].toLowerCase();\n    }\n}\n```",
-                            "type": "Object"
-                        }
-                    ]
-                },
-                {
-                    "name": "name",
-                    "description": "模版名称，可在 chrome dev tools 中看到以该值为名称的模板文件代码",
-                    "type": "String"
-                },
-                {
-                    "name": "cache",
-                    "description": "是否缓存生成的模板函数，默认 true",
-                    "type": "Boolean"
+                    "description": "配置对象，详情参考其Attribute",
+                    "type": "Object"
                 }
             ],
             "example": [
@@ -4102,7 +3784,7 @@
     "classitems": [
         {
             "file": "src\\api\\component\\extension\\align.js",
-            "line": 30,
+            "line": 13,
             "description": "设置组件根节点对齐",
             "itemtype": "method",
             "name": "align",
@@ -4133,10 +3815,20 @@
         },
         {
             "file": "src\\api\\component\\extension\\align.js",
-            "line": 39,
+            "line": 22,
             "description": "将组件根节点放在当前视窗中央",
             "itemtype": "method",
             "name": "center",
+            "class": "Align",
+            "module": "component/extension/align"
+        },
+        {
+            "file": "src\\api\\component\\extension\\align.js",
+            "line": 27,
+            "description": "可选, 组件节点对齐的相关配置, 例如：\n```\n{\n    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域\n    points: ['tr','tl'], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐\n    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,\n                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.\n    overflow:{\n        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标\n        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标\n    }\n}\n```\npoints 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围\n第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示\n\n![alt text](5.0/api/assets/img/project-img/align.png)",
+            "itemtype": "attribute",
+            "name": "align",
+            "type": "Object",
             "class": "Align",
             "module": "component/extension/align"
         },
@@ -4152,7 +3844,47 @@
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 16,
+            "line": 13,
+            "description": "alpha 值",
+            "itemtype": "attribute",
+            "name": "a",
+            "type": "Number",
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\component\\color.js",
+            "line": 18,
+            "description": "red 值",
+            "itemtype": "attribute",
+            "name": "r",
+            "type": "Number",
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\component\\color.js",
+            "line": 23,
+            "description": "green 值",
+            "itemtype": "attribute",
+            "name": "g",
+            "type": "Number",
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\component\\color.js",
+            "line": 28,
+            "description": "blue 值",
+            "itemtype": "attribute",
+            "name": "b",
+            "type": "Number",
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\component\\color.js",
+            "line": 33,
             "description": "得到当前颜色属性对应的 hsl 表示",
             "itemtype": "method",
             "name": "getHSL",
@@ -4165,7 +3897,7 @@
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 22,
+            "line": 39,
             "description": "得到当前颜色属性对应的 hsl 表示字符串",
             "itemtype": "method",
             "name": "toHSL",
@@ -4178,7 +3910,7 @@
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 28,
+            "line": 45,
             "description": "得到当前颜色属性对应的 hsla 表示字符串",
             "itemtype": "method",
             "name": "toHSLA",
@@ -4191,7 +3923,7 @@
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 34,
+            "line": 51,
             "description": "得到当前颜色属性对应的 rgb 表示字符串",
             "itemtype": "method",
             "name": "toRGB",
@@ -4204,7 +3936,7 @@
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 40,
+            "line": 57,
             "description": "得到当前颜色属性对应的 rgba 表示字符串",
             "itemtype": "method",
             "name": "toRGBA",
@@ -4217,7 +3949,7 @@
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 46,
+            "line": 63,
             "description": "得到当前颜色属性对应的 16 进制表示字符串",
             "itemtype": "method",
             "name": "toHex",
@@ -4230,7 +3962,7 @@
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 52,
+            "line": 69,
             "description": "得到当前颜色属性对应的 hsv 表示",
             "itemtype": "method",
             "name": "getHSV",
@@ -4243,7 +3975,7 @@
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 58,
+            "line": 75,
             "description": "根据 hsv 对象修改当前颜色实例",
             "itemtype": "method",
             "name": "setHSV",
@@ -4259,7 +3991,7 @@
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 64,
+            "line": 81,
             "description": "根据 hsl 对象修改当前颜色实例",
             "itemtype": "method",
             "name": "setHSL",
@@ -4275,7 +4007,7 @@
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 70,
+            "line": 87,
             "description": "从字符串表示的颜色值中获取颜色对象",
             "itemtype": "method",
             "name": "parse",
@@ -4296,7 +4028,7 @@
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 78,
+            "line": 95,
             "description": "从 hsl 对象中生成颜色实例",
             "itemtype": "method",
             "name": "fromHSL",
@@ -4317,7 +4049,17 @@
         },
         {
             "file": "src\\api\\component\\container.js",
-            "line": 14,
+            "line": 13,
+            "description": "可选，当前组件的子组件数组",
+            "itemtype": "attribute",
+            "name": "[children]",
+            "type": "Control[]",
+            "class": "Container",
+            "module": "component/container"
+        },
+        {
+            "file": "src\\api\\component\\container.js",
+            "line": 19,
             "description": "添加一个指定的组件作为当前组件的子组件",
             "itemtype": "method",
             "name": "addChild",
@@ -4338,7 +4080,7 @@
         },
         {
             "file": "src\\api\\component\\container.js",
-            "line": 21,
+            "line": 26,
             "description": "返回所给索引对应的子组件，如果索引超出返回，则返回 null",
             "itemtype": "method",
             "name": "getChildAt",
@@ -4358,7 +4100,7 @@
         },
         {
             "file": "src\\api\\component\\container.js",
-            "line": 28,
+            "line": 33,
             "description": "从当前组件中移除所给子组件，并返回这个子组件对象。\n如果 destroy 是 true，调用要移除的组件的 destroy() 方法，随后从 DOM 文档中移除子组件的 DOM。否则，清除子组件 DOM 的工作就要由调用者做。",
             "itemtype": "method",
             "name": "removeChild",
@@ -4381,7 +4123,7 @@
         },
         {
             "file": "src\\api\\component\\container.js",
-            "line": 36,
+            "line": 41,
             "description": "移除所有包含的子组件",
             "itemtype": "method",
             "name": "removeChildren",
@@ -4399,7 +4141,136 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 33,
+            "line": 15,
+            "description": "可选，附加给组件根节点的属性键值对",
+            "itemtype": "attribute",
+            "name": "[elAttrs]",
+            "type": "Object",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 20,
+            "description": "可选，组件根节点的渲染到该节点之前",
+            "itemtype": "attribute",
+            "name": "[elBefore]",
+            "type": "KISSY.Node",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 26,
+            "description": "可选，附加给组件根节点的样式类",
+            "itemtype": "attribute",
+            "name": "[elCls]",
+            "type": "String",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 32,
+            "description": "可选，附加给组件根节点的内联样式",
+            "itemtype": "attribute",
+            "name": "[elStyle]",
+            "type": "Object",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 38,
+            "description": "可选，该组件是否初始获得焦点",
+            "itemtype": "attribute",
+            "name": "[focused]",
+            "type": "Boolean",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 44,
+            "description": "可选，组件的高度，单位像素",
+            "itemtype": "attribute",
+            "name": "[height]",
+            "type": "Number",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 50,
+            "description": "可选，该组件的父组件",
+            "itemtype": "attribute",
+            "name": "[parent]",
+            "type": "Control",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 55,
+            "description": "可选，默认 “ks-” . 组件的 css 样式类前缀 . 例如假设组件为 menu ，则该组件内的样式类名为 {prefixCls}menu，默认为 “ks-menu”.可用于实现自定义皮肤",
+            "itemtype": "attribute",
+            "name": "[prefixCls]",
+            "type": "String",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 60,
+            "description": "可选，组件 prefix 的超类。只在config中使用。当超类未被指定时，用这个做超类",
+            "itemtype": "attribute",
+            "name": "[prefixXClass]",
+            "type": "String",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 65,
+            "description": "组件要应用的节点。默认 S.all(“body”)，组件根节点的渲染为该节点最后一个节点",
+            "itemtype": "attribute",
+            "name": "[render]",
+            "type": "KISSY.Node",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 70,
+            "description": "可选，组件从页面中已存在的该节点中渲染而来.srcNode 时设置其他属性不起作用，属性通通在 html 标签中指定，并且 html 标签必须包含完整结构，例如 content 节点必须存在",
+            "itemtype": "attribute",
+            "name": "[srcNode]",
+            "type": "KISSY.Node",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 75,
+            "description": "默认 true ，是否显示.只是为组件的根节点添加/删除 {prefix}{component}-hidden 形式的 css class，自行指定具体的 css 样式",
+            "itemtype": "attribute",
+            "name": "[visible=true]",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 80,
+            "description": "可选，组件的宽度，单位像素",
+            "itemtype": "attribute",
+            "name": "[width]",
+            "type": "Number",
+            "class": "Control",
+            "module": "component/control"
+        },
+        {
+            "file": "src\\api\\component\\control.js",
+            "line": 85,
             "description": "只读属性，组件结构是否已经创建",
             "itemtype": "attribute",
             "name": "created",
@@ -4409,7 +4280,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 38,
+            "line": 90,
             "description": "只读属性，组件是否已经渲染",
             "itemtype": "attribute",
             "name": "rendered",
@@ -4419,7 +4290,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 43,
+            "line": 95,
             "description": "组件是否已经激活",
             "itemtype": "attribute",
             "name": "active",
@@ -4429,7 +4300,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 48,
+            "line": 100,
             "description": "设置的 content 属性",
             "itemtype": "attribute",
             "name": "content",
@@ -4439,7 +4310,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 53,
+            "line": 105,
             "description": "该组件是否禁用状态",
             "itemtype": "attribute",
             "name": "disabled",
@@ -4449,7 +4320,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 58,
+            "line": 110,
             "description": "只读属性，该组件的根节点. 注意调用 render() 后才可以取得",
             "itemtype": "attribute",
             "name": "el",
@@ -4459,17 +4330,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 63,
-            "description": "该组件是否获得焦点",
-            "itemtype": "attribute",
-            "name": "focused",
-            "type": "Boolean",
-            "class": "Control",
-            "module": "component/control"
-        },
-        {
-            "file": "src\\api\\component\\control.js",
-            "line": 68,
+            "line": 116,
             "description": "组件的高",
             "itemtype": "attribute",
             "name": "height",
@@ -4479,7 +4340,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 73,
+            "line": 121,
             "description": "该组件是否处于高亮状态",
             "itemtype": "attribute",
             "name": "highlighted",
@@ -4489,7 +4350,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 78,
+            "line": 126,
             "description": "标记当前实例是 Control 的实例",
             "itemtype": "attribute",
             "name": "isControl",
@@ -4499,36 +4360,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 83,
-            "description": "只读属性，该组件的父组件",
-            "itemtype": "attribute",
-            "name": "parent",
-            "class": "Control",
-            "module": "component/control"
-        },
-        {
-            "file": "src\\api\\component\\control.js",
-            "line": 88,
-            "description": "该组件是否显示，同 config 中的 visible，只是添加/删除样式",
-            "itemtype": "attribute",
-            "name": "visible",
-            "type": "Boolean",
-            "class": "Control",
-            "module": "component/control"
-        },
-        {
-            "file": "src\\api\\component\\control.js",
-            "line": 93,
-            "description": "组件的宽度，单位像素",
-            "itemtype": "attribute",
-            "name": "width",
-            "type": "Number",
-            "class": "Control",
-            "module": "component/control"
-        },
-        {
-            "file": "src\\api\\component\\control.js",
-            "line": 98,
+            "line": 132,
             "description": "横轴位置",
             "itemtype": "attribute",
             "name": "x",
@@ -4538,7 +4370,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 103,
+            "line": 137,
             "description": "纵轴位置",
             "itemtype": "attribute",
             "name": "y",
@@ -4548,7 +4380,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 108,
+            "line": 142,
             "description": "横纵轴位置",
             "itemtype": "attribute",
             "name": "xy",
@@ -4558,7 +4390,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 113,
+            "line": 147,
             "description": "z-index 值",
             "itemtype": "attribute",
             "name": "zIndex",
@@ -4568,7 +4400,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 120,
+            "line": 154,
             "description": "从当前组件类上扩展出一个子类组件",
             "itemtype": "method",
             "name": "extend",
@@ -4612,7 +4444,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 131,
+            "line": 165,
             "description": "创建当前组件的DOM结构，control将会代理给render",
             "itemtype": "method",
             "name": "create",
@@ -4624,7 +4456,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 137,
+            "line": 171,
             "description": "把当前组件的DOM结构放入 DOM 文档中，并绑定事件，同步属性",
             "itemtype": "method",
             "name": "render",
@@ -4636,7 +4468,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 143,
+            "line": 177,
             "description": "同步属性值.组件基类增加 sync 函数，调用后可调用父类、扩展类、插件对应的 syncUI 方法",
             "itemtype": "method",
             "name": "sync",
@@ -4645,7 +4477,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 148,
+            "line": 182,
             "description": "隐藏组件",
             "itemtype": "method",
             "name": "hide",
@@ -4657,7 +4489,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 154,
+            "line": 188,
             "description": "显示组件",
             "itemtype": "method",
             "name": "show",
@@ -4669,7 +4501,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 160,
+            "line": 194,
             "description": "移动到(x,y)",
             "itemtype": "method",
             "name": "move",
@@ -4693,7 +4525,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 168,
+            "line": 202,
             "description": "使组件失去焦点",
             "itemtype": "method",
             "name": "blur",
@@ -4702,7 +4534,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 173,
+            "line": 207,
             "description": "使组件获得焦点",
             "itemtype": "method",
             "name": "focus",
@@ -4711,7 +4543,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 178,
+            "line": 212,
             "description": "当组件内部事件绑定完之后触发",
             "itemtype": "event",
             "name": "afterBindUI",
@@ -4727,7 +4559,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 184,
+            "line": 218,
             "description": "当组件根节点创建的时候触发",
             "itemtype": "event",
             "name": "afterCreateDom",
@@ -4743,7 +4575,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 190,
+            "line": 224,
             "description": "当组件根节点渲染到 DOM 文档后触发",
             "itemtype": "event",
             "name": "afterRenderUI",
@@ -4759,7 +4591,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 196,
+            "line": 230,
             "description": "当组件内部的状态同步完之后触发",
             "itemtype": "event",
             "name": "afterSyncUI",
@@ -4775,7 +4607,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 202,
+            "line": 236,
             "description": "在组件内部事件绑定前触发",
             "itemtype": "event",
             "name": "beforeBindUI",
@@ -4791,7 +4623,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 208,
+            "line": 242,
             "description": "在组件根节点创建前触发",
             "itemtype": "event",
             "name": "beforeCreateDom",
@@ -4807,7 +4639,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 214,
+            "line": 248,
             "description": "在组件根节点渲染之前触发",
             "itemtype": "event",
             "name": "beforeRenderUI",
@@ -4823,7 +4655,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 220,
+            "line": 254,
             "description": "在同步组件内部状态前触发",
             "itemtype": "event",
             "name": "beforeSyncUI",
@@ -4839,7 +4671,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 226,
+            "line": 260,
             "description": "在组件 show 的时候触发",
             "itemtype": "event",
             "name": "show",
@@ -4855,7 +4687,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 232,
+            "line": 266,
             "description": "在组件 hide 的时候触发",
             "itemtype": "event",
             "name": "hide",
@@ -4871,7 +4703,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 238,
+            "line": 272,
             "description": "在组件 visible 属性发生变化时触发",
             "itemtype": "event",
             "name": "beforeVisibleChange",
@@ -6176,7 +6008,67 @@
         },
         {
             "file": "src\\api\\date\\picker.js",
-            "line": 27,
+            "line": 14,
+            "description": "一个过滤函数，用于判断日期是否可用.可用返回true，反之返回false\n```\ndisabledDate: function (current, value) {\n    return current.getMonth() < value.getMonth();\n}\n```",
+            "itemtype": "attribute",
+            "name": "disabledDate",
+            "type": "Function",
+            "class": "DatePicker",
+            "module": "date/picker"
+        },
+        {
+            "file": "src\\api\\date\\picker.js",
+            "line": 25,
+            "description": "是否显示周的数字形式.显示为true，反之为false",
+            "itemtype": "attribute",
+            "name": "showWeekNumber",
+            "type": "Boolean",
+            "class": "DatePicker",
+            "module": "date/picker"
+        },
+        {
+            "file": "src\\api\\date\\picker.js",
+            "line": 30,
+            "description": "是否显示今天.显示为true，反之为false",
+            "itemtype": "attribute",
+            "name": "showToday",
+            "type": "Boolean",
+            "class": "DatePicker",
+            "module": "date/picker"
+        },
+        {
+            "file": "src\\api\\date\\picker.js",
+            "line": 35,
+            "description": "指定每个日期单元的渲染方式.函数接受两个参数\n- current: 当前的日期值 \n- value : 初始化 picker 是设置的值，默认为当前时间",
+            "itemtype": "attribute",
+            "name": "dateRender",
+            "type": "Function",
+            "class": "DatePicker",
+            "module": "date/picker"
+        },
+        {
+            "file": "src\\api\\date\\picker.js",
+            "line": 42,
+            "description": "locale 信息",
+            "itemtype": "attribute",
+            "name": "locale",
+            "type": "Object",
+            "class": "DatePicker",
+            "module": "date/picker"
+        },
+        {
+            "file": "src\\api\\date\\picker.js",
+            "line": 47,
+            "description": "是否显示清除按钮，默认 true",
+            "itemtype": "attribute",
+            "name": "showClear",
+            "type": "Boolean",
+            "class": "DatePicker",
+            "module": "date/picker"
+        },
+        {
+            "file": "src\\api\\date\\picker.js",
+            "line": 52,
             "description": "当选择时触发的事件",
             "itemtype": "event",
             "name": "select",
@@ -6199,8 +6091,220 @@
             "module": "date/popup-picker"
         },
         {
+            "file": "src\\api\\dd\\plugin\\constrain.js",
+            "line": 32,
+            "description": "- 取值选择器字符串时, 则在限制拖动范围为根据该选择器字符串取到的第一个节点所在区域.\n- 取 KISSY.Node 时，则限制拖动范围为该节点所在区域.\n- 取值 true 时, 只能在当前视窗范围内拖动.\n- 取值 false 时, 可任意移动, 例如以扩充了该组件的 dialog 为例",
+            "itemtype": "attribute",
+            "name": "constrain",
+            "type": "Boolean | String | KISSY.Node",
+            "class": "Constrain",
+            "module": "dd/plugin/constrain"
+        },
+        {
+            "file": "src\\api\\dd\\plugin\\proxy.js",
+            "line": 13,
+            "description": "当 Draggable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Draggable 对象, 返回值类型为 KISSY.Node . 即代理节点和当前节点保持一致,该属性有默认值,如下：\n```\nfunction(drag) {\n    return new Node(drag.get(\"node\")[0].cloneNode(true));\n}\n```",
+            "itemtype": "attribute",
+            "name": "node",
+            "type": "Function",
+            "class": "Proxy",
+            "module": "dd/plugin/proxy"
+        },
+        {
+            "file": "src\\api\\dd\\plugin\\proxy.js",
+            "line": 23,
+            "description": "默认 false. 指明是否代理节点需要每次拖放前 dragstart 生成, 拖放后 dragend 销毁. 用于多 Draggable 对象共享一个 Proxy 对象实例, 且要求代理节点和单个 Draggable 对象关联, 或者一个 DraggableDelegate 对象共享一个 Proxy 对象实例",
+            "itemtype": "attribute",
+            "name": "destroyOnEnd=false",
+            "type": "Boolean",
+            "class": "Proxy",
+            "module": "dd/plugin/proxy"
+        },
+        {
+            "file": "src\\api\\dd\\plugin\\proxy.js",
+            "line": 28,
+            "description": "默认 true. 当拖放结束时，是否移动源节点到代理节点的位置.",
+            "itemtype": "attribute",
+            "name": "moveOnEnd=true",
+            "type": "Boolean",
+            "class": "Proxy",
+            "module": "dd/plugin/proxy"
+        },
+        {
+            "file": "src\\api\\dd\\plugin\\proxy.js",
+            "line": 33,
+            "description": "默认 false. 拖放时是否隐藏源节点",
+            "itemtype": "attribute",
+            "name": "hideNodeOnDrag=false",
+            "type": "Boolean",
+            "class": "Proxy",
+            "module": "dd/plugin/proxy"
+        },
+        {
+            "file": "src\\api\\dd\\plugin\\scroll.js",
+            "line": 12,
+            "description": "自动滚动容器, 随其内的可拖放节点自动滚动.",
+            "itemtype": "attribute",
+            "name": "node",
+            "type": "String | HTMLElement | window",
+            "class": "Scroll",
+            "module": "dd/plugin/scroll"
+        },
+        {
+            "file": "src\\api\\dd\\plugin\\scroll.js",
+            "line": 17,
+            "description": "长度为 2, 默认值 [10,10] . 表示容器自动滚动的速度, 数组元素 1 表示横向滚动的速度, 数组元素 2 表示纵向滚动的速度.",
+            "itemtype": "attribute",
+            "name": "rate",
+            "type": "Array<number>",
+            "class": "Scroll",
+            "module": "dd/plugin/scroll"
+        },
+        {
+            "file": "src\\api\\dd\\plugin\\scroll.js",
+            "line": 22,
+            "description": "长度为 2, 默认值 [20,20] . 当鼠标进入容器内边缘区域时开始自动滚动. 数组元素 1 表示横向容器内边缘宽度, 数组元素 2 表示纵向容器内边缘宽度.",
+            "itemtype": "attribute",
+            "name": "diff",
+            "type": "Array<Number>",
+            "class": "Scroll",
+            "module": "dd/plugin/scroll"
+        },
+        {
+            "file": "src\\api\\resizable\\plugin\\proxy.js",
+            "line": 13,
+            "description": "当 Resizable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Resizable 对象, 返回值类型为 KISSY.Node . 该属性有默认值:\n```\nfunction(resizable) {\n    return new Node(resizable.get(\"node\")[0].cloneNode(true));\n}\n```\n\n即代理节点和当前节点保持一致.",
+            "itemtype": "attribute",
+            "name": "node",
+            "type": "Function",
+            "class": "ResizableProxyPlugin",
+            "module": "resizable/plugin/proxy"
+        },
+        {
+            "file": "src\\api\\resizable\\plugin\\proxy.js",
+            "line": 25,
+            "description": "默认 false. 指明在 resize 之后是否销毁代理节点",
+            "itemtype": "attribute",
+            "name": "destroyOnEnd=false",
+            "type": "Boolean",
+            "class": "ResizableProxyPlugin",
+            "module": "resizable/plugin/proxy"
+        },
+        {
+            "file": "src\\api\\resizable\\plugin\\proxy.js",
+            "line": 30,
+            "description": "默认 false. 是否在用代理节点 resize 时隐藏原节点",
+            "itemtype": "attribute",
+            "name": "hideNodeOnResize=false",
+            "type": "Boolean",
+            "class": "ResizableProxyPlugin",
+            "module": "resizable/plugin/proxy"
+        },
+        {
+            "file": "src\\api\\scroll-view\\plugin\\pull-to-refresh.js",
+            "line": 33,
+            "description": "下拉时提示内容",
+            "itemtype": "attribute",
+            "name": "pullingHtml=\"Pull down to refresh...\"",
+            "type": "String",
+            "class": "PullToRefresh",
+            "module": "scroll-view/plugin/pull-to-refresh"
+        },
+        {
+            "file": "src\\api\\scroll-view\\plugin\\pull-to-refresh.js",
+            "line": 38,
+            "description": "释放操作的提示内容",
+            "itemtype": "attribute",
+            "name": "releasingHtml=\"release to refresh...\"",
+            "type": "String",
+            "class": "PullToRefresh",
+            "module": "scroll-view/plugin/pull-to-refresh"
+        },
+        {
+            "file": "src\\api\\scroll-view\\plugin\\pull-to-refresh.js",
+            "line": 44,
+            "description": "加载内容时的提示内容",
+            "itemtype": "attribute",
+            "name": "loadingHtml=\"loading...\"",
+            "type": "String",
+            "class": "PullToRefresh",
+            "module": "scroll-view/plugin/pull-to-refresh"
+        },
+        {
+            "file": "src\\api\\scroll-view\\plugin\\pull-to-refresh.js",
+            "line": 49,
+            "description": "加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。\n组件内部会给loadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可",
+            "itemtype": "attribute",
+            "name": "loadFn",
+            "type": "Function",
+            "class": "PullToRefresh",
+            "module": "scroll-view/plugin/pull-to-refresh"
+        },
+        {
+            "file": "src\\api\\scroll-view\\plugin\\scrollbar.js",
+            "line": 28,
+            "description": "滚动条的最小长度",
+            "itemtype": "attribute",
+            "name": "minLength",
+            "type": "Number",
+            "class": "ScrollBar",
+            "module": "scroll-view/plugin/scrollbar"
+        },
+        {
+            "file": "src\\api\\scroll-view\\plugin\\scrollbar.js",
+            "line": 33,
+            "description": "是否自动隐藏横向滚动条",
+            "itemtype": "attribute",
+            "name": "autoHideX",
+            "type": "Boolean",
+            "class": "ScrollBar",
+            "module": "scroll-view/plugin/scrollbar"
+        },
+        {
+            "file": "src\\api\\scroll-view\\plugin\\scrollbar.js",
+            "line": 38,
+            "description": "是否自动隐藏纵向滚动条",
+            "itemtype": "attribute",
+            "name": "autoHideY",
+            "type": "Boolean",
+            "class": "ScrollBar",
+            "module": "scroll-view/plugin/scrollbar"
+        },
+        {
             "file": "src\\api\\scroll-view\\base.js",
-            "line": 20,
+            "line": 15,
+            "description": "- 当为String时，表示传入元素的选择器\n- 当为Boolean时，表示用来指定是否在滚动是将元素“折断”，就是在滚动停在元素上时如何处理。默认为 false ，不做操作，就停在那里，为true时滚动到下一个同类元素的起点，停止。",
+            "itemtype": "attribute",
+            "name": "snap",
+            "type": "String|Boolean",
+            "class": "ScrollView",
+            "module": "scroll-view"
+        },
+        {
+            "file": "src\\api\\scroll-view\\base.js",
+            "line": 21,
+            "description": "“折断”操作动画持续时间，当snap为true时有效。",
+            "itemtype": "attribute",
+            "name": "snapDuration",
+            "type": "Number",
+            "default": "0.3",
+            "class": "ScrollView",
+            "module": "scroll-view"
+        },
+        {
+            "file": "src\\api\\scroll-view\\base.js",
+            "line": 27,
+            "description": "“折断”操作动画的时间函数",
+            "itemtype": "attribute",
+            "name": "snapEasing",
+            "type": "String",
+            "default": "\"easeOut\"",
+            "class": "ScrollView",
+            "module": "scroll-view"
+        },
+        {
+            "file": "src\\api\\scroll-view\\base.js",
+            "line": 34,
             "description": "滚动到指定位置",
             "itemtype": "method",
             "name": "scrollTo",
@@ -6221,7 +6325,7 @@
         },
         {
             "file": "src\\api\\scroll-view\\base.js",
-            "line": 27,
+            "line": 41,
             "description": "滚动到指定index的page",
             "itemtype": "method",
             "name": "scrollToPage",
@@ -6242,7 +6346,7 @@
         },
         {
             "file": "src\\api\\scroll-view\\base.js",
-            "line": 34,
+            "line": 48,
             "description": "在元素最大滚动距离和最小滚动距离范围内滚动",
             "itemtype": "method",
             "name": "scrollToWithBounds",
@@ -6263,7 +6367,7 @@
         },
         {
             "file": "src\\api\\scroll-view\\base.js",
-            "line": 41,
+            "line": 55,
             "description": "停止动画\n停止动画队列里的函数，并清空动画队列，将滚动停在当前位置。",
             "itemtype": "method",
             "name": "stopAnimation",
@@ -6272,7 +6376,7 @@
         },
         {
             "file": "src\\api\\scroll-view\\base.js",
-            "line": 47,
+            "line": 61,
             "description": "判断对应方向上的滚动是否允许\n横向传入 x，纵向 y",
             "itemtype": "method",
             "name": "isAxisEnabled",
@@ -6285,17 +6389,51 @@
         },
         {
             "file": "src\\api\\scroll-view\\base.js",
-            "line": 54,
+            "line": 68,
             "description": "获得要滚动的步进长度",
             "itemtype": "method",
-            "name": "getScrollStep!~YUIDOC_LINE~!return  {top: xx, left: xx} 两个方向上的步进值",
-            "type": "Object",
+            "name": "getScrollStep",
+            "return": {
+                "description": "{top: xx, left: xx} 两个方向上的步进值",
+                "type": "Object"
+            },
             "class": "ScrollView",
             "module": "scroll-view"
         },
         {
             "file": "src\\api\\xtemplate\\runtime.js",
-            "line": 35,
+            "line": 26,
+            "description": "局部自定义命令的键值对，例如\n```\n{\n    'toLowerCase':function( scopes,option ){\n        return option.params[0].toLowerCase();\n    }\n}\n```",
+            "itemtype": "attribute",
+            "name": "command",
+            "type": "Object",
+            "class": "XTemplateRunTime",
+            "module": "xtemplate/runtime"
+        },
+        {
+            "file": "src\\api\\xtemplate\\runtime.js",
+            "line": 38,
+            "description": "模版名称，可在 chrome dev tools 中看到以该值为名称的模板文件代码",
+            "itemtype": "attribute",
+            "name": "name",
+            "type": "String",
+            "class": "XTemplateRunTime",
+            "module": "xtemplate/runtime"
+        },
+        {
+            "file": "src\\api\\xtemplate\\runtime.js",
+            "line": 43,
+            "description": "{Boolean} 是否缓存生成的模板函数，默认 true",
+            "itemtype": "attribute",
+            "name": "cache",
+            "type": "Boolean",
+            "default": "true",
+            "class": "XTemplateRunTime",
+            "module": "xtemplate/runtime"
+        },
+        {
+            "file": "src\\api\\xtemplate\\runtime.js",
+            "line": 50,
             "description": "删除指定的局部命令",
             "itemtype": "method",
             "name": "removeCommand",
@@ -6311,7 +6449,7 @@
         },
         {
             "file": "src\\api\\xtemplate\\runtime.js",
-            "line": 41,
+            "line": 56,
             "description": "添加局部命令",
             "itemtype": "method",
             "name": "addCommand",
@@ -6332,7 +6470,7 @@
         },
         {
             "file": "src\\api\\xtemplate\\runtime.js",
-            "line": 49,
+            "line": 64,
             "description": "编译模板",
             "itemtype": "method",
             "name": "compile",
@@ -6352,7 +6490,7 @@
         },
         {
             "file": "src\\api\\xtemplate\\runtime.js",
-            "line": 56,
+            "line": 71,
             "description": "渲染数据到模板",
             "itemtype": "method",
             "name": "render",
@@ -6372,7 +6510,7 @@
         },
         {
             "file": "src\\api\\xtemplate\\runtime.js",
-            "line": 63,
+            "line": 78,
             "description": "添加全局命令",
             "itemtype": "method",
             "name": "addCommand",
