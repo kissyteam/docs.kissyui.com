@@ -492,6 +492,28 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\split-button.js": {
+            "name": "src\\api\\split-button.js",
+            "modules": {
+                "split-button": 1
+            },
+            "classes": {
+                "SplitButton": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\stylesheet.js": {
+            "name": "src\\api\\stylesheet.js",
+            "modules": {
+                "stylesheet": 1
+            },
+            "classes": {
+                "StyleSheet": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\ua.js": {
             "name": "src\\api\\ua.js",
             "modules": {
@@ -1084,6 +1106,30 @@
             "namespaces": {},
             "tag": "module",
             "file": "src\\api\\resizable.js",
+            "line": 5
+        },
+        "split-button": {
+            "name": "split-button",
+            "submodules": {},
+            "classes": {
+                "SplitButton": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\split-button.js",
+            "line": 5
+        },
+        "stylesheet": {
+            "name": "stylesheet",
+            "submodules": {},
+            "classes": {
+                "StyleSheet": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\stylesheet.js",
             "line": 5
         },
         "ua": {
@@ -3531,6 +3577,75 @@
                             "name": "preserveRatio",
                             "description": "是否在 resize 的过程中保持 width/height 比例",
                             "type": "Boolean"
+                        }
+                    ]
+                }
+            ]
+        },
+        "SplitButton": {
+            "name": "SplitButton",
+            "shortname": "SplitButton",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "split-button",
+            "namespace": "",
+            "file": "src\\api\\split-button.js",
+            "line": 5,
+            "description": "按钮和菜单按钮的组合,构建支持下拉菜单的按钮组",
+            "is_constructor": 1,
+            "extends": "Container",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "alignWithEl=true",
+                            "description": "是否将菜单按钮和按钮对齐，默认 true",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "menuButton",
+                            "description": "菜单按钮组件",
+                            "type": "KISSY.MenuButton"
+                        },
+                        {
+                            "name": "button",
+                            "description": "按钮组件",
+                            "type": "KISSY.Button"
+                        }
+                    ]
+                }
+            ]
+        },
+        "StyleSheet": {
+            "name": "StyleSheet",
+            "shortname": "StyleSheet",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "stylesheet",
+            "namespace": "",
+            "file": "src\\api\\stylesheet.js",
+            "line": 5,
+            "description": "动态修改外部或内联样式表",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "el",
+                            "description": "link 节点或选择器",
+                            "type": "HTMLElement|String"
                         }
                     ]
                 }
@@ -12842,6 +12957,123 @@
             "name": "resizeEnd",
             "class": "Resizable",
             "module": "resizable"
+        },
+        {
+            "file": "src\\api\\split-button.js",
+            "line": 16,
+            "description": "菜单按钮组件",
+            "itemtype": "attribute",
+            "name": "menuButton",
+            "type": "KISSY.MenuButton",
+            "class": "SplitButton",
+            "module": "split-button"
+        },
+        {
+            "file": "src\\api\\split-button.js",
+            "line": 21,
+            "description": "按钮组件",
+            "itemtype": "attribute",
+            "name": "button",
+            "type": "KISSY.Button",
+            "class": "SplitButton",
+            "module": "split-button"
+        },
+        {
+            "file": "src\\api\\stylesheet.js",
+            "line": 13,
+            "description": "link 元素节点",
+            "itemtype": "property",
+            "name": "el",
+            "type": "HTMLElement",
+            "class": "StyleSheet",
+            "module": "stylesheet"
+        },
+        {
+            "file": "src\\api\\stylesheet.js",
+            "line": 18,
+            "description": "禁用当前 stylesheet 所在样式表的所有样式",
+            "itemtype": "method",
+            "name": "disable",
+            "return": {
+                "description": "当前实例"
+            },
+            "class": "StyleSheet",
+            "module": "stylesheet"
+        },
+        {
+            "file": "src\\api\\stylesheet.js",
+            "line": 24,
+            "description": "启用当前 stylesheet 所在样式表的所有样式",
+            "itemtype": "method",
+            "name": "enable",
+            "return": {
+                "description": "当前实例"
+            },
+            "class": "StyleSheet",
+            "module": "stylesheet"
+        },
+        {
+            "file": "src\\api\\stylesheet.js",
+            "line": 30,
+            "description": "当前样式表是否已经被启用",
+            "itemtype": "method",
+            "name": "isEnabled",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "StyleSheet",
+            "module": "stylesheet"
+        },
+        {
+            "file": "src\\api\\stylesheet.js",
+            "line": 36,
+            "description": "获取对应 selectorText 的样式定义文本.",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "selectorText",
+                    "description": "选择器字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nKISSY.use('stylesheet',function(S,StyleSheet){\n    // use stylesheet\n      <link id='existing'>\n        a {\n            color:red;\n        }\n      </link>\n \n    var stylesheet = new StyleSheet({\n        el: '#existing'\n    });\n\n    stylesheet.get('a'); // => color:red\n});"
+            ],
+            "class": "StyleSheet",
+            "module": "stylesheet"
+        },
+        {
+            "file": "src\\api\\stylesheet.js",
+            "line": 59,
+            "description": "设置对应 selectorText 的样式定义",
+            "itemtype": "method",
+            "name": "set",
+            "params": [
+                {
+                    "name": "selectorText",
+                    "description": "选择器字符串",
+                    "type": "String"
+                },
+                {
+                    "name": "css",
+                    "description": "样式键值对",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "当前实例"
+            },
+            "example": [
+                "\n```\nKISSY.use('stylesheet',function(S,StyleSheet){\n    // use stylesheet\n      <link id='existing'>\n        a {\n            color:red;\n        }\n      </link>\n      \n    var stylesheet = new StyleSheet({\n        el: '#existing'\n    });\n\n    stylesheet.set('a',{\n        color:'',\n        fontSize:'18px'\n    }).get('a'); // => font-size:18px;\n});"
+            ],
+            "class": "StyleSheet",
+            "module": "stylesheet"
         },
         {
             "file": "src\\api\\ua.js",

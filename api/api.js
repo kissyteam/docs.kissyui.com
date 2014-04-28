@@ -60,6 +60,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "ScrollBar",
         "ScrollView",
         "Shim",
+        "SplitButton",
+        "StyleSheet",
         "UA",
         "Uri",
         "Uri.Query",
@@ -108,6 +110,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "scroll-view",
         "scroll-view_plugin_pull-to-refresh",
         "scroll-view_plugin_scrollbar",
+        "split-button",
+        "stylesheet",
         "ua",
         "uri",
         "util",
@@ -292,6 +296,14 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "scroll-view/plugin/scrollbar",
             "name": "scroll-view_plugin_scrollbar",
             "description": "ScrollView的插件ScrollBar"
+        },
+        {
+            "displayName": "split-button",
+            "name": "split-button"
+        },
+        {
+            "displayName": "stylesheet",
+            "name": "stylesheet"
         },
         {
             "displayName": "ua",
