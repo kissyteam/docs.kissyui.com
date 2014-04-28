@@ -4,9 +4,9 @@
 	"version" : "1.0.0",
 	"url" : "docs.kissyui.com",
 	"options" : {
-		"linkNatives": "true",        
-        "attributesEmit": "false",
-        "selleck": "true",
+		"linkNatives": true,        
+        "attributesEmit": false,
+        "selleck": true,
         "paths" : "./src/api/",
 		"outdir" : "./api/",
 		"themedir" : "./themes/default/"
