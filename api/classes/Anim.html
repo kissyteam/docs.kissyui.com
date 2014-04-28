@@ -159,6 +159,24 @@
             
                 <li><a href="../classes/StyleSheet.html">StyleSheet</a></li>
             
+                <li><a href="../classes/SWF.html">SWF</a></li>
+            
+                <li><a href="../classes/Tabs.html">Tabs</a></li>
+            
+                <li><a href="../classes/Tabs.Panel.html">Tabs.Panel</a></li>
+            
+                <li><a href="../classes/Tabs.Tab.html">Tabs.Tab</a></li>
+            
+                <li><a href="../classes/ToolBar.html">ToolBar</a></li>
+            
+                <li><a href="../classes/Tree.html">Tree</a></li>
+            
+                <li><a href="../classes/Tree.CheckNode.html">Tree.CheckNode</a></li>
+            
+                <li><a href="../classes/Tree.CheckTree.html">Tree.CheckTree</a></li>
+            
+                <li><a href="../classes/Tree.Node.html">Tree.Node</a></li>
+            
                 <li><a href="../classes/UA.html">UA</a></li>
             
                 <li><a href="../classes/Uri.html">Uri</a></li>
@@ -259,6 +277,14 @@
             
                 <li><a href="../modules/stylesheet.html">stylesheet</a></li>
             
+                <li><a href="../modules/swf.html">swf</a></li>
+            
+                <li><a href="../modules/tabs.html">tabs</a></li>
+            
+                <li><a href="../modules/toolbar.html">toolbar</a></li>
+            
+                <li><a href="../modules/tree.html">tree</a></li>
+            
                 <li><a href="../modules/ua.html">ua</a></li>
             
                 <li><a href="../modules/uri.html">uri</a></li>
@@ -356,36 +382,6 @@
             
                 <li class="arg">
                     
-                        <code class="optional">[duration=1]</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code class="optional">[easing=&quot;easeNone&quot;]</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code class="optional">[completeFn]</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>elem</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>props</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
                         <code class="optional">[config]</code>
                     
                 </li>
@@ -438,93 +434,6 @@
             <h4>Parameters:</h4>
 
             <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">elem</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a> | KISSY.Node | Window | 普通的Object</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">props</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>动画结束的 dom 样式值</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[duration=1]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>默认为 1 , 动画持续时间, 以秒为单位</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[easing=&quot;easeNone&quot;]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>默认为 &quot;easeNone&quot;, 动画平滑函数, 
-可取值 &quot;swing&quot;, &quot;easeNone&quot;, &quot;linear&quot;, &quot;easeIn&quot;, &quot;easeOut&quot;, &quot;easeBoth&quot;,&quot;easeInStrong&quot;, &quot;easeOutStrong&quot;,&quot;easeBothStrong&quot;,&quot;elasticIn&quot;,&quot;elasticOut&quot;, &quot;elasticBoth&quot;,&quot;backIn&quot;,&quot;backOut&quot;,&quot;backBoth&quot;, &quot;bounceIn&quot;,&quot;bounceOut&quot;,&quot;bounceBoth&quot;, &quot;cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）&quot;. 
-效果预览, 可以参考<a href="5.0/examples/anim/easing.html">easing可视化</a>和<a href="5.0/examples/anim/cubic-bezier.html">cubic-bezier可视化</a></p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[completeFn]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>动画到最后一帧后的回调函数</p>
-<p><strong>Note: 构造器也可以如下面这样传参</strong></p>
-<p><code>Anim (elem, props[, config])</code> 得到绑定于某个 dom 节点的动画实例</p>
-
-                    </div>
-
-                    
-                </li>
             
                 <li class="param">
                     
@@ -858,7 +767,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l73"><code>src\api\anim.js:73</code></a>
+        <a href="../files/src_api_anim.js.html#l62"><code>src\api\anim.js:62</code></a>
         
         </p>
 
@@ -953,7 +862,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l38"><code>src\api\anim.js:38</code></a>
+        <a href="../files/src_api_anim.js.html#l27"><code>src\api\anim.js:27</code></a>
         
         </p>
 
@@ -1024,7 +933,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l33"><code>src\api\anim.js:33</code></a>
+        <a href="../files/src_api_anim.js.html#l22"><code>src\api\anim.js:22</code></a>
         
         </p>
 
@@ -1107,7 +1016,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l65"><code>src\api\anim.js:65</code></a>
+        <a href="../files/src_api_anim.js.html#l54"><code>src\api\anim.js:54</code></a>
         
         </p>
 
@@ -1216,7 +1125,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l95"><code>src\api\anim.js:95</code></a>
+        <a href="../files/src_api_anim.js.html#l84"><code>src\api\anim.js:84</code></a>
         
         </p>
 
@@ -1317,7 +1226,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l55"><code>src\api\anim.js:55</code></a>
+        <a href="../files/src_api_anim.js.html#l44"><code>src\api\anim.js:44</code></a>
         
         </p>
 
@@ -1390,7 +1299,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l107"><code>src\api\anim.js:107</code></a>
+        <a href="../files/src_api_anim.js.html#l96"><code>src\api\anim.js:96</code></a>
         
         </p>
 
@@ -1491,7 +1400,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l60"><code>src\api\anim.js:60</code></a>
+        <a href="../files/src_api_anim.js.html#l49"><code>src\api\anim.js:49</code></a>
         
         </p>
 
@@ -1546,7 +1455,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l44"><code>src\api\anim.js:44</code></a>
+        <a href="../files/src_api_anim.js.html#l33"><code>src\api\anim.js:33</code></a>
         
         </p>
 
@@ -1611,7 +1520,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l49"><code>src\api\anim.js:49</code></a>
+        <a href="../files/src_api_anim.js.html#l38"><code>src\api\anim.js:38</code></a>
         
         </p>
 
@@ -1721,7 +1630,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l81"><code>src\api\anim.js:81</code></a>
+        <a href="../files/src_api_anim.js.html#l70"><code>src\api\anim.js:70</code></a>
         
         </p>
 
@@ -1857,7 +1766,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l119"><code>src\api\anim.js:119</code></a>
+        <a href="../files/src_api_anim.js.html#l108"><code>src\api\anim.js:108</code></a>
         
         </p>
 

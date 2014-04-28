@@ -514,6 +514,59 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\swf.js": {
+            "name": "src\\api\\swf.js",
+            "modules": {
+                "swf": 1
+            },
+            "classes": {
+                "SWF": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\tabs.js": {
+            "name": "src\\api\\tabs.js",
+            "modules": {
+                "tabs": 1
+            },
+            "classes": {
+                "Tabs": 1,
+                "Tabs.Tab": 1,
+                "Tabs.Panel": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Tabs": 1
+            }
+        },
+        "src\\api\\toolbar.js": {
+            "name": "src\\api\\toolbar.js",
+            "modules": {
+                "toolbar": 1
+            },
+            "classes": {
+                "ToolBar": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\tree.js": {
+            "name": "src\\api\\tree.js",
+            "modules": {
+                "tree": 1
+            },
+            "classes": {
+                "Tree": 1,
+                "Tree.Node": 1,
+                "Tree.CheckNode": 1,
+                "Tree.CheckTree": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Tree": 1
+            }
+        },
         "src\\api\\ua.js": {
             "name": "src\\api\\ua.js",
             "modules": {
@@ -1131,6 +1184,64 @@
             "tag": "module",
             "file": "src\\api\\stylesheet.js",
             "line": 5
+        },
+        "swf": {
+            "name": "swf",
+            "submodules": {},
+            "classes": {
+                "SWF": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\swf.js",
+            "line": 5
+        },
+        "tabs": {
+            "name": "tabs",
+            "submodules": {},
+            "classes": {
+                "Tabs": 1,
+                "Tabs.Tab": 1,
+                "Tabs.Panel": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Tabs": 1
+            },
+            "tag": "module",
+            "file": "src\\api\\tabs.js",
+            "line": 138
+        },
+        "toolbar": {
+            "name": "toolbar",
+            "submodules": {},
+            "classes": {
+                "ToolBar": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\toolbar.js",
+            "line": 6,
+            "description": "Toolbar菜单栏组件"
+        },
+        "tree": {
+            "name": "tree",
+            "submodules": {},
+            "classes": {
+                "Tree": 1,
+                "Tree.Node": 1,
+                "Tree.CheckNode": 1,
+                "Tree.CheckTree": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Tree": 1
+            },
+            "tag": "module",
+            "file": "src\\api\\tree.js",
+            "line": 148
         },
         "ua": {
             "name": "ua",
@@ -1997,36 +2108,6 @@
             "description": "动画支持",
             "is_constructor": 1,
             "params": [
-                {
-                    "name": "elem",
-                    "description": "作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）",
-                    "type": "String|HTMLElement|KISSY.Node|window|普通的Object"
-                },
-                {
-                    "name": "props",
-                    "description": "动画结束的 dom 样式值",
-                    "type": "Object"
-                },
-                {
-                    "name": "duration",
-                    "description": "默认为 1 , 动画持续时间, 以秒为单位",
-                    "type": "Number",
-                    "optional": true,
-                    "optdefault": "1"
-                },
-                {
-                    "name": "easing",
-                    "description": "默认为 \"easeNone\", 动画平滑函数, \n可取值 \"swing\", \"easeNone\", \"linear\", \"easeIn\", \"easeOut\", \"easeBoth\",\"easeInStrong\", \"easeOutStrong\",\"easeBothStrong\",\"elasticIn\",\"elasticOut\", \"elasticBoth\",\"backIn\",\"backOut\",\"backBoth\", \"bounceIn\",\"bounceOut\",\"bounceBoth\", \"cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）\". \n效果预览, 可以参考[easing可视化](5.0/examples/anim/easing.html)和[cubic-bezier可视化](5.0/examples/anim/cubic-bezier.html)",
-                    "type": "String",
-                    "optional": true,
-                    "optdefault": "\"easeNone\""
-                },
-                {
-                    "name": "completeFn",
-                    "description": "动画到最后一帧后的回调函数\n\n__Note: 构造器也可以如下面这样传参__\n\n`Anim (elem, props[, config])` 得到绑定于某个 dom 节点的动画实例",
-                    "type": "Function",
-                    "optional": true
-                },
                 {
                     "name": "elem",
                     "description": "作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）",
@@ -3648,6 +3729,254 @@
                             "type": "HTMLElement|String"
                         }
                     ]
+                }
+            ]
+        },
+        "SWF": {
+            "name": "SWF",
+            "shortname": "SWF",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "swf",
+            "namespace": "",
+            "file": "src\\api\\swf.js",
+            "line": 5,
+            "description": "动态插入 swf 功能",
+            "is_constructor": 1,
+            "extends": "Base.Attribute",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "attrs",
+                            "description": "将要加到 flash 节点的属性键值对",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "document",
+                            "description": "可选。插入 swf 所属的文档，默认当前文档",
+                            "type": "HTMLDocument",
+                            "optional": true
+                        },
+                        {
+                            "name": "elBefore",
+                            "description": "可选。 在此元素前插入 swf",
+                            "type": "HTMLDocument",
+                            "optional": true
+                        },
+                        {
+                            "name": "expressInstall",
+                            "description": "可选。版本低时显示的快速安装 swf ，默认为 kissy 自带地址.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "params",
+                            "description": "将要加到 flash 节点的 param 键值对. 注意其中属性 flashVars 的大小写",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "render",
+                            "description": "可选。在此元素内添加 swf。 若 render 与 swf 都不设置则插入到 body 节点中",
+                            "type": "HTMLDocument"
+                        },
+                        {
+                            "name": "src",
+                            "description": "必选。 swf 元素的地址。",
+                            "type": "String"
+                        },
+                        {
+                            "name": "version",
+                            "description": "可选。最低 flash 版本要求，达不到要求显示 expressInstall。例如 9.1.234，默认 9.0",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use('swf',function(S,SWF){\n    // use SWF\n    var swf=new SWF({\n        src:'xx.swf',\n        attrs:{\n            width:100\n        },\n        params:{\n            flashVars:{\n                x:1\n            }\n        },\n        render:'#container'\n    });\n\n    swf.get('el') // => 对应 swf dom 节点\n\n    swf.callSWF('save',[key,value]);\n});\n```"
+            ]
+        },
+        "Tabs": {
+            "name": "Tabs",
+            "shortname": "Tabs",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "tabs",
+            "namespace": "",
+            "file": "src\\api\\tabs.js",
+            "line": 5,
+            "is_constructor": 1,
+            "extends": "Container",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，详见attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Tabs.Tab": {
+            "name": "Tabs.Tab",
+            "shortname": "Tabs.Tab",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "tabs",
+            "namespace": "Tabs",
+            "file": "src\\api\\tabs.js",
+            "line": 116,
+            "is_constructor": 1,
+            "extends": "Button",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，详见attribute"
+                }
+            ]
+        },
+        "Tabs.Panel": {
+            "name": "Tabs.Panel",
+            "shortname": "Tabs.Panel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "tabs",
+            "namespace": "Tabs",
+            "file": "src\\api\\tabs.js",
+            "line": 138,
+            "is_constructor": 1,
+            "extends": "Container",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，详见attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "ToolBar": {
+            "name": "ToolBar",
+            "shortname": "ToolBar",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "toolbar",
+            "namespace": "",
+            "file": "src\\api\\toolbar.js",
+            "line": 6,
+            "is_constructor": 1,
+            "extends": "Container",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，详见attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Tree": {
+            "name": "Tree",
+            "shortname": "Tree",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "tree",
+            "namespace": "",
+            "file": "src\\api\\tree.js",
+            "line": 7,
+            "description": "树（根节点）",
+            "is_constructor": 1,
+            "extends": "Tree.Node",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，详见Attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Tree.Node": {
+            "name": "Tree.Node",
+            "shortname": "Tree.Node",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "tree",
+            "namespace": "Tree",
+            "file": "src\\api\\tree.js",
+            "line": 53,
+            "is_constructor": 1,
+            "extends": "Container",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，详见Attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Tree.CheckNode": {
+            "name": "Tree.CheckNode",
+            "shortname": "Tree.CheckNode",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "tree",
+            "namespace": "Tree",
+            "file": "src\\api\\tree.js",
+            "line": 128,
+            "description": "可多选树节点",
+            "is_constructor": 1,
+            "extends": "Tree.Node",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，详见Attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Tree.CheckTree": {
+            "name": "Tree.CheckTree",
+            "shortname": "CheckTree",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "tree",
+            "namespace": "Tree",
+            "file": "src\\api\\tree.js",
+            "line": 148,
+            "is_constructor": 1,
+            "extends": "Tree.CheckNode",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，详见Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -6065,7 +6394,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 33,
+            "line": 22,
             "description": "判断当前动画对象是否在执行动画过程",
             "itemtype": "method",
             "name": "isRunning",
@@ -6078,7 +6407,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 38,
+            "line": 27,
             "description": "判断当前动画对象是否被暂停",
             "itemtype": "method",
             "name": "isPaused",
@@ -6091,7 +6420,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 44,
+            "line": 33,
             "description": "在动画实例上调用, 开始当前动画实例的动画",
             "itemtype": "method",
             "name": "run",
@@ -6100,7 +6429,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 49,
+            "line": 38,
             "description": "在动画实例上调用, 结束当前动画实例的动画",
             "itemtype": "method",
             "name": "stop",
@@ -6118,7 +6447,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 55,
+            "line": 44,
             "description": "在动画实例上调用, 暂停当前动画实例的动画",
             "itemtype": "method",
             "name": "pause",
@@ -6127,7 +6456,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 60,
+            "line": 49,
             "description": "在动画实例上调用, 继续当前动画实例的动画",
             "itemtype": "method",
             "name": "resume",
@@ -6136,7 +6465,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 65,
+            "line": 54,
             "description": "Anim 的静态方法, 用于判断 elem 上是否有动画对象在执行",
             "itemtype": "method",
             "name": "isRunning",
@@ -6157,7 +6486,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 73,
+            "line": 62,
             "description": "Anim 的静态方法, 用于判断 elem 上是否有动画对象在暂停",
             "itemtype": "method",
             "name": "isPaused",
@@ -6178,7 +6507,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 81,
+            "line": 70,
             "description": "Anim 的静态方法, 结束某元素上的动画（集合）",
             "itemtype": "method",
             "name": "stop",
@@ -6210,7 +6539,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 95,
+            "line": 84,
             "description": "Anim 的静态方法, 暂停某元素上的动画（集合）",
             "itemtype": "method",
             "name": "pause",
@@ -6232,7 +6561,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 107,
+            "line": 96,
             "description": "Anim 的静态方法, 继续某元素上的动画（集合）",
             "itemtype": "method",
             "name": "resume",
@@ -6254,7 +6583,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 119,
+            "line": 108,
             "description": "动画结束后, 触发该事件",
             "itemtype": "event",
             "name": "complete",
@@ -13074,6 +13403,751 @@
             ],
             "class": "StyleSheet",
             "module": "stylesheet"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 43,
+            "description": "swf 元素节点",
+            "itemtype": "attribute",
+            "name": "el",
+            "type": "HTMLElement",
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 48,
+            "description": "swf 元素 html",
+            "itemtype": "attribute",
+            "name": "html",
+            "type": "String",
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 53,
+            "description": "取值枚举自SWF实例的property status",
+            "itemtype": "attribute",
+            "name": "status",
+            "type": "String",
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 58,
+            "description": "状态，有三种取值：\n- NOT_INSTALLED 表示没有安装 flash 插件\n- SUCCESS 表示已成功插入 swf 元素\n- TOO_LOW 表示当前版本号低于配置的版本号",
+            "itemtype": "property",
+            "name": "status",
+            "type": "String",
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 67,
+            "description": "调用 swf 的方法",
+            "itemtype": "method",
+            "name": "callSWF",
+            "params": [
+                {
+                    "name": "method",
+                    "description": "方法名",
+                    "type": "String"
+                },
+                {
+                    "name": "args",
+                    "description": "参数列表",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "swf 方法返回值",
+                "type": "Any"
+            },
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 75,
+            "description": "销毁 swf 元素",
+            "itemtype": "method",
+            "name": "destroy",
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 80,
+            "description": "获取 flash 版本数组",
+            "itemtype": "method",
+            "name": "fpv",
+            "static": 1,
+            "params": [
+                {
+                    "name": "force=false",
+                    "description": "是否强制不从缓存中读取，默认 false",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "版本号数组，例如 ['9','1','252']",
+                "type": "Array<String>"
+            },
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 88,
+            "description": "检查当前版本是否比提供的参数版本高",
+            "itemtype": "method",
+            "name": "fpvGTE",
+            "params": [
+                {
+                    "name": "ver",
+                    "description": "待比较的版本号，例如 “9.1.252”",
+                    "type": "String"
+                },
+                {
+                    "name": "force=false",
+                    "description": "当前版本是否强制不从缓存中读取，默认 false",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "当前版本是否比提供的参数版本高"
+            },
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 96,
+            "description": "swf 元素的地址",
+            "itemtype": "method",
+            "name": "getSrc",
+            "params": [
+                {
+                    "name": "swf",
+                    "description": "swf 元素",
+                    "type": "HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "swf 元素的地址属性",
+                "type": "String"
+            },
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 12,
+            "description": "添加一个 tab 和 panel",
+            "itemtype": "method",
+            "name": "addItem",
+            "params": [
+                {
+                    "name": "item",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "title",
+                            "description": "tab 标题",
+                            "type": "String"
+                        },
+                        {
+                            "name": "content",
+                            "description": "panel 内容",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 20,
+            "description": "移除指定位置的 item",
+            "itemtype": "method",
+            "name": "removeItemAt",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "item 下标",
+                    "type": "Number"
+                },
+                {
+                    "name": "destroy",
+                    "description": "是否销毁节点",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 27,
+            "description": "移除 tab 所在位置的 item",
+            "itemtype": "method",
+            "name": "removeItemByTab",
+            "params": [
+                {
+                    "name": "tab",
+                    "description": "tab 实例",
+                    "type": "Tabs.tab"
+                },
+                {
+                    "name": "destroy",
+                    "description": "是否销毁节点",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 34,
+            "description": "移除 panel 所在位置的 item",
+            "itemtype": "method",
+            "name": "removeItemByPanel",
+            "params": [
+                {
+                    "name": "panel",
+                    "description": "panel 实例",
+                    "type": "Tans.Panel"
+                },
+                {
+                    "name": "destroy",
+                    "description": "是否销毁节点",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 41,
+            "description": "得到选中的 tab 实例",
+            "itemtype": "method",
+            "name": "getSelectedTab",
+            "return": {
+                "description": "",
+                "type": "Tabs.Tab"
+            },
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 47,
+            "description": "得到选中的 panel 实例",
+            "itemtype": "method",
+            "name": "getSelectedPanel",
+            "return": {
+                "description": "",
+                "type": "Tabs.Panel"
+            },
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 53,
+            "description": "得到所有 tab 实例数组",
+            "itemtype": "method",
+            "name": "getTabs",
+            "return": {
+                "description": "tab的实例组成的数组",
+                "type": "Array"
+            },
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 59,
+            "description": "得到所有 panel 实例数组",
+            "itemtype": "method",
+            "name": "getPanels",
+            "return": {
+                "description": "",
+                "type": "Array<Tabs.Panel>"
+            },
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 65,
+            "description": "设置某个 tab 实例为选中",
+            "itemtype": "method",
+            "name": "setSelectedTab",
+            "params": [
+                {
+                    "name": "tab",
+                    "description": "",
+                    "type": "Tabs.Tab"
+                }
+            ],
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 71,
+            "description": "设置某个 panel 实例为选中",
+            "itemtype": "method",
+            "name": "setSelectedPanel",
+            "params": [
+                {
+                    "name": "panel",
+                    "description": "",
+                    "type": "Tans.Panel"
+                }
+            ],
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 77,
+            "description": "选中 tab 改变前触发",
+            "itemtype": "event",
+            "name": "beforeSelectedTabChange",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "newVal",
+                            "description": "新的 tab 实例",
+                            "type": "Tabs.Tab"
+                        }
+                    ]
+                }
+            ],
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 84,
+            "description": "选中 tab 改变后触发",
+            "itemtype": "event",
+            "name": "afterSelectedTabChange",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "newVal",
+                            "description": "新的 tab 实例",
+                            "type": "Tabs.Tab"
+                        }
+                    ]
+                }
+            ],
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 91,
+            "description": "对象数组，可用于快速构建 tabs，单个对象包括 title 与 content 两个属性",
+            "itemtype": "attribute",
+            "name": "items",
+            "type": "Array",
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 96,
+            "description": "可取值'mouse'和'click'，表示怎样触发Tabs的切换",
+            "itemtype": "attribute",
+            "name": "changeType",
+            "type": "String",
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 101,
+            "description": "表示Tabs菜单相对Tabs内容的位置，可取值'top'/'right'/'bottom'/'left'，默认为'top'",
+            "itemtype": "attribute",
+            "name": "barOrientation=\"top\"",
+            "type": "String",
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 106,
+            "description": "是否延时渲染",
+            "itemtype": "attribute",
+            "name": "lazyRender",
+            "type": "Boolean",
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 124,
+            "description": "是否选中",
+            "itemtype": "attribute",
+            "name": "selected",
+            "type": "Boolean",
+            "class": "Tabs.Tab",
+            "module": "tabs",
+            "namespace": "Tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 129,
+            "description": "是否启用懒加载机制，默认 false",
+            "itemtype": "attribute",
+            "name": "lazyRender=false",
+            "type": "Boolean",
+            "class": "Tabs.Tab",
+            "module": "tabs",
+            "namespace": "Tabs"
+        },
+        {
+            "file": "src\\api\\tabs.js",
+            "line": 146,
+            "description": "是否选中",
+            "itemtype": "attribute",
+            "name": "selected",
+            "type": "Boolean",
+            "class": "Tabs.Panel",
+            "module": "tabs",
+            "namespace": "Tabs"
+        },
+        {
+            "file": "src\\api\\toolbar.js",
+            "line": 13,
+            "description": "点击工具栏按钮时触发",
+            "itemtype": "event",
+            "name": "click",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "触发事件对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "target",
+                            "description": "点击的按钮实例",
+                            "type": "Control"
+                        }
+                    ]
+                }
+            ],
+            "class": "ToolBar",
+            "module": "toolbar"
+        },
+        {
+            "file": "src\\api\\toolbar.js",
+            "line": 20,
+            "description": "当前高亮的项",
+            "itemtype": "attribute",
+            "name": "highlightedItem",
+            "type": "Object",
+            "class": "ToolBar",
+            "module": "toolbar"
+        },
+        {
+            "file": "src\\api\\toolbar.js",
+            "line": 25,
+            "description": "当前的扩展项，切换高亮项时如要把以前的扩展项收起，并展开当前的高亮项",
+            "itemtype": "attribute",
+            "name": "expandedItem",
+            "type": "Object",
+            "class": "ToolBar",
+            "module": "toolbar"
+        },
+        {
+            "file": "src\\api\\toolbar.js",
+            "line": 30,
+            "description": "菜单项的默认值配置",
+            "itemtype": "attribute",
+            "name": "defaultChildCfg",
+            "type": "Object",
+            "example": [
+                "\n```\ndefaultChildCfg: {\n    value: {\n        xclass: 'button',\n        handleMouseEvents: false,\n        focusable: false\n    }\n},\n```"
+            ],
+            "class": "ToolBar",
+            "module": "toolbar"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 15,
+            "description": "默认 true. 是否显示树的根节点",
+            "itemtype": "attribute",
+            "name": "showRootNode=true",
+            "type": "Boolean",
+            "class": "Tree",
+            "module": "tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 20,
+            "description": "当树节点被点击后触发",
+            "itemtype": "event",
+            "name": "click",
+            "params": [
+                {
+                    "name": "e.target",
+                    "description": "当前被点击的树节点",
+                    "type": "KISSY.Node"
+                }
+            ],
+            "example": [
+                "\n```\n//默认情况下，双击树节点的文字部分或单击扩展图标才会展开收缩其子节点， 如果你需要改变为：单击树节点的文字部分也展开收缩其子节点，可以监控 click() 事件\n\ntree.on(\"click\",function(e){\n    var node = e.target;\n    if(node.get(\"children\").length){\n        node.set(\"expanded\",!node.get(\"expanded\"));\n    }\n});\n```"
+            ],
+            "class": "Tree",
+            "module": "tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 37,
+            "description": "当树节点扩展后触发",
+            "itemtype": "event",
+            "name": "expand",
+            "params": [
+                {
+                    "name": "e.target",
+                    "description": "当前被扩展的树节点",
+                    "type": "KISSY.Node"
+                }
+            ],
+            "class": "Tree",
+            "module": "tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 43,
+            "description": "当树节点收缩后触发",
+            "itemtype": "event",
+            "name": "collapse",
+            "params": [
+                {
+                    "name": "e.target",
+                    "description": "当前被收缩的树节点",
+                    "type": "KISSY.Node"
+                }
+            ],
+            "class": "Tree",
+            "module": "tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 61,
+            "description": "节点内容",
+            "itemtype": "attribute",
+            "name": "content",
+            "type": "String",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 66,
+            "description": "可选，是否固定采用叶子节点或目录节点样式类，不设置的话会动态根据是否具有儿子节点而变化",
+            "itemtype": "attribute",
+            "name": "isLeaf",
+            "type": "Boolean",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 71,
+            "description": "该节点的儿子节点是否显示，设置后可相应展开收缩儿子节点",
+            "itemtype": "attribute",
+            "name": "expanded",
+            "type": "Boolean",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 76,
+            "description": "节点提示内容",
+            "itemtype": "attribute",
+            "name": "tooltip",
+            "type": "String",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 81,
+            "description": "扩展图标 dom 节点",
+            "itemtype": "attribute",
+            "name": "expandIconEl",
+            "type": "KISSY.Node",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 86,
+            "description": "树节点图标 dom 节点",
+            "itemtype": "attribute",
+            "name": "iconEl",
+            "type": "KISSY.Node",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 91,
+            "description": "该节点是否被选中",
+            "itemtype": "attribute",
+            "name": "selected",
+            "type": "Boolean",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 96,
+            "description": "该节点所属的树对象",
+            "itemtype": "attribute",
+            "name": "tree",
+            "type": "KISSY.Tree",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 101,
+            "description": "该节点所处所在树的深度，只读。",
+            "itemtype": "attribute",
+            "name": "depth",
+            "type": "Number",
+            "readonly": "",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 107,
+            "description": "把当前节点的子孙节点全部显示出来",
+            "itemtype": "method",
+            "name": "expandAll",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 112,
+            "description": "把当前节点的子孙节点全部收缩起来",
+            "itemtype": "method",
+            "name": "collapseAll",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 117,
+            "description": "把当前节点设置为当前树的选中节点",
+            "itemtype": "method",
+            "name": "select",
+            "class": "Tree.Node",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 137,
+            "description": "当前节点的多选状态，可取：\n- PARTIAL_CHECK 代表节点的部分选中状态（部分子孙节点选中）\n- CHECK 代表节点的全部选中状态（子孙节点和自身节点全部选中）\n- EMPTY 代表节点的空状态（子孙节点和自身节点全部不选中）",
+            "itemtype": "attribute",
+            "name": "checkState",
+            "type": "String",
+            "class": "Tree.CheckNode",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 155,
+            "description": "当树节点扩展后触发",
+            "itemtype": "event",
+            "name": "expand",
+            "params": [
+                {
+                    "name": "e.target",
+                    "description": "当前被扩展的树节点",
+                    "type": "KISSY.Node"
+                }
+            ],
+            "class": "Tree.CheckTree",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 161,
+            "description": "当树节点收缩后触发",
+            "itemtype": "event",
+            "name": "collapse",
+            "params": [
+                {
+                    "name": "e.target",
+                    "description": "当前被收缩的树节点",
+                    "type": "KISSY.Node"
+                }
+            ],
+            "class": "Tree.CheckTree",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src\\api\\tree.js",
+            "line": 167,
+            "description": "当树节点被点击后触发",
+            "itemtype": "event",
+            "name": "click",
+            "params": [
+                {
+                    "name": "e.target",
+                    "description": "当前被点击的树节点",
+                    "type": "KISSY.Node"
+                }
+            ],
+            "example": [
+                "\n```\n//默认情况下，双击树节点的文字部分或单击扩展图标才会展开收缩其子节点， 如果你需要改变为：单击树节点的文字部分也展开收缩其子节点，可以监控 click() 事件\n\ntree.on(\"click\",function(e){\n    var node = e.target;\n    if(node.get(\"children\").length){\n        node.set(\"expanded\",!node.get(\"expanded\"));\n    }\n});\n```"
+            ],
+            "class": "Tree.CheckTree",
+            "module": "tree",
+            "namespace": "Tree"
         },
         {
             "file": "src\\api\\ua.js",

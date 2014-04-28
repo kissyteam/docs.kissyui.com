@@ -9,17 +9,6 @@
 * @constructor
 * @param elem {String|HTMLElement|KISSY.Node|window|普通的Object} 作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）
 * @param props {Object} 动画结束的 dom 样式值
-* @param [duration=1] {Number}  默认为 1 , 动画持续时间, 以秒为单位 
-* @param [easing="easeNone"] {String} 默认为 "easeNone", 动画平滑函数, 
-* 可取值 "swing", "easeNone", "linear", "easeIn", "easeOut", "easeBoth","easeInStrong", "easeOutStrong","easeBothStrong","elasticIn","elasticOut", "elasticBoth","backIn","backOut","backBoth", "bounceIn","bounceOut","bounceBoth", "cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）". 
-* 效果预览, 可以参考[easing可视化](5.0/examples/anim/easing.html)和[cubic-bezier可视化](5.0/examples/anim/cubic-bezier.html)
-* @param [completeFn] {Function} 动画到最后一帧后的回调函数
-
-* __Note: 构造器也可以如下面这样传参__
-
-* `Anim (elem, props[, config])` 得到绑定于某个 dom 节点的动画实例
-* @param elem {String|HTMLElement|KISSY.Node|window|普通的Object} 作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）
-* @param props {Object} 动画结束的 dom 样式值
 * @param [config] {Object} 动画配置项
 * @param [config.duration=1] {Number} 单位秒。默认 1 秒.动画持续时间
 * @param [config.easing="easeNone"] {String} 默认 ‘easeNone’. 动画平滑函数

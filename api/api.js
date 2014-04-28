@@ -56,12 +56,21 @@ YUI.add("yuidoc-meta", function(Y) {
         "Resizable",
         "ResizableProxyPlugin",
         "Resize",
+        "SWF",
         "Scroll",
         "ScrollBar",
         "ScrollView",
         "Shim",
         "SplitButton",
         "StyleSheet",
+        "Tabs",
+        "Tabs.Panel",
+        "Tabs.Tab",
+        "ToolBar",
+        "Tree",
+        "Tree.CheckNode",
+        "Tree.CheckTree",
+        "Tree.Node",
         "UA",
         "Uri",
         "Uri.Query",
@@ -112,6 +121,10 @@ YUI.add("yuidoc-meta", function(Y) {
         "scroll-view_plugin_scrollbar",
         "split-button",
         "stylesheet",
+        "swf",
+        "tabs",
+        "toolbar",
+        "tree",
         "ua",
         "uri",
         "util",
@@ -304,6 +317,23 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "stylesheet",
             "name": "stylesheet"
+        },
+        {
+            "displayName": "swf",
+            "name": "swf"
+        },
+        {
+            "displayName": "tabs",
+            "name": "tabs"
+        },
+        {
+            "displayName": "toolbar",
+            "name": "toolbar",
+            "description": "Toolbar菜单栏组件"
+        },
+        {
+            "displayName": "tree",
+            "name": "tree"
         },
         {
             "displayName": "ua",
