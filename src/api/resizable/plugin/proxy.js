@@ -6,7 +6,7 @@
 [Resizable](/5.0/api/classes/Resizable.html) 插件， 可代理缩放对象
 @class ResizableProxyPlugin
 @constructor
-@extend Base
+@extends Base
 @param config {Object} 
 @param config.node {Function} 当 Resizable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Resizable 对象, 返回值类型为 KISSY.Node . 该属性有默认值:
 ```

@@ -52,10 +52,12 @@ YUI.add("yuidoc-meta", function(Y) {
         "Promise",
         "Promise.Defer",
         "Proxy",
+        "PullToRefresh",
         "Resizable",
         "ResizableProxyPlugin",
         "Resize",
         "Scroll",
+        "ScrollBar",
         "ScrollView",
         "Shim",
         "UA",
@@ -104,6 +106,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "resizable",
         "resizable_plugin_proxy",
         "scroll-view",
+        "scroll-view_plugin_pull-to-refresh",
+        "scroll-view_plugin_scrollbar",
         "ua",
         "uri",
         "util",
@@ -279,6 +283,15 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "scroll-view",
             "name": "scroll-view"
+        },
+        {
+            "displayName": "scroll-view/plugin/pull-to-refresh",
+            "name": "scroll-view_plugin_pull-to-refresh"
+        },
+        {
+            "displayName": "scroll-view/plugin/scrollbar",
+            "name": "scroll-view_plugin_scrollbar",
+            "description": "ScrollView的插件ScrollBar"
         },
         {
             "displayName": "ua",
