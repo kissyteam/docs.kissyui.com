@@ -182,6 +182,413 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\editor\\plugin\\back-color.js": {
+            "name": "src\\api\\editor\\plugin\\back-color.js",
+            "modules": {
+                "editor/plugin/back-color": 1
+            },
+            "classes": {
+                "BackColor": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\bold.js": {
+            "name": "src\\api\\editor\\plugin\\bold.js",
+            "modules": {
+                "editor/plugin/bold": 1
+            },
+            "classes": {
+                "Bold": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\checkbox-source-area.js": {
+            "name": "src\\api\\editor\\plugin\\checkbox-source-area.js",
+            "modules": {
+                "editor/plugin/checkbox-source-area": 1
+            },
+            "classes": {
+                "CheckBoxSourceArea": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\code.js": {
+            "name": "src\\api\\editor\\plugin\\code.js",
+            "modules": {
+                "editor/plugin/code": 1
+            },
+            "classes": {
+                "Code": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\draft.js": {
+            "name": "src\\api\\editor\\plugin\\draft.js",
+            "modules": {
+                "editor/plugin/draft": 1
+            },
+            "classes": {
+                "Draft": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\drag-upload.js": {
+            "name": "src\\api\\editor\\plugin\\drag-upload.js",
+            "modules": {
+                "editor/plugin/drag-upload": 1
+            },
+            "classes": {
+                "DragUpload": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\element-path.js": {
+            "name": "src\\api\\editor\\plugin\\element-path.js",
+            "modules": {
+                "editor/plugin/element-path": 1
+            },
+            "classes": {
+                "ElementPath": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\flash.js": {
+            "name": "src\\api\\editor\\plugin\\flash.js",
+            "modules": {
+                "editor/plugin/flash": 1
+            },
+            "classes": {
+                "Flash": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\font-color.js": {
+            "name": "src\\api\\editor\\plugin\\font-color.js",
+            "modules": {
+                "editor/plugin/font-color": 1
+            },
+            "classes": {
+                "FontColor": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\font-family.js": {
+            "name": "src\\api\\editor\\plugin\\font-family.js",
+            "modules": {
+                "editor/plugin/font-family": 1
+            },
+            "classes": {
+                "FontFamily": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\font-size.js": {
+            "name": "src\\api\\editor\\plugin\\font-size.js",
+            "modules": {
+                "editor/plugin/font-size": 1
+            },
+            "classes": {
+                "FontSize": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\heading.js": {
+            "name": "src\\api\\editor\\plugin\\heading.js",
+            "modules": {
+                "editor/plugin/heading": 1
+            },
+            "classes": {
+                "Heading": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\image.js": {
+            "name": "src\\api\\editor\\plugin\\image.js",
+            "modules": {
+                "editor/plugin/image": 1
+            },
+            "classes": {
+                "Image": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\indent.js": {
+            "name": "src\\api\\editor\\plugin\\indent.js",
+            "modules": {
+                "editor/plugin/indent": 1
+            },
+            "classes": {
+                "Indent": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\italic.js": {
+            "name": "src\\api\\editor\\plugin\\italic.js",
+            "modules": {
+                "editor/plugin/italic": 1
+            },
+            "classes": {
+                "Italic": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\justify-center.js": {
+            "name": "src\\api\\editor\\plugin\\justify-center.js",
+            "modules": {
+                "editor/plugin/justify-center": 1
+            },
+            "classes": {
+                "JustifyCenter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\justify-left.js": {
+            "name": "src\\api\\editor\\plugin\\justify-left.js",
+            "modules": {
+                "editor/plugin/justify-left": 1
+            },
+            "classes": {
+                "JustifyLeft": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\justify-right.js": {
+            "name": "src\\api\\editor\\plugin\\justify-right.js",
+            "modules": {
+                "editor/plugin/justify-right": 1
+            },
+            "classes": {
+                "JustifyRight": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\link.js": {
+            "name": "src\\api\\editor\\plugin\\link.js",
+            "modules": {
+                "editor/plugin/link": 1
+            },
+            "classes": {
+                "Link": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\maximize.js": {
+            "name": "src\\api\\editor\\plugin\\maximize.js",
+            "modules": {
+                "editor/plugin/maximize": 1
+            },
+            "classes": {
+                "Maximize": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\multiple-upload.js": {
+            "name": "src\\api\\editor\\plugin\\multiple-upload.js",
+            "modules": {
+                "editor/plugin/multiple-upload": 1
+            },
+            "classes": {
+                "MultipleUpload": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\ordered-list.js": {
+            "name": "src\\api\\editor\\plugin\\ordered-list.js",
+            "modules": {
+                "editor/plugin/ordered-list": 1
+            },
+            "classes": {
+                "OrderedList": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\outdent.js": {
+            "name": "src\\api\\editor\\plugin\\outdent.js",
+            "modules": {
+                "editor/plugin/outdent": 1
+            },
+            "classes": {
+                "Outdent": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\page-break.js": {
+            "name": "src\\api\\editor\\plugin\\page-break.js",
+            "modules": {
+                "editor/plugin/page-break": 1
+            },
+            "classes": {
+                "PageBreak": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\preview.js": {
+            "name": "src\\api\\editor\\plugin\\preview.js",
+            "modules": {
+                "editor/plugin/preview": 1
+            },
+            "classes": {
+                "Preview": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\remove-format.js": {
+            "name": "src\\api\\editor\\plugin\\remove-format.js",
+            "modules": {
+                "editor/plugin/remove-format": 1
+            },
+            "classes": {
+                "RemoveFormat": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\resize.js": {
+            "name": "src\\api\\editor\\plugin\\resize.js",
+            "modules": {
+                "editor/plugin/resize": 1
+            },
+            "classes": {
+                "EditorResize": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\separator.js": {
+            "name": "src\\api\\editor\\plugin\\separator.js",
+            "modules": {
+                "editor/plugin/separator": 1
+            },
+            "classes": {
+                "Separator": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\smiley.js": {
+            "name": "src\\api\\editor\\plugin\\smiley.js",
+            "modules": {
+                "editor/plugin/smiley": 1
+            },
+            "classes": {
+                "Smiley": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\source-area.js": {
+            "name": "src\\api\\editor\\plugin\\source-area.js",
+            "modules": {
+                "editor/plugin/source-area": 1
+            },
+            "classes": {
+                "SourceArea": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\strike-through.js": {
+            "name": "src\\api\\editor\\plugin\\strike-through.js",
+            "modules": {
+                "editor/plugin/strike-through": 1
+            },
+            "classes": {
+                "StrikeThrough": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\table.js": {
+            "name": "src\\api\\editor\\plugin\\table.js",
+            "modules": {
+                "editor/plugin/table": 1
+            },
+            "classes": {
+                "Table": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\underline.js": {
+            "name": "src\\api\\editor\\plugin\\underline.js",
+            "modules": {
+                "editor/plugin/underline": 1
+            },
+            "classes": {
+                "Underline": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\undo.js": {
+            "name": "src\\api\\editor\\plugin\\undo.js",
+            "modules": {
+                "editor/plugin/undo": 1
+            },
+            "classes": {
+                "Undo": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\unordered-list.js": {
+            "name": "src\\api\\editor\\plugin\\unordered-list.js",
+            "modules": {
+                "editor/plugin/unordered-list": 1
+            },
+            "classes": {
+                "UnorderedList": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\video.js": {
+            "name": "src\\api\\editor\\plugin\\video.js",
+            "modules": {
+                "editor/plugin/video": 1
+            },
+            "classes": {
+                "Video": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\api\\editor\\plugin\\xiami-music.js": {
+            "name": "src\\api\\editor\\plugin\\xiami-music.js",
+            "modules": {
+                "editor/plugin/xiami-music": 1
+            },
+            "classes": {
+                "XiaMiMusic": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\resizable\\plugin\\proxy.js": {
             "name": "src\\api\\resizable\\plugin\\proxy.js",
             "modules": {
@@ -334,7 +741,9 @@
             "modules": {
                 "editor": 1
             },
-            "classes": {},
+            "classes": {
+                "Editor": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -824,6 +1233,450 @@
             "file": "src\\api\\dd\\plugin\\scroll.js",
             "line": 5
         },
+        "editor/plugin/back-color": {
+            "name": "editor/plugin/back-color",
+            "submodules": {},
+            "classes": {
+                "BackColor": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\back-color.js",
+            "line": 5
+        },
+        "editor/plugin/bold": {
+            "name": "editor/plugin/bold",
+            "submodules": {},
+            "classes": {
+                "Bold": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\bold.js",
+            "line": 5
+        },
+        "editor/plugin/checkbox-source-area": {
+            "name": "editor/plugin/checkbox-source-area",
+            "submodules": {},
+            "classes": {
+                "CheckBoxSourceArea": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\checkbox-source-area.js",
+            "line": 5
+        },
+        "editor/plugin/code": {
+            "name": "editor/plugin/code",
+            "submodules": {},
+            "classes": {
+                "Code": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\code.js",
+            "line": 5
+        },
+        "editor/plugin/draft": {
+            "name": "editor/plugin/draft",
+            "submodules": {},
+            "classes": {
+                "Draft": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\draft.js",
+            "line": 5
+        },
+        "editor/plugin/drag-upload": {
+            "name": "editor/plugin/drag-upload",
+            "submodules": {},
+            "classes": {
+                "DragUpload": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\drag-upload.js",
+            "line": 5
+        },
+        "editor/plugin/element-path": {
+            "name": "editor/plugin/element-path",
+            "submodules": {},
+            "classes": {
+                "ElementPath": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\element-path.js",
+            "line": 5
+        },
+        "editor/plugin/flash": {
+            "name": "editor/plugin/flash",
+            "submodules": {},
+            "classes": {
+                "Flash": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\flash.js",
+            "line": 5
+        },
+        "editor/plugin/font-color": {
+            "name": "editor/plugin/font-color",
+            "submodules": {},
+            "classes": {
+                "FontColor": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\font-color.js",
+            "line": 5
+        },
+        "editor/plugin/font-family": {
+            "name": "editor/plugin/font-family",
+            "submodules": {},
+            "classes": {
+                "FontFamily": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\font-family.js",
+            "line": 5
+        },
+        "editor/plugin/font-size": {
+            "name": "editor/plugin/font-size",
+            "submodules": {},
+            "classes": {
+                "FontSize": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\font-size.js",
+            "line": 5
+        },
+        "editor/plugin/heading": {
+            "name": "editor/plugin/heading",
+            "submodules": {},
+            "classes": {
+                "Heading": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\heading.js",
+            "line": 5
+        },
+        "editor/plugin/image": {
+            "name": "editor/plugin/image",
+            "submodules": {},
+            "classes": {
+                "Image": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\image.js",
+            "line": 5
+        },
+        "editor/plugin/indent": {
+            "name": "editor/plugin/indent",
+            "submodules": {},
+            "classes": {
+                "Indent": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\indent.js",
+            "line": 5
+        },
+        "editor/plugin/italic": {
+            "name": "editor/plugin/italic",
+            "submodules": {},
+            "classes": {
+                "Italic": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\italic.js",
+            "line": 5
+        },
+        "editor/plugin/justify-center": {
+            "name": "editor/plugin/justify-center",
+            "submodules": {},
+            "classes": {
+                "JustifyCenter": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\justify-center.js",
+            "line": 5
+        },
+        "editor/plugin/justify-left": {
+            "name": "editor/plugin/justify-left",
+            "submodules": {},
+            "classes": {
+                "JustifyLeft": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\justify-left.js",
+            "line": 5
+        },
+        "editor/plugin/justify-right": {
+            "name": "editor/plugin/justify-right",
+            "submodules": {},
+            "classes": {
+                "JustifyRight": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\justify-right.js",
+            "line": 5
+        },
+        "editor/plugin/link": {
+            "name": "editor/plugin/link",
+            "submodules": {},
+            "classes": {
+                "Link": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\link.js",
+            "line": 5
+        },
+        "editor/plugin/maximize": {
+            "name": "editor/plugin/maximize",
+            "submodules": {},
+            "classes": {
+                "Maximize": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\maximize.js",
+            "line": 5
+        },
+        "editor/plugin/multiple-upload": {
+            "name": "editor/plugin/multiple-upload",
+            "submodules": {},
+            "classes": {
+                "MultipleUpload": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\multiple-upload.js",
+            "line": 5
+        },
+        "editor/plugin/ordered-list": {
+            "name": "editor/plugin/ordered-list",
+            "submodules": {},
+            "classes": {
+                "OrderedList": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\ordered-list.js",
+            "line": 5
+        },
+        "editor/plugin/outdent": {
+            "name": "editor/plugin/outdent",
+            "submodules": {},
+            "classes": {
+                "Outdent": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\outdent.js",
+            "line": 5
+        },
+        "editor/plugin/page-break": {
+            "name": "editor/plugin/page-break",
+            "submodules": {},
+            "classes": {
+                "PageBreak": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\page-break.js",
+            "line": 5
+        },
+        "editor/plugin/preview": {
+            "name": "editor/plugin/preview",
+            "submodules": {},
+            "classes": {
+                "Preview": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\preview.js",
+            "line": 5
+        },
+        "editor/plugin/remove-format": {
+            "name": "editor/plugin/remove-format",
+            "submodules": {},
+            "classes": {
+                "RemoveFormat": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\remove-format.js",
+            "line": 5
+        },
+        "editor/plugin/resize": {
+            "name": "editor/plugin/resize",
+            "submodules": {},
+            "classes": {
+                "EditorResize": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\resize.js",
+            "line": 5
+        },
+        "editor/plugin/separator": {
+            "name": "editor/plugin/separator",
+            "submodules": {},
+            "classes": {
+                "Separator": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\separator.js",
+            "line": 5
+        },
+        "editor/plugin/smiley": {
+            "name": "editor/plugin/smiley",
+            "submodules": {},
+            "classes": {
+                "Smiley": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\smiley.js",
+            "line": 5
+        },
+        "editor/plugin/source-area": {
+            "name": "editor/plugin/source-area",
+            "submodules": {},
+            "classes": {
+                "SourceArea": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\source-area.js",
+            "line": 5
+        },
+        "editor/plugin/strike-through": {
+            "name": "editor/plugin/strike-through",
+            "submodules": {},
+            "classes": {
+                "StrikeThrough": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\strike-through.js",
+            "line": 5
+        },
+        "editor/plugin/table": {
+            "name": "editor/plugin/table",
+            "submodules": {},
+            "classes": {
+                "Table": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\table.js",
+            "line": 5
+        },
+        "editor/plugin/underline": {
+            "name": "editor/plugin/underline",
+            "submodules": {},
+            "classes": {
+                "Underline": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\underline.js",
+            "line": 5
+        },
+        "editor/plugin/undo": {
+            "name": "editor/plugin/undo",
+            "submodules": {},
+            "classes": {
+                "Undo": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\undo.js",
+            "line": 5
+        },
+        "editor/plugin/unordered-list": {
+            "name": "editor/plugin/unordered-list",
+            "submodules": {},
+            "classes": {
+                "UnorderedList": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\unordered-list.js",
+            "line": 5
+        },
+        "editor/plugin/video": {
+            "name": "editor/plugin/video",
+            "submodules": {},
+            "classes": {
+                "Video": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\video.js",
+            "line": 5
+        },
+        "editor/plugin/xiami-music": {
+            "name": "editor/plugin/xiami-music",
+            "submodules": {},
+            "classes": {
+                "XiaMiMusic": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor\\plugin\\xiami-music.js",
+            "line": 5
+        },
         "resizable/plugin/proxy": {
             "name": "resizable/plugin/proxy",
             "submodules": {},
@@ -992,12 +1845,14 @@
         "editor": {
             "name": "editor",
             "submodules": {},
-            "classes": {},
+            "classes": {
+                "Editor": 1
+            },
             "fors": {},
             "namespaces": {},
             "tag": "module",
             "file": "src\\api\\editor.js",
-            "line": 1
+            "line": 5
         },
         "event": {
             "name": "event",
@@ -1668,6 +2523,620 @@
                 }
             ]
         },
+        "BackColor": {
+            "name": "BackColor",
+            "shortname": "BackColor",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/back-color",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\back-color.js",
+            "line": 5,
+            "description": "编辑器的背景色插件\n\n### 提供的Commands\n- backColor\n\t- 参数 color {String}  颜色的 16 进制字符串。例如 ‘#ffffff’\n\n调用命令方式：\n```\neditor.execCommand(\"backColor\",'#ffffffff'); // 设置选区背景为白色\n```",
+            "example": [
+                "\n```\nKISSY.use('editor',function(S,Editor){\n    S.use('editor/plugin/back-color',function(S,BackColor){\n        // use BackColor\n    });\n});\n```"
+            ]
+        },
+        "Bold": {
+            "name": "Bold",
+            "shortname": "Bold",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/bold",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\bold.js",
+            "line": 5,
+            "description": "编辑器的字体加粗插件\n\n### 提供的Commands\n- bold\n\n```\n//调用命令方式\n\neditor.execCommand(\"bold\"); // 设置选区文字加粗\n\neditor.execCommand(\"bold\"); // 取消选区文字加粗\n\neditor.queryCommandValue(\"bold\") //=>false\n```"
+        },
+        "CheckBoxSourceArea": {
+            "name": "CheckBoxSourceArea",
+            "shortname": "CheckBoxSourceArea",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/checkbox-source-area",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\checkbox-source-area.js",
+            "line": 5,
+            "description": "编辑器的框选切换源码插件\n```\nKISSY.use('editor',function(S,Editor){\n    S.use('editor/plugin/checkbox-source-area',function(S,checkBoxSourceArea){\n        // use\n    });\n});\n```"
+        },
+        "Code": {
+            "name": "Code",
+            "shortname": "Code",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/code",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\code.js",
+            "line": 5,
+            "description": "编辑器的代码插件"
+        },
+        "Draft": {
+            "name": "Draft",
+            "shortname": "Draft",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/draft",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\draft.js",
+            "line": 5,
+            "description": "编辑器的草稿箱插件\n```\nKISSY.use('editor',function(S,Editor){\n    S.use('editor/plugin/draft',function(S,Draft){\n        // use\n    });\n});\n```",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "详见其Attribute",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n```\nnew Editor({\n    plugins:{\n        Draft:{\n            saveKey:'taobao',\n            interval:5\n        }\n    }\n});\n```"
+            ]
+        },
+        "DragUpload": {
+            "name": "DragUpload",
+            "shortname": "DragUpload",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/drag-upload",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\drag-upload.js",
+            "line": 5,
+            "description": "编辑器的拖放上传插件",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "详见其Attribute",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use('editor',function(S,Editor){\n    S.use('editor/plugin/drag-upload',function(S,DragUpload){\n        // use\n    });\n});\n```"
+            ]
+        },
+        "ElementPath": {
+            "name": "ElementPath",
+            "shortname": "ElementPath",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/element-path",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\element-path.js",
+            "line": 5,
+            "description": "编辑器的节点路径插件\n### 推荐仅用于调试开发，不要给用户使用."
+        },
+        "Flash": {
+            "name": "Flash",
+            "shortname": "Flash",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/flash",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\flash.js",
+            "line": 5,
+            "description": "编辑器的拖放上传插件",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use('editor',function(S,Editor){\n    S.use('editor/plugin/flash',function(S,Flash){\n        // use\n    });\n});\n```"
+            ]
+        },
+        "FontColor": {
+            "name": "FontColor",
+            "shortname": "FontColor",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/font-color",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\font-color.js",
+            "line": 5,
+            "description": "编辑器的字体颜色插件\n\n### 提供的Commands\n- foreColor 对选区设置字体颜色\n\t- 参数 color (String) – 颜色的 16 进制字符串。例如 ‘#ffffff’\n实例：\n```\neditor.execCommand(\"foreColor\",'#ffffffff'); // 设置选区字体颜色为白色\n```"
+        },
+        "FontFamily": {
+            "name": "FontFamily",
+            "shortname": "FontFamily",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/font-family",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\font-family.js",
+            "line": 5,
+            "description": "编辑器的字体选择插件\n\n### 提供的Commands\n- fontFamily 对选区文字设置或取消指定的字体.\n支持 queryCommandValue，返回当前元素是否被设置了对应字体\n\t- 参数 fontFamily (String) – 指定字体值.\n实例：\n```\neditor.execCommand(\"fontFamily\",\"SimSun\"); //=> 设置选区文字为宋体.\neditor.execCommand(\"fontFamily\",\"SimSun\"); //=> 取消设置选区文字为宋体.\neditor.queryCommandValue(\"fontFamily\"); //=> 返回 \"SimSun\";\n```",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "FontSize": {
+            "name": "FontSize",
+            "shortname": "FontSize",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/font-size",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\font-size.js",
+            "line": 5,
+            "description": "编辑器的字体大小插件\n\n### 提供的Commands\n- fontSize 对选区文字设置或取消指定的字体大小\n支持 queryCommandValue，返回当前元素是否被设置了对应大小\n\t- 参数 fontSize (String) – 指定字体大小值.\n实例：\n```\neditor.execCommand(\"fontSize\",\"10px\"); //=> 设置选区文字大小为10px.\neditor.execCommand(\"fontSize\",\"10px\"); //=> 取消设置选区文字大小为10px.\neditor.queryCommandValue(\"fontSize\"); //=> 返回 10px\n```",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Heading": {
+            "name": "Heading",
+            "shortname": "Heading",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/heading",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\heading.js",
+            "line": 5,
+            "description": "编辑器的标题插件\n\n### 提供的Commands\n- heading 对选区设置或取消标题的插件\n支持 queryCommandValue，返回选区设置标题\n\t- 参数 tag (String) – 标题的标签名称。例如 ‘h1’,’p’\n实例：\n```\neditor.execCommand(\"heading\",'h1');\n```"
+        },
+        "Image": {
+            "name": "Image",
+            "shortname": "Image",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/image",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\image.js",
+            "line": 5,
+            "description": "编辑器的插入图片插件",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "详见其Attribute",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use(\"editor\", function (S, Editor) {\n    var cfg = {\n        // 是否初始聚焦\n        focused: true,\n        attachForm: true,\n        // 自定义样式\n        // customStyle:\"p{line-height: 1.4;margin: 1.12em 0;padding: 0;}\",\n        // 自定义外部样式\n        // customLink:[\"http://localhost/customLink.css\",\"http://xx.com/y2.css\"],\n        // render:\"#container\",\n        render: '#editorContainer',\n        width: '80%',\n        height: \"400px\"\n    };\n\n    KISSY.use(\"editor/plugin/source-area,\" +\n        \"editor/plugin/font-size,\" +\n        \"editor/plugin/image,\" +\n        \"editor/plugin/code\", function (S, SourceArea, FontSize, Image, Code) {\n\n        cfg.plugins = [SourceArea, FontSize, new Image({\n            upload: {\n                serverUrl: \"http://localhost/kissy_git/kissy/src/editor/demo/upload.php\",\n                serverParams: {\n                    waterMark: function () {\n                        return S.one(\"#ke_img_up_watermark_1\")[0].checked;\n                    }\n                },\n                suffix: \"png,jpg,jpeg,gif\",\n                fileInput: \"Filedata\",\n                sizeLimit: 1000, //k\n                extraHtml: \"<p style='margin-top:10px;'><input type='checkbox' id='ke_img_up_watermark_1' checked='checked'> 图片加水印，防止别人盗用</p>\"\n            }\n        }), Code];\n\n        new Editor(cfg).render();\n    });\n\n});\n```"
+            ]
+        },
+        "Indent": {
+            "name": "Indent",
+            "shortname": "Indent",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/indent",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\indent.js",
+            "line": 5,
+            "description": "编辑器的缩进插件\n\n### Commands\n- indent 对选区缩进"
+        },
+        "Italic": {
+            "name": "Italic",
+            "shortname": "Italic",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/italic",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\italic.js",
+            "line": 5,
+            "description": "编辑器的斜体插件\n\n### Commands\n- italic 对选区文字设置斜体或取消斜体,支持 queryCommandValue，返回当前路径是否是斜体覆盖"
+        },
+        "JustifyCenter": {
+            "name": "JustifyCenter",
+            "shortname": "JustifyCenter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/justify-center",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\justify-center.js",
+            "line": 5,
+            "description": "编辑器的居中对齐插件\n\n### Commands\n- justifyCenter 对选区文字居中或取消.支持 queryCommandValue，返回选区是否居中"
+        },
+        "JustifyLeft": {
+            "name": "JustifyLeft",
+            "shortname": "JustifyLeft",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/justify-left",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\justify-left.js",
+            "line": 5,
+            "description": "编辑器的居左对齐插件\n\n### Commands\n- justifyLeft 对选区文字居左或取消.支持 queryCommandValue，返回选区是否居左"
+        },
+        "JustifyRight": {
+            "name": "JustifyRight",
+            "shortname": "JustifyRight",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/justify-right",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\justify-right.js",
+            "line": 5,
+            "description": "编辑器的居右对齐插件\n\n### Commands\n- justifyRight 对选区文字居右或取消.支持 queryCommandValue，返回选区是否居右"
+        },
+        "Link": {
+            "name": "Link",
+            "shortname": "Link",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/link",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\link.js",
+            "line": 5,
+            "description": "编辑器的链接插件",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "详见其Attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Maximize": {
+            "name": "Maximize",
+            "shortname": "Maximize",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/maximize",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\maximize.js",
+            "line": 5,
+            "description": "编辑器的全屏插件\n\n### Commands\n- maximizeWindow 窗口最大化\n- restoreWindow 窗口最恢复",
+            "is_constructor": 1
+        },
+        "MultipleUpload": {
+            "name": "MultipleUpload",
+            "shortname": "MultipleUpload",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/multiple-upload",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\multiple-upload.js",
+            "line": 5,
+            "description": "编辑器的批量上传插件\n\n### Note\n- 该插件使用 flash 技术, 必须在根域名下提供 crossdomain.xml , 例如 http://www.taobao.com/crossdomain.xml , 内容如下\n```\n<cross-domain-policy>\n    <allow-access-from domain=\"*.taobao.com\"/>\n    <allow-access-from domain=\"*.taobao.net\"/>\n    <allow-access-from domain=\"*.taobaocdn.com\"/>\n    <allow-access-from domain=\"*.tbcdn.cn\"/>\n    <allow-access-from domain=\"*.allyes.com\"/>\n</cross-domain-policy>\n```\n- serverUrl 必须使用绝对地址, 否则如果编辑器组件和应用页面不在同一个hostname时, firefox下请求会发到编辑器组件所在的hostname.\n- 多图上传在非 ie 下并不会携带 cookie，如确实需要可通过 serverParams 传递：\n```\nserverParams: {\n    cookie: function () {\n        return document.cookie;\n    }\n}\n```",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "OrderedList": {
+            "name": "OrderedList",
+            "shortname": "OrderedList",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/ordered-list",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\ordered-list.js",
+            "line": 5,
+            "description": "编辑器的有序列表插件\n\n### Commands\n- insertOrderedList 对选区设置或取消为有序列表.支持 queryCommandValue，返回选区是否是有序列表"
+        },
+        "Outdent": {
+            "name": "Outdent",
+            "shortname": "Outdent",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/outdent",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\outdent.js",
+            "line": 5,
+            "description": "编辑器的缩出插件\n\n### Commands\n- outdent 对选区缩出 支持 queryCommandValue，返回当前路径是否可以缩出"
+        },
+        "PageBreak": {
+            "name": "PageBreak",
+            "shortname": "PageBreak",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/page-break",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\page-break.js",
+            "line": 5,
+            "description": "编辑器的分页符插件"
+        },
+        "Preview": {
+            "name": "Preview",
+            "shortname": "Preview",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/preview",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\preview.js",
+            "line": 5,
+            "description": "编辑器的预览插件"
+        },
+        "RemoveFormat": {
+            "name": "RemoveFormat",
+            "shortname": "RemoveFormat",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/remove-format",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\remove-format.js",
+            "line": 5,
+            "description": "编辑器的清除格式插件\n\n### Commands\n- removeFormat 对选区清除格式."
+        },
+        "EditorResize": {
+            "name": "EditorResize",
+            "shortname": "EditorResize",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/resize",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\resize.js",
+            "line": 5,
+            "description": "编辑器的调整大小插件",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "详见其Attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Separator": {
+            "name": "Separator",
+            "shortname": "Separator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/separator",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\separator.js",
+            "line": 5,
+            "description": "编辑器的分隔符插件"
+        },
+        "Smiley": {
+            "name": "Smiley",
+            "shortname": "Smiley",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/smiley",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\smiley.js",
+            "line": 5,
+            "description": "编辑器的表情插件"
+        },
+        "SourceArea": {
+            "name": "SourceArea",
+            "shortname": "SourceArea",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/source-area",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\source-area.js",
+            "line": 5,
+            "description": "编辑器的源码按钮插件"
+        },
+        "StrikeThrough": {
+            "name": "StrikeThrough",
+            "shortname": "StrikeThrough",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/strike-through",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\strike-through.js",
+            "line": 5,
+            "description": "编辑器的字体删除线插件\n\n### Commands\n- strikeThrough 对选区文字删除线或取消.支持 queryCommandValue，返回当前路径是否被删除线覆盖"
+        },
+        "Table": {
+            "name": "Table",
+            "shortname": "Table",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/table",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\table.js",
+            "line": 5,
+            "description": "编辑器的表格插件"
+        },
+        "Underline": {
+            "name": "Underline",
+            "shortname": "Underline",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/underline",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\underline.js",
+            "line": 5,
+            "description": "编辑器的字体下划线插件\n\n### Commands\n- underline 对选区文字下划线或取消.支持 queryCommandValue，返回当前路径是否被下划线覆盖"
+        },
+        "Undo": {
+            "name": "Undo",
+            "shortname": "Undo",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/undo",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\undo.js",
+            "line": 5,
+            "description": "编辑器的编辑历史管理插件\n\n### Commands\n- save 将当前内容存入历史\n- undo 回退到上一个编辑历史\n- redo 前进到下一个编辑历史"
+        },
+        "UnorderedList": {
+            "name": "UnorderedList",
+            "shortname": "UnorderedList",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/unordered-list",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\unordered-list.js",
+            "line": 5,
+            "description": "编辑器的无序列表插件\n\n### Commands\n- insertUnorderedList 对选区设置为无序列表或取消.支持 queryCommandValue，返回当前路径是否是无序列表"
+        },
+        "Video": {
+            "name": "Video",
+            "shortname": "Video",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/video",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\video.js",
+            "line": 5,
+            "description": "编辑器的插入图片插件",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
+                }
+            ]
+        },
+        "XiaMiMusic": {
+            "name": "XiaMiMusic",
+            "shortname": "XiaMiMusic",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/xiami-music",
+            "namespace": "",
+            "file": "src\\api\\editor\\plugin\\xiami-music.js",
+            "line": 5,
+            "description": "编辑器的虾米音乐插件"
+        },
         "ResizableProxyPlugin": {
             "name": "ResizableProxyPlugin",
             "shortname": "ResizableProxyPlugin",
@@ -2140,6 +3609,29 @@
             "line": 6,
             "description": "类DOM，操作DOM",
             "static": 1
+        },
+        "Editor": {
+            "name": "Editor",
+            "shortname": "Editor",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor",
+            "namespace": "",
+            "file": "src\\api\\editor.js",
+            "line": 5,
+            "description": "编辑器\n\n### Note1\n\n#### kissy提供参考的初始样式，但用户也可以自己自定义样式。参考样式地址为\n`http://g.tbcdn.cn/kissy/k/1.4.2/css/dpl/base-min.css`\n`http://g.tbcdn.cn/kissy/k/1.4.2/editor/theme/cool/editor-min.css?1`\n\n### Note2\neditor提供如下插件：\n[back-color](/5.0/api/classes/BackColor.html),[bold](/5.0/api/classes/Bold.html),[checkbox-source-area](/5.0/api/classes/CheckboxSourceArea.html),[code](/5.0/api/classes/Code.html),[draft](/5.0/api/classes/Draft.html),[drag-upload](/5.0/api/classes/DragUpload.html),[element-path](/5.0/api/classes/ElementPath.html),[flash](/5.0/api/classes/Flash.html),[font-color](/5.0/api/classes/FontColor.html),[font-family](/5.0/api/classes/FontFamily.html),[font-size](/5.0/api/classes/FontSize.html),[heading](/5.0/api/classes/Heading.html),[image](/5.0/api/classes/Image.html),[indent](/5.0/api/classes/Indent.html),[italic](/5.0/api/classes/Italic.html),[justify-left](/5.0/api/classes/JustifyLeft.html),[justify-center](/5.0/api/classes/JustifyCenter.html),[justify-right](/5.0/api/classes/JustifyRight.html),[link](/5.0/api/classes/Link.html),[maximize](/5.0/api/classes/Maximize.html),[multiple-upload](/5.0/api/classes/MultipleUpload.html),[ordered-list](/5.0/api/classes/OrderedList.html),[outdent](/5.0/api/classes/Outdent.html),[page-break](/5.0/api/classes/PageBreak.html),[preview](/5.0/api/classes/Preview.html),[remove-format](/5.0/api/classes/RemoveFormat.html),[resize](/5.0/api/classes/EditorResize.html),[separator](/5.0/api/classes/Separator.html),[smiley](/5.0/api/classes/Smiley.html),[source-area](/5.0/api/classes/SourceArea.html),[strike-through](/5.0/api/classes/StrikeThrough.html),[table](/5.0/api/classes/Table.html),[underline](/5.0/api/classes/Underline.html),[undo](/5.0/api/classes/Undo.html),[unordered-list](/5.0/api/classes/UnOrderedList.html),[video](/5.0/api/classes/Video.html),[xiami-music](/5.0/api/classes/XiaMiMusic.html)",
+            "is_constructor": 1,
+            "extends": "Control",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
+                }
+            ]
         },
         "Event": {
             "name": "Event",
@@ -5373,6 +6865,432 @@
             "type": "Number[]",
             "class": "Scroll",
             "module": "dd/plugin/scroll"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\draft.js",
+            "line": 30,
+            "description": "可选。本地存储时的内容的键名。用于区分多编辑器。",
+            "itemtype": "attribute",
+            "name": "saveKey",
+            "type": "String",
+            "class": "Draft",
+            "module": "editor/plugin/draft"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\draft.js",
+            "line": 35,
+            "description": "可选。本地存储的用户提示信息.",
+            "itemtype": "attribute",
+            "name": "helpHtml",
+            "type": "String",
+            "class": "Draft",
+            "module": "editor/plugin/draft"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\draft.js",
+            "line": 40,
+            "description": "单位秒，可选，默认 5。定时保存的间隔。",
+            "itemtype": "attribute",
+            "name": "interval",
+            "type": "Number",
+            "default": "5",
+            "class": "Draft",
+            "module": "editor/plugin/draft"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\draft.js",
+            "line": 46,
+            "description": "单位秒，可选，默认 10。草稿箱最多草稿条数.",
+            "itemtype": "attribute",
+            "name": "limit",
+            "type": "Number",
+            "default": "10",
+            "class": "Draft",
+            "module": "editor/plugin/draft"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\drag-upload.js",
+            "line": 20,
+            "description": "可选，默认 “Filedata”。上传文件域的名字.",
+            "itemtype": "attribute",
+            "name": "fileInput",
+            "type": "String",
+            "default": "\"Filedata\"",
+            "class": "DragUpload",
+            "module": "editor/plugin/drag-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\drag-upload.js",
+            "line": 26,
+            "description": "可选，单位 kb，默认无限制。上传文件大小限制.",
+            "itemtype": "attribute",
+            "name": "sizeLimit",
+            "type": "Number",
+            "class": "DragUpload",
+            "module": "editor/plugin/drag-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\drag-upload.js",
+            "line": 31,
+            "description": "可选。附带传给 server 的参数 json 对象。",
+            "itemtype": "attribute",
+            "name": "serverParams",
+            "type": "Object",
+            "class": "DragUpload",
+            "module": "editor/plugin/drag-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\drag-upload.js",
+            "line": 36,
+            "description": "比选。上传服务器地址。",
+            "itemtype": "attribute",
+            "name": "serverUrl",
+            "type": "String",
+            "class": "DragUpload",
+            "module": "editor/plugin/drag-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\drag-upload.js",
+            "line": 41,
+            "description": "可选，默认 “png,jpg,jpeg,gif”。允许上传的文件后缀名列表，逗号分割.",
+            "itemtype": "attribute",
+            "name": "suffix",
+            "type": "String",
+            "class": "DragUpload",
+            "module": "editor/plugin/drag-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\flash.js",
+            "line": 20,
+            "description": "可选。插入 Flash 的默认宽度.",
+            "itemtype": "attribute",
+            "name": "defaultWidth",
+            "type": "Number",
+            "optional": 1,
+            "class": "Flash",
+            "module": "editor/plugin/flash"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\flash.js",
+            "line": 26,
+            "description": "可选。插入 Flash 的默认高度.",
+            "itemtype": "attribute",
+            "name": "defaultHeight",
+            "type": "Number",
+            "optional": 1,
+            "class": "Flash",
+            "module": "editor/plugin/flash"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\font-family.js",
+            "line": 23,
+            "description": "可选。字体下拉菜单的名称和值集合。默认：\n```\n[\n    //ie 不认识中文？？？\n    {\n        content:\"宋体\",\n        value:\"SimSun\"\n    },\n    {\n        content:\"黑体\",\n        value:\"SimHei\"\n    },\n    {\n        content:\"隶书\",\n        value:\"LiSu\"\n    },\n    {\n        content:\"楷体\",\n        value:\"KaiTi_GB2312\"\n    },\n    {\n        content:\"微软雅黑\",\n        value:\"Microsoft YaHei\"\n    },\n    {\n        content:\"Georgia\",\n        value:\"Georgia\"\n    },\n    {\n        content:\"Times New Roman\",\n        value:\"Times New Roman\"\n    },\n    {\n        content:\"Impact\",\n        value:\"Impact\"\n    },\n    {\n        content:\"Courier New\",\n        value:\"Courier New\"\n    },\n    {\n        content:\"Arial\",\n        value:\"Arial\"\n    },\n    {\n        content:\"Verdana\",\n        value:\"Verdana\"\n    },\n    {\n        content:\"Tahoma\",\n        value:\"Tahoma\"\n    }\n]\n```",
+            "itemtype": "attribute",
+            "name": "children",
+            "type": "Object[]",
+            "class": "FontFamily",
+            "module": "editor/plugin/font-family"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\font-family.js",
+            "line": 81,
+            "description": "可选。下拉菜单的宽度，默认 “130px”.",
+            "itemtype": "attribute",
+            "name": "width",
+            "type": "String",
+            "default": "\"130px\"",
+            "class": "FontFamily",
+            "module": "editor/plugin/font-family"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\font-size.js",
+            "line": 23,
+            "description": "可选。字体大小下拉菜单的名称和值集合，默认包括 “8px”,”10px” 等。例如：\n```\n[\n    //ie 不认识中文？？？\n    {\n        content:\"较大\",\n        value:\"20px\"\n    },\n    {\n        content:\"较小\",\n        value:\"10px\"\n    }\n]\n```",
+            "itemtype": "attribute",
+            "name": "children",
+            "type": "Object[]",
+            "optional": 1,
+            "class": "FontSize",
+            "module": "editor/plugin/font-size"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\font-size.js",
+            "line": 42,
+            "description": "可选。下拉菜单的宽度，默认 “55px”.",
+            "itemtype": "attribute",
+            "name": "width",
+            "type": "String",
+            "default": "\"55px\"",
+            "optional": 1,
+            "class": "FontSize",
+            "module": "editor/plugin/font-size"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\image.js",
+            "line": 54,
+            "description": "图片配置，如果设为 false ，则图片弹层中网络图片 tab 消失",
+            "itemtype": "attribute",
+            "name": "remote",
+            "class": "Image",
+            "module": "editor/plugin/image"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\image.js",
+            "line": 59,
+            "description": "图片间距，默认为 10",
+            "itemtype": "attribute",
+            "name": "defaultMargin",
+            "default": "10",
+            "class": "Image",
+            "module": "editor/plugin/image"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\image.js",
+            "line": 65,
+            "description": "图片配置，上传图片配置, 不需要上传功能可不配置, 包括以下子配置\n- serverUrl {String} - 接受文件数据的服务器端程序地址, 格式为 multipart/form-data , 返回格式为：\n正确：{“imgUrl”:”http://xx.com/yy.jpg“}\n错误：{“error”:”i am error!”}\n- serverParams {Object} - 键值对. 传给服务器的格外参数, 如果 value 是函数则传递函数执行结果.\n- suffix {String} - 允许图片的后缀名.\n- fileInput {String} - 传给服务器的文件域名.\n- sizeLimit {Number} - 限制上传的文件大小, 单位 KB, ie 下只能作为提示.\n- extraHtml {String} - 放入图片上传区域的其他 html.",
+            "itemtype": "attribute",
+            "name": "upload",
+            "type": "Object",
+            "class": "Image",
+            "module": "editor/plugin/image"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\link.js",
+            "line": 12,
+            "description": "默认为 \"\", 表示在当前窗口打开新链接, 也可以指定 “_blank” , 则可以在新窗口打开链接",
+            "itemtype": "attribute",
+            "name": "target",
+            "default": "\"\"",
+            "class": "Link",
+            "module": "editor/plugin/link"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\maximize.js",
+            "line": 15,
+            "description": "最大化窗口后触发",
+            "itemtype": "event",
+            "name": "afterMaximizeWindow",
+            "class": "Maximize",
+            "module": "editor/plugin/maximize"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\maximize.js",
+            "line": 20,
+            "description": "恢复窗口后触发",
+            "itemtype": "event",
+            "name": "afterRestoreWindow",
+            "class": "Maximize",
+            "module": "editor/plugin/maximize"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\maximize.js",
+            "line": 25,
+            "description": "恢复窗口前触发，返回 false 可阻止最大化",
+            "itemtype": "event",
+            "name": "beforeRestoreWindow",
+            "class": "Maximize",
+            "module": "editor/plugin/maximize"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\maximize.js",
+            "line": 30,
+            "description": "最大化窗口前触发，返回 false 可阻止最大化",
+            "itemtype": "event",
+            "name": "beforeMaximizeWindow",
+            "class": "Maximize",
+            "module": "editor/plugin/maximize"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\multiple-upload.js",
+            "line": 33,
+            "description": "接受文件数据的服务器端程序地址, 格式为 multipart/form-data , 返回格式为：\n- 正确：{“imgUrl”:”http://xx.com/yy.jpg“}\n- 错误：{“error”:”i am error!”}",
+            "itemtype": "attribute",
+            "name": "serverUrl",
+            "type": "String",
+            "class": "MultipleUpload",
+            "module": "editor/plugin/multiple-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\multiple-upload.js",
+            "line": 40,
+            "description": "键值对. 传给服务器的格外参数, 如果 value 是函数则传递函数执行结果.",
+            "itemtype": "attribute",
+            "name": "serverParams",
+            "type": "Object",
+            "class": "MultipleUpload",
+            "module": "editor/plugin/multiple-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\multiple-upload.js",
+            "line": 45,
+            "description": "缩略图的后缀。例如原图:http://xx.com/yy.jpg，则加入后缀名时变为：http://xx.com/yy_80x80.jpg",
+            "itemtype": "attribute",
+            "name": "previewSuffix",
+            "type": "String",
+            "class": "MultipleUpload",
+            "module": "editor/plugin/multiple-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\multiple-upload.js",
+            "line": 50,
+            "description": "缩略图的宽度.",
+            "itemtype": "attribute",
+            "name": "previewWidth",
+            "type": "String",
+            "class": "MultipleUpload",
+            "module": "editor/plugin/multiple-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\multiple-upload.js",
+            "line": 55,
+            "description": "传给服务器的文件域名.",
+            "itemtype": "attribute",
+            "name": "fileInput",
+            "type": "String",
+            "class": "MultipleUpload",
+            "module": "editor/plugin/multiple-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\multiple-upload.js",
+            "line": 60,
+            "description": "限制上传的文件大小, 单位 KB.",
+            "itemtype": "attribute",
+            "name": "sizeLimit",
+            "type": "Number",
+            "class": "MultipleUpload",
+            "module": "editor/plugin/multiple-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\multiple-upload.js",
+            "line": 65,
+            "description": "可同时显示的图片列表个数.",
+            "itemtype": "attribute",
+            "name": "numberLimit",
+            "type": "Number",
+            "class": "MultipleUpload",
+            "module": "editor/plugin/multiple-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\multiple-upload.js",
+            "line": 70,
+            "description": "放入图片上传区域的其他 html.",
+            "itemtype": "attribute",
+            "name": "extraHtml",
+            "type": "String",
+            "class": "MultipleUpload",
+            "module": "editor/plugin/multiple-upload"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\resize.js",
+            "line": 12,
+            "description": "右下角调整大小的配置.",
+            "itemtype": "attribute",
+            "name": "direction",
+            "type": "String[]",
+            "class": "EditorResize",
+            "module": "editor/plugin/resize"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\resize.js",
+            "line": 17,
+            "description": "调整开始时触发",
+            "itemtype": "event",
+            "name": "resizeStart",
+            "class": "EditorResize",
+            "module": "editor/plugin/resize"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\resize.js",
+            "line": 22,
+            "description": "调整过程中周期触发",
+            "itemtype": "event",
+            "name": "resize",
+            "class": "EditorResize",
+            "module": "editor/plugin/resize"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\undo.js",
+            "line": 15,
+            "description": "历史撤销前触发.返回 false 取消操作",
+            "itemtype": "event",
+            "name": "beforeUndo",
+            "class": "Undo",
+            "module": "editor/plugin/undo"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\undo.js",
+            "line": 20,
+            "description": "历史重做前触发.返回 false 取消操作",
+            "itemtype": "event",
+            "name": "beforeRedo",
+            "class": "Undo",
+            "module": "editor/plugin/undo"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\undo.js",
+            "line": 25,
+            "description": "记录历史前触发.返回 false 取消操作",
+            "itemtype": "event",
+            "name": "beforeSave",
+            "class": "Undo",
+            "module": "editor/plugin/undo"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\undo.js",
+            "line": 30,
+            "description": "历史撤销后触发.",
+            "itemtype": "event",
+            "name": "afterUndo",
+            "class": "Undo",
+            "module": "editor/plugin/undo"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\undo.js",
+            "line": 35,
+            "description": "历史重做后触发.",
+            "itemtype": "event",
+            "name": "afterRedo",
+            "class": "Undo",
+            "module": "editor/plugin/undo"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\undo.js",
+            "line": 40,
+            "description": "记录历史后触发.",
+            "itemtype": "event",
+            "name": "afterSave",
+            "class": "Undo",
+            "module": "editor/plugin/undo"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\video.js",
+            "line": 12,
+            "description": "动态地址转化规则，其中每个 Object 包括\n- reg {RegExp} - 判断匹配与否的正则\n- url {RegExp} - 转化服务器的地址\n- paramName {String} - 待转化 url 的参数名称",
+            "itemtype": "attribute",
+            "name": "urlCfg",
+            "type": "Object[]",
+            "class": "Video",
+            "module": "editor/plugin/video"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\video.js",
+            "line": 20,
+            "description": "输入框提示信息",
+            "itemtype": "attribute",
+            "name": "urlTip",
+            "type": "String",
+            "class": "Video",
+            "module": "editor/plugin/video"
+        },
+        {
+            "file": "src\\api\\editor\\plugin\\video.js",
+            "line": 25,
+            "description": "静态转换规则, 从用户输入转换为flash地址，其中每个 Object 包括\n- reg {RegExp} - 判断匹配与否的正则\n- width {Number} - 转化后 flash 的默认宽度\n- height {Number} - 转化后 flash 的默认高度\n- detect(url) {function} - 转化函数，参数为用户输入的 url",
+            "itemtype": "attribute",
+            "name": "providers",
+            "type": "Object[]",
+            "class": "Video",
+            "module": "editor/plugin/video"
         },
         {
             "file": "src\\api\\resizable\\plugin\\proxy.js",
@@ -10019,6 +11937,563 @@
             },
             "class": "Dom",
             "module": "dom"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 23,
+            "description": "初始化设置编辑器里的内容",
+            "itemtype": "attribute",
+            "name": "data",
+            "type": "String",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 28,
+            "description": "编辑器模式.取值 Editor.SOURCE_MODE 或 Editor.WYSIWYG_MODE",
+            "itemtype": "attribute",
+            "name": "mode",
+            "type": "String",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 33,
+            "description": "自定义样式表 url 数组",
+            "itemtype": "attribute",
+            "name": "customLink",
+            "type": "String[]",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 38,
+            "description": "自定义产生 textarea 节点的 html.\n\n例如可以指定全新产生 editor 所属 textarea 的 name 值\n```\nnew Editor({\n    textarea: '<textarea name=\"custom\"></textarea>'\n});\n```",
+            "itemtype": "attribute",
+            "name": "textarea",
+            "type": "String",
+            "optional": 1,
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 51,
+            "description": "默认 false. 是否监控编辑器输入框所在的 form 提交。 （ form 提交前自动将编辑内容同步到对应 textarea 中 ）",
+            "itemtype": "attribute",
+            "name": "attachForm",
+            "default": "false",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 57,
+            "description": "自定义样式字符串",
+            "itemtype": "attribute",
+            "name": "customStyle",
+            "type": "String",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 62,
+            "description": "编辑器源码模式",
+            "itemtype": "attribute",
+            "name": "SOURCE_MODE",
+            "type": "KISSY.Node",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 67,
+            "description": "编辑器可视化模式",
+            "itemtype": "attribute",
+            "name": "WYSIWYG_MODE",
+            "type": "KISSY.Node",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 73,
+            "description": "编辑器的 iframe.只读",
+            "itemtype": "attribute",
+            "name": "iframe",
+            "type": "KISSY.Node",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 78,
+            "description": "编辑器 iframe 的 window.只读.",
+            "itemtype": "attribute",
+            "name": "window",
+            "type": "KISSY.Node",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 83,
+            "description": "编辑器 iframe 的 document.只读.",
+            "itemtype": "attribute",
+            "name": "document",
+            "type": "KISSY.Node",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 88,
+            "description": "编辑器 iframe 的父节点.只读",
+            "itemtype": "attribute",
+            "name": "iframeWrapEl",
+            "type": "KISSY.Node",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 93,
+            "description": "编辑器的 toolbar 节点.只读.",
+            "itemtype": "attribute",
+            "name": "toolBarEl",
+            "type": "KISSY.Node",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 98,
+            "description": "编辑器的 statusbar 节点.只读.",
+            "itemtype": "attribute",
+            "name": "statusBarEl",
+            "type": "KISSY.Node",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 104,
+            "description": "编辑器 body 下的格式化后的 html 内容.可读写",
+            "itemtype": "attribute",
+            "name": "formatData",
+            "type": "KISSY.Node",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 109,
+            "description": "调用编辑器的响应命令功能",
+            "itemtype": "method",
+            "name": "execCommand",
+            "params": [
+                {
+                    "name": "commandName",
+                    "description": "命令名称，由各个插件提供",
+                    "type": "String"
+                },
+                {
+                    "name": "arg1",
+                    "description": "对应命令所需要的参数"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 116,
+            "description": "编辑器是否存在该命令",
+            "itemtype": "method",
+            "name": "hasCommand",
+            "params": [
+                {
+                    "name": "commandName",
+                    "description": "命令名称，由各个插件提供",
+                    "type": "String"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 122,
+            "description": "查询该命令对应的当前编辑值",
+            "itemtype": "method",
+            "name": "queryCommandValue",
+            "params": [
+                {
+                    "name": "commandName",
+                    "description": "命令名称，由各个插件提供",
+                    "type": "String"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 128,
+            "description": "同步编辑器内容到对应的 textarea",
+            "itemtype": "method",
+            "name": "sync",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 133,
+            "description": "获取编辑器文档的完整 html（不仅仅是 body 内的内容）",
+            "itemtype": "method",
+            "name": "getDocHtml",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 138,
+            "description": "使得编辑器获得焦点",
+            "itemtype": "method",
+            "name": "focus",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 143,
+            "description": "使得编辑器失去焦点",
+            "itemtype": "method",
+            "name": "blur",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 148,
+            "description": "添加自定义样式到编辑器文档中",
+            "itemtype": "method",
+            "name": "addCustomStyle",
+            "params": [
+                {
+                    "name": "cssText",
+                    "description": "自定义样式文本",
+                    "type": "String"
+                },
+                {
+                    "name": "id",
+                    "description": "产生的 style 标签 id，用于删除",
+                    "type": "String"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 155,
+            "description": "删除编辑器文档的自定义样式",
+            "itemtype": "method",
+            "name": "removeCustomStyle",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "自定义样式产生的 style 标签的 id",
+                    "type": "String"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 161,
+            "description": "添加自定义样式表到编辑器文档中",
+            "itemtype": "method",
+            "name": "addCustomLink",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "自定义样式表的地址",
+                    "type": "String"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 167,
+            "description": "删除编辑器文档的自定义样式表",
+            "itemtype": "method",
+            "name": "removeCustomLink",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "自定义样式表的地址",
+                    "type": "String"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 173,
+            "description": "注册函数到编辑器文档 ready 队列（编辑器文档 ready 后触发）\n#### 该函数在编辑器生存周期内可能会运行多次（每次切换源码模式再切换回可视化模式都会因为编辑器文档重建而触发）",
+            "itemtype": "method",
+            "name": "docReady",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "编辑器文档 ready 后触发",
+                    "type": "Function"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 180,
+            "description": "往编辑器中插入元素",
+            "itemtype": "method",
+            "name": "insertElement",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "待插入的元素节点。（需从编辑器文档中创建）\n### 如果要兼容 firefox 浏览器，需要调用 focus 后延迟 50ms 调用该函数：\n```\neditor.focus();\nsetTimeout(function(){\n    editor.insertElement(new KISSY.Node('<span>haha</span>'),\n    null,editor.get('document')[0]);\n},50);\n```",
+                    "type": "KISSY.Node"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 194,
+            "description": "往编辑器中插入 html 串",
+            "itemtype": "method",
+            "name": "insertHtml",
+            "params": [
+                {
+                    "name": "html",
+                    "description": "待插入的 html 字符串.\n### 如果要兼容 firefox 浏览器，需要调用 focus 后延迟 50ms 调用该函数：\n```\neditor.focus();\nsetTimeout(function(){\n    editor.insertHtml('<span>haha</span>');\n},50);\n```",
+                    "type": "String"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 207,
+            "description": "为编辑器工具栏增加一个按钮. 一般用于插件编写.",
+            "itemtype": "method",
+            "name": "addButton",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "按钮 id",
+                    "type": "String"
+                },
+                {
+                    "name": "cfg",
+                    "description": "button配置，详见[Button](/5.0/api/classes/Button.html)",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n```\neditor.addButton(\"plugin2\", {\n    content:'<div style=\"margin: 2px;border: 1px solid red;padding: 1px;\">p2</div>',\n    listeners:{\n        click:function () {\n            alert('i am running')\n        }\n    }\n});\n```"
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 225,
+            "description": "为编辑器工具栏增加一个下拉菜单按钮. 一般用于插件编写.",
+            "itemtype": "method",
+            "name": "addSelect",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "按钮 id",
+                    "type": "String"
+                },
+                {
+                    "name": "cfg",
+                    "description": "select配置，详见[Select](/5.0/api/classes/Select.html)",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n```\neditor.addSelect(\"plugin2\", {\n    children:[\n        {\n            content:\"1\",\n            value:\"11\"\n        },\n        {\n            content:\"2\",\n            value:\"22\"\n        }\n    ],\n    listeners:{\n        click:function () {\n            alert('i am running')\n        }\n    }\n});\n```"
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 252,
+            "description": "获取选中的html字符串",
+            "itemtype": "method",
+            "name": "getSelectedHtml",
+            "return": {
+                "description": "要获取的html",
+                "type": "String"
+            },
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 258,
+            "description": "获得编辑器里面的内容",
+            "itemtype": "method",
+            "name": "getData",
+            "params": [
+                {
+                    "name": "format",
+                    "description": "是否格式化，内部使用",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "mode",
+                    "description": "模式，内部使用",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "编辑器里的html内容",
+                "type": "String"
+            },
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 266,
+            "description": "设置编辑器里的内容",
+            "itemtype": "method",
+            "name": "setData",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "要设置的内容",
+                    "type": "String"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 272,
+            "description": "当用户黏贴文本触发，可返回值用来修改用户的黏贴内容",
+            "itemtype": "event",
+            "name": "paste",
+            "params": [
+                {
+                    "name": "e.html",
+                    "description": "用户的黏贴内容",
+                    "type": "String"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 278,
+            "description": "当编辑区域获得焦点时触发",
+            "itemtype": "event",
+            "name": "focus",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 283,
+            "description": "当编辑区域失去焦点时触发",
+            "itemtype": "event",
+            "name": "blur",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 288,
+            "description": "当切换到可视化模式后触发",
+            "itemtype": "event",
+            "name": "wysiwygMode",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 293,
+            "description": "当切换到源码模式后触发",
+            "itemtype": "event",
+            "name": "sourceMode",
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 298,
+            "description": "当用户光标路径变化后触发",
+            "itemtype": "event",
+            "name": "selectionChange",
+            "params": [
+                {
+                    "name": "e.selection",
+                    "description": "当前的选区对象",
+                    "type": "Editor.Selection"
+                },
+                {
+                    "name": "e.path",
+                    "description": "当前的光标路径",
+                    "type": "Editor.ElementPath"
+                },
+                {
+                    "name": "e.element",
+                    "description": "光标开始处所在的非文字节点元素",
+                    "type": "KISSY.Node"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src\\api\\editor.js",
+            "line": 306,
+            "description": "当弹出插件窗口事触发",
+            "itemtype": "event",
+            "name": "dialogShow",
+            "params": [
+                {
+                    "name": "e.dialog",
+                    "description": "窗口对象实例",
+                    "type": "Overlay.Dialog"
+                },
+                {
+                    "name": "e.dialogName",
+                    "description": "窗口标志名称",
+                    "type": "String"
+                }
+            ],
+            "class": "Editor",
+            "module": "editor"
         },
         {
             "file": "src\\api\\event.js",
