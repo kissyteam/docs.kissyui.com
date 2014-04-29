@@ -358,17 +358,20 @@ function(drag) {
 
 /**
 默认 false. 指明是否代理节点需要每次拖放前 dragstart 生成, 拖放后 dragend 销毁. 用于多 Draggable 对象共享一个 Proxy 对象实例, 且要求代理节点和单个 Draggable 对象关联, 或者一个 DraggableDelegate 对象共享一个 Proxy 对象实例
-@attribute destroyOnEnd=false {Boolean}
+@attribute destroyOnEnd {Boolean}
+@default false
 */
 
 /**
 默认 true. 当拖放结束时，是否移动源节点到代理节点的位置.
-@attribute moveOnEnd=true {Boolean} 
+@attribute moveOnEnd {Boolean} 
+@default true
 */
 
 /**
 默认 false. 拖放时是否隐藏源节点
-@attribute hideNodeOnDrag=false {Boolean}
+@attribute hideNodeOnDrag {Boolean}
+@default false
 */
     </pre>
 </div>

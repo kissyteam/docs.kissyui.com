@@ -24,10 +24,12 @@ function(resizable) {
 
 /**
 默认 false. 指明在 resize 之后是否销毁代理节点
-@attribute destroyOnEnd=false {Boolean} 
+@attribute destroyOnEnd {Boolean} 
+@default false
 */
 
 /**
 默认 false. 是否在用代理节点 resize 时隐藏原节点
-@attribute hideNodeOnResize=false {Boolean} 
+@attribute hideNodeOnResize {Boolean} 
+@default false
 */

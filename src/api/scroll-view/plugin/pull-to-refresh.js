@@ -32,18 +32,21 @@ KISSY.use('scroll-view, scroll-view/plugin/pull-to-refresh', function (S, Scroll
 
 /**
 下拉时提示内容
-@attribute pullingHtml="Pull down to refresh..." {String} 
+@attribute pullingHtml {String} 
+@default "Pull down to refresh..."
 */
 
 /**
 释放操作的提示内容
-@attribute releasingHtml="release to refresh..." {String} 
+@attribute releasingHtml {String} 
+@default "release to refresh..."
 */
 
 
 /**
 加载内容时的提示内容
-@attribute loadingHtml="loading..." {String} 
+@attribute loadingHtml {String} 
+@default "loading..."
 */
 
 /**

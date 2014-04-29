@@ -12,7 +12,7 @@
 
 /**
 可选，当前组件的子组件数组
-@attribute [children] {Control[]} 
+@attribute children {Control[]} 
 */
 
 

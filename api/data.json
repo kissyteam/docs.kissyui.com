@@ -4052,7 +4052,7 @@
             "line": 13,
             "description": "可选，当前组件的子组件数组",
             "itemtype": "attribute",
-            "name": "[children]",
+            "name": "children",
             "type": "Control[]",
             "class": "Container",
             "module": "component/container"
@@ -4144,7 +4144,7 @@
             "line": 15,
             "description": "可选，附加给组件根节点的属性键值对",
             "itemtype": "attribute",
-            "name": "[elAttrs]",
+            "name": "elAttrs",
             "type": "Object",
             "class": "Control",
             "module": "component/control"
@@ -4154,7 +4154,7 @@
             "line": 20,
             "description": "可选，组件根节点的渲染到该节点之前",
             "itemtype": "attribute",
-            "name": "[elBefore]",
+            "name": "elBefore",
             "type": "KISSY.Node",
             "class": "Control",
             "module": "component/control"
@@ -4164,7 +4164,7 @@
             "line": 26,
             "description": "可选，附加给组件根节点的样式类",
             "itemtype": "attribute",
-            "name": "[elCls]",
+            "name": "elCls",
             "type": "String",
             "class": "Control",
             "module": "component/control"
@@ -4174,7 +4174,7 @@
             "line": 32,
             "description": "可选，附加给组件根节点的内联样式",
             "itemtype": "attribute",
-            "name": "[elStyle]",
+            "name": "elStyle",
             "type": "Object",
             "class": "Control",
             "module": "component/control"
@@ -4184,7 +4184,7 @@
             "line": 38,
             "description": "可选，该组件是否初始获得焦点",
             "itemtype": "attribute",
-            "name": "[focused]",
+            "name": "focused",
             "type": "Boolean",
             "class": "Control",
             "module": "component/control"
@@ -4194,7 +4194,7 @@
             "line": 44,
             "description": "可选，组件的高度，单位像素",
             "itemtype": "attribute",
-            "name": "[height]",
+            "name": "height",
             "type": "Number",
             "class": "Control",
             "module": "component/control"
@@ -4204,7 +4204,7 @@
             "line": 50,
             "description": "可选，该组件的父组件",
             "itemtype": "attribute",
-            "name": "[parent]",
+            "name": "parent",
             "type": "Control",
             "class": "Control",
             "module": "component/control"
@@ -4214,7 +4214,7 @@
             "line": 55,
             "description": "可选，默认 “ks-” . 组件的 css 样式类前缀 . 例如假设组件为 menu ，则该组件内的样式类名为 {prefixCls}menu，默认为 “ks-menu”.可用于实现自定义皮肤",
             "itemtype": "attribute",
-            "name": "[prefixCls]",
+            "name": "prefixCls",
             "type": "String",
             "class": "Control",
             "module": "component/control"
@@ -4224,7 +4224,7 @@
             "line": 60,
             "description": "可选，组件 prefix 的超类。只在config中使用。当超类未被指定时，用这个做超类",
             "itemtype": "attribute",
-            "name": "[prefixXClass]",
+            "name": "prefixXClass",
             "type": "String",
             "class": "Control",
             "module": "component/control"
@@ -4234,7 +4234,7 @@
             "line": 65,
             "description": "组件要应用的节点。默认 S.all(“body”)，组件根节点的渲染为该节点最后一个节点",
             "itemtype": "attribute",
-            "name": "[render]",
+            "name": "render",
             "type": "KISSY.Node",
             "class": "Control",
             "module": "component/control"
@@ -4244,7 +4244,7 @@
             "line": 70,
             "description": "可选，组件从页面中已存在的该节点中渲染而来.srcNode 时设置其他属性不起作用，属性通通在 html 标签中指定，并且 html 标签必须包含完整结构，例如 content 节点必须存在",
             "itemtype": "attribute",
-            "name": "[srcNode]",
+            "name": "srcNode",
             "type": "KISSY.Node",
             "class": "Control",
             "module": "component/control"
@@ -4254,23 +4254,24 @@
             "line": 75,
             "description": "默认 true ，是否显示.只是为组件的根节点添加/删除 {prefix}{component}-hidden 形式的 css class，自行指定具体的 css 样式",
             "itemtype": "attribute",
-            "name": "[visible=true]",
+            "name": "visible",
+            "default": "true",
             "class": "Control",
             "module": "component/control"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 80,
+            "line": 81,
             "description": "可选，组件的宽度，单位像素",
             "itemtype": "attribute",
-            "name": "[width]",
+            "name": "width",
             "type": "Number",
             "class": "Control",
             "module": "component/control"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 85,
+            "line": 86,
             "description": "只读属性，组件结构是否已经创建",
             "itemtype": "attribute",
             "name": "created",
@@ -4280,7 +4281,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 90,
+            "line": 91,
             "description": "只读属性，组件是否已经渲染",
             "itemtype": "attribute",
             "name": "rendered",
@@ -4290,7 +4291,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 95,
+            "line": 96,
             "description": "组件是否已经激活",
             "itemtype": "attribute",
             "name": "active",
@@ -4300,7 +4301,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 100,
+            "line": 101,
             "description": "设置的 content 属性",
             "itemtype": "attribute",
             "name": "content",
@@ -4310,7 +4311,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 105,
+            "line": 106,
             "description": "该组件是否禁用状态",
             "itemtype": "attribute",
             "name": "disabled",
@@ -4320,7 +4321,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 110,
+            "line": 111,
             "description": "只读属性，该组件的根节点. 注意调用 render() 后才可以取得",
             "itemtype": "attribute",
             "name": "el",
@@ -4330,7 +4331,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 116,
+            "line": 117,
             "description": "组件的高",
             "itemtype": "attribute",
             "name": "height",
@@ -4340,7 +4341,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 121,
+            "line": 122,
             "description": "该组件是否处于高亮状态",
             "itemtype": "attribute",
             "name": "highlighted",
@@ -4350,7 +4351,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 126,
+            "line": 127,
             "description": "标记当前实例是 Control 的实例",
             "itemtype": "attribute",
             "name": "isControl",
@@ -4360,7 +4361,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 132,
+            "line": 133,
             "description": "横轴位置",
             "itemtype": "attribute",
             "name": "x",
@@ -4370,7 +4371,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 137,
+            "line": 138,
             "description": "纵轴位置",
             "itemtype": "attribute",
             "name": "y",
@@ -4380,7 +4381,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 142,
+            "line": 143,
             "description": "横纵轴位置",
             "itemtype": "attribute",
             "name": "xy",
@@ -4390,7 +4391,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 147,
+            "line": 148,
             "description": "z-index 值",
             "itemtype": "attribute",
             "name": "zIndex",
@@ -4400,7 +4401,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 154,
+            "line": 155,
             "description": "从当前组件类上扩展出一个子类组件",
             "itemtype": "method",
             "name": "extend",
@@ -4444,7 +4445,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 165,
+            "line": 166,
             "description": "创建当前组件的DOM结构，control将会代理给render",
             "itemtype": "method",
             "name": "create",
@@ -4456,7 +4457,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 171,
+            "line": 172,
             "description": "把当前组件的DOM结构放入 DOM 文档中，并绑定事件，同步属性",
             "itemtype": "method",
             "name": "render",
@@ -4468,7 +4469,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 177,
+            "line": 178,
             "description": "同步属性值.组件基类增加 sync 函数，调用后可调用父类、扩展类、插件对应的 syncUI 方法",
             "itemtype": "method",
             "name": "sync",
@@ -4477,7 +4478,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 182,
+            "line": 183,
             "description": "隐藏组件",
             "itemtype": "method",
             "name": "hide",
@@ -4489,7 +4490,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 188,
+            "line": 189,
             "description": "显示组件",
             "itemtype": "method",
             "name": "show",
@@ -4501,7 +4502,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 194,
+            "line": 195,
             "description": "移动到(x,y)",
             "itemtype": "method",
             "name": "move",
@@ -4525,7 +4526,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 202,
+            "line": 203,
             "description": "使组件失去焦点",
             "itemtype": "method",
             "name": "blur",
@@ -4534,7 +4535,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 207,
+            "line": 208,
             "description": "使组件获得焦点",
             "itemtype": "method",
             "name": "focus",
@@ -4543,7 +4544,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 212,
+            "line": 213,
             "description": "当组件内部事件绑定完之后触发",
             "itemtype": "event",
             "name": "afterBindUI",
@@ -4559,7 +4560,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 218,
+            "line": 219,
             "description": "当组件根节点创建的时候触发",
             "itemtype": "event",
             "name": "afterCreateDom",
@@ -4575,7 +4576,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 224,
+            "line": 225,
             "description": "当组件根节点渲染到 DOM 文档后触发",
             "itemtype": "event",
             "name": "afterRenderUI",
@@ -4591,7 +4592,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 230,
+            "line": 231,
             "description": "当组件内部的状态同步完之后触发",
             "itemtype": "event",
             "name": "afterSyncUI",
@@ -4607,7 +4608,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 236,
+            "line": 237,
             "description": "在组件内部事件绑定前触发",
             "itemtype": "event",
             "name": "beforeBindUI",
@@ -4623,7 +4624,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 242,
+            "line": 243,
             "description": "在组件根节点创建前触发",
             "itemtype": "event",
             "name": "beforeCreateDom",
@@ -4639,7 +4640,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 248,
+            "line": 249,
             "description": "在组件根节点渲染之前触发",
             "itemtype": "event",
             "name": "beforeRenderUI",
@@ -4655,7 +4656,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 254,
+            "line": 255,
             "description": "在同步组件内部状态前触发",
             "itemtype": "event",
             "name": "beforeSyncUI",
@@ -4671,7 +4672,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 260,
+            "line": 261,
             "description": "在组件 show 的时候触发",
             "itemtype": "event",
             "name": "show",
@@ -4687,7 +4688,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 266,
+            "line": 267,
             "description": "在组件 hide 的时候触发",
             "itemtype": "event",
             "name": "hide",
@@ -4703,7 +4704,7 @@
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 272,
+            "line": 273,
             "description": "在组件 visible 属性发生变化时触发",
             "itemtype": "event",
             "name": "beforeVisibleChange",
@@ -6115,28 +6116,31 @@
             "line": 23,
             "description": "默认 false. 指明是否代理节点需要每次拖放前 dragstart 生成, 拖放后 dragend 销毁. 用于多 Draggable 对象共享一个 Proxy 对象实例, 且要求代理节点和单个 Draggable 对象关联, 或者一个 DraggableDelegate 对象共享一个 Proxy 对象实例",
             "itemtype": "attribute",
-            "name": "destroyOnEnd=false",
+            "name": "destroyOnEnd",
             "type": "Boolean",
+            "default": "false",
             "class": "Proxy",
             "module": "dd/plugin/proxy"
         },
         {
             "file": "src\\api\\dd\\plugin\\proxy.js",
-            "line": 28,
+            "line": 29,
             "description": "默认 true. 当拖放结束时，是否移动源节点到代理节点的位置.",
             "itemtype": "attribute",
-            "name": "moveOnEnd=true",
+            "name": "moveOnEnd",
             "type": "Boolean",
+            "default": "true",
             "class": "Proxy",
             "module": "dd/plugin/proxy"
         },
         {
             "file": "src\\api\\dd\\plugin\\proxy.js",
-            "line": 33,
+            "line": 35,
             "description": "默认 false. 拖放时是否隐藏源节点",
             "itemtype": "attribute",
-            "name": "hideNodeOnDrag=false",
+            "name": "hideNodeOnDrag",
             "type": "Boolean",
+            "default": "false",
             "class": "Proxy",
             "module": "dd/plugin/proxy"
         },
@@ -6156,7 +6160,7 @@
             "description": "长度为 2, 默认值 [10,10] . 表示容器自动滚动的速度, 数组元素 1 表示横向滚动的速度, 数组元素 2 表示纵向滚动的速度.",
             "itemtype": "attribute",
             "name": "rate",
-            "type": "Array<number>",
+            "type": "Number[]",
             "class": "Scroll",
             "module": "dd/plugin/scroll"
         },
@@ -6166,7 +6170,7 @@
             "description": "长度为 2, 默认值 [20,20] . 当鼠标进入容器内边缘区域时开始自动滚动. 数组元素 1 表示横向容器内边缘宽度, 数组元素 2 表示纵向容器内边缘宽度.",
             "itemtype": "attribute",
             "name": "diff",
-            "type": "Array<Number>",
+            "type": "Number[]",
             "class": "Scroll",
             "module": "dd/plugin/scroll"
         },
@@ -6185,18 +6189,20 @@
             "line": 25,
             "description": "默认 false. 指明在 resize 之后是否销毁代理节点",
             "itemtype": "attribute",
-            "name": "destroyOnEnd=false",
+            "name": "destroyOnEnd",
             "type": "Boolean",
+            "default": "false",
             "class": "ResizableProxyPlugin",
             "module": "resizable/plugin/proxy"
         },
         {
             "file": "src\\api\\resizable\\plugin\\proxy.js",
-            "line": 30,
+            "line": 31,
             "description": "默认 false. 是否在用代理节点 resize 时隐藏原节点",
             "itemtype": "attribute",
-            "name": "hideNodeOnResize=false",
+            "name": "hideNodeOnResize",
             "type": "Boolean",
+            "default": "false",
             "class": "ResizableProxyPlugin",
             "module": "resizable/plugin/proxy"
         },
@@ -6205,34 +6211,37 @@
             "line": 33,
             "description": "下拉时提示内容",
             "itemtype": "attribute",
-            "name": "pullingHtml=\"Pull down to refresh...\"",
+            "name": "pullingHtml",
             "type": "String",
+            "default": "\"Pull down to refresh...\"",
             "class": "PullToRefresh",
             "module": "scroll-view/plugin/pull-to-refresh"
         },
         {
             "file": "src\\api\\scroll-view\\plugin\\pull-to-refresh.js",
-            "line": 38,
+            "line": 39,
             "description": "释放操作的提示内容",
             "itemtype": "attribute",
-            "name": "releasingHtml=\"release to refresh...\"",
+            "name": "releasingHtml",
             "type": "String",
+            "default": "\"release to refresh...\"",
             "class": "PullToRefresh",
             "module": "scroll-view/plugin/pull-to-refresh"
         },
         {
             "file": "src\\api\\scroll-view\\plugin\\pull-to-refresh.js",
-            "line": 44,
+            "line": 46,
             "description": "加载内容时的提示内容",
             "itemtype": "attribute",
-            "name": "loadingHtml=\"loading...\"",
+            "name": "loadingHtml",
             "type": "String",
+            "default": "\"loading...\"",
             "class": "PullToRefresh",
             "module": "scroll-view/plugin/pull-to-refresh"
         },
         {
             "file": "src\\api\\scroll-view\\plugin\\pull-to-refresh.js",
-            "line": 49,
+            "line": 52,
             "description": "加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。\n组件内部会给loadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可",
             "itemtype": "attribute",
             "name": "loadFn",
