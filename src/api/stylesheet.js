@@ -7,7 +7,11 @@
 @class StyleSheet
 @constructor
 @param config {Object}
-@param config.el {HTMLElement|String} link 节点或选择器
+*/
+
+/**
+link 节点或选择器
+@attribute el {HTMLElement|String} 
 */
 
 /**

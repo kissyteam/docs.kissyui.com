@@ -239,6 +239,8 @@
             
                 <li><a href="../modules/dom.html">dom</a></li>
             
+                <li><a href="../modules/editor.html">editor</a></li>
+            
                 <li><a href="../modules/event.html">event</a></li>
             
                 <li><a href="../modules/feature.html">feature</a></li>
@@ -477,91 +479,10 @@
                     
 
                     <div class="param-description">
-                        <p>动画配置项</p>
+                        <p>动画配置项，详情参考其Attribute</p>
 
                     </div>
 
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[duration=1]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>单位秒。默认 1 秒.动画持续时间</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[easing=&quot;easeNone&quot;]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 ‘easeNone’. 动画平滑函数</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[queue=undefined]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | False | Undefined</span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>所属队列名称. 默认undefined. 属于系统内置队列, 设置 false 则表示该动画不排队立即执行</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[complete]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>动画到最后一帧后的回调函数</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[useTransition=false]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>是否使用css3 transition提升性能。
-在 useTransition 为 true 的时候，easing 的值必须是 w3c 规定的时间函数名称。
-具体为： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(p1x, p1y, p2x, p2y)</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -585,6 +506,8 @@
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
         
         
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
         
         
             <li class="api-class-tab events"><a href="#events">Events</a></li>
@@ -695,6 +618,34 @@
             
 
             
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs">
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_complete">complete</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_duration">duration</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_easing">easing</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_queue">queue</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_useTransition">useTransition</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
 
             
                 <div class="index-section events">
@@ -767,7 +718,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l62"><code>src\api\anim.js:62</code></a>
+        <a href="../files/src_api_anim.js.html#l89"><code>src\api\anim.js:89</code></a>
         
         </p>
 
@@ -862,7 +813,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l27"><code>src\api\anim.js:27</code></a>
+        <a href="../files/src_api_anim.js.html#l54"><code>src\api\anim.js:54</code></a>
         
         </p>
 
@@ -933,7 +884,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l22"><code>src\api\anim.js:22</code></a>
+        <a href="../files/src_api_anim.js.html#l49"><code>src\api\anim.js:49</code></a>
         
         </p>
 
@@ -1016,7 +967,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l54"><code>src\api\anim.js:54</code></a>
+        <a href="../files/src_api_anim.js.html#l81"><code>src\api\anim.js:81</code></a>
         
         </p>
 
@@ -1125,7 +1076,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l84"><code>src\api\anim.js:84</code></a>
+        <a href="../files/src_api_anim.js.html#l111"><code>src\api\anim.js:111</code></a>
         
         </p>
 
@@ -1226,7 +1177,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l44"><code>src\api\anim.js:44</code></a>
+        <a href="../files/src_api_anim.js.html#l71"><code>src\api\anim.js:71</code></a>
         
         </p>
 
@@ -1299,7 +1250,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l96"><code>src\api\anim.js:96</code></a>
+        <a href="../files/src_api_anim.js.html#l123"><code>src\api\anim.js:123</code></a>
         
         </p>
 
@@ -1400,7 +1351,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l49"><code>src\api\anim.js:49</code></a>
+        <a href="../files/src_api_anim.js.html#l76"><code>src\api\anim.js:76</code></a>
         
         </p>
 
@@ -1455,7 +1406,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l33"><code>src\api\anim.js:33</code></a>
+        <a href="../files/src_api_anim.js.html#l60"><code>src\api\anim.js:60</code></a>
         
         </p>
 
@@ -1520,7 +1471,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l38"><code>src\api\anim.js:38</code></a>
+        <a href="../files/src_api_anim.js.html#l65"><code>src\api\anim.js:65</code></a>
         
         </p>
 
@@ -1630,7 +1581,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l70"><code>src\api\anim.js:70</code></a>
+        <a href="../files/src_api_anim.js.html#l97"><code>src\api\anim.js:97</code></a>
         
         </p>
 
@@ -1737,6 +1688,282 @@
         
 
         
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr_complete" class="attr item">
+    <a name="config_complete"></a> 
+    <h3 class="name"><code>complete</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_anim.js.html#l34"><code>src\api\anim.js:34</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>动画到最后一帧后的回调函数</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_duration" class="attr item">
+    <a name="config_duration"></a> 
+    <h3 class="name"><code>duration</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_anim.js.html#l16"><code>src\api\anim.js:16</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>单位秒。默认 1 秒.动画持续时间</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> 1</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_easing" class="attr item">
+    <a name="config_easing"></a> 
+    <h3 class="name"><code>easing</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_anim.js.html#l22"><code>src\api\anim.js:22</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 ‘easeNone’. 动画平滑函数</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &quot;easeNone&quot;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_queue" class="attr item">
+    <a name="config_queue"></a> 
+    <h3 class="name"><code>queue</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | False | Undefined</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_anim.js.html#l28"><code>src\api\anim.js:28</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>所属队列名称. 默认undefined. 属于系统内置队列, 设置 false 则表示该动画不排队立即执行</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> undefined</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_useTransition" class="attr item">
+    <a name="config_useTransition"></a> 
+    <h3 class="name"><code>useTransition</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_anim.js.html#l39"><code>src\api\anim.js:39</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否使用css3 transition提升性能。
+在 useTransition 为 true 的时候，easing 的值必须是 w3c 规定的时间函数名称。
+具体为： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(p1x, p1y, p2x, p2y)</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
 
         
             <div id="events" class="api-class-tabpanel">
@@ -1766,7 +1993,7 @@
             
         
         
-        <a href="../files/src_api_anim.js.html#l108"><code>src\api\anim.js:108</code></a>
+        <a href="../files/src_api_anim.js.html#l135"><code>src\api\anim.js:135</code></a>
         
         </p>
 

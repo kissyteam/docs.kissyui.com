@@ -239,6 +239,8 @@
             
                 <li><a href="../modules/dom.html">dom</a></li>
             
+                <li><a href="../modules/editor.html">editor</a></li>
+            
                 <li><a href="../modules/event.html">event</a></li>
             
                 <li><a href="../modules/feature.html">feature</a></li>
@@ -342,7 +344,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_api_overlay.js.html#l85"><code>src\api\overlay.js:85</code></a>
+            Defined in: <a href="../files/src_api_overlay.js.html#l109"><code>src\api\overlay.js:109</code></a>
         </div>
     
 
@@ -407,7 +409,7 @@
             
         
         
-        <a href="../files/src_api_overlay.js.html#l85"><code>src\api\overlay.js:85</code></a>
+        <a href="../files/src_api_overlay.js.html#l109"><code>src\api\overlay.js:109</code></a>
         
         </p>
 
@@ -436,111 +438,10 @@
                     
 
                     <div class="param-description">
-                         
+                        <p>配置对象，详见其Attribute</p>
+
                     </div>
 
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">headerContent</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>组件的标题 html</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">escapeToClose=true</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 true. escape 键是否触发 close 动作</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">bodyContent</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>组件的体 html</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">footerContent</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>组件的底部 html</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">headerStyle</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>组件的标题内联样式</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">bodyStyle</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>组件体的内联样式.</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">footerStyle</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>组件的底部内联样式</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -883,12 +784,24 @@
                                 <a href="#attr_bodyContent">bodyContent</a>
                             </li>
                         
+                            <li class="index-item attr">
+                                <a href="#attr_bodyContent">bodyContent</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_bodyStyle">bodyStyle</a>
+                            </li>
+                        
                             <li class="index-item attr inherited">
                                 <a href="#attr_children">children</a>
                             </li>
                         
-                            <li class="index-item attr inherited">
+                            <li class="index-item attr inherited inherited">
                                 <a href="#attr_closable">closable</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited">
+                                <a href="#attr_closeAction">closeAction</a>
                             </li>
                         
                             <li class="index-item attr inherited">
@@ -901,6 +814,14 @@
                         
                             <li class="index-item attr inherited">
                                 <a href="#attr_disabled">disabled</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited">
+                                <a href="#attr_duration">duration</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited">
+                                <a href="#attr_effect">effect</a>
                             </li>
                         
                             <li class="index-item attr inherited">
@@ -923,6 +844,10 @@
                                 <a href="#attr_elStyle">elStyle</a>
                             </li>
                         
+                            <li class="index-item attr">
+                                <a href="#attr_escapeToClose">escapeToClose</a>
+                            </li>
+                        
                             <li class="index-item attr inherited">
                                 <a href="#attr_focused">focused</a>
                             </li>
@@ -936,11 +861,27 @@
                             </li>
                         
                             <li class="index-item attr">
+                                <a href="#attr_footerContent">footerContent</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_footerStyle">footerStyle</a>
+                            </li>
+                        
+                            <li class="index-item attr">
                                 <a href="#attr_header">header</a>
                             </li>
                         
                             <li class="index-item attr">
                                 <a href="#attr_headerContent">headerContent</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_headerContent">headerContent</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_headerStyle">headerStyle</a>
                             </li>
                         
                             <li class="index-item attr inherited inherited">
@@ -956,11 +897,23 @@
                             </li>
                         
                             <li class="index-item attr inherited">
+                                <a href="#attr_listeners">listeners</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited">
+                                <a href="#attr_mask">mask</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited">
                                 <a href="#attr_maskNode">maskNode</a>
                             </li>
                         
                             <li class="index-item attr inherited">
                                 <a href="#attr_parent">parent</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited">
+                                <a href="#attr_plugins">plugins</a>
                             </li>
                         
                             <li class="index-item attr inherited">
@@ -1174,7 +1127,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l201"><code>src\api\base.js:201</code></a>
+        <a href="../files/src_api_base.js.html#l211"><code>src\api\base.js:211</code></a>
         
         </p>
 
@@ -1356,7 +1309,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l213"><code>src\api\base.js:213</code></a>
+        <a href="../files/src_api_base.js.html#l223"><code>src\api\base.js:223</code></a>
         
         </p>
 
@@ -1877,7 +1830,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l104"><code>src\api\base.js:104</code></a>
+        <a href="../files/src_api_base.js.html#l114"><code>src\api\base.js:114</code></a>
         
         </p>
 
@@ -2080,7 +2033,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l184"><code>src\api\base.js:184</code></a>
+        <a href="../files/src_api_base.js.html#l194"><code>src\api\base.js:194</code></a>
         
         </p>
 
@@ -2593,7 +2546,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l245"><code>src\api\base.js:245</code></a>
+        <a href="../files/src_api_base.js.html#l255"><code>src\api\base.js:255</code></a>
         
         </p>
 
@@ -2673,7 +2626,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l251"><code>src\api\base.js:251</code></a>
+        <a href="../files/src_api_base.js.html#l261"><code>src\api\base.js:261</code></a>
         
         </p>
 
@@ -2857,7 +2810,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l171"><code>src\api\base.js:171</code></a>
+        <a href="../files/src_api_base.js.html#l181"><code>src\api\base.js:181</code></a>
         
         </p>
 
@@ -2970,7 +2923,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l220"><code>src\api\base.js:220</code></a>
+        <a href="../files/src_api_base.js.html#l230"><code>src\api\base.js:230</code></a>
         
         </p>
 
@@ -3126,7 +3079,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_overlay.js.html#l70"><code>src\api\overlay.js:70</code></a>
+        <a href="../files/src_api_overlay.js.html#l94"><code>src\api\overlay.js:94</code></a>
         
         </p>
 
@@ -3459,7 +3412,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l135"><code>src\api\base.js:135</code></a>
+        <a href="../files/src_api_base.js.html#l145"><code>src\api\base.js:145</code></a>
         
         </p>
 
@@ -3713,7 +3666,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l227"><code>src\api\base.js:227</code></a>
+        <a href="../files/src_api_base.js.html#l237"><code>src\api\base.js:237</code></a>
         
         </p>
 
@@ -4159,7 +4112,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l257"><code>src\api\base.js:257</code></a>
+        <a href="../files/src_api_base.js.html#l267"><code>src\api\base.js:267</code></a>
         
         </p>
 
@@ -4295,7 +4248,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l233"><code>src\api\base.js:233</code></a>
+        <a href="../files/src_api_base.js.html#l243"><code>src\api\base.js:243</code></a>
         
         </p>
 
@@ -4583,7 +4536,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_overlay.js.html#l75"><code>src\api\overlay.js:75</code></a>
+        <a href="../files/src_api_overlay.js.html#l99"><code>src\api\overlay.js:99</code></a>
         
         </p>
 
@@ -4649,7 +4602,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l152"><code>src\api\base.js:152</code></a>
+        <a href="../files/src_api_base.js.html#l162"><code>src\api\base.js:162</code></a>
         
         </p>
 
@@ -4878,7 +4831,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_overlay.js.html#l125"><code>src\api\overlay.js:125</code></a>
+        <a href="../files/src_api_overlay.js.html#l177"><code>src\api\overlay.js:177</code></a>
         
         </p>
 
@@ -4930,7 +4883,59 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_overlay.js.html#l142"><code>src\api\overlay.js:142</code></a>
+        <a href="../files/src_api_overlay.js.html#l146"><code>src\api\overlay.js:146</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>组件的体 html</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_bodyContent" class="attr item">
+    <a name="config_bodyContent"></a> 
+    <h3 class="name"><code>bodyContent</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_overlay.js.html#l194"><code>src\api\overlay.js:194</code></a>
         
         </p>
 
@@ -4941,6 +4946,58 @@ dog.run();</code></pre>
 
     <div class="description">
         <p>可读写. 组件的体html.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_bodyStyle" class="attr item">
+    <a name="config_bodyStyle"></a> 
+    <h3 class="name"><code>bodyStyle</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_overlay.js.html#l161"><code>src\api\overlay.js:161</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>组件体的内联样式.</p>
 
     </div>
 
@@ -5022,13 +5079,16 @@ dog.run();</code></pre>
 
     <div class="meta">
         
+            <p>Inherited from
+            <a href="..\classes\Overlay.html#attr_closable">
+                Overlay
+            </a>
             
-                <p>Inherited from
-                <a href="..\classes\Overlay.html#attr_closable">Overlay</a>:
+            but overwritten in
             
         
         
-        <a href="../files/src_api_overlay.js.html#l58"><code>src\api\overlay.js:58</code></a>
+        <a href="../files/src_api_overlay.js.html#l56"><code>src\api\overlay.js:56</code></a>
         
         </p>
 
@@ -5038,7 +5098,56 @@ dog.run();</code></pre>
     </div>
 
     <div class="description">
-        <p>设置后显示或隐藏关闭按钮</p>
+        <p>对话框右上角是否包括关闭按钮</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_closeAction" class="attr item inherited">
+    <a name="config_closeAction"></a> 
+    <h3 class="name"><code>closeAction</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\Overlay.html#attr_closeAction">Overlay</a>:
+            
+        
+        
+        <a href="../files/src_api_overlay.js.html#l61"><code>src\api\overlay.js:61</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>点击关闭按钮的动作。默认 “hide” 隐藏，也可设置 “destroy” 销毁该组件</p>
 
     </div>
 
@@ -5186,6 +5295,118 @@ dog.run();</code></pre>
 
     <div class="description">
         <p>该组件是否禁用状态</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_duration" class="attr item inherited">
+    <a name="config_duration"></a> 
+    <h3 class="name"><code>duration</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag optional">optional</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\Overlay.html#attr_duration">Overlay</a>:
+            
+        
+        
+        <a href="../files/src_api_overlay.js.html#l76"><code>src\api\overlay.js:76</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>可选, 动画持续时间, 以秒为单位.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_effect" class="attr item inherited">
+    <a name="config_effect"></a> 
+    <h3 class="name"><code>effect</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\Overlay.html#attr_effect">Overlay</a>:
+            
+        
+        
+        <a href="../files/src_api_overlay.js.html#l39"><code>src\api\overlay.js:39</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><p>可选, 显示或隐藏时的特效支持, 对象包含以下配置:</p></p>
+<ul>
+<li>effect.target {String|KISSY.Node} 可选,动画的参考元素</li>
+<li>effect.effect {String} 可取值 ‘fade’(渐隐显示), ‘slide’(滑动显示)</li>
+<li>effect.easing {String}  同 <a href="/5.0/api/classes/Anim.html">Anim</a> 的 easing 参数配置</li>
+<li>effect.duration {Number} 可选, 动画持续时间, 以秒为单位.例如：<pre class="code prettyprint"><code>{
+  target:&#39;&#39;,        // {String|KISSY.Node} - 可选，动画的参考元素
+  effect:&#39;none&#39;,    // {String} - 可选, 默认为&#39;none&#39;, &#39;none&#39;(无特效), &#39;fade&#39;(渐隐显示), &#39;slide&#39;(滑动显示).
+  easing:&#39;&#39;,        // {String} - 可选, 同 KISSY.Anim 的 easing 参数配置.
+  duration:3        // {Number} - 可选, 动画持续时间, 以秒为单位.
+}</code></pre>
+</li>
+</ul>
 
     </div>
 
@@ -5442,6 +5663,60 @@ dog.run();</code></pre>
 </div>
 
                 
+                    <div id="attr_escapeToClose" class="attr item">
+    <a name="config_escapeToClose"></a> 
+    <h3 class="name"><code>escapeToClose</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_overlay.js.html#l140"><code>src\api\overlay.js:140</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 true. escape 键是否触发 close 动作</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_focused" class="attr item inherited">
     <a name="config_focused"></a> 
     <h3 class="name"><code>focused</code></h3>
@@ -5523,7 +5798,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_overlay.js.html#l131"><code>src\api\overlay.js:131</code></a>
+        <a href="../files/src_api_overlay.js.html#l183"><code>src\api\overlay.js:183</code></a>
         
         </p>
 
@@ -5575,7 +5850,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_overlay.js.html#l147"><code>src\api\overlay.js:147</code></a>
+        <a href="../files/src_api_overlay.js.html#l199"><code>src\api\overlay.js:199</code></a>
         
         </p>
 
@@ -5586,6 +5861,110 @@ dog.run();</code></pre>
 
     <div class="description">
         <p>可读写. 组件的底部 html.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_footerContent" class="attr item">
+    <a name="config_footerContent"></a> 
+    <h3 class="name"><code>footerContent</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_overlay.js.html#l151"><code>src\api\overlay.js:151</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>组件的底部 html</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_footerStyle" class="attr item">
+    <a name="config_footerStyle"></a> 
+    <h3 class="name"><code>footerStyle</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_overlay.js.html#l166"><code>src\api\overlay.js:166</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>组件的底部内联样式</p>
 
     </div>
 
@@ -5629,7 +6008,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_overlay.js.html#l119"><code>src\api\overlay.js:119</code></a>
+        <a href="../files/src_api_overlay.js.html#l171"><code>src\api\overlay.js:171</code></a>
         
         </p>
 
@@ -5681,7 +6060,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_overlay.js.html#l137"><code>src\api\overlay.js:137</code></a>
+        <a href="../files/src_api_overlay.js.html#l189"><code>src\api\overlay.js:189</code></a>
         
         </p>
 
@@ -5692,6 +6071,110 @@ dog.run();</code></pre>
 
     <div class="description">
         <p>可读写. 组件的标题 html.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_headerContent" class="attr item">
+    <a name="config_headerContent"></a> 
+    <h3 class="name"><code>headerContent</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_overlay.js.html#l135"><code>src\api\overlay.js:135</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>组件的标题 html</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_headerStyle" class="attr item">
+    <a name="config_headerStyle"></a> 
+    <h3 class="name"><code>headerStyle</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_overlay.js.html#l156"><code>src\api\overlay.js:156</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>组件的标题内联样式</p>
 
     </div>
 
@@ -5853,6 +6336,134 @@ dog.run();</code></pre>
 </div>
 
                 
+                    <div id="attr_listeners" class="attr item inherited">
+    <a name="config_listeners"></a> 
+    <h3 class="name"><code>listeners</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\Base.html#attr_listeners">Base</a>:
+            
+        
+        
+        <a href="../files/src_api_base.js.html#l58"><code>src\api\base.js:58</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><p>配置组件的事件绑定,例如:</p></p>
+<pre class="code prettyprint"><code>{
+    listeners:{
+        customEvent:function(e){
+            alert(e.type); // =&gt; &quot;customEvent&quot;
+        }
+    }
+}
+
+or
+
+{
+    listeners:{
+        customEvent:{
+            fn:function(e){
+                // e.type // =&gt; customEvent
+                // this.xx =&gt; 1
+            },
+            context:{xx:1}
+        }
+    }
+}</code></pre>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_mask" class="attr item inherited">
+    <a name="config_mask"></a> 
+    <h3 class="name"><code>mask</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\Overlay.html#attr_mask">Overlay</a>:
+            
+        
+        
+        <a href="../files/src_api_overlay.js.html#l66"><code>src\api\overlay.js:66</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><p>mask的相关配置：</p></p>
+<ul>
+<li>当为Boolean时，表示组件显示时是否使用遮罩层盖住页面其他元素</li>
+<li>当为Object时，有如下配置：<ul>
+<li>mask.closeOnClick {Boolean} 可选. 点击遮罩层是否关闭 overlay. (具体隐藏或销毁依赖 closeAction)</li>
+<li>mask.effect {String} 可选. 遮罩层显示隐藏效果. (取值 ‘fade’,’slide’)</li>
+<li>mask.duration {Number} 可选. 效果持续时间. 单位秒</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_maskNode" class="attr item inherited">
     <a name="config_maskNode"></a> 
     <h3 class="name"><code>maskNode</code></h3>
@@ -5880,7 +6491,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_overlay.js.html#l64"><code>src\api\overlay.js:64</code></a>
+        <a href="../files/src_api_overlay.js.html#l88"><code>src\api\overlay.js:88</code></a>
         
         </p>
 
@@ -5940,6 +6551,64 @@ dog.run();</code></pre>
 
     <div class="description">
         <p>可选，该组件的父组件</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_plugins" class="attr item inherited">
+    <a name="config_plugins"></a> 
+    <h3 class="name"><code>plugins</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function[]</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object[]</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\Base.html#attr_plugins">Base</a>:
+            
+        
+        
+        <a href="../files/src_api_base.js.html#l86"><code>src\api\base.js:86</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><p>插件构造器数组或插件对象数组. 例如</p></p>
+<pre class="code prettyprint"><code>{
+    plugins: [ Plugin1,Plugin2 ]
+}
+
+// or
+
+{
+    plugins: [new Plugin1(cfg),new Plugin2(cfg)]
+}</code></pre>
 
     </div>
 
@@ -6569,7 +7238,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l292"><code>src\api\base.js:292</code></a>
+        <a href="../files/src_api_base.js.html#l302"><code>src\api\base.js:302</code></a>
         
         </p>
 
@@ -6694,7 +7363,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l282"><code>src\api\base.js:282</code></a>
+        <a href="../files/src_api_base.js.html#l292"><code>src\api\base.js:292</code></a>
         
         </p>
 
@@ -7079,7 +7748,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l272"><code>src\api\base.js:272</code></a>
+        <a href="../files/src_api_base.js.html#l282"><code>src\api\base.js:282</code></a>
         
         </p>
 

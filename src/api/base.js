@@ -51,8 +51,12 @@ KISSY.use('base', function(S, Base) {
 @constructor
 @extends Base.Attribute
 @uses Event.Target
-@param config {Object} 属性名/配置信息对
-@param config.listeners {Object} 配置组件的事件绑定,例如:
+@param config {Object} 配置项，详情参考其Attribute
+*/
+
+
+/**
+配置组件的事件绑定,例如:
 ```
 {
     listeners:{
@@ -76,7 +80,11 @@ or
     }
 }
 ```
-@param config.plugins {Function[]|Object[]} 插件构造器数组或插件对象数组. 例如
+@attribute listeners {Object}
+*/
+
+/**
+插件构造器数组或插件对象数组. 例如
 ```
 {
     plugins: [ Plugin1,Plugin2 ]
@@ -88,7 +96,9 @@ or
     plugins: [new Plugin1(cfg),new Plugin2(cfg)]
 }
 ```
-*/ 
+@attribute plugins {Function[]|Object[]} 
+*/
+
 
 /**
 从当前类上扩展出一个子类

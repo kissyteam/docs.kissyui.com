@@ -7,10 +7,23 @@
 @class FilterMenu
 @constructor
 @extends Menu
-@param config {Object}
-@param config.allowMultiple=false {Boolean} 是否允许输入多个， 默认为false
-@param config.placeholder {String} placeholder 内容
-@param config.filterStr {String} 过滤的字符串
+@param config {Object} 配置对象，详见其Attribute
+*/
+
+/**
+是否允许输入多个， 默认为false
+@attribute allowMultiple {Boolean} 
+@default false
+*/
+
+/**
+placeholder 内容
+@attribute placeholder {String} 
+*/
+
+/**
+过滤的字符串
+@attribute filterStr {String} 
 */
 
 /**

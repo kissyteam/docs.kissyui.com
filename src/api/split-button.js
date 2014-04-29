@@ -7,18 +7,22 @@
 @class SplitButton
 @constructor
 @extends Container
-@param config {Object}
-@param config.alignWithEl=true {Boolean} 是否将菜单按钮和按钮对齐，默认 true
-@param config.menuButton {KISSY.MenuButton} 菜单按钮组件
-@param config.button {KISSY.Button} 按钮组件
+@param config {Object} 配置对象，详见其Attribute
+*/
+
+
+/**
+是否将菜单按钮和按钮对齐，默认 true
+@attribute alignWithEl {Boolean} 
+@default true
 */
 
 /**
 菜单按钮组件
-@attribute menuButton {KISSY.MenuButton}
+@attribute menuButton {KISSY.MenuButton} 
 */
 
 /**
 按钮组件
-@attribute button {KISSY.Button}
+@attribute button {KISSY.Button} 
 */

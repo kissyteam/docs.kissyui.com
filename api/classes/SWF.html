@@ -239,6 +239,8 @@
             
                 <li><a href="../modules/dom.html">dom</a></li>
             
+                <li><a href="../modules/editor.html">editor</a></li>
+            
                 <li><a href="../modules/event.html">event</a></li>
             
                 <li><a href="../modules/feature.html">feature</a></li>
@@ -436,128 +438,10 @@
                     
 
                     <div class="param-description">
-                         
+                        <p>配置对象，详见其Attribute</p>
+
                     </div>
 
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">attrs</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>将要加到 flash 节点的属性键值对</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[document]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLDocument" class="crosslink external" target="_blank">HTMLDocument</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选。插入 swf 所属的文档，默认当前文档</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[elBefore]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLDocument" class="crosslink external" target="_blank">HTMLDocument</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选。 在此元素前插入 swf</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[expressInstall]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选。版本低时显示的快速安装 swf ，默认为 kissy 自带地址.</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">params</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>将要加到 flash 节点的 param 键值对. 注意其中属性 flashVars 的大小写</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">render</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLDocument" class="crosslink external" target="_blank">HTMLDocument</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选。在此元素内添加 swf。 若 render 与 swf 都不设置则插入到 body 节点中</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">src</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>必选。 swf 元素的地址。</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">version</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选。最低 flash 版本要求，达不到要求显示 expressInstall。例如 9.1.234，默认 9.0</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -749,7 +633,23 @@
                     <ul class="index-list attrs extends">
                         
                             <li class="index-item attr">
+                                <a href="#attr_attrs">attrs</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_document">document</a>
+                            </li>
+                        
+                            <li class="index-item attr">
                                 <a href="#attr_el">el</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_elBefore">elBefore</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_expressInstall">expressInstall</a>
                             </li>
                         
                             <li class="index-item attr">
@@ -757,7 +657,23 @@
                             </li>
                         
                             <li class="index-item attr">
+                                <a href="#attr_params">params</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_render">render</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_src">src</a>
+                            </li>
+                        
+                            <li class="index-item attr">
                                 <a href="#attr_status">status</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_version">version</a>
                             </li>
                         
                     </ul>
@@ -846,7 +762,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l201"><code>src\api\base.js:201</code></a>
+        <a href="../files/src_api_base.js.html#l211"><code>src\api\base.js:211</code></a>
         
         </p>
 
@@ -1028,7 +944,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l213"><code>src\api\base.js:213</code></a>
+        <a href="../files/src_api_base.js.html#l223"><code>src\api\base.js:223</code></a>
         
         </p>
 
@@ -1143,7 +1059,7 @@
             
         
         
-        <a href="../files/src_api_swf.js.html#l67"><code>src\api\swf.js:67</code></a>
+        <a href="../files/src_api_swf.js.html#l116"><code>src\api\swf.js:116</code></a>
         
         </p>
 
@@ -1252,7 +1168,7 @@
             
         
         
-        <a href="../files/src_api_swf.js.html#l75"><code>src\api\swf.js:75</code></a>
+        <a href="../files/src_api_swf.js.html#l124"><code>src\api\swf.js:124</code></a>
         
         </p>
 
@@ -1323,7 +1239,7 @@
             
         
         
-        <a href="../files/src_api_swf.js.html#l80"><code>src\api\swf.js:80</code></a>
+        <a href="../files/src_api_swf.js.html#l129"><code>src\api\swf.js:129</code></a>
         
         </p>
 
@@ -1436,7 +1352,7 @@
             
         
         
-        <a href="../files/src_api_swf.js.html#l88"><code>src\api\swf.js:88</code></a>
+        <a href="../files/src_api_swf.js.html#l137"><code>src\api\swf.js:137</code></a>
         
         </p>
 
@@ -1550,7 +1466,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l245"><code>src\api\base.js:245</code></a>
+        <a href="../files/src_api_base.js.html#l255"><code>src\api\base.js:255</code></a>
         
         </p>
 
@@ -1630,7 +1546,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l251"><code>src\api\base.js:251</code></a>
+        <a href="../files/src_api_base.js.html#l261"><code>src\api\base.js:261</code></a>
         
         </p>
 
@@ -1713,7 +1629,7 @@
             
         
         
-        <a href="../files/src_api_swf.js.html#l96"><code>src\api\swf.js:96</code></a>
+        <a href="../files/src_api_swf.js.html#l145"><code>src\api\swf.js:145</code></a>
         
         </p>
 
@@ -1817,7 +1733,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l220"><code>src\api\base.js:220</code></a>
+        <a href="../files/src_api_base.js.html#l230"><code>src\api\base.js:230</code></a>
         
         </p>
 
@@ -1915,7 +1831,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l227"><code>src\api\base.js:227</code></a>
+        <a href="../files/src_api_base.js.html#l237"><code>src\api\base.js:237</code></a>
         
         </p>
 
@@ -2010,7 +1926,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l257"><code>src\api\base.js:257</code></a>
+        <a href="../files/src_api_base.js.html#l267"><code>src\api\base.js:267</code></a>
         
         </p>
 
@@ -2146,7 +2062,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l233"><code>src\api\base.js:233</code></a>
+        <a href="../files/src_api_base.js.html#l243"><code>src\api\base.js:243</code></a>
         
         </p>
 
@@ -2316,7 +2232,7 @@
             
         
         
-        <a href="../files/src_api_swf.js.html#l58"><code>src\api\swf.js:58</code></a>
+        <a href="../files/src_api_swf.js.html#l107"><code>src\api\swf.js:107</code></a>
         
         </p>
 
@@ -2351,6 +2267,112 @@
                 <h2 class="off-left">Attributes</h2>
 
                 
+                    <div id="attr_attrs" class="attr item">
+    <a name="config_attrs"></a> 
+    <h3 class="name"><code>attrs</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_swf.js.html#l45"><code>src\api\swf.js:45</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>将要加到 flash 节点的属性键值对</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_document" class="attr item">
+    <a name="config_document"></a> 
+    <h3 class="name"><code>document</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLDocument" class="crosslink external" target="_blank">HTMLDocument</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag optional">optional</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_swf.js.html#l50"><code>src\api\swf.js:50</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>可选。插入 swf 所属的文档，默认当前文档</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_el" class="attr item">
     <a name="config_el"></a> 
     <h3 class="name"><code>el</code></h3>
@@ -2381,7 +2403,7 @@
             
         
         
-        <a href="../files/src_api_swf.js.html#l43"><code>src\api\swf.js:43</code></a>
+        <a href="../files/src_api_swf.js.html#l92"><code>src\api\swf.js:92</code></a>
         
         </p>
 
@@ -2392,6 +2414,114 @@
 
     <div class="description">
         <p>swf 元素节点</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_elBefore" class="attr item">
+    <a name="config_elBefore"></a> 
+    <h3 class="name"><code>elBefore</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLDocument" class="crosslink external" target="_blank">HTMLDocument</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag optional">optional</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_swf.js.html#l56"><code>src\api\swf.js:56</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>可选。 在此元素前插入 swf</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_expressInstall" class="attr item">
+    <a name="config_expressInstall"></a> 
+    <h3 class="name"><code>expressInstall</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag optional">optional</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_swf.js.html#l62"><code>src\api\swf.js:62</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>可选。版本低时显示的快速安装 swf ，默认为 kissy 自带地址.</p>
 
     </div>
 
@@ -2433,7 +2563,7 @@
             
         
         
-        <a href="../files/src_api_swf.js.html#l48"><code>src\api\swf.js:48</code></a>
+        <a href="../files/src_api_swf.js.html#l97"><code>src\api\swf.js:97</code></a>
         
         </p>
 
@@ -2444,6 +2574,168 @@
 
     <div class="description">
         <p>swf 元素 html</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_params" class="attr item">
+    <a name="config_params"></a> 
+    <h3 class="name"><code>params</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag optional">optional</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_swf.js.html#l68"><code>src\api\swf.js:68</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>将要加到 flash 节点的 param 键值对. 注意其中属性 flashVars 的大小写</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_render" class="attr item">
+    <a name="config_render"></a> 
+    <h3 class="name"><code>render</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLDocument" class="crosslink external" target="_blank">HTMLDocument</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag optional">optional</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_swf.js.html#l74"><code>src\api\swf.js:74</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>可选。在此元素内添加 swf。 若 render 与 swf 都不设置则插入到 body 节点中</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_src" class="attr item">
+    <a name="config_src"></a> 
+    <h3 class="name"><code>src</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag required">required</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_swf.js.html#l80"><code>src\api\swf.js:80</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>必选。 swf 元素的地址。</p>
 
     </div>
 
@@ -2485,7 +2777,7 @@
             
         
         
-        <a href="../files/src_api_swf.js.html#l53"><code>src\api\swf.js:53</code></a>
+        <a href="../files/src_api_swf.js.html#l102"><code>src\api\swf.js:102</code></a>
         
         </p>
 
@@ -2496,6 +2788,60 @@
 
     <div class="description">
         <p>取值枚举自SWF实例的property status</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_version" class="attr item">
+    <a name="config_version"></a> 
+    <h3 class="name"><code>version</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag optional">optional</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_swf.js.html#l86"><code>src\api\swf.js:86</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>可选。最低 flash 版本要求，达不到要求显示 expressInstall。例如 9.1.234，默认 9.0</p>
 
     </div>
 
@@ -2535,7 +2881,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l292"><code>src\api\base.js:292</code></a>
+        <a href="../files/src_api_base.js.html#l302"><code>src\api\base.js:302</code></a>
         
         </p>
 
@@ -2660,7 +3006,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l282"><code>src\api\base.js:282</code></a>
+        <a href="../files/src_api_base.js.html#l292"><code>src\api\base.js:292</code></a>
         
         </p>
 
@@ -2785,7 +3131,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l272"><code>src\api\base.js:272</code></a>
+        <a href="../files/src_api_base.js.html#l282"><code>src\api\base.js:282</code></a>
         
         </p>
 

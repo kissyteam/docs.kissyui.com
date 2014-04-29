@@ -102,6 +102,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "dd_plugin_proxy",
         "dd_plugin_scroll",
         "dom",
+        "editor",
         "event",
         "feature",
         "filter-menu",
@@ -235,6 +236,10 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "dom",
             "name": "dom",
             "description": "提供类DOM"
+        },
+        {
+            "displayName": "editor",
+            "name": "editor"
         },
         {
             "displayName": "event",

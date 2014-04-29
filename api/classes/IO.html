@@ -239,6 +239,8 @@
             
                 <li><a href="../modules/dom.html">dom</a></li>
             
+                <li><a href="../modules/editor.html">editor</a></li>
+            
                 <li><a href="../modules/event.html">event</a></li>
             
                 <li><a href="../modules/feature.html">feature</a></li>
@@ -374,12 +376,6 @@
                     
                 </li>
             
-                <li class="arg">
-                    
-                        <code>beforeSend</code>
-                    
-                </li>
-            
             </ul><span class="paren">)</span>
         </div>
     
@@ -438,489 +434,7 @@
                     
 
                     <div class="param-description">
-                        <p>用来配置请求的键值对对象. 所有的配置项都是可选的,可以通过 io.setupConfig() 来设置默认配置</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">url</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>类型 String. 本次请求发送的地址</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">accepts</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>该设置和dataType一起确定定当前发送给服务器的 Accept 头，默认包括：</p>
-<pre><code>{
-    xml: &quot;application/xml, text/xml&quot;,
-    html: &quot;text/html&quot;,
-    text: &quot;text/plain&quot;,
-    json: &quot;application/json, text/javascript&quot;
-}</code></pre>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">dataType</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>期望能够从服务器返回的数据类型.如果没有指定，kissy 将尽量从返回的<code>mimeType | Content-type</code>相应头中推导出来 (‘text/xml’ 将推导出 xml , ‘text/json’ 将推导出 json)
-默认支持的类型（该类型的响应信息会作为第一个参数传到 success complete 回调中）有:</p>
-<ul>
-<li>&quot;xml&quot; : 返回响应信息代表的 xml 文档.</li>
-<li>&quot;text&quot; : 返回响应信息串</li>
-<li>&quot;html&quot; : 同 &quot;text&quot;</li>
-<li>&quot;script&quot; : 将响应信息作为脚本执行。</li>
-<li>&quot;json&quot; : 返回响应信息代表的 json 对象.</li>
-<li>&quot;jsonp&quot; : 返回 jsonp 的响应信息代表的 json 对象.</li>
-</ul>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">processData=true</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>当 data 为对象时是否用 param() 序列化. 例如当需要传送一个 xml 或 formdata 到服务器时就不需要 param data， 并且最好同时设置 contentType 为合适的值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">async=true</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>本次 xhr 请求是否异步发送，如果你需要同步发送，设置该配置为 false,注意同步请求在完成前会锁死浏览器</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">cache</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>dataType 为 script 或 jsonp 时默认 false，其他默认为 true. false 时则会自动给请求 url 加上时间戳</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">contentType=&quot;application/x-www-form-urlencoded&quot;</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>设置 false 则不设置 Content-type 头 (例如传输 formdata 时需要设置 false).注意：&quot;application/x-www-form-urlencoded&quot;时的数据总是以 utf-8 的编码传往服务器端</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">context</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>设置回调函数中的 this 值,默认为当前配置项.例如可以把一个 dom 节点作为 complete 回调函数的上下文</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">crossDomain</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认同域请求为 false,不同域间为 true。设置该值为 true，则强制 script 以及 jsonp 请求通过 script 节点发送，用于服务器重定向到其他域脚本的场景</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">data</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>如果为 Object 类型则会通过 param() 格式化为字符串
-注意:data 不能为嵌套 object 等复杂类型，例如: 不能是<code>{data : [{x : 1}]}</code>,可以为{data : [1]}</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">serializeArray=true</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>表示序列化 data 时是否给数组值对应的键名加 []</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">error</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>请求失败时的回调函数.这个函数接受 2 个参数:</p>
-<ul>
-<li>textStatus 表示错误信息，包括 “timeout” , “error” , “abort” 等</li>
-<li>io 表示这次请求代表的 io 实例</li>
-</ul>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">success</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>请求成功时的回调函数.该函数传入三个参数:</p>
-<ul>
-<li>data : 根据 dataType 格式化服务器响应信息的响应对象</li>
-<li>textStatus : 描述成功的状态，一般是 “success”</li>
-<li>io : 本次请求的 io 实例.</li>
-</ul>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">complete</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>请求完成时(无论成功失败)的回调函数.该函数传入三个参数</p>
-<ul>
-<li>data : 根据 dataType 格式化服务器响应信息的响应对象</li>
-<li>textStatus : 描述成功的状态，一般是 “success”</li>
-<li>io : 本次请求的 io 实例.</li>
-</ul>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">headers</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>设置这次请求 xhr 的请求头</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">jsonp</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>覆盖这次 jsonp 请求的 callback 函数名. 这个值可以取代请求 url 中 callback=? 的 callback.例如 {jsonp:’onJsonLoad’} 会导致 ‘onJsonLoad=?’ 发送给服务器端</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">jsonpCallback</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>覆盖这次 jsonp 请求 callback 函数对应的值 (callback={jsonpCallback}). 这个值将取代 kissy 默认生成的 UUID 值.
-当传入函数时，该函数需要返回字符串，每次请求都会调用该函数得到用于替换的字符串</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">mimeType</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>跨平台设置 xhr 的 mimeType</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">password</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>对于需要验证的 http 请求设置密码</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">username</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>对于需要验证的 http 请求设置用户名</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">scriptCharset</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>用于 dataType jsonp 和 script ，设定传输用的 script 节点的 charset 属性。只有当返回编码和当前页面编码不一致时使用</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">timeout</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>对这次请求设个超时时间，单位秒. 当超时后会触发 error 以及 complete 回调 , 状态字符串为 “timeout”.</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">type</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>可取值 “get” 或者 “post”</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">xhrFields</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>设置到原生 xhr 对象的键值对.例如为了在标准浏览器进行跨域请求时携带cookie你可以设置 withCredentials 为 true.</p>
-<pre><code>new IO({
-    url:&quot;http://y.com/ping.php&quot;,
-    xhrFields:{
-        withCredentials: true
-    }
-});</code></pre>
-<p>这样 x.com 发送请求 y.com 会携带 y.com 的 cookie 信息</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">xdr</code>
-                                    <span class="type">Obect</span>
-                                
-
-                                <div class="param-description">
-                                    <p>设置跨域的具体方式和细节，包括以下配置</p>
-
-                                </div>
-
-                                
-                                    <ul class="params-list">
-                                        
-                                        <li class="param">
-                                            
-                                                <code class="param-name">src</code>
-                                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                            
-
-                                            <div class="param-description">
-                                                完全跨域请求的 flash 发送程序地址。当完全跨域时,KISSY io 在ie 中将采用 flash 发请求，默认采用 KISSY 自带 flash 发请求，也可将 kissy 自带的 flash 部署到其他地方，在 src 中指定;在标准浏览器将采用原生机制
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="param">
-                                            
-                                                <code class="param-name">subDomain</code>
-                                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                            
-
-                                            <div class="param-description">
-                                                跨子域时的一些请求配置，包括
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="param">
-                                            
-                                                <code class="param-name">subDomain.proxy</code>
-                                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                            
-
-                                            <div class="param-description">
-                                                指定代理页面的地址。默认 “/sub_domain_proxy.html” . 例如 x.taobao.com 要发送请求给 y.taobao.com ，那么需要设置 x.taobao.com 的页面 document.domain=’taobao.com’ ，然后提供 y.taobao.com/sub_domain_proxy.html ，该页面内容为
-<code>&lt;script&gt;document.domain=&#x27;taobao.com&#x27;&lt;&#x2F;script&gt;</code>然后 x.taobao.com 的页面就可以和 y.taobao.com 通信了
-                                            </div>
-                                        </li>
-                                        
-                                    </ul>
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">form</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>字符串表示 css3 选择器</p>
-<ul>
-<li>如果 form 的 enctype 为 “multipart/form-data` 则会采用 iframe 的方式进行无刷新文件上传，</li>
-<li>否则将 form 内的输入域和值序列化后通过 xhr 发送到服务器</li>
-</ul>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">beforeSend</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>发送请求前的拦截函数，传入参数 (xhrObject, config)
-例如可以通过该函数实现上传进度监控</p>
-<pre><code>var xhr = new IO({
-    url:&#39;./upload.php&#39;,
-    type:&quot;post&quot;,
-    processData:false,
-    data:formData,
-    dataType:&#39;json&#39;,
-    contentType:false,
-    beforeSend:function (xhr) {
-        // 上传监听 upload
-        xhr.getNativeXhr().upload.addEventListener(&#39;progress&#39;, function (ev) {
-            S.log({ &#39;loaded&#39;:ev.loaded, &#39;total&#39;:ev.total });
-        });
-    },
-    success:function (d) {
-        S.log(d);
-    }
-});</code></pre>
+                        <p>用来配置请求的键值对对象. 所有的配置项都是可选的,可以通过 io.setupConfig() 来设置默认配置。详见其Attribute</p>
 
                     </div>
 
@@ -1126,6 +640,78 @@ new IO({
                     <ul class="index-list attrs">
                         
                             <li class="index-item attr">
+                                <a href="#attr_accepts">accepts</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_async">async</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_beforeSend">beforeSend</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_cache">cache</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_complete">complete</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_contentType">contentType</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_context">context</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_crossDomain">crossDomain</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_data">data</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_dataType">dataType</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_error">error</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_form">form</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_headers">headers</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_jsonp">jsonp</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_jsonpCallback">jsonpCallback</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_mimeType">mimeType</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_password">password</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_processData">processData</a>
+                            </li>
+                        
+                            <li class="index-item attr">
                                 <a href="#attr_readyState">readyState</a>
                             </li>
                         
@@ -1134,11 +720,47 @@ new IO({
                             </li>
                         
                             <li class="index-item attr">
+                                <a href="#attr_scriptCharset">scriptCharset</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_serializeArray">serializeArray</a>
+                            </li>
+                        
+                            <li class="index-item attr">
                                 <a href="#attr_status">status</a>
                             </li>
                         
                             <li class="index-item attr">
                                 <a href="#attr_statusText">statusText</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_success">success</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_timeout">timeout</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_type">type</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_url">url</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_username">username</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_xdr">xdr</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_xhrFields">xhrFields</a>
                             </li>
                         
                     </ul>
@@ -1185,7 +807,7 @@ new IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l194"><code>src\api\io.js:194</code></a>
+        <a href="../files/src_api_io.js.html#l307"><code>src\api\io.js:307</code></a>
         
         </p>
 
@@ -1274,7 +896,7 @@ new IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l226"><code>src\api\io.js:226</code></a>
+        <a href="../files/src_api_io.js.html#l339"><code>src\api\io.js:339</code></a>
         
         </p>
 
@@ -1443,7 +1065,7 @@ new IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l248"><code>src\api\io.js:248</code></a>
+        <a href="../files/src_api_io.js.html#l361"><code>src\api\io.js:361</code></a>
         
         </p>
 
@@ -1568,7 +1190,7 @@ new IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l189"><code>src\api\io.js:189</code></a>
+        <a href="../files/src_api_io.js.html#l302"><code>src\api\io.js:302</code></a>
         
         </p>
 
@@ -1633,7 +1255,7 @@ new IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l183"><code>src\api\io.js:183</code></a>
+        <a href="../files/src_api_io.js.html#l296"><code>src\api\io.js:296</code></a>
         
         </p>
 
@@ -1740,7 +1362,7 @@ new IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l258"><code>src\api\io.js:258</code></a>
+        <a href="../files/src_api_io.js.html#l371"><code>src\api\io.js:371</code></a>
         
         </p>
 
@@ -1899,7 +1521,7 @@ new IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l237"><code>src\api\io.js:237</code></a>
+        <a href="../files/src_api_io.js.html#l350"><code>src\api\io.js:350</code></a>
         
         </p>
 
@@ -2056,7 +1678,7 @@ new IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l282"><code>src\api\io.js:282</code></a>
+        <a href="../files/src_api_io.js.html#l395"><code>src\api\io.js:395</code></a>
         
         </p>
 
@@ -2161,7 +1783,7 @@ new IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l207"><code>src\api\io.js:207</code></a>
+        <a href="../files/src_api_io.js.html#l320"><code>src\api\io.js:320</code></a>
         
         </p>
 
@@ -2277,7 +1899,7 @@ IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l199"><code>src\api\io.js:199</code></a>
+        <a href="../files/src_api_io.js.html#l312"><code>src\api\io.js:312</code></a>
         
         </p>
 
@@ -2404,7 +2026,7 @@ IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l270"><code>src\api\io.js:270</code></a>
+        <a href="../files/src_api_io.js.html#l383"><code>src\api\io.js:383</code></a>
         
         </p>
 
@@ -2482,6 +2104,996 @@ IO({
                 <h2 class="off-left">Attributes</h2>
 
                 
+                    <div id="attr_accepts" class="attr item">
+    <a name="config_accepts"></a> 
+    <h3 class="name"><code>accepts</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l80"><code>src\api\io.js:80</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>该设置和dataType一起确定定当前发送给服务器的 Accept 头，默认包括：</p>
+<pre class="code prettyprint"><code>{
+    xml: &quot;application/xml, text/xml&quot;,
+    html: &quot;text/html&quot;,
+    text: &quot;text/plain&quot;,
+    json: &quot;application/json, text/javascript&quot;
+}</code></pre>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_async" class="attr item">
+    <a name="config_async"></a> 
+    <h3 class="name"><code>async</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l111"><code>src\api\io.js:111</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>本次 xhr 请求是否异步发送，如果你需要同步发送，设置该配置为 false,注意同步请求在完成前会锁死浏览器</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_beforeSend" class="attr item">
+    <a name="config_beforeSend"></a> 
+    <h3 class="name"><code>beforeSend</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l247"><code>src\api\io.js:247</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>发送请求前的拦截函数，传入参数 (xhrObject, config)
+例如可以通过该函数实现上传进度监控</p>
+<pre class="code prettyprint"><code>var xhr = new IO({
+    url:&#39;./upload.php&#39;,
+    type:&quot;post&quot;,
+    processData:false,
+    data:formData,
+    dataType:&#39;json&#39;,
+    contentType:false,
+    beforeSend:function (xhr) {
+        // 上传监听 upload
+        xhr.getNativeXhr().upload.addEventListener(&#39;progress&#39;, function (ev) {
+            S.log({ &#39;loaded&#39;:ev.loaded, &#39;total&#39;:ev.total });
+        });
+    },
+    success:function (d) {
+        S.log(d);
+    }
+});</code></pre>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_cache" class="attr item">
+    <a name="config_cache"></a> 
+    <h3 class="name"><code>cache</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l117"><code>src\api\io.js:117</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>dataType 为 script 或 jsonp 时默认 false，其他默认为 true. false 时则会自动给请求 url 加上时间戳</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_complete" class="attr item">
+    <a name="config_complete"></a> 
+    <h3 class="name"><code>complete</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l165"><code>src\api\io.js:165</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>请求完成时(无论成功失败)的回调函数.该函数传入三个参数</p>
+<ul>
+<li>data : 根据 dataType 格式化服务器响应信息的响应对象</li>
+<li>textStatus : 描述成功的状态，一般是 “success”</li>
+<li>io : 本次请求的 io 实例.</li>
+</ul>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_contentType" class="attr item">
+    <a name="config_contentType"></a> 
+    <h3 class="name"><code>contentType</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l122"><code>src\api\io.js:122</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>设置 false 则不设置 Content-type 头 (例如传输 formdata 时需要设置 false).注意：&quot;application/x-www-form-urlencoded&quot;时的数据总是以 utf-8 的编码传往服务器端</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &quot;application/x-www-form-urlencoded&quot;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_context" class="attr item">
+    <a name="config_context"></a> 
+    <h3 class="name"><code>context</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l128"><code>src\api\io.js:128</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>设置回调函数中的 this 值,默认为当前配置项.例如可以把一个 dom 节点作为 complete 回调函数的上下文</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_crossDomain" class="attr item">
+    <a name="config_crossDomain"></a> 
+    <h3 class="name"><code>crossDomain</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l133"><code>src\api\io.js:133</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认同域请求为 false,不同域间为 true。设置该值为 true，则强制 script 以及 jsonp 请求通过 script 节点发送，用于服务器重定向到其他域脚本的场景</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_data" class="attr item">
+    <a name="config_data"></a> 
+    <h3 class="name"><code>data</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l138"><code>src\api\io.js:138</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>如果为 Object 类型则会通过 param() 格式化为字符串
+注意:data 不能为嵌套 object 等复杂类型，例如: 不能是<code>{data : [{x : 1}]}</code>,可以为{data : [1]}</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_dataType" class="attr item">
+    <a name="config_dataType"></a> 
+    <h3 class="name"><code>dataType</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l93"><code>src\api\io.js:93</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>期望能够从服务器返回的数据类型.如果没有指定，kissy 将尽量从返回的<code>mimeType | Content-type</code>相应头中推导出来 (‘text/xml’ 将推导出 xml , ‘text/json’ 将推导出 json)
+默认支持的类型（该类型的响应信息会作为第一个参数传到 success complete 回调中）有:</p>
+<ul>
+<li>&quot;xml&quot; : 返回响应信息代表的 xml 文档.</li>
+<li>&quot;text&quot; : 返回响应信息串</li>
+<li>&quot;html&quot; : 同 &quot;text&quot;</li>
+<li>&quot;script&quot; : 将响应信息作为脚本执行。</li>
+<li>&quot;json&quot; : 返回响应信息代表的 json 对象.</li>
+<li>&quot;jsonp&quot; : 返回 jsonp 的响应信息代表的 json 对象.</li>
+</ul>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_error" class="attr item">
+    <a name="config_error"></a> 
+    <h3 class="name"><code>error</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l150"><code>src\api\io.js:150</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>请求失败时的回调函数.这个函数接受 2 个参数:</p>
+<ul>
+<li>textStatus 表示错误信息，包括 “timeout” , “error” , “abort” 等</li>
+<li>io 表示这次请求代表的 io 实例</li>
+</ul>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_form" class="attr item">
+    <a name="config_form"></a> 
+    <h3 class="name"><code>form</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l240"><code>src\api\io.js:240</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>字符串表示 css3 选择器</p>
+<ul>
+<li>如果 form 的 enctype 为 “multipart/form-data` 则会采用 iframe 的方式进行无刷新文件上传，</li>
+<li>否则将 form 内的输入域和值序列化后通过 xhr 发送到服务器</li>
+</ul>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_headers" class="attr item">
+    <a name="config_headers"></a> 
+    <h3 class="name"><code>headers</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l173"><code>src\api\io.js:173</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>设置这次请求 xhr 的请求头</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_jsonp" class="attr item">
+    <a name="config_jsonp"></a> 
+    <h3 class="name"><code>jsonp</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l178"><code>src\api\io.js:178</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>覆盖这次 jsonp 请求的 callback 函数名. 这个值可以取代请求 url 中 callback=? 的 callback.例如 {jsonp:’onJsonLoad’} 会导致 ‘onJsonLoad=?’ 发送给服务器端</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_jsonpCallback" class="attr item">
+    <a name="config_jsonpCallback"></a> 
+    <h3 class="name"><code>jsonpCallback</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l183"><code>src\api\io.js:183</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>覆盖这次 jsonp 请求 callback 函数对应的值 (callback={jsonpCallback}). 这个值将取代 kissy 默认生成的 UUID 值.
+当传入函数时，该函数需要返回字符串，每次请求都会调用该函数得到用于替换的字符串</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_mimeType" class="attr item">
+    <a name="config_mimeType"></a> 
+    <h3 class="name"><code>mimeType</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l189"><code>src\api\io.js:189</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>跨平台设置 xhr 的 mimeType</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_password" class="attr item">
+    <a name="config_password"></a> 
+    <h3 class="name"><code>password</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l194"><code>src\api\io.js:194</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>对于需要验证的 http 请求设置密码</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_processData" class="attr item">
+    <a name="config_processData"></a> 
+    <h3 class="name"><code>processData</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l105"><code>src\api\io.js:105</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>当 data 为对象时是否用 param() 序列化. 例如当需要传送一个 xml 或 formdata 到服务器时就不需要 param data， 并且最好同时设置 contentType 为合适的值</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_readyState" class="attr item">
     <a name="config_readyState"></a> 
     <h3 class="name"><code>readyState</code></h3>
@@ -2512,7 +3124,7 @@ IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l163"><code>src\api\io.js:163</code></a>
+        <a href="../files/src_api_io.js.html#l211"><code>src\api\io.js:211</code></a>
         
         </p>
 
@@ -2564,7 +3176,7 @@ IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l178"><code>src\api\io.js:178</code></a>
+        <a href="../files/src_api_io.js.html#l291"><code>src\api\io.js:291</code></a>
         
         </p>
 
@@ -2578,6 +3190,112 @@ IO({
 
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_scriptCharset" class="attr item">
+    <a name="config_scriptCharset"></a> 
+    <h3 class="name"><code>scriptCharset</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l204"><code>src\api\io.js:204</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>用于 dataType jsonp 和 script ，设定传输用的 script 节点的 charset 属性。只有当返回编码和当前页面编码不一致时使用</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_serializeArray" class="attr item">
+    <a name="config_serializeArray"></a> 
+    <h3 class="name"><code>serializeArray</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l144"><code>src\api\io.js:144</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>表示序列化 data 时是否给数组值对应的键名加 []</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
     
 
     
@@ -2616,7 +3334,7 @@ IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l168"><code>src\api\io.js:168</code></a>
+        <a href="../files/src_api_io.js.html#l281"><code>src\api\io.js:281</code></a>
         
         </p>
 
@@ -2668,7 +3386,7 @@ IO({
             
         
         
-        <a href="../files/src_api_io.js.html#l173"><code>src\api\io.js:173</code></a>
+        <a href="../files/src_api_io.js.html#l286"><code>src\api\io.js:286</code></a>
         
         </p>
 
@@ -2679,6 +3397,390 @@ IO({
 
     <div class="description">
         <p>响应状态字符串. 最终同回调 complete 中的 textStatus 一致.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_success" class="attr item">
+    <a name="config_success"></a> 
+    <h3 class="name"><code>success</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l157"><code>src\api\io.js:157</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>请求成功时的回调函数.该函数传入三个参数:</p>
+<ul>
+<li>data : 根据 dataType 格式化服务器响应信息的响应对象</li>
+<li>textStatus : 描述成功的状态，一般是 “success”</li>
+<li>io : 本次请求的 io 实例.</li>
+</ul>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_timeout" class="attr item">
+    <a name="config_timeout"></a> 
+    <h3 class="name"><code>timeout</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l216"><code>src\api\io.js:216</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>对这次请求设个超时时间，单位秒. 当超时后会触发 error 以及 complete 回调 , 状态字符串为 “timeout”.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_type" class="attr item">
+    <a name="config_type"></a> 
+    <h3 class="name"><code>type</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l221"><code>src\api\io.js:221</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>可取值 “get” 或者 “post”</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_url" class="attr item">
+    <a name="config_url"></a> 
+    <h3 class="name"><code>url</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l75"><code>src\api\io.js:75</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>本次请求发送的地址</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_username" class="attr item">
+    <a name="config_username"></a> 
+    <h3 class="name"><code>username</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l199"><code>src\api\io.js:199</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>对于需要验证的 http 请求设置用户名</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_xdr" class="attr item">
+    <a name="config_xdr"></a> 
+    <h3 class="name"><code>xdr</code></h3>
+    <span class="type">Obect</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l272"><code>src\api\io.js:272</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>设置跨域的具体方式和细节，包括以下配置</p>
+<ul>
+<li>xdr.src {String} 完全跨域请求的 flash 发送程序地址。当完全跨域时,KISSY io 在ie 中将采用 flash 发请求，默认采用 KISSY 自带 flash 发请求，也可将 kissy 自带的 flash 部署到其他地方，在 src 中指定;在标准浏览器将采用原生机制</li>
+<li>xdr.subDomain {Object} 跨子域时的一些请求配置，包括<ul>
+<li>xdr.subDomain.proxy {String} 指定代理页面的地址。默认 “/sub_domain_proxy.html” . 例如 x.taobao.com 要发送请求给 y.taobao.com ，那么需要设置 x.taobao.com 的页面 document.domain=’taobao.com’ ，然后提供 y.taobao.com/sub_domain_proxy.html ，该页面内容为
+<code>&lt;script&gt;document.domain=&#39;taobao.com&#39;&lt;/script&gt;</code>然后 x.taobao.com 的页面就可以和 y.taobao.com 通信了</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_xhrFields" class="attr item">
+    <a name="config_xhrFields"></a> 
+    <h3 class="name"><code>xhrFields</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_io.js.html#l226"><code>src\api\io.js:226</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>设置到原生 xhr 对象的键值对.例如为了在标准浏览器进行跨域请求时携带cookie你可以设置 withCredentials 为 true.</p>
+<pre class="code prettyprint"><code>new IO({
+    url:&quot;http://y.com/ping.php&quot;,
+    xhrFields:{
+        withCredentials: true
+    }
+});</code></pre>
+<p>这样 x.com 发送请求 y.com 会携带 y.com 的 cookie 信息</p>
 
     </div>
 

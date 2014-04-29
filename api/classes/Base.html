@@ -239,6 +239,8 @@
             
                 <li><a href="../modules/dom.html">dom</a></li>
             
+                <li><a href="../modules/editor.html">editor</a></li>
+            
                 <li><a href="../modules/event.html">event</a></li>
             
                 <li><a href="../modules/feature.html">feature</a></li>
@@ -481,72 +483,10 @@
                     
 
                     <div class="param-description">
-                        <p>属性名/配置信息对</p>
+                        <p>配置项，详情参考其Attribute</p>
 
                     </div>
 
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">listeners</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>配置组件的事件绑定,例如:</p>
-<pre><code>{
-    listeners:{
-        customEvent:function(e){
-            alert(e.type); // =&gt; &quot;customEvent&quot;
-        }
-    }
-}
-
-or
-
-{
-    listeners:{
-        customEvent:{
-            fn:function(e){
-                // e.type // =&gt; customEvent
-                // this.xx =&gt; 1
-            },
-            context:{xx:1}
-        }
-    }
-}</code></pre>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">plugins</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function[]</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object[]</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>插件构造器数组或插件对象数组. 例如</p>
-<pre><code>{
-    plugins: [ Plugin1,Plugin2 ]
-}
-
-// or
-
-{
-    plugins: [new Plugin1(cfg),new Plugin2(cfg)]
-}</code></pre>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -570,6 +510,8 @@ or
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
         
         
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
         
         
             <li class="api-class-tab events"><a href="#events">Events</a></li>
@@ -735,6 +677,22 @@ or
             
 
             
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs extends">
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_listeners">listeners</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_plugins">plugins</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
 
             
                 <div class="index-section events">
@@ -818,7 +776,7 @@ or
             
         
         
-        <a href="../files/src_api_base.js.html#l201"><code>src\api\base.js:201</code></a>
+        <a href="../files/src_api_base.js.html#l211"><code>src\api\base.js:211</code></a>
         
         </p>
 
@@ -1000,7 +958,7 @@ or
             
         
         
-        <a href="../files/src_api_base.js.html#l213"><code>src\api\base.js:213</code></a>
+        <a href="../files/src_api_base.js.html#l223"><code>src\api\base.js:223</code></a>
         
         </p>
 
@@ -1211,7 +1169,7 @@ or
             
         
         
-        <a href="../files/src_api_base.js.html#l104"><code>src\api\base.js:104</code></a>
+        <a href="../files/src_api_base.js.html#l114"><code>src\api\base.js:114</code></a>
         
         </p>
 
@@ -1297,7 +1255,7 @@ or
             
         
         
-        <a href="../files/src_api_base.js.html#l184"><code>src\api\base.js:184</code></a>
+        <a href="../files/src_api_base.js.html#l194"><code>src\api\base.js:194</code></a>
         
         </p>
 
@@ -1470,7 +1428,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l93"><code>src\api\base.js:93</code></a>
+        <a href="../files/src_api_base.js.html#l103"><code>src\api\base.js:103</code></a>
         
         </p>
 
@@ -1749,7 +1707,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l245"><code>src\api\base.js:245</code></a>
+        <a href="../files/src_api_base.js.html#l255"><code>src\api\base.js:255</code></a>
         
         </p>
 
@@ -1829,7 +1787,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l251"><code>src\api\base.js:251</code></a>
+        <a href="../files/src_api_base.js.html#l261"><code>src\api\base.js:261</code></a>
         
         </p>
 
@@ -1912,7 +1870,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l171"><code>src\api\base.js:171</code></a>
+        <a href="../files/src_api_base.js.html#l181"><code>src\api\base.js:181</code></a>
         
         </p>
 
@@ -2025,7 +1983,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l220"><code>src\api\base.js:220</code></a>
+        <a href="../files/src_api_base.js.html#l230"><code>src\api\base.js:230</code></a>
         
         </p>
 
@@ -2273,7 +2231,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l135"><code>src\api\base.js:135</code></a>
+        <a href="../files/src_api_base.js.html#l145"><code>src\api\base.js:145</code></a>
         
         </p>
 
@@ -2527,7 +2485,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l227"><code>src\api\base.js:227</code></a>
+        <a href="../files/src_api_base.js.html#l237"><code>src\api\base.js:237</code></a>
         
         </p>
 
@@ -2708,7 +2666,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l257"><code>src\api\base.js:257</code></a>
+        <a href="../files/src_api_base.js.html#l267"><code>src\api\base.js:267</code></a>
         
         </p>
 
@@ -2844,7 +2802,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l233"><code>src\api\base.js:233</code></a>
+        <a href="../files/src_api_base.js.html#l243"><code>src\api\base.js:243</code></a>
         
         </p>
 
@@ -3029,7 +2987,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l152"><code>src\api\base.js:152</code></a>
+        <a href="../files/src_api_base.js.html#l162"><code>src\api\base.js:162</code></a>
         
         </p>
 
@@ -3111,6 +3069,146 @@ dog.run();</code></pre>
         
 
         
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr_listeners" class="attr item">
+    <a name="config_listeners"></a> 
+    <h3 class="name"><code>listeners</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_base.js.html#l58"><code>src\api\base.js:58</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>配置组件的事件绑定,例如:</p>
+<pre class="code prettyprint"><code>{
+    listeners:{
+        customEvent:function(e){
+            alert(e.type); // =&gt; &quot;customEvent&quot;
+        }
+    }
+}
+
+or
+
+{
+    listeners:{
+        customEvent:{
+            fn:function(e){
+                // e.type // =&gt; customEvent
+                // this.xx =&gt; 1
+            },
+            context:{xx:1}
+        }
+    }
+}</code></pre>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_plugins" class="attr item">
+    <a name="config_plugins"></a> 
+    <h3 class="name"><code>plugins</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function[]</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object[]</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_base.js.html#l86"><code>src\api\base.js:86</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>插件构造器数组或插件对象数组. 例如</p>
+<pre class="code prettyprint"><code>{
+    plugins: [ Plugin1,Plugin2 ]
+}
+
+// or
+
+{
+    plugins: [new Plugin1(cfg),new Plugin2(cfg)]
+}</code></pre>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
 
         
             <div id="events" class="api-class-tabpanel">
@@ -3137,7 +3235,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l292"><code>src\api\base.js:292</code></a>
+        <a href="../files/src_api_base.js.html#l302"><code>src\api\base.js:302</code></a>
         
         </p>
 
@@ -3262,7 +3360,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l282"><code>src\api\base.js:282</code></a>
+        <a href="../files/src_api_base.js.html#l292"><code>src\api\base.js:292</code></a>
         
         </p>
 
@@ -3387,7 +3485,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l272"><code>src\api\base.js:272</code></a>
+        <a href="../files/src_api_base.js.html#l282"><code>src\api\base.js:282</code></a>
         
         </p>
 

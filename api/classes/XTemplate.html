@@ -239,6 +239,8 @@
             
                 <li><a href="../modules/dom.html">dom</a></li>
             
+                <li><a href="../modules/editor.html">editor</a></li>
+            
                 <li><a href="../modules/event.html">event</a></li>
             
                 <li><a href="../modules/feature.html">feature</a></li>
@@ -379,18 +381,6 @@
                     
                 </li>
             
-                <li class="arg">
-                    
-                        <code>name</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>cache</code>
-                    
-                </li>
-            
             </ul><span class="paren">)</span>
         </div>
     
@@ -465,62 +455,7 @@
                     
 
                     <div class="param-description">
-                        <p>配置项，详见下列配置</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">command</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>局部自定义命令的键值对，例如</p>
-<pre><code>{
-    &#39;toLowerCase&#39;:function( scopes,option ){
-        return option.params[0].toLowerCase();
-    }
-}</code></pre>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">name</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>模版名称，可在 chrome dev tools 中看到以该值为名称的模板文件代码</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">cache</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>是否缓存生成的模板函数，默认 true</p>
+                        <p>配置项，详见其Attribute</p>
 
                     </div>
 
@@ -565,6 +500,8 @@ KISSY.use(&#39;xtemplate/runtime&#39;,function(S,XTemplate){
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
         
         
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
         
         
     </ul>
@@ -623,6 +560,26 @@ KISSY.use(&#39;xtemplate/runtime&#39;,function(S,XTemplate){
             
 
             
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs">
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_cache">cache</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_command">command</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_name">name</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
 
             
         </div>
@@ -680,7 +637,7 @@ KISSY.use(&#39;xtemplate/runtime&#39;,function(S,XTemplate){
             
         
         
-        <a href="../files/src_api_xtemplate.js.html#l43"><code>src\api\xtemplate.js:43</code></a>
+        <a href="../files/src_api_xtemplate.js.html#l57"><code>src\api\xtemplate.js:57</code></a>
         
         </p>
 
@@ -793,7 +750,7 @@ KISSY.use(&#39;xtemplate/runtime&#39;,function(S,XTemplate){
             
         
         
-        <a href="../files/src_api_xtemplate.js.html#l65"><code>src\api\xtemplate.js:65</code></a>
+        <a href="../files/src_api_xtemplate.js.html#l79"><code>src\api\xtemplate.js:79</code></a>
         
         </p>
 
@@ -902,7 +859,7 @@ KISSY.use(&#39;xtemplate/runtime&#39;,function(S,XTemplate){
             
         
         
-        <a href="../files/src_api_xtemplate.js.html#l51"><code>src\api\xtemplate.js:51</code></a>
+        <a href="../files/src_api_xtemplate.js.html#l65"><code>src\api\xtemplate.js:65</code></a>
         
         </p>
 
@@ -1005,7 +962,7 @@ KISSY.use(&#39;xtemplate/runtime&#39;,function(S,XTemplate){
             
         
         
-        <a href="../files/src_api_xtemplate.js.html#l37"><code>src\api\xtemplate.js:37</code></a>
+        <a href="../files/src_api_xtemplate.js.html#l51"><code>src\api\xtemplate.js:51</code></a>
         
         </p>
 
@@ -1098,7 +1055,7 @@ KISSY.use(&#39;xtemplate/runtime&#39;,function(S,XTemplate){
             
         
         
-        <a href="../files/src_api_xtemplate.js.html#l58"><code>src\api\xtemplate.js:58</code></a>
+        <a href="../files/src_api_xtemplate.js.html#l72"><code>src\api\xtemplate.js:72</code></a>
         
         </p>
 
@@ -1164,6 +1121,175 @@ KISSY.use(&#39;xtemplate/runtime&#39;,function(S,XTemplate){
 
         
 
+        
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr_cache" class="attr item">
+    <a name="config_cache"></a> 
+    <h3 class="name"><code>cache</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_xtemplate.js.html#l45"><code>src\api\xtemplate.js:45</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否缓存生成的模板函数，默认 true</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_command" class="attr item">
+    <a name="config_command"></a> 
+    <h3 class="name"><code>command</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_xtemplate.js.html#l28"><code>src\api\xtemplate.js:28</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>局部自定义命令的键值对，例如</p>
+<pre class="code prettyprint"><code>{
+    &#39;toLowerCase&#39;:function( scopes,option ){
+        return option.params[0].toLowerCase();
+    }
+}</code></pre>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_name" class="attr item">
+    <a name="config_name"></a> 
+    <h3 class="name"><code>name</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_xtemplate.js.html#l40"><code>src\api\xtemplate.js:40</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>模版名称，可在 chrome dev tools 中看到以该值为名称的模板文件代码</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         

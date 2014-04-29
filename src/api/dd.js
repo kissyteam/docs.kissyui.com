@@ -12,15 +12,47 @@
 @constructor
 @extends Base
 @namespace DD
-@param config {Object}  实例化可拖放对象的配置项, 如下：
-@param config.node {String|HTMLElement} 将要进行拖放的节点 
-@param config.groups {Object} 可拖动对象在的组。（设置后只和本组的droppable对象交互），默认值为true, 可以和所有组的 droppable 都交互。 若不需要和任何droppable 交互，为了性能，请设置 groups 为 false. 例如： {‘x’:1,’y’:1} 表示属于 x 和 y 组
-@param config.handlers {Array<String|HTMLElement>} 作为鼠标在其上按下时触发节点拖放的钩子. 字符串时表示选择器字符串. 如果不设置, 则整个 node 作为触发钩子.
+@param config {Object}  配置项，详见其Attribute
+*/
+
+/**
+将要进行拖放的节点
+@attribute node {String|HTMLElement}
+*/
+
+/**
+可拖动对象在的组。（设置后只和本组的droppable对象交互），默认值为true, 可以和所有组的 droppable 都交互。 若不需要和任何droppable 交互，为了性能，请设置 groups 为 false. 例如： {‘x’:1,’y’:1} 表示属于 x 和 y 组
+@attribute groups {Object} 
+*/
+
+/**
+作为鼠标在其上按下时触发节点拖放的钩子. 字符串时表示选择器字符串. 如果不设置, 则整个 node 作为触发钩子.
 #### handlers 的每个元素 DOM 节点必须位于配置项 node DOM 子树中.
-@param config.clickPixelThresh=3 {Number}  默认 3, 表示鼠标按下后移动多少像素后触发 dragstart 事件
-@param config.bufferTime=1000 {Number} 默认 1000, 表示鼠标按下多长时间后触发 dragstart 事件. 可通过 DDM.set(“bufferTime”,xx) 设置.
-@param config.disabled=false {Boolean} 是否禁用改拖对象功能
-@param config.move=false {Boolean} 默认 false。关联元素是否随鼠标移动。（例如：resize 功能完全不需要关联元素移动）
+@attribute handlers {String[]|HTMLElement[]} 
+*/
+
+/**
+默认 3, 表示鼠标按下后移动多少像素后触发 dragstart 事件
+@attribute clickPixelThresh {Number}
+@default 3
+*/
+
+/**
+默认 1000, 表示鼠标按下多长时间后触发 dragstart 事件. 可通过 DDM.set(“bufferTime”,xx) 设置.
+@attribute bufferTime {Number} 
+@default 1000
+*/
+
+/**
+是否禁用改拖对象功能
+@attribute disabled {Boolean}
+@default false
+*/
+
+/**
+默认 false。关联元素是否随鼠标移动。（例如：resize 功能完全不需要关联元素移动）
+@attribute move {Boolean} 
+@default false
 @example
 Draggable 默认实例化后仅表示会根据鼠标拖放触发 drag() 事件, 并不会导致节点移动， 通过以下设置来使得节点跟随鼠标移动：
 
@@ -31,11 +63,15 @@ new Draggable({
     move:true
 });
 ```
-@param config.mode='point' {String} 枚举值, 默认值 “point”, 和 Droppable 关联, 决定何时和可放对象开始交互(触发相应事件), 可取值 “point”,”intersect”,”strict”
+*/
+
+/**
+枚举值, 默认值 “point”, 和 Droppable 关联, 决定何时和可放对象开始交互(触发相应事件), 可取值 “point”,”intersect”,”strict”
 - 在 “point” 模式下, 只要鼠标略过可放对象, 即开始和可放对象交互.
 - 在 “intersect” 模式下, 只要拖动对象和可放对象有交集, 即开始和可放对象交互.
 - 在 “strict” 模式下, 只有拖动对象完全位于可放对象内, 才开始和可放对象交互
-*/
+@attribute mode {String} 
+@default 'point'
 
 /**
 等于 "point"
@@ -142,11 +178,25 @@ new Draggable({
 @constructor
 @extends Base
 @namespace DD
-@param config {Object} 配置对象
-@param config.node {String | HTMLElement}  可与拖动对象交互的节点.
-@param config.groups {Object} 可与拖动对象交互的节点. 例如： {‘x’:1,’y’:1} 表示属于 x 和 y 组.
-@param config.disabled=false {Boolean} 默认 false。是否禁用改拖对象功能.
+@param config {Object} 配置对象,详见其Attribute
 */
+
+/**
+可与拖动对象交互的节点.
+@attribute node {String | HTMLElement} 
+*/
+
+/**
+可与拖动对象交互的节点. 例如： {‘x’:1,’y’:1} 表示属于 x 和 y 组.
+@attribute groups {Object} 
+*/
+
+/**
+默认 false。是否禁用改拖对象功能.
+@attribute disabled {Boolean} 
+@default false
+*/
+
 
 /**
 当一个 Draggable 对象根据其 Draggable.mode 配置达到和当前 Droppable 实例交互条件时触发.
@@ -307,11 +357,24 @@ new Draggable({
 @class DraggableDelegate
 @constructor
 @extends DD.Draggable
-@param config {Object}
-@param config.container {String | HTMLElement} 用于委托的容器节点, 所有 Draggable 节点都在其内
-@param config.selector {String} 用来获取容器内的 Draggable 节点, 格式为 tag 或 tag.cls 或 .cls
-@param config.handlers {Array} 数组每个元素是选择器字符串, 格式为 tag 或 tag.cls 或 .cls, 作为鼠标在其上按下时触发节点拖放的钩子. 如果不设置, 则整个可拖放节点都作为触发钩子. 其中可拖放节点通过 selector 从容器 container 中取得
+@param config {Object} 配置对象，详见其Attribute
 */
+
+/**
+用于委托的容器节点, 所有 Draggable 节点都在其内
+@attribute container {String | HTMLElement} 
+*/
+
+/**
+用来获取容器内的 Draggable 节点, 格式为 tag 或 tag.cls 或 .cls
+@attribute selector {String} 
+*/
+
+/**
+数组每个元素是选择器字符串, 格式为 tag 或 tag.cls 或 .cls, 作为鼠标在其上按下时触发节点拖放的钩子. 如果不设置, 则整个可拖放节点都作为触发钩子. 其中可拖放节点通过 selector 从容器 container 中取得
+@attribute handlers {Array} 
+*/
+
 
 /**
 当前正在拖动的被委托的容器内子节点, 在应用 DD.Proxy 时表示委托节点
@@ -331,9 +394,17 @@ new Draggable({
 @class DroppableDelegate
 @constructor
 @extends DD.Droppable
-@param config {Object}
-@param config.container {String | HTMLElement} 用于委托的容器节点, 所有 Draggable 节点都在其内
-@param config.selector {String} 用来获取容器内的 Draggable 节点, 格式为 tag 或 tag.cls 或 .cls
+@param config {Object} 配置对象，详见其Attribute
+*/
+
+/**
+用于委托的容器节点, 所有 Draggable 节点都在其内
+@attribute container {String | HTMLElement} 
+*/
+
+/**
+用来获取容器内的 Draggable 节点, 格式为 tag 或 tag.cls 或 .cls
+@attribute selector {String}
 */
 
 /**

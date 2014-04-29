@@ -239,6 +239,8 @@
             
                 <li><a href="../modules/dom.html">dom</a></li>
             
+                <li><a href="../modules/editor.html">editor</a></li>
+            
                 <li><a href="../modules/event.html">event</a></li>
             
                 <li><a href="../modules/feature.html">feature</a></li>
@@ -345,15 +347,42 @@
 * @constructor
 * @param elem {String|HTMLElement|KISSY.Node|window|普通的Object} 作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）
 * @param props {Object} 动画结束的 dom 样式值
-* @param [config] {Object} 动画配置项
-* @param [config.duration=1] {Number} 单位秒。默认 1 秒.动画持续时间
-* @param [config.easing=&quot;easeNone&quot;] {String} 默认 ‘easeNone’. 动画平滑函数
-* @param [config.queue=undefined] {String|false|undefined} 所属队列名称. 默认undefined. 属于系统内置队列, 设置 false 则表示该动画不排队立即执行
-* @param [config.complete] {Function} 动画到最后一帧后的回调函数
-* @param [config.useTransition=false] {Boolean} 是否使用css3 transition提升性能。
-* 在 useTransition 为 true 的时候，easing 的值必须是 w3c 规定的时间函数名称。
-* 具体为： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(p1x, p1y, p2x, p2y)
+* @param [config] {Object} 动画配置项，详情参考其Attribute 
 */
+
+
+/**
+单位秒。默认 1 秒.动画持续时间
+@attribute duration {Number} 
+@default 1
+*/
+
+/**
+默认 ‘easeNone’. 动画平滑函数
+@attribute easing {String}
+@default &quot;easeNone&quot;
+*/
+
+/**
+所属队列名称. 默认undefined. 属于系统内置队列, 设置 false 则表示该动画不排队立即执行
+@attribute queue {String|false|undefined}
+@default undefined
+*/
+
+/**
+动画到最后一帧后的回调函数
+@attribute complete {Function}
+*/
+
+/**
+是否使用css3 transition提升性能。
+在 useTransition 为 true 的时候，easing 的值必须是 w3c 规定的时间函数名称。
+具体为： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(p1x, p1y, p2x, p2y)
+@attribute useTransition {Boolean}
+@default false
+*/
+
+
 
 /**
 判断当前动画对象是否在执行动画过程

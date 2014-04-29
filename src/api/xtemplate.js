@@ -8,17 +8,7 @@
 @class XTemplate
 @constructor
 @param tpl {String|Function} 字符串模板或编译过的模板函数
-@param config {Object} 配置项，详见下列配置
-@param config.command {Object} 局部自定义命令的键值对，例如
-```
-{
-    'toLowerCase':function( scopes,option ){
-        return option.params[0].toLowerCase();
-    }
-}
-```
-@param name {String} 模版名称，可在 chrome dev tools 中看到以该值为名称的模板文件代码
-@param cache {Boolean} 是否缓存生成的模板函数，默认 true
+@param config {Object} 配置项，详见其Attribute
 @example
 ```
 KISSY.use('xtemplate',function(S,XTemplate){
@@ -32,6 +22,30 @@ KISSY.use('xtemplate/runtime',function(S,XTemplate){
 ```
 ### Note
 如果引用的是xtemplate/runtime模块，参数则只能是离线编译过的模板
+*/
+
+
+/**
+局部自定义命令的键值对，例如
+```
+{
+    'toLowerCase':function( scopes,option ){
+        return option.params[0].toLowerCase();
+    }
+}
+```
+@attribute command {Object} 
+*/
+
+/**
+模版名称，可在 chrome dev tools 中看到以该值为名称的模板文件代码
+@attribute name {String} 
+*/
+
+/**
+是否缓存生成的模板函数，默认 true
+@attribute cache {Boolean} 
+@default true
 */
 
 /**

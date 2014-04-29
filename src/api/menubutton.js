@@ -6,15 +6,25 @@
 @class MenuButton
 @constructor
 @extends Button
-@param config {Object}
-@param config.menu {Object}  可选，下拉框菜单配置/实例，具体参考 [Menu](/5.0/api/classes/Menu.html) ，默认值:
+@param config {Object} 配置对象，详见其Attribute
+*/
+
+/**
+可选，下拉框菜单配置/实例，具体参考 [Menu](/5.0/api/classes/Menu.html) ，默认值:
 ```
 {
     xclass:'popupmenu'
 }
 
 ```
-@param config.matchElWidth {Boolean} 是否下拉菜单和按钮宽度一致。默认 true
+@attribute menu {Object}
+@optional
+*/
+
+/**
+是否下拉菜单和按钮宽度一致。默认 true
+@attribute matchElWidth {Boolean}
+@default true
 */
 
 /**
@@ -69,8 +79,13 @@
 @extends MenuButton
 @namespace MenuButton
 @constructor
-@param config {Object}
-@param config.defaultCaption {String} 可选，下拉框没有可选项时的默认显示内容.
+@param config {Object} 配置对象，详见其Attribute
+*/
+
+/**
+可选，下拉框没有可选项时的默认显示内容.
+@attribute defaultCaption {String} 
+@optional
 */
 
 /**
@@ -101,6 +116,10 @@
 @constructor
 @extends Menu.Item
 @namespace MenuButton
-@param config {Object}
-@param config.selectable=true {Boolean} 是否可以被选择，可以的话，单击会添加指定 class 到根节点
+@param config {Object} 配置项，详见其Attribute
+*/
+/**
+是否可以被选择，可以的话，单击会添加指定 class 到根节点
+@attribute selectable {Boolean} 
+@default true
 */ 

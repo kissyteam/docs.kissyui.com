@@ -239,6 +239,8 @@
             
                 <li><a href="../modules/dom.html">dom</a></li>
             
+                <li><a href="../modules/editor.html">editor</a></li>
+            
                 <li><a href="../modules/event.html">event</a></li>
             
                 <li><a href="../modules/feature.html">feature</a></li>
@@ -457,189 +459,10 @@
                     
 
                     <div class="param-description">
-                        <p>配置项，如下：</p>
+                        <p>配置项，详见其Attribute</p>
 
                     </div>
 
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[hasTrigger=true]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 true. 是否显示下拉按钮</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[placeholder]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认无. 输入框的提示信息</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[autoHighlightFirst]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 false. 是否默认选中下拉提示第一项</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[menu]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> | <a href="..\classes\Menu.PopupMenu.html" class="crosslink">Menu.PopupMenu</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选. xclass 形式的配置，例如指定特定的 align:</p>
-<pre><code>{
-    xclass:&#39;popupmenu&#39;,
-    align:{
-        points:[&#39;tl&#39;,&#39;bl&#39;]
-    }
-}</code></pre>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">dataSource</code>
-                                    <span class="type"><a href="..\classes\ComboBox.LocalDataSource.html" class="crosslink">ComboBox.LocalDataSource</a> | <a href="..\classes\ComboBox.RemoteDataSource.html" class="crosslink">ComboBox.RemoteDataSource</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>数据源配置
-例如静态数据源的配置:</p>
-<pre><code>{
-    dataSource : new ComboBox.LocalDataSource({
-                    data:[&quot;abc&quot;,&quot;123&quot;]
-                })
-}</code></pre>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[maxItemCount]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>最多可显示的下拉菜单个数</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[matchWidth=true]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>是否下拉菜单和自动补全框宽度一致。默认 true.</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[format]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>可选。自定义下拉菜单属性的函数，传入参数 query(自动补全框当前值) , data(匹配数据数组)。 返回对象数组，其中对象的 content 属性表示菜单项显示内容，textContent 表示放入到自动补全框的内容，disabled 表示当前项是否被禁用.
-例如高亮的处理:</p>
-<pre><code>{
-    format:function(query, data){
-        var ret = [];
-        for (var i = 0; i &lt; data.length; i++) {
-            ret[i] = {
-                content:(data[i] + &quot;&quot;)
-                        .replace(new RegExp(S.escapeRegExp(query), &quot;g&quot;),
-                        &quot;&lt;b&gt;$&amp;&lt;/b&gt;&quot;)
-            };
-        }
-        return ret;
-    }
-}</code></pre>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[updateInputOnDownUp=true]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 true. 上下键是否导致高亮项填充入自动补全框</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[autoHighlightFirst=false]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 false. 是否当自动补全菜单出现时高亮第一项</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -649,35 +472,6 @@
 
     
 
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&quot;node,combobox&quot;, function (S, Node, ComboBox) {
-    var $ = Node.all;
-    var data = [&quot;a123456&quot;, &quot;b12345&quot;, &quot;c3464356&quot;, &quot;d23434&quot;];
-
-    var basicComboBox = new ComboBox({
-        width:100,
-        srcNode:$(&quot;#combobox&quot;),
-        // 初始就聚焦
-        focused:true,
-        hasTrigger:false,
-        dataSource:new ComboBox.LocalDataSource({
-            data:data
-        })
-    });
-    basicComboBox.render();
-
-    // 得到焦点时展示全部
-    basicComboBox.get(&quot;input&quot;).on(&quot;focus&quot;, function () {
-        basicComboBox.sendRequest(&#39;&#39;);
-    });
-}</code></pre>
-
-            </div>
-        </div>
     
 </div>
 
@@ -930,6 +724,10 @@
                             </li>
                         
                             <li class="index-item attr">
+                                <a href="#attr_autoHighlightFirst">autoHighlightFirst</a>
+                            </li>
+                        
+                            <li class="index-item attr">
                                 <a href="#attr_collapsed">collapsed</a>
                             </li>
                         
@@ -939,6 +737,10 @@
                         
                             <li class="index-item attr inherited">
                                 <a href="#attr_created">created</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_dataSource">dataSource</a>
                             </li>
                         
                             <li class="index-item attr inherited">
@@ -969,6 +771,14 @@
                                 <a href="#attr_focused">focused</a>
                             </li>
                         
+                            <li class="index-item attr">
+                                <a href="#attr_format">format</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_hasTrigger">hasTrigger</a>
+                            </li>
+                        
                             <li class="index-item attr inherited inherited">
                                 <a href="#attr_height">height</a>
                             </li>
@@ -985,12 +795,32 @@
                                 <a href="#attr_isControl">isControl</a>
                             </li>
                         
+                            <li class="index-item attr inherited">
+                                <a href="#attr_listeners">listeners</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_matchWidth">matchWidth</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_maxItemCount">maxItemCount</a>
+                            </li>
+                        
                             <li class="index-item attr">
                                 <a href="#attr_menu">menu</a>
                             </li>
                         
                             <li class="index-item attr inherited">
                                 <a href="#attr_parent">parent</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_placeholder">placeholder</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited">
+                                <a href="#attr_plugins">plugins</a>
                             </li>
                         
                             <li class="index-item attr inherited">
@@ -1011,6 +841,10 @@
                         
                             <li class="index-item attr inherited">
                                 <a href="#attr_srcNode">srcNode</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_updateInputOnDownUp">updateInputOnDownUp</a>
                             </li>
                         
                             <li class="index-item attr inherited">
@@ -1214,7 +1048,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l201"><code>src\api\base.js:201</code></a>
+        <a href="../files/src_api_base.js.html#l211"><code>src\api\base.js:211</code></a>
         
         </p>
 
@@ -1396,7 +1230,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l213"><code>src\api\base.js:213</code></a>
+        <a href="../files/src_api_base.js.html#l223"><code>src\api\base.js:223</code></a>
         
         </p>
 
@@ -1656,7 +1490,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l104"><code>src\api\base.js:104</code></a>
+        <a href="../files/src_api_base.js.html#l114"><code>src\api\base.js:114</code></a>
         
         </p>
 
@@ -1807,7 +1641,7 @@
             
         
         
-        <a href="../files/src_api_base.js.html#l184"><code>src\api\base.js:184</code></a>
+        <a href="../files/src_api_base.js.html#l194"><code>src\api\base.js:194</code></a>
         
         </p>
 
@@ -2320,7 +2154,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l245"><code>src\api\base.js:245</code></a>
+        <a href="../files/src_api_base.js.html#l255"><code>src\api\base.js:255</code></a>
         
         </p>
 
@@ -2400,7 +2234,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l251"><code>src\api\base.js:251</code></a>
+        <a href="../files/src_api_base.js.html#l261"><code>src\api\base.js:261</code></a>
         
         </p>
 
@@ -2480,7 +2314,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l171"><code>src\api\base.js:171</code></a>
+        <a href="../files/src_api_base.js.html#l181"><code>src\api\base.js:181</code></a>
         
         </p>
 
@@ -2593,7 +2427,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l220"><code>src\api\base.js:220</code></a>
+        <a href="../files/src_api_base.js.html#l230"><code>src\api\base.js:230</code></a>
         
         </p>
 
@@ -3030,7 +2864,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l135"><code>src\api\base.js:135</code></a>
+        <a href="../files/src_api_base.js.html#l145"><code>src\api\base.js:145</code></a>
         
         </p>
 
@@ -3284,7 +3118,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l227"><code>src\api\base.js:227</code></a>
+        <a href="../files/src_api_base.js.html#l237"><code>src\api\base.js:237</code></a>
         
         </p>
 
@@ -3533,7 +3367,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l257"><code>src\api\base.js:257</code></a>
+        <a href="../files/src_api_base.js.html#l267"><code>src\api\base.js:267</code></a>
         
         </p>
 
@@ -3656,7 +3490,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_combobox.js.html#l120"><code>src\api\combobox.js:120</code></a>
+        <a href="../files/src_api_combobox.js.html#l146"><code>src\api\combobox.js:146</code></a>
         
         </p>
 
@@ -3758,7 +3592,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l233"><code>src\api\base.js:233</code></a>
+        <a href="../files/src_api_base.js.html#l243"><code>src\api\base.js:243</code></a>
         
         </p>
 
@@ -4060,7 +3894,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l152"><code>src\api\base.js:152</code></a>
+        <a href="../files/src_api_base.js.html#l162"><code>src\api\base.js:162</code></a>
         
         </p>
 
@@ -4195,6 +4029,89 @@ dog.run();</code></pre>
 </div>
 
                 
+                    <div id="attr_autoHighlightFirst" class="attr item">
+    <a name="config_autoHighlightFirst"></a> 
+    <h3 class="name"><code>autoHighlightFirst</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l101"><code>src\api\combobox.js:101</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 false. 是否当自动补全菜单出现时高亮第一项</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use(&quot;node,combobox&quot;, function (S, Node, ComboBox) {
+    var $ = Node.all;
+    var data = [&quot;a123456&quot;, &quot;b12345&quot;, &quot;c3464356&quot;, &quot;d23434&quot;];
+
+    var basicComboBox = new ComboBox({
+        width:100,
+        srcNode:$(&quot;#combobox&quot;),
+        // 初始就聚焦
+        focused:true,
+        hasTrigger:false,
+        dataSource:new ComboBox.LocalDataSource({
+            data:data
+        })
+    });
+    basicComboBox.render();
+
+    // 得到焦点时展示全部
+    basicComboBox.get(&quot;input&quot;).on(&quot;focus&quot;, function () {
+        basicComboBox.sendRequest(&#39;&#39;);
+    });
+}</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
                     <div id="attr_collapsed" class="attr item">
     <a name="config_collapsed"></a> 
     <h3 class="name"><code>collapsed</code></h3>
@@ -4225,7 +4142,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_combobox.js.html#l115"><code>src\api\combobox.js:115</code></a>
+        <a href="../files/src_api_combobox.js.html#l141"><code>src\api\combobox.js:141</code></a>
         
         </p>
 
@@ -4334,6 +4251,64 @@ dog.run();</code></pre>
 
     <div class="description">
         <p>只读属性，组件结构是否已经创建</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_dataSource" class="attr item">
+    <a name="config_dataSource"></a> 
+    <h3 class="name"><code>dataSource</code></h3>
+    <span class="type"><a href="..\classes\ComboBox.LocalDataSource.html" class="crosslink">ComboBox.LocalDataSource</a> | <a href="..\classes\ComboBox.RemoteDataSource.html" class="crosslink">ComboBox.RemoteDataSource</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l50"><code>src\api\combobox.js:50</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>数据源配置
+例如静态数据源的配置:</p>
+<pre class="code prettyprint"><code>{
+    dataSource : new ComboBox.LocalDataSource({
+                    data:[&quot;abc&quot;,&quot;123&quot;]
+                })
+}</code></pre>
 
     </div>
 
@@ -4688,6 +4663,126 @@ dog.run();</code></pre>
 </div>
 
                 
+                    <div id="attr_format" class="attr item">
+    <a name="config_format"></a> 
+    <h3 class="name"><code>format</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l74"><code>src\api\combobox.js:74</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>可选。自定义下拉菜单属性的函数，传入参数 query(自动补全框当前值) , data(匹配数据数组)。 返回对象数组，其中对象的 content 属性表示菜单项显示内容，textContent 表示放入到自动补全框的内容，disabled 表示当前项是否被禁用.
+例如高亮的处理:</p>
+<pre class="code prettyprint"><code>{
+    format:function(query, data){
+        var ret = [];
+        for (var i = 0; i &lt; data.length; i++) {
+            ret[i] = {
+                content:(data[i] + &quot;&quot;)
+                        .replace(new RegExp(S.escapeRegExp(query), &quot;g&quot;),
+                        &quot;&lt;b&gt;$&amp;&lt;/b&gt;&quot;)
+            };
+        }
+        return ret;
+    }
+}</code></pre>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_hasTrigger" class="attr item">
+    <a name="config_hasTrigger"></a> 
+    <h3 class="name"><code>hasTrigger</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l39"><code>src\api\combobox.js:39</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 true. 是否显示下拉按钮</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_height" class="attr item inherited">
     <a name="config_height"></a> 
     <h3 class="name"><code>height</code></h3>
@@ -4819,7 +4914,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_combobox.js.html#l105"><code>src\api\combobox.js:105</code></a>
+        <a href="../files/src_api_combobox.js.html#l131"><code>src\api\combobox.js:131</code></a>
         
         </p>
 
@@ -4890,6 +4985,182 @@ dog.run();</code></pre>
 </div>
 
                 
+                    <div id="attr_listeners" class="attr item inherited">
+    <a name="config_listeners"></a> 
+    <h3 class="name"><code>listeners</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\Base.html#attr_listeners">Base</a>:
+            
+        
+        
+        <a href="../files/src_api_base.js.html#l58"><code>src\api\base.js:58</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><p>配置组件的事件绑定,例如:</p></p>
+<pre class="code prettyprint"><code>{
+    listeners:{
+        customEvent:function(e){
+            alert(e.type); // =&gt; &quot;customEvent&quot;
+        }
+    }
+}
+
+or
+
+{
+    listeners:{
+        customEvent:{
+            fn:function(e){
+                // e.type // =&gt; customEvent
+                // this.xx =&gt; 1
+            },
+            context:{xx:1}
+        }
+    }
+}</code></pre>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_matchWidth" class="attr item">
+    <a name="config_matchWidth"></a> 
+    <h3 class="name"><code>matchWidth</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l68"><code>src\api\combobox.js:68</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否下拉菜单和自动补全框宽度一致。默认 true.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_maxItemCount" class="attr item">
+    <a name="config_maxItemCount"></a> 
+    <h3 class="name"><code>maxItemCount</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l63"><code>src\api\combobox.js:63</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>最多可显示的下拉菜单个数</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_menu" class="attr item">
     <a name="config_menu"></a> 
     <h3 class="name"><code>menu</code></h3>
@@ -4920,7 +5191,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_combobox.js.html#l110"><code>src\api\combobox.js:110</code></a>
+        <a href="../files/src_api_combobox.js.html#l136"><code>src\api\combobox.js:136</code></a>
         
         </p>
 
@@ -4980,6 +5251,116 @@ dog.run();</code></pre>
 
     <div class="description">
         <p>可选，该组件的父组件</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_placeholder" class="attr item">
+    <a name="config_placeholder"></a> 
+    <h3 class="name"><code>placeholder</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l45"><code>src\api\combobox.js:45</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认无. 输入框的提示信息</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_plugins" class="attr item inherited">
+    <a name="config_plugins"></a> 
+    <h3 class="name"><code>plugins</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function[]</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object[]</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="..\classes\Base.html#attr_plugins">Base</a>:
+            
+        
+        
+        <a href="../files/src_api_base.js.html#l86"><code>src\api\base.js:86</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><p>插件构造器数组或插件对象数组. 例如</p></p>
+<pre class="code prettyprint"><code>{
+    plugins: [ Plugin1,Plugin2 ]
+}
+
+// or
+
+{
+    plugins: [new Plugin1(cfg),new Plugin2(cfg)]
+}</code></pre>
 
     </div>
 
@@ -5228,6 +5609,60 @@ dog.run();</code></pre>
 
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_updateInputOnDownUp" class="attr item">
+    <a name="config_updateInputOnDownUp"></a> 
+    <h3 class="name"><code>updateInputOnDownUp</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_api_combobox.js.html#l95"><code>src\api\combobox.js:95</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 true. 上下键是否导致高亮项填充入自动补全框</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
     
 
     
@@ -5560,7 +5995,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l292"><code>src\api\base.js:292</code></a>
+        <a href="../files/src_api_base.js.html#l302"><code>src\api\base.js:302</code></a>
         
         </p>
 
@@ -5685,7 +6120,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l282"><code>src\api\base.js:282</code></a>
+        <a href="../files/src_api_base.js.html#l292"><code>src\api\base.js:292</code></a>
         
         </p>
 
@@ -5878,7 +6313,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_combobox.js.html#l132"><code>src\api\combobox.js:132</code></a>
+        <a href="../files/src_api_combobox.js.html#l158"><code>src\api\combobox.js:158</code></a>
         
         </p>
 
@@ -6138,7 +6573,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_base.js.html#l272"><code>src\api\base.js:272</code></a>
+        <a href="../files/src_api_base.js.html#l282"><code>src\api\base.js:282</code></a>
         
         </p>
 
@@ -6591,7 +7026,7 @@ dog.run();</code></pre>
             
         
         
-        <a href="../files/src_api_combobox.js.html#l126"><code>src\api\combobox.js:126</code></a>
+        <a href="../files/src_api_combobox.js.html#l152"><code>src\api\combobox.js:152</code></a>
         
         </p>
 

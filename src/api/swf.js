@@ -7,15 +7,7 @@
 @class SWF
 @constructor
 @extends Base.Attribute
-@param config {Object}
-@param config.attrs {Object} 将要加到 flash 节点的属性键值对
-@param [config.document] {HTMLDocument} 可选。插入 swf 所属的文档，默认当前文档
-@param [config.elBefore] {HTMLDocument} 可选。 在此元素前插入 swf
-@param [config.expressInstall] {String} 可选。版本低时显示的快速安装 swf ，默认为 kissy 自带地址.
-@param config.params {Object} 将要加到 flash 节点的 param 键值对. 注意其中属性 flashVars 的大小写
-@param config.render {HTMLDocument}  可选。在此元素内添加 swf。 若 render 与 swf 都不设置则插入到 body 节点中
-@param config.src {String} 必选。 swf 元素的地址。
-@param config.version {String} 可选。最低 flash 版本要求，达不到要求显示 expressInstall。例如 9.1.234，默认 9.0
+@param config {Object} 配置对象，详见其Attribute
 @example
 ```
 KISSY.use('swf',function(S,SWF){
@@ -38,6 +30,63 @@ KISSY.use('swf',function(S,SWF){
     swf.callSWF('save',[key,value]);
 });
 ```
+*/
+
+@param config.attrs {Object} 
+@param [config.
+@param [config.
+@param [config.
+@param config.
+@param config.
+@param config.
+@param config.
+
+
+/**
+将要加到 flash 节点的属性键值对
+@attribute attrs {Object} 
+*/
+
+/**
+可选。插入 swf 所属的文档，默认当前文档
+@attribute document {HTMLDocument} 
+@optional
+*/
+
+/**
+可选。 在此元素前插入 swf
+@attribute elBefore {HTMLDocument} 
+@optional
+*/
+
+/**
+可选。版本低时显示的快速安装 swf ，默认为 kissy 自带地址.
+@attribute expressInstall {String} 
+@optional
+*/
+
+/**
+将要加到 flash 节点的 param 键值对. 注意其中属性 flashVars 的大小写
+@attribute params {Object} 
+@optional
+*/
+
+/**
+可选。在此元素内添加 swf。 若 render 与 swf 都不设置则插入到 body 节点中
+@attribute render {HTMLDocument} 
+@optional 
+*/
+
+/**
+必选。 swf 元素的地址。
+@attribute src {String} 
+@required
+*/
+
+/**
+可选。最低 flash 版本要求，达不到要求显示 expressInstall。例如 9.1.234，默认 9.0
+@attribute version {String}
+@optional
 */
 
 /**

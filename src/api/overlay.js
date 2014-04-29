@@ -33,12 +33,15 @@
 @extends Container
 @uses Shim
 @uses Align
-@param config {Object} 配置项，如下：
-@param config.effect {Object} 可选, 显示或隐藏时的特效支持, 对象包含以下配置:
-@param config.effect.target {String|KISSY.Node} 可选,动画的参考元素
-@param config.effect.effect {String} 可取值 ‘fade’(渐隐显示), ‘slide’(滑动显示)
-@param config.effect.easing {String}  同 [Anim](/5.0/api/classes/Anim.html) 的 easing 参数配置
-@param config.effect.duration {Number} 可选, 动画持续时间, 以秒为单位.例如：
+@param config {Object} 配置详见其Attribute
+*/
+
+/**
+可选, 显示或隐藏时的特效支持, 对象包含以下配置:
+- effect.target {String|KISSY.Node} 可选,动画的参考元素
+- effect.effect {String} 可取值 ‘fade’(渐隐显示), ‘slide’(滑动显示)
+- effect.easing {String}  同 [Anim](/5.0/api/classes/Anim.html) 的 easing 参数配置
+- effect.duration {Number} 可选, 动画持续时间, 以秒为单位.例如：
 ```
 {
     target:'',        // {String|KISSY.Node} - 可选，动画的参考元素
@@ -47,12 +50,33 @@
     duration:3        // {Number} - 可选, 动画持续时间, 以秒为单位.
 }
 ```
-@param config.closable {Boolean} 对话框右上角是否包括关闭按钮
-@param config.closeAction {String} 点击关闭按钮的动作。默认 “hide” 隐藏，也可设置 “destroy” 销毁该组件
-@param config.mask {Boolean|Object} 组件显示时是否使用遮罩层盖住页面其他元素
-@param config.mask.closeOnClick {Boolean} 可选. 点击遮罩层是否关闭 overlay. (具体隐藏或销毁依赖 closeAction)
-@param config.mask.effect {String} 可选. 遮罩层显示隐藏效果. (取值 ‘fade’,’slide’)
-@param config.duration {Number} 可选, 动画持续时间, 以秒为单位.
+@attribute effect
+*/
+
+/**
+对话框右上角是否包括关闭按钮
+@attribute closable {Boolean}
+*/
+
+/**
+点击关闭按钮的动作。默认 “hide” 隐藏，也可设置 “destroy” 销毁该组件
+@attribute closeAction {String}
+*/
+
+/**
+mask的相关配置：
+- 当为Boolean时，表示组件显示时是否使用遮罩层盖住页面其他元素
+- 当为Object时，有如下配置：
+    - mask.closeOnClick {Boolean} 可选. 点击遮罩层是否关闭 overlay. (具体隐藏或销毁依赖 closeAction)
+    - mask.effect {String} 可选. 遮罩层显示隐藏效果. (取值 ‘fade’,’slide’)
+    - mask.duration {Number} 可选. 效果持续时间. 单位秒
+@attribute mask {Boolean|Object} 
+*/
+
+/**
+可选, 动画持续时间, 以秒为单位.
+@attribute duration {Number} 
+@optional
 */
 
 /**
@@ -88,14 +112,7 @@
 @constructor
 @namespace Overlay
 @extends Overlay
-@param config {Object}
-@param config.headerContent {String} 组件的标题 html
-@param config.escapeToClose=true {Boolean} 默认 true. escape 键是否触发 close 动作
-@param config.bodyContent {String} 组件的体 html
-@param config.footerContent {String} 组件的底部 html
-@param config.headerStyle {Object} 组件的标题内联样式
-@param config.bodyStyle {Object} 组件体的内联样式.
-@param config.footerStyle {Object} 组件的底部内联样式
+@param config {Object} 配置对象，详见其Attribute
 @example
 
 对话框的 DOM 结构为：
@@ -115,6 +132,41 @@
 ```
 */
 
+/**
+组件的标题 html
+@attribute headerContent {String}
+*/
+
+/**
+默认 true. escape 键是否触发 close 动作
+@attribute escapeToClose {Boolean}
+@default true
+*/
+
+/**
+组件的体 html
+@attribute bodyContent {String} 
+*/
+
+/**
+组件的底部 html
+@attribute footerContent {String} 
+*/
+
+/**
+组件的标题内联样式
+@attribute headerStyle {Object} 
+*/
+
+/**
+组件体的内联样式.
+@attribute bodyStyle {Object}
+*/
+
+/**
+组件的底部内联样式
+@attribute footerStyle {Object}
+*/
 
 /**
 只读, 组件的头部节点
@@ -158,11 +210,30 @@
 @constructor
 @namespace Overlay
 @extends Overlay
-@param config {Object}
-@param config.trigger {String|HTMLElement[]|KISSY.NodeList} 触点集合
-@param [config.triggerType="click"] {String} 可选, 默认为 ‘click’, 触发类型, 可选 ‘click’, ‘mouse’.
-@param config.mouseDelay=0.1 {Number} 单位秒. 可选, triggerType 为 mouse 时, Popup 显示的延迟时间, 默认为 0.1.
-@param [config.toggle=false] {Boolean} 可选, triggerType 为 click 时, Popup 是否有toggle功能，默认为false，不开启
+@param config {Object} 配置对象，详见其Attribute
+*/
+
+/**
+触点集合
+@attribute trigger {String|HTMLElement[]|KISSY.NodeList} 
+*/
+
+/**
+可选, 默认为 ‘click’, 触发类型, 可选 ‘click’, ‘mouse’.
+@attribute triggerType {String}
+@default "click"
+*/
+
+/**
+单位秒. 可选, triggerType 为 mouse 时, Popup 显示的延迟时间, 默认为 0.1.
+@attribute mouseDelay {Number} 
+@default 0.1
+*/
+
+/**
+可选, triggerType 为 click 时, Popup 是否有toggle功能，默认为false，不开启
+@attribute toggle {Boolean} 
+@default false
 */
 
 /**

@@ -329,6 +329,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\editor.js": {
+            "name": "src\\api\\editor.js",
+            "modules": {
+                "editor": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\event.js": {
             "name": "src\\api\\event.js",
             "modules": {
@@ -902,7 +911,7 @@
             },
             "tag": "module",
             "file": "src\\api\\base.js",
-            "line": 194,
+            "line": 204,
             "description": "鉴于不同浏览器对属性描述符的支持并不统一, KISSY 的 attribute 模块, 模拟实现了属性描述符, 提供属性的获取和设置操作, 即属性的 getter 和 setter 动作.\n\n而 KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 让继承 Base 的子类自动具有 attribute 的功能.如果你想让自定义类默认就支持 attribute 功能, 请直接继承 Base"
         },
         "button": {
@@ -933,7 +942,7 @@
             },
             "tag": "module",
             "file": "src\\api\\combobox.js",
-            "line": 211
+            "line": 274
         },
         "cookie": {
             "name": "cookie",
@@ -964,7 +973,7 @@
             },
             "tag": "module",
             "file": "src\\api\\dd.js",
-            "line": 329,
+            "line": 392,
             "description": "拖放功能\n\n#Note \n支持 win8 的触摸事件"
         },
         "dom": {
@@ -979,6 +988,16 @@
             "file": "src\\api\\dom.js",
             "line": 6,
             "description": "提供类DOM"
+        },
+        "editor": {
+            "name": "editor",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\editor.js",
+            "line": 1
         },
         "event": {
             "name": "event",
@@ -1075,7 +1094,7 @@
             },
             "tag": "module",
             "file": "src\\api\\menu.js",
-            "line": 119
+            "line": 153
         },
         "menubutton": {
             "name": "menubutton",
@@ -1091,7 +1110,7 @@
             },
             "tag": "module",
             "file": "src\\api\\menubutton.js",
-            "line": 99
+            "line": 114
         },
         "node": {
             "name": "node",
@@ -1120,7 +1139,7 @@
             },
             "tag": "module",
             "file": "src\\api\\overlay.js",
-            "line": 155
+            "line": 207
         },
         "path": {
             "name": "path",
@@ -1802,45 +1821,9 @@
                 },
                 {
                     "name": "config",
-                    "description": "动画配置项",
+                    "description": "动画配置项，详情参考其Attribute",
                     "type": "Object",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "duration",
-                            "description": "单位秒。默认 1 秒.动画持续时间",
-                            "type": "Number",
-                            "optional": true,
-                            "optdefault": "1"
-                        },
-                        {
-                            "name": "easing",
-                            "description": "默认 ‘easeNone’. 动画平滑函数",
-                            "type": "String",
-                            "optional": true,
-                            "optdefault": "\"easeNone\""
-                        },
-                        {
-                            "name": "queue",
-                            "description": "所属队列名称. 默认undefined. 属于系统内置队列, 设置 false 则表示该动画不排队立即执行",
-                            "type": "String|false|undefined",
-                            "optional": true,
-                            "optdefault": "undefined"
-                        },
-                        {
-                            "name": "complete",
-                            "description": "动画到最后一帧后的回调函数",
-                            "type": "Function",
-                            "optional": true
-                        },
-                        {
-                            "name": "useTransition",
-                            "description": "是否使用css3 transition提升性能。\n在 useTransition 为 true 的时候，easing 的值必须是 w3c 规定的时间函数名称。\n具体为： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(p1x, p1y, p2x, p2y)",
-                            "type": "Boolean",
-                            "optional": true,
-                            "optdefault": "false"
-                        }
-                    ]
+                    "optional": true
                 }
             ]
         },
@@ -1865,20 +1848,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "属性名/配置信息对",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "listeners",
-                            "description": "配置组件的事件绑定,例如:\n```\n{\n    listeners:{\n        customEvent:function(e){\n            alert(e.type); // => \"customEvent\"\n        }\n    }\n}\n\nor\n\n{\n    listeners:{\n        customEvent:{\n            fn:function(e){\n                // e.type // => customEvent\n                // this.xx => 1\n            },\n            context:{xx:1}\n        }\n    }\n}\n```",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "plugins",
-                            "description": "插件构造器数组或插件对象数组. 例如\n```\n{\n    plugins: [ Plugin1,Plugin2 ]\n}\n\n// or\n\n{\n    plugins: [new Plugin1(cfg),new Plugin2(cfg)]\n}\n```",
-                            "type": "Function[]|Object[]"
-                        }
-                    ]
+                    "description": "配置项，详情参考其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -1893,7 +1864,7 @@
             "module": "base",
             "namespace": "Base",
             "file": "src\\api\\base.js",
-            "line": 194,
+            "line": 204,
             "description": "包含一些属性操作的方法，仅用于 [augment()](5.0/api/classes/Util.html#method_augment)]",
             "is_constructor": 1
         },
@@ -1914,35 +1885,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项，详细见下方:",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "content",
-                            "description": "按钮的显示内容",
-                            "type": "String"
-                        },
-                        {
-                            "name": "checkable",
-                            "description": "按钮是 toggle button",
-                            "type": "String"
-                        },
-                        {
-                            "name": "value",
-                            "description": "可选，按钮值",
-                            "type": "String"
-                        },
-                        {
-                            "name": "describedby",
-                            "description": "可选，按钮节点的 aria-describedby 属性值",
-                            "type": "String"
-                        },
-                        {
-                            "name": "tooltip",
-                            "description": "可选，按钮节点的 title 属性值",
-                            "type": "String"
-                        }
-                    ]
+                    "description": "配置项，详细见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -1964,77 +1908,9 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项，如下：",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "hasTrigger",
-                            "description": "默认 true. 是否显示下拉按钮",
-                            "type": "Boolean",
-                            "optional": true,
-                            "optdefault": "true"
-                        },
-                        {
-                            "name": "placeholder",
-                            "description": "默认无. 输入框的提示信息",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "autoHighlightFirst",
-                            "description": "默认 false. 是否默认选中下拉提示第一项",
-                            "type": "Boolean",
-                            "optional": true
-                        },
-                        {
-                            "name": "menu",
-                            "description": "可选. xclass 形式的配置，例如指定特定的 align:\n```\n{\n    xclass:'popupmenu',\n    align:{\n        points:['tl','bl']\n    }\n}\n```",
-                            "type": "Object|Menu.PopupMenu",
-                            "optional": true
-                        },
-                        {
-                            "name": "dataSource",
-                            "description": "数据源配置\n例如静态数据源的配置:\n```\n{\n\tdataSource : new ComboBox.LocalDataSource({\n\t\t\t\t    data:[\"abc\",\"123\"]\n\t\t\t\t})\n} \n```",
-                            "type": "ComboBox.LocalDataSource|ComboBox.RemoteDataSource"
-                        },
-                        {
-                            "name": "maxItemCount",
-                            "description": "最多可显示的下拉菜单个数",
-                            "type": "Number",
-                            "optional": true
-                        },
-                        {
-                            "name": "matchWidth",
-                            "description": "是否下拉菜单和自动补全框宽度一致。默认 true.",
-                            "type": "Boolean",
-                            "optional": true,
-                            "optdefault": "true"
-                        },
-                        {
-                            "name": "format",
-                            "description": "可选。自定义下拉菜单属性的函数，传入参数 query(自动补全框当前值) , data(匹配数据数组)。 返回对象数组，其中对象的 content 属性表示菜单项显示内容，textContent 表示放入到自动补全框的内容，disabled 表示当前项是否被禁用.\n例如高亮的处理:\n```\n{\n    format:function(query, data){\n        var ret = [];\n        for (var i = 0; i < data.length; i++) {\n            ret[i] = {\n                content:(data[i] + \"\")\n                        .replace(new RegExp(S.escapeRegExp(query), \"g\"),\n                        \"<b>$&</b>\")\n            };\n        }\n        return ret;\n    }\n}\n```",
-                            "type": "Function",
-                            "optional": true
-                        },
-                        {
-                            "name": "updateInputOnDownUp",
-                            "description": "默认 true. 上下键是否导致高亮项填充入自动补全框",
-                            "type": "Boolean",
-                            "optional": true,
-                            "optdefault": "true"
-                        },
-                        {
-                            "name": "autoHighlightFirst",
-                            "description": "默认 false. 是否当自动补全菜单出现时高亮第一项",
-                            "type": "Boolean",
-                            "optional": true,
-                            "optdefault": "false"
-                        }
-                    ]
+                    "description": "配置项，详见其Attribute",
+                    "type": "Object"
                 }
-            ],
-            "example": [
-                "\n```\nKISSY.use(\"node,combobox\", function (S, Node, ComboBox) {\n\tvar $ = Node.all;\n    var data = [\"a123456\", \"b12345\", \"c3464356\", \"d23434\"];\n\n    var basicComboBox = new ComboBox({\n        width:100,\n        srcNode:$(\"#combobox\"),\n        // 初始就聚焦\n        focused:true,\n        hasTrigger:false,\n        dataSource:new ComboBox.LocalDataSource({\n            data:data\n        })\n    });\n    basicComboBox.render();\n\n    // 得到焦点时展示全部\n    basicComboBox.get(\"input\").on(\"focus\", function () {\n        basicComboBox.sendRequest('');\n    });\n}\n```"
             ]
         },
         "ComboBox.MultiValueComboBox": {
@@ -2048,53 +1924,15 @@
             "module": "combobox",
             "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
-            "line": 143,
+            "line": 170,
             "is_constructor": 1,
             "extends": "ComboBox",
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项，如下：",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "multiple",
-                            "description": "默认 false. 是否允许多个值的输入",
-                            "type": "Boolean",
-                            "optional": true,
-                            "optdefault": "false"
-                        },
-                        {
-                            "name": "separator",
-                            "description": "当允许多个值输入时，分割多个值的分隔符",
-                            "type": "String",
-                            "optional": true,
-                            "optdefault": "\",;\""
-                        },
-                        {
-                            "name": "separatorType",
-                            "description": "默认 “suffix”. 可取枚举值（”prefix”,”suffix”）. 表示分隔符在最前面( @xx 模式)还是在最后面(gmail 模式).",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "alignWithCursor",
-                            "description": "默认 false. 自动补全菜单是否和光标对齐.",
-                            "type": "Boolean",
-                            "optional": true,
-                            "optdefault": "false"
-                        },
-                        {
-                            "name": "literal",
-                            "description": "默认 \" 在该字符内的所有字符（包括分隔符）都算作普通字符.",
-                            "optional": true,
-                            "optdefault": "'\"'"
-                        }
-                    ]
+                    "description": "配置项，详见其Attribute",
+                    "type": "Object"
                 }
-            ],
-            "example": [
-                "\n```\nKISSY.use('combobox',function(S,ComboBox){\n    // use ComboBox.MultiValueComboBox\n});"
             ]
         },
         "ComboBox.FilterSelect": {
@@ -2108,22 +1946,15 @@
             "module": "combobox",
             "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
-            "line": 164,
+            "line": 212,
             "description": "限定范围的输入框.",
             "is_constructor": 1,
             "extends": "ComboBox",
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项，如下：",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "invalidMessage",
-                            "description": "当用户的输入不匹配下拉提示的内容时的出错信息",
-                            "type": "String"
-                        }
-                    ]
+                    "description": "配置项，详见其Attribute",
+                    "type": "Object"
                 }
             ],
             "example": [
@@ -2141,27 +1972,14 @@
             "module": "combobox",
             "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
-            "line": 180,
+            "line": 235,
             "description": "本地数据源，配合[ComboBox](5.0/api/classes/ComboBox.html)使用",
             "is_constructor": 1,
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项，如下：",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "data",
-                            "description": "静态数据数组",
-                            "type": "Object[]"
-                        },
-                        {
-                            "name": "parse",
-                            "description": "可选. 如何根据用户输入对数据进行过滤。默认为\n```\nfunction parser(inputVal, data) {\n    var ret = [],\n        count = 0;\n\n    if (!inputVal) {\n        return data;\n    }\n\n    S.each(data, function (d) {\n        if (d.indexOf(inputVal) != -1) {\n            ret.push(d);\n        }\n        count++;\n    });\n\n    return ret;\n}\n\n```",
-                            "type": "Function",
-                            "optional": true
-                        }
-                    ]
+                    "description": "配置项，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2176,41 +1994,14 @@
             "module": "combobox",
             "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
-            "line": 211,
+            "line": 274,
             "description": "数据源，配合[ComboBox](5.0/api/classes/ComboBox.html)使用",
             "is_constructor": 1,
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项，如下：",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "paramName='q'",
-                            "description": "用户输入发送到后端的参数名，默认 ‘q’",
-                            "type": "String"
-                        },
-                        {
-                            "name": "parse",
-                            "description": "可选. 如何根据用户输入对后台返回数据进行过滤。默认\n```\nfunction parser(\n    // 用户输入\n    inputVal,\n    // 服务器返回数据\n    data) {\n    return data;\n}\n```",
-                            "type": "Function"
-                        },
-                        {
-                            "name": "allowEmpty=false",
-                            "description": "默认 false. 用户输入为空时是否发请求",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "cache=false",
-                            "description": "默认 false. 是否缓存服务器端数据",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "xhrCfg",
-                            "description": "传递给 IO 的其他参数",
-                            "type": "Object"
-                        }
-                    ]
+                    "description": "配置项，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2246,54 +2037,9 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "实例化可拖放对象的配置项, 如下：",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "node",
-                            "description": "将要进行拖放的节点",
-                            "type": "String|HTMLElement"
-                        },
-                        {
-                            "name": "groups",
-                            "description": "可拖动对象在的组。（设置后只和本组的droppable对象交互），默认值为true, 可以和所有组的 droppable 都交互。 若不需要和任何droppable 交互，为了性能，请设置 groups 为 false. 例如： {‘x’:1,’y’:1} 表示属于 x 和 y 组",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "handlers",
-                            "description": "作为鼠标在其上按下时触发节点拖放的钩子. 字符串时表示选择器字符串. 如果不设置, 则整个 node 作为触发钩子.\n#### handlers 的每个元素 DOM 节点必须位于配置项 node DOM 子树中.",
-                            "type": "Array<String|HTMLElement>"
-                        },
-                        {
-                            "name": "clickPixelThresh=3",
-                            "description": "默认 3, 表示鼠标按下后移动多少像素后触发 dragstart 事件",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "bufferTime=1000",
-                            "description": "默认 1000, 表示鼠标按下多长时间后触发 dragstart 事件. 可通过 DDM.set(“bufferTime”,xx) 设置.",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "disabled=false",
-                            "description": "是否禁用改拖对象功能",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "move=false",
-                            "description": "默认 false。关联元素是否随鼠标移动。（例如：resize 功能完全不需要关联元素移动）",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "mode='point'",
-                            "description": "枚举值, 默认值 “point”, 和 Droppable 关联, 决定何时和可放对象开始交互(触发相应事件), 可取值 “point”,”intersect”,”strict”\n- 在 “point” 模式下, 只要鼠标略过可放对象, 即开始和可放对象交互.\n- 在 “intersect” 模式下, 只要拖动对象和可放对象有交集, 即开始和可放对象交互.\n- 在 “strict” 模式下, 只有拖动对象完全位于可放对象内, 才开始和可放对象交互",
-                            "type": "String"
-                        }
-                    ]
+                    "description": "配置项，详见其Attribute",
+                    "type": "Object"
                 }
-            ],
-            "example": [
-                "\nDraggable 默认实例化后仅表示会根据鼠标拖放触发 drag() 事件, 并不会导致节点移动， 通过以下设置来使得节点跟随鼠标移动：\n\n设置 move 为 true.\n```\nnew Draggable({\n    node:\"#d\",\n    move:true\n});\n```"
             ]
         },
         "DD.Droppable": {
@@ -2307,31 +2053,14 @@
             "module": "dd",
             "namespace": "DD",
             "file": "src\\api\\dd.js",
-            "line": 140,
+            "line": 176,
             "is_constructor": 1,
             "extends": "Base",
             "params": [
                 {
                     "name": "config",
-                    "description": "配置对象",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "node",
-                            "description": "可与拖动对象交互的节点.",
-                            "type": "String | HTMLElement"
-                        },
-                        {
-                            "name": "groups",
-                            "description": "可与拖动对象交互的节点. 例如： {‘x’:1,’y’:1} 表示属于 x 和 y 组.",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "disabled=false",
-                            "description": "默认 false。是否禁用改拖对象功能.",
-                            "type": "Boolean"
-                        }
-                    ]
+                    "description": "配置对象,详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2346,7 +2075,7 @@
             "module": "dd",
             "namespace": "DD",
             "file": "src\\api\\dd.js",
-            "line": 187,
+            "line": 237,
             "description": "拖放的中央控制对象, 所有的拖放实例的事件都会向其冒泡.",
             "extends": "Base",
             "static": 1
@@ -2362,32 +2091,15 @@
             "module": "dd",
             "namespace": "DD",
             "file": "src\\api\\dd.js",
-            "line": 305,
+            "line": 355,
             "description": "委托容器内的所有 Draggable 节点的拖放行为.",
             "is_constructor": 1,
             "extends": "DD.Draggable",
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "container",
-                            "description": "用于委托的容器节点, 所有 Draggable 节点都在其内",
-                            "type": "String | HTMLElement"
-                        },
-                        {
-                            "name": "selector",
-                            "description": "用来获取容器内的 Draggable 节点, 格式为 tag 或 tag.cls 或 .cls",
-                            "type": "String"
-                        },
-                        {
-                            "name": "handlers",
-                            "description": "数组每个元素是选择器字符串, 格式为 tag 或 tag.cls 或 .cls, 作为鼠标在其上按下时触发节点拖放的钩子. 如果不设置, 则整个可拖放节点都作为触发钩子. 其中可拖放节点通过 selector 从容器 container 中取得",
-                            "type": "Array"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2402,27 +2114,15 @@
             "module": "dd",
             "namespace": "DD",
             "file": "src\\api\\dd.js",
-            "line": 329,
+            "line": 392,
             "description": "为 Draggable 对象提供所需要的代理节点",
             "is_constructor": 1,
             "extends": "DD.Droppable",
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "container",
-                            "description": "用于委托的容器节点, 所有 Draggable 节点都在其内",
-                            "type": "String | HTMLElement"
-                        },
-                        {
-                            "name": "selector",
-                            "description": "用来获取容器内的 Draggable 节点, 格式为 tag 或 tag.cls 或 .cls",
-                            "type": "String"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2505,25 +2205,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "allowMultiple=false",
-                            "description": "是否允许输入多个， 默认为false",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "placeholder",
-                            "description": "placeholder 内容",
-                            "type": "String"
-                        },
-                        {
-                            "name": "filterStr",
-                            "description": "过滤的字符串",
-                            "type": "String"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2544,162 +2227,8 @@
             "params": [
                 {
                     "name": "cfg",
-                    "description": "用来配置请求的键值对对象. 所有的配置项都是可选的,可以通过 io.setupConfig() 来设置默认配置",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "url",
-                            "description": "类型 String. 本次请求发送的地址",
-                            "type": "String"
-                        },
-                        {
-                            "name": "accepts",
-                            "description": "该设置和dataType一起确定定当前发送给服务器的 Accept 头，默认包括：\n```\n{\n    xml: \"application/xml, text/xml\",\n    html: \"text/html\",\n    text: \"text/plain\",\n    json: \"application/json, text/javascript\"\n}\n```",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "dataType",
-                            "description": "期望能够从服务器返回的数据类型.如果没有指定，kissy 将尽量从返回的`mimeType | Content-type`相应头中推导出来 (‘text/xml’ 将推导出 xml , ‘text/json’ 将推导出 json)\n默认支持的类型（该类型的响应信息会作为第一个参数传到 success complete 回调中）有:\n- \"xml\" : 返回响应信息代表的 xml 文档.\n- \"text\" : 返回响应信息串\n- \"html\" : 同 \"text\"\n- \"script\" : 将响应信息作为脚本执行。\n- \"json\" : 返回响应信息代表的 json 对象.\n- \"jsonp\" : 返回 jsonp 的响应信息代表的 json 对象.",
-                            "type": "String"
-                        },
-                        {
-                            "name": "processData=true",
-                            "description": "当 data 为对象时是否用 param() 序列化. 例如当需要传送一个 xml 或 formdata 到服务器时就不需要 param data， 并且最好同时设置 contentType 为合适的值",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "async=true",
-                            "description": "本次 xhr 请求是否异步发送，如果你需要同步发送，设置该配置为 false,注意同步请求在完成前会锁死浏览器",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "cache",
-                            "description": "dataType 为 script 或 jsonp 时默认 false，其他默认为 true. false 时则会自动给请求 url 加上时间戳",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "contentType=\"application/x-www-form-urlencoded\"",
-                            "description": "设置 false 则不设置 Content-type 头 (例如传输 formdata 时需要设置 false).注意：\"application/x-www-form-urlencoded\"时的数据总是以 utf-8 的编码传往服务器端",
-                            "type": "String"
-                        },
-                        {
-                            "name": "context",
-                            "description": "设置回调函数中的 this 值,默认为当前配置项.例如可以把一个 dom 节点作为 complete 回调函数的上下文",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "crossDomain",
-                            "description": "默认同域请求为 false,不同域间为 true。设置该值为 true，则强制 script 以及 jsonp 请求通过 script 节点发送，用于服务器重定向到其他域脚本的场景",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "data",
-                            "description": "如果为 Object 类型则会通过 param() 格式化为字符串\n注意:data 不能为嵌套 object 等复杂类型，例如: 不能是`{data : [{x : 1}]}`,可以为{data : [1]}",
-                            "type": "Object|String"
-                        },
-                        {
-                            "name": "serializeArray=true",
-                            "description": "表示序列化 data 时是否给数组值对应的键名加 []",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "error",
-                            "description": "请求失败时的回调函数.这个函数接受 2 个参数:\n- textStatus 表示错误信息，包括 “timeout” , “error” , “abort” 等\n- io 表示这次请求代表的 io 实例",
-                            "type": "Function"
-                        },
-                        {
-                            "name": "success",
-                            "description": "请求成功时的回调函数.该函数传入三个参数:\n- data : 根据 dataType 格式化服务器响应信息的响应对象\n- textStatus : 描述成功的状态，一般是 “success”\n- io : 本次请求的 io 实例.",
-                            "type": "Function"
-                        },
-                        {
-                            "name": "complete",
-                            "description": "请求完成时(无论成功失败)的回调函数.该函数传入三个参数\n- data : 根据 dataType 格式化服务器响应信息的响应对象\n- textStatus : 描述成功的状态，一般是 “success”\n- io : 本次请求的 io 实例.",
-                            "type": "Function"
-                        },
-                        {
-                            "name": "headers",
-                            "description": "设置这次请求 xhr 的请求头",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "jsonp",
-                            "description": "覆盖这次 jsonp 请求的 callback 函数名. 这个值可以取代请求 url 中 callback=? 的 callback.例如 {jsonp:’onJsonLoad’} 会导致 ‘onJsonLoad=?’ 发送给服务器端",
-                            "type": "String"
-                        },
-                        {
-                            "name": "jsonpCallback",
-                            "description": "覆盖这次 jsonp 请求 callback 函数对应的值 (callback={jsonpCallback}). 这个值将取代 kissy 默认生成的 UUID 值.\n当传入函数时，该函数需要返回字符串，每次请求都会调用该函数得到用于替换的字符串",
-                            "type": "String|Function"
-                        },
-                        {
-                            "name": "mimeType",
-                            "description": "跨平台设置 xhr 的 mimeType",
-                            "type": "String"
-                        },
-                        {
-                            "name": "password",
-                            "description": "对于需要验证的 http 请求设置密码",
-                            "type": "String"
-                        },
-                        {
-                            "name": "username",
-                            "description": "对于需要验证的 http 请求设置用户名",
-                            "type": "String"
-                        },
-                        {
-                            "name": "scriptCharset",
-                            "description": "用于 dataType jsonp 和 script ，设定传输用的 script 节点的 charset 属性。只有当返回编码和当前页面编码不一致时使用",
-                            "type": "String"
-                        },
-                        {
-                            "name": "timeout",
-                            "description": "对这次请求设个超时时间，单位秒. 当超时后会触发 error 以及 complete 回调 , 状态字符串为 “timeout”.",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "type",
-                            "description": "可取值 “get” 或者 “post”",
-                            "type": "String"
-                        },
-                        {
-                            "name": "xhrFields",
-                            "description": "设置到原生 xhr 对象的键值对.例如为了在标准浏览器进行跨域请求时携带cookie你可以设置 withCredentials 为 true.\n```\nnew IO({\n    url:\"http://y.com/ping.php\",\n    xhrFields:{\n        withCredentials: true\n    }\n});\n```\n这样 x.com 发送请求 y.com 会携带 y.com 的 cookie 信息",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "xdr",
-                            "description": "设置跨域的具体方式和细节，包括以下配置",
-                            "type": "Obect",
-                            "props": [
-                                {
-                                    "name": "src",
-                                    "description": "完全跨域请求的 flash 发送程序地址。当完全跨域时,KISSY io 在ie 中将采用 flash 发请求，默认采用 KISSY 自带 flash 发请求，也可将 kissy 自带的 flash 部署到其他地方，在 src 中指定;在标准浏览器将采用原生机制",
-                                    "type": "String"
-                                },
-                                {
-                                    "name": "subDomain",
-                                    "description": "跨子域时的一些请求配置，包括",
-                                    "type": "Object"
-                                },
-                                {
-                                    "name": "subDomain.proxy",
-                                    "description": "指定代理页面的地址。默认 “/sub_domain_proxy.html” . 例如 x.taobao.com 要发送请求给 y.taobao.com ，那么需要设置 x.taobao.com 的页面 document.domain=’taobao.com’ ，然后提供 y.taobao.com/sub_domain_proxy.html ，该页面内容为\n`<script>document.domain='taobao.com'</script>`然后 x.taobao.com 的页面就可以和 y.taobao.com 通信了",
-                                    "type": "String"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "form",
-                            "description": "字符串表示 css3 选择器\n- 如果 form 的 enctype 为 “multipart/form-data` 则会采用 iframe 的方式进行无刷新文件上传，\n- 否则将 form 内的输入域和值序列化后通过 xhr 发送到服务器",
-                            "type": "String"
-                        }
-                    ]
-                },
-                {
-                    "name": "beforeSend",
-                    "description": "发送请求前的拦截函数，传入参数 (xhrObject, config)\n例如可以通过该函数实现上传进度监控\n```\nvar xhr = new IO({\n    url:'./upload.php',\n    type:\"post\",\n    processData:false,\n    data:formData,\n    dataType:'json',\n    contentType:false,\n    beforeSend:function (xhr) {\n        // 上传监听 upload\n        xhr.getNativeXhr().upload.addEventListener('progress', function (ev) {\n            S.log({ 'loaded':ev.loaded, 'total':ev.total });\n        });\n    },\n    success:function (d) {\n        S.log(d);\n    }\n});\n```",
-                    "type": "Function"
+                    "description": "用来配置请求的键值对对象. 所有的配置项都是可选的,可以通过 io.setupConfig() 来设置默认配置。详见其Attribute",
+                    "type": "Object"
                 }
             ],
             "example": [
@@ -2774,31 +2303,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项,如下：",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "selectable",
-                            "description": "是否可以被选择，可以的话，单击会添加指定 class 到根节点.",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "checkable",
-                            "description": "是否可以被多选，可以的话，单击会添加或删除根节点的指定 class",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "value",
-                            "description": "可选，该菜单项的值",
-                            "type": "Any",
-                            "optional": true
-                        },
-                        {
-                            "name": "content",
-                            "description": "该菜单项的显示内容",
-                            "type": "String"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2813,33 +2319,14 @@
             "module": "menu",
             "namespace": "Menu",
             "file": "src\\api\\menu.js",
-            "line": 67,
+            "line": 82,
             "is_constructor": 1,
             "extends": "Menu.Item",
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "menuDelay",
-                            "description": "可选，默认 0.15，单位秒。鼠标掠过后多长时间显示子菜单.",
-                            "type": "Number",
-                            "optional": true,
-                            "optdefault": "0.5"
-                        },
-                        {
-                            "name": "menu",
-                            "description": "子菜单实例",
-                            "type": "Menu"
-                        },
-                        {
-                            "name": "externalSubMenu=false",
-                            "description": "可选，默认 false . 销毁该菜单项是否顺带销毁子菜单",
-                            "type": "Boolean"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2854,7 +2341,7 @@
             "module": "menu",
             "namespace": "Menu",
             "file": "src\\api\\menu.js",
-            "line": 95,
+            "line": 126,
             "is_constructor": 1,
             "extends": "Menu",
             "uses": [
@@ -2863,15 +2350,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "autoHideOnMouseLeave=false",
-                            "description": "默认 false。鼠标移出子菜单时子菜单是否自动隐藏\n\n#### 从已有元素实例 PopupMenu 对象时 , 元素节点标明类名 {prefixCls}popupmenu . prefixCls 为配置的类名前缀，默认为 ks- .\n\n若使用默认的类名前缀，使用前请加上初始样式\n```\n<style>\n    .ks-popupmenu {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n</style>\n```",
-                            "type": "Boolean"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribtue",
+                    "type": "Object"
                 }
             ]
         },
@@ -2886,22 +2366,15 @@
             "module": "menu",
             "namespace": "Menu",
             "file": "src\\api\\menu.js",
-            "line": 119,
+            "line": 153,
             "description": "checkable 菜单项",
             "is_constructor": 1,
             "extends": "Menu.Item",
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "checked=true",
-                            "description": "菜单项是否 checked，默认 true",
-                            "type": "Boolean"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2922,20 +2395,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "menu",
-                            "description": "可选，下拉框菜单配置/实例，具体参考 [Menu](/5.0/api/classes/Menu.html) ，默认值:\n```\n{\n    xclass:'popupmenu'\n}\n\n```",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "matchElWidth",
-                            "description": "是否下拉菜单和按钮宽度一致。默认 true",
-                            "type": "Boolean"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2950,21 +2411,14 @@
             "module": "menubutton",
             "namespace": "MenuButton",
             "file": "src\\api\\menubutton.js",
-            "line": 67,
+            "line": 77,
             "extends": "MenuButton",
             "is_constructor": 1,
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "defaultCaption",
-                            "description": "可选，下拉框没有可选项时的默认显示内容.",
-                            "type": "String"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -2979,21 +2433,14 @@
             "module": "menubutton",
             "namespace": "MenuButton",
             "file": "src\\api\\menubutton.js",
-            "line": 99,
+            "line": 114,
             "is_constructor": 1,
             "extends": "Menu.Item",
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "selectable=true",
-                            "description": "是否可以被选择，可以的话，单击会添加指定 class 到根节点",
-                            "type": "Boolean"
-                        }
-                    ]
+                    "description": "配置项，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -3057,69 +2504,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项，如下：",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "effect",
-                            "description": "可选, 显示或隐藏时的特效支持, 对象包含以下配置:",
-                            "type": "Object",
-                            "props": [
-                                {
-                                    "name": "target",
-                                    "description": "可选,动画的参考元素",
-                                    "type": "String|KISSY.Node"
-                                },
-                                {
-                                    "name": "effect",
-                                    "description": "可取值 ‘fade’(渐隐显示), ‘slide’(滑动显示)",
-                                    "type": "String"
-                                },
-                                {
-                                    "name": "easing",
-                                    "description": "同 [Anim](/5.0/api/classes/Anim.html) 的 easing 参数配置",
-                                    "type": "String"
-                                },
-                                {
-                                    "name": "duration",
-                                    "description": "可选, 动画持续时间, 以秒为单位.例如：\n```\n{\n    target:'',        // {String|KISSY.Node} - 可选，动画的参考元素\n    effect:'none',    // {String} - 可选, 默认为'none', 'none'(无特效), 'fade'(渐隐显示), 'slide'(滑动显示).\n    easing:'',        // {String} - 可选, 同 KISSY.Anim 的 easing 参数配置.\n    duration:3        // {Number} - 可选, 动画持续时间, 以秒为单位.\n}\n```",
-                                    "type": "Number"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "closable",
-                            "description": "对话框右上角是否包括关闭按钮",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "closeAction",
-                            "description": "点击关闭按钮的动作。默认 “hide” 隐藏，也可设置 “destroy” 销毁该组件",
-                            "type": "String"
-                        },
-                        {
-                            "name": "mask",
-                            "description": "组件显示时是否使用遮罩层盖住页面其他元素",
-                            "type": "Boolean|Object",
-                            "props": [
-                                {
-                                    "name": "closeOnClick",
-                                    "description": "可选. 点击遮罩层是否关闭 overlay. (具体隐藏或销毁依赖 closeAction)",
-                                    "type": "Boolean"
-                                },
-                                {
-                                    "name": "effect",
-                                    "description": "可选. 遮罩层显示隐藏效果. (取值 ‘fade’,’slide’)",
-                                    "type": "String"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "duration",
-                            "description": "可选, 动画持续时间, 以秒为单位.",
-                            "type": "Number"
-                        }
-                    ]
+                    "description": "配置详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -3134,52 +2520,15 @@
             "module": "overlay",
             "namespace": "Overlay",
             "file": "src\\api\\overlay.js",
-            "line": 85,
+            "line": 109,
             "description": "对话框",
             "is_constructor": 1,
             "extends": "Overlay",
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "headerContent",
-                            "description": "组件的标题 html",
-                            "type": "String"
-                        },
-                        {
-                            "name": "escapeToClose=true",
-                            "description": "默认 true. escape 键是否触发 close 动作",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "bodyContent",
-                            "description": "组件的体 html",
-                            "type": "String"
-                        },
-                        {
-                            "name": "footerContent",
-                            "description": "组件的底部 html",
-                            "type": "String"
-                        },
-                        {
-                            "name": "headerStyle",
-                            "description": "组件的标题内联样式",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "bodyStyle",
-                            "description": "组件体的内联样式.",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "footerStyle",
-                            "description": "组件的底部内联样式",
-                            "type": "Object"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ],
             "example": [
@@ -3197,41 +2546,15 @@
             "module": "overlay",
             "namespace": "Overlay",
             "file": "src\\api\\overlay.js",
-            "line": 155,
+            "line": 207,
             "description": "弹出框",
             "is_constructor": 1,
             "extends": "Overlay",
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "trigger",
-                            "description": "触点集合",
-                            "type": "String|HTMLElement[]|KISSY.NodeList"
-                        },
-                        {
-                            "name": "triggerType",
-                            "description": "可选, 默认为 ‘click’, 触发类型, 可选 ‘click’, ‘mouse’.",
-                            "type": "String",
-                            "optional": true,
-                            "optdefault": "\"click\""
-                        },
-                        {
-                            "name": "mouseDelay=0.1",
-                            "description": "单位秒. 可选, triggerType 为 mouse 时, Popup 显示的延迟时间, 默认为 0.1.",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "toggle",
-                            "description": "可选, triggerType 为 click 时, Popup 是否有toggle功能，默认为false，不开启",
-                            "type": "Boolean",
-                            "optional": true,
-                            "optdefault": "false"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -3303,45 +2626,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "node",
-                            "description": "将要进行缩放的节点",
-                            "type": "String|HTMLElement|KISSY.Node"
-                        },
-                        {
-                            "name": "minWidth",
-                            "description": "默认为0, 表示拖动缩放的最小宽度",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "minHeight",
-                            "description": "默认为0, 表示拖动缩放的最小高度",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "maxWidth",
-                            "description": "默认为0, 表示拖动缩放的最大宽度",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "maxHeight",
-                            "description": "默认为0, 表示拖动缩放的最大高度",
-                            "type": "Number"
-                        },
-                        {
-                            "name": "handlers",
-                            "description": "默认为 [], 表示可拖动元素的哪些位置来进行缩放.\n可取下列值: “b”,”t”,”r”,”l”,”tr”,”tl”,”br”,”bl”． 其中, t,b,l,r 分别表示 top,bottom,left,right, 加上组合共八种取值, 可在上, 下, 左, 右以及左上, 左下, 右上, 右下进行拖动.",
-                            "type": "Array<String>"
-                        },
-                        {
-                            "name": "preserveRatio",
-                            "description": "是否在 resize 的过程中保持 width/height 比例",
-                            "type": "Boolean"
-                        }
-                    ]
+                    "description": "配置项，详细见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -3363,25 +2649,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "alignWithEl=true",
-                            "description": "是否将菜单按钮和按钮对齐，默认 true",
-                            "type": "Boolean"
-                        },
-                        {
-                            "name": "menuButton",
-                            "description": "菜单按钮组件",
-                            "type": "KISSY.MenuButton"
-                        },
-                        {
-                            "name": "button",
-                            "description": "按钮组件",
-                            "type": "KISSY.Button"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ]
         },
@@ -3403,14 +2672,7 @@
                 {
                     "name": "config",
                     "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "el",
-                            "description": "link 节点或选择器",
-                            "type": "HTMLElement|String"
-                        }
-                    ]
+                    "type": "Object"
                 }
             ]
         },
@@ -3432,53 +2694,8 @@
             "params": [
                 {
                     "name": "config",
-                    "description": "",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "attrs",
-                            "description": "将要加到 flash 节点的属性键值对",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "document",
-                            "description": "可选。插入 swf 所属的文档，默认当前文档",
-                            "type": "HTMLDocument",
-                            "optional": true
-                        },
-                        {
-                            "name": "elBefore",
-                            "description": "可选。 在此元素前插入 swf",
-                            "type": "HTMLDocument",
-                            "optional": true
-                        },
-                        {
-                            "name": "expressInstall",
-                            "description": "可选。版本低时显示的快速安装 swf ，默认为 kissy 自带地址.",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "params",
-                            "description": "将要加到 flash 节点的 param 键值对. 注意其中属性 flashVars 的大小写",
-                            "type": "Object"
-                        },
-                        {
-                            "name": "render",
-                            "description": "可选。在此元素内添加 swf。 若 render 与 swf 都不设置则插入到 body 节点中",
-                            "type": "HTMLDocument"
-                        },
-                        {
-                            "name": "src",
-                            "description": "必选。 swf 元素的地址。",
-                            "type": "String"
-                        },
-                        {
-                            "name": "version",
-                            "description": "可选。最低 flash 版本要求，达不到要求显示 expressInstall。例如 9.1.234，默认 9.0",
-                            "type": "String"
-                        }
-                    ]
+                    "description": "配置对象，详见其Attribute",
+                    "type": "Object"
                 }
             ],
             "example": [
@@ -3755,25 +2972,8 @@
                 },
                 {
                     "name": "config",
-                    "description": "配置项，详见下列配置",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "command",
-                            "description": "局部自定义命令的键值对，例如\n```\n{\n    'toLowerCase':function( scopes,option ){\n        return option.params[0].toLowerCase();\n    }\n}\n```",
-                            "type": "Object"
-                        }
-                    ]
-                },
-                {
-                    "name": "name",
-                    "description": "模版名称，可在 chrome dev tools 中看到以该值为名称的模板文件代码",
-                    "type": "String"
-                },
-                {
-                    "name": "cache",
-                    "description": "是否缓存生成的模板函数，默认 true",
-                    "type": "Boolean"
+                    "description": "配置项，详见其Attribute",
+                    "type": "Object"
                 }
             ],
             "example": [
@@ -6541,7 +5741,61 @@
         },
         {
             "file": "src\\api\\anim.js",
+            "line": 16,
+            "description": "单位秒。默认 1 秒.动画持续时间",
+            "itemtype": "attribute",
+            "name": "duration",
+            "type": "Number",
+            "default": "1",
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
             "line": 22,
+            "description": "默认 ‘easeNone’. 动画平滑函数",
+            "itemtype": "attribute",
+            "name": "easing",
+            "type": "String",
+            "default": "\"easeNone\"",
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 28,
+            "description": "所属队列名称. 默认undefined. 属于系统内置队列, 设置 false 则表示该动画不排队立即执行",
+            "itemtype": "attribute",
+            "name": "queue",
+            "type": "String|false|undefined",
+            "default": "undefined",
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 34,
+            "description": "动画到最后一帧后的回调函数",
+            "itemtype": "attribute",
+            "name": "complete",
+            "type": "Function",
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 39,
+            "description": "是否使用css3 transition提升性能。\n在 useTransition 为 true 的时候，easing 的值必须是 w3c 规定的时间函数名称。\n具体为： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(p1x, p1y, p2x, p2y)",
+            "itemtype": "attribute",
+            "name": "useTransition",
+            "type": "Boolean",
+            "default": "false",
+            "class": "Anim",
+            "module": "anim"
+        },
+        {
+            "file": "src\\api\\anim.js",
+            "line": 49,
             "description": "判断当前动画对象是否在执行动画过程",
             "itemtype": "method",
             "name": "isRunning",
@@ -6554,7 +5808,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 27,
+            "line": 54,
             "description": "判断当前动画对象是否被暂停",
             "itemtype": "method",
             "name": "isPaused",
@@ -6567,7 +5821,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 33,
+            "line": 60,
             "description": "在动画实例上调用, 开始当前动画实例的动画",
             "itemtype": "method",
             "name": "run",
@@ -6576,7 +5830,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 38,
+            "line": 65,
             "description": "在动画实例上调用, 结束当前动画实例的动画",
             "itemtype": "method",
             "name": "stop",
@@ -6594,7 +5848,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 44,
+            "line": 71,
             "description": "在动画实例上调用, 暂停当前动画实例的动画",
             "itemtype": "method",
             "name": "pause",
@@ -6603,7 +5857,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 49,
+            "line": 76,
             "description": "在动画实例上调用, 继续当前动画实例的动画",
             "itemtype": "method",
             "name": "resume",
@@ -6612,7 +5866,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 54,
+            "line": 81,
             "description": "Anim 的静态方法, 用于判断 elem 上是否有动画对象在执行",
             "itemtype": "method",
             "name": "isRunning",
@@ -6633,7 +5887,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 62,
+            "line": 89,
             "description": "Anim 的静态方法, 用于判断 elem 上是否有动画对象在暂停",
             "itemtype": "method",
             "name": "isPaused",
@@ -6654,7 +5908,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 70,
+            "line": 97,
             "description": "Anim 的静态方法, 结束某元素上的动画（集合）",
             "itemtype": "method",
             "name": "stop",
@@ -6686,7 +5940,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 84,
+            "line": 111,
             "description": "Anim 的静态方法, 暂停某元素上的动画（集合）",
             "itemtype": "method",
             "name": "pause",
@@ -6708,7 +5962,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 96,
+            "line": 123,
             "description": "Anim 的静态方法, 继续某元素上的动画（集合）",
             "itemtype": "method",
             "name": "resume",
@@ -6730,7 +5984,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 108,
+            "line": 135,
             "description": "动画结束后, 触发该事件",
             "itemtype": "event",
             "name": "complete",
@@ -6739,7 +5993,27 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 93,
+            "line": 58,
+            "description": "配置组件的事件绑定,例如:\n```\n{\n    listeners:{\n        customEvent:function(e){\n            alert(e.type); // => \"customEvent\"\n        }\n    }\n}\n\nor\n\n{\n    listeners:{\n        customEvent:{\n            fn:function(e){\n                // e.type // => customEvent\n                // this.xx => 1\n            },\n            context:{xx:1}\n        }\n    }\n}\n```",
+            "itemtype": "attribute",
+            "name": "listeners",
+            "type": "Object",
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 86,
+            "description": "插件构造器数组或插件对象数组. 例如\n```\n{\n    plugins: [ Plugin1,Plugin2 ]\n}\n\n// or\n\n{\n    plugins: [new Plugin1(cfg),new Plugin2(cfg)]\n}\n```",
+            "itemtype": "attribute",
+            "name": "plugins",
+            "type": "Function[]|Object[]",
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src\\api\\base.js",
+            "line": 103,
             "description": "从当前类上扩展出一个子类",
             "itemtype": "method",
             "name": "extend",
@@ -6779,7 +6053,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 104,
+            "line": 114,
             "description": "调用父类的对应方法，如果没有，则返回undefined",
             "itemtype": "method",
             "name": "callSuper",
@@ -6791,7 +6065,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 135,
+            "line": 145,
             "description": "安装指定插件",
             "itemtype": "method",
             "name": "plug",
@@ -6813,7 +6087,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 152,
+            "line": 162,
             "description": "卸载指定插件",
             "itemtype": "method",
             "name": "unplug",
@@ -6835,7 +6109,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 171,
+            "line": 181,
             "description": "根据指定的 id 获取对应的plugin实例",
             "itemtype": "method",
             "name": "getPlugin",
@@ -6857,7 +6131,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 184,
+            "line": 194,
             "description": "销毁实例",
             "itemtype": "method",
             "name": "destroy",
@@ -6866,7 +6140,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 201,
+            "line": 211,
             "description": "给宿主对象增加一个属性",
             "itemtype": "method",
             "name": "addAttr",
@@ -6915,7 +6189,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 213,
+            "line": 223,
             "description": "批量添加属性",
             "itemtype": "method",
             "name": "addAttrs",
@@ -6937,7 +6211,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 220,
+            "line": 230,
             "description": "判断是否有名为 name 的属性",
             "itemtype": "method",
             "name": "hasAttr",
@@ -6958,7 +6232,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 227,
+            "line": 237,
             "description": "删除名为 name 的属性",
             "itemtype": "method",
             "name": "removeAttr",
@@ -6975,7 +6249,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 233,
+            "line": 243,
             "description": "设置属性 name 的值为 value",
             "itemtype": "method",
             "name": "set",
@@ -7023,7 +6297,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 245,
+            "line": 255,
             "description": "获取属性 name 的值",
             "itemtype": "method",
             "name": "get",
@@ -7040,7 +6314,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 251,
+            "line": 261,
             "description": "获取目前实例的所有属性键值对集合",
             "itemtype": "method",
             "name": "getAttrVals",
@@ -7054,7 +6328,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 257,
+            "line": 267,
             "description": "重置属性 name 为初始值. (调用一次 set() )",
             "itemtype": "method",
             "name": "reset",
@@ -7083,7 +6357,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 265,
+            "line": 275,
             "description": "将所有属性全部重置为初始值. (调用一次 set() )",
             "itemtype": "method",
             "name": "reset",
@@ -7107,7 +6381,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 272,
+            "line": 282,
             "description": "名为 “attrName” 的属性, 在改变它的值之前触发该事件",
             "itemtype": "event",
             "name": "beforeAttrNameChange",
@@ -7144,7 +6418,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 282,
+            "line": 292,
             "description": "名为 “attrName” 的属性, 在改变它的值之后触发该事件",
             "itemtype": "event",
             "name": "afterAttrNameChange",
@@ -7181,7 +6455,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 292,
+            "line": 302,
             "description": "每调用 [set()](5.0/api/classes/Attribute.html#method_set) 一次后就触发一次该事件",
             "itemtype": "event",
             "name": "*change",
@@ -7218,7 +6492,28 @@
         },
         {
             "file": "src\\api\\button.js",
-            "line": 17,
+            "line": 13,
+            "description": "按钮是否 toggle button",
+            "itemtype": "attribute",
+            "name": "checkable",
+            "type": "Boolean",
+            "class": "Button",
+            "module": "button"
+        },
+        {
+            "file": "src\\api\\button.js",
+            "line": 18,
+            "description": "可选，按钮节点的 aria-describedby 属性值",
+            "itemtype": "attribute",
+            "name": "describedby",
+            "type": "String",
+            "optional": 1,
+            "class": "Button",
+            "module": "button"
+        },
+        {
+            "file": "src\\api\\button.js",
+            "line": 25,
             "description": "按钮的显示内容",
             "itemtype": "attribute",
             "name": "content",
@@ -7228,7 +6523,7 @@
         },
         {
             "file": "src\\api\\button.js",
-            "line": 22,
+            "line": 30,
             "description": "按钮是否是 checked 状态",
             "itemtype": "attribute",
             "name": "checked",
@@ -7238,7 +6533,7 @@
         },
         {
             "file": "src\\api\\button.js",
-            "line": 27,
+            "line": 35,
             "description": "按钮值",
             "itemtype": "attribute",
             "name": "value",
@@ -7248,17 +6543,7 @@
         },
         {
             "file": "src\\api\\button.js",
-            "line": 32,
-            "description": "按钮节点的 describedby 属性值",
-            "itemtype": "attribute",
-            "name": "value",
-            "type": "String",
-            "class": "Button",
-            "module": "button"
-        },
-        {
-            "file": "src\\api\\button.js",
-            "line": 37,
+            "line": 40,
             "description": "按钮节点的 title 属性值",
             "itemtype": "attribute",
             "name": "tooltip",
@@ -7268,7 +6553,7 @@
         },
         {
             "file": "src\\api\\button.js",
-            "line": 42,
+            "line": 45,
             "description": "当按钮被点击或被获得焦点后按键 enter|space 触发",
             "itemtype": "event",
             "name": "click",
@@ -7291,7 +6576,92 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 105,
+            "line": 39,
+            "description": "默认 true. 是否显示下拉按钮",
+            "itemtype": "attribute",
+            "name": "hasTrigger",
+            "default": "true",
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 45,
+            "description": "默认无. 输入框的提示信息",
+            "itemtype": "attribute",
+            "name": "placeholder",
+            "type": "String",
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 50,
+            "description": "数据源配置\n例如静态数据源的配置:\n```\n{\n    dataSource : new ComboBox.LocalDataSource({\n                    data:[\"abc\",\"123\"]\n                })\n} \n```",
+            "itemtype": "attribute",
+            "name": "dataSource",
+            "type": "ComboBox.LocalDataSource|ComboBox.RemoteDataSource",
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 63,
+            "description": "最多可显示的下拉菜单个数",
+            "itemtype": "attribute",
+            "name": "maxItemCount",
+            "type": "Number",
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 68,
+            "description": "是否下拉菜单和自动补全框宽度一致。默认 true.",
+            "itemtype": "attribute",
+            "name": "matchWidth",
+            "type": "Boolean",
+            "default": "true",
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 74,
+            "description": "可选。自定义下拉菜单属性的函数，传入参数 query(自动补全框当前值) , data(匹配数据数组)。 返回对象数组，其中对象的 content 属性表示菜单项显示内容，textContent 表示放入到自动补全框的内容，disabled 表示当前项是否被禁用.\n例如高亮的处理:\n```\n{\n    format:function(query, data){\n        var ret = [];\n        for (var i = 0; i < data.length; i++) {\n            ret[i] = {\n                content:(data[i] + \"\")\n                        .replace(new RegExp(S.escapeRegExp(query), \"g\"),\n                        \"<b>$&</b>\")\n            };\n        }\n        return ret;\n    }\n}\n```",
+            "itemtype": "attribute",
+            "name": "format",
+            "type": "Function",
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 95,
+            "description": "默认 true. 上下键是否导致高亮项填充入自动补全框",
+            "itemtype": "attribute",
+            "name": "updateInputOnDownUp",
+            "type": "Boolean",
+            "default": "true",
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 101,
+            "description": "默认 false. 是否当自动补全菜单出现时高亮第一项",
+            "example": [
+                "\n```\nKISSY.use(\"node,combobox\", function (S, Node, ComboBox) {\n    var $ = Node.all;\n    var data = [\"a123456\", \"b12345\", \"c3464356\", \"d23434\"];\n\n    var basicComboBox = new ComboBox({\n        width:100,\n        srcNode:$(\"#combobox\"),\n        // 初始就聚焦\n        focused:true,\n        hasTrigger:false,\n        dataSource:new ComboBox.LocalDataSource({\n            data:data\n        })\n    });\n    basicComboBox.render();\n\n    // 得到焦点时展示全部\n    basicComboBox.get(\"input\").on(\"focus\", function () {\n        basicComboBox.sendRequest('');\n    });\n}\n```"
+            ],
+            "itemtype": "attribute",
+            "name": "autoHighlightFirst",
+            "default": "false",
+            "class": "ComboBox",
+            "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 131,
             "description": "关联的复合输入框",
             "itemtype": "attribute",
             "name": "input",
@@ -7301,7 +6671,7 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 110,
+            "line": 136,
             "description": "自动补全菜单的配置（在显示后转换为实例）或实例",
             "itemtype": "attribute",
             "name": "menu",
@@ -7311,7 +6681,7 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 115,
+            "line": 141,
             "description": "自动补全菜单是否已经收起",
             "itemtype": "attribute",
             "name": "collapsed",
@@ -7321,7 +6691,7 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 120,
+            "line": 146,
             "description": "根据 value 自动补全并显示下拉菜单",
             "itemtype": "method",
             "name": "sendRequest",
@@ -7337,7 +6707,7 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 126,
+            "line": 152,
             "description": "当用户选择自动补全下拉框内的项时触发",
             "itemtype": "event",
             "name": "click",
@@ -7353,7 +6723,7 @@
         },
         {
             "file": "src\\api\\combobox.js",
-            "line": 132,
+            "line": 158,
             "description": "当下拉菜单显示或收起时触发",
             "itemtype": "event",
             "name": "afterCollapsedChange",
@@ -7366,6 +6736,156 @@
             ],
             "class": "ComboBox",
             "module": "combobox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 179,
+            "description": "默认 false. 是否允许多个值的输入",
+            "itemtype": "attribute",
+            "name": "multiple",
+            "type": "Boolean",
+            "default": "false",
+            "class": "ComboBox.MultiValueComboBox",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 185,
+            "description": "当允许多个值输入时，分割多个值的分隔符",
+            "itemtype": "attribute",
+            "name": "separator",
+            "type": "String",
+            "default": "\",;\"",
+            "class": "ComboBox.MultiValueComboBox",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 191,
+            "description": "默认 “suffix”. 可取枚举值（”prefix”,”suffix”）. 表示分隔符在最前面( @xx 模式)还是在最后面(gmail 模式).",
+            "itemtype": "attribute",
+            "name": "separatorType",
+            "type": "String",
+            "class": "ComboBox.MultiValueComboBox",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 196,
+            "description": "默认 false. 自动补全菜单是否和光标对齐.",
+            "itemtype": "attribute",
+            "name": "alignWithCursor",
+            "type": "Boolean",
+            "default": "false",
+            "class": "ComboBox.MultiValueComboBox",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 202,
+            "description": "默认 \" 在该字符内的所有字符（包括分隔符）都算作普通字符.",
+            "itemtype": "attribute",
+            "name": "literal",
+            "type": "String",
+            "default": "'\"'",
+            "class": "ComboBox.MultiValueComboBox",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 227,
+            "description": "当用户的输入不匹配下拉提示的内容时的出错信息",
+            "itemtype": "attribute",
+            "name": "invalidMessage",
+            "type": "String",
+            "class": "ComboBox.FilterSelect",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 243,
+            "description": "静态数据数组",
+            "itemtype": "attribute",
+            "name": "data",
+            "type": "Object[]",
+            "class": "ComboBox.LocalDataSource",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 248,
+            "description": "可选. 如何根据用户输入对数据进行过滤。默认为\n```\nfunction parser(inputVal, data) {\n    var ret = [],\n        count = 0;\n\n    if (!inputVal) {\n        return data;\n    }\n\n    S.each(data, function (d) {\n        if (d.indexOf(inputVal) != -1) {\n            ret.push(d);\n        }\n        count++;\n    });\n\n    return ret;\n}\n\n```",
+            "itemtype": "attribute",
+            "name": "parse",
+            "type": "Function",
+            "class": "ComboBox.LocalDataSource",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 282,
+            "description": "用户输入发送到后端的参数名，默认 ‘q’",
+            "itemtype": "attribute",
+            "name": "paramName",
+            "type": "String",
+            "default": "'q'",
+            "class": "ComboBox.RemoteDataSource",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 288,
+            "description": "可选. 如何根据用户输入对后台返回数据进行过滤。默认\n```\nfunction parser(\n    // 用户输入\n    inputVal,\n    // 服务器返回数据\n    data) {\n    return data;\n}\n```",
+            "itemtype": "attribute",
+            "name": "parse",
+            "type": "Function",
+            "class": "ComboBox.RemoteDataSource",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 302,
+            "description": "默认 false. 用户输入为空时是否发请求",
+            "itemtype": "attribute",
+            "name": "allowEmpty",
+            "type": "Boolean",
+            "default": "false",
+            "class": "ComboBox.RemoteDataSource",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 308,
+            "description": "默认 false. 是否缓存服务器端数据",
+            "itemtype": "attribute",
+            "name": "cache",
+            "type": "Boolean",
+            "default": "false",
+            "class": "ComboBox.RemoteDataSource",
+            "module": "combobox",
+            "namespace": "ComboBox"
+        },
+        {
+            "file": "src\\api\\combobox.js",
+            "line": 314,
+            "description": "传递给 IO 的其他参数",
+            "itemtype": "attribute",
+            "name": "xhrCfg",
+            "type": "Object",
+            "class": "ComboBox.RemoteDataSource",
+            "module": "combobox",
+            "namespace": "ComboBox"
         },
         {
             "file": "src\\api\\cookie.js",
@@ -7464,11 +6984,57 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 40,
-            "description": "等于 \"point\"",
+            "line": 18,
+            "description": "将要进行拖放的节点",
             "itemtype": "attribute",
-            "name": "POINT",
-            "type": "{String}",
+            "name": "node",
+            "type": "String|HTMLElement",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 23,
+            "description": "可拖动对象在的组。（设置后只和本组的droppable对象交互），默认值为true, 可以和所有组的 droppable 都交互。 若不需要和任何droppable 交互，为了性能，请设置 groups 为 false. 例如： {‘x’:1,’y’:1} 表示属于 x 和 y 组",
+            "itemtype": "attribute",
+            "name": "groups",
+            "type": "Object",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 28,
+            "description": "作为鼠标在其上按下时触发节点拖放的钩子. 字符串时表示选择器字符串. 如果不设置, 则整个 node 作为触发钩子.\n#### handlers 的每个元素 DOM 节点必须位于配置项 node DOM 子树中.",
+            "itemtype": "attribute",
+            "name": "handlers",
+            "type": "String[]|HTMLElement[]",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 34,
+            "description": "默认 3, 表示鼠标按下后移动多少像素后触发 dragstart 事件",
+            "itemtype": "attribute",
+            "name": "clickPixelThresh",
+            "type": "Number",
+            "default": "3",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 40,
+            "description": "默认 1000, 表示鼠标按下多长时间后触发 dragstart 事件. 可通过 DDM.set(“bufferTime”,xx) 设置.",
+            "itemtype": "attribute",
+            "name": "bufferTime",
+            "type": "Number",
+            "default": "1000",
             "class": "DD.Draggable",
             "module": "dd",
             "namespace": "DD"
@@ -7476,6 +7042,45 @@
         {
             "file": "src\\api\\dd.js",
             "line": 46,
+            "description": "是否禁用改拖对象功能",
+            "itemtype": "attribute",
+            "name": "disabled",
+            "type": "Boolean",
+            "default": "false",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 52,
+            "description": "默认 false。关联元素是否随鼠标移动。（例如：resize 功能完全不需要关联元素移动）",
+            "itemtype": "attribute",
+            "name": "move",
+            "type": "Boolean",
+            "default": "false",
+            "example": [
+                "\nDraggable 默认实例化后仅表示会根据鼠标拖放触发 drag() 事件, 并不会导致节点移动， 通过以下设置来使得节点跟随鼠标移动：\n\n设置 move 为 true.\n```\nnew Draggable({\n    node:\"#d\",\n    move:true\n});\n```"
+            ],
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 68,
+            "description": "枚举值, 默认值 “point”, 和 Droppable 关联, 决定何时和可放对象开始交互(触发相应事件), 可取值 “point”,”intersect”,”strict”\n- 在 “point” 模式下, 只要鼠标略过可放对象, 即开始和可放对象交互.\n- 在 “intersect” 模式下, 只要拖动对象和可放对象有交集, 即开始和可放对象交互.\n- 在 “strict” 模式下, 只有拖动对象完全位于可放对象内, 才开始和可放对象交互",
+            "itemtype": "attribute",
+            "name": "POINT",
+            "type": "{String}",
+            "default": "'point'\n\n/**\n等于 \"point\"",
+            "class": "DD.Draggable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 82,
             "description": "等于 \"intersect\"",
             "itemtype": "attribute",
             "name": "INTERSECT",
@@ -7486,7 +7091,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 52,
+            "line": 88,
             "description": "等于 \"strict\"",
             "itemtype": "attribute",
             "name": "STRICT",
@@ -7497,7 +7102,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 58,
+            "line": 94,
             "description": "是否禁用或启用拖放功能",
             "itemtype": "attribute",
             "name": "disabled",
@@ -7508,7 +7113,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 64,
+            "line": 100,
             "description": "只读。表示当前拖动的节点, 在应用 DD.Proxy 时表示代理节点.",
             "itemtype": "attribute",
             "name": "node",
@@ -7519,7 +7124,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 70,
+            "line": 106,
             "description": "表示配置项中 node 代表的节点.",
             "itemtype": "attribute",
             "name": "dragNode",
@@ -7530,7 +7135,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 76,
+            "line": 112,
             "description": "当可拖放对象开始被用户拖放时触发.",
             "itemtype": "event",
             "name": "dragstart",
@@ -7554,7 +7159,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 83,
+            "line": 119,
             "description": "当可拖放对象拖放过程中触发.",
             "itemtype": "event",
             "name": "drag",
@@ -7588,7 +7193,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 92,
+            "line": 128,
             "description": "当用户鼠标弹起放弃拖放时触发.",
             "itemtype": "event",
             "name": "dragend",
@@ -7612,7 +7217,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 99,
+            "line": 135,
             "description": "当前 Draggable 对象达到一个 Droppable 对象时触发, 可简单理解成 mouseenter.",
             "itemtype": "event",
             "name": "dragenter",
@@ -7641,7 +7246,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 107,
+            "line": 143,
             "description": "当前 Draggable 对象在一个 Droppable 实例上移动时触发, 可简单理解成 mouseover.",
             "itemtype": "event",
             "name": "dragover",
@@ -7670,7 +7275,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 115,
+            "line": 151,
             "description": "当前 Draggable 对象离开一个 Droppable 实例上移动时触发, 可简单理解成 mouseleave. 相当于 html5 dd API targetNode 的 dragleave 事件的概念.",
             "itemtype": "event",
             "name": "dragexit",
@@ -7699,7 +7304,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 123,
+            "line": 159,
             "description": "当前 Draggable 对象被放置在一个 Droppable 实例时触发. 相当于 html5 dd API targetNode 的 drop 事件的概念.",
             "itemtype": "event",
             "name": "dragdrophit",
@@ -7728,7 +7333,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 131,
+            "line": 167,
             "description": "当用户鼠标弹起但是没有放置当前 Draggable 对象到一个 Droppable 对象时触发.",
             "itemtype": "event",
             "name": "dragdropmiss",
@@ -7752,7 +7357,41 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 151,
+            "line": 184,
+            "description": "可与拖动对象交互的节点.",
+            "itemtype": "attribute",
+            "name": "node",
+            "type": "String | HTMLElement",
+            "class": "DD.Droppable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 189,
+            "description": "可与拖动对象交互的节点. 例如： {‘x’:1,’y’:1} 表示属于 x 和 y 组.",
+            "itemtype": "attribute",
+            "name": "groups",
+            "type": "Object",
+            "class": "DD.Droppable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 194,
+            "description": "默认 false。是否禁用改拖对象功能.",
+            "itemtype": "attribute",
+            "name": "disabled",
+            "type": "Boolean",
+            "default": "false",
+            "class": "DD.Droppable",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 201,
             "description": "当一个 Draggable 对象根据其 Draggable.mode 配置达到和当前 Droppable 实例交互条件时触发.\n一般即鼠标进入当前 Droppable 对象代表节点的区域, 可简单理解成 mouseenter. 相当于 html5 dd API targetNode 的 dragenter 事件的概念.",
             "itemtype": "event",
             "name": "dropenter",
@@ -7781,7 +7420,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 160,
+            "line": 210,
             "description": "当一个 Draggable 在当前 Droppable 实例上移动时触发, 可简单理解成 mouseover. 相当于 html5 dd API targetNode 的 dragover 事件的概念.",
             "itemtype": "event",
             "name": "dropover",
@@ -7810,7 +7449,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 168,
+            "line": 218,
             "description": "当一个 Draggable 离开当前 Droppable 实例时触发, 可简单理解成 mouseleave. 相当于 html5 dd API targetNode 的 dragleave 事件的概念.",
             "itemtype": "event",
             "name": "dropexit",
@@ -7839,7 +7478,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 176,
+            "line": 226,
             "description": "当一个 Draggable 被放置在当前 Droppable 实例时触发. 相当于 html5 dd API targetNode 的 drop 事件的概念.",
             "itemtype": "event",
             "name": "drophit",
@@ -7868,7 +7507,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 194,
+            "line": 244,
             "description": "默认 1000, 表示鼠标按下多长时间后触发 dragstart 事件. 可通过 DDM.set(“bufferTime”,xx) 设置.",
             "itemtype": "attribute",
             "name": "bufferTime=1000",
@@ -7879,7 +7518,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 199,
+            "line": 249,
             "description": "默认 3, 表示鼠标按下后移动多少像素后触发 dragstart 事件.",
             "itemtype": "attribute",
             "name": "clickPixelThresh",
@@ -7890,7 +7529,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 204,
+            "line": 254,
             "description": "默认 ‘move’, 表示拖放过程中鼠标的样式.",
             "itemtype": "attribute",
             "name": "dragCursor",
@@ -7900,7 +7539,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 209,
+            "line": 259,
             "description": "从Draggable的dragstart事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "dragstart",
@@ -7924,7 +7563,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 216,
+            "line": 266,
             "description": "从Draggable的drag事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "drag",
@@ -7958,7 +7597,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 225,
+            "line": 275,
             "description": "从Draggable的dragend事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "dragend",
@@ -7982,7 +7621,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 232,
+            "line": 282,
             "description": "从Draggable的dragenter事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "dragenter",
@@ -8011,7 +7650,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 240,
+            "line": 290,
             "description": "从Draggable的dragover事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "dragover",
@@ -8040,7 +7679,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 248,
+            "line": 298,
             "description": "从Draggable的dragexit事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "dragexit",
@@ -8069,7 +7708,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 256,
+            "line": 306,
             "description": "从Draggable的dragdrophit事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "dragdrophit",
@@ -8098,7 +7737,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 264,
+            "line": 314,
             "description": "从Draggable的dragdropmiss事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "dragdropmiss",
@@ -8122,7 +7761,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 271,
+            "line": 321,
             "description": "从Droppable的dropenter事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "dropenter",
@@ -8151,7 +7790,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 279,
+            "line": 329,
             "description": "从Droppable的dropover事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "dropover",
@@ -8180,7 +7819,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 287,
+            "line": 337,
             "description": "从Droppable的dropexit事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "dropexit",
@@ -8209,7 +7848,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 295,
+            "line": 345,
             "description": "从Droppable的drophit事件冒泡过来，在 DDM 上触发",
             "itemtype": "event",
             "name": "drophit",
@@ -8238,7 +7877,40 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 316,
+            "line": 363,
+            "description": "用于委托的容器节点, 所有 Draggable 节点都在其内",
+            "itemtype": "attribute",
+            "name": "container",
+            "type": "String | HTMLElement",
+            "class": "DD.DraggableDelegate",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 368,
+            "description": "用来获取容器内的 Draggable 节点, 格式为 tag 或 tag.cls 或 .cls",
+            "itemtype": "attribute",
+            "name": "selector",
+            "type": "String",
+            "class": "DD.DraggableDelegate",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 373,
+            "description": "数组每个元素是选择器字符串, 格式为 tag 或 tag.cls 或 .cls, 作为鼠标在其上按下时触发节点拖放的钩子. 如果不设置, 则整个可拖放节点都作为触发钩子. 其中可拖放节点通过 selector 从容器 container 中取得",
+            "itemtype": "attribute",
+            "name": "handlers",
+            "type": "Array",
+            "class": "DD.DraggableDelegate",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 379,
             "description": "当前正在拖动的被委托的容器内子节点, 在应用 DD.Proxy 时表示委托节点",
             "itemtype": "attribute",
             "name": "node",
@@ -8249,7 +7921,7 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 321,
+            "line": 384,
             "description": "当前正在拖动的被委托的容器内子节点",
             "itemtype": "attribute",
             "name": "dragNode",
@@ -8260,7 +7932,29 @@
         },
         {
             "file": "src\\api\\dd.js",
-            "line": 339,
+            "line": 400,
+            "description": "用于委托的容器节点, 所有 Draggable 节点都在其内",
+            "itemtype": "attribute",
+            "name": "container",
+            "type": "String | HTMLElement",
+            "class": "DD.DroppableDelegate",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 405,
+            "description": "用来获取容器内的 Draggable 节点, 格式为 tag 或 tag.cls 或 .cls",
+            "itemtype": "attribute",
+            "name": "selector",
+            "type": "String",
+            "class": "DD.DroppableDelegate",
+            "module": "dd",
+            "namespace": "DD"
+        },
+        {
+            "file": "src\\api\\dd.js",
+            "line": 410,
             "description": "当前正在拖动的被委托的容器内子节点, 在应用 DD.Proxy 时表示委托节点",
             "itemtype": "attribute",
             "name": "node",
@@ -11039,7 +10733,38 @@
         },
         {
             "file": "src\\api\\filter-menu.js",
-            "line": 16,
+            "line": 13,
+            "description": "是否允许输入多个， 默认为false",
+            "itemtype": "attribute",
+            "name": "allowMultiple",
+            "type": "Boolean",
+            "default": "false",
+            "class": "FilterMenu",
+            "module": "filter-menu"
+        },
+        {
+            "file": "src\\api\\filter-menu.js",
+            "line": 19,
+            "description": "placeholder 内容",
+            "itemtype": "attribute",
+            "name": "placeholder",
+            "type": "String",
+            "class": "FilterMenu",
+            "module": "filter-menu"
+        },
+        {
+            "file": "src\\api\\filter-menu.js",
+            "line": 24,
+            "description": "过滤的字符串",
+            "itemtype": "attribute",
+            "name": "filterStr",
+            "type": "String",
+            "class": "FilterMenu",
+            "module": "filter-menu"
+        },
+        {
+            "file": "src\\api\\filter-menu.js",
+            "line": 29,
             "description": "根据所给字符串，过滤出响应的项\n\n可以重写此方法，进行自定义，不自定义则是简单的内容 indexOf 查找",
             "itemtype": "method",
             "name": "filterItems",
@@ -11056,7 +10781,7 @@
         },
         {
             "file": "src\\api\\filter-menu.js",
-            "line": 25,
+            "line": 38,
             "description": "重置用户的输入以及过滤结果",
             "itemtype": "method",
             "name": "reset",
@@ -11066,7 +10791,221 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 163,
+            "line": 75,
+            "description": "本次请求发送的地址",
+            "itemtype": "attribute",
+            "name": "url",
+            "type": "String",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 80,
+            "description": "该设置和dataType一起确定定当前发送给服务器的 Accept 头，默认包括：\n```\n{\n    xml: \"application/xml, text/xml\",\n    html: \"text/html\",\n    text: \"text/plain\",\n    json: \"application/json, text/javascript\"\n}\n```",
+            "itemtype": "attribute",
+            "name": "accepts",
+            "type": "Object",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 93,
+            "description": "期望能够从服务器返回的数据类型.如果没有指定，kissy 将尽量从返回的`mimeType | Content-type`相应头中推导出来 (‘text/xml’ 将推导出 xml , ‘text/json’ 将推导出 json)\n默认支持的类型（该类型的响应信息会作为第一个参数传到 success complete 回调中）有:\n- \"xml\" : 返回响应信息代表的 xml 文档.\n- \"text\" : 返回响应信息串\n- \"html\" : 同 \"text\"\n- \"script\" : 将响应信息作为脚本执行。\n- \"json\" : 返回响应信息代表的 json 对象.\n- \"jsonp\" : 返回 jsonp 的响应信息代表的 json 对象.",
+            "itemtype": "attribute",
+            "name": "dataType",
+            "type": "String",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 105,
+            "description": "当 data 为对象时是否用 param() 序列化. 例如当需要传送一个 xml 或 formdata 到服务器时就不需要 param data， 并且最好同时设置 contentType 为合适的值",
+            "itemtype": "attribute",
+            "name": "processData",
+            "type": "Boolean",
+            "default": "true",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 111,
+            "description": "本次 xhr 请求是否异步发送，如果你需要同步发送，设置该配置为 false,注意同步请求在完成前会锁死浏览器",
+            "itemtype": "attribute",
+            "name": "async",
+            "type": "Boolean",
+            "default": "true",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 117,
+            "description": "dataType 为 script 或 jsonp 时默认 false，其他默认为 true. false 时则会自动给请求 url 加上时间戳",
+            "itemtype": "attribute",
+            "name": "cache",
+            "type": "Boolean",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 122,
+            "description": "设置 false 则不设置 Content-type 头 (例如传输 formdata 时需要设置 false).注意：\"application/x-www-form-urlencoded\"时的数据总是以 utf-8 的编码传往服务器端",
+            "itemtype": "attribute",
+            "name": "contentType",
+            "type": "String",
+            "default": "\"application/x-www-form-urlencoded\"",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 128,
+            "description": "设置回调函数中的 this 值,默认为当前配置项.例如可以把一个 dom 节点作为 complete 回调函数的上下文",
+            "itemtype": "attribute",
+            "name": "context",
+            "type": "Object",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 133,
+            "description": "默认同域请求为 false,不同域间为 true。设置该值为 true，则强制 script 以及 jsonp 请求通过 script 节点发送，用于服务器重定向到其他域脚本的场景",
+            "itemtype": "attribute",
+            "name": "crossDomain",
+            "type": "Boolean",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 138,
+            "description": "如果为 Object 类型则会通过 param() 格式化为字符串\n注意:data 不能为嵌套 object 等复杂类型，例如: 不能是`{data : [{x : 1}]}`,可以为{data : [1]}",
+            "itemtype": "attribute",
+            "name": "data",
+            "type": "Object|String",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 144,
+            "description": "表示序列化 data 时是否给数组值对应的键名加 []",
+            "itemtype": "attribute",
+            "name": "serializeArray",
+            "type": "Boolean",
+            "default": "true",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 150,
+            "description": "请求失败时的回调函数.这个函数接受 2 个参数:\n- textStatus 表示错误信息，包括 “timeout” , “error” , “abort” 等\n- io 表示这次请求代表的 io 实例",
+            "itemtype": "attribute",
+            "name": "error",
+            "type": "Function",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 157,
+            "description": "请求成功时的回调函数.该函数传入三个参数:\n- data : 根据 dataType 格式化服务器响应信息的响应对象\n- textStatus : 描述成功的状态，一般是 “success”\n- io : 本次请求的 io 实例.",
+            "itemtype": "attribute",
+            "name": "success",
+            "type": "Function",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 165,
+            "description": "请求完成时(无论成功失败)的回调函数.该函数传入三个参数\n- data : 根据 dataType 格式化服务器响应信息的响应对象\n- textStatus : 描述成功的状态，一般是 “success”\n- io : 本次请求的 io 实例.",
+            "itemtype": "attribute",
+            "name": "complete",
+            "type": "Function",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 173,
+            "description": "设置这次请求 xhr 的请求头",
+            "itemtype": "attribute",
+            "name": "headers",
+            "type": "Object",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 178,
+            "description": "覆盖这次 jsonp 请求的 callback 函数名. 这个值可以取代请求 url 中 callback=? 的 callback.例如 {jsonp:’onJsonLoad’} 会导致 ‘onJsonLoad=?’ 发送给服务器端",
+            "itemtype": "attribute",
+            "name": "jsonp",
+            "type": "String",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 183,
+            "description": "覆盖这次 jsonp 请求 callback 函数对应的值 (callback={jsonpCallback}). 这个值将取代 kissy 默认生成的 UUID 值.\n当传入函数时，该函数需要返回字符串，每次请求都会调用该函数得到用于替换的字符串",
+            "itemtype": "attribute",
+            "name": "jsonpCallback",
+            "type": "String|Function",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 189,
+            "description": "跨平台设置 xhr 的 mimeType",
+            "itemtype": "attribute",
+            "name": "mimeType",
+            "type": "String",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 194,
+            "description": "对于需要验证的 http 请求设置密码",
+            "itemtype": "attribute",
+            "name": "password",
+            "type": "String",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 199,
+            "description": "对于需要验证的 http 请求设置用户名",
+            "itemtype": "attribute",
+            "name": "username",
+            "type": "String",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 204,
+            "description": "用于 dataType jsonp 和 script ，设定传输用的 script 节点的 charset 属性。只有当返回编码和当前页面编码不一致时使用",
+            "itemtype": "attribute",
+            "name": "scriptCharset",
+            "type": "String",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 211,
             "description": "表示请求完成状态。可用于判断当前请求是否完成. 4 表示完成，否则表示正在进行中.(xhr 会有更多取值，jsonp script 只有 0(初始化) 1(发送中) 4(完成))",
             "itemtype": "attribute",
             "name": "readyState",
@@ -11076,7 +11015,67 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 168,
+            "line": 216,
+            "description": "对这次请求设个超时时间，单位秒. 当超时后会触发 error 以及 complete 回调 , 状态字符串为 “timeout”.",
+            "itemtype": "attribute",
+            "name": "timeout",
+            "type": "Number",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 221,
+            "description": "可取值 “get” 或者 “post”",
+            "itemtype": "attribute",
+            "name": "type",
+            "type": "String",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 226,
+            "description": "设置到原生 xhr 对象的键值对.例如为了在标准浏览器进行跨域请求时携带cookie你可以设置 withCredentials 为 true.\n```\nnew IO({\n    url:\"http://y.com/ping.php\",\n    xhrFields:{\n        withCredentials: true\n    }\n});\n```\n这样 x.com 发送请求 y.com 会携带 y.com 的 cookie 信息",
+            "itemtype": "attribute",
+            "name": "xhrFields",
+            "type": "Object",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 240,
+            "description": "字符串表示 css3 选择器\n- 如果 form 的 enctype 为 “multipart/form-data` 则会采用 iframe 的方式进行无刷新文件上传，\n- 否则将 form 内的输入域和值序列化后通过 xhr 发送到服务器",
+            "itemtype": "attribute",
+            "name": "form",
+            "type": "String",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 247,
+            "description": "发送请求前的拦截函数，传入参数 (xhrObject, config)\n例如可以通过该函数实现上传进度监控\n```\nvar xhr = new IO({\n    url:'./upload.php',\n    type:\"post\",\n    processData:false,\n    data:formData,\n    dataType:'json',\n    contentType:false,\n    beforeSend:function (xhr) {\n        // 上传监听 upload\n        xhr.getNativeXhr().upload.addEventListener('progress', function (ev) {\n            S.log({ 'loaded':ev.loaded, 'total':ev.total });\n        });\n    },\n    success:function (d) {\n        S.log(d);\n    }\n});\n```",
+            "itemtype": "attribute",
+            "name": "beforeSend",
+            "type": "Function",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 272,
+            "description": "设置跨域的具体方式和细节，包括以下配置\n- xdr.src {String} 完全跨域请求的 flash 发送程序地址。当完全跨域时,KISSY io 在ie 中将采用 flash 发请求，默认采用 KISSY 自带 flash 发请求，也可将 kissy 自带的 flash 部署到其他地方，在 src 中指定;在标准浏览器将采用原生机制\n- xdr.subDomain {Object} 跨子域时的一些请求配置，包括\n  - xdr.subDomain.proxy {String} 指定代理页面的地址。默认 “/sub_domain_proxy.html” . 例如 x.taobao.com 要发送请求给 y.taobao.com ，那么需要设置 x.taobao.com 的页面 document.domain=’taobao.com’ ，然后提供 y.taobao.com/sub_domain_proxy.html ，该页面内容为\n`<script>document.domain='taobao.com'</script>`然后 x.taobao.com 的页面就可以和 y.taobao.com 通信了",
+            "itemtype": "attribute",
+            "name": "xdr",
+            "type": "Obect",
+            "class": "IO",
+            "module": "io"
+        },
+        {
+            "file": "src\\api\\io.js",
+            "line": 281,
             "description": "响应状态码. xhr 会有更多取值。jsonp script 只有 200(成功) , 500(出错)",
             "itemtype": "attribute",
             "name": "status",
@@ -11086,7 +11085,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 173,
+            "line": 286,
             "description": "响应状态字符串. 最终同回调 complete 中的 textStatus 一致.",
             "itemtype": "attribute",
             "name": "statusText",
@@ -11096,7 +11095,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 178,
+            "line": 291,
             "description": "返回响应对应的 text 和 xml(如果需要)",
             "itemtype": "attribute",
             "name": "responseText",
@@ -11106,7 +11105,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 183,
+            "line": 296,
             "description": "实例的方法，返回响应对应的 text 和 xml（如果需要）.",
             "itemtype": "method",
             "name": "getResponseHeader",
@@ -11122,7 +11121,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 189,
+            "line": 302,
             "description": "实例的方法，获得内置原生的 io 实例",
             "itemtype": "method",
             "name": "getNativeXhr",
@@ -11131,7 +11130,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 194,
+            "line": 307,
             "description": "实例的方法，如果当前请求还没完成（进行中状态）则中断当前的请求，否则什么也不做",
             "itemtype": "method",
             "name": "abort",
@@ -11140,7 +11139,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 199,
+            "line": 312,
             "description": "实例的方法，听当前请求的成功和失败，并返回新的 promise 实例",
             "itemtype": "method",
             "name": "then",
@@ -11165,7 +11164,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 207,
+            "line": 320,
             "description": "静态方法。为所有的 ajax 请求(包括未来)设定默认配置",
             "itemtype": "method",
             "name": "setupConfig",
@@ -11185,7 +11184,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 226,
+            "line": 339,
             "description": "发送 http get 请求",
             "itemtype": "method",
             "name": "get",
@@ -11221,7 +11220,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 237,
+            "line": 350,
             "description": "发送 http post 请求",
             "itemtype": "method",
             "name": "post",
@@ -11257,7 +11256,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 248,
+            "line": 361,
             "description": "发送 http get 请求，无视请求响应的 Content-type，将返回信息解析为 json 作为第一个参数调用 callback 回调",
             "itemtype": "method",
             "name": "getJson",
@@ -11288,7 +11287,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 258,
+            "line": 371,
             "description": "发送 jsonp 请求，将返回 json 信息作为第一个参数调用 callback 回调",
             "itemtype": "method",
             "name": "jsonp",
@@ -11319,7 +11318,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 270,
+            "line": 383,
             "description": "发送 jsonp 请求，将返回 json 信息作为第一个参数调用 callback 回调.",
             "itemtype": "method",
             "name": "upload",
@@ -11341,7 +11340,7 @@
         },
         {
             "file": "src\\api\\io.js",
-            "line": 282,
+            "line": 395,
             "description": "序列化一系列表单元素为可提交的字符串",
             "itemtype": "method",
             "name": "serialize",
@@ -11735,7 +11734,52 @@
         },
         {
             "file": "src\\api\\menu.js",
-            "line": 45,
+            "line": 41,
+            "description": "是否可以被选择，可以的话，单击会添加指定 class 到根节点.",
+            "itemtype": "attribute",
+            "name": "selectable",
+            "type": "Boolean",
+            "class": "Menu.Item",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 46,
+            "description": "是否可以被多选，可以的话，单击会添加或删除根节点的指定 class",
+            "itemtype": "attribute",
+            "name": "checkable",
+            "type": "Boolean",
+            "class": "Menu.Item",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 50,
+            "description": "可选，该菜单项的值",
+            "itemtype": "attribute",
+            "name": "value",
+            "type": "Any",
+            "optional": 1,
+            "class": "Menu.Item",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 55,
+            "description": "该菜单项的显示内容",
+            "itemtype": "attribute",
+            "name": "content",
+            "type": "String",
+            "class": "Menu.Item",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 60,
             "description": "当前菜单项是否被选中",
             "itemtype": "attribute",
             "name": "selected",
@@ -11746,7 +11790,7 @@
         },
         {
             "file": "src\\api\\menu.js",
-            "line": 50,
+            "line": 65,
             "description": "当前菜单选是否被多选了",
             "itemtype": "attribute",
             "name": "checked",
@@ -11757,7 +11801,7 @@
         },
         {
             "file": "src\\api\\menu.js",
-            "line": 55,
+            "line": 70,
             "description": "当前菜单项的值",
             "itemtype": "attribute",
             "name": "value",
@@ -11768,7 +11812,7 @@
         },
         {
             "file": "src\\api\\menu.js",
-            "line": 60,
+            "line": 75,
             "description": "当前菜单项的显示内容",
             "itemtype": "attribute",
             "name": "content",
@@ -11779,18 +11823,20 @@
         },
         {
             "file": "src\\api\\menu.js",
-            "line": 78,
-            "description": "鼠标掠过后多长时间显示子菜单.",
+            "line": 90,
+            "description": "可选，默认 0.15，单位秒。鼠标掠过后多长时间显示子菜单.",
             "itemtype": "attribute",
             "name": "menuDelay",
             "type": "Number",
+            "optional": 1,
+            "default": "0.15",
             "class": "Menu.SubMenu",
             "module": "menu",
             "namespace": "Menu"
         },
         {
             "file": "src\\api\\menu.js",
-            "line": 83,
+            "line": 97,
             "description": "子菜单实例",
             "itemtype": "attribute",
             "name": "menu",
@@ -11801,7 +11847,42 @@
         },
         {
             "file": "src\\api\\menu.js",
-            "line": 88,
+            "line": 102,
+            "description": "可选，默认 false . 销毁该菜单项是否顺带销毁子菜单",
+            "itemtype": "attribute",
+            "name": "externalSubMenu",
+            "type": "Boolean",
+            "optional": 1,
+            "default": "false",
+            "class": "Menu.SubMenu",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 109,
+            "description": "鼠标掠过后多长时间显示子菜单.",
+            "itemtype": "attribute",
+            "name": "menuDelay",
+            "type": "Number",
+            "class": "Menu.SubMenu",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 114,
+            "description": "子菜单实例",
+            "itemtype": "attribute",
+            "name": "menu",
+            "type": "Menu",
+            "class": "Menu.SubMenu",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 119,
             "description": "销毁该菜单项是否顺带销毁子菜单",
             "itemtype": "attribute",
             "name": "externalSubMenu",
@@ -11811,8 +11892,54 @@
             "namespace": "Menu"
         },
         {
+            "file": "src\\api\\menu.js",
+            "line": 134,
+            "description": "鼠标移出子菜单时子菜单是否自动隐藏\n\n#### 从已有元素实例 PopupMenu 对象时 , 元素节点标明类名 {prefixCls}popupmenu . prefixCls 为配置的类名前缀，默认为 ks- .\n\n若使用默认的类名前缀，使用前请加上初始样式\n```\n<style>\n    .ks-popupmenu {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n</style>\n```",
+            "itemtype": "attribute",
+            "name": "autoHideOnMouseLeave",
+            "type": "Boolean",
+            "default": "false",
+            "class": "Menu.PopupMenu",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
+            "file": "src\\api\\menu.js",
+            "line": 161,
+            "description": "菜单项是否 checked，默认 true",
+            "itemtype": "attribute",
+            "name": "checked",
+            "type": "Boolean",
+            "default": "true",
+            "class": "Menu.CheckMenuItem",
+            "module": "menu",
+            "namespace": "Menu"
+        },
+        {
             "file": "src\\api\\menubutton.js",
-            "line": 20,
+            "line": 12,
+            "description": "可选，下拉框菜单配置/实例，具体参考 [Menu](/5.0/api/classes/Menu.html) ，默认值:\n```\n{\n    xclass:'popupmenu'\n}\n\n```",
+            "itemtype": "attribute",
+            "name": "menu",
+            "type": "Object",
+            "optional": 1,
+            "class": "MenuButton",
+            "module": "menubutton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 24,
+            "description": "是否下拉菜单和按钮宽度一致。默认 true",
+            "itemtype": "attribute",
+            "name": "matchElWidth",
+            "type": "Boolean",
+            "default": "true",
+            "class": "MenuButton",
+            "module": "menubutton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 30,
             "description": "关联的下拉菜单实例/配置项",
             "itemtype": "attribute",
             "name": "menu",
@@ -11822,7 +11949,7 @@
         },
         {
             "file": "src\\api\\menubutton.js",
-            "line": 25,
+            "line": 35,
             "description": "下拉菜单是否弹出，设置值可控制下拉菜单弹出与否.",
             "itemtype": "attribute",
             "name": "collapsed",
@@ -11832,7 +11959,7 @@
         },
         {
             "file": "src\\api\\menubutton.js",
-            "line": 30,
+            "line": 40,
             "description": "添加下拉菜单项",
             "itemtype": "method",
             "name": "addItem",
@@ -11853,7 +11980,7 @@
         },
         {
             "file": "src\\api\\menubutton.js",
-            "line": 37,
+            "line": 47,
             "description": "删除指定下拉菜单项",
             "itemtype": "method",
             "name": "removeItem",
@@ -11874,7 +12001,7 @@
         },
         {
             "file": "src\\api\\menubutton.js",
-            "line": 44,
+            "line": 54,
             "description": "删除所有下拉菜单项",
             "itemtype": "method",
             "name": "removeItems",
@@ -11891,7 +12018,7 @@
         },
         {
             "file": "src\\api\\menubutton.js",
-            "line": 50,
+            "line": 60,
             "description": "取得指定位置下拉菜单项",
             "itemtype": "method",
             "name": "getItemAt",
@@ -11907,7 +12034,7 @@
         },
         {
             "file": "src\\api\\menubutton.js",
-            "line": 56,
+            "line": 66,
             "description": "当子菜单项被点击后触发",
             "itemtype": "event",
             "name": "click",
@@ -11923,7 +12050,19 @@
         },
         {
             "file": "src\\api\\menubutton.js",
-            "line": 76,
+            "line": 85,
+            "description": "可选，下拉框没有可选项时的默认显示内容.",
+            "itemtype": "attribute",
+            "name": "defaultCaption",
+            "type": "String",
+            "optional": 1,
+            "class": "MenuButton.Select",
+            "module": "menubutton",
+            "namespace": "MenuButton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 91,
             "description": "下拉框的当前值",
             "itemtype": "attribute",
             "name": "value",
@@ -11934,7 +12073,7 @@
         },
         {
             "file": "src\\api\\menubutton.js",
-            "line": 81,
+            "line": 96,
             "description": "下拉框没有可选项时的默认显示内容",
             "itemtype": "attribute",
             "name": "defaultCaption",
@@ -11945,7 +12084,7 @@
         },
         {
             "file": "src\\api\\menubutton.js",
-            "line": 86,
+            "line": 101,
             "description": "直接把原生 select 元素替换成 Select",
             "itemtype": "method",
             "name": "decorate",
@@ -11973,6 +12112,18 @@
                 "type": "Select"
             },
             "class": "MenuButton.Select",
+            "module": "menubutton",
+            "namespace": "MenuButton"
+        },
+        {
+            "file": "src\\api\\menubutton.js",
+            "line": 121,
+            "description": "是否可以被选择，可以的话，单击会添加指定 class 到根节点",
+            "itemtype": "attribute",
+            "name": "selectable",
+            "type": "Boolean",
+            "default": "true",
+            "class": "MenuButton.Option",
             "module": "menubutton",
             "namespace": "MenuButton"
         },
@@ -12850,7 +13001,57 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 58,
+            "line": 39,
+            "description": "可选, 显示或隐藏时的特效支持, 对象包含以下配置:\n- effect.target {String|KISSY.Node} 可选,动画的参考元素\n- effect.effect {String} 可取值 ‘fade’(渐隐显示), ‘slide’(滑动显示)\n- effect.easing {String}  同 [Anim](/5.0/api/classes/Anim.html) 的 easing 参数配置\n- effect.duration {Number} 可选, 动画持续时间, 以秒为单位.例如：\n```\n{\n    target:'',        // {String|KISSY.Node} - 可选，动画的参考元素\n    effect:'none',    // {String} - 可选, 默认为'none', 'none'(无特效), 'fade'(渐隐显示), 'slide'(滑动显示).\n    easing:'',        // {String} - 可选, 同 KISSY.Anim 的 easing 参数配置.\n    duration:3        // {Number} - 可选, 动画持续时间, 以秒为单位.\n}\n```",
+            "itemtype": "attribute",
+            "name": "effect",
+            "class": "Overlay",
+            "module": "overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 56,
+            "description": "对话框右上角是否包括关闭按钮",
+            "itemtype": "attribute",
+            "name": "closable",
+            "type": "Boolean",
+            "class": "Overlay",
+            "module": "overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 61,
+            "description": "点击关闭按钮的动作。默认 “hide” 隐藏，也可设置 “destroy” 销毁该组件",
+            "itemtype": "attribute",
+            "name": "closeAction",
+            "type": "String",
+            "class": "Overlay",
+            "module": "overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 66,
+            "description": "mask的相关配置：\n- 当为Boolean时，表示组件显示时是否使用遮罩层盖住页面其他元素\n- 当为Object时，有如下配置：\n    - mask.closeOnClick {Boolean} 可选. 点击遮罩层是否关闭 overlay. (具体隐藏或销毁依赖 closeAction)\n    - mask.effect {String} 可选. 遮罩层显示隐藏效果. (取值 ‘fade’,’slide’)\n    - mask.duration {Number} 可选. 效果持续时间. 单位秒",
+            "itemtype": "attribute",
+            "name": "mask",
+            "type": "Boolean|Object",
+            "class": "Overlay",
+            "module": "overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 76,
+            "description": "可选, 动画持续时间, 以秒为单位.",
+            "itemtype": "attribute",
+            "name": "duration",
+            "type": "Number",
+            "optional": 1,
+            "class": "Overlay",
+            "module": "overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 82,
             "description": "设置后显示或隐藏关闭按钮",
             "itemtype": "attribute",
             "name": "closable",
@@ -12860,7 +13061,7 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 64,
+            "line": 88,
             "description": "遮罩层节点",
             "itemtype": "attribute",
             "name": "maskNode",
@@ -12870,7 +13071,7 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 70,
+            "line": 94,
             "description": "生成一个加载盖住当前组件内容",
             "itemtype": "method",
             "name": "loading",
@@ -12879,7 +13080,7 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 75,
+            "line": 99,
             "description": "隐藏生成的加载层",
             "itemtype": "method",
             "name": "unloading",
@@ -12888,7 +13089,85 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 119,
+            "line": 135,
+            "description": "组件的标题 html",
+            "itemtype": "attribute",
+            "name": "headerContent",
+            "type": "String",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 140,
+            "description": "默认 true. escape 键是否触发 close 动作",
+            "itemtype": "attribute",
+            "name": "escapeToClose",
+            "type": "Boolean",
+            "default": "true",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 146,
+            "description": "组件的体 html",
+            "itemtype": "attribute",
+            "name": "bodyContent",
+            "type": "String",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 151,
+            "description": "组件的底部 html",
+            "itemtype": "attribute",
+            "name": "footerContent",
+            "type": "String",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 156,
+            "description": "组件的标题内联样式",
+            "itemtype": "attribute",
+            "name": "headerStyle",
+            "type": "Object",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 161,
+            "description": "组件体的内联样式.",
+            "itemtype": "attribute",
+            "name": "bodyStyle",
+            "type": "Object",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 166,
+            "description": "组件的底部内联样式",
+            "itemtype": "attribute",
+            "name": "footerStyle",
+            "type": "Object",
+            "class": "Overlay.Dialog",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 171,
             "description": "只读, 组件的头部节点",
             "itemtype": "attribute",
             "name": "header",
@@ -12900,7 +13179,7 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 125,
+            "line": 177,
             "description": "只读, 组件的体部节点",
             "itemtype": "attribute",
             "name": "body",
@@ -12912,7 +13191,7 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 131,
+            "line": 183,
             "description": "只读, 组件的底部节点",
             "itemtype": "attribute",
             "name": "footer",
@@ -12924,7 +13203,7 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 137,
+            "line": 189,
             "description": "可读写. 组件的标题 html.",
             "itemtype": "attribute",
             "name": "headerContent",
@@ -12935,7 +13214,7 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 142,
+            "line": 194,
             "description": "可读写. 组件的体html.",
             "itemtype": "attribute",
             "name": "bodyContent",
@@ -12946,7 +13225,7 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 147,
+            "line": 199,
             "description": "可读写. 组件的底部 html.",
             "itemtype": "attribute",
             "name": "footerContent",
@@ -12957,7 +13236,54 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 168,
+            "line": 216,
+            "description": "触点集合",
+            "itemtype": "attribute",
+            "name": "trigger",
+            "type": "String|HTMLElement[]|KISSY.NodeList",
+            "class": "Overlay.Popup",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 221,
+            "description": "可选, 默认为 ‘click’, 触发类型, 可选 ‘click’, ‘mouse’.",
+            "itemtype": "attribute",
+            "name": "triggerType",
+            "type": "String",
+            "default": "\"click\"",
+            "class": "Overlay.Popup",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 227,
+            "description": "单位秒. 可选, triggerType 为 mouse 时, Popup 显示的延迟时间, 默认为 0.1.",
+            "itemtype": "attribute",
+            "name": "mouseDelay",
+            "type": "Number",
+            "default": "0.1",
+            "class": "Overlay.Popup",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 233,
+            "description": "可选, triggerType 为 click 时, Popup 是否有toggle功能，默认为false，不开启",
+            "itemtype": "attribute",
+            "name": "toggle",
+            "type": "Boolean",
+            "default": "false",
+            "class": "Overlay.Popup",
+            "module": "overlay",
+            "namespace": "Overlay"
+        },
+        {
+            "file": "src\\api\\overlay.js",
+            "line": 239,
             "description": "当前的 trigger 节点",
             "itemtype": "attribute",
             "name": "currentTrigger",
@@ -12968,7 +13294,7 @@
         },
         {
             "file": "src\\api\\overlay.js",
-            "line": 173,
+            "line": 244,
             "description": "当 currentTrigger 改变后触发",
             "itemtype": "event",
             "name": "afterCurrentTriggerChange",
@@ -13400,7 +13726,82 @@
         },
         {
             "file": "src\\api\\resizable.js",
-            "line": 23,
+            "line": 15,
+            "description": "是否在 resize 的过程中保持 width/height 比例",
+            "itemtype": "attribute",
+            "name": "preserveRatio",
+            "type": "Boolean",
+            "class": "Resizable",
+            "module": "resizable"
+        },
+        {
+            "file": "src\\api\\resizable.js",
+            "line": 20,
+            "description": "默认为 [], 表示可拖动元素的哪些位置来进行缩放.\n可取下列值: “b”,”t”,”r”,”l”,”tr”,”tl”,”br”,”bl”． 其中, t,b,l,r 分别表示 top,bottom,left,right, 加上组合共八种取值, 可在上, 下, 左, 右以及左上, 左下, 右上, 右下进行拖动.",
+            "itemtype": "attribute",
+            "name": "handlers",
+            "type": "String[]",
+            "default": "[]",
+            "class": "Resizable",
+            "module": "resizable"
+        },
+        {
+            "file": "src\\api\\resizable.js",
+            "line": 27,
+            "description": "默认为0, 表示拖动缩放的最大高度",
+            "itemtype": "attribute",
+            "name": "maxHeight",
+            "type": "Number",
+            "default": "0",
+            "class": "Resizable",
+            "module": "resizable"
+        },
+        {
+            "file": "src\\api\\resizable.js",
+            "line": 33,
+            "description": "默认为0, 表示拖动缩放的最大宽度",
+            "itemtype": "attribute",
+            "name": "maxWidth",
+            "type": "Number",
+            "default": "0",
+            "class": "Resizable",
+            "module": "resizable"
+        },
+        {
+            "file": "src\\api\\resizable.js",
+            "line": 39,
+            "description": "默认为0, 表示拖动缩放的最小高度",
+            "itemtype": "attribute",
+            "name": "minHeight",
+            "type": "Number",
+            "default": "0",
+            "class": "Resizable",
+            "module": "resizable"
+        },
+        {
+            "file": "src\\api\\resizable.js",
+            "line": 45,
+            "description": "默认为0, 表示拖动缩放的最小宽度",
+            "itemtype": "attribute",
+            "name": "minWidth",
+            "type": "Number",
+            "default": "0",
+            "class": "Resizable",
+            "module": "resizable"
+        },
+        {
+            "file": "src\\api\\resizable.js",
+            "line": 51,
+            "description": "将要进行缩放的节点",
+            "itemtype": "attribute",
+            "name": "node",
+            "type": "String|HTMLElement|KISSY.Node",
+            "class": "Resizable",
+            "module": "resizable"
+        },
+        {
+            "file": "src\\api\\resizable.js",
+            "line": 57,
             "description": "销毁该组件, 取消元素上的缩放功能.",
             "itemtype": "method",
             "name": "destroy",
@@ -13409,7 +13810,7 @@
         },
         {
             "file": "src\\api\\resizable.js",
-            "line": 28,
+            "line": 62,
             "description": "开始拖放后触发",
             "itemtype": "event",
             "name": "resizeStart",
@@ -13418,7 +13819,7 @@
         },
         {
             "file": "src\\api\\resizable.js",
-            "line": 33,
+            "line": 67,
             "description": "拖放中触发",
             "itemtype": "event",
             "name": "resize",
@@ -13427,7 +13828,7 @@
         },
         {
             "file": "src\\api\\resizable.js",
-            "line": 38,
+            "line": 72,
             "description": "结束拖放后触发",
             "itemtype": "event",
             "name": "resizeEnd",
@@ -13436,7 +13837,18 @@
         },
         {
             "file": "src\\api\\split-button.js",
-            "line": 16,
+            "line": 14,
+            "description": "是否将菜单按钮和按钮对齐，默认 true",
+            "itemtype": "attribute",
+            "name": "alignWithEl",
+            "type": "Boolean",
+            "default": "true",
+            "class": "SplitButton",
+            "module": "split-button"
+        },
+        {
+            "file": "src\\api\\split-button.js",
+            "line": 20,
             "description": "菜单按钮组件",
             "itemtype": "attribute",
             "name": "menuButton",
@@ -13446,7 +13858,7 @@
         },
         {
             "file": "src\\api\\split-button.js",
-            "line": 21,
+            "line": 25,
             "description": "按钮组件",
             "itemtype": "attribute",
             "name": "button",
@@ -13456,7 +13868,17 @@
         },
         {
             "file": "src\\api\\stylesheet.js",
-            "line": 13,
+            "line": 12,
+            "description": "link 节点或选择器",
+            "itemtype": "attribute",
+            "name": "el",
+            "type": "HTMLElement|String",
+            "class": "StyleSheet",
+            "module": "stylesheet"
+        },
+        {
+            "file": "src\\api\\stylesheet.js",
+            "line": 17,
             "description": "link 元素节点",
             "itemtype": "property",
             "name": "el",
@@ -13466,7 +13888,7 @@
         },
         {
             "file": "src\\api\\stylesheet.js",
-            "line": 18,
+            "line": 22,
             "description": "禁用当前 stylesheet 所在样式表的所有样式",
             "itemtype": "method",
             "name": "disable",
@@ -13478,7 +13900,7 @@
         },
         {
             "file": "src\\api\\stylesheet.js",
-            "line": 24,
+            "line": 28,
             "description": "启用当前 stylesheet 所在样式表的所有样式",
             "itemtype": "method",
             "name": "enable",
@@ -13490,7 +13912,7 @@
         },
         {
             "file": "src\\api\\stylesheet.js",
-            "line": 30,
+            "line": 34,
             "description": "当前样式表是否已经被启用",
             "itemtype": "method",
             "name": "isEnabled",
@@ -13503,7 +13925,7 @@
         },
         {
             "file": "src\\api\\stylesheet.js",
-            "line": 36,
+            "line": 40,
             "description": "获取对应 selectorText 的样式定义文本.",
             "itemtype": "method",
             "name": "get",
@@ -13526,7 +13948,7 @@
         },
         {
             "file": "src\\api\\stylesheet.js",
-            "line": 59,
+            "line": 63,
             "description": "设置对应 selectorText 的样式定义",
             "itemtype": "method",
             "name": "set",
@@ -13553,7 +13975,94 @@
         },
         {
             "file": "src\\api\\swf.js",
-            "line": 43,
+            "line": 45,
+            "description": "将要加到 flash 节点的属性键值对",
+            "itemtype": "attribute",
+            "name": "attrs",
+            "type": "Object",
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 50,
+            "description": "可选。插入 swf 所属的文档，默认当前文档",
+            "itemtype": "attribute",
+            "name": "document",
+            "type": "HTMLDocument",
+            "optional": 1,
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 56,
+            "description": "可选。 在此元素前插入 swf",
+            "itemtype": "attribute",
+            "name": "elBefore",
+            "type": "HTMLDocument",
+            "optional": 1,
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 62,
+            "description": "可选。版本低时显示的快速安装 swf ，默认为 kissy 自带地址.",
+            "itemtype": "attribute",
+            "name": "expressInstall",
+            "type": "String",
+            "optional": 1,
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 68,
+            "description": "将要加到 flash 节点的 param 键值对. 注意其中属性 flashVars 的大小写",
+            "itemtype": "attribute",
+            "name": "params",
+            "type": "Object",
+            "optional": 1,
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 74,
+            "description": "可选。在此元素内添加 swf。 若 render 与 swf 都不设置则插入到 body 节点中",
+            "itemtype": "attribute",
+            "name": "render",
+            "type": "HTMLDocument",
+            "optional": 1,
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 80,
+            "description": "必选。 swf 元素的地址。",
+            "itemtype": "attribute",
+            "name": "src",
+            "type": "String",
+            "required": 1,
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 86,
+            "description": "可选。最低 flash 版本要求，达不到要求显示 expressInstall。例如 9.1.234，默认 9.0",
+            "itemtype": "attribute",
+            "name": "version",
+            "type": "String",
+            "optional": 1,
+            "class": "SWF",
+            "module": "swf"
+        },
+        {
+            "file": "src\\api\\swf.js",
+            "line": 92,
             "description": "swf 元素节点",
             "itemtype": "attribute",
             "name": "el",
@@ -13563,7 +14072,7 @@
         },
         {
             "file": "src\\api\\swf.js",
-            "line": 48,
+            "line": 97,
             "description": "swf 元素 html",
             "itemtype": "attribute",
             "name": "html",
@@ -13573,7 +14082,7 @@
         },
         {
             "file": "src\\api\\swf.js",
-            "line": 53,
+            "line": 102,
             "description": "取值枚举自SWF实例的property status",
             "itemtype": "attribute",
             "name": "status",
@@ -13583,7 +14092,7 @@
         },
         {
             "file": "src\\api\\swf.js",
-            "line": 58,
+            "line": 107,
             "description": "状态，有三种取值：\n- NOT_INSTALLED 表示没有安装 flash 插件\n- SUCCESS 表示已成功插入 swf 元素\n- TOO_LOW 表示当前版本号低于配置的版本号",
             "itemtype": "property",
             "name": "status",
@@ -13593,7 +14102,7 @@
         },
         {
             "file": "src\\api\\swf.js",
-            "line": 67,
+            "line": 116,
             "description": "调用 swf 的方法",
             "itemtype": "method",
             "name": "callSWF",
@@ -13618,7 +14127,7 @@
         },
         {
             "file": "src\\api\\swf.js",
-            "line": 75,
+            "line": 124,
             "description": "销毁 swf 元素",
             "itemtype": "method",
             "name": "destroy",
@@ -13627,7 +14136,7 @@
         },
         {
             "file": "src\\api\\swf.js",
-            "line": 80,
+            "line": 129,
             "description": "获取 flash 版本数组",
             "itemtype": "method",
             "name": "fpv",
@@ -13648,7 +14157,7 @@
         },
         {
             "file": "src\\api\\swf.js",
-            "line": 88,
+            "line": 137,
             "description": "检查当前版本是否比提供的参数版本高",
             "itemtype": "method",
             "name": "fpvGTE",
@@ -13672,7 +14181,7 @@
         },
         {
             "file": "src\\api\\swf.js",
-            "line": 96,
+            "line": 145,
             "description": "swf 元素的地址",
             "itemtype": "method",
             "name": "getSrc",
@@ -16356,7 +16865,38 @@
         },
         {
             "file": "src\\api\\xtemplate.js",
-            "line": 37,
+            "line": 28,
+            "description": "局部自定义命令的键值对，例如\n```\n{\n    'toLowerCase':function( scopes,option ){\n        return option.params[0].toLowerCase();\n    }\n}\n```",
+            "itemtype": "attribute",
+            "name": "command",
+            "type": "Object",
+            "class": "XTemplate",
+            "module": "xtemplate"
+        },
+        {
+            "file": "src\\api\\xtemplate.js",
+            "line": 40,
+            "description": "模版名称，可在 chrome dev tools 中看到以该值为名称的模板文件代码",
+            "itemtype": "attribute",
+            "name": "name",
+            "type": "String",
+            "class": "XTemplate",
+            "module": "xtemplate"
+        },
+        {
+            "file": "src\\api\\xtemplate.js",
+            "line": 45,
+            "description": "是否缓存生成的模板函数，默认 true",
+            "itemtype": "attribute",
+            "name": "cache",
+            "type": "Boolean",
+            "default": "true",
+            "class": "XTemplate",
+            "module": "xtemplate"
+        },
+        {
+            "file": "src\\api\\xtemplate.js",
+            "line": 51,
             "description": "删除指定的局部命令",
             "itemtype": "method",
             "name": "removeCommand",
@@ -16372,7 +16912,7 @@
         },
         {
             "file": "src\\api\\xtemplate.js",
-            "line": 43,
+            "line": 57,
             "description": "添加局部命令",
             "itemtype": "method",
             "name": "addCommand",
@@ -16393,7 +16933,7 @@
         },
         {
             "file": "src\\api\\xtemplate.js",
-            "line": 51,
+            "line": 65,
             "description": "编译模板",
             "itemtype": "method",
             "name": "compile",
@@ -16413,7 +16953,7 @@
         },
         {
             "file": "src\\api\\xtemplate.js",
-            "line": 58,
+            "line": 72,
             "description": "渲染数据到模板",
             "itemtype": "method",
             "name": "render",
@@ -16433,7 +16973,7 @@
         },
         {
             "file": "src\\api\\xtemplate.js",
-            "line": 65,
+            "line": 79,
             "description": "添加全局命令",
             "itemtype": "method",
             "name": "addCommand",
