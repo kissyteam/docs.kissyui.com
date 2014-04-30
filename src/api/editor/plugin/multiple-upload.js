@@ -26,6 +26,7 @@ serverParams: {
 }
 ```
 @class MultipleUpload
+@namespace EditorPlugin
 @constructor
 @param config {Object} 配置对象，详见其Attribute
 */

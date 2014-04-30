@@ -17,12 +17,6 @@
         </div>
     {{/if}}
 
-    {{#if foundAt}}
-        <div class="foundat">
-            Defined in: <a href="{{foundAt}}">`{{{file}}}:{{{line}}}`</a>
-        </div>
-    {{/if}}
-
     {{#if module}}
         {{#if submodule}}
             Module: {{#crossLinkModule submodule}}{{/crossLinkModule}}<br>

@@ -6,6 +6,7 @@
 
 /**
 @class Control
+@namespace Component
 @constructor
 @extends Base
 @param config {Object} 配置项，详见Attribute

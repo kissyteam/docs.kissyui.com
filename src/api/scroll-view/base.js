@@ -8,7 +8,7 @@
 /**
 @class ScrollView
 @constructor
-@extends Container
+@extends Component.Container
 @param config {Object} 配置对象，详情参考其Attribute
 */
 

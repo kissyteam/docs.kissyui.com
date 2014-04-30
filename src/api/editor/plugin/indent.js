@@ -8,4 +8,5 @@
 ### Commands
 - indent 对选区缩进
 @class Indent
+@namespace EditorPlugin
 */

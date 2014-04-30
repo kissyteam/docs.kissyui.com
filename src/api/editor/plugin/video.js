@@ -5,6 +5,7 @@
 /**
 编辑器的插入图片插件
 @class Video
+@namespace EditorPlugin
 @constructor
 @param config {Object} 配置对象，详见其Attribute
 */

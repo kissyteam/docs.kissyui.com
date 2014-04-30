@@ -5,6 +5,7 @@
 /**
 编辑器的链接插件
 @class Link
+@namespace EditorPlugin
 @constructor
 @param config {Object} 详见其Attribute
 */

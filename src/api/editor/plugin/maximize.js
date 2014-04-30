@@ -9,6 +9,7 @@
 - maximizeWindow 窗口最大化
 - restoreWindow 窗口最恢复
 @class Maximize
+@namespace EditorPlugin
 @constructor
 */
 

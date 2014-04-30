@@ -53,7 +53,7 @@ tree.on("click",function(e){
 /**
 @class Node
 @constructor
-@extends Container
+@extends Component.Container
 @namespace Tree
 @param config {Object} 配置项，详见Attribute
 */

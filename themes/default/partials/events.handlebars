@@ -25,24 +25,18 @@
                 {{overwritten_from/class}}
             </a>
             {{#if foundAt}}
-            but overwritten in
+            but overwritten by this Class
             {{/if}}
         {{else}}
             {{#if extended_from}}
                 <p>Inherited from
-                <a href="{{crossLinkRaw extended_from}}#event_{{name}}">{{extended_from}}</a>:
+                <a href="{{crossLinkRaw extended_from}}#event_{{name}}">{{extended_from}}</a>
             {{else}}
                 {{#providedBy}}
                     <p>Provided by the <a href="../modules/{{.}}.html">{{.}}</a> module.</p>
                 {{/providedBy}}
                 <p>
-                {{#if foundAt}}
-                Defined in
-                {{/if}}
             {{/if}}
-        {{/if}}
-        {{#if foundAt}}
-        <a href="{{foundAt}}">`{{{file}}}:{{{line}}}`</a>
         {{/if}}
         </p>
 

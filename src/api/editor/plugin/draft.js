@@ -12,6 +12,7 @@ KISSY.use('editor',function(S,Editor){
 });
 ```
 @class Draft
+@namespace EditorPlugin
 @constructor
 @param config {Object} 详见其Attribute
 @example

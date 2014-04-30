@@ -5,6 +5,7 @@
 /**
 编辑器的拖放上传插件
 @class DragUpload
+@namespace EditorPlugin
 @constructor
 @param config {Object} 详见其Attribute
 @example

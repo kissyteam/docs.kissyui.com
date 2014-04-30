@@ -32,7 +32,7 @@
 ```
 @class ComboBox
 @constructor
-@extends Control
+@extends Component.Control
 @param config {Object} 配置项，详见其Attribute
 */
 

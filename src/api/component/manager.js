@@ -7,6 +7,7 @@
 /**
 提供组件元数据管理功能
 @class Manager
+@namespace Component
 @constructor
 */
 

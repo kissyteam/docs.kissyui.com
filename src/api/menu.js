@@ -5,7 +5,7 @@
 /**
 @class Menu
 @constructor
-@extends Control
+@extends Component.Control
 @param config {Object} 配置项
 
 #### 从已有元素实例 Menu 对象时 , 元素节点标明类名 {prefixCls}menu . prefixCls 为配置的类名前缀，默认为 ks-
@@ -33,7 +33,7 @@ menu.set("highlightedItem",null);
 /**
 @class Item
 @constructor
-@extends Control
+@extends Component.Control
 @namespace Menu
 @param config {Object}  配置对象，详见其Attribute
 */

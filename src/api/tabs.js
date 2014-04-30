@@ -5,7 +5,7 @@
 /**
 @class Tabs
 @constructor
-@extends Container
+@extends Component.Container
 @param config {Object} 配置项，详见attribute
 */
 
@@ -138,7 +138,7 @@
 /**
 @class Panel
 @constructor
-@extends Container
+@extends Component.Container
 @namespace Tabs
 @param config {Object} 配置项，详见attribute
 */

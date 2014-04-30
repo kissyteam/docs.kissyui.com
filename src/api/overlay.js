@@ -30,7 +30,7 @@
 ```
 @class Overlay
 @constructor
-@extends Container
+@extends Component.Container
 @uses Shim
 @uses Align
 @param config {Object} 配置详见其Attribute

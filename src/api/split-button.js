@@ -6,7 +6,7 @@
 按钮和菜单按钮的组合,构建支持下拉菜单的按钮组
 @class SplitButton
 @constructor
-@extends Container
+@extends Component.Container
 @param config {Object} 配置对象，详见其Attribute
 */
 

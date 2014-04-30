@@ -13,4 +13,5 @@
 editor.execCommand("foreColor",'#ffffffff'); // 设置选区字体颜色为白色
 ```
 @class FontColor
+@namespace EditorPlugin
 */

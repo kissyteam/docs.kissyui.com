@@ -5,6 +5,7 @@
 /**
 编辑器的插入图片插件
 @class Image
+@namespace EditorPlugin
 @constructor
 @param config {Object} 详见其Attribute
 @example

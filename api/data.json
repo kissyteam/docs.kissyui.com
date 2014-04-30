@@ -12,10 +12,12 @@
                 "component/extension/align": 1
             },
             "classes": {
-                "Align": 1
+                "Component.Extension.Align": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Component.Extension": 1
+            }
         },
         "src\\api\\component\\extension\\delegate-children.js": {
             "name": "src\\api\\component\\extension\\delegate-children.js",
@@ -23,10 +25,12 @@
                 "component/extension/delegate-children": 1
             },
             "classes": {
-                "DelegateChildren": 1
+                "Component.Extension.DelegateChildren": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Component.Extension": 1
+            }
         },
         "src\\api\\component\\extension\\shim.js": {
             "name": "src\\api\\component\\extension\\shim.js",
@@ -34,10 +38,12 @@
                 "component/extension/shim": 1
             },
             "classes": {
-                "Shim": 1
+                "Component.Extension.Shim": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Component.Extension": 1
+            }
         },
         "src\\api\\component\\plugin\\drag.js": {
             "name": "src\\api\\component\\plugin\\drag.js",
@@ -45,10 +51,12 @@
                 "component/plugin/drag": 1
             },
             "classes": {
-                "Drag": 1
+                "Component.plugin.Drag": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Component.plugin": 1
+            }
         },
         "src\\api\\component\\plugin\\resize.js": {
             "name": "src\\api\\component\\plugin\\resize.js",
@@ -56,10 +64,12 @@
                 "component/plugin/resize": 1
             },
             "classes": {
-                "Resize": 1
+                "Component.plugin.Resize": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Component.plugin": 1
+            }
         },
         "src\\api\\component\\color.js": {
             "name": "src\\api\\component\\color.js",
@@ -67,10 +77,12 @@
                 "color": 1
             },
             "classes": {
-                "Color": 1
+                "Component.Color": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Component": 1
+            }
         },
         "src\\api\\component\\container.js": {
             "name": "src\\api\\component\\container.js",
@@ -78,10 +90,12 @@
                 "component/container": 1
             },
             "classes": {
-                "Container": 1
+                "Component.Container": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Component": 1
+            }
         },
         "src\\api\\component\\control.js": {
             "name": "src\\api\\component\\control.js",
@@ -89,10 +103,12 @@
                 "component/control": 1
             },
             "classes": {
-                "Control": 1
+                "Component.Control": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Component": 1
+            }
         },
         "src\\api\\component\\manager.js": {
             "name": "src\\api\\component\\manager.js",
@@ -100,10 +116,12 @@
                 "component/manager": 1
             },
             "classes": {
-                "Manager": 1
+                "Component.Manager": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Component": 1
+            }
         },
         "src\\api\\date\\format.js": {
             "name": "src\\api\\date\\format.js",
@@ -188,10 +206,12 @@
                 "editor/plugin/back-color": 1
             },
             "classes": {
-                "BackColor": 1
+                "EditorPlugin.BackColor": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\bold.js": {
             "name": "src\\api\\editor\\plugin\\bold.js",
@@ -199,10 +219,12 @@
                 "editor/plugin/bold": 1
             },
             "classes": {
-                "Bold": 1
+                "EditorPlugin.Bold": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\checkbox-source-area.js": {
             "name": "src\\api\\editor\\plugin\\checkbox-source-area.js",
@@ -210,10 +232,12 @@
                 "editor/plugin/checkbox-source-area": 1
             },
             "classes": {
-                "CheckBoxSourceArea": 1
+                "EditorPlugin.CheckBoxSourceArea": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\code.js": {
             "name": "src\\api\\editor\\plugin\\code.js",
@@ -221,10 +245,12 @@
                 "editor/plugin/code": 1
             },
             "classes": {
-                "Code": 1
+                "EditorPlugin.Code": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\draft.js": {
             "name": "src\\api\\editor\\plugin\\draft.js",
@@ -232,10 +258,12 @@
                 "editor/plugin/draft": 1
             },
             "classes": {
-                "Draft": 1
+                "EditorPlugin.Draft": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\drag-upload.js": {
             "name": "src\\api\\editor\\plugin\\drag-upload.js",
@@ -243,10 +271,12 @@
                 "editor/plugin/drag-upload": 1
             },
             "classes": {
-                "DragUpload": 1
+                "EditorPlugin.DragUpload": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\element-path.js": {
             "name": "src\\api\\editor\\plugin\\element-path.js",
@@ -254,10 +284,12 @@
                 "editor/plugin/element-path": 1
             },
             "classes": {
-                "ElementPath": 1
+                "EditorPlugin.ElementPath": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\flash.js": {
             "name": "src\\api\\editor\\plugin\\flash.js",
@@ -265,10 +297,12 @@
                 "editor/plugin/flash": 1
             },
             "classes": {
-                "Flash": 1
+                "EditorPlugin.Flash": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\font-color.js": {
             "name": "src\\api\\editor\\plugin\\font-color.js",
@@ -276,10 +310,12 @@
                 "editor/plugin/font-color": 1
             },
             "classes": {
-                "FontColor": 1
+                "EditorPlugin.FontColor": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\font-family.js": {
             "name": "src\\api\\editor\\plugin\\font-family.js",
@@ -287,10 +323,12 @@
                 "editor/plugin/font-family": 1
             },
             "classes": {
-                "FontFamily": 1
+                "EditorPlugin.FontFamily": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\font-size.js": {
             "name": "src\\api\\editor\\plugin\\font-size.js",
@@ -298,10 +336,12 @@
                 "editor/plugin/font-size": 1
             },
             "classes": {
-                "FontSize": 1
+                "EditorPlugin.FontSize": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\heading.js": {
             "name": "src\\api\\editor\\plugin\\heading.js",
@@ -309,10 +349,12 @@
                 "editor/plugin/heading": 1
             },
             "classes": {
-                "Heading": 1
+                "EditorPlugin.Heading": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\image.js": {
             "name": "src\\api\\editor\\plugin\\image.js",
@@ -320,10 +362,12 @@
                 "editor/plugin/image": 1
             },
             "classes": {
-                "Image": 1
+                "EditorPlugin.Image": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\indent.js": {
             "name": "src\\api\\editor\\plugin\\indent.js",
@@ -331,10 +375,12 @@
                 "editor/plugin/indent": 1
             },
             "classes": {
-                "Indent": 1
+                "EditorPlugin.Indent": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\italic.js": {
             "name": "src\\api\\editor\\plugin\\italic.js",
@@ -342,10 +388,12 @@
                 "editor/plugin/italic": 1
             },
             "classes": {
-                "Italic": 1
+                "EditorPlugin.Italic": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\justify-center.js": {
             "name": "src\\api\\editor\\plugin\\justify-center.js",
@@ -353,10 +401,12 @@
                 "editor/plugin/justify-center": 1
             },
             "classes": {
-                "JustifyCenter": 1
+                "EditorPlugin.JustifyCenter": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\justify-left.js": {
             "name": "src\\api\\editor\\plugin\\justify-left.js",
@@ -364,10 +414,12 @@
                 "editor/plugin/justify-left": 1
             },
             "classes": {
-                "JustifyLeft": 1
+                "EditorPlugin.JustifyLeft": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\justify-right.js": {
             "name": "src\\api\\editor\\plugin\\justify-right.js",
@@ -375,10 +427,12 @@
                 "editor/plugin/justify-right": 1
             },
             "classes": {
-                "JustifyRight": 1
+                "EditorPlugin.JustifyRight": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\link.js": {
             "name": "src\\api\\editor\\plugin\\link.js",
@@ -386,10 +440,12 @@
                 "editor/plugin/link": 1
             },
             "classes": {
-                "Link": 1
+                "EditorPlugin.Link": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\maximize.js": {
             "name": "src\\api\\editor\\plugin\\maximize.js",
@@ -397,10 +453,12 @@
                 "editor/plugin/maximize": 1
             },
             "classes": {
-                "Maximize": 1
+                "EditorPlugin.Maximize": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\multiple-upload.js": {
             "name": "src\\api\\editor\\plugin\\multiple-upload.js",
@@ -408,10 +466,12 @@
                 "editor/plugin/multiple-upload": 1
             },
             "classes": {
-                "MultipleUpload": 1
+                "EditorPlugin.MultipleUpload": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\ordered-list.js": {
             "name": "src\\api\\editor\\plugin\\ordered-list.js",
@@ -419,10 +479,12 @@
                 "editor/plugin/ordered-list": 1
             },
             "classes": {
-                "OrderedList": 1
+                "EditorPlugin.OrderedList": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\outdent.js": {
             "name": "src\\api\\editor\\plugin\\outdent.js",
@@ -430,10 +492,12 @@
                 "editor/plugin/outdent": 1
             },
             "classes": {
-                "Outdent": 1
+                "EditorPlugin.Outdent": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\page-break.js": {
             "name": "src\\api\\editor\\plugin\\page-break.js",
@@ -441,10 +505,12 @@
                 "editor/plugin/page-break": 1
             },
             "classes": {
-                "PageBreak": 1
+                "EditorPlugin.PageBreak": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\preview.js": {
             "name": "src\\api\\editor\\plugin\\preview.js",
@@ -452,10 +518,12 @@
                 "editor/plugin/preview": 1
             },
             "classes": {
-                "Preview": 1
+                "EditorPlugin.Preview": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\remove-format.js": {
             "name": "src\\api\\editor\\plugin\\remove-format.js",
@@ -463,10 +531,12 @@
                 "editor/plugin/remove-format": 1
             },
             "classes": {
-                "RemoveFormat": 1
+                "EditorPlugin.RemoveFormat": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\resize.js": {
             "name": "src\\api\\editor\\plugin\\resize.js",
@@ -474,10 +544,12 @@
                 "editor/plugin/resize": 1
             },
             "classes": {
-                "EditorResize": 1
+                "EditorPlugin.EditorResize": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\separator.js": {
             "name": "src\\api\\editor\\plugin\\separator.js",
@@ -485,10 +557,12 @@
                 "editor/plugin/separator": 1
             },
             "classes": {
-                "Separator": 1
+                "EditorPlugin.Separator": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\smiley.js": {
             "name": "src\\api\\editor\\plugin\\smiley.js",
@@ -496,10 +570,12 @@
                 "editor/plugin/smiley": 1
             },
             "classes": {
-                "Smiley": 1
+                "EditorPlugin.Smiley": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\source-area.js": {
             "name": "src\\api\\editor\\plugin\\source-area.js",
@@ -507,10 +583,12 @@
                 "editor/plugin/source-area": 1
             },
             "classes": {
-                "SourceArea": 1
+                "EditorPlugin.SourceArea": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\strike-through.js": {
             "name": "src\\api\\editor\\plugin\\strike-through.js",
@@ -518,10 +596,12 @@
                 "editor/plugin/strike-through": 1
             },
             "classes": {
-                "StrikeThrough": 1
+                "EditorPlugin.StrikeThrough": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\table.js": {
             "name": "src\\api\\editor\\plugin\\table.js",
@@ -529,10 +609,12 @@
                 "editor/plugin/table": 1
             },
             "classes": {
-                "Table": 1
+                "EditorPlugin.Table": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\underline.js": {
             "name": "src\\api\\editor\\plugin\\underline.js",
@@ -540,10 +622,12 @@
                 "editor/plugin/underline": 1
             },
             "classes": {
-                "Underline": 1
+                "EditorPlugin.Underline": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\undo.js": {
             "name": "src\\api\\editor\\plugin\\undo.js",
@@ -551,10 +635,12 @@
                 "editor/plugin/undo": 1
             },
             "classes": {
-                "Undo": 1
+                "EditorPlugin.Undo": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\unordered-list.js": {
             "name": "src\\api\\editor\\plugin\\unordered-list.js",
@@ -562,10 +648,12 @@
                 "editor/plugin/unordered-list": 1
             },
             "classes": {
-                "UnorderedList": 1
+                "EditorPlugin.UnorderedList": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\video.js": {
             "name": "src\\api\\editor\\plugin\\video.js",
@@ -573,10 +661,12 @@
                 "editor/plugin/video": 1
             },
             "classes": {
-                "Video": 1
+                "EditorPlugin.Video": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\editor\\plugin\\xiami-music.js": {
             "name": "src\\api\\editor\\plugin\\xiami-music.js",
@@ -584,10 +674,12 @@
                 "editor/plugin/xiami-music": 1
             },
             "classes": {
-                "XiaMiMusic": 1
+                "EditorPlugin.XiaMiMusic": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "EditorPlugin": 1
+            }
         },
         "src\\api\\resizable\\plugin\\proxy.js": {
             "name": "src\\api\\resizable\\plugin\\proxy.js",
@@ -1038,10 +1130,12 @@
             "name": "component/extension/align",
             "submodules": {},
             "classes": {
-                "Align": 1
+                "Component.Extension.Align": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Component.Extension": 1
+            },
             "tag": "module",
             "file": "src\\api\\component\\extension\\align.js",
             "line": 7
@@ -1050,10 +1144,12 @@
             "name": "component/extension/delegate-children",
             "submodules": {},
             "classes": {
-                "DelegateChildren": 1
+                "Component.Extension.DelegateChildren": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Component.Extension": 1
+            },
             "tag": "module",
             "file": "src\\api\\component\\extension\\delegate-children.js",
             "line": 5
@@ -1062,10 +1158,12 @@
             "name": "component/extension/shim",
             "submodules": {},
             "classes": {
-                "Shim": 1
+                "Component.Extension.Shim": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Component.Extension": 1
+            },
             "tag": "module",
             "file": "src\\api\\component\\extension\\shim.js",
             "line": 5
@@ -1074,10 +1172,12 @@
             "name": "component/plugin/drag",
             "submodules": {},
             "classes": {
-                "Drag": 1
+                "Component.plugin.Drag": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Component.plugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\component\\plugin\\drag.js",
             "line": 6,
@@ -1087,10 +1187,12 @@
             "name": "component/plugin/resize",
             "submodules": {},
             "classes": {
-                "Resize": 1
+                "Component.plugin.Resize": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Component.plugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\component\\plugin\\resize.js",
             "line": 6,
@@ -1100,10 +1202,12 @@
             "name": "color",
             "submodules": {},
             "classes": {
-                "Color": 1
+                "Component.Color": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Component": 1
+            },
             "tag": "module",
             "file": "src\\api\\component\\color.js",
             "line": 6,
@@ -1113,10 +1217,12 @@
             "name": "component/container",
             "submodules": {},
             "classes": {
-                "Container": 1
+                "Component.Container": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Component": 1
+            },
             "tag": "module",
             "file": "src\\api\\component\\container.js",
             "line": 6
@@ -1125,10 +1231,12 @@
             "name": "component/control",
             "submodules": {},
             "classes": {
-                "Control": 1
+                "Component.Control": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Component": 1
+            },
             "tag": "module",
             "file": "src\\api\\component\\control.js",
             "line": 7,
@@ -1138,10 +1246,12 @@
             "name": "component/manager",
             "submodules": {},
             "classes": {
-                "Manager": 1
+                "Component.Manager": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "Component": 1
+            },
             "tag": "module",
             "file": "src\\api\\component\\manager.js",
             "line": 7
@@ -1237,10 +1347,12 @@
             "name": "editor/plugin/back-color",
             "submodules": {},
             "classes": {
-                "BackColor": 1
+                "EditorPlugin.BackColor": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\back-color.js",
             "line": 5
@@ -1249,10 +1361,12 @@
             "name": "editor/plugin/bold",
             "submodules": {},
             "classes": {
-                "Bold": 1
+                "EditorPlugin.Bold": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\bold.js",
             "line": 5
@@ -1261,10 +1375,12 @@
             "name": "editor/plugin/checkbox-source-area",
             "submodules": {},
             "classes": {
-                "CheckBoxSourceArea": 1
+                "EditorPlugin.CheckBoxSourceArea": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\checkbox-source-area.js",
             "line": 5
@@ -1273,10 +1389,12 @@
             "name": "editor/plugin/code",
             "submodules": {},
             "classes": {
-                "Code": 1
+                "EditorPlugin.Code": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\code.js",
             "line": 5
@@ -1285,10 +1403,12 @@
             "name": "editor/plugin/draft",
             "submodules": {},
             "classes": {
-                "Draft": 1
+                "EditorPlugin.Draft": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\draft.js",
             "line": 5
@@ -1297,10 +1417,12 @@
             "name": "editor/plugin/drag-upload",
             "submodules": {},
             "classes": {
-                "DragUpload": 1
+                "EditorPlugin.DragUpload": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\drag-upload.js",
             "line": 5
@@ -1309,10 +1431,12 @@
             "name": "editor/plugin/element-path",
             "submodules": {},
             "classes": {
-                "ElementPath": 1
+                "EditorPlugin.ElementPath": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\element-path.js",
             "line": 5
@@ -1321,10 +1445,12 @@
             "name": "editor/plugin/flash",
             "submodules": {},
             "classes": {
-                "Flash": 1
+                "EditorPlugin.Flash": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\flash.js",
             "line": 5
@@ -1333,10 +1459,12 @@
             "name": "editor/plugin/font-color",
             "submodules": {},
             "classes": {
-                "FontColor": 1
+                "EditorPlugin.FontColor": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\font-color.js",
             "line": 5
@@ -1345,10 +1473,12 @@
             "name": "editor/plugin/font-family",
             "submodules": {},
             "classes": {
-                "FontFamily": 1
+                "EditorPlugin.FontFamily": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\font-family.js",
             "line": 5
@@ -1357,10 +1487,12 @@
             "name": "editor/plugin/font-size",
             "submodules": {},
             "classes": {
-                "FontSize": 1
+                "EditorPlugin.FontSize": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\font-size.js",
             "line": 5
@@ -1369,10 +1501,12 @@
             "name": "editor/plugin/heading",
             "submodules": {},
             "classes": {
-                "Heading": 1
+                "EditorPlugin.Heading": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\heading.js",
             "line": 5
@@ -1381,10 +1515,12 @@
             "name": "editor/plugin/image",
             "submodules": {},
             "classes": {
-                "Image": 1
+                "EditorPlugin.Image": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\image.js",
             "line": 5
@@ -1393,10 +1529,12 @@
             "name": "editor/plugin/indent",
             "submodules": {},
             "classes": {
-                "Indent": 1
+                "EditorPlugin.Indent": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\indent.js",
             "line": 5
@@ -1405,10 +1543,12 @@
             "name": "editor/plugin/italic",
             "submodules": {},
             "classes": {
-                "Italic": 1
+                "EditorPlugin.Italic": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\italic.js",
             "line": 5
@@ -1417,10 +1557,12 @@
             "name": "editor/plugin/justify-center",
             "submodules": {},
             "classes": {
-                "JustifyCenter": 1
+                "EditorPlugin.JustifyCenter": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\justify-center.js",
             "line": 5
@@ -1429,10 +1571,12 @@
             "name": "editor/plugin/justify-left",
             "submodules": {},
             "classes": {
-                "JustifyLeft": 1
+                "EditorPlugin.JustifyLeft": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\justify-left.js",
             "line": 5
@@ -1441,10 +1585,12 @@
             "name": "editor/plugin/justify-right",
             "submodules": {},
             "classes": {
-                "JustifyRight": 1
+                "EditorPlugin.JustifyRight": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\justify-right.js",
             "line": 5
@@ -1453,10 +1599,12 @@
             "name": "editor/plugin/link",
             "submodules": {},
             "classes": {
-                "Link": 1
+                "EditorPlugin.Link": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\link.js",
             "line": 5
@@ -1465,10 +1613,12 @@
             "name": "editor/plugin/maximize",
             "submodules": {},
             "classes": {
-                "Maximize": 1
+                "EditorPlugin.Maximize": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\maximize.js",
             "line": 5
@@ -1477,10 +1627,12 @@
             "name": "editor/plugin/multiple-upload",
             "submodules": {},
             "classes": {
-                "MultipleUpload": 1
+                "EditorPlugin.MultipleUpload": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\multiple-upload.js",
             "line": 5
@@ -1489,10 +1641,12 @@
             "name": "editor/plugin/ordered-list",
             "submodules": {},
             "classes": {
-                "OrderedList": 1
+                "EditorPlugin.OrderedList": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\ordered-list.js",
             "line": 5
@@ -1501,10 +1655,12 @@
             "name": "editor/plugin/outdent",
             "submodules": {},
             "classes": {
-                "Outdent": 1
+                "EditorPlugin.Outdent": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\outdent.js",
             "line": 5
@@ -1513,10 +1669,12 @@
             "name": "editor/plugin/page-break",
             "submodules": {},
             "classes": {
-                "PageBreak": 1
+                "EditorPlugin.PageBreak": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\page-break.js",
             "line": 5
@@ -1525,10 +1683,12 @@
             "name": "editor/plugin/preview",
             "submodules": {},
             "classes": {
-                "Preview": 1
+                "EditorPlugin.Preview": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\preview.js",
             "line": 5
@@ -1537,10 +1697,12 @@
             "name": "editor/plugin/remove-format",
             "submodules": {},
             "classes": {
-                "RemoveFormat": 1
+                "EditorPlugin.RemoveFormat": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\remove-format.js",
             "line": 5
@@ -1549,10 +1711,12 @@
             "name": "editor/plugin/resize",
             "submodules": {},
             "classes": {
-                "EditorResize": 1
+                "EditorPlugin.EditorResize": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\resize.js",
             "line": 5
@@ -1561,10 +1725,12 @@
             "name": "editor/plugin/separator",
             "submodules": {},
             "classes": {
-                "Separator": 1
+                "EditorPlugin.Separator": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\separator.js",
             "line": 5
@@ -1573,10 +1739,12 @@
             "name": "editor/plugin/smiley",
             "submodules": {},
             "classes": {
-                "Smiley": 1
+                "EditorPlugin.Smiley": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\smiley.js",
             "line": 5
@@ -1585,10 +1753,12 @@
             "name": "editor/plugin/source-area",
             "submodules": {},
             "classes": {
-                "SourceArea": 1
+                "EditorPlugin.SourceArea": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\source-area.js",
             "line": 5
@@ -1597,10 +1767,12 @@
             "name": "editor/plugin/strike-through",
             "submodules": {},
             "classes": {
-                "StrikeThrough": 1
+                "EditorPlugin.StrikeThrough": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\strike-through.js",
             "line": 5
@@ -1609,10 +1781,12 @@
             "name": "editor/plugin/table",
             "submodules": {},
             "classes": {
-                "Table": 1
+                "EditorPlugin.Table": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\table.js",
             "line": 5
@@ -1621,10 +1795,12 @@
             "name": "editor/plugin/underline",
             "submodules": {},
             "classes": {
-                "Underline": 1
+                "EditorPlugin.Underline": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\underline.js",
             "line": 5
@@ -1633,10 +1809,12 @@
             "name": "editor/plugin/undo",
             "submodules": {},
             "classes": {
-                "Undo": 1
+                "EditorPlugin.Undo": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\undo.js",
             "line": 5
@@ -1645,10 +1823,12 @@
             "name": "editor/plugin/unordered-list",
             "submodules": {},
             "classes": {
-                "UnorderedList": 1
+                "EditorPlugin.UnorderedList": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\unordered-list.js",
             "line": 5
@@ -1657,10 +1837,12 @@
             "name": "editor/plugin/video",
             "submodules": {},
             "classes": {
-                "Video": 1
+                "EditorPlugin.Video": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\video.js",
             "line": 5
@@ -1669,10 +1851,12 @@
             "name": "editor/plugin/xiami-music",
             "submodules": {},
             "classes": {
-                "XiaMiMusic": 1
+                "EditorPlugin.XiaMiMusic": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "EditorPlugin": 1
+            },
             "tag": "module",
             "file": "src\\api\\editor\\plugin\\xiami-music.js",
             "line": 5
@@ -2174,20 +2358,16 @@
         }
     },
     "classes": {
-        "Align": {
-            "name": "Align",
-            "shortname": "Align",
+        "Component.Extension.Align": {
+            "name": "Component.Extension.Align",
+            "shortname": "Component.Extension.Align",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": [
-                "PopupDatePicker",
-                "Menu.PopupMenu",
-                "Overlay"
-            ],
+            "extension_for": [],
             "module": "component/extension/align",
-            "namespace": "",
+            "namespace": "Component.Extension",
             "file": "src\\api\\component\\extension\\align.js",
             "line": 7,
             "is_constructor": 1,
@@ -2199,48 +2379,45 @@
                 }
             ]
         },
-        "DelegateChildren": {
-            "name": "DelegateChildren",
-            "shortname": "DelegateChildren",
+        "Component.Extension.DelegateChildren": {
+            "name": "Component.Extension.DelegateChildren",
+            "shortname": "Component.Extension.DelegateChildren",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "component/extension/delegate-children",
-            "namespace": "",
+            "namespace": "Component.Extension",
             "file": "src\\api\\component\\extension\\delegate-children.js",
             "line": 5,
             "description": "为组件的子组件代理事件，用来 mixin"
         },
-        "Shim": {
-            "name": "Shim",
-            "shortname": "Shim",
+        "Component.Extension.Shim": {
+            "name": "Component.Extension.Shim",
+            "shortname": "Component.Extension.Shim",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": [
-                "PopupDatePicker",
-                "Overlay"
-            ],
+            "extension_for": [],
             "module": "component/extension/shim",
-            "namespace": "",
+            "namespace": "Component.Extension",
             "file": "src\\api\\component\\extension\\shim.js",
             "line": 5,
             "description": "垫片。组件扩充类，仅用于 KISSY 内部组件继承，目前不建议外部使用，欢迎 review\n用于修复 IE6 下select等Form控件间遮罩住弹出层，或者在某些高级浏览器上select遮住flash等情况。",
             "is_constructor": 1
         },
-        "Drag": {
-            "name": "Drag",
-            "shortname": "Drag",
+        "Component.plugin.Drag": {
+            "name": "Component.plugin.Drag",
+            "shortname": "Component.plugin.Drag",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "component/plugin/drag",
-            "namespace": "",
+            "namespace": "Component.plugin",
             "file": "src\\api\\component\\plugin\\drag.js",
             "line": 6,
             "is_constructor": 1,
@@ -2249,16 +2426,16 @@
                 "\n```\nKISSY.use('overlay,component/plugin/drag',function(S,Overlay,Drag){\n    new Overlay({\n        plugins:[ new Drag({\n            handlers: ['.ks-overlay-header']\n        }) ]\n    });\n});\n```"
             ]
         },
-        "Resize": {
-            "name": "Resize",
-            "shortname": "Resize",
+        "Component.plugin.Resize": {
+            "name": "Component.plugin.Resize",
+            "shortname": "Component.plugin.Resize",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "component/plugin/resize",
-            "namespace": "",
+            "namespace": "Component.plugin",
             "file": "src\\api\\component\\plugin\\resize.js",
             "line": 6,
             "is_constructor": 1,
@@ -2267,16 +2444,16 @@
                 "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    new Overlay({\n        plugins:[\n            new Resize({\n                minWidth:100,\n                maxWidth:200,\n                handlers:['l','r']\n            })\n        ]\n    });\n});\n```"
             ]
         },
-        "Color": {
-            "name": "Color",
-            "shortname": "Color",
+        "Component.Color": {
+            "name": "Component.Color",
+            "shortname": "Component.Color",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "color",
-            "namespace": "",
+            "namespace": "Component",
             "file": "src\\api\\component\\color.js",
             "line": 6,
             "is_constructor": 1,
@@ -2288,19 +2465,19 @@
                 }
             ]
         },
-        "Container": {
-            "name": "Container",
-            "shortname": "Container",
+        "Component.Container": {
+            "name": "Component.Container",
+            "shortname": "Component.Container",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "component/container",
-            "namespace": "",
+            "namespace": "Component",
             "file": "src\\api\\component\\container.js",
             "line": 6,
-            "extends": "Control",
+            "extends": "Component.Control",
             "is_constructor": 1,
             "params": [
                 {
@@ -2310,16 +2487,16 @@
                 }
             ]
         },
-        "Control": {
-            "name": "Control",
-            "shortname": "Control",
+        "Component.Control": {
+            "name": "Component.Control",
+            "shortname": "Component.Control",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "component/control",
-            "namespace": "",
+            "namespace": "Component",
             "file": "src\\api\\component\\control.js",
             "line": 7,
             "is_constructor": 1,
@@ -2332,16 +2509,16 @@
                 }
             ]
         },
-        "Manager": {
-            "name": "Manager",
-            "shortname": "Manager",
+        "Component.Manager": {
+            "name": "Component.Manager",
+            "shortname": "Component.Manager",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "component/manager",
-            "namespace": "",
+            "namespace": "Component",
             "file": "src\\api\\component\\manager.js",
             "line": 7,
             "description": "提供组件元数据管理功能",
@@ -2414,7 +2591,7 @@
             "line": 6,
             "description": "根据配置创建picker",
             "is_constructor": 1,
-            "extends": "Control",
+            "extends": "Component.Control",
             "params": [
                 {
                     "name": "config",
@@ -2523,16 +2700,16 @@
                 }
             ]
         },
-        "BackColor": {
-            "name": "BackColor",
-            "shortname": "BackColor",
+        "EditorPlugin.BackColor": {
+            "name": "EditorPlugin.BackColor",
+            "shortname": "EditorPlugin.BackColor",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/back-color",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\back-color.js",
             "line": 5,
             "description": "编辑器的背景色插件\n\n### 提供的Commands\n- backColor\n\t- 参数 color {String}  颜色的 16 进制字符串。例如 ‘#ffffff’\n\n调用命令方式：\n```\neditor.execCommand(\"backColor\",'#ffffffff'); // 设置选区背景为白色\n```",
@@ -2540,58 +2717,58 @@
                 "\n```\nKISSY.use('editor',function(S,Editor){\n    S.use('editor/plugin/back-color',function(S,BackColor){\n        // use BackColor\n    });\n});\n```"
             ]
         },
-        "Bold": {
-            "name": "Bold",
-            "shortname": "Bold",
+        "EditorPlugin.Bold": {
+            "name": "EditorPlugin.Bold",
+            "shortname": "EditorPlugin.Bold",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/bold",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\bold.js",
             "line": 5,
             "description": "编辑器的字体加粗插件\n\n### 提供的Commands\n- bold\n\n```\n//调用命令方式\n\neditor.execCommand(\"bold\"); // 设置选区文字加粗\n\neditor.execCommand(\"bold\"); // 取消选区文字加粗\n\neditor.queryCommandValue(\"bold\") //=>false\n```"
         },
-        "CheckBoxSourceArea": {
-            "name": "CheckBoxSourceArea",
-            "shortname": "CheckBoxSourceArea",
+        "EditorPlugin.CheckBoxSourceArea": {
+            "name": "EditorPlugin.CheckBoxSourceArea",
+            "shortname": "EditorPlugin.CheckBoxSourceArea",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/checkbox-source-area",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\checkbox-source-area.js",
             "line": 5,
             "description": "编辑器的框选切换源码插件\n```\nKISSY.use('editor',function(S,Editor){\n    S.use('editor/plugin/checkbox-source-area',function(S,checkBoxSourceArea){\n        // use\n    });\n});\n```"
         },
-        "Code": {
-            "name": "Code",
-            "shortname": "Code",
+        "EditorPlugin.Code": {
+            "name": "EditorPlugin.Code",
+            "shortname": "EditorPlugin.Code",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/code",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\code.js",
             "line": 5,
             "description": "编辑器的代码插件"
         },
-        "Draft": {
-            "name": "Draft",
-            "shortname": "Draft",
+        "EditorPlugin.Draft": {
+            "name": "EditorPlugin.Draft",
+            "shortname": "EditorPlugin.Draft",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/draft",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\draft.js",
             "line": 5,
             "description": "编辑器的草稿箱插件\n```\nKISSY.use('editor',function(S,Editor){\n    S.use('editor/plugin/draft',function(S,Draft){\n        // use\n    });\n});\n```",
@@ -2607,16 +2784,16 @@
                 "\n```\nnew Editor({\n    plugins:{\n        Draft:{\n            saveKey:'taobao',\n            interval:5\n        }\n    }\n});\n```"
             ]
         },
-        "DragUpload": {
-            "name": "DragUpload",
-            "shortname": "DragUpload",
+        "EditorPlugin.DragUpload": {
+            "name": "EditorPlugin.DragUpload",
+            "shortname": "EditorPlugin.DragUpload",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/drag-upload",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\drag-upload.js",
             "line": 5,
             "description": "编辑器的拖放上传插件",
@@ -2632,30 +2809,30 @@
                 "\n```\nKISSY.use('editor',function(S,Editor){\n    S.use('editor/plugin/drag-upload',function(S,DragUpload){\n        // use\n    });\n});\n```"
             ]
         },
-        "ElementPath": {
-            "name": "ElementPath",
-            "shortname": "ElementPath",
+        "EditorPlugin.ElementPath": {
+            "name": "EditorPlugin.ElementPath",
+            "shortname": "EditorPlugin.ElementPath",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/element-path",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\element-path.js",
             "line": 5,
             "description": "编辑器的节点路径插件\n### 推荐仅用于调试开发，不要给用户使用."
         },
-        "Flash": {
-            "name": "Flash",
-            "shortname": "Flash",
+        "EditorPlugin.Flash": {
+            "name": "EditorPlugin.Flash",
+            "shortname": "EditorPlugin.Flash",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/flash",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\flash.js",
             "line": 5,
             "description": "编辑器的拖放上传插件",
@@ -2671,30 +2848,30 @@
                 "\n```\nKISSY.use('editor',function(S,Editor){\n    S.use('editor/plugin/flash',function(S,Flash){\n        // use\n    });\n});\n```"
             ]
         },
-        "FontColor": {
-            "name": "FontColor",
-            "shortname": "FontColor",
+        "EditorPlugin.FontColor": {
+            "name": "EditorPlugin.FontColor",
+            "shortname": "EditorPlugin.FontColor",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/font-color",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\font-color.js",
             "line": 5,
             "description": "编辑器的字体颜色插件\n\n### 提供的Commands\n- foreColor 对选区设置字体颜色\n\t- 参数 color (String) – 颜色的 16 进制字符串。例如 ‘#ffffff’\n实例：\n```\neditor.execCommand(\"foreColor\",'#ffffffff'); // 设置选区字体颜色为白色\n```"
         },
-        "FontFamily": {
-            "name": "FontFamily",
-            "shortname": "FontFamily",
+        "EditorPlugin.FontFamily": {
+            "name": "EditorPlugin.FontFamily",
+            "shortname": "EditorPlugin.FontFamily",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/font-family",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\font-family.js",
             "line": 5,
             "description": "编辑器的字体选择插件\n\n### 提供的Commands\n- fontFamily 对选区文字设置或取消指定的字体.\n支持 queryCommandValue，返回当前元素是否被设置了对应字体\n\t- 参数 fontFamily (String) – 指定字体值.\n实例：\n```\neditor.execCommand(\"fontFamily\",\"SimSun\"); //=> 设置选区文字为宋体.\neditor.execCommand(\"fontFamily\",\"SimSun\"); //=> 取消设置选区文字为宋体.\neditor.queryCommandValue(\"fontFamily\"); //=> 返回 \"SimSun\";\n```",
@@ -2707,16 +2884,16 @@
                 }
             ]
         },
-        "FontSize": {
-            "name": "FontSize",
-            "shortname": "FontSize",
+        "EditorPlugin.FontSize": {
+            "name": "EditorPlugin.FontSize",
+            "shortname": "EditorPlugin.FontSize",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/font-size",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\font-size.js",
             "line": 5,
             "description": "编辑器的字体大小插件\n\n### 提供的Commands\n- fontSize 对选区文字设置或取消指定的字体大小\n支持 queryCommandValue，返回当前元素是否被设置了对应大小\n\t- 参数 fontSize (String) – 指定字体大小值.\n实例：\n```\neditor.execCommand(\"fontSize\",\"10px\"); //=> 设置选区文字大小为10px.\neditor.execCommand(\"fontSize\",\"10px\"); //=> 取消设置选区文字大小为10px.\neditor.queryCommandValue(\"fontSize\"); //=> 返回 10px\n```",
@@ -2729,30 +2906,30 @@
                 }
             ]
         },
-        "Heading": {
-            "name": "Heading",
-            "shortname": "Heading",
+        "EditorPlugin.Heading": {
+            "name": "EditorPlugin.Heading",
+            "shortname": "EditorPlugin.Heading",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/heading",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\heading.js",
             "line": 5,
             "description": "编辑器的标题插件\n\n### 提供的Commands\n- heading 对选区设置或取消标题的插件\n支持 queryCommandValue，返回选区设置标题\n\t- 参数 tag (String) – 标题的标签名称。例如 ‘h1’,’p’\n实例：\n```\neditor.execCommand(\"heading\",'h1');\n```"
         },
-        "Image": {
-            "name": "Image",
-            "shortname": "Image",
+        "EditorPlugin.Image": {
+            "name": "EditorPlugin.Image",
+            "shortname": "EditorPlugin.Image",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/image",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\image.js",
             "line": 5,
             "description": "编辑器的插入图片插件",
@@ -2768,86 +2945,86 @@
                 "\n```\nKISSY.use(\"editor\", function (S, Editor) {\n    var cfg = {\n        // 是否初始聚焦\n        focused: true,\n        attachForm: true,\n        // 自定义样式\n        // customStyle:\"p{line-height: 1.4;margin: 1.12em 0;padding: 0;}\",\n        // 自定义外部样式\n        // customLink:[\"http://localhost/customLink.css\",\"http://xx.com/y2.css\"],\n        // render:\"#container\",\n        render: '#editorContainer',\n        width: '80%',\n        height: \"400px\"\n    };\n\n    KISSY.use(\"editor/plugin/source-area,\" +\n        \"editor/plugin/font-size,\" +\n        \"editor/plugin/image,\" +\n        \"editor/plugin/code\", function (S, SourceArea, FontSize, Image, Code) {\n\n        cfg.plugins = [SourceArea, FontSize, new Image({\n            upload: {\n                serverUrl: \"http://localhost/kissy_git/kissy/src/editor/demo/upload.php\",\n                serverParams: {\n                    waterMark: function () {\n                        return S.one(\"#ke_img_up_watermark_1\")[0].checked;\n                    }\n                },\n                suffix: \"png,jpg,jpeg,gif\",\n                fileInput: \"Filedata\",\n                sizeLimit: 1000, //k\n                extraHtml: \"<p style='margin-top:10px;'><input type='checkbox' id='ke_img_up_watermark_1' checked='checked'> 图片加水印，防止别人盗用</p>\"\n            }\n        }), Code];\n\n        new Editor(cfg).render();\n    });\n\n});\n```"
             ]
         },
-        "Indent": {
-            "name": "Indent",
-            "shortname": "Indent",
+        "EditorPlugin.Indent": {
+            "name": "EditorPlugin.Indent",
+            "shortname": "EditorPlugin.Indent",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/indent",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\indent.js",
             "line": 5,
             "description": "编辑器的缩进插件\n\n### Commands\n- indent 对选区缩进"
         },
-        "Italic": {
-            "name": "Italic",
-            "shortname": "Italic",
+        "EditorPlugin.Italic": {
+            "name": "EditorPlugin.Italic",
+            "shortname": "EditorPlugin.Italic",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/italic",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\italic.js",
             "line": 5,
             "description": "编辑器的斜体插件\n\n### Commands\n- italic 对选区文字设置斜体或取消斜体,支持 queryCommandValue，返回当前路径是否是斜体覆盖"
         },
-        "JustifyCenter": {
-            "name": "JustifyCenter",
-            "shortname": "JustifyCenter",
+        "EditorPlugin.JustifyCenter": {
+            "name": "EditorPlugin.JustifyCenter",
+            "shortname": "EditorPlugin.JustifyCenter",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/justify-center",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\justify-center.js",
             "line": 5,
             "description": "编辑器的居中对齐插件\n\n### Commands\n- justifyCenter 对选区文字居中或取消.支持 queryCommandValue，返回选区是否居中"
         },
-        "JustifyLeft": {
-            "name": "JustifyLeft",
-            "shortname": "JustifyLeft",
+        "EditorPlugin.JustifyLeft": {
+            "name": "EditorPlugin.JustifyLeft",
+            "shortname": "EditorPlugin.JustifyLeft",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/justify-left",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\justify-left.js",
             "line": 5,
             "description": "编辑器的居左对齐插件\n\n### Commands\n- justifyLeft 对选区文字居左或取消.支持 queryCommandValue，返回选区是否居左"
         },
-        "JustifyRight": {
-            "name": "JustifyRight",
-            "shortname": "JustifyRight",
+        "EditorPlugin.JustifyRight": {
+            "name": "EditorPlugin.JustifyRight",
+            "shortname": "EditorPlugin.JustifyRight",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/justify-right",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\justify-right.js",
             "line": 5,
             "description": "编辑器的居右对齐插件\n\n### Commands\n- justifyRight 对选区文字居右或取消.支持 queryCommandValue，返回选区是否居右"
         },
-        "Link": {
-            "name": "Link",
-            "shortname": "Link",
+        "EditorPlugin.Link": {
+            "name": "EditorPlugin.Link",
+            "shortname": "EditorPlugin.Link",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/link",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\link.js",
             "line": 5,
             "description": "编辑器的链接插件",
@@ -2860,31 +3037,31 @@
                 }
             ]
         },
-        "Maximize": {
-            "name": "Maximize",
-            "shortname": "Maximize",
+        "EditorPlugin.Maximize": {
+            "name": "EditorPlugin.Maximize",
+            "shortname": "EditorPlugin.Maximize",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/maximize",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\maximize.js",
             "line": 5,
             "description": "编辑器的全屏插件\n\n### Commands\n- maximizeWindow 窗口最大化\n- restoreWindow 窗口最恢复",
             "is_constructor": 1
         },
-        "MultipleUpload": {
-            "name": "MultipleUpload",
-            "shortname": "MultipleUpload",
+        "EditorPlugin.MultipleUpload": {
+            "name": "EditorPlugin.MultipleUpload",
+            "shortname": "EditorPlugin.MultipleUpload",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/multiple-upload",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\multiple-upload.js",
             "line": 5,
             "description": "编辑器的批量上传插件\n\n### Note\n- 该插件使用 flash 技术, 必须在根域名下提供 crossdomain.xml , 例如 http://www.taobao.com/crossdomain.xml , 内容如下\n```\n<cross-domain-policy>\n    <allow-access-from domain=\"*.taobao.com\"/>\n    <allow-access-from domain=\"*.taobao.net\"/>\n    <allow-access-from domain=\"*.taobaocdn.com\"/>\n    <allow-access-from domain=\"*.tbcdn.cn\"/>\n    <allow-access-from domain=\"*.allyes.com\"/>\n</cross-domain-policy>\n```\n- serverUrl 必须使用绝对地址, 否则如果编辑器组件和应用页面不在同一个hostname时, firefox下请求会发到编辑器组件所在的hostname.\n- 多图上传在非 ie 下并不会携带 cookie，如确实需要可通过 serverParams 传递：\n```\nserverParams: {\n    cookie: function () {\n        return document.cookie;\n    }\n}\n```",
@@ -2897,86 +3074,86 @@
                 }
             ]
         },
-        "OrderedList": {
-            "name": "OrderedList",
-            "shortname": "OrderedList",
+        "EditorPlugin.OrderedList": {
+            "name": "EditorPlugin.OrderedList",
+            "shortname": "EditorPlugin.OrderedList",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/ordered-list",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\ordered-list.js",
             "line": 5,
             "description": "编辑器的有序列表插件\n\n### Commands\n- insertOrderedList 对选区设置或取消为有序列表.支持 queryCommandValue，返回选区是否是有序列表"
         },
-        "Outdent": {
-            "name": "Outdent",
-            "shortname": "Outdent",
+        "EditorPlugin.Outdent": {
+            "name": "EditorPlugin.Outdent",
+            "shortname": "EditorPlugin.Outdent",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/outdent",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\outdent.js",
             "line": 5,
             "description": "编辑器的缩出插件\n\n### Commands\n- outdent 对选区缩出 支持 queryCommandValue，返回当前路径是否可以缩出"
         },
-        "PageBreak": {
-            "name": "PageBreak",
-            "shortname": "PageBreak",
+        "EditorPlugin.PageBreak": {
+            "name": "EditorPlugin.PageBreak",
+            "shortname": "EditorPlugin.PageBreak",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/page-break",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\page-break.js",
             "line": 5,
             "description": "编辑器的分页符插件"
         },
-        "Preview": {
-            "name": "Preview",
-            "shortname": "Preview",
+        "EditorPlugin.Preview": {
+            "name": "EditorPlugin.Preview",
+            "shortname": "EditorPlugin.Preview",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/preview",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\preview.js",
             "line": 5,
             "description": "编辑器的预览插件"
         },
-        "RemoveFormat": {
-            "name": "RemoveFormat",
-            "shortname": "RemoveFormat",
+        "EditorPlugin.RemoveFormat": {
+            "name": "EditorPlugin.RemoveFormat",
+            "shortname": "EditorPlugin.RemoveFormat",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/remove-format",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\remove-format.js",
             "line": 5,
             "description": "编辑器的清除格式插件\n\n### Commands\n- removeFormat 对选区清除格式."
         },
-        "EditorResize": {
-            "name": "EditorResize",
-            "shortname": "EditorResize",
+        "EditorPlugin.EditorResize": {
+            "name": "EditorPlugin.EditorResize",
+            "shortname": "EditorPlugin.EditorResize",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/resize",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\resize.js",
             "line": 5,
             "description": "编辑器的调整大小插件",
@@ -2989,128 +3166,128 @@
                 }
             ]
         },
-        "Separator": {
-            "name": "Separator",
-            "shortname": "Separator",
+        "EditorPlugin.Separator": {
+            "name": "EditorPlugin.Separator",
+            "shortname": "EditorPlugin.Separator",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/separator",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\separator.js",
             "line": 5,
             "description": "编辑器的分隔符插件"
         },
-        "Smiley": {
-            "name": "Smiley",
-            "shortname": "Smiley",
+        "EditorPlugin.Smiley": {
+            "name": "EditorPlugin.Smiley",
+            "shortname": "EditorPlugin.Smiley",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/smiley",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\smiley.js",
             "line": 5,
             "description": "编辑器的表情插件"
         },
-        "SourceArea": {
-            "name": "SourceArea",
-            "shortname": "SourceArea",
+        "EditorPlugin.SourceArea": {
+            "name": "EditorPlugin.SourceArea",
+            "shortname": "EditorPlugin.SourceArea",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/source-area",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\source-area.js",
             "line": 5,
             "description": "编辑器的源码按钮插件"
         },
-        "StrikeThrough": {
-            "name": "StrikeThrough",
-            "shortname": "StrikeThrough",
+        "EditorPlugin.StrikeThrough": {
+            "name": "EditorPlugin.StrikeThrough",
+            "shortname": "EditorPlugin.StrikeThrough",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/strike-through",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\strike-through.js",
             "line": 5,
             "description": "编辑器的字体删除线插件\n\n### Commands\n- strikeThrough 对选区文字删除线或取消.支持 queryCommandValue，返回当前路径是否被删除线覆盖"
         },
-        "Table": {
-            "name": "Table",
-            "shortname": "Table",
+        "EditorPlugin.Table": {
+            "name": "EditorPlugin.Table",
+            "shortname": "EditorPlugin.Table",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/table",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\table.js",
             "line": 5,
             "description": "编辑器的表格插件"
         },
-        "Underline": {
-            "name": "Underline",
-            "shortname": "Underline",
+        "EditorPlugin.Underline": {
+            "name": "EditorPlugin.Underline",
+            "shortname": "EditorPlugin.Underline",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/underline",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\underline.js",
             "line": 5,
             "description": "编辑器的字体下划线插件\n\n### Commands\n- underline 对选区文字下划线或取消.支持 queryCommandValue，返回当前路径是否被下划线覆盖"
         },
-        "Undo": {
-            "name": "Undo",
-            "shortname": "Undo",
+        "EditorPlugin.Undo": {
+            "name": "EditorPlugin.Undo",
+            "shortname": "EditorPlugin.Undo",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/undo",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\undo.js",
             "line": 5,
             "description": "编辑器的编辑历史管理插件\n\n### Commands\n- save 将当前内容存入历史\n- undo 回退到上一个编辑历史\n- redo 前进到下一个编辑历史"
         },
-        "UnorderedList": {
-            "name": "UnorderedList",
-            "shortname": "UnorderedList",
+        "EditorPlugin.UnorderedList": {
+            "name": "EditorPlugin.UnorderedList",
+            "shortname": "EditorPlugin.UnorderedList",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/unordered-list",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\unordered-list.js",
             "line": 5,
             "description": "编辑器的无序列表插件\n\n### Commands\n- insertUnorderedList 对选区设置为无序列表或取消.支持 queryCommandValue，返回当前路径是否是无序列表"
         },
-        "Video": {
-            "name": "Video",
-            "shortname": "Video",
+        "EditorPlugin.Video": {
+            "name": "EditorPlugin.Video",
+            "shortname": "EditorPlugin.Video",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/video",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\video.js",
             "line": 5,
             "description": "编辑器的插入图片插件",
@@ -3123,16 +3300,16 @@
                 }
             ]
         },
-        "XiaMiMusic": {
-            "name": "XiaMiMusic",
-            "shortname": "XiaMiMusic",
+        "EditorPlugin.XiaMiMusic": {
+            "name": "EditorPlugin.XiaMiMusic",
+            "shortname": "EditorPlugin.XiaMiMusic",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "editor/plugin/xiami-music",
-            "namespace": "",
+            "namespace": "EditorPlugin",
             "file": "src\\api\\editor\\plugin\\xiami-music.js",
             "line": 5,
             "description": "编辑器的虾米音乐插件"
@@ -3225,7 +3402,7 @@
             "file": "src\\api\\scroll-view\\base.js",
             "line": 8,
             "is_constructor": 1,
-            "extends": "Container",
+            "extends": "Component.Container",
             "params": [
                 {
                     "name": "config",
@@ -3350,7 +3527,7 @@
             "file": "src\\api\\button.js",
             "line": 5,
             "is_constructor": 1,
-            "extends": "Control",
+            "extends": "Component.Control",
             "params": [
                 {
                     "name": "config",
@@ -3373,7 +3550,7 @@
             "line": 6,
             "description": "### 从已有元素实例 ComboBox 对象时：\n\n- 元素节点标明类名 {prefixCls}combobox .\n- html 符合一定规范，例如：\n```\n<div class=\"ks-combobox\" id=\"combobox\">\n    <div class=\"ks-combobox-input-wrap\">\n        <input style=\"width:100%;height:100%;\" aria-haspopup=\"true\"\n               aria-combobox=\"list\" role=\"combobox\" combobox=\"off\"\n               class=\"ks-combobox-input\" tabindex=\"0\"\n               id=\"inp\"\n                />\n    </div>\n</div>\n```\n\n### 使用前请加上初始样式\n```\n<style>\n    .ks-popupmenu {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n</style>\n```",
             "is_constructor": 1,
-            "extends": "Control",
+            "extends": "Component.Control",
             "params": [
                 {
                     "name": "config",
@@ -3624,7 +3801,7 @@
             "line": 5,
             "description": "编辑器\n\n### Note1\n\n#### kissy提供参考的初始样式，但用户也可以自己自定义样式。参考样式地址为\n`http://g.tbcdn.cn/kissy/k/1.4.2/css/dpl/base-min.css`\n`http://g.tbcdn.cn/kissy/k/1.4.2/editor/theme/cool/editor-min.css?1`\n\n### Note2\neditor提供如下插件：\n[back-color](/5.0/api/classes/BackColor.html),[bold](/5.0/api/classes/Bold.html),[checkbox-source-area](/5.0/api/classes/CheckboxSourceArea.html),[code](/5.0/api/classes/Code.html),[draft](/5.0/api/classes/Draft.html),[drag-upload](/5.0/api/classes/DragUpload.html),[element-path](/5.0/api/classes/ElementPath.html),[flash](/5.0/api/classes/Flash.html),[font-color](/5.0/api/classes/FontColor.html),[font-family](/5.0/api/classes/FontFamily.html),[font-size](/5.0/api/classes/FontSize.html),[heading](/5.0/api/classes/Heading.html),[image](/5.0/api/classes/Image.html),[indent](/5.0/api/classes/Indent.html),[italic](/5.0/api/classes/Italic.html),[justify-left](/5.0/api/classes/JustifyLeft.html),[justify-center](/5.0/api/classes/JustifyCenter.html),[justify-right](/5.0/api/classes/JustifyRight.html),[link](/5.0/api/classes/Link.html),[maximize](/5.0/api/classes/Maximize.html),[multiple-upload](/5.0/api/classes/MultipleUpload.html),[ordered-list](/5.0/api/classes/OrderedList.html),[outdent](/5.0/api/classes/Outdent.html),[page-break](/5.0/api/classes/PageBreak.html),[preview](/5.0/api/classes/Preview.html),[remove-format](/5.0/api/classes/RemoveFormat.html),[resize](/5.0/api/classes/EditorResize.html),[separator](/5.0/api/classes/Separator.html),[smiley](/5.0/api/classes/Smiley.html),[source-area](/5.0/api/classes/SourceArea.html),[strike-through](/5.0/api/classes/StrikeThrough.html),[table](/5.0/api/classes/Table.html),[underline](/5.0/api/classes/Underline.html),[undo](/5.0/api/classes/Undo.html),[unordered-list](/5.0/api/classes/UnOrderedList.html),[video](/5.0/api/classes/Video.html),[xiami-music](/5.0/api/classes/XiaMiMusic.html)",
             "is_constructor": 1,
-            "extends": "Control",
+            "extends": "Component.Control",
             "params": [
                 {
                     "name": "config",
@@ -3769,7 +3946,7 @@
             "file": "src\\api\\menu.js",
             "line": 5,
             "is_constructor": 1,
-            "extends": "Control",
+            "extends": "Component.Control",
             "params": [
                 {
                     "name": "config",
@@ -3791,7 +3968,7 @@
             "file": "src\\api\\menu.js",
             "line": 33,
             "is_constructor": 1,
-            "extends": "Control",
+            "extends": "Component.Control",
             "params": [
                 {
                     "name": "config",
@@ -3988,7 +4165,7 @@
             "line": 5,
             "description": "悬浮层，如果配置里面不修改\"prefixCls\"默认值\"ks-\"的话，使用前要加上如下样式：\n```\n<style>\n    .ks-overlay {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n    .ks-overlay-hidden {\n        visibility: hidden;\n    }\n\n    .ks-overlay-mask-hidden {\n        display: none;\n    }\n\n    .ks-overlay-shown {\n        visibility: visible;\n    }\n\n    .ks-overlay-mask-shown{\n        display: block;\n    }\n</style>\n```",
             "is_constructor": 1,
-            "extends": "Container",
+            "extends": "Component.Container",
             "uses": [
                 "Shim",
                 "Align"
@@ -4137,7 +4314,7 @@
             "line": 5,
             "description": "按钮和菜单按钮的组合,构建支持下拉菜单的按钮组",
             "is_constructor": 1,
-            "extends": "Container",
+            "extends": "Component.Container",
             "params": [
                 {
                     "name": "config",
@@ -4207,7 +4384,7 @@
             "file": "src\\api\\tabs.js",
             "line": 5,
             "is_constructor": 1,
-            "extends": "Container",
+            "extends": "Component.Container",
             "params": [
                 {
                     "name": "config",
@@ -4250,7 +4427,7 @@
             "file": "src\\api\\tabs.js",
             "line": 138,
             "is_constructor": 1,
-            "extends": "Container",
+            "extends": "Component.Container",
             "params": [
                 {
                     "name": "config",
@@ -4317,7 +4494,7 @@
             "file": "src\\api\\tree.js",
             "line": 53,
             "is_constructor": 1,
-            "extends": "Container",
+            "extends": "Component.Container",
             "params": [
                 {
                     "name": "config",
@@ -4476,7 +4653,7 @@
     "classitems": [
         {
             "file": "src\\api\\component\\extension\\align.js",
-            "line": 13,
+            "line": 14,
             "description": "设置组件根节点对齐",
             "itemtype": "method",
             "name": "align",
@@ -4502,81 +4679,89 @@
                     "type": "Object"
                 }
             ],
-            "class": "Align",
-            "module": "component/extension/align"
+            "class": "Component.Extension.Align",
+            "module": "component/extension/align",
+            "namespace": "Component.Extension"
         },
         {
             "file": "src\\api\\component\\extension\\align.js",
-            "line": 22,
+            "line": 23,
             "description": "将组件根节点放在当前视窗中央",
             "itemtype": "method",
             "name": "center",
-            "class": "Align",
-            "module": "component/extension/align"
+            "class": "Component.Extension.Align",
+            "module": "component/extension/align",
+            "namespace": "Component.Extension"
         },
         {
             "file": "src\\api\\component\\extension\\align.js",
-            "line": 27,
+            "line": 28,
             "description": "可选, 组件节点对齐的相关配置, 例如：\n```\n{\n    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域\n    points: ['tr','tl'], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐\n    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,\n                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.\n    overflow:{\n        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标\n        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标\n    }\n}\n```\npoints 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围\n第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示\n\n![alt text](5.0/api/assets/img/project-img/align.png)",
             "itemtype": "attribute",
             "name": "align",
             "type": "Object",
-            "class": "Align",
-            "module": "component/extension/align"
+            "class": "Component.Extension.Align",
+            "module": "component/extension/align",
+            "namespace": "Component.Extension"
         },
         {
             "file": "src\\api\\component\\extension\\shim.js",
-            "line": 12,
+            "line": 13,
             "description": "在IE6下默认为 true，其他默认为 false",
             "itemtype": "attribute",
             "name": "shim",
             "type": "Boolean",
-            "class": "Shim",
-            "module": "component/extension/shim"
+            "class": "Component.Extension.Shim",
+            "module": "component/extension/shim",
+            "namespace": "Component.Extension"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 13,
+            "line": 14,
             "description": "alpha 值",
             "itemtype": "attribute",
             "name": "a",
             "type": "Number",
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 18,
+            "line": 19,
             "description": "red 值",
             "itemtype": "attribute",
             "name": "r",
             "type": "Number",
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 23,
+            "line": 24,
             "description": "green 值",
             "itemtype": "attribute",
             "name": "g",
             "type": "Number",
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 28,
+            "line": 29,
             "description": "blue 值",
             "itemtype": "attribute",
             "name": "b",
             "type": "Number",
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 33,
+            "line": 34,
             "description": "得到当前颜色属性对应的 hsl 表示",
             "itemtype": "method",
             "name": "getHSL",
@@ -4584,12 +4769,13 @@
                 "description": "",
                 "type": "Object"
             },
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 39,
+            "line": 40,
             "description": "得到当前颜色属性对应的 hsl 表示字符串",
             "itemtype": "method",
             "name": "toHSL",
@@ -4597,12 +4783,13 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 45,
+            "line": 46,
             "description": "得到当前颜色属性对应的 hsla 表示字符串",
             "itemtype": "method",
             "name": "toHSLA",
@@ -4610,12 +4797,13 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 51,
+            "line": 52,
             "description": "得到当前颜色属性对应的 rgb 表示字符串",
             "itemtype": "method",
             "name": "toRGB",
@@ -4623,12 +4811,13 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 57,
+            "line": 58,
             "description": "得到当前颜色属性对应的 rgba 表示字符串",
             "itemtype": "method",
             "name": "toRGBA",
@@ -4636,12 +4825,13 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 63,
+            "line": 64,
             "description": "得到当前颜色属性对应的 16 进制表示字符串",
             "itemtype": "method",
             "name": "toHex",
@@ -4649,12 +4839,13 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 69,
+            "line": 70,
             "description": "得到当前颜色属性对应的 hsv 表示",
             "itemtype": "method",
             "name": "getHSV",
@@ -4662,12 +4853,13 @@
                 "description": "",
                 "type": "Object"
             },
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 75,
+            "line": 76,
             "description": "根据 hsv 对象修改当前颜色实例",
             "itemtype": "method",
             "name": "setHSV",
@@ -4678,12 +4870,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 81,
+            "line": 82,
             "description": "根据 hsl 对象修改当前颜色实例",
             "itemtype": "method",
             "name": "setHSL",
@@ -4694,12 +4887,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 87,
+            "line": 88,
             "description": "从字符串表示的颜色值中获取颜色对象",
             "itemtype": "method",
             "name": "parse",
@@ -4715,12 +4909,13 @@
                 "description": "",
                 "type": "Object"
             },
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\color.js",
-            "line": 95,
+            "line": 96,
             "description": "从 hsl 对象中生成颜色实例",
             "itemtype": "method",
             "name": "fromHSL",
@@ -4736,22 +4931,24 @@
                 "description": "",
                 "type": "Object"
             },
-            "class": "Color",
-            "module": "color"
+            "class": "Component.Color",
+            "module": "color",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\container.js",
-            "line": 13,
+            "line": 14,
             "description": "可选，当前组件的子组件数组",
             "itemtype": "attribute",
             "name": "children",
             "type": "Control[]",
-            "class": "Container",
-            "module": "component/container"
+            "class": "Component.Container",
+            "module": "component/container",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\container.js",
-            "line": 19,
+            "line": 20,
             "description": "添加一个指定的组件作为当前组件的子组件",
             "itemtype": "method",
             "name": "addChild",
@@ -4767,12 +4964,13 @@
                     "optional": true
                 }
             ],
-            "class": "Container",
-            "module": "component/container"
+            "class": "Component.Container",
+            "module": "component/container",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\container.js",
-            "line": 26,
+            "line": 27,
             "description": "返回所给索引对应的子组件，如果索引超出返回，则返回 null",
             "itemtype": "method",
             "name": "getChildAt",
@@ -4787,12 +4985,13 @@
                 "description": "所给索引对应的子组件对象。如果不存在则返回 null",
                 "type": "Control"
             },
-            "class": "Container",
-            "module": "component/container"
+            "class": "Component.Container",
+            "module": "component/container",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\container.js",
-            "line": 33,
+            "line": 34,
             "description": "从当前组件中移除所给子组件，并返回这个子组件对象。\n如果 destroy 是 true，调用要移除的组件的 destroy() 方法，随后从 DOM 文档中移除子组件的 DOM。否则，清除子组件 DOM 的工作就要由调用者做。",
             "itemtype": "method",
             "name": "removeChild",
@@ -4810,12 +5009,13 @@
                     "optdefault": "true"
                 }
             ],
-            "class": "Container",
-            "module": "component/container"
+            "class": "Component.Container",
+            "module": "component/container",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\container.js",
-            "line": 41,
+            "line": 42,
             "description": "移除所有包含的子组件",
             "itemtype": "method",
             "name": "removeChildren",
@@ -4828,272 +5028,299 @@
                     "optdefault": "true"
                 }
             ],
-            "class": "Container",
-            "module": "component/container"
+            "class": "Component.Container",
+            "module": "component/container",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 15,
+            "line": 16,
             "description": "可选，附加给组件根节点的属性键值对",
             "itemtype": "attribute",
             "name": "elAttrs",
             "type": "Object",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 20,
+            "line": 21,
             "description": "可选，组件根节点的渲染到该节点之前",
             "itemtype": "attribute",
             "name": "elBefore",
             "type": "KISSY.Node",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 26,
+            "line": 27,
             "description": "可选，附加给组件根节点的样式类",
             "itemtype": "attribute",
             "name": "elCls",
             "type": "String",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 32,
+            "line": 33,
             "description": "可选，附加给组件根节点的内联样式",
             "itemtype": "attribute",
             "name": "elStyle",
             "type": "Object",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 38,
+            "line": 39,
             "description": "可选，该组件是否初始获得焦点",
             "itemtype": "attribute",
             "name": "focused",
             "type": "Boolean",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 44,
+            "line": 45,
             "description": "可选，组件的高度，单位像素",
             "itemtype": "attribute",
             "name": "height",
             "type": "Number",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 50,
+            "line": 51,
             "description": "可选，该组件的父组件",
             "itemtype": "attribute",
             "name": "parent",
             "type": "Control",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 55,
+            "line": 56,
             "description": "可选，默认 “ks-” . 组件的 css 样式类前缀 . 例如假设组件为 menu ，则该组件内的样式类名为 {prefixCls}menu，默认为 “ks-menu”.可用于实现自定义皮肤",
             "itemtype": "attribute",
             "name": "prefixCls",
             "type": "String",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 60,
+            "line": 61,
             "description": "可选，组件 prefix 的超类。只在config中使用。当超类未被指定时，用这个做超类",
             "itemtype": "attribute",
             "name": "prefixXClass",
             "type": "String",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 65,
+            "line": 66,
             "description": "组件要应用的节点。默认 S.all(“body”)，组件根节点的渲染为该节点最后一个节点",
             "itemtype": "attribute",
             "name": "render",
             "type": "KISSY.Node",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 70,
+            "line": 71,
             "description": "可选，组件从页面中已存在的该节点中渲染而来.srcNode 时设置其他属性不起作用，属性通通在 html 标签中指定，并且 html 标签必须包含完整结构，例如 content 节点必须存在",
             "itemtype": "attribute",
             "name": "srcNode",
             "type": "KISSY.Node",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 75,
+            "line": 76,
             "description": "默认 true ，是否显示.只是为组件的根节点添加/删除 {prefix}{component}-hidden 形式的 css class，自行指定具体的 css 样式",
             "itemtype": "attribute",
             "name": "visible",
             "default": "true",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 81,
+            "line": 82,
             "description": "可选，组件的宽度，单位像素",
             "itemtype": "attribute",
             "name": "width",
             "type": "Number",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 86,
+            "line": 87,
             "description": "只读属性，组件结构是否已经创建",
             "itemtype": "attribute",
             "name": "created",
             "type": "Boolean",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 91,
+            "line": 92,
             "description": "只读属性，组件是否已经渲染",
             "itemtype": "attribute",
             "name": "rendered",
             "type": "Boolean",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 96,
+            "line": 97,
             "description": "组件是否已经激活",
             "itemtype": "attribute",
             "name": "active",
             "type": "Boolean",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 101,
+            "line": 102,
             "description": "设置的 content 属性",
             "itemtype": "attribute",
             "name": "content",
             "type": "String|KISSY.Node",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 106,
+            "line": 107,
             "description": "该组件是否禁用状态",
             "itemtype": "attribute",
             "name": "disabled",
             "type": "Boolean",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 111,
+            "line": 112,
             "description": "只读属性，该组件的根节点. 注意调用 render() 后才可以取得",
             "itemtype": "attribute",
             "name": "el",
             "type": "KISSY.Node",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 117,
+            "line": 118,
             "description": "组件的高",
             "itemtype": "attribute",
             "name": "height",
             "type": "Number",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 122,
+            "line": 123,
             "description": "该组件是否处于高亮状态",
             "itemtype": "attribute",
             "name": "highlighted",
             "type": "Boolean",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 127,
+            "line": 128,
             "description": "标记当前实例是 Control 的实例",
             "itemtype": "attribute",
             "name": "isControl",
             "type": "Boolean",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 133,
+            "line": 134,
             "description": "横轴位置",
             "itemtype": "attribute",
             "name": "x",
             "type": "Number",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 138,
+            "line": 139,
             "description": "纵轴位置",
             "itemtype": "attribute",
             "name": "y",
             "type": "Number",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 143,
+            "line": 144,
             "description": "横纵轴位置",
             "itemtype": "attribute",
             "name": "xy",
             "type": "Number[]",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 148,
+            "line": 149,
             "description": "z-index 值",
             "itemtype": "attribute",
             "name": "zIndex",
             "type": "Number",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 155,
+            "line": 156,
             "description": "从当前组件类上扩展出一个子类组件",
             "itemtype": "method",
             "name": "extend",
@@ -5132,69 +5359,75 @@
                     ]
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 166,
+            "line": 167,
             "description": "创建当前组件的DOM结构，control将会代理给render",
             "itemtype": "method",
             "name": "create",
             "return": {
                 "description": "自身"
             },
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 172,
+            "line": 173,
             "description": "把当前组件的DOM结构放入 DOM 文档中，并绑定事件，同步属性",
             "itemtype": "method",
             "name": "render",
             "return": {
                 "description": "自身"
             },
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 178,
+            "line": 179,
             "description": "同步属性值.组件基类增加 sync 函数，调用后可调用父类、扩展类、插件对应的 syncUI 方法",
             "itemtype": "method",
             "name": "sync",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 183,
+            "line": 184,
             "description": "隐藏组件",
             "itemtype": "method",
             "name": "hide",
             "return": {
                 "description": "自身"
             },
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 189,
+            "line": 190,
             "description": "显示组件",
             "itemtype": "method",
             "name": "show",
             "return": {
                 "description": "自身"
             },
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 195,
+            "line": 196,
             "description": "移动到(x,y)",
             "itemtype": "method",
             "name": "move",
@@ -5213,30 +5446,33 @@
             "return": {
                 "description": "自身"
             },
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 203,
+            "line": 204,
             "description": "使组件失去焦点",
             "itemtype": "method",
             "name": "blur",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 208,
+            "line": 209,
             "description": "使组件获得焦点",
             "itemtype": "method",
             "name": "focus",
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 213,
+            "line": 214,
             "description": "当组件内部事件绑定完之后触发",
             "itemtype": "event",
             "name": "afterBindUI",
@@ -5247,12 +5483,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 219,
+            "line": 220,
             "description": "当组件根节点创建的时候触发",
             "itemtype": "event",
             "name": "afterCreateDom",
@@ -5263,12 +5500,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 225,
+            "line": 226,
             "description": "当组件根节点渲染到 DOM 文档后触发",
             "itemtype": "event",
             "name": "afterRenderUI",
@@ -5279,12 +5517,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 231,
+            "line": 232,
             "description": "当组件内部的状态同步完之后触发",
             "itemtype": "event",
             "name": "afterSyncUI",
@@ -5295,12 +5534,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 237,
+            "line": 238,
             "description": "在组件内部事件绑定前触发",
             "itemtype": "event",
             "name": "beforeBindUI",
@@ -5311,12 +5551,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 243,
+            "line": 244,
             "description": "在组件根节点创建前触发",
             "itemtype": "event",
             "name": "beforeCreateDom",
@@ -5327,12 +5568,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 249,
+            "line": 250,
             "description": "在组件根节点渲染之前触发",
             "itemtype": "event",
             "name": "beforeRenderUI",
@@ -5343,12 +5585,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 255,
+            "line": 256,
             "description": "在同步组件内部状态前触发",
             "itemtype": "event",
             "name": "beforeSyncUI",
@@ -5359,12 +5602,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 261,
+            "line": 262,
             "description": "在组件 show 的时候触发",
             "itemtype": "event",
             "name": "show",
@@ -5375,12 +5619,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 267,
+            "line": 268,
             "description": "在组件 hide 的时候触发",
             "itemtype": "event",
             "name": "hide",
@@ -5391,12 +5636,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\control.js",
-            "line": 273,
+            "line": 274,
             "description": "在组件 visible 属性发生变化时触发",
             "itemtype": "event",
             "name": "beforeVisibleChange",
@@ -5407,12 +5653,13 @@
                     "type": "Object"
                 }
             ],
-            "class": "Control",
-            "module": "component/control"
+            "class": "Component.Control",
+            "module": "component/control",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\manager.js",
-            "line": 13,
+            "line": 14,
             "description": "把 id 和组件对象关联起来",
             "itemtype": "method",
             "name": "addComponent",
@@ -5428,12 +5675,13 @@
                     "type": "Control"
                 }
             ],
-            "class": "Manager",
-            "module": "component/manager"
+            "class": "Component.Manager",
+            "module": "component/manager",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\manager.js",
-            "line": 20,
+            "line": 21,
             "description": "根据 id 获取对应的组件对象",
             "itemtype": "method",
             "name": "getComponent",
@@ -5448,12 +5696,13 @@
                 "description": "要获取的组件对象",
                 "type": "Control"
             },
-            "class": "Manager",
-            "module": "component/manager"
+            "class": "Component.Manager",
+            "module": "component/manager",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\manager.js",
-            "line": 27,
+            "line": 28,
             "description": "通过传入的 css classNames 获取对应的组件的构造函数",
             "itemtype": "method",
             "name": "getConstructorByXClass",
@@ -5468,12 +5717,13 @@
                 "description": "要获取的构造函数",
                 "type": "Function"
             },
-            "class": "Manager",
-            "module": "component/manager"
+            "class": "Component.Manager",
+            "module": "component/manager",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\manager.js",
-            "line": 34,
+            "line": 35,
             "description": "移除对应 id 与组件之间的联系",
             "itemtype": "method",
             "name": "removeComponent",
@@ -5484,12 +5734,13 @@
                     "type": "String"
                 }
             ],
-            "class": "Manager",
-            "module": "component/manager"
+            "class": "Component.Manager",
+            "module": "component/manager",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\manager.js",
-            "line": 40,
+            "line": 41,
             "description": "将 css class 和组件的构造函数对应",
             "itemtype": "method",
             "name": "setConstructorByXClass",
@@ -5505,8 +5756,9 @@
                     "type": "Function"
                 }
             ],
-            "class": "Manager",
-            "module": "component/manager"
+            "class": "Component.Manager",
+            "module": "component/manager",
+            "namespace": "Component"
         },
         {
             "file": "src\\api\\date\\format.js",
@@ -6868,429 +7120,472 @@
         },
         {
             "file": "src\\api\\editor\\plugin\\draft.js",
-            "line": 30,
+            "line": 31,
             "description": "可选。本地存储时的内容的键名。用于区分多编辑器。",
             "itemtype": "attribute",
             "name": "saveKey",
             "type": "String",
-            "class": "Draft",
-            "module": "editor/plugin/draft"
+            "class": "EditorPlugin.Draft",
+            "module": "editor/plugin/draft",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\draft.js",
-            "line": 35,
+            "line": 36,
             "description": "可选。本地存储的用户提示信息.",
             "itemtype": "attribute",
             "name": "helpHtml",
             "type": "String",
-            "class": "Draft",
-            "module": "editor/plugin/draft"
+            "class": "EditorPlugin.Draft",
+            "module": "editor/plugin/draft",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\draft.js",
-            "line": 40,
+            "line": 41,
             "description": "单位秒，可选，默认 5。定时保存的间隔。",
             "itemtype": "attribute",
             "name": "interval",
             "type": "Number",
             "default": "5",
-            "class": "Draft",
-            "module": "editor/plugin/draft"
+            "class": "EditorPlugin.Draft",
+            "module": "editor/plugin/draft",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\draft.js",
-            "line": 46,
+            "line": 47,
             "description": "单位秒，可选，默认 10。草稿箱最多草稿条数.",
             "itemtype": "attribute",
             "name": "limit",
             "type": "Number",
             "default": "10",
-            "class": "Draft",
-            "module": "editor/plugin/draft"
+            "class": "EditorPlugin.Draft",
+            "module": "editor/plugin/draft",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\drag-upload.js",
-            "line": 20,
+            "line": 21,
             "description": "可选，默认 “Filedata”。上传文件域的名字.",
             "itemtype": "attribute",
             "name": "fileInput",
             "type": "String",
             "default": "\"Filedata\"",
-            "class": "DragUpload",
-            "module": "editor/plugin/drag-upload"
+            "class": "EditorPlugin.DragUpload",
+            "module": "editor/plugin/drag-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\drag-upload.js",
-            "line": 26,
+            "line": 27,
             "description": "可选，单位 kb，默认无限制。上传文件大小限制.",
             "itemtype": "attribute",
             "name": "sizeLimit",
             "type": "Number",
-            "class": "DragUpload",
-            "module": "editor/plugin/drag-upload"
+            "class": "EditorPlugin.DragUpload",
+            "module": "editor/plugin/drag-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\drag-upload.js",
-            "line": 31,
+            "line": 32,
             "description": "可选。附带传给 server 的参数 json 对象。",
             "itemtype": "attribute",
             "name": "serverParams",
             "type": "Object",
-            "class": "DragUpload",
-            "module": "editor/plugin/drag-upload"
+            "class": "EditorPlugin.DragUpload",
+            "module": "editor/plugin/drag-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\drag-upload.js",
-            "line": 36,
+            "line": 37,
             "description": "比选。上传服务器地址。",
             "itemtype": "attribute",
             "name": "serverUrl",
             "type": "String",
-            "class": "DragUpload",
-            "module": "editor/plugin/drag-upload"
+            "class": "EditorPlugin.DragUpload",
+            "module": "editor/plugin/drag-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\drag-upload.js",
-            "line": 41,
+            "line": 42,
             "description": "可选，默认 “png,jpg,jpeg,gif”。允许上传的文件后缀名列表，逗号分割.",
             "itemtype": "attribute",
             "name": "suffix",
             "type": "String",
-            "class": "DragUpload",
-            "module": "editor/plugin/drag-upload"
+            "class": "EditorPlugin.DragUpload",
+            "module": "editor/plugin/drag-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\flash.js",
-            "line": 20,
+            "line": 21,
             "description": "可选。插入 Flash 的默认宽度.",
             "itemtype": "attribute",
             "name": "defaultWidth",
             "type": "Number",
             "optional": 1,
-            "class": "Flash",
-            "module": "editor/plugin/flash"
+            "class": "EditorPlugin.Flash",
+            "module": "editor/plugin/flash",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\flash.js",
-            "line": 26,
+            "line": 27,
             "description": "可选。插入 Flash 的默认高度.",
             "itemtype": "attribute",
             "name": "defaultHeight",
             "type": "Number",
             "optional": 1,
-            "class": "Flash",
-            "module": "editor/plugin/flash"
+            "class": "EditorPlugin.Flash",
+            "module": "editor/plugin/flash",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\font-family.js",
-            "line": 23,
+            "line": 24,
             "description": "可选。字体下拉菜单的名称和值集合。默认：\n```\n[\n    //ie 不认识中文？？？\n    {\n        content:\"宋体\",\n        value:\"SimSun\"\n    },\n    {\n        content:\"黑体\",\n        value:\"SimHei\"\n    },\n    {\n        content:\"隶书\",\n        value:\"LiSu\"\n    },\n    {\n        content:\"楷体\",\n        value:\"KaiTi_GB2312\"\n    },\n    {\n        content:\"微软雅黑\",\n        value:\"Microsoft YaHei\"\n    },\n    {\n        content:\"Georgia\",\n        value:\"Georgia\"\n    },\n    {\n        content:\"Times New Roman\",\n        value:\"Times New Roman\"\n    },\n    {\n        content:\"Impact\",\n        value:\"Impact\"\n    },\n    {\n        content:\"Courier New\",\n        value:\"Courier New\"\n    },\n    {\n        content:\"Arial\",\n        value:\"Arial\"\n    },\n    {\n        content:\"Verdana\",\n        value:\"Verdana\"\n    },\n    {\n        content:\"Tahoma\",\n        value:\"Tahoma\"\n    }\n]\n```",
             "itemtype": "attribute",
             "name": "children",
             "type": "Object[]",
-            "class": "FontFamily",
-            "module": "editor/plugin/font-family"
+            "class": "EditorPlugin.FontFamily",
+            "module": "editor/plugin/font-family",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\font-family.js",
-            "line": 81,
+            "line": 82,
             "description": "可选。下拉菜单的宽度，默认 “130px”.",
             "itemtype": "attribute",
             "name": "width",
             "type": "String",
             "default": "\"130px\"",
-            "class": "FontFamily",
-            "module": "editor/plugin/font-family"
+            "class": "EditorPlugin.FontFamily",
+            "module": "editor/plugin/font-family",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\font-size.js",
-            "line": 23,
+            "line": 24,
             "description": "可选。字体大小下拉菜单的名称和值集合，默认包括 “8px”,”10px” 等。例如：\n```\n[\n    //ie 不认识中文？？？\n    {\n        content:\"较大\",\n        value:\"20px\"\n    },\n    {\n        content:\"较小\",\n        value:\"10px\"\n    }\n]\n```",
             "itemtype": "attribute",
             "name": "children",
             "type": "Object[]",
             "optional": 1,
-            "class": "FontSize",
-            "module": "editor/plugin/font-size"
+            "class": "EditorPlugin.FontSize",
+            "module": "editor/plugin/font-size",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\font-size.js",
-            "line": 42,
+            "line": 43,
             "description": "可选。下拉菜单的宽度，默认 “55px”.",
             "itemtype": "attribute",
             "name": "width",
             "type": "String",
             "default": "\"55px\"",
             "optional": 1,
-            "class": "FontSize",
-            "module": "editor/plugin/font-size"
+            "class": "EditorPlugin.FontSize",
+            "module": "editor/plugin/font-size",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\image.js",
-            "line": 54,
+            "line": 55,
             "description": "图片配置，如果设为 false ，则图片弹层中网络图片 tab 消失",
             "itemtype": "attribute",
             "name": "remote",
-            "class": "Image",
-            "module": "editor/plugin/image"
+            "class": "EditorPlugin.Image",
+            "module": "editor/plugin/image",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\image.js",
-            "line": 59,
+            "line": 60,
             "description": "图片间距，默认为 10",
             "itemtype": "attribute",
             "name": "defaultMargin",
             "default": "10",
-            "class": "Image",
-            "module": "editor/plugin/image"
+            "class": "EditorPlugin.Image",
+            "module": "editor/plugin/image",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\image.js",
-            "line": 65,
+            "line": 66,
             "description": "图片配置，上传图片配置, 不需要上传功能可不配置, 包括以下子配置\n- serverUrl {String} - 接受文件数据的服务器端程序地址, 格式为 multipart/form-data , 返回格式为：\n正确：{“imgUrl”:”http://xx.com/yy.jpg“}\n错误：{“error”:”i am error!”}\n- serverParams {Object} - 键值对. 传给服务器的格外参数, 如果 value 是函数则传递函数执行结果.\n- suffix {String} - 允许图片的后缀名.\n- fileInput {String} - 传给服务器的文件域名.\n- sizeLimit {Number} - 限制上传的文件大小, 单位 KB, ie 下只能作为提示.\n- extraHtml {String} - 放入图片上传区域的其他 html.",
             "itemtype": "attribute",
             "name": "upload",
             "type": "Object",
-            "class": "Image",
-            "module": "editor/plugin/image"
+            "class": "EditorPlugin.Image",
+            "module": "editor/plugin/image",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\link.js",
-            "line": 12,
+            "line": 13,
             "description": "默认为 \"\", 表示在当前窗口打开新链接, 也可以指定 “_blank” , 则可以在新窗口打开链接",
             "itemtype": "attribute",
             "name": "target",
             "default": "\"\"",
-            "class": "Link",
-            "module": "editor/plugin/link"
+            "class": "EditorPlugin.Link",
+            "module": "editor/plugin/link",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\maximize.js",
-            "line": 15,
+            "line": 16,
             "description": "最大化窗口后触发",
             "itemtype": "event",
             "name": "afterMaximizeWindow",
-            "class": "Maximize",
-            "module": "editor/plugin/maximize"
+            "class": "EditorPlugin.Maximize",
+            "module": "editor/plugin/maximize",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\maximize.js",
-            "line": 20,
+            "line": 21,
             "description": "恢复窗口后触发",
             "itemtype": "event",
             "name": "afterRestoreWindow",
-            "class": "Maximize",
-            "module": "editor/plugin/maximize"
+            "class": "EditorPlugin.Maximize",
+            "module": "editor/plugin/maximize",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\maximize.js",
-            "line": 25,
+            "line": 26,
             "description": "恢复窗口前触发，返回 false 可阻止最大化",
             "itemtype": "event",
             "name": "beforeRestoreWindow",
-            "class": "Maximize",
-            "module": "editor/plugin/maximize"
+            "class": "EditorPlugin.Maximize",
+            "module": "editor/plugin/maximize",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\maximize.js",
-            "line": 30,
+            "line": 31,
             "description": "最大化窗口前触发，返回 false 可阻止最大化",
             "itemtype": "event",
             "name": "beforeMaximizeWindow",
-            "class": "Maximize",
-            "module": "editor/plugin/maximize"
+            "class": "EditorPlugin.Maximize",
+            "module": "editor/plugin/maximize",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\multiple-upload.js",
-            "line": 33,
+            "line": 34,
             "description": "接受文件数据的服务器端程序地址, 格式为 multipart/form-data , 返回格式为：\n- 正确：{“imgUrl”:”http://xx.com/yy.jpg“}\n- 错误：{“error”:”i am error!”}",
             "itemtype": "attribute",
             "name": "serverUrl",
             "type": "String",
-            "class": "MultipleUpload",
-            "module": "editor/plugin/multiple-upload"
+            "class": "EditorPlugin.MultipleUpload",
+            "module": "editor/plugin/multiple-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\multiple-upload.js",
-            "line": 40,
+            "line": 41,
             "description": "键值对. 传给服务器的格外参数, 如果 value 是函数则传递函数执行结果.",
             "itemtype": "attribute",
             "name": "serverParams",
             "type": "Object",
-            "class": "MultipleUpload",
-            "module": "editor/plugin/multiple-upload"
+            "class": "EditorPlugin.MultipleUpload",
+            "module": "editor/plugin/multiple-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\multiple-upload.js",
-            "line": 45,
+            "line": 46,
             "description": "缩略图的后缀。例如原图:http://xx.com/yy.jpg，则加入后缀名时变为：http://xx.com/yy_80x80.jpg",
             "itemtype": "attribute",
             "name": "previewSuffix",
             "type": "String",
-            "class": "MultipleUpload",
-            "module": "editor/plugin/multiple-upload"
+            "class": "EditorPlugin.MultipleUpload",
+            "module": "editor/plugin/multiple-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\multiple-upload.js",
-            "line": 50,
+            "line": 51,
             "description": "缩略图的宽度.",
             "itemtype": "attribute",
             "name": "previewWidth",
             "type": "String",
-            "class": "MultipleUpload",
-            "module": "editor/plugin/multiple-upload"
+            "class": "EditorPlugin.MultipleUpload",
+            "module": "editor/plugin/multiple-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\multiple-upload.js",
-            "line": 55,
+            "line": 56,
             "description": "传给服务器的文件域名.",
             "itemtype": "attribute",
             "name": "fileInput",
             "type": "String",
-            "class": "MultipleUpload",
-            "module": "editor/plugin/multiple-upload"
+            "class": "EditorPlugin.MultipleUpload",
+            "module": "editor/plugin/multiple-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\multiple-upload.js",
-            "line": 60,
+            "line": 61,
             "description": "限制上传的文件大小, 单位 KB.",
             "itemtype": "attribute",
             "name": "sizeLimit",
             "type": "Number",
-            "class": "MultipleUpload",
-            "module": "editor/plugin/multiple-upload"
+            "class": "EditorPlugin.MultipleUpload",
+            "module": "editor/plugin/multiple-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\multiple-upload.js",
-            "line": 65,
+            "line": 66,
             "description": "可同时显示的图片列表个数.",
             "itemtype": "attribute",
             "name": "numberLimit",
             "type": "Number",
-            "class": "MultipleUpload",
-            "module": "editor/plugin/multiple-upload"
+            "class": "EditorPlugin.MultipleUpload",
+            "module": "editor/plugin/multiple-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\multiple-upload.js",
-            "line": 70,
+            "line": 71,
             "description": "放入图片上传区域的其他 html.",
             "itemtype": "attribute",
             "name": "extraHtml",
             "type": "String",
-            "class": "MultipleUpload",
-            "module": "editor/plugin/multiple-upload"
+            "class": "EditorPlugin.MultipleUpload",
+            "module": "editor/plugin/multiple-upload",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\resize.js",
-            "line": 12,
+            "line": 13,
             "description": "右下角调整大小的配置.",
             "itemtype": "attribute",
             "name": "direction",
             "type": "String[]",
-            "class": "EditorResize",
-            "module": "editor/plugin/resize"
+            "class": "EditorPlugin.EditorResize",
+            "module": "editor/plugin/resize",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\resize.js",
-            "line": 17,
+            "line": 18,
             "description": "调整开始时触发",
             "itemtype": "event",
             "name": "resizeStart",
-            "class": "EditorResize",
-            "module": "editor/plugin/resize"
+            "class": "EditorPlugin.EditorResize",
+            "module": "editor/plugin/resize",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\resize.js",
-            "line": 22,
+            "line": 23,
             "description": "调整过程中周期触发",
             "itemtype": "event",
             "name": "resize",
-            "class": "EditorResize",
-            "module": "editor/plugin/resize"
+            "class": "EditorPlugin.EditorResize",
+            "module": "editor/plugin/resize",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\undo.js",
-            "line": 15,
+            "line": 16,
             "description": "历史撤销前触发.返回 false 取消操作",
             "itemtype": "event",
             "name": "beforeUndo",
-            "class": "Undo",
-            "module": "editor/plugin/undo"
+            "class": "EditorPlugin.Undo",
+            "module": "editor/plugin/undo",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\undo.js",
-            "line": 20,
+            "line": 21,
             "description": "历史重做前触发.返回 false 取消操作",
             "itemtype": "event",
             "name": "beforeRedo",
-            "class": "Undo",
-            "module": "editor/plugin/undo"
+            "class": "EditorPlugin.Undo",
+            "module": "editor/plugin/undo",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\undo.js",
-            "line": 25,
+            "line": 26,
             "description": "记录历史前触发.返回 false 取消操作",
             "itemtype": "event",
             "name": "beforeSave",
-            "class": "Undo",
-            "module": "editor/plugin/undo"
+            "class": "EditorPlugin.Undo",
+            "module": "editor/plugin/undo",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\undo.js",
-            "line": 30,
+            "line": 31,
             "description": "历史撤销后触发.",
             "itemtype": "event",
             "name": "afterUndo",
-            "class": "Undo",
-            "module": "editor/plugin/undo"
+            "class": "EditorPlugin.Undo",
+            "module": "editor/plugin/undo",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\undo.js",
-            "line": 35,
+            "line": 36,
             "description": "历史重做后触发.",
             "itemtype": "event",
             "name": "afterRedo",
-            "class": "Undo",
-            "module": "editor/plugin/undo"
+            "class": "EditorPlugin.Undo",
+            "module": "editor/plugin/undo",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\undo.js",
-            "line": 40,
+            "line": 41,
             "description": "记录历史后触发.",
             "itemtype": "event",
             "name": "afterSave",
-            "class": "Undo",
-            "module": "editor/plugin/undo"
+            "class": "EditorPlugin.Undo",
+            "module": "editor/plugin/undo",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\video.js",
-            "line": 12,
+            "line": 13,
             "description": "动态地址转化规则，其中每个 Object 包括\n- reg {RegExp} - 判断匹配与否的正则\n- url {RegExp} - 转化服务器的地址\n- paramName {String} - 待转化 url 的参数名称",
             "itemtype": "attribute",
             "name": "urlCfg",
             "type": "Object[]",
-            "class": "Video",
-            "module": "editor/plugin/video"
+            "class": "EditorPlugin.Video",
+            "module": "editor/plugin/video",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\video.js",
-            "line": 20,
+            "line": 21,
             "description": "输入框提示信息",
             "itemtype": "attribute",
             "name": "urlTip",
             "type": "String",
-            "class": "Video",
-            "module": "editor/plugin/video"
+            "class": "EditorPlugin.Video",
+            "module": "editor/plugin/video",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\editor\\plugin\\video.js",
-            "line": 25,
+            "line": 26,
             "description": "静态转换规则, 从用户输入转换为flash地址，其中每个 Object 包括\n- reg {RegExp} - 判断匹配与否的正则\n- width {Number} - 转化后 flash 的默认宽度\n- height {Number} - 转化后 flash 的默认高度\n- detect(url) {function} - 转化函数，参数为用户输入的 url",
             "itemtype": "attribute",
             "name": "providers",
             "type": "Object[]",
-            "class": "Video",
-            "module": "editor/plugin/video"
+            "class": "EditorPlugin.Video",
+            "module": "editor/plugin/video",
+            "namespace": "EditorPlugin"
         },
         {
             "file": "src\\api\\resizable\\plugin\\proxy.js",
