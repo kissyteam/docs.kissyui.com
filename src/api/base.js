@@ -14,22 +14,22 @@
 简单实用：
 ```
 KISSY.use('base', function(S, Base) {
-    // 自定义类
-    // 继承 Base
     var myClass = Base.extend({},{
-        size: {
-            value: 0,
-            setter: function(v) {
-                if (S.isString(v) && v.indexOf('inch')!== -1) {
-                    return parseFloat(v)*10/3;
+        ATTRS : {
+            size: {
+                value: 0,
+                setter: function(v) {
+                    if (S.isString(v) && v.indexOf('inch')!== -1) {
+                        return parseFloat(v)*10/3;
+                    }
+                    return parseFloat(v);
+                },
+                getter: function(v) {
+                    return v;
                 }
-                return parseFloat(v);
-            },
-            getter: function(v) {
-                return v;
             }
         }
-    });
+     });
 
     var cls = new myClass();
 
