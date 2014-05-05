@@ -1948,7 +1948,7 @@
             },
             "tag": "module",
             "file": "src\\api\\base.js",
-            "line": 204,
+            "line": 207,
             "description": "鉴于不同浏览器对属性描述符的支持并不统一, KISSY 的 attribute 模块, 模拟实现了属性描述符, 提供属性的获取和设置操作, 即属性的 getter 和 setter 动作.\n\n而 KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 让继承 Base 的子类自动具有 attribute 的功能.如果你想让自定义类默认就支持 attribute 功能, 请直接继承 Base"
         },
         "button": {
@@ -3485,7 +3485,7 @@
             "namespace": "",
             "file": "src\\api\\base.js",
             "line": 9,
-            "description": "如果你想让类默认就支持 attribute 功能, 请直接继承Base\n\n简单实用：\n```\nKISSY.use('base', function(S, Base) {\n    // 自定义类\n    // 继承 Base\n    var myClass = Base.extend({},{\n        size: {\n            value: 0,\n            setter: function(v) {\n                if (S.isString(v) && v.indexOf('inch')!== -1) {\n                    return parseFloat(v)*10/3;\n                }\n                return parseFloat(v);\n            },\n            getter: function(v) {\n                return v;\n            }\n        }\n    });\n\n    var cls = new myClass();\n\n    // 绑定事件\n    cls.on('afterSizeChange', function(ev){\n        console.log('change '+ ev.attrName + ': '+ev.prevVal+' --> '+ev.newVal);\n    });\n\n    // 设置属性\n    cls.set('size', 20);\n\n    // 获取属性\n    alert(cls.get('size'));\n\n    // 重置\n    cls.reset();\n    alert(cls.get('size'));\n});\n```",
+            "description": "如果你想让类默认就支持 attribute 功能, 请直接继承Base。\n\n##### 使用 Base 时, 虽然你还是可以通过 addAttr() 添加支持需要支持 setter/getter 的属性, 但最好还是把这些属性和它们的配置定义在类的 ATTRS 成员中. 即通过设置自定义类的 ATTRS 静态属性来给类实例对象添加属性管理机制.\n\n简单实用：\n```\nKISSY.use('base', function(S, Base) {\n    // 自定义类\n    // 继承 Base\n    var myClass = Base.extend({},{\n        size: {\n            value: 0,\n            setter: function(v) {\n                if (S.isString(v) && v.indexOf('inch')!== -1) {\n                    return parseFloat(v)*10/3;\n                }\n                return parseFloat(v);\n            },\n            getter: function(v) {\n                return v;\n            }\n        }\n    });\n\n    var cls = new myClass();\n\n    // 绑定事件\n    cls.on('afterSizeChange', function(ev){\n        console.log('change '+ ev.attrName + ': '+ev.prevVal+' --> '+ev.newVal);\n    });\n\n    // 设置属性\n    cls.set('size', 20);\n\n    // 获取属性\n    alert(cls.get('size'));\n\n    // 重置\n    cls.reset();\n    alert(cls.get('size'));\n});\n```",
             "is_constructor": 1,
             "extends": "Base.Attribute",
             "uses": [
@@ -3510,7 +3510,7 @@
             "module": "base",
             "namespace": "Base",
             "file": "src\\api\\base.js",
-            "line": 204,
+            "line": 207,
             "description": "包含一些属性操作的方法，仅用于 [augment()](5.0/api/classes/Util.html#method_augment)]",
             "is_constructor": 1
         },
@@ -8206,7 +8206,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 58,
+            "line": 61,
             "description": "配置组件的事件绑定,例如:\n```\n{\n    listeners:{\n        customEvent:function(e){\n            alert(e.type); // => \"customEvent\"\n        }\n    }\n}\n\nor\n\n{\n    listeners:{\n        customEvent:{\n            fn:function(e){\n                // e.type // => customEvent\n                // this.xx => 1\n            },\n            context:{xx:1}\n        }\n    }\n}\n```",
             "itemtype": "attribute",
             "name": "listeners",
@@ -8216,7 +8216,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 86,
+            "line": 89,
             "description": "插件构造器数组或插件对象数组. 例如\n```\n{\n    plugins: [ Plugin1,Plugin2 ]\n}\n\n// or\n\n{\n    plugins: [new Plugin1(cfg),new Plugin2(cfg)]\n}\n```",
             "itemtype": "attribute",
             "name": "plugins",
@@ -8226,7 +8226,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 103,
+            "line": 106,
             "description": "从当前类上扩展出一个子类",
             "itemtype": "method",
             "name": "extend",
@@ -8266,7 +8266,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 114,
+            "line": 117,
             "description": "调用父类的对应方法，如果没有，则返回undefined",
             "itemtype": "method",
             "name": "callSuper",
@@ -8278,7 +8278,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 145,
+            "line": 148,
             "description": "安装指定插件",
             "itemtype": "method",
             "name": "plug",
@@ -8300,7 +8300,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 162,
+            "line": 165,
             "description": "卸载指定插件",
             "itemtype": "method",
             "name": "unplug",
@@ -8322,7 +8322,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 181,
+            "line": 184,
             "description": "根据指定的 id 获取对应的plugin实例",
             "itemtype": "method",
             "name": "getPlugin",
@@ -8344,7 +8344,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 194,
+            "line": 197,
             "description": "销毁实例",
             "itemtype": "method",
             "name": "destroy",
@@ -8353,7 +8353,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 211,
+            "line": 214,
             "description": "给宿主对象增加一个属性",
             "itemtype": "method",
             "name": "addAttr",
@@ -8402,7 +8402,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 223,
+            "line": 226,
             "description": "批量添加属性",
             "itemtype": "method",
             "name": "addAttrs",
@@ -8424,7 +8424,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 230,
+            "line": 233,
             "description": "判断是否有名为 name 的属性",
             "itemtype": "method",
             "name": "hasAttr",
@@ -8445,7 +8445,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 237,
+            "line": 240,
             "description": "删除名为 name 的属性",
             "itemtype": "method",
             "name": "removeAttr",
@@ -8462,7 +8462,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 243,
+            "line": 246,
             "description": "设置属性 name 的值为 value",
             "itemtype": "method",
             "name": "set",
@@ -8510,7 +8510,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 255,
+            "line": 258,
             "description": "获取属性 name 的值",
             "itemtype": "method",
             "name": "get",
@@ -8527,7 +8527,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 261,
+            "line": 264,
             "description": "获取目前实例的所有属性键值对集合",
             "itemtype": "method",
             "name": "getAttrVals",
@@ -8541,7 +8541,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 267,
+            "line": 270,
             "description": "重置属性 name 为初始值. (调用一次 set() )",
             "itemtype": "method",
             "name": "reset",
@@ -8570,7 +8570,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 275,
+            "line": 278,
             "description": "将所有属性全部重置为初始值. (调用一次 set() )",
             "itemtype": "method",
             "name": "reset",
@@ -8594,7 +8594,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 282,
+            "line": 285,
             "description": "名为 “attrName” 的属性, 在改变它的值之前触发该事件",
             "itemtype": "event",
             "name": "beforeAttrNameChange",
@@ -8631,7 +8631,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 292,
+            "line": 295,
             "description": "名为 “attrName” 的属性, 在改变它的值之后触发该事件",
             "itemtype": "event",
             "name": "afterAttrNameChange",
@@ -8668,7 +8668,7 @@
         },
         {
             "file": "src\\api\\base.js",
-            "line": 302,
+            "line": 305,
             "description": "每调用 [set()](5.0/api/classes/Attribute.html#method_set) 一次后就触发一次该事件",
             "itemtype": "event",
             "name": "*change",
