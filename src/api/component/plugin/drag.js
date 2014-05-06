@@ -5,7 +5,7 @@
 
 /**
 @class Drag
-@namespace Component.plugin
+@namespace Component.Plugin
 @constructor
 @extends DD.Draggable
 @example

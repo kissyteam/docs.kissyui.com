@@ -516,9 +516,9 @@ __手势结束事件__
 
 __Note__
 
-注意 S.EventTarget 仅用于 mix/augment ，不可以直接使用，例如需要全局事件的话可以：
+注意 EventTarget 仅用于 mix/augment ，不可以直接使用，例如需要全局事件的话可以：
 ```
-var globalEvent=S.mix({},S.EventTarget);
+var globalEvent=S.mix({},EventTarget);
 globalEvent.on('Login:session:pass', function(){
   isSessionPass = true;
 });

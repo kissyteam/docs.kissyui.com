@@ -17,8 +17,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "Component.Extension.DelegateChildren",
         "Component.Extension.Shim",
         "Component.Manager",
-        "Component.plugin.Drag",
-        "Component.plugin.Resize",
+        "Component.Plugin.Drag",
+        "Component.Plugin.Resize",
         "Cookie",
         "DD.DDM",
         "DD.Draggable",
@@ -211,7 +211,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "anim",
             "name": "anim",
-            "description": "提供类Anim,动画支持"
+            "description": "提供动画支持"
         },
         {
             "displayName": "base",

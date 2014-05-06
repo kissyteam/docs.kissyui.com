@@ -8,7 +8,7 @@
 @class PopupDatePicker
 @namespace Date
 @constructor
-@extends DatePicker
+@extends Date.Picker
 @uses Align
 @uses Shim
 @param config {Object}

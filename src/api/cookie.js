@@ -5,7 +5,8 @@
 
 /**
 操作cookie
-__Note__
+
+### Note
 
 推荐阅读 NCZ 的这篇文章： [HTTP cookies explained](http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/)
 @class Cookie

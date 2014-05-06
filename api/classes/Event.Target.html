@@ -69,9 +69,9 @@
             
                 <li><a href="../classes/Component.Manager.html">Component.Manager</a></li>
             
-                <li><a href="../classes/Component.plugin.Drag.html">Component.plugin.Drag</a></li>
+                <li><a href="../classes/Component.Plugin.Drag.html">Component.Plugin.Drag</a></li>
             
-                <li><a href="../classes/Component.plugin.Resize.html">Component.plugin.Resize</a></li>
+                <li><a href="../classes/Component.Plugin.Resize.html">Component.Plugin.Resize</a></li>
             
                 <li><a href="../classes/Cookie.html">Cookie</a></li>
             
@@ -502,8 +502,8 @@
 <div class="box intro">
     <p>通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件.具体用法看它提供的方法</p>
 <p><strong>Note</strong></p>
-<p>注意 S.EventTarget 仅用于 mix/augment ，不可以直接使用，例如需要全局事件的话可以：</p>
-<pre class="code prettyprint"><code>var globalEvent=S.mix({},S.EventTarget);
+<p>注意 EventTarget 仅用于 mix/augment ，不可以直接使用，例如需要全局事件的话可以：</p>
+<pre class="code prettyprint"><code>var globalEvent=S.mix({},EventTarget);
 globalEvent.on(&#39;Login:session:pass&#39;, function(){
   isSessionPass = true;
 });</code></pre>

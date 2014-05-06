@@ -51,11 +51,11 @@
                 "component/plugin/drag": 1
             },
             "classes": {
-                "Component.plugin.Drag": 1
+                "Component.Plugin.Drag": 1
             },
             "fors": {},
             "namespaces": {
-                "Component.plugin": 1
+                "Component.Plugin": 1
             }
         },
         "src\\api\\component\\plugin\\resize.js": {
@@ -64,11 +64,11 @@
                 "component/plugin/resize": 1
             },
             "classes": {
-                "Component.plugin.Resize": 1
+                "Component.Plugin.Resize": 1
             },
             "fors": {},
             "namespaces": {
-                "Component.plugin": 1
+                "Component.Plugin": 1
             }
         },
         "src\\api\\component\\color.js": {
@@ -1194,11 +1194,11 @@
             "name": "component/plugin/drag",
             "submodules": {},
             "classes": {
-                "Component.plugin.Drag": 1
+                "Component.Plugin.Drag": 1
             },
             "fors": {},
             "namespaces": {
-                "Component.plugin": 1
+                "Component.Plugin": 1
             },
             "tag": "module",
             "file": "src\\api\\component\\plugin\\drag.js",
@@ -1209,11 +1209,11 @@
             "name": "component/plugin/resize",
             "submodules": {},
             "classes": {
-                "Component.plugin.Resize": 1
+                "Component.Plugin.Resize": 1
             },
             "fors": {},
             "namespaces": {
-                "Component.plugin": 1
+                "Component.Plugin": 1
             },
             "tag": "module",
             "file": "src\\api\\component\\plugin\\resize.js",
@@ -1977,7 +1977,7 @@
             "tag": "module",
             "file": "src\\api\\anim.js",
             "line": 6,
-            "description": "提供类Anim,动画支持"
+            "description": "提供动画支持"
         },
         "base": {
             "name": "base",
@@ -2452,16 +2452,16 @@
             "description": "垫片。组件扩充类，仅用于 KISSY 内部组件继承，目前不建议外部使用，欢迎 review\n用于修复 IE6 下select等Form控件间遮罩住弹出层，或者在某些高级浏览器上select遮住flash等情况。",
             "is_constructor": 1
         },
-        "Component.plugin.Drag": {
-            "name": "Component.plugin.Drag",
-            "shortname": "Component.plugin.Drag",
+        "Component.Plugin.Drag": {
+            "name": "Component.Plugin.Drag",
+            "shortname": "Component.Plugin.Drag",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "component/plugin/drag",
-            "namespace": "Component.plugin",
+            "namespace": "Component.Plugin",
             "file": "src\\api\\component\\plugin\\drag.js",
             "line": 6,
             "is_constructor": 1,
@@ -2470,16 +2470,16 @@
                 "\n```\nKISSY.use('overlay,component/plugin/drag',function(S,Overlay,Drag){\n    new Overlay({\n        plugins:[ new Drag({\n            handlers: ['.ks-overlay-header']\n        }) ]\n    });\n});\n```"
             ]
         },
-        "Component.plugin.Resize": {
-            "name": "Component.plugin.Resize",
-            "shortname": "Component.plugin.Resize",
+        "Component.Plugin.Resize": {
+            "name": "Component.Plugin.Resize",
+            "shortname": "Component.Plugin.Resize",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "module": "component/plugin/resize",
-            "namespace": "Component.plugin",
+            "namespace": "Component.Plugin",
             "file": "src\\api\\component\\plugin\\resize.js",
             "line": 6,
             "is_constructor": 1,
@@ -2658,7 +2658,7 @@
             "line": 6,
             "description": "根据配置创建PopupDatePicker",
             "is_constructor": 1,
-            "extends": "DatePicker",
+            "extends": "Date.Picker",
             "uses": [
                 "Align",
                 "Shim"
@@ -3529,7 +3529,7 @@
             "namespace": "",
             "file": "src\\api\\base.js",
             "line": 9,
-            "description": "如果你想让类默认就支持 attribute 功能, 请直接继承Base。\n\n注：使用 Base 时, 虽然你还是可以通过 addAttr() 添加支持需要支持 setter/getter 的属性, 但最好还是把这些属性和它们的配置定义在类的 ATTRS 成员中. 即通过设置自定义类的 ATTRS 静态属性来给类实例对象添加属性管理机制.",
+            "description": "如果你想让类默认就支持 [Base.Attribute](/5.0/api/classes/Base.Attribute.html) 功能, 请直接继承[Base](/5.0/api/classes/Base.html)。\n\n注：使用 Base 时, 虽然你还是可以通过 addAttr() 添加支持需要支持 setter/getter 的属性, 但最好还是把这些属性和它们的配置定义在类的 ATTRS 成员中. 即通过设置自定义类的 ATTRS 静态属性来给类实例对象添加属性管理机制.",
             "is_constructor": 1,
             "extends": "Base.Attribute",
             "uses": [
@@ -3668,7 +3668,7 @@
             "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
             "line": 239,
-            "description": "本地数据源，配合[ComboBox](5.0/api/classes/ComboBox.html)使用",
+            "description": "本地数据源，配合[ComboBox](/5.0/api/classes/ComboBox.html)使用",
             "is_constructor": 1,
             "params": [
                 {
@@ -3690,7 +3690,7 @@
             "namespace": "ComboBox",
             "file": "src\\api\\combobox.js",
             "line": 278,
-            "description": "数据源，配合[ComboBox](5.0/api/classes/ComboBox.html)使用",
+            "description": "数据源，配合[ComboBox](/5.0/api/classes/ComboBox.html)使用",
             "is_constructor": 1,
             "params": [
                 {
@@ -3712,7 +3712,7 @@
             "namespace": "",
             "file": "src\\api\\cookie.js",
             "line": 6,
-            "description": "操作cookie\n__Note__\n\n推荐阅读 NCZ 的这篇文章： [HTTP cookies explained](http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/)",
+            "description": "操作cookie\n\n### Note\n\n推荐阅读 NCZ 的这篇文章： [HTTP cookies explained](http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/)",
             "static": 1
         },
         "DD.Draggable": {
@@ -3888,7 +3888,7 @@
             "namespace": "Event",
             "file": "src\\api\\event.js",
             "line": 514,
-            "description": "通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件.具体用法看它提供的方法\n\n__Note__\n\n注意 S.EventTarget 仅用于 mix/augment ，不可以直接使用，例如需要全局事件的话可以：\n```\nvar globalEvent=S.mix({},S.EventTarget);\nglobalEvent.on('Login:session:pass', function(){\n  isSessionPass = true;\n});\n```"
+            "description": "通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件.具体用法看它提供的方法\n\n__Note__\n\n注意 EventTarget 仅用于 mix/augment ，不可以直接使用，例如需要全局事件的话可以：\n```\nvar globalEvent=S.mix({},EventTarget);\nglobalEvent.on('Login:session:pass', function(){\n  isSessionPass = true;\n});\n```"
         },
         "Feature": {
             "name": "Feature",
@@ -9264,7 +9264,7 @@
         },
         {
             "file": "src\\api\\cookie.js",
-            "line": 15,
+            "line": 16,
             "description": "获取cookie值",
             "itemtype": "method",
             "name": "get",
@@ -9285,7 +9285,7 @@
         },
         {
             "file": "src\\api\\cookie.js",
-            "line": 23,
+            "line": 24,
             "description": "置空cookie值，并立刻过期",
             "itemtype": "method",
             "name": "remove",
@@ -9317,7 +9317,7 @@
         },
         {
             "file": "src\\api\\cookie.js",
-            "line": 33,
+            "line": 34,
             "description": "设置cookie值",
             "itemtype": "method",
             "name": "set",

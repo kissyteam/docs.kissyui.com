@@ -5,7 +5,7 @@
 
 /**
 @class Resize
-@namespace Component.plugin
+@namespace Component.Plugin
 @constructor
 @extends Resizable
 @example

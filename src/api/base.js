@@ -7,7 +7,7 @@
 
 
 /**
-如果你想让类默认就支持 attribute 功能, 请直接继承Base。
+如果你想让类默认就支持 [Base.Attribute](/5.0/api/classes/Base.Attribute.html) 功能, 请直接继承[Base](/5.0/api/classes/Base.html)。
 
 注：使用 Base 时, 虽然你还是可以通过 addAttr() 添加支持需要支持 setter/getter 的属性, 但最好还是把这些属性和它们的配置定义在类的 ATTRS 成员中. 即通过设置自定义类的 ATTRS 静态属性来给类实例对象添加属性管理机制.
 
