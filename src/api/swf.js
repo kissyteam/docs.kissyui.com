@@ -7,7 +7,7 @@
 @class SWF
 @constructor
 @extends Base.Attribute
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 @example
 ```
 KISSY.use('swf',function(S,SWF){

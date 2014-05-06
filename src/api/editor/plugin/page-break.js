@@ -5,5 +5,5 @@
 /**
 编辑器的分页符插件
 @class PageBreak
-@namespace EditorPlugin
+@namespace Editor.Plugin
 */

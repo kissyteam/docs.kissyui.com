@@ -4,10 +4,11 @@
 
 /**
 [Resizable](/5.0/api/classes/Resizable.html) 插件， 可代理缩放对象
-@class ResizableProxyPlugin
+@class Proxy
+@namespace Resizable.Plugin
 @constructor
 @extends Base
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 */
 
 /**

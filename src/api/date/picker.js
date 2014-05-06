@@ -5,10 +5,11 @@
 
 /**
 根据配置创建picker
-@class DatePicker
+@class Picker
+@namespace Date
 @constructor
 @extends Component.Control
-@param config {Object} 配置对象，详情参考Attribute
+@param config {Object}
 */
 
 /**

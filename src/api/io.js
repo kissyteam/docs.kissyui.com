@@ -4,10 +4,11 @@
 */
 
 /**
-构造请求并发送，继承自 [Promise](#Promise)
+构造请求并发送
 @class IO
 @constructor
-@param cfg {Object} 用来配置请求的键值对对象. 所有的配置项都是可选的,可以通过 io.setupConfig() 来设置默认配置。详见其Attribute
+@extends Promise
+@param cfg {Object}
 @example
 载入并执行一段脚本
 ```

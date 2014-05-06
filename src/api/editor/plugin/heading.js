@@ -15,5 +15,5 @@ editor.execCommand("heading",'h1');
 ```
 
 @class Heading
-@namespace EditorPlugin
+@namespace Editor.Plugin
 */

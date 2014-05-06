@@ -8,5 +8,5 @@
 ### Commands
 - removeFormat 对选区清除格式.
 @class RemoveFormat
-@namespace EditorPlugin
+@namespace Editor.Plugin
 */

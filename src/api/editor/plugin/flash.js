@@ -5,9 +5,9 @@
 /**
 编辑器的拖放上传插件
 @class Flash
-@namespace EditorPlugin
+@namespace Editor.Plugin
 @constructor
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 @example
 ```
 KISSY.use('editor',function(S,Editor){

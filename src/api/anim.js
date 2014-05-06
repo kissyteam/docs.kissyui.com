@@ -9,7 +9,7 @@
 * @constructor
 * @param elem {String|HTMLElement|KISSY.Node|window|普通的Object} 作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）
 * @param props {Object} 动画结束的 dom 样式值
-* @param [config] {Object} 动画配置项，详情参考其Attribute 
+* @param [config] {Object}
 */
 
 

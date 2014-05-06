@@ -5,5 +5,5 @@
 /**
 编辑器的表格插件
 @class Table
-@namespace EditorPlugin
+@namespace Editor.Plugin
 */

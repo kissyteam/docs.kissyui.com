@@ -4,25 +4,14 @@
 */
 
 /**
-* 硬件环境关键特性检测，直接通过KISSY全局对象调用
-* 这类功能通常在判断硬件环境时使用，比如在KISSY的modules定义的代码：
-*   ```
-*   KISSY.config('modules',{
-*        "dom/basic": {
-*                "alias": [
-*                        'dom/base',
-*                        KISSY.Features.isIELessThan(9) ? 'dom/ie' : '',
-*                        KISSY.Features.isClassListSupported() ? '' : 'dom/class-list'
-*                ]
-*        },
-*        "dom": {
-*                "alias": [
-*                        'dom/basic',
-*                        !KISSY.Features.isQuerySelectorSupported() ? 'dom/selector' : ''
-*                ]
-*        }
-*	});
-*   ```
+* 硬件环境关键特性检测，这类功能通常在判断硬件环境时使用，如：
+```
+KISSY.use('feature', function(S, Feature){
+	if(Feature.isIELessThan(9)){
+		//do something
+	}
+})
+```
 * @class Feature
 * @static
 */

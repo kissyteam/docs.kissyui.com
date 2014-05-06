@@ -6,11 +6,12 @@
 /**
 根据配置创建PopupDatePicker
 @class PopupDatePicker
+@namespace Date
 @constructor
 @extends DatePicker
 @uses Align
 @uses Shim
-@param config {Object} 配置信息
+@param config {Object}
 @example
 ```
 KISSY.use('date/popup-picker',function(S, PopupDatePicker){

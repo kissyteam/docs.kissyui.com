@@ -18,7 +18,7 @@ KISSY.use('promise',function(S,Promise){
 ```
 @class Promise
 @constructor
-@return promise 实例，外部不允许初始化。要通过[Defer()](5.0/api/classes/Defer.html)来获取
+@return promise 实例，外部不允许初始化。要通过[Defer()](/5.0/api/classes/Promise.Defer.html)来获取
 */
 
 /**

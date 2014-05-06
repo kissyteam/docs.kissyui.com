@@ -4,7 +4,8 @@
 
 /**
 根据传入参数，创建对应的 DateTimeFormat 对象
-@class DateTimeFormat
+@class Format
+@namespace Date
 @constructor
 @param pattern {String} 时间模式（具体写法参见下面的表格）
 ![](/5.0/api/assets/img/project-img/date-format.jpg)

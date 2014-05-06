@@ -8,7 +8,7 @@
 @class XTemplate
 @constructor
 @param tpl {String|Function} 字符串模板或编译过的模板函数
-@param config {Object} 配置项，详见其Attribute
+@param config {Object}
 @example
 ```
 KISSY.use('xtemplate',function(S,XTemplate){

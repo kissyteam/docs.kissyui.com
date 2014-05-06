@@ -7,7 +7,7 @@
 
 ### Note1
 
-#### kissy提供参考的初始样式，但用户也可以自己自定义样式。参考样式地址为
+##### kissy提供参考的初始样式，但用户也可以自己自定义样式。参考样式地址为
 `http://g.tbcdn.cn/kissy/k/1.4.2/css/dpl/base-min.css`
 `http://g.tbcdn.cn/kissy/k/1.4.2/editor/theme/cool/editor-min.css?1`
 
@@ -17,7 +17,7 @@ editor提供如下插件：
 @class Editor
 @constructor
 @extends Component.Control
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 */
 
 /**

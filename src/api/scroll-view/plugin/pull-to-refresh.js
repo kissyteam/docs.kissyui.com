@@ -6,9 +6,10 @@
 /**
 ScrollView的下拉刷新插件
 @class PullToRefresh
+@namespace ScrollView.Plugin
 @constructor
 @extends Base
-@param config {Object} 配置对象，详情参考其Attribute
+@param config {Object}
 @example
 ```
 KISSY.use('scroll-view, scroll-view/plugin/pull-to-refresh', function (S, ScrollView, PullToRefresh) {

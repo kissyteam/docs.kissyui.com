@@ -4,7 +4,7 @@
 */
 
 /**
-类DOM，操作DOM
+操作DOM
 @class Dom
 @static
 */

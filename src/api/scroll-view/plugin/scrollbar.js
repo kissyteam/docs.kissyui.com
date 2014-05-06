@@ -6,9 +6,10 @@ ScrollView的插件ScrollBar
 /**
 ScrollView的滚动条插件,用来自定义滚动条
 @class ScrollBar
+@namespace ScrollView.Plugin
 @constructor
 @extends Base
-@param config {Object} 配置对象，详情参考其Attribute
+@param config {Object}
 @example
 ```
 KISSY.use('scroll-view,scroll-view/plugin/scrollbar', function (S, ScrollView, ScrollbarPlugin) {

@@ -8,5 +8,5 @@
 ### Commands
 - justifyLeft 对选区文字居左或取消.支持 queryCommandValue，返回选区是否居左
 @class JustifyLeft
-@namespace EditorPlugin
+@namespace Editor.Plugin
 */

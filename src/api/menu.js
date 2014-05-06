@@ -6,9 +6,7 @@
 @class Menu
 @constructor
 @extends Component.Control
-@param config {Object} 配置项
-
-#### 从已有元素实例 Menu 对象时 , 元素节点标明类名 {prefixCls}menu . prefixCls 为配置的类名前缀，默认为 ks-
+@param config {Object}
 */
 
 /**
@@ -35,7 +33,7 @@ menu.set("highlightedItem",null);
 @constructor
 @extends Component.Control
 @namespace Menu
-@param config {Object}  配置对象，详见其Attribute
+@param config {Object}
 */
 
 /**
@@ -84,7 +82,7 @@ menu.set("highlightedItem",null);
 @constructor
 @extends Menu.Item
 @namespace Menu
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 */
 
 /**
@@ -128,7 +126,7 @@ menu.set("highlightedItem",null);
 @constructor
 @extends Menu
 @uses Align
-@param config {Object} 配置对象，详见其Attribtue
+@param config {Object}
 */
 
 /**
@@ -155,7 +153,7 @@ checkable 菜单项
 @class CheckMenuItem
 @constructor
 @extends Menu.Item
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 */
 
 /**

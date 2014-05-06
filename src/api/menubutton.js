@@ -6,7 +6,7 @@
 @class MenuButton
 @constructor
 @extends Button
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 */
 
 /**
@@ -79,7 +79,7 @@
 @extends MenuButton
 @namespace MenuButton
 @constructor
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 */
 
 /**
@@ -116,7 +116,7 @@
 @constructor
 @extends Menu.Item
 @namespace MenuButton
-@param config {Object} 配置项，详见其Attribute
+@param config {Object}
 */
 /**
 是否可以被选择，可以的话，单击会添加指定 class 到根节点

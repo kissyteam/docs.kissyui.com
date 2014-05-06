@@ -7,7 +7,8 @@ Draggable 插件,可代理拖放对象
 @class Proxy
 @constructor
 @extends Base
-@param config {Object} 配置对象，详情见其Attribute
+@namespace DD.Plugin
+@param config {Object}
 */
 
 /**

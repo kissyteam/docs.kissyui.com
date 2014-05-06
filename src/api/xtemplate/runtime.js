@@ -3,10 +3,11 @@
 */
 
 /**
-@class XTemplateRunTime
+@class RunTime
+@namespace XTemplate
 @constructor
 @param tpl {String|Function} 编译过的模板函数
-@param config {Object} 配置对象，详情参考其Attribute
+@param config {Object}
 @example
 ```
 KISSY.use('xtemplate',function(S,XTemplate){

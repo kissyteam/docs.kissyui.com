@@ -6,7 +6,7 @@
 @class Button
 @constructor
 @extends Component.Control
-@param config {Object} 配置项，详细见其Attribute
+@param config {Object}
 */
 
 

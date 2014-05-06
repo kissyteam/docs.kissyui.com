@@ -14,7 +14,7 @@
 editor.execCommand("backColor",'#ffffffff'); // 设置选区背景为白色
 ```
 @class BackColor
-@namespace EditorPlugin
+@namespace Editor.Plugin
 @example
 ```
 KISSY.use('editor',function(S,Editor){

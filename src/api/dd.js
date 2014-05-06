@@ -12,7 +12,7 @@
 @constructor
 @extends Base
 @namespace DD
-@param config {Object}  配置项，详见其Attribute
+@param config {Object}
 */
 
 /**
@@ -178,7 +178,7 @@ new Draggable({
 @constructor
 @extends Base
 @namespace DD
-@param config {Object} 配置对象,详见其Attribute
+@param config {Object}
 */
 
 /**
@@ -238,6 +238,7 @@ new Draggable({
 拖放的中央控制对象, 所有的拖放实例的事件都会向其冒泡.
 @class DDM
 @extends Base
+@namespace DD
 @static
 */
 
@@ -357,7 +358,8 @@ new Draggable({
 @class DraggableDelegate
 @constructor
 @extends DD.Draggable
-@param config {Object} 配置对象，详见其Attribute
+@namespace DD
+@param config {Object}
 */
 
 /**
@@ -394,7 +396,8 @@ new Draggable({
 @class DroppableDelegate
 @constructor
 @extends DD.Droppable
-@param config {Object} 配置对象，详见其Attribute
+@namespace DD
+@param config {Object}
 */
 
 /**

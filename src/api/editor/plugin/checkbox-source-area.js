@@ -12,5 +12,5 @@ KISSY.use('editor',function(S,Editor){
 });
 ```
 @class CheckBoxSourceArea
-@namespace EditorPlugin
+@namespace Editor.Plugin
 */

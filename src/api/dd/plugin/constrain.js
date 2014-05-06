@@ -6,7 +6,8 @@
 @class Constrain
 @constructor
 @extends Base
-@param config {Object} 配置对象，详情见Attribute
+@namespace DD.Plugin
+@param config {Object}
 @example
 ```
 KISSY.use("dd,dd/plugin/constrain",function(S,DD,Constrain){

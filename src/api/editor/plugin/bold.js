@@ -18,5 +18,5 @@ editor.execCommand("bold"); // 取消选区文字加粗
 editor.queryCommandValue("bold") //=>false
 ```
 @class Bold
-@namespace EditorPlugin
+@namespace Editor.Plugin
 */

@@ -6,7 +6,7 @@
 @class Tabs
 @constructor
 @extends Component.Container
-@param config {Object} 配置项，详见attribute
+@param config {Object}
 */
 
 /**
@@ -118,7 +118,7 @@
 @constructor
 @extends Button
 @namespace Tabs
-@param config 配置项，详见attribute
+@param config
 */
 
 /**
@@ -140,7 +140,7 @@
 @constructor
 @extends Component.Container
 @namespace Tabs
-@param config {Object} 配置项，详见attribute
+@param config {Object}
 */
 
 /**

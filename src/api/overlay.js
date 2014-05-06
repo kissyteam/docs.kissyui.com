@@ -33,7 +33,7 @@
 @extends Component.Container
 @uses Shim
 @uses Align
-@param config {Object} 配置详见其Attribute
+@param config {Object}
 */
 
 /**
@@ -112,7 +112,7 @@ mask的相关配置：
 @constructor
 @namespace Overlay
 @extends Overlay
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 @example
 
 对话框的 DOM 结构为：
@@ -210,7 +210,7 @@ mask的相关配置：
 @constructor
 @namespace Overlay
 @extends Overlay
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object} 
 */
 
 /**

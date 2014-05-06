@@ -7,7 +7,7 @@ Toolbar菜单栏组件
 @class ToolBar
 @constructor
 @extends Container
-@param config {Object} 配置项，详见attribute
+@param config {Object}
 */
 
 /**

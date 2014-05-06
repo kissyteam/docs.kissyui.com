@@ -16,9 +16,9 @@ editor.execCommand("fontSize","10px"); //=> 取消设置选区文字大小为10p
 editor.queryCommandValue("fontSize"); //=> 返回 10px
 ```
 @class FontSize
-@namespace EditorPlugin
+@namespace Editor.Plugin
 @constructor
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 */
 
 /**

@@ -7,7 +7,7 @@
 @class SplitButton
 @constructor
 @extends Component.Container
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 */
 
 

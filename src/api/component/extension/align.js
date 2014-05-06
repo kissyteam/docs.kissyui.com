@@ -8,7 +8,7 @@
 @Class Align
 @namespace Component.Extension
 @constructor
-@param config {Object} 配置项，详见Attribute
+@param config {Object}
 */
 
 /**

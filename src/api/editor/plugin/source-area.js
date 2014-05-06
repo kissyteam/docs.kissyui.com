@@ -5,5 +5,5 @@
 /**
 编辑器的源码按钮插件
 @class SourceArea
-@namespace EditorPlugin
+@namespace Editor.Plugin
 */

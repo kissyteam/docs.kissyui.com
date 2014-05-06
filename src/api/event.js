@@ -4,7 +4,7 @@
 */
 
 /**
-类Event
+Event
 @class Event
 @static
 */

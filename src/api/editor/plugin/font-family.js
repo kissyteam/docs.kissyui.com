@@ -16,9 +16,9 @@ editor.execCommand("fontFamily","SimSun"); //=> 取消设置选区文字为宋�
 editor.queryCommandValue("fontFamily"); //=> 返回 "SimSun";
 ```
 @class FontFamily
-@namespace EditorPlugin
+@namespace Editor.Plugin
 @constructor
-@param config {Object} 配置对象，详见其Attribute
+@param config {Object}
 */
 
 /**

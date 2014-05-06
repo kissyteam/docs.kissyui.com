@@ -4,7 +4,13 @@
 
 
 /**
-### 从已有元素实例 ComboBox 对象时：
+
+@class ComboBox
+@constructor
+@extends Component.Control
+@param config {Object}
+@example
+#### 从已有元素实例 ComboBox 对象时：
 
 - 元素节点标明类名 {prefixCls}combobox .
 - html 符合一定规范，例如：
@@ -20,7 +26,9 @@
 </div>
 ```
 
-### 使用前请加上初始样式
+
+
+#### 使用前请加上初始样式
 ```
 <style>
     .ks-popupmenu {
@@ -30,10 +38,6 @@
     }
 </style>
 ```
-@class ComboBox
-@constructor
-@extends Component.Control
-@param config {Object} 配置项，详见其Attribute
 */
 
 /**
@@ -172,7 +176,7 @@ KISSY.use("node,combobox", function (S, Node, ComboBox) {
 @constructor
 @extends ComboBox
 @namespace ComboBox
-@param config {Object} 配置项，详见其Attribute
+@param config {Object}
 */
 
 
@@ -215,7 +219,7 @@ KISSY.use("node,combobox", function (S, Node, ComboBox) {
 @constructor
 @extends ComboBox
 @namespace ComboBox
-@param config {Object} 配置项，详见其Attribute
+@param config {Object}
 @example
 ```
 KISSY.use('combobox',function(S,ComboBox){
@@ -237,7 +241,7 @@ KISSY.use('combobox',function(S,ComboBox){
 @class LocalDataSource
 @constructor
 @namespace ComboBox
-@param config {Object} 配置项，详见其Attribute
+@param config {Object}
 */
 
 /**
@@ -276,7 +280,7 @@ function parser(inputVal, data) {
 @class RemoteDataSource
 @constructor
 @namespace ComboBox
-@param config {Object} 配置项，详见其Attribute
+@param config {Object}
 */
 
 /**

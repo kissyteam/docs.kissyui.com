@@ -10,7 +10,7 @@
 - undo 回退到上一个编辑历史
 - redo 前进到下一个编辑历史
 @class Undo
-@namespace EditorPlugin
+@namespace Editor.Plugin
 */
 
 /**

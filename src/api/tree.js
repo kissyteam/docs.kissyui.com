@@ -9,7 +9,7 @@
 @class Tree
 @constructor
 @extends Tree.Node
-@param config {Object} 配置项，详见Attribute
+@param config {Object}
 */
 
 /**
@@ -55,7 +55,7 @@ tree.on("click",function(e){
 @constructor
 @extends Component.Container
 @namespace Tree
-@param config {Object} 配置项，详见Attribute
+@param config {Object}
 */
 
 /**
@@ -131,7 +131,7 @@ tree.on("click",function(e){
 @constructor 
 @extends Tree.Node
 @namespace Tree
-@param config {Object} 配置项，详见Attribute
+@param config {Object}
 */
 
 /**
@@ -147,9 +147,10 @@ tree.on("click",function(e){
 
 /**
 @class CheckTree
+@namespace Tree
 @constructor
 @extends Tree.CheckNode
-@param config {Object} 配置项，详见Attribute
+@param config {Object}
 */
 
 /**

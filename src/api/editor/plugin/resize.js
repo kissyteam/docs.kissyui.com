@@ -5,9 +5,9 @@
 /**
 编辑器的调整大小插件
 @class EditorResize
-@namespace EditorPlugin
+@namespace Editor.Plugin
 @constructor
-@param config {Object} 详见其Attribute
+@param config {Object}
 */
 
 /**
