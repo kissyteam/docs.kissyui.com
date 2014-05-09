@@ -20,7 +20,8 @@
 */
 
 /**
-默认 ‘easeNone’. 动画平滑函数
+默认 ‘easeNone’,动画平滑函数.
+可取值 “swing”, “easeNone”, “linear”, “easeIn”, “easeOut”, “easeBoth”,”easeInStrong”, “easeOutStrong”,”easeBothStrong”,”elasticIn”,”elasticOut”, “elasticBoth”,”backIn”,”backOut”,”backBoth”, “bounceIn”,”bounceOut”,”bounceBoth”, “cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）”. 效果预览, 可以参考 [easing可视化](/5.0/examples/anim/easing.html)，[cubic-bezier可视化](/5.0/examples/anim/cubic-bezier.html)
 @attribute easing {String}
 @default "easeNone"
 */

@@ -607,9 +607,9 @@ __Note2__
 - 因为 delegate 是在事件冒泡到代理元素后才开始处理的，那么通过 on 注册到代理元素的子节点的事件处理器已经被触发， 而无法被 delegate 绑定的事件处理器阻止 ( stopPropagation )，但 delegate 事件处理器可以阻止绑定到同一元素但是匹配元素在当前事件处理器之上的 delegate 事件处理器
 
 __这里有三个demo供参考理解__
-1. [委托实现点击通知](5.0/examples/event/delegate.html)
-2. [阻止事件向上冒泡](5.0/examples/event/delegate_2.html)
-3. [委托 mouseenter/mouseleave](5.0/examples/event/delegate_3.html)
+1. [委托实现点击通知](/5.0/examples/event/delegate.html)
+2. [阻止事件向上冒泡](/5.0/examples/event/delegate_2.html)
+3. [委托 mouseenter/mouseleave](/5.0/examples/event/delegate_3.html)
 */
 
 /**
@@ -705,7 +705,7 @@ Event.fire(&#x27;#foo&#x27;,&#x27;click&#x27;);
 &#x60;&#x60;&#x60;
 
 @example
-这里有个[demo](5.0/examples/event/fire.html),点击第二个按钮手动触发第一个按钮的点击, 简便起见使用node模块提供的接口.
+这里有个[demo](/5.0/examples/event/fire.html),点击第二个按钮手动触发第一个按钮的点击, 简便起见使用node模块提供的接口.
 */
 
 /**
@@ -731,7 +731,7 @@ fireHandler 和 fire 的区别在于:
 这个事件常常和 focusout 一起使用
 @event focusin
 @example
-[监听 form 中输入域的聚焦情况](5.0/examples/event/focusin.html)
+[监听 form 中输入域的聚焦情况](/5.0/examples/event/focusin.html)
 */ 
 
 /**
@@ -741,7 +741,7 @@ fireHandler 和 fire 的区别在于:
 这个事件常常和 focusin 一起使用
 @event focusout
 @example
-[监听 form 中输入域的聚焦情况](5.0/examples/event/focusout.html)
+[监听 form 中输入域的聚焦情况](/5.0/examples/event/focusout.html)
 */ 
 
 /**
@@ -761,7 +761,7 @@ $(window).on(&quot;hashchange&quot;,function(){
     // location.hash -&gt; 当前 hash 值
 });
 &#x60;&#x60;&#x60;
-[hash 驱动的单页面应用设计](5.0/examples/event/hashchange.html)
+[hash 驱动的单页面应用设计](/5.0/examples/event/hashchange.html)
 */
 
 /**
@@ -787,7 +787,7 @@ KISSY.Event.on(input,&quot;valuechange&quot;,function(e){
         alert(e.newVal); // =&gt; 新值
 });
 &#x60;&#x60;&#x60;
-[打开拼音输入法，输入时直接鼠标选词demo](5.0/examples/event/valuechange.html)
+[打开拼音输入法，输入时直接鼠标选词demo](/5.0/examples/event/valuechange.html)
 */
 
 /**
@@ -811,14 +811,14 @@ __mouseleave 不会冒泡，想要代理这个事件的话用 delegate() 方法_
 - e.deltaX (Number) – 横向滚动幅度，一般是正数表示向左滚动，负数表示向右滚动
 @event mousewheel
 @example
-[demo](5.0/examples/event/mousewheel.html)
+[demo](/5.0/examples/event/mousewheel.html)
 */
 
 /**
 触屏上的双击事件
 @event doubleTap
 @example
-需要在移动设备上面打开：[demo](5.0/examples/event/double-tap.html)
+需要在移动设备上面打开：[demo](/5.0/examples/event/double-tap.html)
 */
 
 /**
@@ -827,7 +827,7 @@ __mouseleave 不会冒泡，想要代理这个事件的话用 delegate() 方法_
 当快速点击某个 dom 节点一次（短时间没有再次点击）后触发
 @event singleTap
 @example
-需要在移动设备上面打开：[demo](5.0/examples/event/singel-tap.html)
+需要在移动设备上面打开：[demo](/5.0/examples/event/singel-tap.html)
 &#x60;&#x60;&#x60;
 &lt;!doctype html&gt;
 &lt;html&gt;
@@ -871,7 +871,7 @@ __mouseleave 不会冒泡，想要代理这个事件的话用 delegate() 方法_
 当点击某个 dom 节点后触发， 和 singleTap 的不同支持载入： 触发 doubleTap 就不会触发 singleTap， 而触发 doubleTap 前会触发 tap
 @event tap
 @example
-需要在移动设备上面打开：[demo](5.0/examples/event/tap.html)
+需要在移动设备上面打开：[demo](/5.0/examples/event/tap.html)
 &#x60;&#x60;&#x60;
 
 &lt;!doctype html&gt;
@@ -961,7 +961,7 @@ __mouseleave 不会冒泡，想要代理这个事件的话用 delegate() 方法_
 当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备
 @event shake
 @example
-需要在移动设备上面打开：[demo](5.0/examples/event/shake.html)
+需要在移动设备上面打开：[demo](/5.0/examples/event/shake.html)
 &#x60;&#x60;&#x60;
  var S = KISSY;
 

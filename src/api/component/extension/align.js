@@ -42,6 +42,6 @@
 points 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围
 第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示
 
-![alt text](5.0/api/assets/img/project-img/align.png)
+![alt text](/5.0/api/assets/img/project-img/align.png)
 @attribute align {Object}
 */

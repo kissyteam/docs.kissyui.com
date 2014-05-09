@@ -204,7 +204,7 @@ dialog.getPlugin('component/plugin/drag')
 
 
 /**
-包含一些属性操作的方法，仅用于 [augment()](5.0/api/classes/Util.html#method_augment)]
+包含一些属性操作的方法，仅用于 [augment()](/5.0/api/classes/Util.html#method_augment)]
 @class Attribute
 @namespace Base
 @constructor
@@ -302,7 +302,7 @@ dialog.getPlugin('component/plugin/drag')
 */
 
 /**
-每调用 [set()](5.0/api/classes/Attribute.html#method_set) 一次后就触发一次该事件
+每调用 [set()](/5.0/api/classes/Attribute.html#method_set) 一次后就触发一次该事件
 @event *change
 @param e {Object} 回调函数传入的对象
 @param e.newVal 本次 set 导致的属性当前值集合

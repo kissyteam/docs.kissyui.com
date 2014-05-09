@@ -3558,7 +3558,7 @@
             "namespace": "Base",
             "file": "src\\api\\base.js",
             "line": 206,
-            "description": "包含一些属性操作的方法，仅用于 [augment()](5.0/api/classes/Util.html#method_augment)]",
+            "description": "包含一些属性操作的方法，仅用于 [augment()](/5.0/api/classes/Util.html#method_augment)]",
             "is_constructor": 1
         },
         "Button": {
@@ -4746,7 +4746,7 @@
         {
             "file": "src\\api\\component\\extension\\align.js",
             "line": 28,
-            "description": "可选, 组件节点对齐的相关配置, 例如：\n```\n{\n    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域\n    points: ['tr','tl'], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐\n    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,\n                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.\n    overflow:{\n        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标\n        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标\n    }\n}\n```\npoints 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围\n第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示\n\n![alt text](5.0/api/assets/img/project-img/align.png)",
+            "description": "可选, 组件节点对齐的相关配置, 例如：\n```\n{\n    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域\n    points: ['tr','tl'], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐\n    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,\n                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.\n    overflow:{\n        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标\n        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标\n    }\n}\n```\npoints 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围\n第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示\n\n![alt text](/5.0/api/assets/img/project-img/align.png)",
             "itemtype": "attribute",
             "name": "align",
             "type": "Object",
@@ -8128,7 +8128,7 @@
         {
             "file": "src\\api\\anim.js",
             "line": 22,
-            "description": "默认 ‘easeNone’. 动画平滑函数",
+            "description": "默认 ‘easeNone’,动画平滑函数.\n可取值 “swing”, “easeNone”, “linear”, “easeIn”, “easeOut”, “easeBoth”,”easeInStrong”, “easeOutStrong”,”easeBothStrong”,”elasticIn”,”elasticOut”, “elasticBoth”,”backIn”,”backOut”,”backBoth”, “bounceIn”,”bounceOut”,”bounceBoth”, “cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）”. 效果预览, 可以参考 [easing可视化](/5.0/examples/anim/easing.html)，[cubic-bezier可视化](/5.0/examples/anim/cubic-bezier.html)",
             "itemtype": "attribute",
             "name": "easing",
             "type": "String",
@@ -8138,7 +8138,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 28,
+            "line": 29,
             "description": "所属队列名称. 默认undefined. 属于系统内置队列, 设置 false 则表示该动画不排队立即执行",
             "itemtype": "attribute",
             "name": "queue",
@@ -8149,7 +8149,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 34,
+            "line": 35,
             "description": "动画到最后一帧后的回调函数",
             "itemtype": "attribute",
             "name": "complete",
@@ -8159,7 +8159,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 39,
+            "line": 40,
             "description": "是否使用css3 transition提升性能。\n在 useTransition 为 true 的时候，easing 的值必须是 w3c 规定的时间函数名称。\n具体为： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(p1x, p1y, p2x, p2y)",
             "itemtype": "attribute",
             "name": "useTransition",
@@ -8170,7 +8170,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 49,
+            "line": 50,
             "description": "判断当前动画对象是否在执行动画过程",
             "itemtype": "method",
             "name": "isRunning",
@@ -8183,7 +8183,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 54,
+            "line": 55,
             "description": "判断当前动画对象是否被暂停",
             "itemtype": "method",
             "name": "isPaused",
@@ -8196,7 +8196,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 60,
+            "line": 61,
             "description": "在动画实例上调用, 开始当前动画实例的动画",
             "itemtype": "method",
             "name": "run",
@@ -8205,7 +8205,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 65,
+            "line": 66,
             "description": "在动画实例上调用, 结束当前动画实例的动画",
             "itemtype": "method",
             "name": "stop",
@@ -8223,7 +8223,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 71,
+            "line": 72,
             "description": "在动画实例上调用, 暂停当前动画实例的动画",
             "itemtype": "method",
             "name": "pause",
@@ -8232,7 +8232,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 76,
+            "line": 77,
             "description": "在动画实例上调用, 继续当前动画实例的动画",
             "itemtype": "method",
             "name": "resume",
@@ -8241,7 +8241,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 81,
+            "line": 82,
             "description": "Anim 的静态方法, 用于判断 elem 上是否有动画对象在执行",
             "itemtype": "method",
             "name": "isRunning",
@@ -8262,7 +8262,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 89,
+            "line": 90,
             "description": "Anim 的静态方法, 用于判断 elem 上是否有动画对象在暂停",
             "itemtype": "method",
             "name": "isPaused",
@@ -8283,7 +8283,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 97,
+            "line": 98,
             "description": "Anim 的静态方法, 结束某元素上的动画（集合）",
             "itemtype": "method",
             "name": "stop",
@@ -8315,7 +8315,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 111,
+            "line": 112,
             "description": "Anim 的静态方法, 暂停某元素上的动画（集合）",
             "itemtype": "method",
             "name": "pause",
@@ -8337,7 +8337,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 123,
+            "line": 124,
             "description": "Anim 的静态方法, 继续某元素上的动画（集合）",
             "itemtype": "method",
             "name": "resume",
@@ -8359,7 +8359,7 @@
         },
         {
             "file": "src\\api\\anim.js",
-            "line": 135,
+            "line": 136,
             "description": "动画结束后, 触发该事件",
             "itemtype": "event",
             "name": "complete",
@@ -8831,7 +8831,7 @@
         {
             "file": "src\\api\\base.js",
             "line": 304,
-            "description": "每调用 [set()](5.0/api/classes/Attribute.html#method_set) 一次后就触发一次该事件",
+            "description": "每调用 [set()](/5.0/api/classes/Attribute.html#method_set) 一次后就触发一次该事件",
             "itemtype": "event",
             "name": "*change",
             "params": [
@@ -10816,7 +10816,7 @@
                 }
             ],
             "example": [
-                "\n__selectionStart/End 兼容__\n\n__在 ie 下对于 selectionStart/End 做了兼容处理，[demo](5.0/examples/dom/selection-start.html)__"
+                "\n__selectionStart/End 兼容__\n\n__在 ie 下对于 selectionStart/End 做了兼容处理，[demo](/5.0/examples/dom/selection-start.html)__"
             ],
             "class": "Dom",
             "module": "dom"
@@ -13021,7 +13021,7 @@
                 }
             ],
             "example": [
-                "\n__Note1__\n\n该方法是 on 方法的增强. 当 on 方法被调用时, 符合选择器的元素被绑定事件处理器, 而后面添加的元素则没有, 即他们需要另外一次绑定, 例如\n```\n<body>\n  <div class=\"clickme\">\n    Click here\n  </div>\n</body>\n```\n绑定一个 click 事件的事件触发器：\n```\nEvent.on('.clickme','click', function() {\n  // Bound handler called.\n});\n```\n当该元素被点击时, 调用对应的事件处理器. 但是如果新加入一个元素：\n\n`KISSY.Node.all('body').append('<div class=\"clickme\">Another target</div>');`\n\n新元素匹配选择器 clickme ,但是他如果不再次 on , 则在他上面的点击不会有任何效果.\ndelegate 方法提供了解决方法, 如果这样调用：\n```\nEvent.delegate(document,'click','.clickme',function(){\n   // Bound handler called.\n});\n```\n这样的话如果今后又添加了一个元素\n```\nKISSY.Node.all('body').append('<div class=\"clickme\">Another target</div>');\n```\n在新元素上点击仍然会调用之前的事件处理器.\n\n可以使用 undelegate 来移除之前的绑定:\n```\nfunction d(){\n}\n\nEvent.delegate(document,'click','.clickme',d);\n\nEvent.undelegate(document,'click','.clickme',d);\n```\n\n__Note2__\n\n- 不能在 object , embed , applet 元素上注册事件\n- 事件处理器回调函数中 this 指向 scope (没指定指向绑定事件的元素), 传入的参数为 event , event.target 指向事件触发源, event.currentTarget 指向当前事件处理器调用所在的匹配 filter 的元素\n- 可以使用 stopPropagation() 来停止事件的向上冒泡, 这样就不会在同样符合 filter 条件的祖先节点上调用事件处理器\n- 同样可以对 mouseenter , mouseleave 进行委托\n- 因为 delegate 是在事件冒泡到代理元素后才开始处理的，那么通过 on 注册到代理元素的子节点的事件处理器已经被触发， 而无法被 delegate 绑定的事件处理器阻止 ( stopPropagation )，但 delegate 事件处理器可以阻止绑定到同一元素但是匹配元素在当前事件处理器之上的 delegate 事件处理器\n\n__这里有三个demo供参考理解__\n1. [委托实现点击通知](5.0/examples/event/delegate.html)\n2. [阻止事件向上冒泡](5.0/examples/event/delegate_2.html)\n3. [委托 mouseenter/mouseleave](5.0/examples/event/delegate_3.html)"
+                "\n__Note1__\n\n该方法是 on 方法的增强. 当 on 方法被调用时, 符合选择器的元素被绑定事件处理器, 而后面添加的元素则没有, 即他们需要另外一次绑定, 例如\n```\n<body>\n  <div class=\"clickme\">\n    Click here\n  </div>\n</body>\n```\n绑定一个 click 事件的事件触发器：\n```\nEvent.on('.clickme','click', function() {\n  // Bound handler called.\n});\n```\n当该元素被点击时, 调用对应的事件处理器. 但是如果新加入一个元素：\n\n`KISSY.Node.all('body').append('<div class=\"clickme\">Another target</div>');`\n\n新元素匹配选择器 clickme ,但是他如果不再次 on , 则在他上面的点击不会有任何效果.\ndelegate 方法提供了解决方法, 如果这样调用：\n```\nEvent.delegate(document,'click','.clickme',function(){\n   // Bound handler called.\n});\n```\n这样的话如果今后又添加了一个元素\n```\nKISSY.Node.all('body').append('<div class=\"clickme\">Another target</div>');\n```\n在新元素上点击仍然会调用之前的事件处理器.\n\n可以使用 undelegate 来移除之前的绑定:\n```\nfunction d(){\n}\n\nEvent.delegate(document,'click','.clickme',d);\n\nEvent.undelegate(document,'click','.clickme',d);\n```\n\n__Note2__\n\n- 不能在 object , embed , applet 元素上注册事件\n- 事件处理器回调函数中 this 指向 scope (没指定指向绑定事件的元素), 传入的参数为 event , event.target 指向事件触发源, event.currentTarget 指向当前事件处理器调用所在的匹配 filter 的元素\n- 可以使用 stopPropagation() 来停止事件的向上冒泡, 这样就不会在同样符合 filter 条件的祖先节点上调用事件处理器\n- 同样可以对 mouseenter , mouseleave 进行委托\n- 因为 delegate 是在事件冒泡到代理元素后才开始处理的，那么通过 on 注册到代理元素的子节点的事件处理器已经被触发， 而无法被 delegate 绑定的事件处理器阻止 ( stopPropagation )，但 delegate 事件处理器可以阻止绑定到同一元素但是匹配元素在当前事件处理器之上的 delegate 事件处理器\n\n__这里有三个demo供参考理解__\n1. [委托实现点击通知](/5.0/examples/event/delegate.html)\n2. [阻止事件向上冒泡](/5.0/examples/event/delegate_2.html)\n3. [委托 mouseenter/mouseleave](/5.0/examples/event/delegate_3.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -13129,7 +13129,7 @@
                 "type": "Boolean"
             },
             "example": [
-                "\n这里有个[demo](5.0/examples/event/fire.html),点击第二个按钮手动触发第一个按钮的点击, 简便起见使用node模块提供的接口."
+                "\n这里有个[demo](/5.0/examples/event/fire.html),点击第二个按钮手动触发第一个按钮的点击, 简便起见使用node模块提供的接口."
             ],
             "class": "Event",
             "module": "event"
@@ -13173,7 +13173,7 @@
             "itemtype": "event",
             "name": "focusin",
             "example": [
-                "\n[监听 form 中输入域的聚焦情况](5.0/examples/event/focusin.html)"
+                "\n[监听 form 中输入域的聚焦情况](/5.0/examples/event/focusin.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -13185,7 +13185,7 @@
             "itemtype": "event",
             "name": "focusout",
             "example": [
-                "\n[监听 form 中输入域的聚焦情况](5.0/examples/event/focusout.html)"
+                "\n[监听 form 中输入域的聚焦情况](/5.0/examples/event/focusout.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -13197,7 +13197,7 @@
             "itemtype": "event",
             "name": "hashchange",
             "example": [
-                "\n```\nvar $=KISSY.all;\n$(window).on(\"hashchange\",function(){\n    // location.hash -> 当前 hash 值\n});\n```\n[hash 驱动的单页面应用设计](5.0/examples/event/hashchange.html)"
+                "\n```\nvar $=KISSY.all;\n$(window).on(\"hashchange\",function(){\n    // location.hash -> 当前 hash 值\n});\n```\n[hash 驱动的单页面应用设计](/5.0/examples/event/hashchange.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -13209,7 +13209,7 @@
             "itemtype": "event",
             "name": "valuechange",
             "example": [
-                "\n```\nKISSY.Event.on(input,\"valuechange\",function(e){\n        alert(e.prevVal); // => 旧值\n        alert(e.newVal); // => 新值\n});\n```\n[打开拼音输入法，输入时直接鼠标选词demo](5.0/examples/event/valuechange.html)"
+                "\n```\nKISSY.Event.on(input,\"valuechange\",function(e){\n        alert(e.prevVal); // => 旧值\n        alert(e.newVal); // => 新值\n});\n```\n[打开拼音输入法，输入时直接鼠标选词demo](/5.0/examples/event/valuechange.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -13239,7 +13239,7 @@
             "itemtype": "event",
             "name": "mousewheel",
             "example": [
-                "\n[demo](5.0/examples/event/mousewheel.html)"
+                "\n[demo](/5.0/examples/event/mousewheel.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -13251,7 +13251,7 @@
             "itemtype": "event",
             "name": "doubleTap",
             "example": [
-                "\n需要在移动设备上面打开：[demo](5.0/examples/event/double-tap.html)"
+                "\n需要在移动设备上面打开：[demo](/5.0/examples/event/double-tap.html)"
             ],
             "class": "Event",
             "module": "event"
@@ -13263,7 +13263,7 @@
             "itemtype": "event",
             "name": "singleTap",
             "example": [
-                "\n需要在移动设备上面打开：[demo](5.0/examples/event/singel-tap.html)\n```\n<!doctype html>\n<html>\n<head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\"\n          content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"apple-touch-fullscreen\" content=\"yes\">\n    <script src=\"http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js\" data-config=\"{combine:true}\"></script>\n</head>\n<body>\n\n<h1>open in ios safari to test doubleTap event</h1>\n\n<div id='t' tabindex='0'\n     style='border:1px solid green;\n     width:100px;height:100px;margin:10px'>\n    tap me\n</div>\n\n<script>\n\n    KISSY.use('event', function (S, Event) {\n\n        Event.on('#t', \"singleTap doubleTap\", function (e) {\n            alert(e.type + ' : fired');\n        });\n\n    });\n\n</script>\n</body>\n</html>\n```"
+                "\n需要在移动设备上面打开：[demo](/5.0/examples/event/singel-tap.html)\n```\n<!doctype html>\n<html>\n<head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\"\n          content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"apple-touch-fullscreen\" content=\"yes\">\n    <script src=\"http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js\" data-config=\"{combine:true}\"></script>\n</head>\n<body>\n\n<h1>open in ios safari to test doubleTap event</h1>\n\n<div id='t' tabindex='0'\n     style='border:1px solid green;\n     width:100px;height:100px;margin:10px'>\n    tap me\n</div>\n\n<script>\n\n    KISSY.use('event', function (S, Event) {\n\n        Event.on('#t', \"singleTap doubleTap\", function (e) {\n            alert(e.type + ' : fired');\n        });\n\n    });\n\n</script>\n</body>\n</html>\n```"
             ],
             "class": "Event",
             "module": "event"
@@ -13275,7 +13275,7 @@
             "itemtype": "event",
             "name": "tap",
             "example": [
-                "\n需要在移动设备上面打开：[demo](5.0/examples/event/tap.html)\n```\n\n<!doctype html>\n<html>\n<head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\"\n          content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"apple-touch-fullscreen\" content=\"yes\">\n    <script src=\"http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js\" data-config=\"{combine:true}\"></script>\n</head>\n<body>\n\n<h1>open in ios safari to test tap event</h1>\n\n<div id='t' tabindex='0'\n     style='border:1px solid green;\n     width:100px;height:100px;margin:10px'>\n    tap me\n</div>\n\n<script>\n\n    KISSY.use('event', function (S, Event) {\n\n        Event.on('#t', \"tap singleTap doubleTap\", function (e) {\n            alert(e.type + ' : fired');\n        });\n\n    });\n\n</script>\n</body>\n</html>\n```"
+                "\n需要在移动设备上面打开：[demo](/5.0/examples/event/tap.html)\n```\n\n<!doctype html>\n<html>\n<head>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\"\n          content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"apple-touch-fullscreen\" content=\"yes\">\n    <script src=\"http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js\" data-config=\"{combine:true}\"></script>\n</head>\n<body>\n\n<h1>open in ios safari to test tap event</h1>\n\n<div id='t' tabindex='0'\n     style='border:1px solid green;\n     width:100px;height:100px;margin:10px'>\n    tap me\n</div>\n\n<script>\n\n    KISSY.use('event', function (S, Event) {\n\n        Event.on('#t', \"tap singleTap doubleTap\", function (e) {\n            alert(e.type + ' : fired');\n        });\n\n    });\n\n</script>\n</body>\n</html>\n```"
             ],
             "class": "Event",
             "module": "event"
@@ -13350,7 +13350,7 @@
             "itemtype": "event",
             "name": "shake",
             "example": [
-                "\n需要在移动设备上面打开：[demo](5.0/examples/event/shake.html)\n```\n var S = KISSY;\n\n    S.use('event', function (S, Event) {\n        Event.on(window, 'shake', function (e) {\n            alert('i know u shake !');\n        });\n    });\n```"
+                "\n需要在移动设备上面打开：[demo](/5.0/examples/event/shake.html)\n```\n var S = KISSY;\n\n    S.use('event', function (S, Event) {\n        Event.on(window, 'shake', function (e) {\n            alert('i know u shake !');\n        });\n    });\n```"
             ],
             "class": "Event",
             "module": "event"
@@ -15126,7 +15126,7 @@
                 "type": "Node"
             },
             "example": [
-                "\n查看[demo](5.0/examples/node/instance_all.html)"
+                "\n查看[demo](/5.0/examples/node/instance_all.html)"
             ],
             "class": "Node",
             "module": "node"
@@ -15556,7 +15556,7 @@
             "params": [
                 {
                     "name": "arg...",
-                    "description": "参数参考[Anim的构造函数](5.0/api/classes/Anim.html)"
+                    "description": "参数参考[Anim的构造函数](/5.0/api/classes/Anim.html)"
                 }
             ],
             "return": {
@@ -15575,7 +15575,7 @@
             "params": [
                 {
                     "name": "args..",
-                    "description": "参考[Anim.stop](5.0/api/classes/Anim.html#method_stop)",
+                    "description": "参考[Anim.stop](/5.0/api/classes/Anim.html#method_stop)",
                     "optional": true
                 }
             ],
@@ -15595,7 +15595,7 @@
             "params": [
                 {
                     "name": "queueName",
-                    "description": "涵义同 [Anim.pause](5.0/api/classes/Anim.html#method_pause)",
+                    "description": "涵义同 [Anim.pause](/5.0/api/classes/Anim.html#method_pause)",
                     "optional": true
                 }
             ],
@@ -15615,7 +15615,7 @@
             "params": [
                 {
                     "name": "queueName",
-                    "description": "涵义同 [Anim.pause](5.0/api/classes/Anim.html#method_pause)",
+                    "description": "涵义同 [Anim.pause](/5.0/api/classes/Anim.html#method_pause)",
                     "optional": true
                 }
             ],
@@ -15754,7 +15754,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](/5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }
@@ -15787,7 +15787,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](/5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }
@@ -15820,7 +15820,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](/5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }
@@ -15853,7 +15853,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](/5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }
@@ -15886,7 +15886,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](/5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }
@@ -15919,7 +15919,7 @@
                 },
                 {
                     "name": "easing",
-                    "description": "动画平滑函数,同[Anim](5.0/api/classes/Anim.html)",
+                    "description": "动画平滑函数,同[Anim](/5.0/api/classes/Anim.html)",
                     "type": "String",
                     "optional": true
                 }
