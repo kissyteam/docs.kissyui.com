@@ -1,0 +1,20 @@
+<html lang="en"><head><title></title><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../assets/css/highlight.min.css"/></head></html><body><h1>this is header...</h1><div id="container"><div><h1>Anim的基本使用</h1><p>KISSY 动画，这样来载入anim模块：</p>
+<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'anim'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Anim)</span>{</span>
+    <span class="hljs-comment">// use Anim</span>
+});
+</code></pre><p>由于<code>node</code>模块依赖<code>anim</code>，通常我们使用<code>node</code>时，使用node.animate()方法即可对某个已知节点作动画。即</p>
+<pre><code>KISSY.all(<span class="hljs-string">".foo"</span>).each(<span class="hljs-keyword">function</span>(n){
+    new KISSY.Anim(n,<span class="hljs-keyword">...</span>).run();
+});
+</code></pre><p>等价于</p>
+<pre><code><span class="hljs-keyword">var</span> node=KISSY.all(<span class="hljs-string">".foo"</span>);
+node.animate({
+    width:<span class="hljs-number">100</span>,
+    height:<span class="hljs-number">300</span>
+}, {
+    duration: <span class="hljs-number">2000</span>,
+    easing:<span class="hljs-string">'easeBoth'</span> ,
+    complete: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>}
+});
+</code></pre><p>此外，<code>node</code>节点还挂载一些常用的做动画的函数，比如<code>fadeIn</code>、<code>fadeOut</code>、<code>slideUp</code>、<code>slideDown</code>等（具体请参照<code>Node</code>）。</p>
+</div><div><div id="sidebar"><div id="features"><p><a href="\5.0\guides\anim\baseuse.html">Anim的基本使用</a></p></div><div id="demos"></div></div></div></div><p>this is footer....</p></body>

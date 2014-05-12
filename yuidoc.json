@@ -9,6 +9,6 @@
         "selleck": true,
         "paths" : "./src/api/",
 		"outdir" : "./api/",
-		"themedir" : "./themes/default/"
+		"themedir" : "./themes/api/default/"
 	}
 }
