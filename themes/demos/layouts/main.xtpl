@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{title}}</title>
+	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
+	<style>
+	#editor{
+		width: 80%;
+		height: 500px;
+		font-size: 14px;
+	}
+	</style>
+	<script src="../assets/js/ace-editor/ace.js"></script>
+</head>
+<body>
+	{{{include ("./header")}}}
+		<div id="container">
+			<div id="editor">
+				{{demoCode}}
+			</div>
+			<div id="sidebar">
+				{{{sidebarContent}}}
+			</div>
+		</div>
+	{{{include ("./footer")}}}
+
+	<script>
+		var editor = ace.edit("editor");
+	    editor.setTheme("ace/theme/clouds");
+	    editor.getSession().setMode("ace/mode/html");
+	</script>
+</body>
+</html>
