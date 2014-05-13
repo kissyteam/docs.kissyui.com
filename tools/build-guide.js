@@ -1,7 +1,7 @@
 var fs = require('fs'),
 	path = require('path'),
 	marked = require('marked'),
-	jade = require('jade');
+	xtpl = require('xtpl');
 
 //markdown定制
 var markedRenderer = new marked.Renderer();
@@ -19,7 +19,6 @@ marked.setOptions({
   renderer : markedRenderer
 });
 
-
 module.exports = function(srcUrl){
 	srcDirPath = path.resolve(srcUrl);
 	projectPath = path.resolve(srcUrl, '../../5.0');
@@ -35,17 +34,23 @@ module.exports = function(srcUrl){
 					fileMD = fs.readFileSync(fileName).toString(),
 					fileHtml = marked(fileMD);
 
-				var mainJadePath = path.resolve(srcDirPath,'../themes/guides/layouts/main.jade'),
-					desFile = jade.renderFile(mainJadePath,{
+				var mainXtplPath = path.resolve(srcDirPath,'../themes/guides/layouts/main.xtpl'),
+					desFile = xtpl.__express(mainXtplPath,{
 						mainContent : fileHtml,
-						sidebarContent : sideBarHtml
+						sidebarContent : sideBarHtml,
+						settings : {
+							'view encoding' : 'utf-8'
+						}
+					},function(err,desFile){
+						if(err){
+							console.log('render error!');
+						}else{
+							var desFileName = path.normalize(fileName.replace('src','').replace('md','html'));
+							!fs.existsSync(path.dirname(desFileName)) && fs.mkdirSync(path.dirname(desFileName));
+							fs.writeFileSync(desFileName, desFile);
+						}
 					});
-				var desFileName = path.normalize(fileName.replace('src','').replace('md','html'));
-				!fs.existsSync(desFileName) && fs.mkdirSync(path.dirname(desFileName));
-				fs.writeFileSync(desFileName, desFile);
 			});
-		}else{
-
 		}
 	});
 };
@@ -54,12 +59,9 @@ function getSideBarHtmlSync(dirUrl){
 	var featureContent = getSideBarFeatures(dirUrl),
 		demosContent = getSideBarDemos(dirUrl.replace('guides', 'demos'));
 
-	var sideBarJadePath = path.resolve(srcDirPath,'../themes/guides/layouts/sidebar.jade');
-
-	return jade.renderFile(sideBarJadePath,{
-		featureHtml : featureContent,
-		demosHtml : demosContent
-	});
+	var sidebarContent = '<div id="features">';
+	sidebarContent += featureContent + '</div><div id="demos">' + demosContent + '</div>';
+	return sidebarContent; 
 }
 
 function getFeatures(dirUrl){

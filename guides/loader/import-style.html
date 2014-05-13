@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
+</head>
+<body>
+	<h1 id="header">this is header...</h1>
+		<div id="container">
+			<div id="main-content">
+				<h1>importStyle的使用</h1><h2>概述</h2><p>ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。</p>
+<h2>先决条件</h2><ul>
+<li>头部引入<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js'</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre></li>
+<li>页面是基于 KISSY 模块规范开发的，如依赖css，需要显式在requires里声明</li>
+</ul>
+<h2>使用指南</h2><pre><code>KISSY.config(<span class="hljs-string">'modules'</span>, {
+  <span class="hljs-string">'components/nav/index'</span>: {<span class="hljs-keyword">requires</span>: [<span class="hljs-string">'components/nav/index.css'</span>]},
+  <span class="hljs-string">'components/layout/index'</span>: {<span class="hljs-keyword">requires</span>: [<span class="hljs-string">'components/layout/index.css'</span>]},
+  <span class="hljs-string">'components/home/index'</span>: {<span class="hljs-keyword">requires</span>: [<span class="hljs-string">'components/nav/index'</span>,<span class="hljs-string">'components/layout/index'</span>]}
+});
+
+KISSY.config({
+  <span class="hljs-string">'combine'</span>:true,
+  <span class="hljs-string">'packages'</span>:[{
+    <span class="hljs-string">'name'</span>:<span class="hljs-string">'components'</span>,
+    <span class="hljs-string">'base'</span>:<span class="hljs-string">'http://assets.etao.net/apps/e/hotel/130716'</span>,
+    <span class="hljs-string">'debug'</span>:<span class="hljs-string">'true'</span>
+  }]
+});
+
+KISSY.importStyle(<span class="hljs-string">'components/home/index'</span>);
+</code></pre><p>上面是一淘酒店项目中摘出的ImportStyle使用Demo，可以看出使用方式很简单——提供模块依赖信息、包配置， 最后调用importStyle，传入模块列表即可。</p>
+
+			</div>
+			<div id="sidebar">
+				<div id="features"><p><a href="\5.0\guides\loader\baseuse.html">简单配置包使用</a></p><p><a href="\5.0\guides\loader\combo.html">combo 使用内置模块</a></p><p><a href="\5.0\guides\loader\import-style.html">importStyle的使用</a></p></div><div id="demos"><p><a href="\5.0\demos\loader\baseuse.html">简单配置包使用</a></p></div>
+			</div>
+		</div>
+	<h1 id="footer">this is footer....</h1>
+
+</body>
+</html>

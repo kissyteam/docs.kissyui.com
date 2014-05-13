@@ -1,0 +1,25 @@
+{
+  "name": "API Documentation — KISSY v1.5 Documentation",
+  "version": "1.0.0",
+  "description": "The KISSY API : KISSY is a powerfull javascript framework for building cross end web application such as desktop, mobile and pad.",
+  "author": "benfchen<benfchen0418@gmail.com>",
+  "homepage": "http://docs.kissyui.com",
+  "contributors": [
+    "yiminghe <yiminghe@gmail.com>",
+    "benfchen<benfchen0418@gmail.com>"
+  ],
+  "engines": {
+    "node": "~0.10"
+  },
+  "dependencies": {
+    "gulp": "^3.6.2",
+    "highlight.js": "^8.0.0",
+    "iconv-lite": "^0.2.11",
+    "marked": "^0.3.2",
+    "xtpl": "^0.9.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kissyteam/docs.kissyui.com.git"
+  }
+}
