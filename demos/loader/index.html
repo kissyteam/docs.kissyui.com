@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>KISSY Demos</title>
 	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
+	<link rel="stylesheet" href="http://docs.kissyui.com/1.4/source/raw/demo/tabs/assets/toolbar-dpl.css">
+	<link rel="stylesheet" href="http://docs.kissyui.com/1.4/source/raw/demo/split-button/assets/button-dpl.css">
+	<link rel="stylesheet" href="http://docs.kissyui.com/1.4/source/raw/demo/tabs/assets/dpl.css">
 	<style>
 	#editor{
 		width: 80%;
@@ -11,13 +14,22 @@
 		font-size: 14px;
 	}
 	</style>
+	<script src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
 	<script src="../assets/js/ace-editor/ace.js"></script>
 </head>
 <body>
 	<h1 id="header">this is header...</h1>
 		<div id="container">
-			<div id="editor">
-				
+			<div id="main-content">
+				<div class="ks-tabs ks-tabs-top">
+	                <div class="ks-tabs-bar">
+	                    <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Source</div>
+	                    <div class="ks-tabs-tab ks-button">Output</div>
+	                </div>
+	                <div class="ks-tabs-body">
+	                    <div class="ks-tabs-panel ks-tabs-panel-selected">
+	                        <div id="editor">
+								
 &lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -67,18 +79,44 @@ KISSY.use(&#x27;json, gallery&#x2F;pageNotification&#x2F;1.0&#x2F;index&#x27;, f
 
 &lt;&#x2F;body&gt;
 &lt;&#x2F;html&gt;
+							</div>
+	                    </div>
+	                    <div class="ks-tabs-panel">
+	                        <iframe id="output" src="../assets/iframe-template.html" frameborder="0" width="80%" height="500px;">
+	                        	
+	                        </iframe>
+	                    </div>
+	                </div>
+       			<div>
 			</div>
 			<div id="sidebar">
-				<div id="features"><p><a href="\5.0\guides\loader\baseuse.html">简单配置包使用</a></p><p><a href="\5.0\guides\loader\combo.html">combo 使用内置模块</a></p><p><a href="\5.0\guides\loader\import-style.html">importStyle的使用</a></p></div><div id="demos"><p><a href="\5.0\demos\loader\combo-require.html">Combo Loader 一般示例</a></p><p><a href="\5.0\demos\loader\index.html">Classic Loader 简单配置包使用</a></p></div>
+				<div id="features"><p><a href="\5.0\guides\loader\combo.html">combo 使用内置模块</a></p><p><a href="\5.0\guides\loader\import-style.html">importStyle的使用</a></p><p><a href="\5.0\guides\loader\index.html">简单配置包使用</a></p></div><div id="demos"><p><a href="\5.0\demos\loader\combo-require.html">Combo Loader 一般示例</a></p><p><a href="\5.0\demos\loader\index.html">Classic Loader 简单配置包使用</a></p></div>
 			</div>
 		</div>
 	<h1 id="footer">this is footer....</h1>
 
 
 	<script>
-		var editor = ace.edit("editor");
-	    editor.setTheme("ace/theme/clouds");
-	    editor.getSession().setMode("ace/mode/html");
+		KISSY.use('node,tabs',function(S, Node, Tabs){
+			var $ = Node.all;
+
+			var editor = ace.edit("editor");
+		    editor.setTheme("ace/theme/clouds");
+		    editor.getSession().setMode("ace/mode/html");
+
+		    new Tabs({
+		    	srcNode : $('.ks-tabs'),
+		    	listeners:{
+		            afterSelectedTabChange:function(e){
+		            	if(e.newVal.get('content') === 'Output'){ //如果是切换到Output
+		            		var iframeWindow = $('#output')[0].contentWindow;
+		            		iframeWindow.document.body.innerHTML = '';
+		    				iframeWindow.setHtml(editor.getValue());
+		            	}
+		            }
+		        },
+		    }).render();	
+		});
 	</script>
 </body>
 </html>

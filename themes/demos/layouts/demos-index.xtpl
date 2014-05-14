@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>KISSY User Guides</title>
+	<title>KISSY Demos</title>
 	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
 </head>
 <body>
 	{{{include ("./header")}}}
 		<div id="container">
-			<div id="main-content">
-				{{{mainContent}}}
-			</div>
-			<div id="sidebar">
-				{{{sidebarContent}}}
+			<h1>KISSY Demos</h1>
+			<div id="guides-lists">
+				<ul>
+					{{#each(demoLists)}}
+					<li>
+						<a href="{{src}}">{{name}}</a>
+					</li>
+					{{/each}}
+				</ul>
 			</div>
 		</div>
 	{{{include ("./footer")}}}

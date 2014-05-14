@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>KISSY Demos</title>
 	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
+	<link rel="stylesheet" href="http://docs.kissyui.com/1.4/source/raw/demo/tabs/assets/toolbar-dpl.css">
+	<link rel="stylesheet" href="http://docs.kissyui.com/1.4/source/raw/demo/split-button/assets/button-dpl.css">
+	<link rel="stylesheet" href="http://docs.kissyui.com/1.4/source/raw/demo/tabs/assets/dpl.css">
 	<style>
 	#editor{
 		width: 80%;
@@ -11,13 +14,22 @@
 		font-size: 14px;
 	}
 	</style>
+	<script src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
 	<script src="../assets/js/ace-editor/ace.js"></script>
 </head>
 <body>
 	<h1 id="header">this is header...</h1>
 		<div id="container">
-			<div id="editor">
-				
+			<div id="main-content">
+				<div class="ks-tabs ks-tabs-top">
+	                <div class="ks-tabs-bar">
+	                    <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Source</div>
+	                    <div class="ks-tabs-tab ks-button">Output</div>
+	                </div>
+	                <div class="ks-tabs-body">
+	                    <div class="ks-tabs-panel ks-tabs-panel-selected">
+	                        <div id="editor">
+								
 &lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -34,7 +46,8 @@
         text-align: center;
         color: #999;
     }
-&lt;&#x2F;style&gt;&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.2&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;style&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.2&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;h1&gt;anim动画的基本使用&lt;&#x2F;h1&gt;
@@ -62,23 +75,80 @@ KISSY.use(&#x27;json, gallery&#x2F;pageNotification&#x2F;1.0&#x2F;index&#x27;, f
         pn.success(args);
     };
 
-    KISSY.getScript(&#x27;assets&#x2F;demo1.js&#x27;);
+    KISSY.use(&quot;anim,node,button&quot;,function(S,Anim,Node,Button){
+        &#x2F;&#x2F;KISSY 1.2 以前可通过 var Node=S.Node ; var Anim=S.Anim
+         var anim = Anim(
+                &#x27;#test1&#x27;,
+                {
+                    &#x27;background-color&#x27;:&#x27;#fcc&#x27;,
+                    &#x2F;&#x2F;&#x27;border&#x27;: &#x27;5px dashed #999&#x27;,
+                    &#x27;border-width&#x27;:&#x27;5px&#x27;,
+                    &#x27;border-color&#x27;:&quot;#999999&quot;,
+                    &#x27;border-style&#x27;:&quot;dashed&quot;,
+                    &#x27;width&#x27;: &#x27;100px&#x27;,
+                    &#x27;height&#x27;: &#x27;50px&#x27;,
+                    &#x27;left&#x27;: &#x27;900px&#x27;,
+                    &#x27;top&#x27;: &#x27;285px&#x27;,
+                    &#x27;opacity&#x27;: &#x27;.5&#x27;,
+                    &#x27;font-size&#x27;: &#x27;48px&#x27;,
+                    &#x27;padding&#x27;: &#x27;30px 0&#x27;,
+                    &#x27;color&#x27;: &#x27;#FF3333&#x27;
+                },5,
+                &#x27;bounceOut&#x27;,function(){
+                    alert(&#x27;demo1 结束&#x27;);
+                });
+
+         var b = new Button({
+            content: &quot;开始动画&quot;
+        });
+        b.render();
+        b.on(&quot;click&quot;, function() {
+            anim.run();
+        });
+    });
+
 });
 &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
-&lt;&#x2F;html&gt;
+&lt;&#x2F;html&gt; 
+							</div>
+	                    </div>
+	                    <div class="ks-tabs-panel">
+	                        <iframe id="output" src="../assets/iframe-template.html" frameborder="0" width="80%" height="500px;">
+	                        	
+	                        </iframe>
+	                    </div>
+	                </div>
+       			<div>
 			</div>
 			<div id="sidebar">
-				<div id="features"><p><a href="\5.0\guides\anim\baseuse.html">Anim的基本使用</a></p></div><div id="demos"><p><a href="\5.0\demos\anim\cubic-bezier.html">cubic-bezier</a></p><p><a href="\5.0\demos\anim\easing.html">easing 可视化</a></p><p><a href="\5.0\demos\anim\index.html">anim动画的基本使用</a></p></div>
+				<div id="features"><p><a href="\5.0\guides\anim\index.html">Anim的基本使用</a></p></div><div id="demos"><p><a href="\5.0\demos\anim\cubic-bezier.html">cubic-bezier</a></p><p><a href="\5.0\demos\anim\easing.html">easing 可视化</a></p><p><a href="\5.0\demos\anim\index.html">anim动画的基本使用</a></p></div>
 			</div>
 		</div>
 	<h1 id="footer">this is footer....</h1>
 
 
 	<script>
-		var editor = ace.edit("editor");
-	    editor.setTheme("ace/theme/clouds");
-	    editor.getSession().setMode("ace/mode/html");
+		KISSY.use('node,tabs',function(S, Node, Tabs){
+			var $ = Node.all;
+
+			var editor = ace.edit("editor");
+		    editor.setTheme("ace/theme/clouds");
+		    editor.getSession().setMode("ace/mode/html");
+
+		    new Tabs({
+		    	srcNode : $('.ks-tabs'),
+		    	listeners:{
+		            afterSelectedTabChange:function(e){
+		            	if(e.newVal.get('content') === 'Output'){ //如果是切换到Output
+		            		var iframeWindow = $('#output')[0].contentWindow;
+		            		iframeWindow.document.body.innerHTML = '';
+		    				iframeWindow.setHtml(editor.getValue());
+		            	}
+		            }
+		        },
+		    }).render();	
+		});
 	</script>
 </body>
 </html>

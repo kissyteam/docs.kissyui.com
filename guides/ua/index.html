@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>KISSY User Guides</title>
+	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
+</head>
+<body>
+	<h1 id="header">this is header...</h1>
+		<div id="container">
+			<div id="main-content">
+				<h1>使用KISSY UA(检测userAgent类型)</h1><h2>在页面中引入UA</h2><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"seed.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+    KISSY.use(<span class="hljs-string">'ua'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,UA)</span>{</span>
+        alert(UA); <span class="hljs-comment">// UA可以使用了</span>
+    });
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre><p>也可以直接引入core来使用ua，ua是core的子模块（不推荐）</p>
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"seed.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+    KISSY.use(<span class="hljs-string">'core'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S)</span>{</span>
+        alert(S.UA); <span class="hljs-comment">//KISSY.UA可以使用了</span>
+    });
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre><h2>判断浏览器类型</h2><pre><code>&lt;script&gt;
+    <span class="hljs-transposed_variable">KISSY.</span>use(<span class="hljs-string">'ua'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,UA)</span>{</span>
+        <span class="hljs-keyword">if</span>(<span class="hljs-transposed_variable">UA.</span>chrome &gt; <span class="hljs-number">0</span>)<span class="hljs-cell">{
+            alert(<span class="hljs-string">'Your browser is chrome'</span>);
+        }</span><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-transposed_variable">UA.</span>safari &gt; <span class="hljs-number">0</span>)<span class="hljs-cell">{
+            alert(<span class="hljs-string">'Your browser is safari'</span>);
+        }</span><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-transposed_variable">UA.</span>opera &gt; <span class="hljs-number">0</span>)<span class="hljs-cell">{
+            alert(<span class="hljs-string">'Your browser is opera'</span>);
+        }</span><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-transposed_variable">UA.</span>firefox &gt; <span class="hljs-number">0</span>)<span class="hljs-cell">{
+            alert(<span class="hljs-string">'Your browser is firefox'</span>);
+        }</span><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-transposed_variable">UA.</span>ie &gt; <span class="hljs-number">0</span>)<span class="hljs-cell">{
+            alert(<span class="hljs-string">'Your browser is ie'</span>);
+        }</span><span class="hljs-keyword">else</span><span class="hljs-cell">{
+            alert(<span class="hljs-string">'Your browser is unknown'</span>);
+        }</span>
+    });
+&lt;/script&gt;
+</code></pre><h2>判断浏览器版本</h2><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+    KISSY.use(<span class="hljs-string">'ua'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,UA)</span>{</span>
+        <span class="hljs-keyword">if</span>(UA.ie == <span class="hljs-number">6</span>){
+            alert(<span class="hljs-string">'Your browser is ie and version is 6'</span>);
+        }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.ie == <span class="hljs-number">7</span>){
+            alert(<span class="hljs-string">'Your browser is ie and version is 7'</span>);
+        }
+    });
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre><h3>Note</h3><p>版本号也可以通过UA[UA.shell]来获取，版本号遵循以下规则：</p>
+<ul>
+<li>表示当前引擎或浏览器的版本。版本号 1.2.3.4 会转换为数值 1.234</li>
+<li>如果不是当前引擎或浏览器，返回 0 或者 undefined</li>
+<li>如果当前浏览器版本号无法准确判定，均返回 0.1</li>
+</ul>
+
+			</div>
+			<div id="sidebar">
+				<div id="features"><p><a href="\5.0\guides\ua\index.html">使用KISSY UA(检测userAgent类型)</a></p></div><div id="demos"></div>
+			</div>
+		</div>
+	<h1 id="footer">this is footer....</h1>
+
+</body>
+</html>
