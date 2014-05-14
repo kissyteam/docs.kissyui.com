@@ -6,7 +6,7 @@ Toolbar菜单栏组件
 /**
 @class ToolBar
 @constructor
-@extends Container
+@extends Component.Container
 @param config {Object}
 */
 

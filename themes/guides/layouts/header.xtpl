@@ -1,1 +1,46 @@
-<h1 id="header">this is header...</h1>
+<div id="header-toolbar"></div>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+		new Toolbar({
+			render : '#header-toolbar',
+			children : [
+				{
+					content : '<a href="/5.0/">Home</a>'
+				},
+				{
+					content : '<a href="#">Quick Start</a>'
+				},
+				{
+					content : '<a href="#">Docs</a>',
+					xclass : 'menu-button',
+					menu : {
+						children : [
+							{
+								content : '<a href="/5.0/guides">Guides</a>'
+							},
+							{
+								content : '<a href="/5.0/api">API Docs</a>'
+							},{
+								content : '<a href="/5.0/demos">Demos</a>'
+							}
+						]
+					}
+				},
+				{
+					content : '<a href="#">Contribute</a>'
+				},
+				{
+					content : '<a href="#">More</a>',
+					xclass : 'menu-button',
+					menu : {
+						children : [
+							{
+								content : '<a href="/5.0/faq.html">FAQ</a>'
+							}
+						]
+					}
+				}
+			]
+		}).render();
+	});
+</script>

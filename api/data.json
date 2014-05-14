@@ -4499,7 +4499,7 @@
             "file": "src\\api\\toolbar.js",
             "line": 6,
             "is_constructor": 1,
-            "extends": "Container",
+            "extends": "Component.Container",
             "params": [
                 {
                     "name": "config",
