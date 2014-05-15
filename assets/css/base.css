@@ -88,17 +88,12 @@ mark {
   background: #ff0;
 }
 
-code,
 kbd,
-pre,
 samp {
   font-family: monospace, serif;
   font-size: 1em;
 }
 
-pre {
-  white-space: pre-wrap;
-}
 
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
@@ -235,7 +230,7 @@ table {
   a[href^="#"]:after {
     content: "";
   }
-  pre,
+
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
@@ -699,46 +694,6 @@ address {
   line-height: 1.428571429;
 }
 
-code,
-pre {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-}
-
-code {
-  padding: 2px 4px;
-  font-size: 90%;
-  color: #c7254e;
-  white-space: nowrap;
-  background-color: #f9f2f4;
-  border-radius: 4px;
-}
-
-pre {
-  display: block;
-  padding: 9.5px;
-  margin: 0 0 10px;
-  font-size: 13px;
-  line-height: 1.428571429;
-  color: #333333;
-  word-break: break-all;
-  word-wrap: break-word;
-  background-color: #f5f5f5;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-}
-
-pre.prettyprint {
-  margin-bottom: 20px;
-}
-
-pre code {
-  padding: 0;
-  font-size: inherit;
-  color: inherit;
-  white-space: pre-wrap;
-  background-color: transparent;
-  border: 0;
-}
 
 .pre-scrollable {
   max-height: 340px;
@@ -7490,7 +7445,7 @@ nav ul li img {
 }
 
 article {
-  max-width: 700px;
+  max-width: 760px;
   margin: auto;
 }
 
@@ -7574,20 +7529,6 @@ article blockquote {
 
 #content-subnav ul li a {
   display: block;
-}
-
-pre{
-  font-size: 13px;
-  padding: 2px; border: 1px solid #ccc;
-  background-color: #000;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  padding: 8px 14px 8px 14px;
-  margin: 0 0 20px 0;
-  color:white;
-}
-pre code {
-	padding:0px !important;
 }
 
 .video-container {
@@ -7900,7 +7841,6 @@ pre code {
   }
 
   #content {
-    padding: 30px 25px 0 25px;
     margin: 0 auto;
   }
   .forkit-curtain .repo {

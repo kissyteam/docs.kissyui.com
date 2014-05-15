@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>KISSY Demos</title>
-	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
-	<link rel="shortcut icon" href="./assets/favicon.ico">
-	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
-	<link rel="stylesheet" href="http://g.tbcdn.cn/kissy/k/1.4.2/??css/dpl/base.css,button/assets/dpl.css,menubutton/assets/dpl.css,menu/assets/dpl.css,toolbar/assets/dpl.css">
+	<link rel="stylesheet" href="../assets/css/base.css">
+	<link rel="shortcut icon" href="../assets/favicon.ico">
+	<link rel="stylesheet" href="./assets/css/highlight.min.css"/>
+	<link rel="stylesheet" href="../assets/css/component.css">
 	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
 </head>
 <body>

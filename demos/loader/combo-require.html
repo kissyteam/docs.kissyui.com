@@ -2,27 +2,26 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>KISSY Demos</title>
+	<title>Combo Loader 一般示例</title>
+	<link rel="stylesheet" href="../../assets/css/base.css">
+	<link rel="shortcut icon" href="../../assets/assets/favicon.ico">
 	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
-	<link rel="shortcut icon" href="./assets/favicon.ico">
-	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
-	<link rel="stylesheet" href="http://g.tbcdn.cn/kissy/k/1.4.2/??css/dpl/base.css,button/assets/dpl.css,menubutton/assets/dpl.css,menu/assets/dpl.css,toolbar/assets/dpl.css">
+	<link rel="stylesheet" href="../../assets/css/component.css">
 	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
 	<link rel="stylesheet" href="http://docs.kissyui.com/1.4/source/raw/demo/tabs/assets/toolbar-dpl.css">
 	<link rel="stylesheet" href="http://docs.kissyui.com/1.4/source/raw/demo/split-button/assets/button-dpl.css">
 	<link rel="stylesheet" href="http://docs.kissyui.com/1.4/source/raw/demo/tabs/assets/dpl.css">
-	<style>
-	#editor{
-		width: 80%;
-		height: 500px;
-		font-size: 14px;
-	}
-	</style>
-	<script src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
 	<script src="../assets/js/ace-editor/ace.js"></script>
 </head>
 <body>
+	<header>
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
 	<div id="header-toolbar"></div>
+</header>
 <script type="text/javascript">
 	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
 		new Toolbar({
@@ -48,7 +47,8 @@
 								content : '<a href="/5.0/demos">Demos</a>'
 							}
 						]
-					}
+					},
+					matchElWidth : false
 				},
 				{
 					content : '<a href="#">Contribute</a>'
@@ -62,13 +62,15 @@
 								content : '<a href="/5.0/faq.html">FAQ</a>'
 							}
 						]
-					}
+					},
+					matchElWidth : false
 				}
 			]
 		}).render();
 	});
 </script>
 		<div id="container">
+			<h1>Demo: Combo Loader 一般示例</h1>
 			<div id="main-content">
 				<div class="ks-tabs ks-tabs-top">
 	                <div class="ks-tabs-bar">
@@ -132,15 +134,15 @@ KISSY.use(&#x27;json, gallery&#x2F;pageNotification&#x2F;1.0&#x2F;index&#x27;, f
 							</div>
 	                    </div>
 	                    <div class="ks-tabs-panel">
-	                        <iframe id="output" frameborder="0" width="80%" height="500px;">
+	                        <iframe id="output" frameborder="0">
 	                        	
 	                        </iframe>
 	                    </div>
 	                </div>
-       			<div>
+       			</div>
 			</div>
 			<div id="sidebar">
-				<div id="features"><p><a href="\5.0\guides\loader\combo.html">combo 使用内置模块</a></p><p><a href="\5.0\guides\loader\import-style.html">importStyle的使用</a></p><p><a href="\5.0\guides\loader\index.html">简单配置包使用</a></p></div><div id="demos"><p><a href="\5.0\demos\loader\combo-require.html">Combo Loader 一般示例</a></p><p><a href="\5.0\demos\loader\index.html">Classic Loader 简单配置包使用</a></p></div>
+				<div id="features"><div class="hd">Features</div><div class="bd"><p><a href="\5.0\guides\loader\combo.html">combo 使用内置模块</a></p><p><a href="\5.0\guides\loader\import-style.html">importStyle的使用</a></p><p><a href="\5.0\guides\loader\index.html">简单配置包使用</a></p></div></div><div id="demos"><div class="hd">Demos</div><div class="bd"><p><a href="\5.0\demos\loader\combo-require.html">Combo Loader 一般示例</a></p><p><a href="\5.0\demos\loader\index.html">Classic Loader 简单配置包使用</a></p></div></div>
 			</div>
 		</div>
 	<div id="disqus_thread"></div>

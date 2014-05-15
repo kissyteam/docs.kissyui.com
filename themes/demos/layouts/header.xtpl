@@ -1,4 +1,11 @@
-<div id="header-toolbar"></div>
+<header>
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
 <script type="text/javascript">
 	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
 		new Toolbar({
@@ -24,7 +31,8 @@
 								content : '<a href="/5.0/demos">Demos</a>'
 							}
 						]
-					}
+					},
+					matchElWidth : false
 				},
 				{
 					content : '<a href="#">Contribute</a>'
@@ -38,7 +46,8 @@
 								content : '<a href="/5.0/faq.html">FAQ</a>'
 							}
 						]
-					}
+					},
+					matchElWidth : false
 				}
 			]
 		}).render();

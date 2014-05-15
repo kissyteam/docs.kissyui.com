@@ -5,7 +5,7 @@
 /**
 @class Menu
 @constructor
-@extends Component.Control
+@extends Component.Container
 @param config {Object}
 */
 

@@ -81,12 +81,13 @@ module.exports.buildDemos = function(srcUrl){
 
 			fs.readdirSync(dirName).forEach(function(file){
 				var fileName = path.resolve(dirName,file),
-					fileHtml = fs.readFileSync(fileName).toString();
-
+					fileHtml = fs.readFileSync(fileName).toString(),
+					demoTitle = /<h1>([\w\W]*?)<\/h1>/.exec(fileHtml)[1].trim();
 				var mainXtplPath = path.resolve(srcDirPath,'../themes/demos/layouts/main.xtpl');
 				xtpl.__express(mainXtplPath,{
 					demoCode : fileHtml,
 					sidebarContent : sideBarHtml,
+					title : demoTitle,
 					settings : {
 						'view encoding' : 'utf-8'
 					}
@@ -108,8 +109,8 @@ module.exports.buildDemos = function(srcUrl){
 function getSideBarHtmlSync(dirUrl){
 	var featureContent = getSideBarFeatures(dirUrl),
 		demosContent = getSideBarDemos(dirUrl.replace('guides', 'demos'));
-	var sidebarContent = '<div id="features">';
-	sidebarContent += featureContent + '</div><div id="demos">' + demosContent + '</div>';
+	var sidebarContent = '<div id="features"><div class="hd">Features</div><div class="bd">';
+	sidebarContent += featureContent + '</div></div><div id="demos"><div class="hd">Demos</div><div class="bd">' + demosContent + '</div></div>';
 	return sidebarContent;
 }
 

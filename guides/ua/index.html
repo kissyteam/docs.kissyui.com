@@ -3,14 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>KISSY User Guides</title>
-	<link rel="stylesheet" href="./assets/css/base.css">
-	<link rel="shortcut icon" href="./assets/favicon.ico">
-	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
-	<link rel="stylesheet" href="http://g.tbcdn.cn/kissy/k/1.4.2/??css/dpl/base.css,button/assets/dpl.css,menubutton/assets/dpl.css,menu/assets/dpl.css,toolbar/assets/dpl.css">
+	<link rel="stylesheet" href="../../assets/css/base.css">
+	<link rel="shortcut icon" href="../../assets/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
+	<link rel="stylesheet" href="../../assets/css/component.css">
 	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
 </head>
 <body>
+	<header>
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
 	<div id="header-toolbar"></div>
+</header>
 <script type="text/javascript">
 	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
 		new Toolbar({
@@ -36,7 +43,8 @@
 								content : '<a href="/5.0/demos">Demos</a>'
 							}
 						]
-					}
+					},
+					matchElWidth : false
 				},
 				{
 					content : '<a href="#">Contribute</a>'
@@ -50,13 +58,14 @@
 								content : '<a href="/5.0/faq.html">FAQ</a>'
 							}
 						]
-					}
+					},
+					matchElWidth : false
 				}
 			]
 		}).render();
 	});
 </script>
-		<div id="container">
+		<div id="container" class="clearfix">
 			<div id="main-content">
 				<h1>使用KISSY UA(检测userAgent类型)</h1><h2>在页面中引入UA</h2><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"seed.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
@@ -106,7 +115,8 @@
 
 			</div>
 			<div id="sidebar">
-				<div id="features"><p><a href="\5.0\guides\ua\index.html">使用KISSY UA(检测userAgent类型)</a></p></div><div id="demos"></div>
+				<a class="link-apidocs button" href="/5.0/api">API Docs</a>
+				<div id="features"><div class="hd">Features</div><div class="bd"><p><a href="\5.0\guides\ua\index.html">使用KISSY UA(检测userAgent类型)</a></p></div></div><div id="demos"><div class="hd">Demos</div><div class="bd"></div></div>
 			</div>
 		</div>
 	<div id="disqus_thread"></div>

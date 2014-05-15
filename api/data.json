@@ -3996,7 +3996,7 @@
             "file": "src\\api\\menu.js",
             "line": 5,
             "is_constructor": 1,
-            "extends": "Component.Control",
+            "extends": "Component.Container",
             "params": [
                 {
                     "name": "config",

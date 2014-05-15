@@ -10,11 +10,11 @@ gulp.task('buildapi',function(){
 	process.exec('yuidoc');
 });
 
-gulp.task('copyassets', function(){
-	//拷贝资源文件（包括css/img/js）
-	util.exists('./themes/guides/assets','./guides/assets',util.copy);
-	util.exists('./themes/demos/assets','./demos/assets',util.copy);
-});
+// gulp.task('copyassets', function(){
+// 	//拷贝资源文件（包括css/img/js）
+// 	util.exists('./themes/guides/assets','./guides/assets',util.copy);
+// 	util.exists('./themes/demos/assets','./demos/assets',util.copy);
+// });
 
 gulp.task('buildguide',function(){
 	//生成教程文档
@@ -24,4 +24,4 @@ gulp.task('buildguide',function(){
 });
 
 
-gulp.task('default',['buildapi', 'copyassets', 'buildguide']);
+gulp.task('default',['buildapi', 'buildguide']);

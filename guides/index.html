@@ -3,14 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>KISSY User Guides</title>
-	<link rel="stylesheet" href="./assets/css/base.css">
-	<link rel="shortcut icon" href="./assets/favicon.ico">
-	<link rel="stylesheet" href="../assets/css/highlight.min.css"/>
-	<link rel="stylesheet" href="http://g.tbcdn.cn/kissy/k/1.4.2/??css/dpl/base.css,button/assets/dpl.css,menubutton/assets/dpl.css,menu/assets/dpl.css,toolbar/assets/dpl.css">
+	<link rel="stylesheet" href="../assets/css/base.css">
+	<link rel="shortcut icon" href="../assets/favicon.ico">
+	<link rel="stylesheet" href="./assets/css/highlight.min.css"/>
+	<link rel="stylesheet" href="../assets/css/component.css">
 	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
 </head>
 <body>
+	<header>
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
 	<div id="header-toolbar"></div>
+</header>
 <script type="text/javascript">
 	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
 		new Toolbar({
@@ -36,7 +43,8 @@
 								content : '<a href="/5.0/demos">Demos</a>'
 							}
 						]
-					}
+					},
+					matchElWidth : false
 				},
 				{
 					content : '<a href="#">Contribute</a>'
@@ -50,7 +58,8 @@
 								content : '<a href="/5.0/faq.html">FAQ</a>'
 							}
 						]
-					}
+					},
+					matchElWidth : false
 				}
 			]
 		}).render();
@@ -59,7 +68,7 @@
 		<div id="container">
 			<h1>KISSY User Guides</h1>
 			<div id="guides-lists">
-				<ul>
+				<ul class="clearfix">
 					
 					<li>
 						<a href="\5.0\guides\anim">anim</a>
