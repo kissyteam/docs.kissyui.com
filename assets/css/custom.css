@@ -1,7 +1,8 @@
+
 #main-content p{
   padding: 15px 0;
 }
-#main-content h1{
+h1{
   margin: 30px 0;
 }
 #main-content #editor{
@@ -44,14 +45,13 @@ h2{
 }
 #sidebar a.link-apidocs{
   width: 100%;
-  color: #CDBFE3;
-  background-color: #463265;
+  margin-bottom: 20px;
 }
-#sidebar a.link-apidocs:hover{
+/*#sidebar a.link-apidocs:hover{
   background: #AB9CC3;
   border-color: #AB9CC3;
-}
-#sidebar .panel a{
+}*/
+/*#sidebar .panel a{
   color: #716B7A;
 }
 #sidebar .panel{
@@ -65,4 +65,4 @@ h2{
 }
 #disqus_thread{
   margin-top: 50px;
-}
+}*/

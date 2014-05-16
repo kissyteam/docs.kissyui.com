@@ -4,73 +4,77 @@
 	<meta charset="UTF-8">
 	<title>KISSY - A Powerful JavaScript Framework</title>
 	<link rel="shortcut icon" href="./assets/favicon.ico">
-	<link rel="stylesheet" href="./assets/css/base.css">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="./assets/css/component.css">
+	<link rel="stylesheet" href="./assets/css/homepage.css">
+	<link rel="stylesheet" href="./assets/css/custom.css">
 	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
 </head>
 <body>
-<header>
-	<div class="logo">
-		<a href="/5.0">
-			<img src="./assets/img/logo.png" alt="">
-		</a>
+<div class="container">
+	<header>
+		<div class="logo">
+			<a href="/5.0">
+				<img src="./assets/img/logo.png" alt="">
+			</a>
+		</div>
+		<div id="header-toolbar"></div>
+	</header>
+	<div id="content">
+		<article>
+			<h1>What is KISSY ?</h1>
+			<p>KISSY <a href="https://travis-ci.org/kissyteam/kissy" target="_blank">
+			                        <img src="https://secure.travis-ci.org/kissyteam/kissy.png?branch=master"/>
+			                    </a> 是一款跨终端、模块化、高性能、使用简单的 JavaScript 框架。除了完备的工具集合如 DOM、Event、Ajax、Anim 等，它还提供了经典的面向对象、动态加载、性能优化解决方案。作为一款全终端支持的 JavaScript 框架，KISSY 为移动终端做了大量适配和优化，让你的程序在全终端均能流畅运行。</p>
+			<p>KISSY is a powerful javascript framework for building cross end web application such as desktop, mobile and pad.</p>
+			<div class="row-fluid">
+			    <div class="col-md-3 text-center">
+			        <h2>跨终端</h2>
+			            <img src="./assets/img/icon1.png" />
+			    </div>
+			    <div class="col-md-3 text-center">
+			        <h2>模块化</h2>
+			            <img src="./assets/img/icon3.png" />
+
+			    </div>
+			    <div class="col-md-3 text-center">
+			        <h2>高性能</h2>
+			            <img src="./assets/img/icon4.png" />
+
+			    </div>
+			    <div class="col-md-3 text-center">
+			        <h2>使用简单</h2>
+			            <img src="./assets/img/icon2.png" />
+
+			    </div>
+			</div>
+
+			<p>&nbsp;</p>
+
+			<h1>学习 KISSY，从这里开始</h1>
+			<div class="jumbotron row-fluid text-center">
+			        <a class="btn btn-primary btn-lg btn-block" href="/1.4/docs/html/guideline/get-started.html">指引手册</a>
+			        <a class="btn btn-primary btn-lg btn-block" href="/1.4/docs/html/tutorials/">教程</a>
+			        <a class="btn btn-info btn-lg btn-block" href="/1.4/docs/html/api/" style="color:white">API 参考手册</a>
+			        <a class="btn btn-info btn-lg btn-block" href="/1.4/docs/html/demo/" style="color:white">DEMO 示例</a>
+			</div>
+
+
+			<h1>使用 KISSY 1.4</h1>
+			<ol>
+			<li>下载 <a href="https://github.com/kissyteam/kissy/archive/v1.4.2.zip">KISSY 1.4.2</a></li>
+			<li>通过 cdn 使用 <code>http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js</code> 或  <code>https://s.tbcdn.cn/g/kissy/k/1.4.2/seed-min.js</code></li>
+			<li>npm 安装 KISSY: <code>npm install kissy</code></li>
+			<li>bower 安装 KISSY: <code>bower install kissy</code></li>
+			</ol>
+			<h1>参与 KISSY</h1>
+			<ol>
+			<li>通过 <a href="https://waffle.io/kissyteam/kissy">任务面板</a> 了解 KISSY 将要做或正在做的事情.</li>
+			<li>通过 <a href="https://github.com/kissyteam/kissy/issues">issues</a> 来提供反馈.</li>
+			<li>通过 <a href="https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md">github</a> 来给 KISSY 贡献代码.</li>
+			</ol>
+		</article>
 	</div>
-	<div id="header-toolbar"></div>
-</header>
-<div id="content">
-	<article>
-		<h1>What is KISSY ?</h1>
-		<p>KISSY <a href="https://travis-ci.org/kissyteam/kissy" target="_blank">
-		                        <img src="https://secure.travis-ci.org/kissyteam/kissy.png?branch=master"/>
-		                    </a> 是一款跨终端、模块化、高性能、使用简单的 JavaScript 框架。除了完备的工具集合如 DOM、Event、Ajax、Anim 等，它还提供了经典的面向对象、动态加载、性能优化解决方案。作为一款全终端支持的 JavaScript 框架，KISSY 为移动终端做了大量适配和优化，让你的程序在全终端均能流畅运行。</p>
-		<p>KISSY is a powerful javascript framework for building cross end web application such as desktop, mobile and pad.</p>
-		<div class="row-fluid">
-		    <div class="col-md-3 text-center">
-		        <h2>跨终端</h2>
-		            <img src="./assets/img/icon1.png" />
-		    </div>
-		    <div class="col-md-3 text-center">
-		        <h2>模块化</h2>
-		            <img src="./assets/img/icon3.png" />
-
-		    </div>
-		    <div class="col-md-3 text-center">
-		        <h2>高性能</h2>
-		            <img src="./assets/img/icon4.png" />
-
-		    </div>
-		    <div class="col-md-3 text-center">
-		        <h2>使用简单</h2>
-		            <img src="./assets/img/icon2.png" />
-
-		    </div>
-		</div>
-
-		<p>&nbsp;</p>
-
-		<h1>学习 KISSY，从这里开始</h1>
-		<div class="jumbotron row-fluid text-center">
-		        <a class="btn btn-primary btn-lg btn-block" href="/1.4/docs/html/guideline/get-started.html">指引手册</a>
-		        <a class="btn btn-primary btn-lg btn-block" href="/1.4/docs/html/tutorials/">教程</a>
-		        <a class="btn btn-info btn-lg btn-block" href="/1.4/docs/html/api/" style="color:white">API 参考手册</a>
-		        <a class="btn btn-info btn-lg btn-block" href="/1.4/docs/html/demo/" style="color:white">DEMO 示例</a>
-		</div>
-
-
-		<h1>使用 KISSY 1.4</h1>
-		<ol>
-		<li>下载 <a href="https://github.com/kissyteam/kissy/archive/v1.4.2.zip">KISSY 1.4.2</a></li>
-		<li>通过 cdn 使用 <code>http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js</code> 或  <code>https://s.tbcdn.cn/g/kissy/k/1.4.2/seed-min.js</code></li>
-		<li>npm 安装 KISSY: <code>npm install kissy</code></li>
-		<li>bower 安装 KISSY: <code>bower install kissy</code></li>
-		</ol>
-		<h1>参与 KISSY</h1>
-		<ol>
-		<li>通过 <a href="https://waffle.io/kissyteam/kissy">任务面板</a> 了解 KISSY 将要做或正在做的事情.</li>
-		<li>通过 <a href="https://github.com/kissyteam/kissy/issues">issues</a> 来提供反馈.</li>
-		<li>通过 <a href="https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md">github</a> 来给 KISSY 贡献代码.</li>
-		</ol>
-	</article>
 </div>
 <script type="text/javascript">
 	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
