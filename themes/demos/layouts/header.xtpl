@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <header>
 	<div class="logo">
 		<a href="/5.0">
@@ -7,9 +6,6 @@
 	</div>
 	<div id="header-toolbar"></div>
 </header>
-=======
-<div id="header-toolbar"></div>
->>>>>>> 98b4f143a2b35126830e9b1dc7af80575deadeca
 <script type="text/javascript">
 	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
 		new Toolbar({
@@ -35,12 +31,8 @@
 								content : '<a href="/5.0/demos">Demos</a>'
 							}
 						]
-<<<<<<< HEAD
 					},
 					matchElWidth : false
-=======
-					}
->>>>>>> 98b4f143a2b35126830e9b1dc7af80575deadeca
 				},
 				{
 					content : '<a href="#">Contribute</a>'
@@ -54,12 +46,8 @@
 								content : '<a href="/5.0/faq.html">FAQ</a>'
 							}
 						]
-<<<<<<< HEAD
 					},
 					matchElWidth : false
-=======
-					}
->>>>>>> 98b4f143a2b35126830e9b1dc7af80575deadeca
 				}
 			]
 		}).render();
