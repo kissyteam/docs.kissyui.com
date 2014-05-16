@@ -3,26 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<title>KISSY Demos</title>
-	<link rel="stylesheet" href="../assets/css/base.css">
 	<link rel="shortcut icon" href="../assets/favicon.ico">
-	<link rel="stylesheet" href="./assets/css/highlight.min.css"/>
+	<link rel="stylesheet" href="../assets/css/bootstrap.css">
 	<link rel="stylesheet" href="../assets/css/component.css">
+	<link rel="stylesheet" href="../assets/css/custom.css">
 	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
 </head>
 <body>
-	{{{include ("./header")}}}
-		<div id="container">
-			<h1>KISSY Demos</h1>
-			<div id="guides-lists">
-				<ul>
-					{{#each(demoLists)}}
-					<li>
-						<a href="{{src}}">{{name}}</a>
-					</li>
-					{{/each}}
-				</ul>
-			</div>
+	<div class="container" id="container">
+		{{{include ("./header")}}}
+		<h1>KISSY Demos</h1>
+		<div id="demos-lists">
+			<ul class="row list-unstyled">
+				{{#each(demoLists)}}
+				<li class="col-md-3">
+					<a href="{{src}}">{{name}}</a>
+				</li>
+				{{/each}}
+			</ul>
 		</div>
-	{{{include ("./footer")}}}
+		{{{include ("./footer")}}}
+	</div>
 </body>
 </html>

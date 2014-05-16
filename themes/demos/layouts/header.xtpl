@@ -1,8 +1,11 @@
-<header>
+<header class="header clearfix">
 	<div class="logo">
 		<a href="/5.0">
 			<img src="/5.0/assets/img/logo.png" alt="">
 		</a>
+	</div>
+	<div class="search">
+		<input type="text">
 	</div>
 	<div id="header-toolbar"></div>
 </header>

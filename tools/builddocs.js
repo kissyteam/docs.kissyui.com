@@ -109,9 +109,13 @@ module.exports.buildDemos = function(srcUrl){
 function getSideBarHtmlSync(dirUrl){
 	var featureContent = getSideBarFeatures(dirUrl),
 		demosContent = getSideBarDemos(dirUrl.replace('guides', 'demos'));
-	var sidebarContent = '<div id="features"><div class="hd">Features</div><div class="bd">';
-	sidebarContent += featureContent + '</div></div><div id="demos"><div class="hd">Demos</div><div class="bd">' + demosContent + '</div></div>';
-	return sidebarContent;
+	return {
+		featureContent : featureContent,
+		demosContent : demosContent
+	};
+	// var sidebarContent = '<div id="features"><div class="hd">Features</div><div class="bd">';
+	// sidebarContent += featureContent + '</div></div><div id="demos"><div class="hd">Demos</div><div class="bd">' + demosContent + '</div></div>';
+	// return sidebarContent;
 }
 
 function getFeatures(dirUrl){
