@@ -3,26 +3,85 @@
 <head>
     <meta charset="utf-8">
     <title>src\api\editor\plugin\indent.js - API Documentation — KISSY v1.5 Documentation</title>
+    <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/5.0/assets/css/component.css">
+    <link rel="stylesheet" href="/5.0/assets/css/custom.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
     <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
     <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <script src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" type="text/javascript"></script>
 </head>
 <body class="yui3-skin-sam">
-
-<div id="doc">
-    <div id="hd" class="yui3-g header">
-        <div class="yui3-u-3-4">
-            
-                <h1><img src="../assets/css/logo.png" title="API Documentation — KISSY v1.5 Documentation"></h1>
-            
+<div class="container">
+    <div id="doc">
+        <div id="hd" class="yui3-g header">
+            <div class="yui3-u-3-4" style="width:100%;">
+                <header class="header clearfix" style="background-color:inherit;">
+                    <div class="logo">
+                        <a href="/5.0">
+                            <img src="/5.0/assets/img/logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="search">
+                        <input type="text">
+                    </div>
+                    <div id="header-toolbar"></div>
+                </header>
+                <script type="text/javascript">
+                    KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+                        new Toolbar({
+                            render : '#header-toolbar',
+                            children : [
+                                {
+                                    content : '<a href="/5.0/">Home</a>'
+                                },
+                                {
+                                    content : '<a href="#">Quick Start</a>'
+                                },
+                                {
+                                    content : '<a href="#">Docs</a>',
+                                    xclass : 'menu-button',
+                                    menu : {
+                                        children : [
+                                            {
+                                                content : '<a href="/5.0/guides">Guides</a>'
+                                            },
+                                            {
+                                                content : '<a href="/5.0/api">API Docs</a>'
+                                            },{
+                                                content : '<a href="/5.0/demos">Demos</a>'
+                                            }
+                                        ]
+                                    },
+                                    matchElWidth : false
+                                },
+                                {
+                                    content : '<a href="#">Contribute</a>'
+                                },
+                                {
+                                    content : '<a href="#">More</a>',
+                                    xclass : 'menu-button',
+                                    menu : {
+                                        children : [
+                                            {
+                                                content : '<a href="/5.0/faq.html">FAQ</a>'
+                                            }
+                                        ]
+                                    },
+                                    matchElWidth : false
+                                }
+                            ]
+                        }).render();
+                    });
+                </script>
+            </div>
         </div>
-    </div>
-    <div id="bd" class="yui3-g">
-        <div class="yui3-u-1-4">
-            <div id="docs-sidebar" class="sidebar apidocs">
-                <div id="api-list">
+        <div id="bd" class="yui3-g">
+            <div class="yui3-u-1-4">
+                <div id="docs-sidebar" class="sidebar apidocs">
+                    <div id="api-list">
     <h2 class="off-left">APIs</h2>
     <div id="api-tabview" class="tabview">
         <ul class="tabs">
@@ -452,10 +511,10 @@
     </div>
 </div>
 
+                </div>
             </div>
-        </div>
-        <div class="yui3-u-3-4">
-                <div id="api-options">
+            <div class="yui3-u-3-4">
+                    <div id="api-options">
         Show:
         <label for="api-show-inherited">
             <input type="checkbox" id="api-show-inherited" checked>
@@ -479,10 +538,10 @@
     </div>
 
 
-            <div class="apidocs">
-                <div id="docs-main">
-                    <div class="content">
-                        <h1 class="file-heading">File: src\api\editor\plugin\indent.js</h1>
+                <div class="apidocs">
+                    <div id="docs-main">
+                        <div class="content">
+                            <h1 class="file-heading">File: src\api\editor\plugin\indent.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
@@ -501,27 +560,28 @@
     </pre>
 </div>
 
+                        </div>
                     </div>
                 </div>
+                <div id="disqus_thread"></div>
+                <script>
+                    if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
+
+                    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+                     //var disqus_identifier = '/anim';
+                     //var disqus_url = window.location;
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                    }
+                </script>
             </div>
-            <div id="disqus_thread"></div>
-            <script>
-                if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
-                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
-
-                // The following are highly recommended additional parameters. Remove the slashes in front to use.
-                 //var disqus_identifier = '/anim';
-                 //var disqus_url = window.location;
-
-                /* * * DON'T EDIT BELOW THIS LINE * * */
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-                }
-            </script>
         </div>
     </div>
 </div>
