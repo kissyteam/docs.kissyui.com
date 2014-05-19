@@ -4,6 +4,8 @@
 }
 h1{
   margin: 30px 0;
+  font-size: 20px;
+  font-weight: bold;
 }
 #main-content #editor{
   width: 100%;
@@ -27,6 +29,7 @@ h1{
 }
 .search{
   float: right;
+  width: 400px;
 }
 #header-toolbar{
   clear: both;
@@ -34,6 +37,8 @@ h1{
 }
 h2{
   color: #30418C;
+  font-size: 15px;
+  font-weight: bold;
 }
 #guides-lists,#demos-lists{
   min-height: 300px;
@@ -63,6 +68,30 @@ h2{
   background-color: #463265;
   border-color: #463265;
 }
+*/
 #disqus_thread{
   margin-top: 50px;
-}*/
+}
+
+
+/**--------------------------------hack style of google search*---------------*/
+
+#gs_tti50{
+  line-height: 20px;
+}
+#___gcse_0 .gsc-control-cse{
+  border-color: #EDEDED;
+  background-color: #EDEDED;
+}
+#___gcse_0 .gsc-input-box{
+  height: 30px;
+}
+#___gcse_0 .gsib_a{
+  padding: 4px 6px 0;
+}
+#___gcse_0 .gsc-search-button,#___gcse_0 .gsc-inline-block{
+  box-sizing :content-box;
+}
+#___gcse_0 #gs_cb50{
+  padding-top: 3px;
+}

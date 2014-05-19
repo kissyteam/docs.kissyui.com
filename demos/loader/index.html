@@ -20,7 +20,19 @@
 		</a>
 	</div>
 	<div class="search">
-		<input type="text">
+		<script>
+		  (function() {
+		    var cx = '003618533255763067140:5nkycw1pbey';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
 	</div>
 	<div id="header-toolbar"></div>
 </header>
@@ -76,11 +88,11 @@
 				<h1>Demo: Classic Loader 简单配置包使用</h1>
 				<div class="ks-tabs ks-tabs-top">
 	                <div class="ks-tabs-bar">
-	                    <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Source</div>
-	                    <div class="ks-tabs-tab ks-button">Output</div>
+	                    <div class="ks-tabs-tab ks-button">Source</div>
+	                    <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
 	                </div>
 	                <div class="ks-tabs-body">
-	                    <div class="ks-tabs-panel ks-tabs-panel-selected">
+	                    <div class="ks-tabs-panel">
 	                        <div id="editor">
 								
 &lt;!doctype html&gt;
@@ -134,7 +146,7 @@ KISSY.use(&#x27;json, gallery&#x2F;pageNotification&#x2F;1.0&#x2F;index&#x27;, f
 &lt;&#x2F;html&gt;
 							</div>
 	                    </div>
-	                    <div class="ks-tabs-panel">
+	                    <div class="ks-tabs-panel ks-tabs-panel-selected">
 	                        <iframe id="output" frameborder="1">
 	                        	
 	                        </iframe>
@@ -185,11 +197,17 @@ KISSY.use(&#x27;json, gallery&#x2F;pageNotification&#x2F;1.0&#x2F;index&#x27;, f
 	<script>
 		KISSY.use('node,tabs',function(S, Node, Tabs){
 			var $ = Node.all;
+			var demoHtml = S.unEscapeHTML($('#editor').html());
+			console.log(demoHtml);
+			var iframeWindow = $('#output')[0].contentWindow;
+    		iframeWindow.document.body.innerHTML = '';
+			iframeWindow.document.write(demoHtml);
 
 			var editor = ace.edit("editor");
 		    editor.setTheme("ace/theme/monokai");
 		    editor.getSession().setMode("ace/mode/html");
-
+		    console.log('--------------------------------------');
+		    console.log(editor.getValue());
 		    new Tabs({
 		    	srcNode : $('.ks-tabs'),
 		    	listeners:{

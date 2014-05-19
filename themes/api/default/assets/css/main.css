@@ -151,36 +151,6 @@ dd { margin: 0.2em 0 0.7em 1em; }
 dl { margin: 1em 0; }
 dt { font-weight: bold; }
 
-/* -- Tables ---------------------------------------------------------------- */
-caption, th { text-align: left; }
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #fff;
-    padding: 5px 12px;
-    vertical-align: top;
-}
-
-td { background: #E6E9F5; }
-td dl { margin: 0; }
-td dl dl { margin: 1em 0; }
-td pre:first-child { margin-top: 0; }
-
-th {
-    background: #D2D7E6;/*#97A0BF*/
-    border-bottom: none;
-    border-top: none;
-    color: #000;/*#FFF1D5*/
-    font-family: 'Trebuchet MS', sans-serif;
-    font-weight: bold;
-    line-height: 1.3;
-    white-space: nowrap;
-}
-
 
 /* -- Layout and Content ---------------------------------------------------- */
 #doc {
