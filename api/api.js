@@ -5,18 +5,18 @@ YUI.add("yuidoc-meta", function(Y) {
         "Base",
         "Base.Attribute",
         "Button",
+        "Color",
         "ComboBox",
         "ComboBox.FilterSelect",
         "ComboBox.LocalDataSource",
         "ComboBox.MultiValueComboBox",
         "ComboBox.RemoteDataSource",
-        "Component.Color",
         "Component.Container",
         "Component.Control",
         "Component.Extension.Align",
+        "Component.Extension.ContentBox",
         "Component.Extension.DelegateChildren",
         "Component.Extension.Shim",
-        "Component.Manager",
         "Component.Plugin.Drag",
         "Component.Plugin.Resize",
         "Cookie",
@@ -125,9 +125,9 @@ YUI.add("yuidoc-meta", function(Y) {
         "component_container",
         "component_control",
         "component_extension_align",
+        "component_extension_content-box",
         "component_extension_delegate-children",
         "component_extension_shim",
-        "component_manager",
         "component_plugin_drag",
         "component_plugin_resize",
         "cookie",
@@ -245,16 +245,16 @@ YUI.add("yuidoc-meta", function(Y) {
             "name": "component_extension_align"
         },
         {
+            "displayName": "component/extension/content-box",
+            "name": "component_extension_content-box"
+        },
+        {
             "displayName": "component/extension/delegate-children",
             "name": "component_extension_delegate-children"
         },
         {
             "displayName": "component/extension/shim",
             "name": "component_extension_shim"
-        },
-        {
-            "displayName": "component/manager",
-            "name": "component_manager"
         },
         {
             "displayName": "component/plugin/drag",

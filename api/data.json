@@ -19,6 +19,19 @@
                 "Component.Extension": 1
             }
         },
+        "src\\api\\component\\extension\\content-box.js": {
+            "name": "src\\api\\component\\extension\\content-box.js",
+            "modules": {
+                "component/extension/content-box": 1
+            },
+            "classes": {
+                "Component.Extension.ContentBox": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Component.Extension": 1
+            }
+        },
         "src\\api\\component\\extension\\delegate-children.js": {
             "name": "src\\api\\component\\extension\\delegate-children.js",
             "modules": {
@@ -71,19 +84,6 @@
                 "Component.Plugin": 1
             }
         },
-        "src\\api\\component\\color.js": {
-            "name": "src\\api\\component\\color.js",
-            "modules": {
-                "color": 1
-            },
-            "classes": {
-                "Component.Color": 1
-            },
-            "fors": {},
-            "namespaces": {
-                "Component": 1
-            }
-        },
         "src\\api\\component\\container.js": {
             "name": "src\\api\\component\\container.js",
             "modules": {
@@ -104,19 +104,6 @@
             },
             "classes": {
                 "Component.Control": 1
-            },
-            "fors": {},
-            "namespaces": {
-                "Component": 1
-            }
-        },
-        "src\\api\\component\\manager.js": {
-            "name": "src\\api\\component\\manager.js",
-            "modules": {
-                "component/manager": 1
-            },
-            "classes": {
-                "Component.Manager": 1
             },
             "fors": {},
             "namespaces": {
@@ -794,6 +781,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\api\\color.js": {
+            "name": "src\\api\\color.js",
+            "modules": {
+                "color": 1
+            },
+            "classes": {
+                "Color": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\api\\combobox.js": {
             "name": "src\\api\\combobox.js",
             "modules": {
@@ -1162,6 +1160,20 @@
             "file": "src\\api\\component\\extension\\align.js",
             "line": 7
         },
+        "component/extension/content-box": {
+            "name": "component/extension/content-box",
+            "submodules": {},
+            "classes": {
+                "Component.Extension.ContentBox": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Component.Extension": 1
+            },
+            "tag": "module",
+            "file": "src\\api\\component\\extension\\content-box.js",
+            "line": 5
+        },
         "component/extension/delegate-children": {
             "name": "component/extension/delegate-children",
             "submodules": {},
@@ -1220,21 +1232,6 @@
             "line": 6,
             "description": "调整大小插件"
         },
-        "color": {
-            "name": "color",
-            "submodules": {},
-            "classes": {
-                "Component.Color": 1
-            },
-            "fors": {},
-            "namespaces": {
-                "Component": 1
-            },
-            "tag": "module",
-            "file": "src\\api\\component\\color.js",
-            "line": 6,
-            "description": "颜色封装"
-        },
         "component/container": {
             "name": "component/container",
             "submodules": {},
@@ -1263,20 +1260,6 @@
             "file": "src\\api\\component\\control.js",
             "line": 7,
             "description": "合并了原来的 box\n组件基类.仅用于 KISSY 内部组件继承，目前不建议外部使用，欢迎 review"
-        },
-        "component/manager": {
-            "name": "component/manager",
-            "submodules": {},
-            "classes": {
-                "Component.Manager": 1
-            },
-            "fors": {},
-            "namespaces": {
-                "Component": 1
-            },
-            "tag": "module",
-            "file": "src\\api\\component\\manager.js",
-            "line": 7
         },
         "date/format": {
             "name": "date/format",
@@ -2007,6 +1990,19 @@
             "file": "src\\api\\button.js",
             "line": 5
         },
+        "color": {
+            "name": "color",
+            "submodules": {},
+            "classes": {
+                "Color": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\api\\color.js",
+            "line": 6,
+            "description": "颜色封装"
+        },
         "combobox": {
             "name": "combobox",
             "submodules": {},
@@ -2313,7 +2309,7 @@
             },
             "tag": "module",
             "file": "src\\api\\tabs.js",
-            "line": 138
+            "line": 139
         },
         "toolbar": {
             "name": "toolbar",
@@ -2423,6 +2419,27 @@
                 }
             ]
         },
+        "Component.Extension.ContentBox": {
+            "name": "Component.Extension.ContentBox",
+            "shortname": "Component.Extension.ContentBox",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "component/extension/content-box",
+            "namespace": "Component.Extension",
+            "file": "src\\api\\component\\extension\\content-box.js",
+            "line": 5,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object"
+                }
+            ]
+        },
         "Component.Extension.DelegateChildren": {
             "name": "Component.Extension.DelegateChildren",
             "shortname": "Component.Extension.DelegateChildren",
@@ -2488,27 +2505,6 @@
                 "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    new Overlay({\n        plugins:[\n            new Resize({\n                minWidth:100,\n                maxWidth:200,\n                handlers:['l','r']\n            })\n        ]\n    });\n});\n```"
             ]
         },
-        "Component.Color": {
-            "name": "Component.Color",
-            "shortname": "Component.Color",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "color",
-            "namespace": "Component",
-            "file": "src\\api\\component\\color.js",
-            "line": 6,
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "config",
-                    "description": "",
-                    "type": "Object"
-                }
-            ]
-        },
         "Component.Container": {
             "name": "Component.Container",
             "shortname": "Component.Container",
@@ -2552,21 +2548,6 @@
                     "type": "Object"
                 }
             ]
-        },
-        "Component.Manager": {
-            "name": "Component.Manager",
-            "shortname": "Component.Manager",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "component/manager",
-            "namespace": "Component",
-            "file": "src\\api\\component\\manager.js",
-            "line": 7,
-            "description": "提供组件元数据管理功能",
-            "is_constructor": 1
         },
         "Date.Format": {
             "name": "Date.Format",
@@ -3583,6 +3564,27 @@
                 }
             ]
         },
+        "Color": {
+            "name": "Color",
+            "shortname": "Color",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "color",
+            "namespace": "",
+            "file": "src\\api\\color.js",
+            "line": 6,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object"
+                }
+            ]
+        },
         "ComboBox": {
             "name": "ComboBox",
             "shortname": "ComboBox",
@@ -4454,7 +4456,7 @@
             "module": "tabs",
             "namespace": "Tabs",
             "file": "src\\api\\tabs.js",
-            "line": 116,
+            "line": 117,
             "is_constructor": 1,
             "extends": "Button",
             "params": [
@@ -4475,7 +4477,7 @@
             "module": "tabs",
             "namespace": "Tabs",
             "file": "src\\api\\tabs.js",
-            "line": 138,
+            "line": 139,
             "is_constructor": 1,
             "extends": "Component.Container",
             "params": [
@@ -4755,6 +4757,17 @@
             "namespace": "Component.Extension"
         },
         {
+            "file": "src\\api\\component\\extension\\content-box.js",
+            "line": 12,
+            "description": "组件的内层节点",
+            "itemtype": "attribute",
+            "name": "contentEl",
+            "type": "KISSY.Node",
+            "class": "Component.Extension.ContentBox",
+            "module": "component/extension/content-box",
+            "namespace": "Component.Extension"
+        },
+        {
             "file": "src\\api\\component\\extension\\shim.js",
             "line": 13,
             "description": "在IE6下默认为 true，其他默认为 false",
@@ -4764,226 +4777,6 @@
             "class": "Component.Extension.Shim",
             "module": "component/extension/shim",
             "namespace": "Component.Extension"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 14,
-            "description": "alpha 值",
-            "itemtype": "attribute",
-            "name": "a",
-            "type": "Number",
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 19,
-            "description": "red 值",
-            "itemtype": "attribute",
-            "name": "r",
-            "type": "Number",
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 24,
-            "description": "green 值",
-            "itemtype": "attribute",
-            "name": "g",
-            "type": "Number",
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 29,
-            "description": "blue 值",
-            "itemtype": "attribute",
-            "name": "b",
-            "type": "Number",
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 34,
-            "description": "得到当前颜色属性对应的 hsl 表示",
-            "itemtype": "method",
-            "name": "getHSL",
-            "return": {
-                "description": "",
-                "type": "Object"
-            },
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 40,
-            "description": "得到当前颜色属性对应的 hsl 表示字符串",
-            "itemtype": "method",
-            "name": "toHSL",
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 46,
-            "description": "得到当前颜色属性对应的 hsla 表示字符串",
-            "itemtype": "method",
-            "name": "toHSLA",
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 52,
-            "description": "得到当前颜色属性对应的 rgb 表示字符串",
-            "itemtype": "method",
-            "name": "toRGB",
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 58,
-            "description": "得到当前颜色属性对应的 rgba 表示字符串",
-            "itemtype": "method",
-            "name": "toRGBA",
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 64,
-            "description": "得到当前颜色属性对应的 16 进制表示字符串",
-            "itemtype": "method",
-            "name": "toHex",
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 70,
-            "description": "得到当前颜色属性对应的 hsv 表示",
-            "itemtype": "method",
-            "name": "getHSV",
-            "return": {
-                "description": "",
-                "type": "Object"
-            },
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 76,
-            "description": "根据 hsv 对象修改当前颜色实例",
-            "itemtype": "method",
-            "name": "setHSV",
-            "params": [
-                {
-                    "name": "hsv",
-                    "description": "hsv 对象",
-                    "type": "Object"
-                }
-            ],
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 82,
-            "description": "根据 hsl 对象修改当前颜色实例",
-            "itemtype": "method",
-            "name": "setHSL",
-            "params": [
-                {
-                    "name": "hsv",
-                    "description": "hsl 对象",
-                    "type": "Object"
-                }
-            ],
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 88,
-            "description": "从字符串表示的颜色值中获取颜色对象",
-            "itemtype": "method",
-            "name": "parse",
-            "static": 1,
-            "params": [
-                {
-                    "name": "str",
-                    "description": "支持格式： ‘#rrggbb’ ‘#rgb’ or ‘rgb(r,g,b)’ ‘rgba(r,g,b,a)’",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "",
-                "type": "Object"
-            },
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\color.js",
-            "line": 96,
-            "description": "从 hsl 对象中生成颜色实例",
-            "itemtype": "method",
-            "name": "fromHSL",
-            "static": 1,
-            "params": [
-                {
-                    "name": "cfg",
-                    "description": "",
-                    "type": "Object"
-                }
-            ],
-            "return": {
-                "description": "",
-                "type": "Object"
-            },
-            "class": "Component.Color",
-            "module": "color",
-            "namespace": "Component"
         },
         {
             "file": "src\\api\\component\\container.js",
@@ -5705,109 +5498,6 @@
             ],
             "class": "Component.Control",
             "module": "component/control",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\manager.js",
-            "line": 14,
-            "description": "把 id 和组件对象关联起来",
-            "itemtype": "method",
-            "name": "addComponent",
-            "params": [
-                {
-                    "name": "id",
-                    "description": "组件 ID",
-                    "type": "String"
-                },
-                {
-                    "name": "component",
-                    "description": "组件对象",
-                    "type": "Control"
-                }
-            ],
-            "class": "Component.Manager",
-            "module": "component/manager",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\manager.js",
-            "line": 21,
-            "description": "根据 id 获取对应的组件对象",
-            "itemtype": "method",
-            "name": "getComponent",
-            "params": [
-                {
-                    "name": "id",
-                    "description": "组件 ID",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "要获取的组件对象",
-                "type": "Control"
-            },
-            "class": "Component.Manager",
-            "module": "component/manager",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\manager.js",
-            "line": 28,
-            "description": "通过传入的 css classNames 获取对应的组件的构造函数",
-            "itemtype": "method",
-            "name": "getConstructorByXClass",
-            "params": [
-                {
-                    "name": "classNames",
-                    "description": "css class name, 多个用空格隔开",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "要获取的构造函数",
-                "type": "Function"
-            },
-            "class": "Component.Manager",
-            "module": "component/manager",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\manager.js",
-            "line": 35,
-            "description": "移除对应 id 与组件之间的联系",
-            "itemtype": "method",
-            "name": "removeComponent",
-            "params": [
-                {
-                    "name": "id",
-                    "description": "组件 ID",
-                    "type": "String"
-                }
-            ],
-            "class": "Component.Manager",
-            "module": "component/manager",
-            "namespace": "Component"
-        },
-        {
-            "file": "src\\api\\component\\manager.js",
-            "line": 41,
-            "description": "将 css class 和组件的构造函数对应",
-            "itemtype": "method",
-            "name": "setConstructorByXClass",
-            "params": [
-                {
-                    "name": "classNames",
-                    "description": "css class name, 多个用空格隔开",
-                    "type": "String"
-                },
-                {
-                    "name": "ComponentConstructor",
-                    "description": "组件的构造函数",
-                    "type": "Function"
-                }
-            ],
-            "class": "Component.Manager",
-            "module": "component/manager",
             "namespace": "Component"
         },
         {
@@ -8948,6 +8638,211 @@
             ],
             "class": "Button",
             "module": "button"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 13,
+            "description": "alpha 值",
+            "itemtype": "attribute",
+            "name": "a",
+            "type": "Number",
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 18,
+            "description": "red 值",
+            "itemtype": "attribute",
+            "name": "r",
+            "type": "Number",
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 23,
+            "description": "green 值",
+            "itemtype": "attribute",
+            "name": "g",
+            "type": "Number",
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 28,
+            "description": "blue 值",
+            "itemtype": "attribute",
+            "name": "b",
+            "type": "Number",
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 33,
+            "description": "得到当前颜色属性对应的 hsl 表示",
+            "itemtype": "method",
+            "name": "getHSL",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 39,
+            "description": "得到当前颜色属性对应的 hsl 表示字符串",
+            "itemtype": "method",
+            "name": "toHSL",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 45,
+            "description": "得到当前颜色属性对应的 hsla 表示字符串",
+            "itemtype": "method",
+            "name": "toHSLA",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 51,
+            "description": "得到当前颜色属性对应的 rgb 表示字符串",
+            "itemtype": "method",
+            "name": "toRGB",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 57,
+            "description": "得到当前颜色属性对应的 rgba 表示字符串",
+            "itemtype": "method",
+            "name": "toRGBA",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 63,
+            "description": "得到当前颜色属性对应的 16 进制表示字符串",
+            "itemtype": "method",
+            "name": "toHex",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 69,
+            "description": "得到当前颜色属性对应的 hsv 表示",
+            "itemtype": "method",
+            "name": "getHSV",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 75,
+            "description": "根据 hsv 对象修改当前颜色实例",
+            "itemtype": "method",
+            "name": "setHSV",
+            "params": [
+                {
+                    "name": "hsv",
+                    "description": "hsv 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 81,
+            "description": "根据 hsl 对象修改当前颜色实例",
+            "itemtype": "method",
+            "name": "setHSL",
+            "params": [
+                {
+                    "name": "hsv",
+                    "description": "hsl 对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 87,
+            "description": "从字符串表示的颜色值中获取颜色对象",
+            "itemtype": "method",
+            "name": "parse",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "支持格式： ‘#rrggbb’ ‘#rgb’ or ‘rgb(r,g,b)’ ‘rgba(r,g,b,a)’",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "Color",
+            "module": "color"
+        },
+        {
+            "file": "src\\api\\color.js",
+            "line": 95,
+            "description": "从 hsl 对象中生成颜色实例",
+            "itemtype": "method",
+            "name": "fromHSL",
+            "static": 1,
+            "params": [
+                {
+                    "name": "cfg",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "Color",
+            "module": "color"
         },
         {
             "file": "src\\api\\combobox.js",
@@ -17377,14 +17272,15 @@
             "line": 101,
             "description": "表示Tabs菜单相对Tabs内容的位置，可取值'top'/'right'/'bottom'/'left'，默认为'top'",
             "itemtype": "attribute",
-            "name": "barOrientation=\"top\"",
+            "name": "barOrientation",
             "type": "String",
+            "defatule": "\"top\"",
             "class": "Tabs",
             "module": "tabs"
         },
         {
             "file": "src\\api\\tabs.js",
-            "line": 106,
+            "line": 107,
             "description": "是否延时渲染",
             "itemtype": "attribute",
             "name": "lazyRender",
@@ -17394,7 +17290,7 @@
         },
         {
             "file": "src\\api\\tabs.js",
-            "line": 124,
+            "line": 125,
             "description": "是否选中",
             "itemtype": "attribute",
             "name": "selected",
@@ -17405,7 +17301,7 @@
         },
         {
             "file": "src\\api\\tabs.js",
-            "line": 129,
+            "line": 130,
             "description": "是否启用懒加载机制，默认 false",
             "itemtype": "attribute",
             "name": "lazyRender=false",
@@ -17416,7 +17312,7 @@
         },
         {
             "file": "src\\api\\tabs.js",
-            "line": 146,
+            "line": 147,
             "description": "是否选中",
             "itemtype": "attribute",
             "name": "selected",
@@ -19926,5 +19822,10 @@
             "module": "xtemplate"
         }
     ],
-    "warnings": []
+    "warnings": [
+        {
+            "message": "unknown tag: defatule",
+            "line": " src\\api\\tabs.js:101"
+        }
+    ]
 }

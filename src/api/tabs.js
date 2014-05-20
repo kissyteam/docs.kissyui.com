@@ -100,7 +100,8 @@
 
 /**
 表示Tabs菜单相对Tabs内容的位置，可取值'top'/'right'/'bottom'/'left'，默认为'top'
-@attribute barOrientation="top" {String} 
+@attribute barOrientation {String} 
+@defatule "top"
 */
 
 /**

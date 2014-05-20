@@ -1,4 +1,10 @@
-<h1>{{name}} Module</h1>
+<h1 id="{{name}}">{{name}} Module</h1>
+<script>
+var nameNode = document.getElementById('{{name}}'),
+    oldModuleNameHtml = nameNode.innerHTML,
+    newModuleNameHtml = oldModuleNameHtml.replace(/\_/g,'/');
+nameNode.innerHTML = newModuleNameHtml;
+</script>
 <div class="box clearfix meta">
     {{#extra}}
         {{#selleck}}
