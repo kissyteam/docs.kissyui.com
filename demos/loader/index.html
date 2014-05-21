@@ -7,8 +7,10 @@
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
 	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
-	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
+	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combo:true}"></script>
 	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
 </head>
 <body>
 	<div class="container" id="container">
@@ -37,50 +39,80 @@
 </header>
 <script type="text/javascript">
 	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
-		new Toolbar({
-			render : '#header-toolbar',
-			children : [
-				{
-					content : '<a href="/5.0/">Home</a>'
-				},
-				{
-					content : '<a href="#">Quick Start</a>'
-				},
-				{
-					content : '<a href="#">Docs</a>',
-					xclass : 'menu-button',
-					menu : {
-						children : [
-							{
-								content : '<a href="/5.0/guides">Guides</a>'
-							},
-							{
-								content : '<a href="/5.0/api">API Docs</a>'
-							},{
-								content : '<a href="/5.0/demos">Demos</a>'
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
 							}
-						]
+						}
 					},
-					matchElWidth : false
-				},
-				{
-					content : '<a href="#">Contribute</a>'
-				},
-				{
-					content : '<a href="#">More</a>',
-					xclass : 'menu-button',
-					menu : {
-						children : [
-							{
-								content : '<a href="/5.0/faq.html">FAQ</a>'
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
 							}
-						]
+						}
 					},
-					matchElWidth : false
-				}
-			]
-		}).render();
-	});
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute'
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/faq.html';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
 </script>
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
@@ -192,34 +224,5 @@ KISSY.use(&#x27;json, gallery&#x2F;pageNotification&#x2F;1.0&#x2F;index&#x27;, f
 			</div>
 		</div>
 	</div>
-
-	<script>
-		KISSY.use('node,tabs',function(S, Node, Tabs){
-			var $ = Node.all;
-			var demoHtml = S.unEscapeHTML($('#editor').html());
-			console.log(demoHtml);
-			var iframeWindow = $('#output')[0].contentWindow;
-    		iframeWindow.document.body.innerHTML = '';
-			iframeWindow.document.write(demoHtml);
-
-			var editor = ace.edit("editor");
-		    editor.setTheme("ace/theme/monokai");
-		    editor.getSession().setMode("ace/mode/html");
-		    console.log('--------------------------------------');
-		    console.log(editor.getValue());
-		    new Tabs({
-		    	srcNode : $('.ks-tabs'),
-		    	listeners:{
-		            afterSelectedTabChange:function(e){
-		            	if(e.newVal.get('content') === 'Output'){ //如果是切换到Output
-		            		var iframeWindow = $('#output')[0].contentWindow;
-		            		iframeWindow.document.body.innerHTML = '';
-		    				iframeWindow.document.write(editor.getValue());
-		            	}
-		            }
-		        }
-		    }).render();	
-		});
-	</script>
 </body>
 </html>

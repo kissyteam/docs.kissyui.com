@@ -1,49 +1,79 @@
 //toolbar的js
 KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
-    new Toolbar({
-        render : '#header-toolbar',
-        children : [
-            {
-                content : '<a href="/5.0/">Home</a>'
-            },
-            {
-                content : '<a href="#">Quick Start</a>'
-            },
-            {
-                content : '<a href="#">Docs</a>',
-                xclass : 'menu-button',
-                menu : {
-                    children : [
-                        {
-                            content : '<a href="/5.0/guides">Guides</a>'
+            new Toolbar({
+                render : '#header-toolbar',
+                children : [
+                    {
+                        content : 'Home',
+                        listeners : {
+                            click : function(){
+                                window.location.href ='/5.0';
+                            }
+                        }
+                    },
+                    {
+                        content : 'Quick Start',
+                        listeners : {
+                            click : function(){
+                                window.location.href ='/5.0/quick-start.html';
+                            }
+                        }
+                    },
+                    {
+                        content : 'Docs',
+                        xclass : 'menu-button',
+                        menu : {
+                            children : [
+                                {
+                                    content : 'Guides',
+                                    listeners : {
+                                        click : function(){
+                                            window.location.href ='/5.0/guides';
+                                        }
+                                    }
+                                },
+                                {
+                                    content : 'API Docs',
+                                    listeners : {
+                                        click : function(){
+                                            window.location.href ='/5.0/api';
+                                        }
+                                    }
+                                },{
+                                    content : 'Demos',
+                                    listeners : {
+                                        click : function(){
+                                            window.location.href ='/5.0/demos';
+                                        }
+                                    }
+                                }
+                            ]
                         },
-                        {
-                            content : '<a href="/5.0/api">API Docs</a>'
-                        },{
-                            content : '<a href="/5.0/demos">Demos</a>'
-                        }
-                    ]
-                },
-                matchElWidth : false
-            },
-            {
-                content : '<a href="#">Contribute</a>'
-            },
-            {
-                content : '<a href="#">More</a>',
-                xclass : 'menu-button',
-                menu : {
-                    children : [
-                        {
-                            content : '<a href="/5.0/faq.html">FAQ</a>'
-                        }
-                    ]
-                },
-                matchElWidth : false
-            }
-        ]
-    }).render();
-});
+                        matchElWidth : false
+                    },
+                    {
+                        content : 'Contribute'
+                    },
+                    {
+                        content : 'More',
+                        xclass : 'menu-button',
+                        menu : {
+                            children : [
+                                {
+                                    content : 'FAQ',
+                                    listeners : {
+                                        click : function(){
+                                            window.location.href ='/5.0/faq.html';
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        matchElWidth : false
+                    }
+                ]
+            }).render();
+        });
 
 //tab和autocomplete的js
 KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
@@ -63,10 +93,12 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
         }
     }).render();
 
-    //index|methods|events|properties tabs
-    new Tabs({
-        srcNode: '#classdocs'
-    }).render();
+    if($('#classdocs').length){
+        //index|methods|events|properties tabs
+        new Tabs({
+            srcNode: '#classdocs'
+        }).render();
+    }
 
     //autocomplete
     var filterMenu = new FilterMenu({
