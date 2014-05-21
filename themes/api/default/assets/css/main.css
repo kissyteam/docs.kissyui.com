@@ -474,7 +474,7 @@ kbd .cmd { font-family: Monaco, Helvetica; }
 }
 
 /* -- Generic Item Index styles --------------------------------------------- */
-.apidocs .index { margin: 1.5em 0 3em; }
+/*.apidocs .index { margin: 1.5em 0 3em; }*/
 
 .apidocs .index h3 {
     border-bottom: 1px solid #efefef;

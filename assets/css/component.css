@@ -124,6 +124,9 @@ build time: Dec 4 22:04
   transition: background-position 0.1s linear;
   background-color: #e6e6e6;
 }
+.ks-button.ks-tabs-tab-selected{
+  background: #fff;
+}
 .ks-button.ks-button-active,
 .ks-button:active,
 .ks-button.ks-button-checked,
@@ -1333,7 +1336,6 @@ build time: Dec 4 22:16
 .ks-popupmenu-hidden{
     visibility: hidden;
 }
-
 .ks-menu {
   outline: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -1369,9 +1371,8 @@ build time: Dec 4 22:16
   padding: 3px 25px;
   clear: both;
   font-weight: normal;
-  color: #333333;
   white-space: nowrap;
-  cursor: default;
+  cursor: pointer;
 }
 .ks-menu .ks-menuitem-hover,
 .ks-menu .ks-menuitem-active {
@@ -1551,12 +1552,8 @@ build time: Dec 4 22:18
   clear: both;
 }
 .ks-tabs-bar {
-  background-image: none;
-  background-color: transparent;
-  border-width: 0px;
-  outline: none;
-  filter: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  padding: 0;
+  margin: 0;
 }
 .ks-tabs-body {
   overflow: auto;
@@ -1568,30 +1565,22 @@ build time: Dec 4 22:18
   display: block;
 }
 .ks-tabs-bar .ks-tabs-tab.ks-button {
-  padding: 8px 12px 8px 12px;
-  margin: 0;
-  border: 1px solid transparent;
-  color: #aeaeae;
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  background: none;
+  font-size: 12px;
+  color: #000;
 }
 .ks-tabs-bar .ks-tabs-tab.ks-button.ks-tabs-tab-hover,
 .ks-tabs-bar .ks-tabs-tab.ks-button:hover {
-  background-color: #eeeeee;
-  border-color: #eeeeee;
+  
 }
 .ks-tabs-bar .ks-tabs-tab.ks-button.ks-tabs-tab-selected,
 .ks-tabs-bar .ks-tabs-tab.ks-button.ks-tabs-tab-selected.ks-tabs-tab-active {
   color: #000;
   background-color: #ffffff;
   cursor: default;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
 }
 .ks-tabs-top  > .ks-tabs-bar {
   *zoom: 1;
-  border-bottom: 1px solid #bbbbbb;
+  border-bottom: 2px solid #bbbbbb;
 }
 .ks-tabs-top  > .ks-tabs-bar:before,
 .ks-tabs-top  > .ks-tabs-bar:after {

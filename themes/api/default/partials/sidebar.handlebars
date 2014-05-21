@@ -1,6 +1,6 @@
 <div id="api-list">
     <h2 class="off-left">APIs</h2>
-    <div id="api-tabview" class="tabview ks-tabs ks-tabs-top ks-filter-menu ks-menu">
+    <div id="api-tabview" class="tabview ks-tabs ks-tabs-top ks-filter-menu">
         <ul class="ks-tabs-bar">
             <li class="tab-class ks-tabs-tab ks-button ks-tabs-tab-selected">Classes</li>
             <li class="tab-module ks-tabs-tab ks-button">Modules</li>
@@ -12,13 +12,13 @@
         <div id="api-tabview-panel" class="ks-tabs-body ks-filter-menu-content">
             <ul id="api-classes" class="apis classes ks-tabs-panel ks-tabs-panel-selected">
             {{#classes}}
-                <li><a class="ks-menuitem-selectable ks-menuitem" content={{name}} href="{{../projectRoot}}classes/{{name}}.html">{{displayName}}</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content={{displayName}} href="/5.0/api/classes/{{name}}.html">{{displayName}}</a></li>
             {{/classes}}
             </ul>
 
             <ul id="api-modules" class="apis modules ks-tabs-panel">
             {{#allModules}}
-                <li><a class="ks-menuitem-selectable ks-menuitem" content={{name}} href="{{../projectRoot}}modules/{{name}}.html">{{displayName}}</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content={{displayName}} href="/5.0/api/modules/{{name}}.html">{{displayName}}</a></li>
             {{/allModules}}
             </ul>
         </div>

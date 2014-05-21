@@ -49,12 +49,24 @@ KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
 KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
     var $ = Node.all;
 
-    //tabs
-    $(".ks-tabs").each(function (n) {
-        new Tabs({
-            srcNode: n
-        }).render();
-    });
+    //api sidebar tabs
+    new Tabs({
+        srcNode: '#api-tabview',
+        listeners : {
+            afterSelectedTabChange : function(){
+                filterMenu.reset();
+                $('.ks-filter-menu-content .ks-menuitem').each(function(menuItem$){
+                    menuItem$.parent().show();
+                    menuItem$.html(menuItem$.attr('content'));
+                });
+            }
+        }
+    }).render();
+
+    //index|methods|events|properties tabs
+    new Tabs({
+        srcNode: '#classdocs'
+    }).render();
 
     //autocomplete
     var filterMenu = new FilterMenu({
@@ -77,11 +89,11 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
         });
     };
 
-    //无刷新切换页面
+    //部分刷新切换页面
     if(window.history.pushState != undefined){
         $('#api-tabview-panel a').on('click', function(ev){
             ev.preventDefault();
-            var target$ = $(ev.target),
+            var target$ = $(ev.currentTarget),
                 href = target$.attr('href');
             Io.get(href,{
                 r : Math.random()
@@ -98,12 +110,35 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
                     }).render();
                 }
 
-                //hack，将模块名中的下划线改为斜杆
-                var moduleNameDom$ = $('.content h1'),
-                    oldModuleName = moduleNameDom$.html(),
-                    newModuleName = oldModuleName.replace(/\_/g,'/');
-                moduleNameDom$.html(newModuleName);
+                //部分刷新时，更新api-options的选择状态
+                (function(){
+                    $('#api-options label').each(function(label$){
+                        var checked = label$.all('input').prop('checked'),
+                            optionvalue = label$.attr('optionvalue'),
+                            selector = '#classdocs .' + optionvalue;
+                        checked ? $(selector).show() : $(selector).hide();
+                    });
+                })();
             });
         });
     }
+
+    //api-optional的事件处理
+    $('#api-options label').on('click', function(ev){
+        var target$ = $(ev.currentTarget);
+
+        var checked = target$.all('input').prop('checked'),
+            optionvalue = target$.attr('optionvalue'),
+            selector = '#classdocs .' + optionvalue;
+        checked ? $(selector).show() : $(selector).hide();
+    });
+
+    //methods|attrs|events|properties 被点击时的跳转处理
+    $('#bd').delegate('click', '#index .index-item a', function(ev){
+        var target$ = $(ev.currentTarget);
+
+        var tabShouldBeShow = target$.parent().attr('inwhichtab'),
+            selector = '.showmsgdetail .' + tabShouldBeShow;
+        $(selector).fire('click');
+    });
 });

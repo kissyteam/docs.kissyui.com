@@ -52,6 +52,10 @@ h2{
   width: 100%;
   margin-bottom: 20px;
 }
+
+#docs-sidebar .ks-menuitem{
+  padding: 0 10px;
+}
 /*#sidebar a.link-apidocs:hover{
   background: #AB9CC3;
   border-color: #AB9CC3;
