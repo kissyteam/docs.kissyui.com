@@ -1,0 +1,18 @@
+<div class="ks-tabs ks-tabs-top">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div id="editor">
+				{{demoCode}}
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe id="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+    </div>
+</div>

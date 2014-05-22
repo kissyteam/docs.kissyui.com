@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combo:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<script>
+		  (function() {
+		    var cx = '003618533255763067140:5nkycw1pbey';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute'
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/faq.html';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-9"  id="main-content">
+				<h1>Classic Loader 简单配置包使用</h1><p><div class="ks-tabs ks-tabs-top">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div id="editor">
+				
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+&lt;title&gt;Classic Loader 简单配置包使用&lt;&#x2F;title&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.2&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;p&gt;
+    &lt;a href=&quot;javascript:void(0)&quot; onclick=&quot;window.open(window.location.href)&quot;&gt;
+        请新窗口打开网络面板观看链接数情况
+    &lt;&#x2F;a&gt;
+&lt;&#x2F;p&gt;
+
+&lt;button id=&#x27;k12&#x27;&gt;启动主模块&lt;&#x2F;button&gt;
+
+&lt;script&gt;
+KISSY.use(&#x27;json, gallery&#x2F;pageNotification&#x2F;1.0&#x2F;index&#x27;, function(S, JSON, PN) {
+    var pn = new PN({
+        &quot;closeButton&quot;: true,
+        &quot;positionClass&quot;: &quot;page-notification-top-right&quot;,
+        &quot;onclick&quot;: null,
+        &quot;showDuration&quot;: &quot;300&quot;,
+        &quot;hideDuration&quot;: &quot;1000&quot;,
+        &quot;timeOut&quot;: &quot;5000&quot;,
+        &quot;extendedTimeOut&quot;: &quot;1000&quot;,
+        &quot;showEasing&quot;: &quot;swing&quot;,
+        &quot;hideEasing&quot;: &quot;linear&quot;,
+        &quot;showMethod&quot;: &quot;fadeIn&quot;,
+        &quot;hideMethod&quot;: &quot;fadeOut&quot;
+    });
+
+    window.alert = function() {
+        var args = arguments[0];
+        args = S.isObject(args) ? JSON.stringify(args) : args.toString();
+        pn.success(args);
+    };
+
+    KISSY.getScript(&#x27;assets&#x2F;simple.js&#x27;);
+});
+&lt;&#x2F;script&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe id="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+    </div>
+</div></p>
+
+				<!-- <h1>Demo: </h1>
+				<div class="ks-tabs ks-tabs-top">
+	                <div class="ks-tabs-bar">
+	                    <div class="ks-tabs-tab ks-button">Source</div>
+	                    <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+	                </div>
+	                <div class="ks-tabs-body">
+	                    <div class="ks-tabs-panel">
+	                        <div id="editor">
+								
+							</div>
+	                    </div>
+	                    <div class="ks-tabs-panel ks-tabs-panel-selected">
+	                        <iframe id="output" frameborder="1">
+	                        	
+	                        </iframe>
+	                    </div>
+	                </div>
+	   			</div> -->
+	   			<div id="disqus_thread"></div>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="/5.0/api">API Docs</a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
