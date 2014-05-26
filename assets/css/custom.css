@@ -7,14 +7,23 @@ h1{
   font-size: 20px;
   font-weight: bold;
 }
-#main-content #editor{
-  width: 100%;
+#main-content .ks-tabs{
   height: 800px;
+}
+#main-content .ks-tabs-body{
+  height: 100%;
+}
+#main-content .ks-tabs-panel{
+  height: 100%;
+}
+#main-content .editor{
+  width: 100%;
+  height: 100%;
   font-size: 14px;
 }
-#main-content #output{
+#main-content .output{
   width: 100%;
-  height: 800px;
+  height: 100%;
 }
 .header{
   padding-top: 20px;

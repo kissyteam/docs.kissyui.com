@@ -20,26 +20,33 @@ KISSY.use('node,tabs,io', function(S, Node, Tabs, Io){
 	}
 
 	function editDemoOnlineInit(){
-		var demoHtml = S.unEscapeHTML($('#editor').html());
-		var iframeWindow = $('#output')[0].contentWindow;
-		iframeWindow.document.body.innerHTML = '';
-		iframeWindow.document.write(demoHtml);
+		$('.editor').each(function(item$){
+			var demoHtml = S.unEscapeHTML(item$.html());
+			var iframeWindow = item$.parent('.ks-tabs-body').all('.output')[0].contentWindow;
+			iframeWindow.document.body.innerHTML = '';
+			iframeWindow.document.write(demoHtml);
 
-		var editor = ace.edit("editor");
-	    editor.setTheme("ace/theme/monokai");
-	    editor.getSession().setMode("ace/mode/html");
-	    new Tabs({
-	    	srcNode : $('.ks-tabs'),
-	    	listeners:{
-	            afterSelectedTabChange:function(e){
-	            	if(e.newVal.get('content') === 'Output'){ //如果是切换到Output
-	            		var iframeWindow = $('#output')[0].contentWindow;
-	            		iframeWindow.document.body.innerHTML = '';
-	    				iframeWindow.document.write(editor.getValue());
-	            	}
-	            }
-	        }
-	    }).render();	
+			var editor = ace.edit(item$[0]);
+			editor.setTheme("ace/theme/monokai");
+	    	editor.getSession().setMode("ace/mode/html");
+
+	    	iframeWindow.editor = editor;
+		});
+
+		$('.ks-tabs').each(function(item$){
+			new Tabs({
+		    	srcNode : item$,
+		    	listeners:{
+		            afterSelectedTabChange:function(e){
+		            	if(e.newVal.get('content') === 'Output'){ //如果是切换到Output
+		            		var iframeWindow = item$.all('.ks-tabs-body .output')[0].contentWindow;
+		            		iframeWindow.document.body.innerHTML = '';
+		    				iframeWindow.document.write(iframeWindow.editor.getValue());
+		            	}
+		            }
+		        }
+		    }).render();	
+		});
 	}
 
 	//demo页面初次加载时先初始化

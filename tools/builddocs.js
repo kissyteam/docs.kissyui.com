@@ -81,31 +81,10 @@ module.exports.buildDemos = function(srcUrl){
 			var sideBarHtml = getSideBarHtmlSync(dirName);
 
 			fs.readdirSync(dirName).forEach(function(file){
-				// var fileName = path.resolve(dirName,file),
-				// 	fileHtml = fs.readFileSync(fileName).toString(),
-				// 	demoTitle = /<h1>([\w\W]*?)<\/h1>/.exec(fileHtml)[1].trim();
-				// var mainXtplPath = path.resolve(srcDirPath,'../themes/demos/layouts/main.xtpl');
-				// xtpl.__express(mainXtplPath,{
-				// 	demoCode : fileHtml,
-				// 	sidebarContent : sideBarHtml,
-				// 	title : demoTitle,
-				// 	settings : {
-				// 		'view encoding' : 'utf-8'
-				// 	}
-				// },function(err,desFile){
-				// 	if(err){
-				// 		console.log('render error!');
-				// 	}else{
-				// 		var desFileName = path.normalize(fileName.replace('src',''));
-				// 		!fs.existsSync(path.dirname(desFileName)) && fs.mkdirSync(path.dirname(desFileName));
-				// 		fs.writeFileSync(desFileName, desFile);
-				// 	}
-				// });
-
 
 				var fileName = path.resolve(dirName,file),
 					mainXtplPath = path.resolve(srcDirPath,'../themes/demos/layouts/main.xtpl'),
-					demoCodeXtplPath = path.resolve(srcDirPath,'../themes/demos/layouts/demo-code.xtpl')
+					demoCodeXtplPath = path.resolve(srcDirPath,'../themes/demos/layouts/demo-code.xtpl');
 				if(fs.statSync(fileName).isDirectory()){
 					return;
 				}
@@ -113,40 +92,42 @@ module.exports.buildDemos = function(srcUrl){
 					fileHtml = marked(fileMD),
 					reg = /{{{(.+?)}}}/g,
 					includingFiles = fileHtml.match(reg);
+					
 				for(var i = 0; i < includingFiles.length; i++){
 					var str = includingFiles[i],
-						whichFileToInclude = /{{{(.+)}}}/.exec(str)[1],
+						whichFileToInclude = /include\s*file=&quot;(.+?)&quot;/.exec(str)[1],
+						heightRegResult = /height=&quot;(.+?)&quot;/.exec(str),
+						height = heightRegResult ? heightRegResult[1] : '800px',
 						includingFilePath = path.resolve(dirName,whichFileToInclude);
 
 					var demoCode = fs.readFileSync(includingFilePath);
 					(function(str, demoCodeXtplPath, demoCode){
 						xtpl.__express(demoCodeXtplPath,{
 							demoCode : demoCode,
+							height : height,
 							settings : {
 								'view encoding' : 'utf-8'
 							}
 						},function(err,demoCodeHtml){
-							console.log(1111);
 							if(err){
 								console.log('error occur:' + str);
 							}else{
+								fileHtml = fileHtml.replace(str,demoCodeHtml);
 								xtpl.__express(mainXtplPath,{
-									mainContent : fileHtml.replace(str,demoCodeHtml),
+									mainContent : fileHtml,
+									sidebarContent : sideBarHtml,
 									settings : {
 										'view encoding' : 'utf-8'
 									}
 								},function(err,desFile){
-									console.log(222);
-									var desFileName = path.normalize(fileName.replace('src',''));
+									var desFileName = path.normalize(fileName.replace('src','').replace('md','html'));
 									!fs.existsSync(path.dirname(desFileName)) && fs.mkdirSync(path.dirname(desFileName));
 									fs.writeFileSync(desFileName, desFile);
 								});
 							}
 						});
 					})(str, demoCodeXtplPath, demoCode);
-					// fileHtml.replace(str,)
 				}
-				// console.log(fileHtml);
 			});
 		}
 		buildDemoIndex(demoLists);

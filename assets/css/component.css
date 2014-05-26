@@ -1580,7 +1580,7 @@ build time: Dec 4 22:18
 }
 .ks-tabs-top  > .ks-tabs-bar {
   *zoom: 1;
-  border-bottom: 2px solid #bbbbbb;
+  border-bottom: 1px solid #bbbbbb;
 }
 .ks-tabs-top  > .ks-tabs-bar:before,
 .ks-tabs-top  > .ks-tabs-bar:after {

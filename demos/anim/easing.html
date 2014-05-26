@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>easing 可视化</title>
+	<title></title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -116,16 +116,15 @@
 </script>
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
-				<h1>Demo: easing 可视化</h1>
-				<div class="ks-tabs ks-tabs-top">
-	                <div class="ks-tabs-bar">
-	                    <div class="ks-tabs-tab ks-button">Source</div>
-	                    <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
-	                </div>
-	                <div class="ks-tabs-body">
-	                    <div class="ks-tabs-panel">
-	                        <div id="editor">
-								
+				<h1>easing可视化</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
 &lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -268,6 +267,26 @@
 
 &lt;&#x2F;body&gt;
 &lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+    </div>
+</div></p>
+
+				<!-- <h1>Demo: </h1>
+				<div class="ks-tabs ks-tabs-top">
+	                <div class="ks-tabs-bar">
+	                    <div class="ks-tabs-tab ks-button">Source</div>
+	                    <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+	                </div>
+	                <div class="ks-tabs-body">
+	                    <div class="ks-tabs-panel">
+	                        <div id="editor">
+								
 							</div>
 	                    </div>
 	                    <div class="ks-tabs-panel ks-tabs-panel-selected">
@@ -276,25 +295,8 @@
 	                        </iframe>
 	                    </div>
 	                </div>
-	   			</div>
+	   			</div> -->
 	   			<div id="disqus_thread"></div>
-				<script>
-				    if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
-				    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-				    var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
-
-				    // The following are highly recommended additional parameters. Remove the slashes in front to use.
-				     //var disqus_identifier = '/anim';
-				     //var disqus_url = window.location;
-
-				    /* * * DON'T EDIT BELOW THIS LINE * * */
-				    (function() {
-				        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-				        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				    })();
-				    }
-				</script>
 			</div>
 			<div class="col-md-3" id="sidebar">
 				<a class="link-apidocs btn btn-primary" href="/5.0/api">API Docs</a>
@@ -311,7 +313,7 @@
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="\5.0\demos\anim\cubic-bezier.html">cubic-bezier</a></p><p><a href="\5.0\demos\anim\easing.html">easing 可视化</a></p><p><a href="\5.0\demos\anim\index.html">anim动画的基本使用</a></p>
+						<p><a href="\5.0\demos\anim\easing.html">easing可视化</a></p><p><a href="\5.0\demos\anim\index.html">anim的基本使用</a></p>
 					</div>
 				</div>
 			</div>

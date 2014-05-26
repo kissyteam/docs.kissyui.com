@@ -17274,7 +17274,7 @@
             "itemtype": "attribute",
             "name": "barOrientation",
             "type": "String",
-            "defatule": "\"top\"",
+            "default": "\"top\"",
             "class": "Tabs",
             "module": "tabs"
         },
@@ -19822,10 +19822,5 @@
             "module": "xtemplate"
         }
     ],
-    "warnings": [
-        {
-            "message": "unknown tag: defatule",
-            "line": " src\\api\\tabs.js:101"
-        }
-    ]
+    "warnings": []
 }

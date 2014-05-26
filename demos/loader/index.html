@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Classic Loader 简单配置包使用</title>
+	<title></title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -116,16 +116,15 @@
 </script>
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
-				<h1>Demo: Classic Loader 简单配置包使用</h1>
-				<div class="ks-tabs ks-tabs-top">
-	                <div class="ks-tabs-bar">
-	                    <div class="ks-tabs-tab ks-button">Source</div>
-	                    <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
-	                </div>
-	                <div class="ks-tabs-body">
-	                    <div class="ks-tabs-panel">
-	                        <div id="editor">
-								
+				<h1>Classic Loader 简单配置包使用</h1><p><div class="ks-tabs ks-tabs-top" style="height:200px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
 &lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -134,11 +133,6 @@
 &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.2&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
-
-&lt;h1&gt;
-    Classic Loader 简单配置包使用
-&lt;&#x2F;h1&gt;
-
 &lt;p&gt;
     &lt;a href=&quot;javascript:void(0)&quot; onclick=&quot;window.open(window.location.href)&quot;&gt;
         请新窗口打开网络面板观看链接数情况
@@ -175,6 +169,94 @@ KISSY.use(&#x27;json, gallery&#x2F;pageNotification&#x2F;1.0&#x2F;index&#x27;, f
 
 &lt;&#x2F;body&gt;
 &lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+    </div>
+</div></p>
+<h2>包配置的简单例子</h2><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+&lt;title&gt;Combo Loader 一般示例&lt;&#x2F;title&gt;
+
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.2&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;
+&lt;&#x2F;script&gt;
+
+&lt;!--&lt;script src=&quot;http:&#x2F;&#x2F;localhost&#x2F;kissy_git&#x2F;kissy&#x2F;build&#x2F;kissy.js&quot; data-config=&quot;{combine:true}&quot;&gt;--&gt;
+&lt;!--&lt;&#x2F;script&gt;--&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;h1&gt;
+    Combo Loader 一般示例
+&lt;&#x2F;h1&gt;
+&lt;p&gt;
+    &lt;a href=&quot;javascript:void(0)&quot; onclick=&quot;window.open(window.location.href)&quot;&gt;
+        请新窗口打开网络面板观看链接数情况
+    &lt;&#x2F;a&gt;
+&lt;&#x2F;p&gt;
+
+&lt;script&gt;
+KISSY.use(&#x27;json, gallery&#x2F;pageNotification&#x2F;1.0&#x2F;index&#x27;, function(S, JSON, PN) {
+    var pn = new PN({
+        &quot;closeButton&quot;: true,
+        &quot;positionClass&quot;: &quot;page-notification-top-right&quot;,
+        &quot;onclick&quot;: null,
+        &quot;showDuration&quot;: &quot;300&quot;,
+        &quot;hideDuration&quot;: &quot;1000&quot;,
+        &quot;timeOut&quot;: &quot;5000&quot;,
+        &quot;extendedTimeOut&quot;: &quot;1000&quot;,
+        &quot;showEasing&quot;: &quot;swing&quot;,
+        &quot;hideEasing&quot;: &quot;linear&quot;,
+        &quot;showMethod&quot;: &quot;fadeIn&quot;,
+        &quot;hideMethod&quot;: &quot;fadeOut&quot;
+    });
+
+    window.alert = function() {
+        var args = arguments[0];
+        args = S.isObject(args) ? JSON.stringify(args) : args.toString();
+        pn.success(args);
+    };
+
+    KISSY.getScript(&#x27;assets&#x2F;combo-require.js&#x27;);
+});
+&lt;&#x2F;script&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+    </div>
+</div></p>
+
+				<!-- <h1>Demo: </h1>
+				<div class="ks-tabs ks-tabs-top">
+	                <div class="ks-tabs-bar">
+	                    <div class="ks-tabs-tab ks-button">Source</div>
+	                    <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+	                </div>
+	                <div class="ks-tabs-body">
+	                    <div class="ks-tabs-panel">
+	                        <div id="editor">
+								
 							</div>
 	                    </div>
 	                    <div class="ks-tabs-panel ks-tabs-panel-selected">
@@ -183,25 +265,8 @@ KISSY.use(&#x27;json, gallery&#x2F;pageNotification&#x2F;1.0&#x2F;index&#x27;, f
 	                        </iframe>
 	                    </div>
 	                </div>
-	   			</div>
+	   			</div> -->
 	   			<div id="disqus_thread"></div>
-				<script>
-				    if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
-				    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-				    var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
-
-				    // The following are highly recommended additional parameters. Remove the slashes in front to use.
-				     //var disqus_identifier = '/anim';
-				     //var disqus_url = window.location;
-
-				    /* * * DON'T EDIT BELOW THIS LINE * * */
-				    (function() {
-				        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-				        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				    })();
-				    }
-				</script>
 			</div>
 			<div class="col-md-3" id="sidebar">
 				<a class="link-apidocs btn btn-primary" href="/5.0/api">API Docs</a>
@@ -218,7 +283,7 @@ KISSY.use(&#x27;json, gallery&#x2F;pageNotification&#x2F;1.0&#x2F;index&#x27;, f
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="\5.0\demos\loader\combo-require.html">Combo Loader 一般示例</a></p><p><a href="\5.0\demos\loader\index.html">Classic Loader 简单配置包使用</a></p>
+						<p><a href="\5.0\demos\loader\index.html">Classic Loader 简单配置包使用</a></p>
 					</div>
 				</div>
 			</div>
