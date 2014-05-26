@@ -39,12 +39,21 @@ module.exports.buildGuide = function(srcUrl){
 			fs.readdirSync(dirName).forEach(function(file){
 				var fileName = path.resolve(dirName,file),
 					fileMD = fs.readFileSync(fileName).toString(),
-					fileHtml = marked(fileMD);
+					fileHtml = marked(fileMD),
+					apiLinkReg = /\(\(\(apilink=(.+)\)\)\)/,
+					apiLinkRegResult = apiLinkReg.exec(fileHtml),
+					apilink = '/5.0/api';
+
+				if(apiLinkRegResult){
+					apilink = apiLinkRegResult[1];
+					fileHtml = fileHtml.replace(apiLinkRegResult[0],'');
+				}
 
 				var mainXtplPath = path.resolve(srcDirPath,'../themes/guides/layouts/main.xtpl'),
 					desFile = xtpl.__express(mainXtplPath,{
 						mainContent : fileHtml,
 						sidebarContent : sideBarHtml,
+						apilink : apilink,
 						settings : {
 							'view encoding' : 'utf-8'
 						}
@@ -90,8 +99,15 @@ module.exports.buildDemos = function(srcUrl){
 				}
 				var fileMD = fs.readFileSync(fileName).toString(),
 					fileHtml = marked(fileMD),
-					reg = /{{{(.+?)}}}/g,
-					includingFiles = fileHtml.match(reg);
+					apiLinkReg = /\(\(\(apilink=(.+)\)\)\)/,
+					apiLinkRegResult = apiLinkReg.exec(fileHtml),
+					apilink = '/5.0/api',
+					fileReg = /{{{(.+?)}}}/g,
+					includingFiles = fileHtml.match(fileReg);
+				if(apiLinkRegResult){
+					apilink = apiLinkRegResult[1];
+					fileHtml = fileHtml.replace(apiLinkRegResult[0],'');
+				}
 					
 				for(var i = 0; i < includingFiles.length; i++){
 					var str = includingFiles[i],
@@ -116,6 +132,7 @@ module.exports.buildDemos = function(srcUrl){
 								xtpl.__express(mainXtplPath,{
 									mainContent : fileHtml,
 									sidebarContent : sideBarHtml,
+									apilink : apilink,
 									settings : {
 										'view encoding' : 'utf-8'
 									}
@@ -133,6 +150,56 @@ module.exports.buildDemos = function(srcUrl){
 		buildDemoIndex(demoLists);
 	});
 };
+
+
+module.exports.buildOthers = function(srcUrl){
+	srcDirPath = path.resolve(srcUrl);
+	projectPath = path.resolve(srcUrl, '../../5.0');
+	var mainXtplPath = path.resolve(srcDirPath,'../themes/layouts/main.xtpl');
+
+	fs.readdirSync(srcDirPath).forEach(function(file){
+		if(file === 'api' || file === 'demos' || file === 'guides'){
+			return;  //这个三个目录在其他地方处理，如buildGuides/buildDemos等
+		}
+		var fileName = path.resolve(srcDirPath,file);
+		if(!fs.statSync(fileName).isDirectory()){
+			var mdContent = fs.readFileSync(fileName).toString(),
+				desPath = path.normalize(fileName.replace('src','').replace('md','html')),
+				fileHtml = marked(mdContent);
+			// console.log(fileName);
+			xtpl.__express(mainXtplPath,{
+				mainContent : fileHtml,
+				settings : {
+					'view encoding' : 'utf-8'
+				}
+			},function(err,desFile){
+				fs.writeFileSync(desPath,desFile);
+			});
+		}else{
+			var desDirName = path.normalize(fileName.replace('src',''));
+			!fs.existsSync(desDirName) && fs.mkdirSync(desDirName);
+			fs.readdirSync(fileName).forEach(function(file){
+				var srcFileName = path.resolve(fileName,file);
+				var mdContent = fs.readFileSync(srcFileName).toString(),
+					desPath = path.normalize(srcFileName.replace('src','').replace('md','html')),
+					fileHtml = marked(mdContent);
+				xtpl.__express(mainXtplPath,{
+					mainContent : fileHtml,
+					settings : {
+						'view encoding' : 'utf-8'
+					}
+				},function(err,desFile){
+					fs.writeFileSync(desPath,desFile);
+				});
+			});
+		}
+	});
+};
+
+function trunMdIntoHtml(mdContent,desPath){
+	!fs.existsSync(desPath) && fs.mkdirSync(desPath);
+	fs.writeFileSync(desFileName, desFile);
+}
 
 function getSideBarHtmlSync(dirUrl){
 	var featureContent = getSideBarFeatures(dirUrl),
@@ -152,10 +219,9 @@ function getFeatures(dirUrl){
 				return;  //如果是文件夹，在这里暂时是cited-by-md文件夹，不处理
 			}
 			var fileContent = fs.readFileSync(fileName).toString(),
-				// isGuides = fileName.indexOf('guides') > -1 ? true : false,
-				reg =  /^ *(#{1}) *([^\n]+?) *#* *(?:\n+|$)/,
-				// index = isGuides ? 2 : 1,
-				feature = reg.exec(fileContent)[2].trim();
+				// reg =  /^ *(#{1}) *([^\n]+?) *#* *(?:\n+|$)/,
+				reg = /#(.*)/,
+				feature = reg.exec(fileContent)[1].trim();
 			var fileLink = path.normalize(path.relative(projectPath,fileName).replace('src','/5.0').replace('md','html'));
 			feature = '<p><a href="' + fileLink +'">' + feature + '</a></p>';
 			featureContent += feature;

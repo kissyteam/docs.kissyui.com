@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>KISSY Demos</title>
-	<link rel="shortcut icon" href="../assets/favicon.ico">
-	<link rel="stylesheet" href="../assets/css/bootstrap.css">
-	<link rel="stylesheet" href="../assets/css/component.css">
-	<link rel="stylesheet" href="../assets/css/custom.css">
-	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
+	<title></title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/homepage.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combo:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
 </head>
 <body>
 	<div class="container" id="container">
@@ -111,38 +115,12 @@
 			}).render();
 		});
 </script>
-		<h1>KISSY Demos</h1>
-		<div id="demos-lists">
-			<ul class="row list-unstyled">
-				
-				<li class="col-md-3">
-					<a href="\5.0\demos\anim">anim</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="\5.0\demos\loader">loader</a>
-				</li>
-				
-			</ul>
+		<div class="row">
+			<div class="col-md-12"  id="main-content">
+				<h1>quick start,let us learn kissy</h1>
+	   			<div id="disqus_thread"></div>
+			</div>
 		</div>
-		<div id="disqus_thread"></div>
-<script>
-    if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
-
-    // The following are highly recommended additional parameters. Remove the slashes in front to use.
-     //var disqus_identifier = '/anim';
-     //var disqus_url = window.location;
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    }
-</script>
 	</div>
 </body>
 </html>

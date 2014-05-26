@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="container" id="container">
-		{{{include ("./header")}}}
+		{{{include ("../../layouts/header")}}}
 		<h1>KISSY User Guides</h1>
 		<div id="guides-lists">
 			<ul class="row list-unstyled">
@@ -22,7 +22,7 @@
 				{{/each}}
 			</ul>
 		</div>
-		{{{include ("./footer")}}}
+		{{{include ("../../layouts/footer")}}}
 	</div>
 </body>
 </html>

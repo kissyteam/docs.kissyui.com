@@ -5,6 +5,7 @@
 	<title>{{{title}}}</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/homepage.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
 	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
 	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
@@ -14,30 +15,11 @@
 </head>
 <body>
 	<div class="container" id="container">
-		{{{include ("../../layouts/header")}}}
+		{{{include ("./header")}}}
 		<div class="row">
-			<div class="col-md-9"  id="main-content">
+			<div class="col-md-12"  id="main-content">
 				{{{mainContent}}}
 	   			<div id="disqus_thread"></div>
-			</div>
-			<div class="col-md-3" id="sidebar">
-				<a class="link-apidocs btn btn-primary" href="{{{apilink}}}">API Docs</a>
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="panel-title">Features</h3>
-					</div>
-					<div class="panel-body">
-						{{{sidebarContent.featureContent}}}
-					</div>
-				</div>
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="panel-title">Demos</h3>
-					</div>
-					<div class="panel-body">
-						{{{sidebarContent.demosContent}}}
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

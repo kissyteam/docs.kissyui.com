@@ -17,10 +17,13 @@ gulp.task('buildapi',function(){
 // });
 
 gulp.task('buildguide',function(){
+	var srcPath = path.resolve('./src');
 	//生成教程文档
-	buildDocs.buildGuide(path.resolve('./src'));
+	buildDocs.buildGuide(srcPath);
 	//生成demos
-	buildDocs.buildDemos(path.resolve('./src'));
+	buildDocs.buildDemos(srcPath);
+	//生成其他目录的文档
+	buildDocs.buildOthers(srcPath);
 });
 
 

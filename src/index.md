@@ -1,123 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title></title>
-	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
-	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="/5.0/assets/css/homepage.css">
-	<link rel="stylesheet" href="/5.0/assets/css/component.css">
-	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
-	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
-	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combo:true}"></script>
-	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
-	<script src="/5.0/assets/js/ajax-load.js"></script>
-</head>
-<body>
-	<div class="container" id="container">
-		<header class="header clearfix">
-	<div class="logo">
-		<a href="/5.0">
-			<img src="/5.0/assets/img/logo.png" alt="">
-		</a>
-	</div>
-	<div class="search">
-		<script>
-		  (function() {
-		    var cx = '003618533255763067140:5nkycw1pbey';
-		    var gcse = document.createElement('script');
-		    gcse.type = 'text/javascript';
-		    gcse.async = true;
-		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-		        '//www.google.com/cse/cse.js?cx=' + cx;
-		    var s = document.getElementsByTagName('script')[0];
-		    s.parentNode.insertBefore(gcse, s);
-		  })();
-		</script>
-		<gcse:search></gcse:search>
-	</div>
-	<div id="header-toolbar"></div>
-</header>
-<script type="text/javascript">
-	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
-			new Toolbar({
-				render : '#header-toolbar',
-				children : [
-					{
-						content : 'Home',
-						listeners : {
-							click : function(){
-								window.location.href ='/5.0';
-							}
-						}
-					},
-					{
-						content : 'Quick Start',
-						listeners : {
-							click : function(){
-								window.location.href ='/5.0/quick-start.html';
-							}
-						}
-					},
-					{
-						content : 'Docs',
-						xclass : 'menu-button',
-						menu : {
-							children : [
-								{
-									content : 'Guides',
-									listeners : {
-										click : function(){
-											window.location.href ='/5.0/guides';
-										}
-									}
-								},
-								{
-									content : 'API Docs',
-									listeners : {
-										click : function(){
-											window.location.href ='/5.0/api';
-										}
-									}
-								},{
-									content : 'Demos',
-									listeners : {
-										click : function(){
-											window.location.href ='/5.0/demos';
-										}
-									}
-								}
-							]
-						},
-						matchElWidth : false
-					},
-					{
-						content : 'Contribute'
-					},
-					{
-						content : 'More',
-						xclass : 'menu-button',
-						menu : {
-							children : [
-								{
-									content : 'FAQ',
-									listeners : {
-										click : function(){
-											window.location.href ='/5.0/more/faq.html';
-										}
-									}
-								}
-							]
-						},
-						matchElWidth : false
-					}
-				]
-			}).render();
-		});
-</script>
-		<div class="row">
-			<div class="col-md-12"  id="main-content">
-				<h1>What is KISSY ?</h1>
+<h1>What is KISSY ?</h1>
 <p>KISSY <a href="https://travis-ci.org/kissyteam/kissy" target="_blank">
                         <img src="https://secure.travis-ci.org/kissyteam/kissy.png?branch=master"/>
                     </a> 是一款跨终端、模块化、高性能、使用简单的 JavaScript 框架。除了完备的工具集合如 DOM、Event、Ajax、Anim 等，它还提供了经典的面向对象、动态加载、性能优化解决方案。作为一款全终端支持的 JavaScript 框架，KISSY 为移动终端做了大量适配和优化，让你的程序在全终端均能流畅运行。</p>
@@ -158,7 +39,7 @@
 <h1>使用 KISSY 1.4</h1>
 <ol>
 <li>下载 <a href="https://github.com/kissyteam/kissy/archive/v1.4.3.zip">KISSY 1.4.3</a></li>
-<li>通过 cdn 使用 <code><a href="http://g.tbcdn.cn/kissy/k/1.4.3/seed-min.js">http://g.tbcdn.cn/kissy/k/1.4.3/seed-min.js</a></code> 或  <code><a href="https://s.tbcdn.cn/g/kissy/k/1.4.3/seed-min.js">https://s.tbcdn.cn/g/kissy/k/1.4.3/seed-min.js</a></code></li>
+<li>通过 cdn 使用 <code>http://g.tbcdn.cn/kissy/k/1.4.3/seed-min.js</code> 或  <code>https://s.tbcdn.cn/g/kissy/k/1.4.3/seed-min.js</code></li>
 <li>npm 安装 KISSY: <code>npm install kissy</code></li>
 <li>bower 安装 KISSY: <code>bower install kissy</code></li>
 </ol>
@@ -317,7 +198,7 @@
                 <div class="com-box">
                     <h2>{{name}}</h2>
                     <p class="com-author">by {{author.name}}</p>
-                    <p class="com-desc">{{#if desc!==&quot;&quot;}}{{desc}}{{else}}{{description}}{{/if}}</p>
+                    <p class="com-desc">{{#if desc!==""}}{{desc}}{{else}}{{description}}{{/if}}</p>
                 </div>
             </a>
         </div>
@@ -346,7 +227,7 @@
     //gallery组件列表
     (function(){
         KISSY.use('node,io,xtemplate,combobox',function(S,Node,io,XTemplate,ComboBox){
-            var $ = Node.all;
+        	var $ = Node.all;
             io.jsonp('http://gallery.kissyui.com/api/coms?len=12',function(data){
                 var tpl = Node.all('.J_ComsTpl').html();
                 var html = new XTemplate(tpl).render(data);
@@ -403,9 +284,3 @@
         })
     })();
 </script>
-	   			<div id="disqus_thread"></div>
-			</div>
-		</div>
-	</div>
-</body>
-</html>

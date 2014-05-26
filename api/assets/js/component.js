@@ -63,7 +63,7 @@ KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
                                     content : 'FAQ',
                                     listeners : {
                                         click : function(){
-                                            window.location.href ='/5.0/faq.html';
+                                            window.location.href ='/5.0/more/faq.html';
                                         }
                                     }
                                 }

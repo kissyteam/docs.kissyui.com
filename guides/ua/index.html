@@ -13,8 +13,8 @@
 	<script src="/5.0/assets/js/ajax-load.js"></script>
 </head>
 <body>
-<div class="container" id="container">
-	<header class="header clearfix">
+	<div class="container" id="container">
+		<header class="header clearfix">
 	<div class="logo">
 		<a href="/5.0">
 			<img src="/5.0/assets/img/logo.png" alt="">
@@ -102,7 +102,7 @@
 									content : 'FAQ',
 									listeners : {
 										click : function(){
-											window.location.href ='/5.0/faq.html';
+											window.location.href ='/5.0/more/faq.html';
 										}
 									}
 								}
@@ -114,9 +114,9 @@
 			}).render();
 		});
 </script>
-	<div class="row">
-		<div class="col-md-9" id="main-content">
-			<h1>使用KISSY UA(检测userAgent类型)</h1><h2>在页面中引入UA</h2><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"seed.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+		<div class="row">
+			<div class="col-md-9" id="main-content">
+				<h1>使用KISSY UA(检测userAgent类型)</h1><h2>在页面中引入UA</h2><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"seed.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
     KISSY.use(<span class="hljs-string">'ua'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,UA)</span>{</span>
         alert(UA); <span class="hljs-comment">// UA可以使用了</span>
@@ -162,28 +162,28 @@
 <li>如果当前浏览器版本号无法准确判定，均返回 0.1</li>
 </ul>
 
-			<div id="disqus_thread"></div>
-		</div>
-		<div class="col-md-3" id="sidebar">
-			<a class="link-apidocs btn btn-primary" href="/5.0/api">API Docs</a>
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">Features</h3>
-				</div>
-				<div class="panel-body">
-					<p><a href="\5.0\guides\ua\index.html">使用KISSY UA(检测userAgent类型)</a></p>
-				</div>
+				<div id="disqus_thread"></div>
 			</div>
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">Demos</h3>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="/5.0/api">API Docs</a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="\5.0\guides\ua\index.html">使用KISSY UA(检测userAgent类型)</a></p>
+					</div>
 				</div>
-				<div class="panel-body">
-					
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>

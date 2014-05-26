@@ -13,8 +13,8 @@
 	<script src="/5.0/assets/js/ajax-load.js"></script>
 </head>
 <body>
-<div class="container" id="container">
-	<header class="header clearfix">
+	<div class="container" id="container">
+		<header class="header clearfix">
 	<div class="logo">
 		<a href="/5.0">
 			<img src="/5.0/assets/img/logo.png" alt="">
@@ -102,7 +102,7 @@
 									content : 'FAQ',
 									listeners : {
 										click : function(){
-											window.location.href ='/5.0/faq.html';
+											window.location.href ='/5.0/more/faq.html';
 										}
 									}
 								}
@@ -114,9 +114,9 @@
 			}).render();
 		});
 </script>
-	<div class="row">
-		<div class="col-md-9" id="main-content">
-			<h1>importStyle的使用</h1><h2>概述</h2><p>ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。</p>
+		<div class="row">
+			<div class="col-md-9" id="main-content">
+				<h1>importStyle的使用</h1><h2>概述</h2><p>ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。</p>
 <h2>先决条件</h2><ul>
 <li>头部引入<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js'</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre></li>
@@ -140,28 +140,28 @@ KISSY.config({
 KISSY.importStyle(<span class="hljs-string">'components/home/index'</span>);
 </code></pre><p>上面是一淘酒店项目中摘出的ImportStyle使用Demo，可以看出使用方式很简单——提供模块依赖信息、包配置， 最后调用importStyle，传入模块列表即可。</p>
 
-			<div id="disqus_thread"></div>
-		</div>
-		<div class="col-md-3" id="sidebar">
-			<a class="link-apidocs btn btn-primary" href="/5.0/api">API Docs</a>
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">Features</h3>
-				</div>
-				<div class="panel-body">
-					<p><a href="\5.0\guides\loader\combo.html">combo 使用内置模块</a></p><p><a href="\5.0\guides\loader\import-style.html">importStyle的使用</a></p><p><a href="\5.0\guides\loader\index.html">简单配置包使用</a></p>
-				</div>
+				<div id="disqus_thread"></div>
 			</div>
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">Demos</h3>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="/5.0/api">API Docs</a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="\5.0\guides\loader\combo.html">combo 使用内置模块</a></p><p><a href="\5.0\guides\loader\import-style.html">importStyle的使用</a></p><p><a href="\5.0\guides\loader\index.html">简单配置包使用</a></p>
+					</div>
 				</div>
-				<div class="panel-body">
-					<p><a href="\5.0\demos\loader\index.html">Classic Loader 简单配置包使用</a></p>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="\5.0\demos\loader\index.html">Classic Loader 简单配置包使用</a></p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>

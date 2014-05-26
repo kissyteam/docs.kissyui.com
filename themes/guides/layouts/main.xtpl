@@ -13,33 +13,33 @@
 	<script src="/5.0/assets/js/ajax-load.js"></script>
 </head>
 <body>
-<div class="container" id="container">
-	{{{include ("./header")}}}
-	<div class="row">
-		<div class="col-md-9" id="main-content">
-			{{{mainContent}}}
-			<div id="disqus_thread"></div>
-		</div>
-		<div class="col-md-3" id="sidebar">
-			<a class="link-apidocs btn btn-primary" href="/5.0/api">API Docs</a>
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">Features</h3>
-				</div>
-				<div class="panel-body">
-					{{{sidebarContent.featureContent}}}
-				</div>
+	<div class="container" id="container">
+		{{{include ("../../layouts/header")}}}
+		<div class="row">
+			<div class="col-md-9" id="main-content">
+				{{{mainContent}}}
+				<div id="disqus_thread"></div>
 			</div>
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">Demos</h3>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="{{{apilink}}}">API Docs</a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						{{{sidebarContent.featureContent}}}
+					</div>
 				</div>
-				<div class="panel-body">
-					{{{sidebarContent.demosContent}}}
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						{{{sidebarContent.demosContent}}}
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>

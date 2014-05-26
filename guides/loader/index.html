@@ -13,8 +13,8 @@
 	<script src="/5.0/assets/js/ajax-load.js"></script>
 </head>
 <body>
-<div class="container" id="container">
-	<header class="header clearfix">
+	<div class="container" id="container">
+		<header class="header clearfix">
 	<div class="logo">
 		<a href="/5.0">
 			<img src="/5.0/assets/img/logo.png" alt="">
@@ -102,7 +102,7 @@
 									content : 'FAQ',
 									listeners : {
 										click : function(){
-											window.location.href ='/5.0/faq.html';
+											window.location.href ='/5.0/more/faq.html';
 										}
 									}
 								}
@@ -114,9 +114,10 @@
 			}).render();
 		});
 </script>
-	<div class="row">
-		<div class="col-md-9" id="main-content">
-			<h1>简单配置包使用</h1><p>可以通过配置包来制定业务应用的 js 代码所在的路径，然后用目录结构来组织代码文件，最后 use 即可。例如：</p>
+		<div class="row">
+			<div class="col-md-9" id="main-content">
+				<p></p>
+<h1>简单配置包使用</h1><p>可以通过配置包来制定业务应用的 js 代码所在的路径，然后用目录结构来组织代码文件，最后 use 即可。例如：</p>
 <pre><code>KISSY.config({
     packages: {
         <span class="hljs-string">"my"</span>:{
@@ -135,28 +136,28 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'core'</sp
     });
 });
 </code></pre>
-			<div id="disqus_thread"></div>
-		</div>
-		<div class="col-md-3" id="sidebar">
-			<a class="link-apidocs btn btn-primary" href="/5.0/api">API Docs</a>
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">Features</h3>
-				</div>
-				<div class="panel-body">
-					<p><a href="\5.0\guides\loader\combo.html">combo 使用内置模块</a></p><p><a href="\5.0\guides\loader\import-style.html">importStyle的使用</a></p><p><a href="\5.0\guides\loader\index.html">简单配置包使用</a></p>
-				</div>
+				<div id="disqus_thread"></div>
 			</div>
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">Demos</h3>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="/5.0/api/classes/Loader.html">API Docs</a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="\5.0\guides\loader\combo.html">combo 使用内置模块</a></p><p><a href="\5.0\guides\loader\import-style.html">importStyle的使用</a></p><p><a href="\5.0\guides\loader\index.html">简单配置包使用</a></p>
+					</div>
 				</div>
-				<div class="panel-body">
-					<p><a href="\5.0\demos\loader\index.html">Classic Loader 简单配置包使用</a></p>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="\5.0\demos\loader\index.html">Classic Loader 简单配置包使用</a></p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>
