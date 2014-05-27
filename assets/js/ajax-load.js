@@ -69,7 +69,11 @@ KISSY.use('node,tabs,io', function(S, Node, Tabs, Io){
 	                newMainContentDom$ = $(newMainContentHtml);
 	            $('#main-content').replaceWith(newMainContentDom$);
 
-	     		if(href.indexOf('/5.0/demos') > -1){  //如果跳到的是demo页面
+	            //更新sidebar的api链接
+	            var newApiSrc = $('#apilink').attr('href');
+	            $('#sidebar .link-apidocs').attr('href',newApiSrc);
+
+	     		if(href.indexOf('/demos') > -1){  //如果跳到的是demo页面
 	     			editDemoOnlineInit();
 	     		}
 	     		initDisqusThread();

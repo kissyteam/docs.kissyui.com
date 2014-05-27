@@ -1,4 +1,4 @@
-(((apilink=/5.0/api/classes/Anim.html)))
+(((apilink class="Anim")))
 # Anim的基本使用
 
 KISSY 动画，这样来载入anim模块：

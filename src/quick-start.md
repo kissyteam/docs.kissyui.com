@@ -1,1 +1,1 @@
-# quick start,let us learn kissy
+# quick start,let's learn kissy

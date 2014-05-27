@@ -19,6 +19,8 @@
 			<div class="col-md-9" id="main-content">
 				{{{mainContent}}}
 				<div id="disqus_thread"></div>
+				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+				<a id="apilink" href="{{{apilink}}}" style="display:none;"></a>
 			</div>
 			<div class="col-md-3" id="sidebar">
 				<a class="link-apidocs btn btn-primary" href="{{{apilink}}}">API Docs</a>

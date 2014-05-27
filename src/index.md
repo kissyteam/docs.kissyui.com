@@ -1,54 +1,60 @@
+<div class="center-block main-wrap">
 <h1>What is KISSY ?</h1>
-<p>KISSY <a href="https://travis-ci.org/kissyteam/kissy" target="_blank">
+
+KISSY <a href="https://travis-ci.org/kissyteam/kissy" target="_blank">
                         <img src="https://secure.travis-ci.org/kissyteam/kissy.png?branch=master"/>
-                    </a> 是一款跨终端、模块化、高性能、使用简单的 JavaScript 框架。除了完备的工具集合如 DOM、Event、Ajax、Anim 等，它还提供了经典的面向对象、动态加载、性能优化解决方案。作为一款全终端支持的 JavaScript 框架，KISSY 为移动终端做了大量适配和优化，让你的程序在全终端均能流畅运行。</p>
+                    </a> 是一款跨终端、模块化、高性能、使用简单的 JavaScript 框架。除了完备的工具集合如 DOM、Event、Ajax、Anim 等，它还提供了经典的面向对象、动态加载、性能优化解决方案。作为一款全终端支持的 JavaScript 框架，KISSY 为移动终端做了大量适配和优化，让你的程序在全终端均能流畅运行。
+
 <p>KISSY is a powerful javascript framework for building cross end web application such as desktop, mobile and pad.</p>
+
 <div class="row-fluid">
     <div class="col-md-3 text-center">
         <h2>跨终端</h2>
-            <img src="/1.4/source/guideline/templates/assets/img/icon1.png" />
+            <img src="./assets/img/icon1.png" />
     </div>
     <div class="col-md-3 text-center">
         <h2>模块化</h2>
-            <img src="/1.4/source/guideline/templates/assets/img/icon3.png" />
-
+            <img src="./assets/img/icon3.png" />
+    
     </div>
     <div class="col-md-3 text-center">
         <h2>高性能</h2>
-            <img src="/1.4/source/guideline/templates/assets/img/icon4.png" />
-
+            <img src="./assets/img/icon4.png" />
+    
     </div>
     <div class="col-md-3 text-center">
         <h2>使用简单</h2>
-            <img src="/1.4/source/guideline/templates/assets/img/icon2.png" />
-
+            <img src="./assets/img/icon2.png" />
+    
     </div>
 </div>
 
 <p>&nbsp;</p>
 
-<h1>学习 KISSY，从这里开始</h1>
+# 学习 KISSY，从这里开始
+
 <div class="jumbotron row-fluid text-center">
-        <a class="btn btn-primary btn-lg btn-block" href="/1.4/docs/html/guideline/get-started.html">指引手册</a>
-        <a class="btn btn-primary btn-lg btn-block" href="/1.4/docs/html/tutorials/">教程</a>
-        <a class="btn btn-info btn-lg btn-block" href="/1.4/docs/html/api/" style="color:white">API 参考手册</a>
-        <a class="btn btn-info btn-lg btn-block" href="/1.4/docs/html/demo/" style="color:white">DEMO 示例</a>
+    <div class="col-md-3 text-center"><a class="btn btn-primary btn-lg btn-block" href="#">指引手册</a></div>
+    <div class="col-md-3 text-center"><a class="btn btn-primary btn-lg btn-block" href="./guides">教程</a></div>
+    <div class="col-md-3 text-center"><a class="btn btn-info btn-lg btn-block" href="./api" style="color:white">API 参考手册</a></div>
+    <div class="col-md-3 text-center"><a class="btn btn-info btn-lg btn-block" href="./demos" style="color:white">DEMO 示例</a></div>
 </div>
 
 
-<h1>使用 KISSY 1.4</h1>
-<ol>
-<li>下载 <a href="https://github.com/kissyteam/kissy/archive/v1.4.3.zip">KISSY 1.4.3</a></li>
-<li>通过 cdn 使用 <code>http://g.tbcdn.cn/kissy/k/1.4.3/seed-min.js</code> 或  <code>https://s.tbcdn.cn/g/kissy/k/1.4.3/seed-min.js</code></li>
-<li>npm 安装 KISSY: <code>npm install kissy</code></li>
-<li>bower 安装 KISSY: <code>bower install kissy</code></li>
-</ol>
-<h1>参与 KISSY</h1>
-<ol>
-<li>通过 <a href="https://waffle.io/kissyteam/kissy">任务面板</a> 了解 KISSY 将要做或正在做的事情.</li>
-<li>通过 <a href="https://github.com/kissyteam/kissy/issues">issues</a> 来提供反馈.</li>
-<li>通过 <a href="https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md">github</a> 来给 KISSY 贡献代码.</li>
-</ol>
+# 使用 KISSY 1.4
+
+1. 下载 [KISSY 1.4.3](https://github.com/kissyteam/kissy/archive/v1.4.3.zip)
+2. 通过 cdn 使用 `http://g.tbcdn.cn/kissy/k/1.4.3/seed-min.js` 或  `https://s.tbcdn.cn/g/kissy/k/1.4.3/seed-min.js`
+3. npm 安装 KISSY: ``npm install kissy``
+4. bower 安装 KISSY: ``bower install kissy``
+
+
+# 参与 KISSY
+
+1. 通过 [任务面板](https://waffle.io/kissyteam/kissy) 了解 KISSY 将要做或正在做的事情.
+2. 通过 [issues](https://github.com/kissyteam/kissy/issues) 来提供反馈.
+3. 通过 [github](https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md) 来给 KISSY 贡献代码.
+
 <div class="search-combobox" id="combobox">
     <div class="search-combobox-input-wrap">
         <input id="q" name="q" accesskey="s" placeholder="搜索 kissy gallery 组件" class="search-combobox-input" autocomplete="off">
@@ -63,6 +69,15 @@
 </h1>
 
 <style>
+    .main-wrap{
+      width: 75%;
+      max-width: 960px;
+    }
+    .main-wrap h1{
+      margin: 20px 0;
+      text-align: center;
+      font-size: 28px;
+    }
     .img-rounded{
         box-shadow:0 0 8px -3px black;
     }
@@ -79,7 +94,7 @@
     }
     .gallery-coms-title a{
         position: absolute;
-        right: 0;
+        right: 0;   
         top: 4px;
         font-size:16px;
     }
@@ -88,6 +103,7 @@
         padding-right: 0;
     }
     .com-box{
+        text-align: center;
         background-color: #fff;
         padding: 20px;
         border: 4px solid #fff;
@@ -138,7 +154,6 @@
         height:150px;
     }
     .jumbotron a{
-        width: 150px;
         float: left;
         margin-top: 5px;
         margin-left: 10px;
@@ -189,7 +204,9 @@
 
 <div id="J_Coms">
 
-<p></div></p>
+</div>
+<div id="disqus_thread"></div>
+</div>
 <script type="text/xtemplate" class="J_ComsTpl">
     <div class="row-fluid index-box">
         {{#each result}}
@@ -220,14 +237,14 @@
         {{/each}}
     </div>
 </script>
-
+ 
 <p>&nbsp;</p>
 
 <script>
     //gallery组件列表
     (function(){
         KISSY.use('node,io,xtemplate,combobox',function(S,Node,io,XTemplate,ComboBox){
-        	var $ = Node.all;
+            var $ = Node.all;
             io.jsonp('http://gallery.kissyui.com/api/coms?len=12',function(data){
                 var tpl = Node.all('.J_ComsTpl').html();
                 var html = new XTemplate(tpl).render(data);

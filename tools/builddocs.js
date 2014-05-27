@@ -1,7 +1,9 @@
 var fs = require('fs'),
 	path = require('path'),
 	marked = require('marked'),
-	xtpl = require('xtpl');
+	highlightJs = require('highlight.js'),
+	xtpl = require('xtpl'),
+	unescapeHtml = require('unescape-html');
 
 //markdown定制
 var markedRenderer = new marked.Renderer();
@@ -15,20 +17,20 @@ markedRenderer.heading = function(text, level){
 
 marked.setOptions({
   highlight: function (code) {
-    return require('highlight.js').highlightAuto(code).value;
+    return highlightJs.highlightAuto(code).value;
   },
   renderer : markedRenderer
 });
 
 module.exports.buildGuide = function(srcUrl){
 	srcDirPath = path.resolve(srcUrl);
-	projectPath = path.resolve(srcUrl, '../../5.0');
+	projectPath = path.resolve(srcUrl, '../');
 
 	var	guidesPath = path.resolve(srcDirPath, './guides'),
 		guidesModuleLists = [];
 	fs.readdirSync(guidesPath).forEach(function(dir){
 		var dirName = path.resolve(guidesPath,dir),
-			src = path.normalize(path.relative(projectPath, dirName).replace('src','/5.0'));
+			src = path.normalize('./'+ dir);
 		guidesModuleLists.push({
 			name : dir,
 			src : src
@@ -39,13 +41,15 @@ module.exports.buildGuide = function(srcUrl){
 			fs.readdirSync(dirName).forEach(function(file){
 				var fileName = path.resolve(dirName,file),
 					fileMD = fs.readFileSync(fileName).toString(),
-					fileHtml = marked(fileMD),
-					apiLinkReg = /\(\(\(apilink=(.+)\)\)\)/,
+					fileHtml = unescapeHtml(marked(fileMD)),
+					apiLinkReg = /\(\(\(apilink\s*(.+)\)\)\)/,
 					apiLinkRegResult = apiLinkReg.exec(fileHtml),
-					apilink = '/5.0/api';
+					apilink = '../../api';
 
 				if(apiLinkRegResult){
 					apilink = apiLinkRegResult[1];
+					var name = /['"](.+)['"]/.exec(apilink)[1];
+					apilink = apilink.indexOf('class') > -1 ? ('../../api/classes/' + name + '.html') : ('../../api/modules/' + name + '.html');
 					fileHtml = fileHtml.replace(apiLinkRegResult[0],'');
 				}
 
@@ -75,13 +79,13 @@ module.exports.buildGuide = function(srcUrl){
 
 module.exports.buildDemos = function(srcUrl){
 	srcDirPath = path.resolve(srcUrl);
-	projectPath = path.resolve(srcUrl, '../../5.0');
+	projectPath = path.resolve(srcUrl, '../');
 
 	var	demosPath = path.resolve(srcDirPath, './demos'),
 		demoLists = [];
 	fs.readdirSync(demosPath).forEach(function(dir){
 		var dirName = path.resolve(demosPath,dir),
-			src = path.normalize(path.relative(projectPath, dirName).replace('src','/5.0'));
+			src = path.normalize('./' + dir);
 		demoLists.push({
 			name : dir,
 			src : src
@@ -97,28 +101,32 @@ module.exports.buildDemos = function(srcUrl){
 				if(fs.statSync(fileName).isDirectory()){
 					return;
 				}
+
 				var fileMD = fs.readFileSync(fileName).toString(),
-					fileHtml = marked(fileMD),
-					apiLinkReg = /\(\(\(apilink=(.+)\)\)\)/,
+					fileHtml = unescapeHtml(marked(fileMD)),
+					apiLinkReg = /\(\(\(apilink\s*(.+)\)\)\)/,
 					apiLinkRegResult = apiLinkReg.exec(fileHtml),
-					apilink = '/5.0/api',
-					fileReg = /{{{(.+?)}}}/g,
+					apilink = '../../api',
+					fileReg = /\[\[\[(.+?)\]\]\]/g,
 					includingFiles = fileHtml.match(fileReg);
 				if(apiLinkRegResult){
 					apilink = apiLinkRegResult[1];
+					var name = /['"](.+)['"]/.exec(apilink)[1];
+					apilink = apilink.indexOf('class') > -1 ? ('../../api/classes/' + name + '.html') : ('../../api/modules/' + name + '.html');
 					fileHtml = fileHtml.replace(apiLinkRegResult[0],'');
 				}
 					
 				for(var i = 0; i < includingFiles.length; i++){
-					var str = includingFiles[i],
-						whichFileToInclude = /include\s*file=&quot;(.+?)&quot;/.exec(str)[1],
-						heightRegResult = /height=&quot;(.+?)&quot;/.exec(str),
+					var str = unescapeHtml(includingFiles[i]),
+						whichFileToInclude = /include\s*file=['"](.+?)['"]/.exec(str)[1],
+						heightRegResult = /height=['"](.+?)['"]/.exec(str),
 						height = heightRegResult ? heightRegResult[1] : '800px',
 						includingFilePath = path.resolve(dirName,whichFileToInclude);
-
+					
 					var demoCode = fs.readFileSync(includingFilePath);
 					(function(str, demoCodeXtplPath, demoCode){
 						xtpl.__express(demoCodeXtplPath,{
+
 							demoCode : demoCode,
 							height : height,
 							settings : {
@@ -154,7 +162,7 @@ module.exports.buildDemos = function(srcUrl){
 
 module.exports.buildOthers = function(srcUrl){
 	srcDirPath = path.resolve(srcUrl);
-	projectPath = path.resolve(srcUrl, '../../5.0');
+	projectPath = path.resolve(srcUrl, '../');
 	var mainXtplPath = path.resolve(srcDirPath,'../themes/layouts/main.xtpl');
 
 	fs.readdirSync(srcDirPath).forEach(function(file){
@@ -166,7 +174,6 @@ module.exports.buildOthers = function(srcUrl){
 			var mdContent = fs.readFileSync(fileName).toString(),
 				desPath = path.normalize(fileName.replace('src','').replace('md','html')),
 				fileHtml = marked(mdContent);
-			// console.log(fileName);
 			xtpl.__express(mainXtplPath,{
 				mainContent : fileHtml,
 				settings : {
@@ -222,7 +229,7 @@ function getFeatures(dirUrl){
 				// reg =  /^ *(#{1}) *([^\n]+?) *#* *(?:\n+|$)/,
 				reg = /#(.*)/,
 				feature = reg.exec(fileContent)[1].trim();
-			var fileLink = path.normalize(path.relative(projectPath,fileName).replace('src','/5.0').replace('md','html'));
+			var fileLink = path.normalize(path.relative(projectPath,fileName).replace('src','../../').replace('md','html'));
 			feature = '<p><a href="' + fileLink +'">' + feature + '</a></p>';
 			featureContent += feature;
 		});
