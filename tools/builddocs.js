@@ -115,7 +115,8 @@ module.exports.buildDemos = function(srcUrl){
 					apilink = apilink.indexOf('class') > -1 ? ('../../api/classes/' + name + '.html') : ('../../api/modules/' + name + '.html');
 					fileHtml = fileHtml.replace(apiLinkRegResult[0],'');
 				}
-					
+				var compiledDemosNum = 0,
+					tagMapDemoHtml = [];
 				for(var i = 0; i < includingFiles.length; i++){
 					var str = unescapeHtml(includingFiles[i]),
 						whichFileToInclude = /include\s*file=['"](.+?)['"]/.exec(str)[1],
@@ -123,7 +124,7 @@ module.exports.buildDemos = function(srcUrl){
 						height = heightRegResult ? heightRegResult[1] : '800px',
 						includingFilePath = path.resolve(dirName,whichFileToInclude);
 					
-					var demoCode = fs.readFileSync(includingFilePath);
+					var demoCode = fs.readFileSync(includingFilePath).toString();
 					(function(str, demoCodeXtplPath, demoCode){
 						xtpl.__express(demoCodeXtplPath,{
 
@@ -136,19 +137,29 @@ module.exports.buildDemos = function(srcUrl){
 							if(err){
 								console.log('error occur:' + str);
 							}else{
-								fileHtml = fileHtml.replace(str,demoCodeHtml);
-								xtpl.__express(mainXtplPath,{
-									mainContent : fileHtml,
-									sidebarContent : sideBarHtml,
-									apilink : apilink,
-									settings : {
-										'view encoding' : 'utf-8'
-									}
-								},function(err,desFile){
-									var desFileName = path.normalize(fileName.replace('src','').replace('md','html'));
-									!fs.existsSync(path.dirname(desFileName)) && fs.mkdirSync(path.dirname(desFileName));
-									fs.writeFileSync(desFileName, desFile);
+								compiledDemosNum++;
+								tagMapDemoHtml.push({
+									str : str,
+									demoCodeHtml : demoCodeHtml
 								});
+								if(compiledDemosNum === includingFiles.length){
+									for(var j = 0; j < tagMapDemoHtml.length; j++){
+										var obj = tagMapDemoHtml[j];
+										fileHtml = fileHtml.replace(obj.str,obj.demoCodeHtml);
+									}
+									xtpl.__express(mainXtplPath,{
+										mainContent : fileHtml,
+										sidebarContent : sideBarHtml,
+										apilink : apilink,
+										settings : {
+											'view encoding' : 'utf-8'
+										}
+									},function(err,desFile){
+										var desFileName = path.normalize(fileName.replace('src','').replace('md','html'));
+										!fs.existsSync(path.dirname(desFileName)) && fs.mkdirSync(path.dirname(desFileName));
+										fs.writeFileSync(desFileName, desFile);
+									});
+								}
 							}
 						});
 					})(str, demoCodeXtplPath, demoCode);
