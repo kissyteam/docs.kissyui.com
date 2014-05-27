@@ -22,7 +22,8 @@ marked.setOptions({
   renderer : markedRenderer
 });
 
-module.exports.buildGuide = function(srcUrl){
+module.exports.buildGuide = function(srcUrl,config){
+	var version = config.version;
 	srcDirPath = path.resolve(srcUrl);
 	projectPath = path.resolve(srcUrl, '../');
 
@@ -177,13 +178,13 @@ module.exports.buildOthers = function(srcUrl){
 	var mainXtplPath = path.resolve(srcDirPath,'../themes/layouts/main.xtpl');
 
 	fs.readdirSync(srcDirPath).forEach(function(file){
-		if(file === 'api' || file === 'demos' || file === 'guides'){
+		if(file === 'api' || file === 'demos' || file === 'guides' || file === 'assets'){
 			return;  //这个三个目录在其他地方处理，如buildGuides/buildDemos等
 		}
 		var fileName = path.resolve(srcDirPath,file);
 		if(!fs.statSync(fileName).isDirectory()){
 			var mdContent = fs.readFileSync(fileName).toString(),
-				desPath = path.normalize(fileName.replace('src','').replace('md','html')),
+				desPath = path.normalize(fileName.replace('src','build').replace('md','html')),
 				fileHtml = marked(mdContent);
 			xtpl.__express(mainXtplPath,{
 				mainContent : fileHtml,
@@ -194,7 +195,7 @@ module.exports.buildOthers = function(srcUrl){
 				fs.writeFileSync(desPath,desFile);
 			});
 		}else{
-			var desDirName = path.normalize(fileName.replace('src',''));
+			var desDirName = path.normalize(fileName.replace('src','build'));
 			!fs.existsSync(desDirName) && fs.mkdirSync(desDirName);
 			fs.readdirSync(fileName).forEach(function(file){
 				var srcFileName = path.resolve(fileName,file);

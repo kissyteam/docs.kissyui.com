@@ -50,7 +50,7 @@ KISSY.use('node,tabs,io', function(S, Node, Tabs, Io){
 	}
 
 	//demo页面初次加载时先初始化
-	window.location.href.indexOf('/demos') > -1 && editDemoOnlineInit();
+	window.location.href.indexOf('/5.0/demos') > -1 && editDemoOnlineInit();
 
 	//初始化评论功能
 	initDisqusThread();
