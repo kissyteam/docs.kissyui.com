@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combo:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<script>
+		  (function() {
+		    var cx = '003618533255763067140:5nkycw1pbey';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute'
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-12"  id="main-content">
+				<h2>this is faq.html</h2>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

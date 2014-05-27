@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>KISSY User Guides</title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combo:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<script>
+		  (function() {
+		    var cx = '003618533255763067140:5nkycw1pbey';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute'
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-9" id="main-content">
+				<p></p>
+<h1>Anim的基本使用</h1><p>KISSY 动画，这样来载入anim模块：</p>
+<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'anim'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Anim)</span>{</span>
+    <span class="hljs-comment">// use Anim</span>
+});
+</code></pre><p>由于<code>node</code>模块依赖<code>anim</code>，通常我们使用<code>node</code>时，使用node.animate()方法即可对某个已知节点作动画。即</p>
+<pre><code>KISSY.all(<span class="hljs-string">".foo"</span>).each(<span class="hljs-keyword">function</span>(n){
+    new KISSY.Anim(n,<span class="hljs-keyword">...</span>).run();
+});
+</code></pre><p>等价于</p>
+<pre><code><span class="hljs-keyword">var</span> node=KISSY.all(<span class="hljs-string">".foo"</span>);
+node.animate({
+    width:<span class="hljs-number">100</span>,
+    height:<span class="hljs-number">300</span>
+}, {
+    duration: <span class="hljs-number">2000</span>,
+    easing:<span class="hljs-string">'easeBoth'</span> ,
+    complete: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>}
+});
+</code></pre><p>此外，<code>node</code>节点还挂载一些常用的做动画的函数，比如<code>fadeIn</code>、<code>fadeOut</code>、<code>slideUp</code>、<code>slideDown</code>等（具体请参照<code>Node</code>）。</p>
+
+				<div id="disqus_thread"></div>
+				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+				<a id="apilink" href="../../api/classes/Anim.html" style="display:none;"></a>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/Anim.html">API Docs</a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="..\..\guides\anim\index.html">Anim的基本使用</a></p>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="..\..\demos\anim\easing.html">easing可视化</a></p><p><a href="..\..\demos\anim\index.html">anim的基本使用</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

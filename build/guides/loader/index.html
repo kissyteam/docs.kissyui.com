@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>KISSY User Guides</title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combo:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<script>
+		  (function() {
+		    var cx = '003618533255763067140:5nkycw1pbey';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute'
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-9" id="main-content">
+				<p></p>
+<h1>简单配置包使用</h1><p>可以通过配置包来制定业务应用的 js 代码所在的路径，然后用目录结构来组织代码文件，最后 use 即可。例如：</p>
+<pre><code>KISSY.config({
+    packages: {
+        <span class="hljs-string">"my"</span>:{
+            combine:<span class="hljs-keyword">false</span>,
+            tag: <span class="hljs-string">"20110323"</span>,<span class="hljs-comment">//时间戳, 添加在动态脚本路径后面, 用于更新包内模块代码</span>
+            base: <span class="hljs-string">"./assets/module_package/"</span>, <span class="hljs-comment">//包对应路径, 相对路径指相对于当前页面路径</span>
+            charset: <span class="hljs-string">"gbk"</span> <span class="hljs-comment">//包里模块文件编码格式</span>
+        }
+    }
+});
+KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'core'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(S)</span> {</span>
+    KISSY.one(<span class="hljs-string">"#k12"</span>).on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+        KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">"my/mod"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(S, Mod)</span> {</span>
+            alert(Mod);
+        });
+    });
+});
+</code></pre>
+				<div id="disqus_thread"></div>
+				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+				<a id="apilink" href="../../api/modules/loader.html" style="display:none;"></a>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="../../api/modules/loader.html">API Docs</a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="..\..\guides\loader\combo.html">combo 使用内置模块</a></p><p><a href="..\..\guides\loader\import-style.html">importStyle的使用</a></p><p><a href="..\..\guides\loader\index.html">简单配置包使用</a></p>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="..\..\demos\loader\index.html">Classic Loader 简单配置包使用</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

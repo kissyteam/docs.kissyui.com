@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>KISSY Demos</title>
+	<link rel="shortcut icon" href="../assets/favicon.ico">
+	<link rel="stylesheet" href="../assets/css/bootstrap.css">
+	<link rel="stylesheet" href="../assets/css/component.css">
+	<link rel="stylesheet" href="../assets/css/custom.css">
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<script>
+		  (function() {
+		    var cx = '003618533255763067140:5nkycw1pbey';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute'
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<h1>KISSY Demos</h1>
+		<div id="demos-lists">
+			<ul class="row list-unstyled">
+				
+				<li class="col-md-3">
+					<a href="anim">anim</a>
+				</li>
+				
+				<li class="col-md-3">
+					<a href="loader">loader</a>
+				</li>
+				
+			</ul>
+		</div>
+		<div id="disqus_thread"></div>
+<script>
+    if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+     //var disqus_identifier = '/anim';
+     //var disqus_url = window.location;
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    }
+</script>
+	</div>
+</body>
+</html>

@@ -65,7 +65,7 @@ module.exports.buildGuide = function(srcUrl){
 						if(err){
 							console.log('render error!');
 						}else{
-							var desFileName = path.normalize(fileName.replace('src','').replace('md','html'));
+							var desFileName = path.normalize(fileName.replace('src','build').replace('md','html'));
 							!fs.existsSync(path.dirname(desFileName)) && fs.mkdirSync(path.dirname(desFileName));
 							fs.writeFileSync(desFileName, desFile);
 						}
@@ -155,7 +155,7 @@ module.exports.buildDemos = function(srcUrl){
 											'view encoding' : 'utf-8'
 										}
 									},function(err,desFile){
-										var desFileName = path.normalize(fileName.replace('src','').replace('md','html'));
+										var desFileName = path.normalize(fileName.replace('src','build').replace('md','html'));
 										!fs.existsSync(path.dirname(desFileName)) && fs.mkdirSync(path.dirname(desFileName));
 										fs.writeFileSync(desFileName, desFile);
 									});
@@ -199,7 +199,7 @@ module.exports.buildOthers = function(srcUrl){
 			fs.readdirSync(fileName).forEach(function(file){
 				var srcFileName = path.resolve(fileName,file);
 				var mdContent = fs.readFileSync(srcFileName).toString(),
-					desPath = path.normalize(srcFileName.replace('src','').replace('md','html')),
+					desPath = path.normalize(srcFileName.replace('src','build').replace('md','html')),
 					fileHtml = marked(mdContent);
 				xtpl.__express(mainXtplPath,{
 					mainContent : fileHtml,
@@ -258,7 +258,7 @@ function getSideBarDemos(dirUrl){
 }
 
 function buildGuideIndex(guidesModuleLists){
-	var productGuideIndexPath = path.resolve(projectPath, './guides/index.html'),
+	var productGuideIndexPath = path.resolve(projectPath, './build/guides/index.html'),
 		guidesIndexXtplPath = path.resolve(projectPath, './themes/guides/layouts/guides-index.xtpl');
 	xtpl.__express(guidesIndexXtplPath,{
 		settings : {
@@ -275,7 +275,7 @@ function buildGuideIndex(guidesModuleLists){
 }
 
 function buildDemoIndex(demoLists){
-	var productDemoIndexPath = path.resolve(projectPath, './demos/index.html'),
+	var productDemoIndexPath = path.resolve(projectPath, './build/demos/index.html'),
 		demosIndexXtplPath = path.resolve(projectPath, './themes/demos/layouts/demos-index.xtpl');
 
 	xtpl.__express(demosIndexXtplPath,{

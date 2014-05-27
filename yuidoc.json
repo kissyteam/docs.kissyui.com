@@ -8,7 +8,7 @@
         "attributesEmit": false,
         "selleck": true,
         "paths" : "./src/api/",
-		"outdir" : "./api/",
+		"outdir" : "./build/api/",
 		"themedir" : "./themes/api/default/"
 	}
 }
