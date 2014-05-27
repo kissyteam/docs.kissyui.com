@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 
-var util = require('./tools/util.js'),
+var fs = require('fs'),
+	util = require('./tools/util.js'),
 	buildDocs = require('./tools/builddocs.js'),
 	path = require('path'),
 	process = require('child_process');
@@ -28,6 +29,7 @@ gulp.task('buildguide',function(){
 	//生成其他目录的文档
 	buildDocs.buildOthers(srcPath,config);
 });
+
 
 
 gulp.task('default',['copyassets', 'buildapi', 'buildguide']);
