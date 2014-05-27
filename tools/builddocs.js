@@ -9,7 +9,8 @@ var fs = require('fs'),
 var markedRenderer = new marked.Renderer();
 
 var srcDirPath = '',
-	projectPath = '';
+	projectPath = '',
+	version = '';
 
 markedRenderer.heading = function(text, level){
 	return '<h' + level + '>' + text + '</h' + level + '>';
@@ -23,7 +24,7 @@ marked.setOptions({
 });
 
 module.exports.buildGuide = function(srcUrl,config){
-	var version = config.version;
+	version = config.version;
 	srcDirPath = path.resolve(srcUrl);
 	projectPath = path.resolve(srcUrl, '../');
 
@@ -59,6 +60,7 @@ module.exports.buildGuide = function(srcUrl,config){
 						mainContent : fileHtml,
 						sidebarContent : sideBarHtml,
 						apilink : apilink,
+						version : version,
 						settings : {
 							'view encoding' : 'utf-8'
 						}
@@ -78,7 +80,8 @@ module.exports.buildGuide = function(srcUrl,config){
 };
 
 
-module.exports.buildDemos = function(srcUrl){
+module.exports.buildDemos = function(srcUrl,config){
+	version = config.version;
 	srcDirPath = path.resolve(srcUrl);
 	projectPath = path.resolve(srcUrl, '../');
 
@@ -128,9 +131,9 @@ module.exports.buildDemos = function(srcUrl){
 					var demoCode = fs.readFileSync(includingFilePath).toString();
 					(function(str, demoCodeXtplPath, demoCode){
 						xtpl.__express(demoCodeXtplPath,{
-
 							demoCode : demoCode,
 							height : height,
+							version : version,
 							settings : {
 								'view encoding' : 'utf-8'
 							}
@@ -152,6 +155,7 @@ module.exports.buildDemos = function(srcUrl){
 										mainContent : fileHtml,
 										sidebarContent : sideBarHtml,
 										apilink : apilink,
+										version : version,
 										settings : {
 											'view encoding' : 'utf-8'
 										}
@@ -172,7 +176,8 @@ module.exports.buildDemos = function(srcUrl){
 };
 
 
-module.exports.buildOthers = function(srcUrl){
+module.exports.buildOthers = function(srcUrl,config){
+	version = config.version;
 	srcDirPath = path.resolve(srcUrl);
 	projectPath = path.resolve(srcUrl, '../');
 	var mainXtplPath = path.resolve(srcDirPath,'../themes/layouts/main.xtpl');
@@ -188,6 +193,7 @@ module.exports.buildOthers = function(srcUrl){
 				fileHtml = marked(mdContent);
 			xtpl.__express(mainXtplPath,{
 				mainContent : fileHtml,
+				version : version,
 				settings : {
 					'view encoding' : 'utf-8'
 				}
@@ -204,6 +210,7 @@ module.exports.buildOthers = function(srcUrl){
 					fileHtml = marked(mdContent);
 				xtpl.__express(mainXtplPath,{
 					mainContent : fileHtml,
+					version : version,
 					settings : {
 						'view encoding' : 'utf-8'
 					}
@@ -262,6 +269,7 @@ function buildGuideIndex(guidesModuleLists){
 	var productGuideIndexPath = path.resolve(projectPath, './build/guides/index.html'),
 		guidesIndexXtplPath = path.resolve(projectPath, './themes/guides/layouts/guides-index.xtpl');
 	xtpl.__express(guidesIndexXtplPath,{
+		version : version,
 		settings : {
 			'view encoding' : 'utf-8'
 		},
@@ -280,6 +288,7 @@ function buildDemoIndex(demoLists){
 		demosIndexXtplPath = path.resolve(projectPath, './themes/demos/layouts/demos-index.xtpl');
 
 	xtpl.__express(demosIndexXtplPath,{
+		version : version,
 		settings : {
 			'view encoding' : 'utf-8'
 		},

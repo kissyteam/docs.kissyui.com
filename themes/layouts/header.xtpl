@@ -1,7 +1,7 @@
 <header class="header clearfix">
 	<div class="logo">
-		<a href="/5.0">
-			<img src="/5.0/assets/img/logo.png" alt="">
+		<a href="/{{{version}}}">
+			<img src="/{{{version}}}/assets/img/logo.png" alt="">
 		</a>
 	</div>
 	<div class="search">
@@ -30,7 +30,7 @@
 						content : 'Home',
 						listeners : {
 							click : function(){
-								window.location.href ='/5.0';
+								window.location.href ='/{{{version}}}';
 							}
 						}
 					},
@@ -38,7 +38,7 @@
 						content : 'Quick Start',
 						listeners : {
 							click : function(){
-								window.location.href ='/5.0/quick-start.html';
+								window.location.href ='/{{{version}}}/quick-start.html';
 							}
 						}
 					},
@@ -51,7 +51,7 @@
 									content : 'Guides',
 									listeners : {
 										click : function(){
-											window.location.href ='/5.0/guides';
+											window.location.href ='/{{{version}}}/guides';
 										}
 									}
 								},
@@ -59,14 +59,14 @@
 									content : 'API Docs',
 									listeners : {
 										click : function(){
-											window.location.href ='/5.0/api';
+											window.location.href ='/{{{version}}}/api';
 										}
 									}
 								},{
 									content : 'Demos',
 									listeners : {
 										click : function(){
-											window.location.href ='/5.0/demos';
+											window.location.href ='/{{{version}}}/demos';
 										}
 									}
 								}
@@ -86,7 +86,7 @@
 									content : 'FAQ',
 									listeners : {
 										click : function(){
-											window.location.href ='/5.0/more/faq.html';
+											window.location.href ='/{{{version}}}/more/faq.html';
 										}
 									}
 								}

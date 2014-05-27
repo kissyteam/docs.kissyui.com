@@ -24,9 +24,9 @@ gulp.task('buildguide',function(){
 	//生成教程文档
 	buildDocs.buildGuide(srcPath,config);
 	//生成demos
-	buildDocs.buildDemos(srcPath);
+	buildDocs.buildDemos(srcPath,config);
 	//生成其他目录的文档
-	buildDocs.buildOthers(srcPath);
+	buildDocs.buildOthers(srcPath,config);
 });
 
 
