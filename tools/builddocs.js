@@ -44,6 +44,7 @@ module.exports.buildGuide = function(srcUrl,config){
 				var fileName = path.resolve(dirName,file),
 					fileMD = fs.readFileSync(fileName).toString(),
 					fileHtml = unescapeHtml(marked(fileMD)),
+					title = getTitle(fileHtml),
 					apiLinkReg = /\(\(\(apilink\s*(.+)\)\)\)/,
 					apiLinkRegResult = apiLinkReg.exec(fileHtml),
 					apilink = '../../api';
@@ -61,6 +62,7 @@ module.exports.buildGuide = function(srcUrl,config){
 						sidebarContent : sideBarHtml,
 						apilink : apilink,
 						version : version,
+						title : title,
 						settings : {
 							'view encoding' : 'utf-8'
 						}
@@ -108,6 +110,7 @@ module.exports.buildDemos = function(srcUrl,config){
 
 				var fileMD = fs.readFileSync(fileName).toString(),
 					fileHtml = unescapeHtml(marked(fileMD)),
+					title = getTitle(fileHtml),
 					apiLinkReg = /\(\(\(apilink\s*(.+)\)\)\)/,
 					apiLinkRegResult = apiLinkReg.exec(fileHtml),
 					apilink = '../../api',
@@ -156,6 +159,7 @@ module.exports.buildDemos = function(srcUrl,config){
 										sidebarContent : sideBarHtml,
 										apilink : apilink,
 										version : version,
+										title : title,
 										settings : {
 											'view encoding' : 'utf-8'
 										}
@@ -190,10 +194,12 @@ module.exports.buildOthers = function(srcUrl,config){
 		if(!fs.statSync(fileName).isDirectory()){
 			var mdContent = fs.readFileSync(fileName).toString(),
 				desPath = path.normalize(fileName.replace('src','build').replace('md','html')),
-				fileHtml = marked(mdContent);
+				fileHtml = marked(mdContent),
+				title = getTitle(fileHtml);
 			xtpl.__express(mainXtplPath,{
 				mainContent : fileHtml,
 				version : version,
+				title : title,
 				settings : {
 					'view encoding' : 'utf-8'
 				}
@@ -207,10 +213,12 @@ module.exports.buildOthers = function(srcUrl,config){
 				var srcFileName = path.resolve(fileName,file);
 				var mdContent = fs.readFileSync(srcFileName).toString(),
 					desPath = path.normalize(srcFileName.replace('src','build').replace('md','html')),
-					fileHtml = marked(mdContent);
+					fileHtml = marked(mdContent),
+					title = getTitle(fileHtml);
 				xtpl.__express(mainXtplPath,{
 					mainContent : fileHtml,
 					version : version,
+					title : title,
 					settings : {
 						'view encoding' : 'utf-8'
 					}
@@ -221,6 +229,16 @@ module.exports.buildOthers = function(srcUrl,config){
 		}
 	});
 };
+
+function getTitle(htmlContent){
+	var reg = /<h1.*>(.+)<\/h1>/,
+		title = 'KISSY',
+		result = reg.exec(htmlContent);
+	if(result){
+		title = result[1];
+	}
+	return title;
+}
 
 function trunMdIntoHtml(mdContent,desPath){
 	!fs.existsSync(desPath) && fs.mkdirSync(desPath);
