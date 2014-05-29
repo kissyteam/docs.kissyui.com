@@ -1,8 +1,22 @@
 # docs.kissyui.com
------------------------------------------------------
+=============================================
 
 ## KISSY5.0 文档系统
 [访问地址](http://docs.kissyui.com/5.0)
+
+## 项目结构
+- build: 构建后的所有文件
+- src：构建前编写的文档
+    - api：api文档
+    - assets：所有静态资源css/img/js
+    - contribute：如何向kissy贡献代码的页面
+    - demos：demos示例
+    - guides：教程文档
+    - more：更多页面
+    - index.md：首页
+    - quick-start.md：快速上手页面
+- themes：页面的主题结构文件
+- tools：自动化构建工具
 
 ## 如何贡献文档及构建
 1. 安装服务器、Git和Node.js环境
