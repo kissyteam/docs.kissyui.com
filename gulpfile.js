@@ -1,4 +1,5 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
+	yargs = require('yargs');
 
 var fs = require('fs'),
 	util = require('./tools/util.js'),
@@ -17,7 +18,11 @@ gulp.task('copyassets',function(){
 
 gulp.task('buildapi',function(){
 	//生成api文档
-	process.exec('yuidoc');
+	var yuidocPath = path.resolve('./node_modules/yuidocjs'),
+		yuidocConfig = JSON.parse(fs.readFileSync(yuidocPath+'/package.json').toString()),
+		yuidocCliPath = path.resolve(yuidocPath, yuidocConfig.bin.yuidoc),
+		cliString = 'node ' + yuidocCliPath;
+	process.exec(cliString);
 });
 
 gulp.task('buildguide',function(){
@@ -30,6 +35,21 @@ gulp.task('buildguide',function(){
 	buildDocs.buildOthers(srcPath,config);
 });
 
+gulp.task('linkserver',function(){
+	var args = yargs.argv,
+		serverRootPath = args.path,
+		serverLinkPath = path.normalize(serverRootPath+'/'+config.version);
+		buildPath = path.resolve('./build');
+
+	/**
+	@method symlinkSync
+	@param srcpath {String} 源目录的绝对路径
+	@param dstpath {String} 目标目录的绝对路径
+	@param [type] {String} 仅在Window下有效，可取值'file'/'dir'/'junction',表示文件类型；在Linux下该参数会被忽略
+	@param callback {Function} 回调函数
+	*/
+	fs.symlinkSync(buildPath,serverLinkPath,'dir');
+});
 
 
 gulp.task('default',['copyassets', 'buildapi', 'buildguide']);
