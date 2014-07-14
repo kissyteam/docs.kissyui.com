@@ -122,22 +122,22 @@
 </code></pre></li>
 <li>页面是基于 KISSY 模块规范开发的，如依赖css，需要显式在requires里声明</li>
 </ul>
-<h2>使用指南</h2><pre><code>KISSY.config(<span class="hljs-string">'modules'</span>, {
-  <span class="hljs-string">'components/nav/index'</span>: {<span class="hljs-keyword">requires</span>: [<span class="hljs-string">'components/nav/index.css'</span>]},
-  <span class="hljs-string">'components/layout/index'</span>: {<span class="hljs-keyword">requires</span>: [<span class="hljs-string">'components/layout/index.css'</span>]},
-  <span class="hljs-string">'components/home/index'</span>: {<span class="hljs-keyword">requires</span>: [<span class="hljs-string">'components/nav/index'</span>,<span class="hljs-string">'components/layout/index'</span>]}
+<h2>使用指南</h2><pre><code>KISSY.config('modules', {
+  'components/nav/index': {requires: ['components/nav/index.css']},
+  'components/layout/index': {requires: ['components/layout/index.css']},
+  'components/home/index': {requires: ['components/nav/index<span class="hljs-string">','</span>components/layout/index']}
 });
 
 KISSY.config({
-  <span class="hljs-string">'combine'</span>:true,
-  <span class="hljs-string">'packages'</span>:[{
-    <span class="hljs-string">'name'</span>:<span class="hljs-string">'components'</span>,
-    <span class="hljs-string">'base'</span>:<span class="hljs-string">'http://assets.etao.net/apps/e/hotel/130716'</span>,
-    <span class="hljs-string">'debug'</span>:<span class="hljs-string">'true'</span>
+  'combine':<span class="hljs-keyword">true</span>,
+  'packages':[{
+    'name<span class="hljs-string">':'</span>components',
+    'base<span class="hljs-string">':'</span>http:<span class="hljs-comment">//assets.etao.net/apps/e/hotel/130716',</span>
+    'debug<span class="hljs-string">':'</span><span class="hljs-keyword">true</span>'
   }]
 });
 
-KISSY.importStyle(<span class="hljs-string">'components/home/index'</span>);
+KISSY.importStyle('components/home/index');
 </code></pre><p>上面是一淘酒店项目中摘出的ImportStyle使用Demo，可以看出使用方式很简单——提供模块依赖信息、包配置， 最后调用importStyle，传入模块列表即可。</p>
 
 				<div id="disqus_thread"></div>
@@ -151,7 +151,7 @@ KISSY.importStyle(<span class="hljs-string">'components/home/index'</span>);
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="..\..\guides\loader\combo.html">combo 使用内置模块</a></p><p><a href="..\..\guides\loader\import-style.html">importStyle的使用</a></p><p><a href="..\..\guides\loader\index.html">简单配置包使用</a></p>
+						<p><a href="../../guides/loader/combo.html">combo 使用内置模块</a></p><p><a href="../../guides/loader/import-style.html">importStyle的使用</a></p><p><a href="../../guides/loader/index.html">简单配置包使用</a></p><p><a href="../../guides/loader/kmd.html">KISSY 模块定义规范（KMD）</a></p>
 					</div>
 				</div>
 				<div class="panel panel-primary">
@@ -159,7 +159,7 @@ KISSY.importStyle(<span class="hljs-string">'components/home/index'</span>);
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="..\..\demos\loader\index.html">Classic Loader 简单配置包使用</a></p>
+						<p><a href="../../demos/loader/index.html">Classic Loader 简单配置包使用</a></p>
 					</div>
 				</div>
 			</div>

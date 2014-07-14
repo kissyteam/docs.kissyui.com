@@ -70,7 +70,7 @@ module.exports.buildGuide = function(srcUrl,config){
 						if(err){
 							console.log('render error!');
 						}else{
-							var desFileName = path.normalize(fileName.replace('src','build').replace('md','html'));
+							var desFileName = path.normalize(fileName.replace('src','build').replace('.md','.html'));
 							!fs.existsSync(path.dirname(desFileName)) && fs.mkdirSync(path.dirname(desFileName));
 							fs.writeFileSync(desFileName, desFile);
 						}
@@ -164,7 +164,7 @@ module.exports.buildDemos = function(srcUrl,config){
 											'view encoding' : 'utf-8'
 										}
 									},function(err,desFile){
-										var desFileName = path.normalize(fileName.replace('src','build').replace('md','html'));
+										var desFileName = path.normalize(fileName.replace('src','build').replace('.md','.html'));
 										!fs.existsSync(path.dirname(desFileName)) && fs.mkdirSync(path.dirname(desFileName));
 										fs.writeFileSync(desFileName, desFile);
 									});
@@ -193,7 +193,7 @@ module.exports.buildOthers = function(srcUrl,config){
 		var fileName = path.resolve(srcDirPath,file);
 		if(!fs.statSync(fileName).isDirectory()){
 			var mdContent = fs.readFileSync(fileName).toString(),
-				desPath = path.normalize(fileName.replace('src','build').replace('md','html')),
+				desPath = path.normalize(fileName.replace('src','build').replace('.md','.html')),
 				fileHtml = marked(mdContent),
 				title = getTitle(fileHtml);
 			xtpl.__express(mainXtplPath,{
@@ -212,7 +212,7 @@ module.exports.buildOthers = function(srcUrl,config){
 			fs.readdirSync(fileName).forEach(function(file){
 				var srcFileName = path.resolve(fileName,file);
 				var mdContent = fs.readFileSync(srcFileName).toString(),
-					desPath = path.normalize(srcFileName.replace('src','build').replace('md','html')),
+					desPath = path.normalize(srcFileName.replace('src','build').replace('.md','.html')),
 					fileHtml = marked(mdContent),
 					title = getTitle(fileHtml);
 				xtpl.__express(mainXtplPath,{
@@ -266,7 +266,7 @@ function getFeatures(dirUrl){
 				// reg =  /^ *(#{1}) *([^\n]+?) *#* *(?:\n+|$)/,
 				reg = /#(.*)/,
 				feature = reg.exec(fileContent)[1].trim();
-			var fileLink = path.normalize(path.relative(projectPath,fileName).replace('src','../../').replace('md','html'));
+			var fileLink = path.normalize(path.relative(projectPath,fileName).replace('src','../../').replace('.md','.html'));
 			feature = '<p><a href="' + fileLink +'">' + feature + '</a></p>';
 			featureContent += feature;
 		});

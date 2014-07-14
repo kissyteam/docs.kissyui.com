@@ -118,7 +118,7 @@
 			<div class="col-md-9" id="main-content">
 				<p></p>
 <h1>Anim的基本使用</h1><p>KISSY 动画，这样来载入anim模块：</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'anim'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Anim)</span>{</span>
+<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'anim'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Anim)</span></span>{
     <span class="hljs-comment">// use Anim</span>
 });
 </code></pre><p>由于<code>node</code>模块依赖<code>anim</code>，通常我们使用<code>node</code>时，使用node.animate()方法即可对某个已知节点作动画。即</p>
@@ -133,7 +133,7 @@ node.animate({
 }, {
     duration: <span class="hljs-number">2000</span>,
     easing:<span class="hljs-string">'easeBoth'</span> ,
-    complete: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>}
+    complete: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{}
 });
 </code></pre><p>此外，<code>node</code>节点还挂载一些常用的做动画的函数，比如<code>fadeIn</code>、<code>fadeOut</code>、<code>slideUp</code>、<code>slideDown</code>等（具体请参照<code>Node</code>）。</p>
 
@@ -148,7 +148,7 @@ node.animate({
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="..\..\guides\anim\index.html">Anim的基本使用</a></p>
+						<p><a href="../../guides/anim/index.html">Anim的基本使用</a></p>
 					</div>
 				</div>
 				<div class="panel panel-primary">
@@ -156,7 +156,7 @@ node.animate({
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="..\..\demos\anim\easing.html">easing可视化</a></p><p><a href="..\..\demos\anim\index.html">anim的基本使用</a></p>
+						<p><a href="../../demos/anim/easing.html">easing可视化</a></p><p><a href="../../demos/anim/index.html">anim的基本使用</a></p>
 					</div>
 				</div>
 			</div>
