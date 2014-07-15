@@ -52,7 +52,12 @@ KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
                         matchElWidth : false
                     },
                     {
-                        content : 'Contribute'
+                        content : 'Contribute',
+                        listeners : {
+                            click : function(){
+                                window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
+                            }
+                        }
                     },
                     {
                         content : 'More',

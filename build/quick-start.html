@@ -91,7 +91,12 @@
 						matchElWidth : false
 					},
 					{
-						content : 'Contribute'
+						content : 'Contribute',
+						listeners : {
+							click : function(){
+								window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
+							}
+						}
 					},
 					{
 						content : 'More',
@@ -125,7 +130,7 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node'</sp
     <span class="hljs-comment">// Your Code here...</span>
 });
 </code></pre><p>页面生命周期内始终存在全局对象<code>KISSY</code>。KISSY 采用弱沙箱的设计，多个沙箱共享同一份 KISSY 对象，即沙箱A对KISSY的修改会影响到沙箱B，因此，不通过API就对KISSY作任何修改将会非常危险。回调函数传入的第一个参数永远是<code>KISSY</code>全局对象，紧跟着的参数将会传回模块对象。形如<code>use(&#39;a,b,c&#39;,function(S,A,B,C){})</code>。被依赖的模块实现会返回一个对象（或类），都可以通过这种方式带入当前沙箱中，KISSY 的沙箱之间通过这种方法相互传递信息，避免全局对象的污染。沙箱内定义的变量亦不会污染全局命名空间。</p>
-<p>创建 KISSY 沙箱时你需要指定要载入的模块，KISSY 的功能是模块化的，包括<code>node</code>，<code>event</code>，<code>ajax</code>（在5.0版本推荐用<code>io</code>）等。这个例子中载入了<code>node</code>模块，在沙箱中可以通过回调参数来使用<code>node</code>的 API。<strong>特别的</strong>，<code>node</code>模块中最常用的 API 被挂载在 KISSY 对象上，作为快捷调用方式。比如<code>S.all == Node.all</code>和<code>S.one == Node.one</code>。</p>
+<p>创建 KISSY 沙箱时你需要指定要载入的模块，KISSY 的功能是模块化的，包括<code>node</code>，<code>event</code>，<code>io</code>等。这个例子中载入了<code>node</code>模块，在沙箱中可以通过回调参数来使用<code>node</code>的 API。</p>
 <p>KISSY 会自动计算模块依赖和模块去重，将所需模块的最小子集载入到页面中。一旦 node 模块加载完成，就会执行沙箱的回调逻辑。<strong>注意</strong>：沙箱回调为异步执行，不管是否已经预先载入了 node。所以两个并列的沙箱的执行时机是不确定的。开发者不应当去关心沙箱的先后顺序。</p>
 <blockquote>
 <p>注意，这种使用方法是<strong>错误的</strong>：<code>var Node = KISSY.use(&#39;node&#39;);</code></p>
@@ -174,7 +179,7 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node'</sp
     <span class="hljs-comment">// 开始执行动画</span>
     anim.run();
 });
-</code></pre><h2>5，通过 Ajax 装载内容</h2><p>在 5.0 中，Ajax 功能被命名为 io 模块，使用方法：</p>
+</code></pre><h2>5，通过 IO 装载内容</h2><p>使用方法：</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'io,node'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,IO,Node)</span></span>{
     <span class="hljs-comment">// 获取content.html的内容，替换到#content元素内</span>
     IO({
@@ -187,23 +192,7 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node'</sp
         }
     });
 });
-</code></pre><h2>6，核心模块的快捷调用方式</h2><p>尽管模块内容可以通过沙箱回调参数形式带入，核心模块也将最常用的功能挂载到了<code>KISSY</code>全局对象上。可以通过<code>KISSY.ModeName</code>来调用，比如</p>
-<pre><code>KISSY.use(<span class="hljs-string">'node,anim,io,json'</span>,<span class="hljs-keyword">function</span>(S){
-    // 通过 S 来调用
-    /*
-        S.Ajax
-        S.IO
-        S.Node
-        S.DOM
-        S.Cookie
-        S.Event
-        S.Anim
-        S.JSON
-        S.Cookie
-        <span class="hljs-keyword">...</span>
-    */
-});
-</code></pre><h2>7，自定义模块</h2><p>创建一个新模块：</p>
+</code></pre><h2>6，自定义模块</h2><p>创建一个新模块：</p>
 <pre><code>KISSY.add(<span class="hljs-keyword">function</span>(S, N, E, A, IO){
     var $ = N.all;
     var opLotto = {
@@ -235,7 +224,7 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node'</sp
 </code></pre><blockquote>
 <p>包配置相关信息请移步<a href="/5.0/guides/loader/kmd.html">KISSY模块规范</a></p>
 </blockquote>
-<h2>8，调用官方组件</h2><p>KISSY 内置了很多有用的组件比如 button，menu，date/picker 等，这些组件的用法非常简单，比如要用到 button 组件，只需要：</p>
+<h2>7，调用官方组件</h2><p>KISSY 内置了很多有用的组件比如 button，menu，date/picker 等，这些组件的用法非常简单，比如要用到 button 组件，只需要：</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">"button"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Button)</span> </span>{
     <span class="hljs-keyword">var</span> btn = <span class="hljs-keyword">new</span> Button({
         content: <span class="hljs-string">"我是按钮1"</span>,
@@ -244,13 +233,13 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node'</sp
     });
     btn.render();
 })
-</code></pre><h2>9，调用 Gallery 中的组件</h2><p>gallery 是社区贡献的组件集合，汇集了各种各样的功能，比如 kcharts，imgcrop，waterfallx，slide，uploader。</p>
-<p>gallery 鼓励分享，任何人都可以为 gallery 提交自己的组件。在 KISSY 5.0 中内置了 gallery package，使用 gallery 组件非常方便：</p>
+</code></pre><h2>8，调用 Gallery 中的组件</h2><p><a href="http://gallery.kissyui.com/">gallery</a> 是社区贡献的组件集合，汇集了各种各样的功能，比如 kcharts，imgcrop，waterfallx，slide，uploader。</p>
+<p>gallery 鼓励分享，任何人都可以为 gallery 提交自己的组件。使用 gallery 组件非常方便：</p>
 <pre><code>KISSY.use(<span class="hljs-string">'gallery/offline/1.0/index'</span>, <span class="hljs-keyword">function</span> (S, Offline) {
     var offline = new Offline();
     <span class="hljs-keyword">...</span>
 });
-</code></pre><h2>10，开启模块的Combo</h2><p>由于 KISSY 的模块非常颗粒化，会不会页面中载入的 JavaScript 文件过多，导致 HTTP 请求数太多呢？有两种方法来减少请求数：</p>
+</code></pre><h2>9，开启模块的Combo</h2><p>由于 KISSY 的模块非常颗粒化，会不会页面中载入的 JavaScript 文件过多，导致 HTTP 请求数太多呢？有两种方法来减少请求数：</p>
 <ul>
 <li>CDN 动态合并（Combo）</li>
 <li>静态编译，本地合并，使用工具 <a href="https://github.com/daxingplay/grunt-kmc/blob/master/README.md">KISSY Module Compiler</a></li>
