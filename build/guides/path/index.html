@@ -1,0 +1,189 @@
+	<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Path - KISSY v5.0 Documentation</title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<script>
+		  (function() {
+		    var cx = '003618533255763067140:5nkycw1pbey';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute',
+						listeners : {
+							click : function(){
+								window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
+							}
+						}
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-9" id="main-content">
+				<h1>Path</h1><h2>用法</h2><p>通过沙箱来调用</p>
+<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'path'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Path)</span></span>{
+    Path.do_sth();<span class="hljs-comment">// 执行操作</span>
+});
+</code></pre><h2>basename()  <code><static></code></h2><p><code>basename(path,ext) => String</code></p>
+<p>获取域名中的文件名</p>
+<h3>parameter</h3><ul>
+<li>path：String，路径字符串</li>
+<li>ext：String，需要过滤的扩展名，比如<code>.html</code></li>
+</ul>
+<h3>return</h3><p>返回文件名</p>
+<h3>example</h3><pre><code>Path.<span class="hljs-keyword">basename</span>(<span class="hljs-string">'http://www.taobao.com/index.html'</span>,<span class="hljs-string">'.html'</span>);<span class="hljs-comment">//=> index</span>
+</code></pre><h2>dirname()  <code><static></code></h2><p><code>dirname(path) => String</code></p>
+<p>返回path所指的文件所在的目录路径</p>
+<h3>parameter</h3><p>path（String），Path全称</p>
+<h3>example</h3><pre><code><span class="hljs-constant">Path</span>.dirname(<span class="hljs-string">'/home/bachi/daily/index.html'</span>);<span class="hljs-regexp">//</span>=><span class="hljs-regexp">/home/bachi</span><span class="hljs-regexp">/daily</span>
+</code></pre><h2>extname()  <code><static></code></h2><p><code>extname(path) => String</code></p>
+<p>获取路径所指文件的扩展名，比如<code>.html</code></p>
+<h3>example</h3><pre><code>Path.extname(<span class="hljs-string">'/home/bachi/daily/index.html'</span>);<span class="hljs-comment">//=> .html</span>
+</code></pre><h2>join()  <code><static></code></h2><p><code>join(p1,p2,...) => String</code></p>
+<p>以此拼接p1、p2...,遇到<code>../</code>时回退一级目录</p>
+<h3>example</h3><pre><code><span class="hljs-comment">// ../../ 表示回退两级目录</span>
+Path.<span class="hljs-keyword">join</span>(<span class="hljs-string">'/home/bachi/daily/'</span>,<span class="hljs-string">'project'</span>,<span class="hljs-string">'../../'</span>,<span class="hljs-string">'index.html'</span>);<span class="hljs-comment">//=> /home/bachi/index.html</span>
+</code></pre><h2>normalize()  <code><static></code></h2><p><code>normalize(path) => String</code></p>
+<p>将path中的无关内容清理掉，返回直接的路径信息</p>
+<h3>example</h3><pre><code>Path.<span class="hljs-built_in">normalize</span>(<span class="hljs-string">'x/y/../z'</span>); <span class="hljs-comment">// => x/z/</span>
+Path.<span class="hljs-built_in">normalize</span>(<span class="hljs-string">'x/y/z/../'</span>); <span class="hljs-comment">// => x/y/</span>
+</code></pre><h2>relative()  <code><static></code></h2><p><code>relative(from,to) => String</code></p>
+<p>计算相对路径</p>
+<h3>example</h3><pre><code><span class="hljs-constant">Path</span>.relative(<span class="hljs-string">'x/'</span>,<span class="hljs-string">'x/y/z'</span>); <span class="hljs-regexp">//</span> => <span class="hljs-string">'y/z'</span>
+<span class="hljs-constant">Path</span>.relative(<span class="hljs-string">'x/t/z'</span>,<span class="hljs-string">'x/'</span>); <span class="hljs-regexp">//</span> => <span class="hljs-string">'../../'</span>
+</code></pre><h2>resolve()  <code><static></code></h2><p><code>resolve([from ...], to) => String</code></p>
+<p>得到绝对地址，算法逻辑参照NodeJS <a href="http://nodejs.org/api/path.html#path_path_resolve_from_to">Path.resolve</a>。</p>
+<h3>example</h3><pre><code>Path.<span class="hljs-built_in">resolve</span>(<span class="hljs-string">'wwwroot'</span>, <span class="hljs-string">'static_files/png/'</span>, <span class="hljs-string">'../gif/image.gif'</span>)
+// => <span class="hljs-string">'wwwroot/static_files/gif/image.gif'</span>
+
+Path.<span class="hljs-built_in">resolve</span>(<span class="hljs-string">'/foo/bar'</span>, <span class="hljs-string">'/tmp/file/'</span>)
+// =>    <span class="hljs-string">'/tmp/file'</span>
+</code></pre>
+				<div id="disqus_thread"></div>
+				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+				<a id="apilink" href="../../api" style="display:none;"></a>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="../../api">API Docs</a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../guides/path/index.html">Path</a></p>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

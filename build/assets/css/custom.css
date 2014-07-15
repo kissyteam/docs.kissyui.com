@@ -51,6 +51,11 @@ h2{
   font-size: 15px;
   font-weight: bold;
 }
+h3{
+  color: #333;
+  font-size: 13px;
+  font-weight: bold;
+}
 #guides-lists,#demos-lists{
   min-height: 300px;
   margin-top: 30px;
