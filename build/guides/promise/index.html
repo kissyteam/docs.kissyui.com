@@ -182,7 +182,7 @@ p1.<span class="hljs-keyword">when</span>(<span class="hljs-regexp">/*条件*/</
 });
 </code></pre><p>首先看这个<a href="/5.0/demos/promise/index.html">Demo</a>。</p>
 <h2>APIs</h2><p>注意，Promise()不允许在外部被初始化。通过实例化<code>Promise.Defer()</code>来使用Promise的功能。Promise 实例方法有：</p>
-<h2>then()  <code><Promise 实例方法></code></h2><p><code>then ( fulfilled [, rejected] ) => void</code></p>
+<h2>then()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>then ( fulfilled [, rejected] ) =&gt; void</code></p>
 <p>监听当前实例的成功和失败并返回新的 promise 实例</p>
 <h3>parameter</h3><ul>
 <li>fulfilled (Function) – 该 promise 成功时的回调，参数为 defer resolve 时的 value.</li>
@@ -198,37 +198,37 @@ p1.<span class="hljs-keyword">when</span>(<span class="hljs-regexp">/*条件*/</
         promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(v)</span> </span>{
             <span class="hljs-keyword">return</span> v + <span class="hljs-number">1</span>;
         }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(v)</span> </span>{
-            alert(v); <span class="hljs-comment">// => 2</span>
+            alert(v); <span class="hljs-comment">// =&gt; 2</span>
         });
         d.resolve(<span class="hljs-number">1</span>); <span class="hljs-comment">// 该位置也可以放在 then 前面</span>
     });
 });
-</code></pre><h2>fail()  <code><Promise 实例方法></code></h2><p><code>fail ( rejected ) => void</code></p>
+</code></pre><h2>fail()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>fail ( rejected ) =&gt; void</code></p>
 <p>监听当前实例的失败并返回新的 promise 实例.相当于调用 <code>this.then(null,rejected)</code>;</p>
 <h3>parameter</h3><p>rejected (Function) – 该 promise 失败时的回调，参数为 defer reject 时的 reason.</p>
 <h3>return</h3><p>一个新的 promise(（Promise类型）. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败.</p>
-<h2>fin()  <code><Promise 实例方法></code></h2><p><code>fin ( callback ) => void</code></p>
+<h2>fin()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>fin ( callback ) =&gt; void</code></p>
 <p>监听当前实例的成功和失败并返回新的 promise 实例</p>
 <h3>parameter</h3><p>callback (Function) – 该 promise 成功或失败时的回调， 成功时参数为 defer resolve 时的 value 和 true. 失败时参数为 defer reject 时的 reason 和 false.</p>
 <h3>return</h3><p>一个新的 promise. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败.</p>
-<h2>isResolved()  <code><Promise 实例方法></code></h2><p><code>isResolved () => Boolean</code></p>
+<h2>isResolved()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>isResolved () =&gt; Boolean</code></p>
 <p>返回当前 promise 是否成功了</p>
-<h2>isResolved() <code><static></code></h2><p><code>isResolved () => Boolean</code></p>
+<h2>isResolved() <code>&lt;static&gt;</code></h2><p><code>isResolved () =&gt; Boolean</code></p>
 <p>静态方法，作用同上</p>
 <pre><code>Promise.isResolved(promise)
-</code></pre><h2>isRejected()  <code><Promise 实例方法></code></h2><p><code>isRejected () => Boolean</code></p>
+</code></pre><h2>isRejected()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>isRejected () =&gt; Boolean</code></p>
 <p>返回当前 promise 是否失败了</p>
-<h2>isRejected() <code><static></code></h2><p><code>isRejected () => Boolean</code></p>
+<h2>isRejected() <code>&lt;static&gt;</code></h2><p><code>isRejected () =&gt; Boolean</code></p>
 <p>静态方法，作用同上</p>
 <pre><code>Promise.isRejected(promise)
-</code></pre><h2>isPromise() <code><static></code></h2><p><code>isPromise() => Boolean</code></p>
+</code></pre><h2>isPromise() <code>&lt;static&gt;</code></h2><p><code>isPromise() =&gt; Boolean</code></p>
 <p>静态方法，判断一个对象是否是Promise实例</p>
 <pre><code>Promise.isPromise(promise)
-</code></pre><h2>when() <code><static></code></h2><p><code>when(obj, fulfilled, rejected) => Promise</code></p>
+</code></pre><h2>when() <code>&lt;static&gt;</code></h2><p><code>when(obj, fulfilled, rejected) =&gt; Promise</code></p>
 <p>返回一个新的 promise。如果 obj 为 promise 类型，相当于 <code>obj.then(fulfilled, rejected)</code></p>
 <p>否则直接调用 <code>fulfilled(obj)</code>，并返回一个成功的 promise</p>
 <h3>parameter</h3><p>obj – 监听的对象.</p>
-<h2>all() <code><static></code></h2><p><code>all(objects) => Promise</code></p>
+<h2>all() <code>&lt;static&gt;</code></h2><p><code>all(objects) =&gt; Promise</code></p>
 <p>返回一个新的 promise.当 objects 全部成功后新的 promise 成功，否以第一个 promise 的失败值为失败</p>
 <h3>parameter</h3><p>objects – promise或普通对象数组</p>
 

@@ -43,12 +43,12 @@ KISSY Node 节点支持链式调用:
 	Node.one('#test')
 		.parent('.fathor')
 		.next()
-		.html(<p></p>)
+		.html('<p></p>')
 		.on('click', function() { /* ... */ });
 
 这种风格和jQuery保持一致。创建节点：
 
-	Node(<div>hello kissy</div>).appendTo('body');
+	Node("<div>hello kissy</div>").appendTo('body');
 	
 这里的例子涉及查找子节点、父节点，找兄弟节点，修改内容，绑定事件，创建节点。
 
@@ -229,7 +229,7 @@ KISSY 支持标准的[ARIA](http://www.w3.org/TR/wai-aria/)。即 KISSY 可以�
 
 另外一种加样式的方法：
 
-	var styleEl = Node.all(<style> p {color:red} </style>).appendTo("head");
+	var styleEl = Node.all("<style> p {color:red} </style>").appendTo("head");
 
 ### append()
 
@@ -242,7 +242,7 @@ KISSY 支持标准的[ARIA](http://www.w3.org/TR/wai-aria/)。即 KISSY 可以�
 	</div>
 	<script>
 	KISSY.use("node",function(S,Node){
-		Node.all('.inner').append(<p>Test</p>);
+		Node.all('.inner').append('<p>Test</p>');
 	});
 	</script>
 ```
@@ -272,7 +272,7 @@ KISSY 支持标准的[ARIA](http://www.w3.org/TR/wai-aria/)。即 KISSY 可以�
 
 我们可以创建元素后立即插入到多个已有元素:
 
-	Node.all(<p>Test</p>).appendTo('.inner');
+	Node.all('<p>Test</p>').appendTo('.inner');
 
 也可以把一个已有元素插入到另一个
 
@@ -294,7 +294,7 @@ KISSY 支持标准的[ARIA](http://www.w3.org/TR/wai-aria/)。即 KISSY 可以�
 
 在某个节点之前插入节点
 
-	Node.all(<p>Test</p>).insertBefore('.inner');
+	Node.all('<p>Test</p>').insertBefore('.inner');
 
 也可以操作现有元素
 
@@ -546,7 +546,7 @@ className的替换
 
 例如设置 input 或 button 的 disabled property 或者 checkbox 的 checked property。最常见的情况即是用 prop 来设置 disabled 以及 checked 而不要用 attr() 方法 . 而 val() 方法用来设置和读取 value property.
 
-	var c = Node(<input type='checkbox' checked='checked'/>);
+	var c = Node("<input type='checkbox' checked='checked'/>");
 	console.log(c.attr('checked'));//=>'checked'
 	console.log(c.prop('checked'));//=>true
 	console.log(c.attr('nodeName'));//=> undefined
@@ -686,7 +686,7 @@ className的替换
 ```
 	node.html();//返回innerHTML
 	node.html('abc');//设置node的innerHTML
-	node.html(abc<script>alert(22);</script>,true);// 执行innerHTML中的脚本
+	node.html('abc<script>alert(22);</script>',true);// 执行innerHTML中的脚本
 ```
 
 ### remove()

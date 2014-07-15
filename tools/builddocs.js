@@ -43,7 +43,7 @@ module.exports.buildGuide = function(srcUrl,config){
 			fs.readdirSync(dirName).forEach(function(file){
 				var fileName = path.resolve(dirName,file),
 					fileMD = fs.readFileSync(fileName).toString(),
-					fileHtml = unescapeHtml(marked(fileMD)),
+					fileHtml = marked(fileMD),
 					title = getTitle(fileHtml),
 					apiLinkReg = /\(\(\(apilink\s*(.+)\)\)\)/,
 					apiLinkRegResult = apiLinkReg.exec(fileHtml),
@@ -51,7 +51,7 @@ module.exports.buildGuide = function(srcUrl,config){
 
 				if(apiLinkRegResult){
 					apilink = apiLinkRegResult[1];
-					var name = /['"](.+)['"]/.exec(apilink)[1];
+					var name = /&quot;(.+)&quot;/.exec(apilink)[1];
 					apilink = apilink.indexOf('class') > -1 ? ('../../api/classes/' + name + '.html') : ('../../api/modules/' + name + '.html');
 					fileHtml = fileHtml.replace(apiLinkRegResult[0],'');
 				}

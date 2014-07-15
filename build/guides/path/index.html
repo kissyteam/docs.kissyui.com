@@ -125,40 +125,40 @@
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'path'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Path)</span></span>{
     Path.do_sth();<span class="hljs-comment">// 执行操作</span>
 });
-</code></pre><h2>basename()  <code><static></code></h2><p><code>basename(path,ext) => String</code></p>
+</code></pre><h2>basename()  <code>&lt;static&gt;</code></h2><p><code>basename(path,ext) =&gt; String</code></p>
 <p>获取域名中的文件名</p>
 <h3>parameter</h3><ul>
 <li>path：String，路径字符串</li>
 <li>ext：String，需要过滤的扩展名，比如<code>.html</code></li>
 </ul>
 <h3>return</h3><p>返回文件名</p>
-<h3>example</h3><pre><code>Path.<span class="hljs-keyword">basename</span>(<span class="hljs-string">'http://www.taobao.com/index.html'</span>,<span class="hljs-string">'.html'</span>);<span class="hljs-comment">//=> index</span>
-</code></pre><h2>dirname()  <code><static></code></h2><p><code>dirname(path) => String</code></p>
+<h3>example</h3><pre><code>Path.<span class="hljs-keyword">basename</span>(<span class="hljs-string">'http://www.taobao.com/index.html'</span>,<span class="hljs-string">'.html'</span>);<span class="hljs-comment">//=&gt; index</span>
+</code></pre><h2>dirname()  <code>&lt;static&gt;</code></h2><p><code>dirname(path) =&gt; String</code></p>
 <p>返回path所指的文件所在的目录路径</p>
 <h3>parameter</h3><p>path（String），Path全称</p>
-<h3>example</h3><pre><code><span class="hljs-constant">Path</span>.dirname(<span class="hljs-string">'/home/bachi/daily/index.html'</span>);<span class="hljs-regexp">//</span>=><span class="hljs-regexp">/home/bachi</span><span class="hljs-regexp">/daily</span>
-</code></pre><h2>extname()  <code><static></code></h2><p><code>extname(path) => String</code></p>
+<h3>example</h3><pre><code><span class="hljs-constant">Path</span>.dirname(<span class="hljs-string">'/home/bachi/daily/index.html'</span>);<span class="hljs-regexp">//</span>=&gt;<span class="hljs-regexp">/home/bachi</span><span class="hljs-regexp">/daily</span>
+</code></pre><h2>extname()  <code>&lt;static&gt;</code></h2><p><code>extname(path) =&gt; String</code></p>
 <p>获取路径所指文件的扩展名，比如<code>.html</code></p>
-<h3>example</h3><pre><code>Path.extname(<span class="hljs-string">'/home/bachi/daily/index.html'</span>);<span class="hljs-comment">//=> .html</span>
-</code></pre><h2>join()  <code><static></code></h2><p><code>join(p1,p2,...) => String</code></p>
+<h3>example</h3><pre><code>Path.extname(<span class="hljs-string">'/home/bachi/daily/index.html'</span>);<span class="hljs-comment">//=&gt; .html</span>
+</code></pre><h2>join()  <code>&lt;static&gt;</code></h2><p><code>join(p1,p2,...) =&gt; String</code></p>
 <p>以此拼接p1、p2...,遇到<code>../</code>时回退一级目录</p>
 <h3>example</h3><pre><code><span class="hljs-comment">// ../../ 表示回退两级目录</span>
-Path.<span class="hljs-keyword">join</span>(<span class="hljs-string">'/home/bachi/daily/'</span>,<span class="hljs-string">'project'</span>,<span class="hljs-string">'../../'</span>,<span class="hljs-string">'index.html'</span>);<span class="hljs-comment">//=> /home/bachi/index.html</span>
-</code></pre><h2>normalize()  <code><static></code></h2><p><code>normalize(path) => String</code></p>
+Path.<span class="hljs-keyword">join</span>(<span class="hljs-string">'/home/bachi/daily/'</span>,<span class="hljs-string">'project'</span>,<span class="hljs-string">'../../'</span>,<span class="hljs-string">'index.html'</span>);<span class="hljs-comment">//=&gt; /home/bachi/index.html</span>
+</code></pre><h2>normalize()  <code>&lt;static&gt;</code></h2><p><code>normalize(path) =&gt; String</code></p>
 <p>将path中的无关内容清理掉，返回直接的路径信息</p>
-<h3>example</h3><pre><code>Path.<span class="hljs-built_in">normalize</span>(<span class="hljs-string">'x/y/../z'</span>); <span class="hljs-comment">// => x/z/</span>
-Path.<span class="hljs-built_in">normalize</span>(<span class="hljs-string">'x/y/z/../'</span>); <span class="hljs-comment">// => x/y/</span>
-</code></pre><h2>relative()  <code><static></code></h2><p><code>relative(from,to) => String</code></p>
+<h3>example</h3><pre><code>Path.<span class="hljs-built_in">normalize</span>(<span class="hljs-string">'x/y/../z'</span>); <span class="hljs-comment">// =&gt; x/z/</span>
+Path.<span class="hljs-built_in">normalize</span>(<span class="hljs-string">'x/y/z/../'</span>); <span class="hljs-comment">// =&gt; x/y/</span>
+</code></pre><h2>relative()  <code>&lt;static&gt;</code></h2><p><code>relative(from,to) =&gt; String</code></p>
 <p>计算相对路径</p>
-<h3>example</h3><pre><code><span class="hljs-constant">Path</span>.relative(<span class="hljs-string">'x/'</span>,<span class="hljs-string">'x/y/z'</span>); <span class="hljs-regexp">//</span> => <span class="hljs-string">'y/z'</span>
-<span class="hljs-constant">Path</span>.relative(<span class="hljs-string">'x/t/z'</span>,<span class="hljs-string">'x/'</span>); <span class="hljs-regexp">//</span> => <span class="hljs-string">'../../'</span>
-</code></pre><h2>resolve()  <code><static></code></h2><p><code>resolve([from ...], to) => String</code></p>
+<h3>example</h3><pre><code><span class="hljs-constant">Path</span>.relative(<span class="hljs-string">'x/'</span>,<span class="hljs-string">'x/y/z'</span>); <span class="hljs-regexp">//</span> =&gt; <span class="hljs-string">'y/z'</span>
+<span class="hljs-constant">Path</span>.relative(<span class="hljs-string">'x/t/z'</span>,<span class="hljs-string">'x/'</span>); <span class="hljs-regexp">//</span> =&gt; <span class="hljs-string">'../../'</span>
+</code></pre><h2>resolve()  <code>&lt;static&gt;</code></h2><p><code>resolve([from ...], to) =&gt; String</code></p>
 <p>得到绝对地址，算法逻辑参照NodeJS <a href="http://nodejs.org/api/path.html#path_path_resolve_from_to">Path.resolve</a>。</p>
 <h3>example</h3><pre><code>Path.<span class="hljs-built_in">resolve</span>(<span class="hljs-string">'wwwroot'</span>, <span class="hljs-string">'static_files/png/'</span>, <span class="hljs-string">'../gif/image.gif'</span>)
-// => <span class="hljs-string">'wwwroot/static_files/gif/image.gif'</span>
+// =&gt; <span class="hljs-string">'wwwroot/static_files/gif/image.gif'</span>
 
 Path.<span class="hljs-built_in">resolve</span>(<span class="hljs-string">'/foo/bar'</span>, <span class="hljs-string">'/tmp/file/'</span>)
-// =>    <span class="hljs-string">'/tmp/file'</span>
+// =&gt;    <span class="hljs-string">'/tmp/file'</span>
 </code></pre>
 				<div id="disqus_thread"></div>
 				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->

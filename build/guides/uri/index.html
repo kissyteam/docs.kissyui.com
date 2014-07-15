@@ -126,54 +126,54 @@
     <span class="hljs-keyword">var</span> new_uri = <span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://url'</span>);
     new_uri.do_something();<span class="hljs-comment">// uri 执行相关的方法</span>
 })
-</code></pre><h2>clone()，克隆一个实例</h2><p><code>clone() => Uri</code>:：返回一个当前 uri 实例的克隆对象</p>
+</code></pre><h2>clone()，克隆一个实例</h2><p><code>clone() =&gt; Uri</code>:：返回一个当前 uri 实例的克隆对象</p>
 <pre><code><span class="hljs-keyword">var</span> one = <span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>);
 <span class="hljs-keyword">var</span> two = one.<span class="hljs-keyword">clone</span>() <span class="hljs-comment">// 克隆一个新的Uri实例</span>
-</code></pre><h2>resolve()</h2><p><code>resolve (other) => Uri</code>：合并解析出一个完整的URL，返回新的 uri 实例</p>
+</code></pre><h2>resolve()</h2><p><code>resolve (other) =&gt; Uri</code>：合并解析出一个完整的URL，返回新的 uri 实例</p>
 <pre><code><span class="hljs-keyword">var</span> one = <span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>);
-one.resolve(<span class="hljs-string">'foo'</span>).toString() <span class="hljs-comment">// => http://www.g.cn/foo</span>
-one.resolve(<span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'?foo'</span>)).toString() <span class="hljs-comment">// => http://www.g.cn/x?foo</span>
-</code></pre><h2>getScheme() 得到协议部分</h2><p>用法：<code>getScheme () => String</code></p>
-<pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>).getScheme() <span class="hljs-comment">// => http</span>
+one.resolve(<span class="hljs-string">'foo'</span>).toString() <span class="hljs-comment">// =&gt; http://www.g.cn/foo</span>
+one.resolve(<span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'?foo'</span>)).toString() <span class="hljs-comment">// =&gt; http://www.g.cn/x?foo</span>
+</code></pre><h2>getScheme() 得到协议部分</h2><p>用法：<code>getScheme () =&gt; String</code></p>
+<pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>).getScheme() <span class="hljs-comment">// =&gt; http</span>
 </code></pre><h2>setScheme() 设置协议部分</h2><p>设置 uri 实例的 scheme 部分</p>
-<pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>).setScheme(<span class="hljs-string">'ftp'</span>).getScheme() <span class="hljs-comment">// => ftp</span>
-</code></pre><h2>getHostname()  得到hostname</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn:8888/x'</span>).getHostname() <span class="hljs-comment">// => www.g.cn</span>
+<pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>).setScheme(<span class="hljs-string">'ftp'</span>).getScheme() <span class="hljs-comment">// =&gt; ftp</span>
+</code></pre><h2>getHostname()  得到hostname</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn:8888/x'</span>).getHostname() <span class="hljs-comment">// =&gt; www.g.cn</span>
 </code></pre><h2>setHostname()  设置hostname</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn:8888/x'</span>).setHostname(<span class="hljs-string">'www.google.com'</span>).toString()
-<span class="hljs-comment">// => http://www.google.com:8888/x</span>
+<span class="hljs-comment">// =&gt; http://www.google.com:8888/x</span>
 </code></pre><h2>getUserInfo()  得到用户信息</h2><p>获取当前 uri 实例的 user info</p>
-<pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://my:pass@www.g.cn:8888/x'</span>).getUserInfo() <span class="hljs-regexp">//</span><span class="hljs-function"> =></span> <span class="hljs-string">'my:pass'</span>
+<pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://my:pass@www.g.cn:8888/x'</span>).getUserInfo() <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'my:pass'</span>
 </code></pre><h2>setUserInfo()  设置用户信息</h2><p>设置当前 uri 实例的 user info</p>
 <pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://my:pass@www.g.cn:8888/x'</span>).setUserInfo(<span class="hljs-string">'m:p'</span>).getUserInfo()
-<span class="hljs-regexp">//</span><span class="hljs-function"> =></span> <span class="hljs-string">'m:p'</span>
+<span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'m:p'</span>
 </code></pre><h2>getPort() 获取当前 uri 实例的端口值</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-symbol">'http</span>:<span class="hljs-comment">//my:pass@www.g.cn:8888/x').getPort()</span>
-<span class="hljs-comment">// => '8888'</span>
+<span class="hljs-comment">// =&gt; '8888'</span>
 </code></pre><h2>setPort()  设置当前 uri 实例的端口值</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://my:pass@www.g.cn:8888/x'</span>).setPort(<span class="hljs-string">'88'</span>).toString()
-<span class="hljs-regexp">//</span><span class="hljs-function"> =></span> <span class="hljs-attribute">http</span>:<span class="hljs-regexp">//m</span><span class="hljs-attribute">y</span>:pass<span class="hljs-property">@www</span>.g.<span class="hljs-attribute">cn</span>:<span class="hljs-number">88</span>/x
+<span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-attribute">http</span>:<span class="hljs-regexp">//m</span><span class="hljs-attribute">y</span>:pass<span class="hljs-property">@www</span>.g.<span class="hljs-attribute">cn</span>:<span class="hljs-number">88</span>/x
 </code></pre><h2>getPath()  获取当前 uri 实例的路径</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-symbol">'http</span>:<span class="hljs-comment">//www.g.cn/x').getPath()</span>
-<span class="hljs-comment">// => /x</span>
+<span class="hljs-comment">// =&gt; /x</span>
 </code></pre><h2>setPath() 设置当前 uri 实例的路径</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>).setPath(<span class="hljs-string">'/y'</span>).toString()
-<span class="hljs-comment">// => http://www.g.cn/y</span>
+<span class="hljs-comment">// =&gt; http://www.g.cn/y</span>
 </code></pre><h2>getQuery() 获取当前 uri 实例的查询参数实例</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x?x=1'</span>).getQuery().<span class="hljs-keyword">get</span>(<span class="hljs-string">'x'</span>)
-<span class="hljs-comment">// => 1</span>
+<span class="hljs-comment">// =&gt; 1</span>
 </code></pre><h2>setQuery()  设置当前 uri 实例的查询参数</h2><p>参数：query ({String|Uri.Query}) –     字符串或者Uri.Query实例</p>
 <pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x?x=1'</span>).setQuery(<span class="hljs-string">'y=1'</span>).toString();
-<span class="hljs-comment">// => http://www.g.cn/x?y=1</span>
+<span class="hljs-comment">// =&gt; http://www.g.cn/x?y=1</span>
 
 <span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x?x=1'</span>).setQuery(<span class="hljs-keyword">new</span> Uri.Query(<span class="hljs-string">'y=1'</span>)).toString();
-<span class="hljs-comment">// => http://www.g.cn/x?y=1</span>
-</code></pre><h2>getFragment() 获取当前 uri 实例的 hash</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x?x=1#y=2'</span>).getFragment() <span class="hljs-comment">// => y=2</span>
+<span class="hljs-comment">// =&gt; http://www.g.cn/x?y=1</span>
+</code></pre><h2>getFragment() 获取当前 uri 实例的 hash</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x?x=1#y=2'</span>).getFragment() <span class="hljs-comment">// =&gt; y=2</span>
 </code></pre><h2>setFragment() 设置当前 uri 实例的 hash</h2><p>参数：hash ({String}) –  hash值</p>
 <pre><code>new <span class="hljs-constant">Uri</span>(<span class="hljs-string">'http://www.g.cn/x?x=1#y=2'</span>).setFragment(<span class="hljs-string">'x=3'</span>).toString()
-/<span class="hljs-regexp">/ => http:/</span><span class="hljs-regexp">/www.g.cn/x</span>?x=<span class="hljs-number">1</span><span class="hljs-comment">#x=3</span>
+/<span class="hljs-regexp">/ =&gt; http:/</span><span class="hljs-regexp">/www.g.cn/x</span>?x=<span class="hljs-number">1</span><span class="hljs-comment">#x=3</span>
 </code></pre><h2>isSameOriginAs()  验证同源</h2><p>验证当前 uri 实例和 other 是否是同源关系(hostname port scheme 相同)</p>
 <pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-symbol">'http</span>:<span class="hljs-comment">//www.g.cn/x?x=1#y=2')</span>
-.isSameOriginAs(<span class="hljs-keyword">new</span> Uri(<span class="hljs-symbol">'http</span>:<span class="hljs-comment">//www.g.cn:88/x?x=1#y=2')) // => false</span>
+.isSameOriginAs(<span class="hljs-keyword">new</span> Uri(<span class="hljs-symbol">'http</span>:<span class="hljs-comment">//www.g.cn:88/x?x=1#y=2')) // =&gt; false</span>
 </code></pre><h2>toString()  序列化当前 uri 实例的 hash</h2><p>参数：arr ({Boolean}) – 同 param() 同名参数</p>
-<pre><code>new Uri('http://www.g.cn/x?<span class="hljs-variable">x=</span><span class="hljs-number">1</span>&<span class="hljs-variable">x=</span><span class="hljs-number">2</span>').<span class="hljs-built_in">toString</span>(<span class="hljs-constant">false</span>)
-// => 'http://www.g.cn/x?<span class="hljs-variable">x=</span><span class="hljs-number">1</span>&<span class="hljs-variable">x=</span><span class="hljs-number">2</span>'
+<pre><code>new Uri('http://www.g.cn/x?<span class="hljs-variable">x=</span><span class="hljs-number">1</span>&amp;<span class="hljs-variable">x=</span><span class="hljs-number">2</span>').<span class="hljs-built_in">toString</span>(<span class="hljs-constant">false</span>)
+// =&gt; 'http://www.g.cn/x?<span class="hljs-variable">x=</span><span class="hljs-number">1</span>&amp;<span class="hljs-variable">x=</span><span class="hljs-number">2</span>'
 
-new Uri('http://www.g.cn/x?<span class="hljs-variable">x=</span><span class="hljs-number">1</span>&<span class="hljs-variable">x=</span><span class="hljs-number">2</span>').<span class="hljs-built_in">toString</span>(<span class="hljs-constant">true</span>)
-// => 'http://www.g.cn/x?x%<span class="hljs-number">5</span>b%<span class="hljs-number">5</span><span class="hljs-variable">d=</span><span class="hljs-number">1</span>&x%<span class="hljs-number">5</span>b%<span class="hljs-number">5</span><span class="hljs-variable">d=</span><span class="hljs-number">2</span>'
+new Uri('http://www.g.cn/x?<span class="hljs-variable">x=</span><span class="hljs-number">1</span>&amp;<span class="hljs-variable">x=</span><span class="hljs-number">2</span>').<span class="hljs-built_in">toString</span>(<span class="hljs-constant">true</span>)
+// =&gt; 'http://www.g.cn/x?x%<span class="hljs-number">5</span>b%<span class="hljs-number">5</span><span class="hljs-variable">d=</span><span class="hljs-number">1</span>&amp;x%<span class="hljs-number">5</span>b%<span class="hljs-number">5</span><span class="hljs-variable">d=</span><span class="hljs-number">2</span>'
 </code></pre>
 				<div id="disqus_thread"></div>
 				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
