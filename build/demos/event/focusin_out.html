@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>focusin/focusout - KISSY v5.0 Documentation</title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<script>
+		  (function() {
+		    var cx = '003618533255763067140:5nkycw1pbey';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute',
+						listeners : {
+							click : function(){
+								window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
+							}
+						}
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-9"  id="main-content">
+				<p></p>
+<h1>focusin/focusout</h1><h2>focusin/focusout的简单使用</h2><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        .info {
+            color: red;
+        }
+    &lt;&#x2F;style&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;form id=&#x27;f&#x27;&gt;
+
+    &lt;div&gt;
+        &lt;label&gt;姓名：&lt;input&#x2F;&gt;&lt;span class=&#x27;info&#x27;&gt; i lose focus&lt;&#x2F;span&gt;&lt;&#x2F;label&gt;
+    &lt;&#x2F;div&gt;
+
+    &lt;div&gt;
+        &lt;label&gt;密码：&lt;input&#x2F;&gt;&lt;span class=&#x27;info&#x27;&gt;i lose focus&lt;&#x2F;span&gt;&lt;&#x2F;label&gt;
+    &lt;&#x2F;div&gt;
+
+&lt;&#x2F;form&gt;
+&lt;script&gt;
+    KISSY.use(&#x27;core&#x27;, function (S) {
+        var $ = KISSY.all;
+
+        $(&quot;#f&quot;).on(&quot;focusout&quot;, function (e) {
+            var t = $(e.target);
+            t.next(&quot;.info&quot;).html(&quot;i lost focus&quot;);
+        });
+
+        $(&quot;#f&quot;).on(&quot;focusin&quot;, function (e) {
+            var t = $(e.target);
+            t.next(&quot;.info&quot;).html(&quot;i get focus&quot;);
+        });
+    });
+&lt;&#x2F;script&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+    </div>
+</div></p>
+
+	   			<div id="disqus_thread"></div>
+	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+	   			<a id="apilink" href="../../api/classes/Event.html" style="display:none;"></a>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/Event.html">API Docs</a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../guides/event/index.html">event基本介绍</a></p>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../demos/event/delegate.html">事件委托</a></p><p><a href="../../demos/event/detach.html">事件移除</a></p><p><a href="../../demos/event/focusin_out.html">focusin/focusout</a></p><p><a href="../../demos/event/valuechange.html">valuechange</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

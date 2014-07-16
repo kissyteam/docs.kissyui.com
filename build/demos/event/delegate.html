@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托 - KISSY v5.0 Documentation</title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/monokai_sublime.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<script>
+		  (function() {
+		    var cx = '003618533255763067140:5nkycw1pbey';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute',
+						listeners : {
+							click : function(){
+								window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
+							}
+						}
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-9"  id="main-content">
+				<p></p>
+<h1>事件委托</h1><h2>事件委托简单例子</h2><p><div class="ks-tabs ks-tabs-top" style="height:400px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;style&gt;
+
+        button {
+            margin: 10px;
+        }
+
+        div {
+            color: blue;
+            font-weight: bold;
+        }
+
+        span {
+            color: red;
+        }
+    &lt;&#x2F;style&gt;
+
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;div class=&#x27;out&#x27; id=&#x27;i4&#x27;&gt;
+    &lt;div class=&#x27;inner&#x27; id=&#x27;i3&#x27;&gt;
+        &lt;div class=&#x27;inner&#x27; id=&#x27;i1&#x27;&gt;
+            &lt;button id=&#x27;click_button&#x27;&gt;click me&lt;&#x2F;button&gt;
+        &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;div id=&#x27;log&#x27;&gt;&lt;&#x2F;div&gt;
+&lt;script&gt;
+    KISSY.use(&#x27;core&#x27;, function (S) {
+        var $ = KISSY.Node.all;
+
+        $(&#x27;#i4&#x27;).delegate(&#x27;click&#x27;, &#x27;.inner&#x27;, function (e) {
+            var target = e.target, currentTarget = e.currentTarget;
+            $(&#x27;#log&#x27;).prepend(&quot;&lt;div style=&#x27;margin:5px;&#x27;&gt;invoked : &lt;br&#x2F;&gt; this.id=&quot; + this.id + &quot;&lt;br&#x2F;&gt;event.target.id=&quot; +
+                    target.id + &quot;&lt;br&gt;event.currentTarget.id=&quot; + currentTarget.id + &quot;&lt;&#x2F;div&gt;&quot;);
+        });
+    });
+&lt;&#x2F;script&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+    </div>
+</div></p>
+<h2>事件委托 mouseenter/mouseleave</h2><p><div class="ks-tabs ks-tabs-top" style="height:400px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;style&gt;
+
+        button {
+            margin: 10px;
+        }
+
+        div {
+            color: blue;
+            font-weight: bold;
+        }
+
+        span {
+            color: red;
+        }
+    &lt;&#x2F;style&gt;
+
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;div class=&#x27;out&#x27; id=&#x27;i4&#x27; style=&#x27;width:300px;height:300px;border:1px solid green;&#x27;&gt;
+    i4
+    &lt;div class=&#x27;inner&#x27; id=&#x27;i3&#x27; style=&#x27;width:200px;height:200px;border:1px solid red;margin:50px;&#x27;&gt;
+        #i3.inner
+        &lt;div class=&#x27;inner&#x27; id=&#x27;i1&#x27; style=&#x27;width:100px;height:100px;border:1px solid black;margin:50px;&#x27;&gt;
+            #i1.inner : try mouse
+        &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;hr&#x2F;&gt;
+&lt;div id=&#x27;log&#x27;&gt;&lt;&#x2F;div&gt;
+&lt;script&gt;
+    KISSY.use(&#x27;core&#x27;, function (S) {
+        var $ = KISSY.Node.all;
+        $(&#x27;#i4&#x27;).delegate(&#x27;mouseenter mouseleave click&#x27;, &#x27;.inner&#x27;, function (e) {
+            $(&#x27;#log&#x27;).prepend(e.type + &quot; : &quot; + e.currentTarget.id + &quot;&lt;br&#x2F;&gt;&quot;);
+        });
+    });
+&lt;&#x2F;script&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+    </div>
+</div></p>
+<h2>阻止事件冒泡</h2><p><div class="ks-tabs ks-tabs-top" style="height:400px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;style&gt;
+
+        button {
+            margin: 10px;
+        }
+
+        div {
+            color: blue;
+            font-weight: bold;
+        }
+
+        span {
+            color: red;
+        }
+    &lt;&#x2F;style&gt;
+
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;div class=&#x27;out&#x27; id=&#x27;i4&#x27;&gt;
+    &lt;div class=&#x27;inner&#x27; id=&#x27;i3&#x27;&gt;
+        &lt;div class=&#x27;inner&#x27; id=&#x27;i1&#x27;&gt;
+            &lt;button id=&#x27;click_button&#x27;&gt;click me&lt;&#x2F;button&gt;
+        &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;div id=&#x27;log&#x27;&gt;&lt;&#x2F;div&gt;
+&lt;script&gt;
+    KISSY.use(&#x27;core&#x27;, function (S) {
+        var $ = KISSY.Node.all;
+
+        $(&#x27;#i4&#x27;).delegate(&#x27;click&#x27;, &#x27;.inner&#x27;, function (e) {
+            var target = e.target, currentTarget = e.currentTarget;
+            $(&#x27;#log&#x27;).prepend(&quot;&lt;div style=&#x27;margin:5px;&#x27;&gt;invoked : &lt;br&#x2F;&gt; this.id=&quot; + this.id + &quot;&lt;br&#x2F;&gt;event.target.id=&quot; +
+                    target.id + &quot;&lt;br&gt;event.currentTarget.id=&quot; + currentTarget.id + &quot;&lt;&#x2F;div&gt;&quot;);
+            e.stopPropagation();
+        });
+    });
+&lt;&#x2F;script&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+    </div>
+</div></p>
+
+	   			<div id="disqus_thread"></div>
+	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+	   			<a id="apilink" href="../../api/classes/Event.html" style="display:none;"></a>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/Event.html">API Docs</a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../guides/event/index.html">event基本介绍</a></p>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../demos/event/delegate.html">事件委托</a></p><p><a href="../../demos/event/detach.html">事件移除</a></p><p><a href="../../demos/event/focusin_out.html">focusin/focusout</a></p><p><a href="../../demos/event/valuechange.html">valuechange</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

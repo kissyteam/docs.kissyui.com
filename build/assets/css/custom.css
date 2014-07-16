@@ -56,6 +56,11 @@ h3{
   font-size: 13px;
   font-weight: bold;
 }
+h4{
+  color: #333;
+  font-size: 12px;
+  font-weight: bold;
+}
 #guides-lists,#demos-lists{
   min-height: 300px;
   margin-top: 30px;
@@ -91,6 +96,18 @@ h3{
 */
 #disqus_thread{
   margin-top: 50px;
+}
+
+blockquote {
+padding: 10px 20px;
+margin: 0 0 20px;
+border-left: 5px solid #eeeeee;
+background-color: #F0F7FD;
+}
+blockquote p {
+font-size: 14.5px;
+font-weight: 300;
+line-height: 1.25;
 }
 
 
