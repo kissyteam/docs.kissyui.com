@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>focusin/focusout - KISSY v5.0 Documentation</title>
+	<title>tap - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -122,7 +122,7 @@
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1>focusin/focusout</h1><h2>focusin/focusout的简单使用</h2><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+<h1>tap</h1><h2>tap/singleTap/doubleTap</h2><p><div class="ks-tabs ks-tabs-top" style="height:300px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -131,44 +131,88 @@
         <div class="ks-tabs-panel">
             <div class="editor">
 				
-&lt;!DOCTYPE html&gt;
+&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
-    &lt;style&gt;
-        .info {
-            color: red;
-        }
-    &lt;&#x2F;style&gt;
+    &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+    &lt;meta name=&quot;viewport&quot;
+          content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&gt;
+    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
+    &lt;meta name=&quot;apple-touch-fullscreen&quot; content=&quot;yes&quot;&gt;
     &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
-&lt;form id=&#x27;f&#x27;&gt;
 
-    &lt;div&gt;
-        &lt;label&gt;姓名：&lt;input&#x2F;&gt;&lt;span class=&#x27;info&#x27;&gt; i lose focus&lt;&#x2F;span&gt;&lt;&#x2F;label&gt;
-    &lt;&#x2F;div&gt;
+&lt;h1&gt;open in ios safari to test tap event&lt;&#x2F;h1&gt;
 
-    &lt;div&gt;
-        &lt;label&gt;密码：&lt;input&#x2F;&gt;&lt;span class=&#x27;info&#x27;&gt;i lose focus&lt;&#x2F;span&gt;&lt;&#x2F;label&gt;
-    &lt;&#x2F;div&gt;
+&lt;div id=&#x27;t&#x27; tabindex=&#x27;0&#x27;
+     style=&#x27;border:1px solid green;
+     width:100px;height:100px;margin:10px&#x27;&gt;
+    tap me
+&lt;&#x2F;div&gt;
 
-&lt;&#x2F;form&gt;
 &lt;script&gt;
-    KISSY.use(&#x27;core&#x27;, function (S) {
-        var $ = KISSY.all;
 
-        $(&quot;#f&quot;).on(&quot;focusout&quot;, function (e) {
-            var t = $(e.target);
-            t.next(&quot;.info&quot;).html(&quot;i lost focus&quot;);
+    KISSY.use(&#x27;event&#x27;, function (S, Event) {
+
+        Event.on(&#x27;#t&#x27;, &quot;tap singleTap doubleTap&quot;, function (e) {
+            alert(e.type + &#x27; : fired&#x27;);
         });
 
-        $(&quot;#f&quot;).on(&quot;focusin&quot;, function (e) {
-            var t = $(e.target);
-            t.next(&quot;.info&quot;).html(&quot;i get focus&quot;);
-        });
     });
-&lt;&#x2F;script&gt;
 
+&lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+    </div>
+</div></p>
+<h2>tapHold</h2><p><div class="ks-tabs ks-tabs-top" style="height:300px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+    &lt;meta name=&quot;viewport&quot;
+          content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&gt;
+    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
+    &lt;meta name=&quot;apple-touch-fullscreen&quot; content=&quot;yes&quot;&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;open in ios safari to test tap event&lt;&#x2F;h1&gt;
+
+&lt;div id=&#x27;t&#x27; tabindex=&#x27;0&#x27;
+     style=&#x27;border:1px solid green;
+     width:100px;height:100px;margin:10px&#x27;&gt;
+    tap-hold me
+&lt;&#x2F;div&gt;
+
+&lt;script&gt;
+
+    KISSY.use(&#x27;event&#x27;, function (S, Event) {
+
+        Event.on(&#x27;#t&#x27;, &quot;tapHold&quot;, function (e) {
+            alert(e.type + &#x27; : fired&#x27;);
+        });
+
+    });
+
+&lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 &lt;&#x2F;html&gt;
 			</div>

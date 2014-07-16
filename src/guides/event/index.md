@@ -306,19 +306,19 @@ KISSY 对于移动设备做了统一的事件封装，这些事件包括：
 		alert(e.type + ' : fired');
 	});
 
-- [双击事件的Demo，在手机中打开此demo](http://docs.kissyui.com/1.4/source/raw/api/event/double-tap.html)
+- [双击事件的Demo，在手机中打开此demo](/5.0/demos/event/tap.html)
 
 ### singleTap
 
-触屏单击事件，和双击互斥，当快速点击某个 dom 节点一次（短时间没有再次点击）后触发，[demo](http://docs.kissyui.com/1.4/source/raw/api/event/double-tap.html)
+触屏单击事件，和双击互斥，当快速点击某个 dom 节点一次（短时间没有再次点击）后触发，[demo](/5.0/demos/event/tap.html)
 
 ### tap
 
-触屏单击，当点击某个 dom 节点后触发， 和 singleTap 的不同支持载入： 触发 doubleTap 就不会触发 singleTap， 而触发 doubleTap 前会触发 tap，[demo](http://docs.kissyui.com/1.4/source/raw/api/event/tap.html)。
+触屏单击，当点击某个 dom 节点后触发， 和 singleTap 的不同支持载入： 触发 doubleTap 就不会触发 singleTap， 而触发 doubleTap 前会触发 tap，[demo](/5.0/demos/event/tap.html)。
 
 ### tapHold
 
-触屏长按，当常按某个 dom 节点超过 1s 后触发，[Demo](http://docs.kissyui.com/1.4/source/raw/api/event/tap-hold.html)
+触屏长按，当常按某个 dom 节点超过 1s 后触发，[Demo](/5.0/demos/event/tap.html)
 
 ### swipe
 
@@ -335,7 +335,7 @@ KISSY 对于移动设备做了统一的事件封装，这些事件包括：
 		}
 	});
 
-[在触屏设备中打开这个Demo](http://docs.kissyui.com/1.4/source/raw/api/event/swipe.html)
+[在触屏设备中打开这个Demo](/5.0/demos/event/swipe.html)
 
 ### rotateStart
 
@@ -344,7 +344,7 @@ KISSY 对于移动设备做了统一的事件封装，这些事件包括：
 - angle：Number，开始时双指的角度
 - rotation：Number，固定为0
 
-[在触屏设备中打开demo](http://docs.kissyui.com/1.4/source/raw/api/event/rotate.html)
+[在触屏设备中打开demo](/5.0/demos/event/rotate.html)
 
 ### rotate
 
@@ -366,7 +366,7 @@ demo参照上一个例子。
 - distance：Number，开始时双指的绝对距离
 - scale：Number，固定为1
 
-[在触屏设备中打开Demo](http://docs.kissyui.com/1.4/source/raw/api/event/pinch.html)
+[在触屏设备中打开Demo](/5.0/demos/event/pinch.html)
 
 ### pinch
 
@@ -381,7 +381,7 @@ demo参照上一个例子。
 
 ### shake
 
-摇一摇事件，当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备，[Demo](http://docs.kissyui.com/1.4/source/raw/api/event/shake.html)
+摇一摇事件，当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备，[Demo](/5.0/demos/event/shake.html)
 
 ### 移动终端事件和PC端的统一
 
