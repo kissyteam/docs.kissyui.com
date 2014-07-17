@@ -47,6 +47,19 @@ KISSY.use('node,tabs,io', function(S, Node, Tabs, Io){
 		        }
 		    }).render();	
 		});
+
+		//生成二维码
+		createQRCode();
+
+	}
+
+	function createQRCode(){
+		$('.qrcode-addr').each(function(item$){
+			var qrcodeAddr = item$.attr('qrcodeaddr'),
+				qrcodeContainer$ = item$.siblings('.qrcode');
+            new QRCode(qrcodeContainer$[0], qrcodeAddr);   //生成二维码
+
+		})
 	}
 
 	//demo页面初次加载时先初始化

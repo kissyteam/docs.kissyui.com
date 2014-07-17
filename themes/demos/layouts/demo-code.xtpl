@@ -2,6 +2,7 @@
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+        <div class="ks-tabs-tab ks-button">QRCode</div>
     </div>
     <div class="ks-tabs-body">
         <div class="ks-tabs-panel">
@@ -13,6 +14,10 @@
             <iframe class="output" frameborder="1">
             	
             </iframe>
+        </div>
+        <div class="ks-tabs-panel">
+            <p class="qrcode-addr" qrcodeaddr="{{QRCodeAddr}}" ="text">示例地址：{{QRCodeAddr}}</p>
+            <div class="qrcode"></div>
         </div>
     </div>
 </div>

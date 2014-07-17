@@ -8,6 +8,7 @@ var fs = require('fs'),
 	process = require('child_process');
 
 var config = {
+	homePageOnlineUrl : 'docs.kissyui.com/',
 	version : '5.0'
 };
 

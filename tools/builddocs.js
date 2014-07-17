@@ -3,13 +3,15 @@ var fs = require('fs'),
 	marked = require('marked'),
 	highlightJs = require('highlight.js'),
 	xtpl = require('xtpl'),
-	unescapeHtml = require('unescape-html');
+	unescapeHtml = require('unescape-html'),
+	util = require('./util.js')
 
 //markdown定制
 var markedRenderer = new marked.Renderer();
 
 var srcDirPath = '',
 	projectPath = '',
+	homePageOnlineUrl = '',
 	version = '';
 
 markedRenderer.heading = function(text, level){
@@ -84,6 +86,7 @@ module.exports.buildGuide = function(srcUrl,config){
 
 module.exports.buildDemos = function(srcUrl,config){
 	version = config.version;
+	homePageOnlineUrl = config.homePageOnlineUrl;
 	srcDirPath = path.resolve(srcUrl);
 	projectPath = path.resolve(srcUrl, '../');
 
@@ -105,6 +108,8 @@ module.exports.buildDemos = function(srcUrl,config){
 					mainXtplPath = path.resolve(srcDirPath,'../themes/demos/layouts/main.xtpl'),
 					demoCodeXtplPath = path.resolve(srcDirPath,'../themes/demos/layouts/demo-code.xtpl');
 				if(fs.statSync(fileName).isDirectory()){
+					var desFilePath = fileName.replace('src','build');
+					util.exists(fileName, desFilePath, util.copy);
 					return;
 				}
 
@@ -129,12 +134,13 @@ module.exports.buildDemos = function(srcUrl,config){
 						whichFileToInclude = /include\s*file=['"](.+?)['"]/.exec(str)[1],
 						heightRegResult = /height=['"](.+?)['"]/.exec(str),
 						height = heightRegResult ? heightRegResult[1] : '800px',
-						includingFilePath = path.resolve(dirName,whichFileToInclude);
-					
+						includingFilePath = path.resolve(dirName,whichFileToInclude),
+						qrcodeAddr = homePageOnlineUrl + version + '/' + path.relative(srcDirPath,includingFilePath);
 					var demoCode = fs.readFileSync(includingFilePath).toString();
 					(function(str, demoCodeXtplPath, demoCode){
 						xtpl.__express(demoCodeXtplPath,{
 							demoCode : demoCode,
+							QRCodeAddr : qrcodeAddr,
 							height : height,
 							version : version,
 							settings : {
