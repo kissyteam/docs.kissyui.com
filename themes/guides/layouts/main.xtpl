@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>{{{title}}} - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/{{{version}}}/assets/favicon.ico">
 	<link rel="stylesheet" href="/{{{version}}}/assets/css/bootstrap.css">
