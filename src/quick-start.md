@@ -183,3 +183,11 @@ gallery 鼓励分享，任何人都可以为 gallery 提交自己的组件。使
 Combo 后的链接为：
 
 	http://g.tbcdn.cn/kissy/k/5.0/??node-min.js,dom/base-min.js,event/dom/base-min.js,event/base-min.js,event/dom/shake-min.js,event/dom/focusin-min.js,anim-min.js,anim/base-min.js,event/custom-min.js,anim/timer-min.js,event-min.js,anim/transition-min.js
+
+## 10，一个典型入门例子
+
+<div id="quickstart-demo">
+	<iframe src="/5.0/demos/anim/cited-by-md/quickstart.html" width="100%" height="650px"></iframe>
+</div>
+
+这个 demo 包括了 KISSY 的大部分基本用法，下面会逐步讲解

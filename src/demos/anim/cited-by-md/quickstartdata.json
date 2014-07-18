@@ -1,0 +1,38 @@
+{
+	"1" : {
+		"name" : "路飞",
+		"url" : "/5.0/assets/img/quickstart/11.jpg"
+	},
+	"2" : {
+		"name" : "索隆",
+		"url" : "/5.0/assets/img/quickstart/22.jpg"
+	},
+	"3" : {
+		"name" : "娜美",
+		"url" : "/5.0/assets/img/quickstart/33.jpg"
+	},
+	"4" : {
+		"name" : "乔巴",
+		"url" : "/5.0/assets/img/quickstart/44.jpg"
+	},
+	"5" : {
+		"name" : "佛兰奇",
+		"url" : "/5.0/assets/img/quickstart/55.jpg"
+	},
+	"6" : {
+		"name" : "布鲁克",
+		"url" : "/5.0/assets/img/quickstart/66.jpg"
+	},
+	"7" : {
+		"name" : "罗宾",
+		"url" : "/5.0/assets/img/quickstart/77.jpg"
+	},
+	"8" : {
+		"name" : "乌索普",
+		"url" : "/5.0/assets/img/quickstart/88.jpg"
+	},
+	"9" : {
+		"name" : "山治",
+		"url" : "/5.0/assets/img/quickstart/99.jpg"
+	}
+}
