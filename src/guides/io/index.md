@@ -472,7 +472,7 @@ data 可忽略，同上个函数描述。相当于这样调用IO：
 
 #### example
 
-查看[demo](/5.0/demos/io/cited-by-md/getJSON.html) :从 test.js 中加载 json 数据并访问
+查看[demo](/5.0/demos/io/cited-by-md/getjson.html) :从 test.js 中加载 json 数据并访问
 
 ### jsonp() `<static>`
 
