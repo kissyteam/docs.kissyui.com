@@ -109,11 +109,11 @@ KISSY 提供 anim 模块，完成 DOM 元素的动画。
 		return opLotto;
 	}, {requires: ['node', 'event', 'anim', 'ajax']});
 
-模块其实就是一个对象，模块名可以忽略，我们会返回这个对象以便在使用模块时方便调用，最后是依赖配置。Demo中我们把这个模块保存为 `opLotto.js`。同时，我们需要指定这个模块所属的包：
+模块其实就是一个对象，模块名可以忽略，我们会返回这个对象以便在使用模块时方便调用，最后是依赖配置。下面将介绍的Demo中我们把这个模块保存为 `opLotto.js`。同时，我们需要指定这个模块所属的包：
 
 	KISSY.config({
 		packages: {
-			"module":{
+			"modulePkgName":{
 				tag: "20130618",
 				base: "./",
 				charset: "gbk"
@@ -123,7 +123,7 @@ KISSY 提供 anim 模块，完成 DOM 元素的动画。
 
 这样来调用模块逻辑：
 
-	KISSY.use('module/opLotto, node, event', function(S, OP, N, E){
+	KISSY.use('modulePkgName/opLotto, node, event', function(S, OP, N, E){
 		S.ready(function(S){
 			var $ = N.all;
 			OP.init();
@@ -190,4 +190,107 @@ Combo 后的链接为：
 	<iframe src="/5.0/demos/anim/cited-by-md/quickstart.html" width="100%" height="650px"></iframe>
 </div>
 
-这个 demo 包括了 KISSY 的大部分基本用法，下面会逐步讲解
+这个 demo 包括了 KISSY 的大部分基本用法，下面会逐步讲解：
+
+### 操作元素
+
+KISSY 使用了类似 jQuery 的链式操作，只需定义`var $ = KISSY.all`就可以进行如下操作:
+
+	//Line 126: 获取图片列表元素
+	var imgList = $('.img-list').all('li');
+	//Line 132: 所有图片元素移除'active'类名
+	this.imgList.removeClass('active');
+
+	//Line 133: 给第next个图片元素添加'active'类名
+	this.imgList.item(next).addClass('active');
+
+链式操作：
+
+	//Line 151
+	var cloneItem = selectedItem.one('img')
+	    .clone()                    //复制选中的元素
+	    .appendTo('.content')       //添加到容器最后
+	    .css({
+	        'width': '100px',
+	        'height': '100px'})     //设置样式
+	    .animate({
+	        'top': 100
+	    }, 0.2, 'easeOut')          //添加一个动画
+	    .animate({
+	        'top': 200
+	        'left': 200
+	    }, 1, 'bounceOut', function(){
+	        ...
+	    })   
+### 绑定事件
+
+KISSY 中的事件绑定非常简单，通过一个 on 操作就能完成事件绑定
+
+	//Line 178
+	$('button').on('click', function(ev){
+	    //do something
+	})
+
+### Ajax
+
+KISSY 中对 Ajax 操作进行了一些封装，比如要发起一个 GET 请求
+
+	//Line 170
+	IO.get('/5.0/demos/anim/cited-by-md/quickstartdata.json', {'index': index}, function(data){
+		var url = data[index].url;
+		$('.detail').html('<img src="' + url + '" />').fadeIn(0.5);
+	}, 'json');
+
+上述参数分别代表请求地址，发送数据，回调函数，返回数据格式
+
+## 11， 例子重写
+
+<div id="quickstart-demo-2">
+	<iframe src="/5.0/demos/anim/cited-by-md/quickstart_2.html" width="100%" height="650px"></iframe>
+</div>
+
+这个 demo 的逻辑部分都和之前的相同，不同的是我们将它改造成了一个独立的模块
+
+### 新建模块
+
+	KISSY.add(function(S, N, E, A, IO){
+	    var $ = S.all;
+	    var opLotto = {
+	        init: function(){
+	            ...
+	        },
+	        ...
+	    }
+	    return opLotto;
+	}, {requires: ['node', 'event', 'anim', 'ajax']});
+
+模块其实就是一个对象，模块名可以忽略，我们会返回这个对象以便在使用模块时方便调用
+
+### 依赖配置
+
+我们把这个模块保存为 opLotto.js，放在同目录的 modulePkgName 文件夹下
+
+在加载模块前，我们需要在主页面中对 KISSY 进行一下包配置
+
+	KISSY.config({
+	    packages: [
+	        {
+	            name: "modulePkgName",
+	            tag: "20140718",
+	            path: "./", 
+	            charset: "gbk"
+	        }
+	    ]
+	});
+
+在这段代码中我们指定了包的路径，包名，时间戳和编码
+
+### 使用模块
+
+	KISSY.use('modulePkgName/opLotto, node, event', function(S, OP, N, E){
+	    S.ready(function(S){
+	        var $ = S.all;
+	        OP.init();
+	        ...
+	    });
+	})

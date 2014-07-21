@@ -206,10 +206,10 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node'</sp
     }
     <span class="hljs-keyword">return</span> opLotto;
 }, {requires: [<span class="hljs-string">'node'</span>, <span class="hljs-string">'event'</span>, <span class="hljs-string">'anim'</span>, <span class="hljs-string">'ajax'</span>]});
-</code></pre><p>模块其实就是一个对象，模块名可以忽略，我们会返回这个对象以便在使用模块时方便调用，最后是依赖配置。Demo中我们把这个模块保存为 <code>opLotto.js</code>。同时，我们需要指定这个模块所属的包：</p>
+</code></pre><p>模块其实就是一个对象，模块名可以忽略，我们会返回这个对象以便在使用模块时方便调用，最后是依赖配置。下面将介绍的Demo中我们把这个模块保存为 <code>opLotto.js</code>。同时，我们需要指定这个模块所属的包：</p>
 <pre><code><span class="hljs-tag">KISSY</span><span class="hljs-class">.config</span>(<span class="hljs-rules">{
     <span class="hljs-rule"><span class="hljs-attribute">packages</span>:<span class="hljs-value"> {
-        <span class="hljs-string">"module"</span>:{
+        <span class="hljs-string">"modulePkgName"</span>:{
             tag: <span class="hljs-string">"20130618"</span>,
             base: <span class="hljs-string">"./"</span>,
             charset: <span class="hljs-string">"gbk"</span>
@@ -217,7 +217,7 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node'</sp
     }
 });
 </code></pre><p>这样来调用模块逻辑：</p>
-<pre><code>KISSY.use(<span class="hljs-string">'module/opLotto, node, event'</span>, <span class="hljs-keyword">function</span>(S, OP, N, E){
+<pre><code>KISSY.use(<span class="hljs-string">'modulePkgName/opLotto, node, event'</span>, <span class="hljs-keyword">function</span>(S, OP, N, E){
     S.ready(<span class="hljs-keyword">function</span>(S){
         var $ = N.all;
         OP.init();
@@ -261,8 +261,81 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node'</sp
     <iframe src="/5.0/demos/anim/cited-by-md/quickstart.html" width="100%" height="650px"></iframe>
 </div>
 
-<p>这个 demo 包括了 KISSY 的大部分基本用法，下面会逐步讲解</p>
+<p>这个 demo 包括了 KISSY 的大部分基本用法，下面会逐步讲解：</p>
+<h3>操作元素</h3><p>KISSY 使用了类似 jQuery 的链式操作，只需定义<code>var $ = KISSY.all</code>就可以进行如下操作:</p>
+<pre><code><span class="hljs-comment">//Line 126: 获取图片列表元素</span>
+<span class="hljs-keyword">var</span> imgList = $(<span class="hljs-string">'.img-list'</span>).all(<span class="hljs-string">'li'</span>);
+<span class="hljs-comment">//Line 132: 所有图片元素移除'active'类名</span>
+<span class="hljs-keyword">this</span>.imgList.removeClass(<span class="hljs-string">'active'</span>);
 
+<span class="hljs-comment">//Line 133: 给第next个图片元素添加'active'类名</span>
+<span class="hljs-keyword">this</span>.imgList.item(next).addClass(<span class="hljs-string">'active'</span>);
+</code></pre><p>链式操作：</p>
+<pre><code>//Line <span class="hljs-number">151</span>
+var cloneItem = selectedItem.one(<span class="hljs-string">'img'</span>)
+    .clone()                    //复制选中的元素
+    .appendTo(<span class="hljs-string">'.content'</span>)       //添加到容器最后
+    .css({
+        <span class="hljs-string">'width'</span>: <span class="hljs-string">'100px'</span>,
+        <span class="hljs-string">'height'</span>: <span class="hljs-string">'100px'</span>})     //设置样式
+    .animate({
+        <span class="hljs-string">'top'</span>: <span class="hljs-number">100</span>
+    }, <span class="hljs-number">0.2</span>, <span class="hljs-string">'easeOut'</span>)          //添加一个动画
+    .animate({
+        <span class="hljs-string">'top'</span>: <span class="hljs-number">200</span>
+        <span class="hljs-string">'left'</span>: <span class="hljs-number">200</span>
+    }, <span class="hljs-number">1</span>, <span class="hljs-string">'bounceOut'</span>, <span class="hljs-keyword">function</span>(){
+        <span class="hljs-keyword">...</span>
+    })   
+</code></pre><h3>绑定事件</h3><p>KISSY 中的事件绑定非常简单，通过一个 on 操作就能完成事件绑定</p>
+<pre><code><span class="hljs-comment">//Line 178</span>
+$(<span class="hljs-string">'button'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(ev)</span></span>{
+    <span class="hljs-comment">//do something</span>
+})
+</code></pre><h3>Ajax</h3><p>KISSY 中对 Ajax 操作进行了一些封装，比如要发起一个 GET 请求</p>
+<pre><code><span class="hljs-comment">//Line 170</span>
+IO.get(<span class="hljs-string">'/5.0/demos/anim/cited-by-md/quickstartdata.json'</span>, {<span class="hljs-string">'index'</span>: index}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+    <span class="hljs-keyword">var</span> url = data[index].url;
+    $(<span class="hljs-string">'.detail'</span>).html(<span class="hljs-string">'&lt;img src="'</span> + url + <span class="hljs-string">'" /&gt;'</span>).fadeIn(<span class="hljs-number">0.5</span>);
+}, <span class="hljs-string">'json'</span>);
+</code></pre><p>上述参数分别代表请求地址，发送数据，回调函数，返回数据格式</p>
+<h2>11， 例子重写</h2><div id="quickstart-demo-2">
+    <iframe src="/5.0/demos/anim/cited-by-md/quickstart_2.html" width="100%" height="650px"></iframe>
+</div>
+
+<p>这个 demo 的逻辑部分都和之前的相同，不同的是我们将它改造成了一个独立的模块</p>
+<h3>新建模块</h3><pre><code>KISSY.add(<span class="hljs-keyword">function</span>(S, N, E, A, IO){
+    var $ = S.all;
+    var opLotto = {
+        init: <span class="hljs-keyword">function</span>(){
+            <span class="hljs-keyword">...</span>
+        },
+        <span class="hljs-keyword">...</span>
+    }
+    <span class="hljs-keyword">return</span> opLotto;
+}, {requires: [<span class="hljs-string">'node'</span>, <span class="hljs-string">'event'</span>, <span class="hljs-string">'anim'</span>, <span class="hljs-string">'ajax'</span>]});
+</code></pre><p>模块其实就是一个对象，模块名可以忽略，我们会返回这个对象以便在使用模块时方便调用</p>
+<h3>依赖配置</h3><p>我们把这个模块保存为 opLotto.js，放在同目录的 modulePkgName 文件夹下</p>
+<p>在加载模块前，我们需要在主页面中对 KISSY 进行一下包配置</p>
+<pre><code><span class="hljs-tag">KISSY</span><span class="hljs-class">.config</span>(<span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">packages</span>:<span class="hljs-value"> [
+        {
+            name: <span class="hljs-string">"modulePkgName"</span>,
+            tag: <span class="hljs-string">"20140718"</span>,
+            path: <span class="hljs-string">"./"</span>, 
+            charset: <span class="hljs-string">"gbk"</span>
+        </span></span></span>}
+    ]
+});
+</code></pre><p>在这段代码中我们指定了包的路径，包名，时间戳和编码</p>
+<h3>使用模块</h3><pre><code>KISSY.use(<span class="hljs-string">'modulePkgName/opLotto, node, event'</span>, <span class="hljs-keyword">function</span>(S, OP, N, E){
+    S.ready(<span class="hljs-keyword">function</span>(S){
+        var $ = S.all;
+        OP.init();
+        <span class="hljs-keyword">...</span>
+    });
+})
+</code></pre>
 			</div>
 		</div>
 	</div>
