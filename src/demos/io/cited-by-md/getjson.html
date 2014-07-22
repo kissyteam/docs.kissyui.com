@@ -18,7 +18,7 @@
         var $=Node.all;
         $("#getJSON").on("click",function(){
             
-            IO.getJSON("kissy.js",function(d){
+            IO.getJSON("/5.0/demos/io/cited-by-md/kissy.js",function(d){
                 alert("user : "+d.user+" \n email : "+d.email);                
             });
                                             
