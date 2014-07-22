@@ -31,6 +31,8 @@ Base 的属性配置来自 Attribute 模块，它提供如下方法：
 - getAttrVals()
 - set()
 - reset()
+- destroy()
+- ...
 
 通过 get() 与 set() 这一层包装，Base 允许类在定义自己时，配置 getter、setter 方法，用法如下：
 
