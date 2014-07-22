@@ -17,6 +17,10 @@ var srcDirPath = '',
 markedRenderer.heading = function(text, level){
 	return '<h' + level + '>' + text + '</h' + level + '>';
 };
+markedRenderer.link = function(href, title, text){
+	href = href.replace('{{{version}}}','/'+version);
+	return '<a href="' + href + '">' + text + '</a>';
+}
 
 marked.setOptions({
   highlight: function (code) {
