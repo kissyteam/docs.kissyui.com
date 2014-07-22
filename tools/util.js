@@ -1,6 +1,7 @@
 //--------------util function---------------------------------------------------------------
 
 var fs = require( 'fs' ),
+    path = require('path'),
     stat = fs.stat;
 /*
  * 复制目录中的所有文件包括子目录
@@ -42,7 +43,28 @@ var copy = function( src, dst ){
     });
 };
 
-// 在复制目录前需要判断该目录是否存在，不存在需要先创建目录
+
+function mkdirRecursion(dirPath,callback){
+    if(fs.existsSync(dirPath)){   //如果已经存在
+       callback();
+       return;
+    }
+    if(fs.existsSync(path.dirname(dirPath))){  //父目录是否存在
+        fs.mkdir(dirPath,function(err,success){
+            if(err){
+                console.log(err);
+            }else{
+                callback();
+            }
+        });
+    }else{
+        mkdirRecursion(path.dirname(dirPath),function(){
+            fs.mkdir(dirPath,callback);
+        });
+    }
+}
+
+// 在复制目录前需要判断该目录是否存在，不存在需要先创建目录。注意src和dst只能是目录名，不是文件名
 var exists = function( src, dst, callback ){
     fs.exists( dst, function( exists ){
         // 已存在
@@ -51,7 +73,7 @@ var exists = function( src, dst, callback ){
         }
         // 不存在
         else{
-            fs.mkdir( dst, function(){
+            mkdirRecursion(dst,function(){
                 callback( src, dst );
             });
         }
