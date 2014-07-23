@@ -1,3 +1,4 @@
+(((apilink class="XTemplate")))
 # xtemplate离线编译
 
 将模板写入单独的模板文件，然后用 kissy-nodejs 的 kissy-xtemplate 命令生成对应的模板函数。 不仅有利于代码的清晰，更省去了客户端生成模板函数的消耗。

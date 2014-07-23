@@ -1,3 +1,4 @@
+(((apilink class="Event")))
 # event基本介绍
 
 Event 模块是KISSY最重要的模块之一，他包含自定义事件机制、事件对象封装、DOM事件封装、面向多终端的事件行为统一。下辖多个子模块，被Node、DOM、Base分别依赖。通常DOM事件无需直接引用event，只需use('node')即可。使用use('base')时也无需手动引入event。如果想单独使用自定义事件，则需要use('event')。

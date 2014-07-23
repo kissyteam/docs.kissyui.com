@@ -1,3 +1,4 @@
+(((apilink class="Path")))
 # Path的基本介绍
 
 ## 用法

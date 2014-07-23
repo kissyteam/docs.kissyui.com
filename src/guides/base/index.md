@@ -1,3 +1,4 @@
+(((apilink class="Base")))
 # Base基本介绍
 
 阅读之前先通读[KISSY 中的面向对象]({{{version}}}/guides/base/oo.html)。

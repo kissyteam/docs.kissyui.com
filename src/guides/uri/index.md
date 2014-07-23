@@ -1,3 +1,4 @@
+(((apilink class="Uri")))
 # Uri的基本介绍
 
 uri 解析模块，用于处理URL，通过沙箱来调用

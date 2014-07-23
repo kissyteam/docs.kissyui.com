@@ -1,3 +1,4 @@
+(((apilink class="Resizable")))
 # resizable基本使用
 
 缩放功能组件，[Demo]({{{version}}}/demos/resizable/index.html)

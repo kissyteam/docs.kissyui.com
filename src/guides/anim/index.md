@@ -1,3 +1,4 @@
+(((apilink class="Anim")))
 # Anim基本介绍
 
 KISSY 动画，这样来载入anim模块：

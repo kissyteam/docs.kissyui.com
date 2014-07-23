@@ -1,3 +1,4 @@
+(((apilink class="IO")))
 # IO的基本介绍
 
 > Ajax 别名 io，注意，KISSY中不存在名为"ajax"的模块，必须使用名字‘io’。

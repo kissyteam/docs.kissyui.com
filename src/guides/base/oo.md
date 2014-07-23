@@ -1,3 +1,4 @@
+(((apilink class="Base")))
 # KISSY中的面向对象
 
 JavaScript 语言自成体系，自有一套代码重用的模式，这些常见的代码重用模式可以在《Javascript 设计模式》、《JavaScript 编程模式》中找到理论基础。KISSY 即是实践了这些典型的代码重用模式，并作为 KISSY 代码库的面向对象的核心，向高层代码提供语言的完备性支撑。

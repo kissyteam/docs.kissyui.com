@@ -1,3 +1,4 @@
+(((apilink class="Promise")))
 # Promise的基本介绍
 
 “Promises” （有时也称之为deferred）代表着在javascript程序里一种巧妙的编程范式，它代表了一种可能会长时间运行而且不一定必须完整的操作的结果。这种模式不会阻塞和等待长时间的操作完成，而是返回一个代表了承诺的（promised）结果的对象。因此它的核心就是一个promise，代表一个任务结果，这个任务有可能完成有可能没完成。Promise模式唯一需要的一个接口是调用then方法，它可以用来注册当promise完成或者失败时调用的回调函数阅读，详情请[CommonJS Promises/A proposal](http://wiki.commonjs.org/wiki/Promises/A) 。

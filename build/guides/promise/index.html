@@ -124,7 +124,8 @@
 </script>
 		<div class="row">
 			<div class="col-md-9" id="main-content">
-				<h1>Promise的基本介绍</h1><p>“Promises” （有时也称之为deferred）代表着在javascript程序里一种巧妙的编程范式，它代表了一种可能会长时间运行而且不一定必须完整的操作的结果。这种模式不会阻塞和等待长时间的操作完成，而是返回一个代表了承诺的（promised）结果的对象。因此它的核心就是一个promise，代表一个任务结果，这个任务有可能完成有可能没完成。Promise模式唯一需要的一个接口是调用then方法，它可以用来注册当promise完成或者失败时调用的回调函数阅读，详情请<a href="http://wiki.commonjs.org/wiki/Promises/A">CommonJS Promises/A proposal</a> 。</p>
+				<p></p>
+<h1>Promise的基本介绍</h1><p>“Promises” （有时也称之为deferred）代表着在javascript程序里一种巧妙的编程范式，它代表了一种可能会长时间运行而且不一定必须完整的操作的结果。这种模式不会阻塞和等待长时间的操作完成，而是返回一个代表了承诺的（promised）结果的对象。因此它的核心就是一个promise，代表一个任务结果，这个任务有可能完成有可能没完成。Promise模式唯一需要的一个接口是调用then方法，它可以用来注册当promise完成或者失败时调用的回调函数阅读，详情请<a href="http://wiki.commonjs.org/wiki/Promises/A">CommonJS Promises/A proposal</a> 。</p>
 <h2>Promise 做了什么事情</h2><p>Promise 适用于有异步逻辑的场景</p>
 <h2>代码第一形态</h2><p>实现一个单体，可以传入回调参数，在某个事件发生时触发这个回调，通常我们这样做：</p>
 <pre><code><span class="hljs-keyword">var</span> A = {
@@ -237,10 +238,10 @@ p1.<span class="hljs-keyword">when</span>(<span class="hljs-regexp">/*条件*/</
 
 				<div id="disqus_thread"></div>
 				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
-				<a id="apilink" href="../../api" style="display:none;"></a>
+				<a id="apilink" href="../../api/classes/Promise.html" style="display:none;"></a>
 			</div>
 			<div class="col-md-3" id="sidebar">
-				<a class="link-apidocs btn btn-primary" href="../../api">API Docs</a>
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/Promise.html">API Docs</a>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
