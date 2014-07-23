@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>overlay - KISSY v5.0 Documentation</title>
+	<title>Overlay基本介绍 - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -125,32 +125,15 @@
 		<div class="row">
 			<div class="col-md-9" id="main-content">
 				<p></p>
-<h1>overlay</h1><blockquote>
+<h1>Overlay基本介绍</h1><blockquote>
 <p>悬浮的对话框是KISSY核心组件中完整的利用了KISSY的面向对象的组件，是典型的组件拼装模式，继承和派生的用法非常值得学习和借鉴。</p>
 </blockquote>
-<h2>Demos</h2><ul>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo1.html">从Markup中构建</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo2.html">新建markup</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo3.html">多个触发元素公用一个 Overlay</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo4.html">demo3 的另一种实现方式（不推荐）</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo5.html">异步加载弹出层内容</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo6.html">对话框 新建 + Mask + aria</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo7.html">对话框 从 Markup 中构建</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo8.html">对话框 限制 + 可缩放</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo9.html">对话框 fixed 居中</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo10.html">对话框运动到某个位置</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/proxy-scroll.html">代理加窗口自动滚动</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/mask-anim.html">Mask 动画效果</a></li>
-<li><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/effect-target.html">Effect target 效果</a></li>
-</ul>
 <p>Overlay 由三个内部组件派生出来，Control、Align、Position，Controller又包含另外两个基础组件UIBase和Box。因此Overlay的实例方法大都是组装来的。<code>Overlay</code>对象下挂接两个由他派生出的类：<code>Dialog</code>和<code>Popup</code>，这两个实现是最常用的。</p>
-<p><img src="templates/assets/img/overlay.png" alt=""></p>
 <p>引用方法：</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'overlay'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Overlay)</span></span>{
     <span class="hljs-comment">// use Overlay</span>
 });
-</code></pre><h2>一个简单的调用</h2><p><a href="http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo1.html">初始化一个Popup</a></p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'overlay'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Overlay)</span></span>{
+</code></pre><h2>一个简单的调用</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'overlay'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Overlay)</span></span>{
     <span class="hljs-comment">//通过dom元素新建立popup</span>
     <span class="hljs-keyword">var</span> popup = <span class="hljs-keyword">new</span> Overlay.Popup({
         srcNode:<span class="hljs-string">'#dpop'</span>,
@@ -201,7 +184,7 @@
 <h2>Overlay/Dialog/Popup API</h2><h3>配置参数</h3><p><code>new Overlay(config)</code></p>
 <h4>prefixCls</h4><p>继承自Controller，组件css样式的前缀，默认 “ks-” . 例如假设组件为 menu ，则该组件内的样式类名为 {prefixCls}menu，默认为 “ks-menu”.可用于实现自定义皮肤.</p>
 <h4>srcNode</h4><p>继承自UIBase，当前组件在 dom 树中已经存在的节点.</p>
-<h4>plugins</h4><p>数组，给出插件，插件格式参照<a href="base.html">Base</a>。</p>
+<h4>plugins</h4><p>数组，给出插件，插件格式参照<a href="/5.0/guides/base/index.html">Base</a>。</p>
 <h4>width</h4><p>继承自Box，组件的宽度，单位为像素</p>
 <h4>height</h4><p>继承自Box，组件的高度，单位为像素</p>
 <h4>elCls</h4><p>继承自Box，附加给根节点的样式类</p>
@@ -227,7 +210,7 @@
 <ul>
 <li>target，KISSY Node或者字符串，动画参考元素</li>
 <li>effect，字符串，可取值 ‘fade’(渐隐显示), ‘slide’(滑动显示).</li>
-<li>easing，字符串，同 <a href="anim.html">KISSY.Anim</a> 的 easing 参数配置.</li>
+<li>easing，字符串，同 <a href="/5.0/guides/anim/index.html">KISSY.Anim</a> 的 easing 参数配置.</li>
 <li>duration，数字类型，动画持续时间, 以秒为单位.</li>
 </ul>
 <p>举例：</p>
@@ -272,8 +255,8 @@
 <h4>currentTrigger <code>Popup</code>专有</h4><p>当前的 trigger 节点</p>
 <hr>
 <h3>实例方法</h3><p>Dialog和Popup中都包含同样的实例方法</p>
-<h4>plugin(plugin)</h4><p>继承自Base，安装指定插件，参数<code>plugin</code>为Function或者Object，是插件构造器或者插件对象，返回自身,具体参照<a href="base.html">Base</a></p>
-<h4>unplugin(plugin)</h4><p>继承自Base，卸载插件，参数为字符串或对象，是指定插件的id或者插件对象。返回自身。具体参照<a href="base.html">Base</a></p>
+<h4>plugin(plugin)</h4><p>继承自Base，安装指定插件，参数<code>plugin</code>为Function或者Object，是插件构造器或者插件对象，返回自身,具体参照<a href="/5.0/guides/base/index.html">Base</a></p>
+<h4>unplugin(plugin)</h4><p>继承自Base，卸载插件，参数为字符串或对象，是指定插件的id或者插件对象。返回自身。具体参照<a href="/5.0/guides/base/index.html">Base</a></p>
 <h4>render()</h4><p>继承自UIBase，将组件渲染到dom树中</p>
 <h4>destroy()</h4><p>继承自Base，销毁组件</p>
 <h4>show()</h4><p>继承自Box，渲染该组件并显示出来.</p>
@@ -308,7 +291,7 @@
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="../../guides/overlay/index.html">overlay</a></p>
+						<p><a href="../../guides/overlay/index.html">Overlay基本介绍</a></p>
 					</div>
 				</div>
 				<div class="panel panel-primary">

@@ -1,27 +1,9 @@
 (((apilink class="Overlay")))
-# overlay
+# Overlay基本介绍
 
 > 悬浮的对话框是KISSY核心组件中完整的利用了KISSY的面向对象的组件，是典型的组件拼装模式，继承和派生的用法非常值得学习和借鉴。
 
-## Demos
-
-- [从Markup中构建](http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo1.html)
-- [新建markup](http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo2.html)
-- [多个触发元素公用一个 Overlay](http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo3.html)
-- [demo3 的另一种实现方式（不推荐）](http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo4.html)
-- [异步加载弹出层内容](http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo5.html)
-- [对话框 新建 + Mask + aria](http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo6.html)
-- [对话框 从 Markup 中构建](http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo7.html)
-- [对话框 限制 + 可缩放](http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo8.html)
-- [对话框 fixed 居中](http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo9.html)
-- [对话框运动到某个位置](http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo10.html)
-- [代理加窗口自动滚动](http://docs.kissyui.com/1.4/source/raw/demo/overlay/proxy-scroll.html)
-- [Mask 动画效果](http://docs.kissyui.com/1.4/source/raw/demo/overlay/mask-anim.html)
-- [Effect target 效果](http://docs.kissyui.com/1.4/source/raw/demo/overlay/effect-target.html)
-
 Overlay 由三个内部组件派生出来，Control、Align、Position，Controller又包含另外两个基础组件UIBase和Box。因此Overlay的实例方法大都是组装来的。`Overlay`对象下挂接两个由他派生出的类：`Dialog`和`Popup`，这两个实现是最常用的。
-
-![](templates/assets/img/overlay.png)
 
 引用方法：
 
@@ -30,8 +12,6 @@ Overlay 由三个内部组件派生出来，Control、Align、Position，Control
 	});
 
 ## 一个简单的调用
-
-[初始化一个Popup](http://docs.kissyui.com/1.4/source/raw/demo/overlay/demo1.html)
 
 	KISSY.use('overlay',function(S,Overlay){
 		//通过dom元素新建立popup
@@ -104,7 +84,7 @@ Overlay 由三个内部组件派生出来，Control、Align、Position，Control
 
 #### plugins
 
-数组，给出插件，插件格式参照[Base](base.html)。
+数组，给出插件，插件格式参照[Base]({{{version}}}/guides/base/index.html)。
 
 #### width
 
@@ -163,7 +143,7 @@ JSON对象，显示隐藏效果，属性包括
 
 - target，KISSY Node或者字符串，动画参考元素
 - effect，字符串，可取值 ‘fade’(渐隐显示), ‘slide’(滑动显示).
-- easing，字符串，同 [KISSY.Anim](anim.html) 的 easing 参数配置.
+- easing，字符串，同 [KISSY.Anim]({{{version}}}/guides/anim/index.html) 的 easing 参数配置.
 - duration，数字类型，动画持续时间, 以秒为单位.
 
 举例：
@@ -299,11 +279,11 @@ Dialog和Popup中都包含同样的实例方法
 
 #### plugin(plugin)
 
-继承自Base，安装指定插件，参数`plugin`为Function或者Object，是插件构造器或者插件对象，返回自身,具体参照[Base](base.html)
+继承自Base，安装指定插件，参数`plugin`为Function或者Object，是插件构造器或者插件对象，返回自身,具体参照[Base]({{{version}}}/guides/base/index.html)
 
 #### unplugin(plugin)
 
-继承自Base，卸载插件，参数为字符串或对象，是指定插件的id或者插件对象。返回自身。具体参照[Base](base.html)
+继承自Base，卸载插件，参数为字符串或对象，是指定插件的id或者插件对象。返回自身。具体参照[Base]({{{version}}}/guides/base/index.html)
 
 #### render()
 
