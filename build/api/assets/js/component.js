@@ -68,7 +68,47 @@ KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
                                     content : 'FAQ',
                                     listeners : {
                                         click : function(){
-                                            window.location.href ='/5.0/more/faq.html';
+                                            window.location.href ='/{{{version}}}/more/faq.html';
+                                        }
+                                    }
+                                },
+                                {
+                                    content : 'Gallery',
+                                    listeners : {
+                                        click : function(){
+                                            window.location.href = 'http://gallery.kissyui.com/';
+                                        }
+                                    }
+                                },
+                                {
+                                    content : 'Kissy Blog',
+                                    listeners : {
+                                        click : function(){
+                                            window.location.href = 'http://blog.kissyui.com/';
+                                        }
+                                    }
+                                },
+                                {
+                                    content : 'KMC',
+                                    listeners : {
+                                        click : function(){
+                                            window.location.href = 'https://github.com/daxingplay/grunt-kmc/blob/master/README.md';
+                                        }
+                                    }
+                                },
+                                {
+                                    content : 'ABC',
+                                    listeners : {
+                                        click : function(){
+                                            window.location.href = 'http://abc.f2e.taobao.net/';
+                                        }
+                                    }
+                                },
+                                {
+                                    content : 'Clam',
+                                    listeners : {
+                                        click : function(){
+                                            window.location.href = 'https://github.com/jayli/generator-clam/blob/master/README.md';
                                         }
                                     }
                                 }
