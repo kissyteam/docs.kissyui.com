@@ -2405,7 +2405,9 @@
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": [],
+            "extension_for": [
+                "Overlay"
+            ],
             "module": "component/extension/align",
             "namespace": "Component.Extension",
             "file": "src/api/component/extension/align.js",
@@ -2461,7 +2463,9 @@
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": [],
+            "extension_for": [
+                "Overlay"
+            ],
             "module": "component/extension/shim",
             "namespace": "Component.Extension",
             "file": "src/api/component/extension/shim.js",
@@ -4219,8 +4223,8 @@
             "is_constructor": 1,
             "extends": "Component.Container",
             "uses": [
-                "Shim",
-                "Align"
+                "Component.Extension.Shim",
+                "Component.Extension.Align"
             ],
             "params": [
                 {

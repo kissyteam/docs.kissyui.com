@@ -124,335 +124,412 @@
 </script>
 		<div class="row">
 			<div class="col-md-9" id="main-content">
-				<p></p>
-<h1>XTemplate基本介绍</h1><p>XTemplate 是富逻辑的 KISSY 模板引擎，面向复杂的业务逻辑场景，同时保持高性能和丰富的配置方法，是易学易懂的模板语言。</p>
-<p>一个典型的XTemplate模板实例：</p>
-<pre><code><span class="xml">Hello </span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml">
-You have just won $</span><span class="hljs-expression">{{<span class="hljs-variable">value</span>}}</span><span class="xml">!
-</span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span> data</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span> data</span>}}</span><span class="xml">
-        </span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">xindex</span>}}</span><span class="xml">/</span><span class="hljs-expression">{{<span class="hljs-variable">xcount</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml"></span>
-</code></pre><p>对应要填充的JSON：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">name</span>:<span class="hljs-value"><span class="hljs-string">'Kissy'</span>,
-    value:<span class="hljs-string">'10000'</span>,
-    data:[
-        {name:<span class="hljs-number">1</span></span></span></span>},
-        <span class="hljs-rules">{<span class="hljs-rule"><span class="hljs-attribute">name</span>:<span class="hljs-value"><span class="hljs-number">2</span></span></span></span>}
-    ]
-}
-</code></pre><p>拼装结果：</p>
-<pre><code><span class="hljs-title">Hello</span> Kissy You have just won <span class="hljs-variable">$10000</span>! <span class="hljs-number">1</span>-<span class="hljs-number">0</span>/<span class="hljs-number">2</span> <span class="hljs-number">2</span>-<span class="hljs-number">1</span>/<span class="hljs-number">2</span> 
-</code></pre><p>XTemplate 可以放置于HTML、配置文件、程序代码中，核心机制就是把模板中的标签替换为JSON对象给定的值，并同时具有一定的模板语言逻辑。
-模板中除了提供最简单的变量替换，还提供if、else和foreach等常见功能。所谓标签，指的是双花括号包含的一个标记，<code>{{name}}</code>就是一个标签，<code>{{#name}}</code>也是一个标签。XTemplate模板语言是抽象的，可以有多种编程语言的实现，KISSY 的<code>xtemplate</code>模块实现了 XTemplate 标记语言。</p>
-<p>这样来引入xtemplate模块：</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'xtemplate'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,XTemplate)</span></span>{
-    <span class="hljs-comment">// use XTemplate</span>
-});
-</code></pre><p>如何通过KISSY来解析XTemplate模板？先看一个简单的例子，实现变量替换：</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'xtemplate'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(S, XTemplate)</span> </span>{
+				<h1>XTemplate基本介绍</h1><h2>基本 api</h2><h3>Class</h3><p>XTemplate/XTemplateRuntime</p>
+<p>构造器参数</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th style="width: 100px;">name</th>
+        <th style="width: 50px;">type</th>
+        <th>description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>content</td>
+        <td>String</td>
+        <td>模板字符串</td>
+    </tr>
+    <tr>
+            <td>config</td>
+            <td>Object</td>
+            <td>
+            对象属性含义：
+            <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th style="width: 100px;">name</th>
+                        <th style="width: 50px;">type</th>
+                        <th>description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>模板名字，用于编译时报错</td>
+                    </tr>
+                    <tr>
+                        <td>commands</td>
+                        <td>Object</td>
+                        <td>命令定义，详见下文</td>
+                        </tr>
+                    </tbody>
+                </table></td>
+        </tr>
+    </tbody>
+</table>
 
-    <span class="hljs-keyword">var</span> tpl = <span class="hljs-string">'this is {{title}}!'</span>;
 
-    <span class="hljs-keyword">var</span> data = {
-        title: <span class="hljs-string">'o'</span>
-    };
-    <span class="hljs-keyword">var</span> render = <span class="hljs-keyword">new</span> XTemplate(tpl).render(data);
-
-    alert(render);<span class="hljs-comment">// =&gt; "this is o!"</span>
-});
-</code></pre><p>你也可以直接离线编译 xtemplate 为 kissy 模块，那么线上直接引入 xtemplate/runtime 即可，还省去了在线编译的时间，提高运行效率。</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'xtemplate/runtime,tpls/x'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, XTemplate,x)</span></span>{
-    <span class="hljs-keyword">var</span> data={z:<span class="hljs-number">1</span>};
-    <span class="hljs-keyword">new</span> XTemplate(x).render(data);
-});
-</code></pre><p>详见：<a href="/5.0/guides/xtemplate/compile.html">xtemplate 离线编译</a></p>
-<hr>
-<h2>KISSY XTemplate 语法</h2><h3><code>{{key}}</code>变量替换</h3><p>使用<code>{{key}}</code>输出变量值，<code>key</code>表示要替换的JSON中的key，替换为JSON中key对应的value。比如XTemplate：</p>
-<pre><code><span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> {{title}}!
-</code></pre><p>要填充的JSON对象：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">title</span>:<span class="hljs-value"><span class="hljs-string">'Kissy'</span>
-</span></span></span>}
-</code></pre><p>拼装结果为：</p>
-<pre><code><span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> Kissy!
-</code></pre><h3><code>{{if condition}}</code>条件语句</h3><p>使用<code>{{if condition}}</code>来实现条件判断，<code>condition</code>表示要判断的值，判断是否存在、为空、是否为falsy。比如模板为：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span> title</span>}}</span><span class="xml">
-    has title
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{@<span class="hljs-variable"><span class="hljs-keyword">if</span></span> <span class="hljs-variable">title</span>2}}</span><span class="xml">
-    has title2
-</span><span class="hljs-expression">{{<span class="hljs-variable"><span class="hljs-keyword">else</span></span>}}</span><span class="xml">
-    not has title2
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml"></span>
-</code></pre><p>要填充的JSON对象：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">title</span>:<span class="hljs-value"><span class="hljs-string">'kissy'</span>,
-    title2:<span class="hljs-string">''</span>
-</span></span></span>}
-</code></pre><p>填充结果为：</p>
-<pre><code><span class="hljs-keyword">has</span> title 
-<span class="hljs-keyword">not</span> <span class="hljs-keyword">has</span> title2 
-</code></pre><p>其中<code>{{#if}}</code>和<code>{{@if}}</code>完全等价，在某些环境中（比如velocity）里<code>#</code>有特殊语义，这时可以用<code>@</code>作为<code>if</code>前缀。</p>
-<p>此外，<code>title</code>的取值不为这些值时被认为是真值：<code>0</code>，<code>null</code>，<code>&#39;&#39;</code>，<code>false</code>，<code>NaN</code>，<code>undefined</code>。当取值为空数组<code>[]</code>或空对象&#39;{}&#39;时，则认为是真值。</p>
-<h3><code>{{^if condition}}</code>条件非语句</h3><p>使用<code>{{^if condition}}</code>来实现条件非，如果<code>condition</code>值为空或者假值（<code>0</code>， <code>null</code>， <code>&#39;&#39;</code>， <code>false</code>， <code>NaN</code>， <code>undefined</code>），则此语句为 true。如果<code>condition</code>有值且是真值，语句为 false。比如这段 XTemplate 模板：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{^<span class="hljs-variable"><span class="hljs-keyword">if</span></span> <span class="hljs-variable">title</span>}}</span><span class="xml">
-    do not has title
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{^<span class="hljs-variable"><span class="hljs-keyword">if</span></span> <span class="hljs-variable">title</span>2}}</span><span class="xml">
-    do not has title2
-</span><span class="hljs-expression">{{<span class="hljs-variable"><span class="hljs-keyword">else</span></span>}}</span><span class="xml">
-    has title2
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml"></span>
-</code></pre><p>填充的JSON为：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">title</span>:<span class="hljs-value">undefined,
-    title2:<span class="hljs-string">''</span>
-</span></span></span>}
-</code></pre><p>填充结果为：</p>
-<pre><code><span class="hljs-keyword">do</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">has</span> title 
-<span class="hljs-keyword">do</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">has</span> title2 
-</code></pre><h3><code>{{#each}}</code>循环语句</h3><h4>循环对象数组</h4><p>使用<code>{{#each data}}</code>表示循环，<code>data</code>表示循环的对象，数组类型，每个item为一个对象，比如这段 XTemplate：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span> data</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">xindex</span>}}</span><span class="xml">/</span><span class="hljs-expression">{{<span class="hljs-variable">xcount</span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"></span>
-</code></pre><p>如果填充的JSON为数组类型：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">data</span>:<span class="hljs-value">[
-        {name:<span class="hljs-number">1</span></span></span></span>},
-        <span class="hljs-rules">{<span class="hljs-rule"><span class="hljs-attribute">name</span>:<span class="hljs-value"><span class="hljs-number">2</span></span></span></span>}
-    ]
-}
-</code></pre><p>渲染结果为：</p>
-<pre><code>1-0/2
-2-1/2
-</code></pre><p>这时循环内的<code>{{xindex}}</code>表示循环的索引值，<code>{{xcount}}</code>表示循环的总次数，<code>{{name}}</code>是数组中每个对象的属性<code>name</code>，替换为属性的值</p>
-<h4>循环单数组</h4><p>循环的<code>data</code>为数组类型，每个item为一个值，而非对象，比如这段XTemplate：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span> data</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">xindex</span>}}</span><span class="xml">/</span><span class="hljs-expression">{{<span class="hljs-variable">xcount</span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"></span>
-</code></pre><p>要填充的JSON对象为：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">data</span>:<span class="hljs-value">[<span class="hljs-string">'jayli'</span>,<span class="hljs-string">'yiminghe'</span>]
-</span></span></span>}
-</code></pre><p>渲染结果为：</p>
-<pre><code>jayli-0/2
-yiminghe-1/2
-</code></pre><p>其中循环内的<code>{{this}}</code>表示当前循环的item值，<code>{{xindex}}</code>和<code>{{xcount}}</code>含义同上</p>
-<h4>each中数据层次相对位置的访问</h4><p>循环体内可以获取JSON对象上的其他属性，同过相对位置写法获得，比如这段XTemplate：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span> data</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">..</span><span class="hljs-end-block">/total</span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"></span>
-</code></pre><p>要填充的JSON对象为：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">data</span>:<span class="hljs-value"> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
-    total: <span class="hljs-number">3</span>
-</span></span></span>}
-</code></pre><p>填充结果为：</p>
-<pre><code>1-3
-2-3
-</code></pre><p>其中，<code>{{../total}}</code>表示从循环体内跳出到<code>data</code>属性所在的层级，去查找<code>data</code>属性的兄弟属性<code>total</code>的值。同样，<code>{{#each}}</code>可以被<code>{{@each}}</code>代替。</p>
-<h3><code>{{#with}}</code>语句</h3><p>类似 JavaScript 中的<code>with</code>语法，with 语句是为逐级的对象访问提供命名空间式的速写方式。我们在 XTemplate 中增加了类似的功能。比如<code>{{#with data}}...{{/with}}</code>,中间可以直接调用对象<code>data</code>里的属性，输出对应的值。</p>
-<p>比如这段 XTemplate</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">with</span> data</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">age</span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">with</span></span>}}</span><span class="xml"></span>
-</code></pre><p>要填充的JSON为：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">data</span>:<span class="hljs-value">{
-        name:<span class="hljs-string">'jayli'</span>,
-        age:<span class="hljs-string">'2'</span>
-    </span></span></span>}
-}
-</code></pre><p>填充结果为：</p>
-<pre><code>jayli-2
-</code></pre><p>其中<code>{{#with}}</code>可以用<code>{{@with}}</code>代替</p>
-<h4>支持 with 中数据层次间的相对位置访问</h4><p>同<code>{{#each}}</code>一样，with 语句中也可以用相对路径写法来访问对象其他层级的属性，比如这段模板：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">with</span> data</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">with</span> p</span>}}</span><span class="xml">
-        </span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">age</span>}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">..</span><span class="hljs-end-block">/l</span>2}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">..</span><span class="hljs-end-block">/..</span><span class="hljs-end-block">/l</span>1}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">with</span></span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">with</span></span>}}</span><span class="xml"></span>
-</code></pre><p>要填充的JSON为：</p>
-<pre><code>{
-    l1: <span class="hljs-number">1</span>,
-    <span class="hljs-typedef"><span class="hljs-keyword">data</span>: <span class="hljs-container">{
-        <span class="hljs-title">l2</span>: 2,
-        <span class="hljs-title">p</span>: {
-            <span class="hljs-title">name</span>: '<span class="hljs-title">h'</span>,
-            <span class="hljs-title">age</span>: 2
-        }</span></span>
-    }
-}
-</code></pre><p>填充结果为：</p>
-<pre><code>h-2-2-1
-</code></pre><h3><code>{{!comment}}</code> 注释</h3><p>XTemplate的注释写法为<code>{{!comment}}</code>，其中comment为注释内容，注释将会被忽略。</p>
-<h3><code>\\{{prop}}</code> 标签的转义</h3><p>如果想直接输出<code>{{prop}}</code>的内容，而不想被解析为标签，则用转义写法<code>\\{{prop}}</code>，比如模板：</p>
-<pre><code><span class="xml">output \\</span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml"> as </span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml"></span>
-</code></pre><p>要填充的JSON为：</p>
-<pre><code><span class="hljs-rules">{<span class="hljs-rule"><span class="hljs-attribute">name</span>:<span class="hljs-value"><span class="hljs-string">'jay'</span></span></span></span>}
-</code></pre><p>输出结果为：</p>
-<pre><code><span class="xml">output </span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml"> as jay</span>
-</code></pre><h3><code>{{{prop}}}</code> html 标签转义</h3><p>如果输出的内容中包含字符<code>&lt;</code>和<code>&gt;</code>，在普通标签<code>{{prpp}}</code>中会被转义为<code>&amp;lt;</code>和<code>&amp;gt;</code>，如果不想被转义，需使用<code>{{{prop}}}</code>，比如这段模板：</p>
-<pre><code><span class="xml">my </span><span class="hljs-expression">{{<span class="hljs-variable">title</span>}}</span><span class="xml"> is </span><span class="hljs-expression">{{{<span class="hljs-variable">title</span>}}</span><span class="xml">}</span>
-</code></pre><p>要填充的JSON为：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">title</span>:<span class="hljs-value"><span class="hljs-string">'&lt;a&gt;'</span>
-</span></span></span>}
-</code></pre><p>输出结果为：</p>
-<pre><code><span class="hljs-keyword">my</span> &amp;<span class="hljs-keyword">lt</span>;a&amp;<span class="hljs-keyword">gt</span>; is &lt;a&gt;
-</code></pre><h3>用表达式作为变量</h3><p>目前支持的表达式为<code>+</code>，<code>-</code>，<code>*</code>，<code>/</code>，<code>%</code>。比如这段模板：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">n</span>+3*4/2}}</span><span class="xml"></span>
-</code></pre><p>填充JSON为</p>
-<pre><code><span class="hljs-rules">{<span class="hljs-rule"><span class="hljs-attribute">n</span>:<span class="hljs-value"><span class="hljs-number">1</span></span></span></span>}
-</code></pre><p>输出结果为：</p>
-<pre><code>7
-</code></pre><h3>关系表达式</h3><p>目前支持 <code>===</code> <code>!==</code> <code>&gt;</code> <code>&gt;=</code> <code>&lt;</code> <code>&lt;=</code>，比如这段模板：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span> n</span>&gt;<span class="hljs-variable">n</span>2+4/2}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-variable">n</span>+1}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-variable"><span class="hljs-keyword">else</span></span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-variable">n</span>2+1}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml"></span>
-</code></pre><p>要填充的JSON：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">n</span>:<span class="hljs-value"><span class="hljs-number">5</span>,
-    n2:<span class="hljs-number">2</span>
-</span></span></span>}
-</code></pre><p>输出结果为：</p>
-<pre><code>6
-</code></pre><h3>each 循环中的关系表达式</h3><p>直接看例子，看这段模板：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span> data</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span> this</span>&gt;<span class="hljs-variable">..</span><span class="hljs-end-block">/limit</span>+1}}</span><span class="xml">
-        </span><span class="hljs-expression">{{<span class="hljs-variable">this</span>+1}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">xindex</span>+1}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">xcount</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"></span>
-</code></pre><p>要填充的JSON</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">data</span>:<span class="hljs-value"> [<span class="hljs-number">11</span>, <span class="hljs-number">5</span>, <span class="hljs-number">12</span>, <span class="hljs-number">6</span>, <span class="hljs-number">19</span>, <span class="hljs-number">0</span>],
-    limit: <span class="hljs-number">10</span>
-</span></span></span>}
-</code></pre><p>填充结果：</p>
-<pre><code>13-3-6
-20-5-6
-</code></pre><h3>with 中的关系表达式</h3><p>直接看例子，看这段模板：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">with</span> data</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span> n</span>&gt;<span class="hljs-variable">..</span><span class="hljs-end-block">/limit</span>/5}}</span><span class="xml">
-        </span><span class="hljs-expression">{{<span class="hljs-variable">n</span>+1}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">with</span></span>}}</span><span class="xml"></span>
-</code></pre><p>填充JSON为：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">data</span>:<span class="hljs-value"> {
-        n: <span class="hljs-number">5</span>
-    </span></span></span>},
-    <span class="hljs-tag">limit</span>: 10
-}
-</code></pre><p>输出结果为：</p>
-<pre><code>6
-</code></pre><h3><code>{{set}}</code>设置变量</h3><p>通过<code>{{set expression}}</code>来设置变量的值，可以设置多个，赋值表达式之间用空格分隔，比如这段模板：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span> data</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-variable">set</span> <span class="hljs-variable">n</span>2=<span class="hljs-variable">this</span>*2 <span class="hljs-variable">n</span>3=<span class="hljs-variable">this</span>*3}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-variable">n</span>2}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">n</span>3}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"></span>
-</code></pre><p>填充JSON：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">data</span>:<span class="hljs-value"> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
-</span></span></span>}
-</code></pre><p>结果为：</p>
-<pre><code>2-3
-4-6
-</code></pre><h3>对 mustache 对象的兼容</h3><p>XTemplate 支持对 <a href="http://mustache.github.io/">mustache</a> 形式的对象的兼容，比如这段模板：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#data</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">age</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-end-block">/data</span>}}</span><span class="xml"></span>
-</code></pre><p>填充JSON为：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">data</span>:<span class="hljs-value"> {
-        name: <span class="hljs-string">'h'</span>,
-        age: <span class="hljs-number">2</span>
-    </span></span></span>}
-}
-</code></pre><p>输出结果为</p>
-<pre><code>h-2
-</code></pre><h3>对 mustache 数组的兼容</h3><p>XTemplate 支持对 <a href="http://mustache.github.io/">mustache</a> 形式的数组的兼容，比如这段模板：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#data</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml">-</span><span class="hljs-expression">{{<span class="hljs-variable">xindex</span>}}</span><span class="xml">/</span><span class="hljs-expression">{{<span class="hljs-variable">xcount</span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/data</span>}}</span><span class="xml"></span>
-</code></pre><p>填充JSON：</p>
-<pre><code><span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">data</span>:<span class="hljs-value"> [
-        {name: <span class="hljs-number">1</span></span></span></span>},
-        <span class="hljs-rules">{<span class="hljs-rule"><span class="hljs-attribute">name</span>:<span class="hljs-value"> <span class="hljs-number">2</span></span></span></span>}
-    ]
-}
-</code></pre><p>输出结果为：</p>
-<pre><code>1-0/2
-2-1/2
-</code></pre><hr>
-<h2>KISSY XTemplate 附加功能</h2><p>以上语法可以在不同语言中实现，在 JavaScript 环境中得益于 JS 语言的动态性，KISSY 为 XTemplate 提供了更多的浏览器端的渲染策略和工具。这些功能只在 JavaScript 的实现中可用，
-如果你的模板可同时被JavaScript渲染也会被其他语言渲染（比如在后台被Java渲染），请尽可能避免这种用法。</p>
-<h3>全局行内单个标签扩展</h3><p>如果我想扩展 XTemplate 中的标签个数，需要自定义扩展标签，使用<code>XTemplate.addCommand()</code>实现全局行内命令扩展，比如这样一段扩展（自定义一个单个标签，无配对出现）：</p>
-<pre><code>XTemplate.addCommand(<span class="hljs-string">'global'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(scopes, option)</span> </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-string">'global-'</span> + option.params[<span class="hljs-number">0</span>];
-});
-</code></pre><p>这样这段模板就可以渲染出来：</p>
-<pre><code><span class="xml">my </span><span class="hljs-expression">{{<span class="hljs-variable">global</span> <span class="hljs-variable">title</span>}}</span><span class="xml"></span>
-</code></pre><p>如果JSON为<code>{title:&#39;1&#39;}</code>，那么渲染结果为：</p>
-<pre><code><span class="hljs-keyword">my</span> <span class="hljs-keyword">global</span>-<span class="hljs-number">1</span>
-</code></pre><h3>全局块状标签扩展</h3><p>除了扩展单个标签，还可以扩展块状标签，例子：</p>
-<pre><code> XTemplate.addCommand(<span class="hljs-string">'global'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(scopes, option)</span> </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-string">'global-'</span> + option.fn(scopes);
-});
-</code></pre><p>对于这段模板就可以被识别：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#global</span>}}</span><span class="xml">
-    </span><span class="hljs-expression">{{<span class="hljs-variable">title</span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-end-block">/global</span>}}</span><span class="xml"></span>
-</code></pre><p>如果JSON对象为<code>{title:1}</code>，渲染结果为：</p>
-<pre><code><span class="hljs-keyword">global</span>-<span class="hljs-number">1</span>
-</code></pre><h3>删除全局标签的定义</h3><p>用<code>removeCommand()</code>方法来删除自定义的全局标签，调用格式为：<code>XTemplate.removeCommand(commandName,fn)</code>。</p>
-<h3>局部行内标签扩展</h3><p>如果要把标签扩展不做成全局，可以临时定义针对一段模板的标签扩展，做法是在<code>XTemplage()</code>函数中传入第二个配置参数：</p>
-<pre><code><span class="hljs-keyword">var</span> render = <span class="hljs-keyword">new</span> XTemplate(tpl, {
-    commands: {
-        <span class="hljs-string">'global'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(scopes, option)</span> </span>{
-            <span class="hljs-keyword">return</span> <span class="hljs-string">'global-'</span> + option.params[<span class="hljs-number">0</span>];
-        }
-    }
-}).render(data);
-</code></pre><h3>局部块状标签扩展</h3><p>类似行内标签扩展，块状标签扩展需要用<code>option.fn(scopes)</code>来激活，参照上文，做法是：</p>
-<pre><code><span class="hljs-keyword">var</span> render = <span class="hljs-keyword">new</span> XTemplate(tpl, {
-    commands: {
-        <span class="hljs-string">'global'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(scopes, option)</span> </span>{
-            <span class="hljs-keyword">return</span> <span class="hljs-string">'global-'</span> + option.fn(scopes);
-        }
-    }
-}).render(data);
-</code></pre><h3>局部后缀名判断标签扩展</h3><p>参照标签的扩展规则，再来看一个更复杂的例子，我们可以自定义条件判断的规则：</p>
-<pre><code><span class="hljs-keyword">var</span> render = <span class="hljs-keyword">new</span> XTemplate(tpl, {
-    commands: {
-        <span class="hljs-string">'endsWith'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(scopes, option)</span> </span>{
-            <span class="hljs-keyword">return</span> S.endsWith(option.params[<span class="hljs-number">0</span>], 
-                        option.params[<span class="hljs-number">1</span>]) ? option.fn(scopes) : <span class="hljs-string">''</span>;
-        }
-    }
-}).render(data);
-</code></pre><p>这里扩展了自定义标签<code>endsWith</code>，对于这段模板：</p>
-<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">d</span>}}</span><span class="xml"> ends with </span><span class="hljs-expression">{{<span class="hljs-begin-block">#endsWith d </span><span class="hljs-string">"jpg"</span>}}</span><span class="xml">jpg</span><span class="hljs-expression">{{<span class="hljs-end-block">/endsWith</span>}}</span><span class="xml">
-</span><span class="hljs-expression">{{<span class="hljs-begin-block">#endsWith d </span><span class="hljs-string">"gif"</span>}}</span><span class="xml">gif</span><span class="hljs-expression">{{<span class="hljs-end-block">/endsWith</span>}}</span><span class="xml"></span>
-</code></pre><p>JSON对象为<code>{d:&#39;x.jpg&#39;}</code>，输出结果为：</p>
-<pre><code>x.jpg <span class="hljs-operator">ends</span> <span class="hljs-operator">with</span> jpg
+<h3>Methods</h3><pre><code class="lang-javascript"><span class="hljs-built_in">String</span> render(data:<span class="hljs-built_in">Object</span>, callback:<span class="hljs-built_in">Function</span>) <span class="hljs-comment">// 渲染数据，参数含义如下</span>
 </code></pre>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th style="width: 100px;">name</th>
+        <th style="width: 50px;">type</th>
+        <th>description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>data</td>
+        <td>Object</td>
+        <td>数据对象</td>
+    </tr>
+    <tr>
+            <td>callback</td>
+            <td>Function</td>
+            <td>完毕回调，第一个参数为 error，第二个参数为渲染结果。如果不提供，同步命令下 render 返回渲染结果。</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<h2>浏览器端使用</h2><h3>载入 kissy</h3><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js'</span> 
+
+<span class="hljs-attribute">data-config</span>=<span class="hljs-value">'{combine:true}'</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h3>未预编译</h3><pre><code class="lang-javascript">KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'xtemplate'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,XTemplate)</span></span>{
+  <span class="hljs-keyword">new</span> XTemplate(<span class="hljs-string">'{{x}}'</span>,{name: <span class="hljs-string">'x-tpl'</span>}).render({x:<span class="hljs-number">1</span>},<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(error,z)</span></span>{
+    <span class="hljs-comment">// z=&gt;1</span>
+  });
+})
+</code></pre>
+<h3>预编译</h3><pre><code>npm install kissy<span class="hljs-variable">@5</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>-alpha.<span class="hljs-number">10</span> -g
+kissy-xtemplate -p x/   <span class="hljs-regexp">//</span> x/ 为模板文件目录，模板后缀为 xtpl
+</code></pre><p>命令参数列表</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th style="width: 100px;">name</th>
+        <th style="width: 50px;">type</th>
+        <th style="width: 50px;">default</th>
+        <th>description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>-p</td>
+        <td>String</td>
+        <td></td>
+        <td>directory of xtemplate files</td>
+    </tr>
+    <tr>
+        <td>-o</td>
+        <td>String</td>
+        <td></td>
+        <td>directory of generated template javascript files</td>
+    </tr>
+    <tr>
+        <td>-s</td>
+        <td>String</td>
+        <td>xtpl</td>
+        <td>file name suffix of xtemplate files</td>
+    </tr>
+    <tr>
+        <td>-w</td>
+        <td>Boolean</td>
+        <td>false</td>
+        <td>whether watch xtemplate file change</td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<pre><code class="lang-javascript">KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'xtemplate/runtime,a/b-xtpl'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,XTemplateRuntime,bXtpl)</span></span>{
+  <span class="hljs-keyword">new</span> XTemplateRuntime(bXtpl).render({x:<span class="hljs-number">1</span>},<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(error,z)</span></span>{
+    <span class="hljs-comment">// z=&gt;1</span>
+  });
+})
+</code></pre>
+<h2>node 下使用</h2><p>安装:</p>
+<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> xtpl</span>
+</code></pre><p>express 下使用:</p>
+<pre><code class="lang-javascript">app.<span class="hljs-keyword">set</span>(<span class="hljs-string">"view engine"</span>, <span class="hljs-string">"xtpl"</span>);
+</code></pre>
+<p>模板文件全部为 xtpl 后缀，目录规范和渲染同 express</p>
+<h2>语法</h2><h3>基本类型</h3><p>支持 true false null undefined number string map array</p>
+<h3>map</h3><p>值为基本类型</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">with</span></span>({
+  <span class="hljs-variable">x</span>:2
+})}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-variable">x</span>}}</span><span class="xml">  // =&gt; 2
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">with</span></span>}}</span><span class="xml"></span>
+</code></pre><h3>array</h3><p>元素项为基本类型</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>([1,2,4])}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml">  // =&gt; 1 2 4
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"></span>
+</code></pre><h3>转义</h3><h4>使用 {{%%}}</h4><pre><code><span class="xml"></span><span class="hljs-expression">{{%
+
+{{<span class="hljs-variable">x</span>}}</span><span class="xml">
+
+%}}  // =&gt; </span><span class="hljs-expression">{{<span class="hljs-variable">x</span>}}</span><span class="xml"></span>
+</code></pre><h4>使用 \{{</h4><pre><code><span class="xml">\</span><span class="hljs-expression">{{<span class="hljs-variable">a</span>}}</span><span class="xml">  // -&gt; </span><span class="hljs-expression">{{<span class="hljs-variable">a</span>}}</span><span class="xml"></span>
+</code></pre><h4>angularjs</h4><p>如果是 angularjs 的话，可以直接配置 angularjs 使用不同的标记</p>
+<p><a href="http://stackoverflow.com/questions/13671701/angularjs-twig-conflict-with-double-curly-braces">http://stackoverflow.com/questions/13671701/angularjs-twig-conflict-with-double-curly-braces</a></p>
+<h3>注释</h3><pre><code><span class="xml"></span><span class="hljs-expression">{{! <span class="hljs-variable">zhu</span> <span class="hljs-variable">shi</span> }}</span><span class="xml"></span>
+</code></pre><h3>变量渲染</h3><p>转义：</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">x</span>}}</span><span class="xml"></span>
+</code></pre><p>非转义:</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{{<span class="hljs-variable">x</span>}}</span><span class="xml">}</span>
+</code></pre><h3>根数据访问</h3><pre><code class="lang-javascript">var x = {<span class="hljs-property">name</span>:<span class="hljs-number">1</span>,arr:[{<span class="hljs-property">name</span>:<span class="hljs-number">2</span>}]}
+</code></pre>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">arr</span>)}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-variable">root.name</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml"> </span><span class="hljs-expression">{{! 12 }}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"></span>
+</code></pre><h3>支持变量属性获取</h3><pre><code class="lang-javascript"><span class="hljs-keyword">var</span> x = {
+    y: <span class="hljs-number">1</span>
+};
+<span class="hljs-keyword">var</span> y = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">var</span> z = {
+    q: <span class="hljs-number">1</span>
+};
+<span class="hljs-keyword">var</span> x = <span class="hljs-string">'q'</span>;
+</code></pre>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">x.y</span>}}</span><span class="xml"> // 1
+</span><span class="hljs-expression">{{<span class="hljs-variable">y</span>[1]}}</span><span class="xml"> // 2
+</span><span class="hljs-expression">{{<span class="hljs-variable">z</span>[<span class="hljs-variable">x</span>]}}</span><span class="xml"> // 1</span>
+</code></pre><h3>调用变量方法</h3><p>注意：该用法会影响性能，推荐自定义命令</p>
+<pre><code class="lang-javascript"><span class="hljs-attribute">var x </span>=<span class="hljs-string"> [1, 2, 3];</span>
+</code></pre>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">x.slice</span>(1))}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml"> </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"> // =&gt; 2 3</span>
+</code></pre><h3>变量运算</h3><p>支持 + - * / %</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">x</span>+<span class="hljs-variable">y</span>}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-variable">x</span> + <span class="hljs-string">"1"</span>}}</span><span class="xml">
+</span><span class="hljs-expression">{{ <span class="hljs-variable">y</span> <span class="hljs-variable">-</span> 1 }}</span><span class="xml"></span>
+</code></pre><h3>比较操作</h3><p>支持 if elseif else === !=== &gt; &gt;= &lt; &lt;=</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span></span>( <span class="hljs-variable">x</span>===1 )}}</span><span class="xml">
+1
+</span><span class="hljs-expression">{{<span class="hljs-variable">elseif</span> (<span class="hljs-variable">x</span>===2)}}</span><span class="xml">
+2
+</span><span class="hljs-expression">{{<span class="hljs-variable"><span class="hljs-keyword">else</span></span>}}</span><span class="xml">
+3
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml">
+
+</span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span> </span>( (<span class="hljs-variable">x</span>+1) &gt; 2 )}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml"></span>
+</code></pre><h3>逻辑操作</h3><p>支持 || &amp;&amp;</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span></span>(<span class="hljs-variable">x</span>&gt;1 &amp;&amp; <span class="hljs-variable">y</span>&lt;2)}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml"></span>
+</code></pre><pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span></span>(!<span class="hljs-variable">x</span>)}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml"></span>
+</code></pre><h3>循环</h3><p>可以对数组或对象进行循环操作，默认获取循环对象值为 {{this}}，键为 {{xindex}} , 也可以指定.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> x = [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>];
+</code></pre>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">x</span>)}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-variable">xindex</span>}}</span><span class="xml"> </span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml"> // 0 a 1 b
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml">
+
+</span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">x</span>,<span class="hljs-string">"value"</span>,<span class="hljs-string">"key"</span>)}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-variable">key</span>}}</span><span class="xml"> </span><span class="hljs-expression">{{<span class="hljs-variable">value</span>}}</span><span class="xml"> // 0 a 1 b
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"></span>
+</code></pre><h3>范围循环</h3><p>可以对 start 和 end(不包含) 范围内的数字进行循环</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">range</span>(0,3))}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"> // 012
+</span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">range</span>(3,0))}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"> // 321
+</span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">range</span>(3,0,2))}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"> // 31</span>
+</code></pre><h3>设置操作</h3><pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">set</span>(<span class="hljs-variable">x</span>=1)}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-variable">set</span>(<span class="hljs-variable">y</span>=3,<span class="hljs-variable">z</span>=2)}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-variable">x</span>}}</span><span class="xml"> // 1
+</span><span class="hljs-expression">{{<span class="hljs-variable">y</span>+<span class="hljs-variable">z</span>}}</span><span class="xml"> // 5</span>
+</code></pre><h3>宏</h3><pre><code><span class="xml">// 声明
+</span><span class="hljs-expression">{{<span class="hljs-begin-block">#macro</span>(<span class="hljs-string">"test"</span>,<span class="hljs-string">"param"</span> <span class="hljs-variable">default</span>=1)}}</span><span class="xml">param is </span><span class="hljs-expression">{{<span class="hljs-variable">param</span>}}</span><span class="xml"> </span><span class="hljs-expression">{{<span class="hljs-variable">default</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-end-block">/macro</span>}}</span><span class="xml">
+
+// 调用宏
+</span><span class="hljs-expression">{{<span class="hljs-variable">macro</span>(<span class="hljs-string">"test"</span>,<span class="hljs-string">"2"</span>)}}</span><span class="xml"> // =&gt; param is 2 1
+
+</span><span class="hljs-expression">{{<span class="hljs-variable">macro</span>(<span class="hljs-string">"test"</span>, <span class="hljs-string">"2"</span>, 2)}}</span><span class="xml"> // =&gt; param is 2 2</span>
+</code></pre><h3>包含操作</h3><p>x.xtpl</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">z</span>}}</span><span class="xml"></span>
+</code></pre><p>y.xtpl</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">include</span>(<span class="hljs-string">"x"</span>)}}</span><span class="xml"></span>
+</code></pre><h3>继承</h3><p>layout.xtpl</p>
+<pre><code class="lang-html"><span class="xml"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"charset"</span> <span class="hljs-attribute">content</span>=<span class="hljs-value">"utf-8"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span></span><span class="hljs-expression">{{<span class="hljs-variable">title</span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+        </span><span class="hljs-expression">{{{<span class="hljs-variable">block</span> (<span class="hljs-string">"head"</span>)}}</span><span class="xml">} // 坑
+    <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+        </span><span class="hljs-expression">{{{<span class="hljs-variable">include</span> (<span class="hljs-string">"./header"</span>)}}</span><span class="xml">}
+        </span><span class="hljs-expression">{{{<span class="hljs-variable">block</span> (<span class="hljs-string">"body"</span>)}}</span><span class="xml">}  // 坑
+        </span><span class="hljs-expression">{{{<span class="hljs-variable">include</span> (<span class="hljs-string">"./footer"</span>)}}</span><span class="xml">}
+    <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span></span>
+</code></pre>
+<p>index.xtpl</p>
+<pre><code class="lang-html"><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">extend</span> (<span class="hljs-string">"./layout1"</span>)}}</span><span class="xml">
+
+// 填
+</span><span class="hljs-expression">{{<span class="hljs-begin-block">#block </span>(<span class="hljs-string">"head"</span>)}}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/css"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"test.css"</span> <span class="hljs-attribute">rev</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span>/&gt;</span>
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/block</span>}}</span><span class="xml">
+
+// 填
+</span><span class="hljs-expression">{{<span class="hljs-begin-block">#block </span>(<span class="hljs-string">"body"</span>)}}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span></span><span class="hljs-expression">{{<span class="hljs-variable">title</span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/block</span>}}</span><span class="xml"></span>
+</code></pre>
+<h3>自定义命令</h3><h4>nodejs 全局命令</h4><p>同步调用行内：</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xtpl = <span class="hljs-built_in">require</span>(<span class="hljs-string">'xtpl'</span>);
+xtpl.XTemplate.addCommand(<span class="hljs-string">'xInline'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(scope, option)</span></span>{
+  <span class="hljs-keyword">return</span> option.params[<span class="hljs-number">0</span>]+<span class="hljs-string">'1'</span>;
+});
+</code></pre>
+<p>此时模板中可通过 {{}} 来转义命令返回的内容.</p>
+<p>或使用 buffer (详见下面 Buffer api)</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xtpl = <span class="hljs-built_in">require</span>(<span class="hljs-string">'xtpl'</span>);
+xtpl.XTemplate.addCommand(<span class="hljs-string">'xInline'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(scope, option, buffer)</span></span>{
+  <span class="hljs-keyword">return</span> buffer.write(option.params[<span class="hljs-number">0</span>] + <span class="hljs-number">1</span>);
+});
+</code></pre>
+<p>此时模板不能控制命令返回内容是否转义.</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">xInline</span>(1)}}</span><span class="xml"> // =&gt; 2</span>
+</code></pre><p>同步调用块级：</p>
+<pre><code class="lang-javascript">var xtpl = require(<span class="hljs-string">'xtpl'</span>);
+xtpl.XTemplate.addCommand(<span class="hljs-string">'xBlock'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(scope, option, buffer)</span>{</span>
+  <span class="hljs-keyword">return</span> option.fn(scope, <span class="hljs-keyword">buffer</span>).<span class="hljs-keyword">write</span>(option.params[<span class="hljs-number">0</span>]); //option.fn(scope, <span class="hljs-keyword">buffer</span>)返回的是块级标签内的内容，例如下面例子的 <span class="hljs-string">'2'</span>
+});
+</code></pre>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#xBlock</span>(1)}}</span><span class="xml">
+2
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/xBlock</span>}}</span><span class="xml">
+// =&gt; 21</span>
+</code></pre><p>异步调用行内</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xtpl = <span class="hljs-built_in">require</span>(<span class="hljs-string">'xtpl'</span>);
+xtpl.XTemplate.addCommand(<span class="hljs-string">'xInline'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(scope, option,buffer)</span></span>{
+  buffer = buffer.async(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(newBuffer)</span></span>{
+    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+        newBuffer.write(option.params[<span class="hljs-number">0</span>] + <span class="hljs-number">1</span>).end();
+    },<span class="hljs-number">10</span>);
+  });
+  <span class="hljs-keyword">return</span> buffer;
+});
+</code></pre>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">xInline</span>(1)}}</span><span class="xml"> // =&gt; 2</span>
+</code></pre><p>异步调用块级：</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xtpl = <span class="hljs-built_in">require</span>(<span class="hljs-string">'xtpl'</span>);
+xtpl.XTemplate.addCommand(<span class="hljs-string">'xInline'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(scope, option,buffer)</span></span>{
+  buffer = buffer.async(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(newBuffer)</span></span>{
+    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">var</span> newScope = xtpl.XTemplate.Scope({ret:<span class="hljs-number">2</span>});
+        newScope.setParent(scope);
+        option.fn(newScope, newBuffer);
+    },<span class="hljs-number">10</span>);
+  });
+  buffer.write(option.params[<span class="hljs-number">0</span>]);
+  <span class="hljs-keyword">return</span> buffer;
+});
+</code></pre>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#xBlock</span>(1)}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-variable">ret</span>}}</span><span class="xml">
+</span><span class="hljs-expression">{{<span class="hljs-end-block">/xBlock</span>}}</span><span class="xml">
+// =&gt; 21</span>
+</code></pre><h4>浏览器命令</h4><p>全局：</p>
+<pre><code class="lang-javascript">KISSY.use(<span class="hljs-string">'xtemplate/runtime'</span>,<span class="hljs-keyword">function</span>(S,XTemplate){
+    XTemplate.addCommand(<span class="hljs-keyword">...</span>) // 同 nodejs
+});
+</code></pre>
+<p>局部：</p>
+<p>x-xtpl.html:</p>
+<pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">x</span>()}}</span><span class="xml"></span>
+</code></pre><pre><code class="lang-javascript">KISSY.use(<span class="hljs-string">'xtemplate/runtime, x-xtpl'</span>,<span class="hljs-keyword">function</span>(S,XTemplate,x){
+    new XTemplate(x, {
+        commands:{
+            x:<span class="hljs-keyword">function</span>(){
+                // <span class="hljs-keyword">...</span> 同 node
+            }
+        }
+    })<span class="hljs-keyword">...</span>
+});
+</code></pre>
+<h3>Buffer api</h3><h4>Methods</h4><pre><code class="lang-javascript">Buffer write(data:<span class="hljs-built_in">String</span>, <span class="hljs-built_in">escape</span>:<span class="hljs-built_in">Boolean</span>) <span class="hljs-comment">// 写数据到缓冲区</span>
+</code></pre>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th style="width: 100px;">name</th>
+        <th style="width: 50px;">type</th>
+        <th>description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>data</td>
+        <td>String</td>
+        <td>将要写到缓冲区的字符串</td>
+    </tr>
+    <tr>
+            <td>escape</td>
+            <td>Boolean</td>
+            <td>是否转义</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<pre><code class="lang-javascript">Buffer async(fn:<span class="hljs-built_in">Function</span>) <span class="hljs-comment">// 产生新的异步缓冲区，新的缓冲区为 fn 回调函数的第一个参数</span>
+
+Buffer end(data, <span class="hljs-built_in">escape</span>) <span class="hljs-comment">// 参数含义同 write 函数。 标志缓冲区数据填充完毕，用于通知异步缓冲区的结束。</span>
+
+Buffer error(reason) <span class="hljs-comment">// 触发 render 异步回调为失败。 reason 为回调的第一个参数.</span>
+</code></pre>
+<h3>Scope api</h3><h4>Members</h4><pre><code class="lang-javascript"><span class="hljs-keyword">parent</span> <span class="hljs-comment">// 上级作用域</span>
+
+root <span class="hljs-comment">// 顶层作用域</span>
+</code></pre>
+<h4>Methods</h4><pre><code class="lang-javascript"><span class="hljs-keyword">void</span> setParent(scope: Scope) <span class="hljs-comment">// 设置当前作用域的上级作用域</span>
+
+<span class="hljs-keyword">void</span> setData(data) <span class="hljs-comment">// 设置当前作用域内数据</span>
+
+<span class="hljs-keyword">var</span> getData() <span class="hljs-comment">// 获取当前作用域内数据</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-keyword">set</span>(name, <span class="hljs-keyword">value</span>) <span class="hljs-comment">// 设置当前作用域内附属数据</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-keyword">get</span>(name) <span class="hljs-comment">// 获取当前作用域内数据值（包括附属数据）</span>
+</code></pre>
+<h2>Reserved words</h2><p><strong>Xtemplate内置以下命令，请避免重复定义同名命令</strong></p>
+<table>
+    <tr>
+        <td>block</td><td>debugger</td><td>each</td><td>extend</td>
+    </tr>
+    <tr>
+        <td>if</td><td>include</td><td>marco</td><td>parse</td>
+    </tr>
+    <tr>
+        <td>range</td><td>set</td><td>with</td><td></td>
+    </tr>
+</table>
+
+
+<h2>performance</h2><p><a href="http://dev.kissyui.com/kissy/src/xtemplate/-/benchmark/">xtpl jade ejs nunjucks handlebars dust</a></p>
+
 				<div id="disqus_thread"></div>
 				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
-				<a id="apilink" href="../../api/classes/XTemplate.html" style="display:none;"></a>
+				<a id="apilink" href="../../api" style="display:none;"></a>
 			</div>
 			<div class="col-md-3" id="sidebar">
-				<a class="link-apidocs btn btn-primary" href="../../api/classes/XTemplate.html">API Docs</a>
+				<a class="link-apidocs btn btn-primary" href="../../api">API Docs</a>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="../../guides/xtemplate/compile.html">xtemplate离线编译</a></p><p><a href="../../guides/xtemplate/index.html">XTemplate基本介绍</a></p>
+						<p><a href="../../guides/xtemplate/index.html">XTemplate基本介绍</a></p>
 					</div>
 				</div>
 				<div class="panel panel-primary">
