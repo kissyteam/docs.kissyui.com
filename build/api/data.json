@@ -18445,7 +18445,7 @@
                 "type": "Function"
             },
             "example": [
-                " ### 改变运行上下文\nbind 最简单的用法是生成一个新的函数，无论它如何调用，都运行在一个固定的 this 值中.入门者常犯的错误时从一个对象获得一个方法引用， 然后在后面的调用中期望这个方法的this就是原来的对象(eg.g 把这个方法用在某个回调中). 如果没有特例，那么这个原始对象就丢失了. 但是如果从原方法中得到一个绑定原始对象的函数，这个问题就解决了！\n  ```\n  var x = 9;\n\tvar module = {\n\t\tx: 81,\n\t\tgetX: function() { return this.x; }\n\t};\n\n\tmodule.getX(); // 81\n\n\tvar getX = module.getX;\n\tgetX(); // 9, because in this case, \"this\" refers to the global object\n\n\t// create a new function with 'this' bound to module\n\tvar boundGetX = KISSY.bind(getX,module);\n\tboundGetX(); // 81\n  ```\n### Currying\nbind 的下一个简单用法是产生一个具备默认参数的函数. 这些参数跟在 context 后面，无论何时调用绑定函数， 当绑定函数调用目标函数时会把它们放在参数列表开头，然后才是传递给绑定函数的用户参数\n  ```\n  function list() {\n\t\treturn Array.prototype.slice.call(arguments);\n\t}\n\n\tvar list1 = list(1, 2, 3); // [1, 2, 3]\n\n\t//  Create a function with a preset leading argument\n\tvar leadingZeroList = KISSY.bind(list,undefined, 37);\n\n\tvar list2 = leadingZeroList(); // [37]\n\tvar list3 = leadingZeroList(1, 2, 3); // [37, 1, 2, 3]\n  ```"
+                " ### 改变运行上下文\nbind 最简单的用法是生成一个新的函数，无论它如何调用，都运行在一个固定的 this 值中.入门者常犯的错误时从一个对象获得一个方法引用， 然后在后面的调用中期望这个方法的this就是原来的对象(eg.g 把这个方法用在某个回调中). 如果没有特例，那么这个原始对象就丢失了. 但是如果从原方法中得到一个绑定原始对象的函数，这个问题就解决了！\n  ```\n  var x = 9;\n\tvar module = {\n\t\tx: 81,\n\t\tgetX: function() { return this.x; }\n\t};\n\n\tmodule.getX(); // 81\n\n\tvar getX = module.getX;\n\tgetX(); // 9, because in this case, \"this\" refers to the global object\n\n\t// create a new function with 'this' bound to module\n\tvar boundGetX = Util.bind(getX,module);\n\tboundGetX(); // 81\n  ```\n### Currying\nbind 的下一个简单用法是产生一个具备默认参数的函数. 这些参数跟在 context 后面，无论何时调用绑定函数， 当绑定函数调用目标函数时会把它们放在参数列表开头，然后才是传递给绑定函数的用户参数\n  ```\n  function list() {\n\t\treturn Array.prototype.slice.call(arguments);\n\t}\n\n\tvar list1 = list(1, 2, 3); // [1, 2, 3]\n\n\t//  Create a function with a preset leading argument\n\tvar leadingZeroList = Util.bind(list,undefined, 37);\n\n\tvar list2 = leadingZeroList(); // [37]\n\tvar list3 = leadingZeroList(1, 2, 3); // [37, 1, 2, 3]\n  ```"
             ],
             "class": "Util",
             "module": "util"
@@ -18479,7 +18479,7 @@
                 "type": "Function"
             },
             "example": [
-                "\n  ```\n  self.__onResize = S.buffer(doResize, 100, this);\n  $(window).on(\"resize\", self.__onResize);\n  ```"
+                "\n  ```\n  self.__onResize = Util.buffer(doResize, 100, this);\n  $(window).on(\"resize\", self.__onResize);\n  ```"
             ],
             "class": "Util",
             "module": "util"
@@ -18509,14 +18509,14 @@
                 "type": "Object"
             },
             "example": [
-                "\n  ```\n  var S = KISSY;\n  var a={x:{y:{z:1}}}\n  var b=S.clone(a); // => b={x:y:{z:1}} , b!==a\n  var c=S.clone(a,function(v,k){if(k==\"z\") return false;}) // => c={x:{y:{}}}\n  ```"
+                "\n  ```\n  var a={x:{y:{z:1}}}\n  var b=Util.clone(a); // => b={x:y:{z:1}} , b!==a\n  var c=Util.clone(a,function(v,k){if(k==\"z\") return false;}) // => c={x:{y:{}}}\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 111,
+            "line": 110,
             "description": "遍历数组中的每一项, 执行指定方法.",
             "itemtype": "method",
             "name": "each",
@@ -18541,14 +18541,14 @@
                 }
             ],
             "example": [
-                "\n  ```\nvar S = KISSY,\narr = [1, 2, 3, 4, 5],\nobj = {\n   'hi': 'kissy',\n   'bye': 'world'\n},\nsum = 0;\n\nS.each(arr, function(item) {\n   sum += item;\n});\nS.log(sum); // => 15\n\n\nS.each(obj, function(v,k) {\n   S.log([v,k]);\n});\n  ```"
+                "\n  ```\nvar arr = [1, 2, 3, 4, 5],\nobj = {\n   'hi': 'kissy',\n   'bye': 'world'\n},\nsum = 0;\n\nUtil.each(arr, function(item) {\n   sum += item;\n});\nUtil.log(sum); // => 15\n\n\nUtil.each(obj, function(v,k) {\n   Util.log([v,k]);\n});\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 142,
+            "line": 140,
             "description": "判断str是否已suffix结尾",
             "itemtype": "method",
             "name": "endsWith",
@@ -18574,7 +18574,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 151,
+            "line": 149,
             "description": "抛出错误异常\n__Note__\n\n- 只有在 debug 模式下并且载入 seed.js, 才会抛出异常. debug 模式的说明请参考 Config",
             "itemtype": "method",
             "name": "error",
@@ -18591,7 +18591,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 161,
+            "line": 159,
             "description": "将字符串经过 html 转义得到适合在页面中显示的内容, 例如替换 < 为 &lt;\n__Note__\n\n- 此函数只会对以下符号进行 escape：`& > < ` / \" '`",
             "itemtype": "method",
             "name": "escapeHTML",
@@ -18611,7 +18611,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 171,
+            "line": 169,
             "description": "让子类 SubClass 继承父类 ParentClass",
             "itemtype": "method",
             "name": "extend",
@@ -18645,14 +18645,14 @@
                 "type": "Function"
             },
             "example": [
-                "\n  ```\nvar S = KISSY;\n\nfunction Bird(name) { this.name = name; }\nBird.prototype.fly = function() { alert(this.name + ' is flying now!'); };\n\nfunction Chicken(name) {\n   Chicken.superclass.constructor.call(this, name);\n}\nS.extend(Chicken, Bird,{\n   fly:function(){\n       Chicken.superclass.fly.call(this)\n       alert(\"it's my turn\");\n   }\n});\n\nnew Chicken('kissy').fly();\n  ```"
+                "\n  ```\nvar S = KISSY;\n\nfunction Bird(name) { this.name = name; }\nBird.prototype.fly = function() { alert(this.name + ' is flying now!'); };\n\nfunction Chicken(name) {\n   Chicken.superclass.constructor.call(this, name);\n}\nUtil.extend(Chicken, Bird,{\n   fly:function(){\n       Chicken.superclass.fly.call(this)\n       alert(\"it's my turn\");\n   }\n});\n\nnew Chicken('kissy').fly();\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 201,
+            "line": 199,
             "description": "遍历数组, 过滤出符合条件的数组项",
             "itemtype": "method",
             "name": "filter",
@@ -18680,14 +18680,14 @@
                 "type": "Array"
             },
             "example": [
-                "\n  ```\nvar S = KISSY,\narr = [1, 2, 3, 4, 5];\n\nvar ret = S.filter(arr, function(item) {\n   return item % 2 === 0;\n});\nS.log(ret); // => [2, 4]\n  ```"
+                "\n  ```\nvar arr = [1, 2, 3, 4, 5];\n\nvar ret = Util.filter(arr, function(item) {\n   return item % 2 === 0;\n});\nUtil.log(ret); // => [2, 4]\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 221,
+            "line": 218,
             "description": "将 str 中 unicode 转义的字符替换成真实字符. 主要用于 taobao 用户名 cookie 读取.",
             "itemtype": "method",
             "name": "fromUnicode",
@@ -18711,7 +18711,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 231,
+            "line": 228,
             "description": "将 str 作为输出的 log 的前缀",
             "itemtype": "method",
             "name": "getLogger",
@@ -18728,14 +18728,14 @@
                 "type": "Object"
             },
             "example": [
-                "\n  ```\nvar logger = KISSY.getLogger('KISSY');\nlogger.debug(\"test\"); // => \"KISSY: test\";\n  ```\n__Note__\n可以在配置中设置logger的级别，以及是否显示。 当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先\n```\nS.config('logger', {\n   includes: [\n       {\n           logger: /^xx\\//\n       }\n   ],\n   excludes: [\n       {\n           logger: /^xx\\//， //以xx/开头的不显示\n           maxLevel: 'info' //不显示 info 及 info 以下的 log\n       }\n   ]\n});\n  ```"
+                "\n  ```\nvar logger = Util.getLogger('KISSY');\nlogger.debug(\"test\"); // => \"KISSY: test\";\n  ```\n__Note__\n可以在配置中设置logger的级别，以及是否显示。 当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先\n```\nKISSY.config('logger', {\n   includes: [\n       {\n           logger: /^xx\\//\n       }\n   ],\n   excludes: [\n       {\n           logger: /^xx\\//， //以xx/开头的不显示\n           maxLevel: 'info' //不显示 info 及 info 以下的 log\n       }\n   ]\n});\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 261,
+            "line": 258,
             "description": "在全局作用域下执行代码字符串, 避免 eval 的作用域链",
             "itemtype": "method",
             "name": "globalEval",
@@ -18752,7 +18752,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 268,
+            "line": 265,
             "description": "返回全局唯一 id",
             "itemtype": "method",
             "name": "guid",
@@ -18773,7 +18773,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 276,
+            "line": 273,
             "description": "判断元素 elem 是否在数组 arr 中",
             "itemtype": "method",
             "name": "inArray",
@@ -18799,7 +18799,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 285,
+            "line": 282,
             "description": "返回元素 elem 在数组 arr 中的序号",
             "itemtype": "method",
             "name": "indexOf",
@@ -18825,7 +18825,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 294,
+            "line": 291,
             "description": "判断是否数组",
             "itemtype": "method",
             "name": "isArray",
@@ -18846,7 +18846,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 302,
+            "line": 299,
             "description": "判断是否布尔值",
             "itemtype": "method",
             "name": "isBoolean",
@@ -18867,7 +18867,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 310,
+            "line": 307,
             "description": "判断是否日期",
             "itemtype": "method",
             "name": "isDate",
@@ -18888,7 +18888,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 318,
+            "line": 315,
             "description": "判断是否空对象(没有任何可遍历的属性)",
             "itemtype": "method",
             "name": "isEmptyObject",
@@ -18909,7 +18909,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 326,
+            "line": 323,
             "description": "判断是否函数",
             "itemtype": "method",
             "name": "isFunction",
@@ -18930,7 +18930,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 334,
+            "line": 331,
             "description": "判断是否 null",
             "itemtype": "method",
             "name": "isNull",
@@ -18951,7 +18951,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 342,
+            "line": 339,
             "description": "判断是否有效数值",
             "itemtype": "method",
             "name": "isNumber",
@@ -18972,7 +18972,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 350,
+            "line": 347,
             "description": "判断是否为对象",
             "itemtype": "method",
             "name": "isObject",
@@ -18993,7 +18993,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 358,
+            "line": 355,
             "description": "判断是否是普通对象, 通过 {} 或 new FunctionClass/Object() 创建的, 不包括内置对象以及宿主对象.",
             "itemtype": "method",
             "name": "isPlainObject",
@@ -19014,7 +19014,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 366,
+            "line": 363,
             "description": "判断是否正则表达式",
             "itemtype": "method",
             "name": "isRegExp",
@@ -19035,7 +19035,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 374,
+            "line": 371,
             "description": "判断是否字符串",
             "itemtype": "method",
             "name": "isString",
@@ -19056,7 +19056,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 382,
+            "line": 379,
             "description": "判断是否 undefined",
             "itemtype": "method",
             "name": "isUndefined",
@@ -19077,7 +19077,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 390,
+            "line": 387,
             "description": "判断参数是否为浏览器 window",
             "itemtype": "method",
             "name": "isWindow",
@@ -19098,7 +19098,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 398,
+            "line": 395,
             "description": "将对象的所有属性名作为数组返回",
             "itemtype": "method",
             "name": "keys",
@@ -19119,7 +19119,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 406,
+            "line": 403,
             "description": "返回元素 elem 在数组 arr 中最后出现的序号",
             "itemtype": "method",
             "name": "lastIndexOf",
@@ -19145,7 +19145,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 415,
+            "line": 412,
             "description": "延迟执行指定函数 fn",
             "itemtype": "method",
             "name": "later",
@@ -19186,14 +19186,14 @@
                 "type": "Object"
             },
             "example": [
-                "\n  ```\nvar S = KISSY;\n\nS.later(function(data) {\n   S.log(data);\n}, 0, false, null, 'I am later data.');\n  ```"
+                "\n  ```\n\nUtil.later(function(data) {\n   S.log(data);\n}, 0, false, null, 'I am later data.');\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 437,
+            "line": 433,
             "description": "输出调试信息",
             "itemtype": "method",
             "name": "log",
@@ -19220,7 +19220,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 448,
+            "line": 444,
             "description": "将对象 o 转换为数组.",
             "itemtype": "method",
             "name": "makeArray",
@@ -19241,7 +19241,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 456,
+            "line": 452,
             "description": "创建一个新数组, 数组结果是在对每个原数组元素调用指定函数的返回值.",
             "itemtype": "method",
             "name": "map",
@@ -19273,7 +19273,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 466,
+            "line": 462,
             "description": "将多个对象的成员合并到一个新对象上. 参数中, 后面的对象成员会覆盖前面的.",
             "itemtype": "method",
             "name": "merge",
@@ -19295,14 +19295,14 @@
                 "type": "Object"
             },
             "example": [
-                "\n  ```\nvar S = KISSY,\na = { a: 'a' },\nb = { b: 'b' },\nc = { b: 'b2', c: 'c' };\n\nvar o = S.merge(a, b, c);\nS.log(o.a); // => 'a'\nS.log(o.b); // => 'b2'\nS.log(o.c); // => 'c'\n  ```"
+                "\n  ```\nvar a = { a: 'a' },\nb = { b: 'b' },\nc = { b: 'b2', c: 'c' };\n\nvar o = Util.merge(a, b, c);\nUtil.log(o.a); // => 'a'\nUtil.log(o.b); // => 'b2'\nUtil.log(o.c); // => 'c'\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 487,
+            "line": 482,
             "description": "将 supplier 对象的成员复制到 receiver 对象上.",
             "itemtype": "method",
             "name": "mix",
@@ -19336,18 +19336,18 @@
                 }
             ],
             "return": {
-                "description": "receiver 属性接受者对象\n__Note__\nreceiver 会被改变，如果想要保留原始的 receiver ，可以使用 KISSY.merge()\n`var object=S.merge(object1,object2);`\n\nS.mix 默认不是递归进行的. 如果其中一个属性为对象或者数组，那么他将会被接下来对象的同名属性对应的值所代替，即值不会被合并。 如果设置了参数 deep = true ，那么会对数组和简单对象( `KISSY.isPlainObject()` )递归合并\nsupplier undefined 的属性值不会被复制，不过对象从原型继承下来下的值则会被复制\n该方法仅适用于 javascript 对象，不要再浏览器对象上调用，例如 node.style\n\nmix 支持函数作为白名单参数\n  ```\nvar a = {},\nb = {\n   b1: 1,\n   b2: {\n       b2: 22\n   }\n};\n\nS.mix(a, b, {\n   deep: true,\n   whitelist: function (name, v) {\n       if (name == 'b1') {\n           return v;\n       }\n       if (this.b1 && name == 'b2') {\n           return v;\n       }\n       return undefined;\n   }\n});\n  ```",
+                "description": "receiver 属性接受者对象\n__Note__\nreceiver 会被改变，如果想要保留原始的 receiver ，可以使用 KISSY.merge()\n`var object=S.merge(object1,object2);`\n\nS.mix 默认不是递归进行的. 如果其中一个属性为对象或者数组，那么他将会被接下来对象的同名属性对应的值所代替，即值不会被合并。 如果设置了参数 deep = true ，那么会对数组和简单对象( `KISSY.isPlainObject()` )递归合并\nsupplier undefined 的属性值不会被复制，不过对象从原型继承下来下的值则会被复制\n该方法仅适用于 javascript 对象，不要再浏览器对象上调用，例如 node.style\n\nmix 支持函数作为白名单参数\n  ```\nvar a = {},\nb = {\n   b1: 1,\n   b2: {\n       b2: 22\n   }\n};\n\nUtil.mix(a, b, {\n   deep: true,\n   whitelist: function (name, v) {\n       if (name == 'b1') {\n           return v;\n       }\n       if (this.b1 && name == 'b2') {\n           return v;\n       }\n       return undefined;\n   }\n});\n  ```",
                 "type": "Object"
             },
             "example": [
-                "\n简单 mix:\n\n  ```\nvar S = KISSY,\nr = { a: 'a', b: 'b' };\n\nS.mix(r, { c: 'c' });\nS.log(r.c); // => 'c'\n\nS.mix(r, { a: 'a2' }, false);\nS.log(r.a); // => 'a'\n\nS.mix(r, { e: 'e', f: 'f' }, true, ['f']);\nS.log(r.e); // => undefined\nS.log(r.f); // => 'f'\n  ```\n\n深度 mix:\n  ```\nvar object1 = {\n apple: 0,\n banana: {weight: 52, price: 100},\n cherry: 97\n};\nvar object2 = {\n banana: {price: 200},\n durian: 100\n};\n\n//merge object2 into object1, recursively \nS.mix(object1,object2,undefined,undefined,true);\n\nS.log(object1); // => { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }\n  ```\n该方法在 KISSY 里具有非常重要的地位. JavaScript 是一门动态语言, 利用 mixin 特性, 可以很方便的实现特性的静态复制和动态修改."
+                "\n简单 mix:\n\n  ```\nvar r = { a: 'a', b: 'b' };\n\nUtil.mix(r, { c: 'c' });\nUtil.log(r.c); // => 'c'\n\nUtil.mix(r, { a: 'a2' }, false);\nUtil.log(r.a); // => 'a'\n\nUtil.mix(r, { e: 'e', f: 'f' }, true, ['f']);\nUtil.log(r.e); // => undefined\nUtil.log(r.f); // => 'f'\n  ```\n\n深度 mix:\n  ```\nvar object1 = {\n apple: 0,\n banana: {weight: 52, price: 100},\n cherry: 97\n};\nvar object2 = {\n banana: {price: 200},\n durian: 100\n};\n\n//merge object2 into object1, recursively \nUtil.mix(object1,object2,undefined,undefined,true);\n\nUtil.log(object1); // => { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }\n  ```\n该方法在 KISSY 里具有非常重要的地位. JavaScript 是一门动态语言, 利用 mixin 特性, 可以很方便的实现特性的静态复制和动态修改."
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 566,
+            "line": 560,
             "description": "根据参数创建命名空间对象",
             "itemtype": "method",
             "name": "namespace",
@@ -19374,7 +19374,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 575,
+            "line": 569,
             "description": "返回 new Date().getTime()",
             "itemtype": "method",
             "name": "date",
@@ -19388,7 +19388,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 582,
+            "line": 576,
             "description": "将对象 o 转换为参数字符串, 用于发送 http 请求",
             "itemtype": "method",
             "name": "param",
@@ -19422,14 +19422,14 @@
                 }
             ],
             "example": [
-                "\n```\nvar S = KISSY;\n\nS.param({ foo: 1, bar: 2 }); // => foo=1&bar=2\nS.param({ foo: 1, bar: [2, 3] }); // => foo=1&bar%5B%5D=2&bar%5B%5D=3\nS.param({ foo: 1, bar: [2, 3] },'&','=',false); // => foo=1&bar=2&bar=3\nS.param({ foo: '', bar: 2 }); // => foo=&bar=2\nS.param({ foo: undefined, bar: 2 }); // => foo&bar=2\n  ```"
+                "\n```\n\nUtil.param({ foo: 1, bar: 2 }); // => foo=1&bar=2\nUtil.param({ foo: 1, bar: [2, 3] }); // => foo=1&bar%5B%5D=2&bar%5B%5D=3\nUtil.param({ foo: 1, bar: [2, 3] },'&','=',false); // => foo=1&bar=2&bar=3\nUtil.param({ foo: '', bar: 2 }); // => foo=&bar=2\nUtil.param({ foo: undefined, bar: 2 }); // => foo&bar=2\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 603,
+            "line": 596,
             "description": "将字符串转化为 xml 文档",
             "itemtype": "method",
             "name": "parseXML",
@@ -19442,14 +19442,14 @@
                 }
             ],
             "example": [
-                "\n  ```\nvar xml = \"<rss version='2.0'><channel><title>RSS Title</title></channel></rss>\";\nvar xmlDoc=KISSY.all(KISSY.parseXML(xml));\nalert(xmlDoc.one(\"title\").text()); // => RSS Title\n  ```"
+                "\n  ```\nvar xml = \"<rss version='2.0'><channel><title>RSS Title</title></channel></rss>\";\nvar xmlDoc=Node.all(Util.parseXML(xml));\nalert(xmlDoc.one(\"title\").text()); // => RSS Title\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 617,
+            "line": 610,
             "description": "在 DOM 加载完毕时执行回调函数fn",
             "itemtype": "method",
             "name": "ready",
@@ -19466,7 +19466,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 624,
+            "line": 617,
             "description": "从左向右对每个数组元素调用给定函数，并把返回值累积起来",
             "itemtype": "method",
             "name": "reduce",
@@ -19489,17 +19489,17 @@
                 }
             ],
             "return": {
-                "description": "累计值\n__Note__\nreduce 对数组中的每个元素执行 fn 函数，该 fn 接受四个参数：initialValue (或者上次调用 fn 的返回值)， 数组的当前元素，数组的当前位置以及用于遍历的数组.\n调用 reduce 类似于：`KISSY.reduce([],function(previousValue, currentValue, index, array));`\n当第一次调用 fn 时 :\n - 如果调用 reduce 时没有设定 initialValue，previousValue 和 currentValue 是数组的前两个值.\n - 如果调用 reduce 时设定了 initialValue，那么 previousValue 和 initialValue 相等 ，而 currentValue 则和数组的第一个元素相等."
+                "description": "累计值\n__Note__\nreduce 对数组中的每个元素执行 fn 函数，该 fn 接受四个参数：initialValue (或者上次调用 fn 的返回值)， 数组的当前元素，数组的当前位置以及用于遍历的数组.\n调用 reduce 类似于：`Util.reduce([],function(previousValue, currentValue, index, array));`\n当第一次调用 fn 时 :\n - 如果调用 reduce 时没有设定 initialValue，previousValue 和 currentValue 是数组的前两个值.\n - 如果调用 reduce 时设定了 initialValue，那么 previousValue 和 initialValue 相等 ，而 currentValue 则和数组的第一个元素相等."
             },
             "example": [
-                "\n  ```\nKISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){\n return previousValue + currentValue;\n});\n\n// First call\npreviousValue = 0, currentValue = 1, index = 1\n\n// Second call\npreviousValue = 1, currentValue = 2, index = 2\n\n// Third call\npreviousValue = 3, currentValue = 3, index = 3\n\n// Fourth call\npreviousValue = 6, currentValue = 4, index = 4\n\n// array is always the object [0,1,2,3,4] upon which reduce was called\n\n// Return Value: 10\n  ```\n\n  ```\nKISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){\n return previousValue + currentValue;\n}, 10);\n\n// First call\npreviousValue = 10, currentValue = 0, index = 0\n\n// Second call\npreviousValue = 10, currentValue = 1, index = 1\n\n// Third call\npreviousValue = 11, currentValue = 2, index = 2\n\n// Fourth call\npreviousValue = 13, currentValue = 3, index = 3\n\n// Fifth call\npreviousValue = 16, currentValue = 4, index = 4\n\n// array is always the object [0,1,2,3,4] upon which reduce was called\n\n// Return Value: 20\n  ```\n\n### 得到数组的值总和\n`var total = KISSY.reduce([0, 1, 2, 3],function(a, b){ return a + b; }); // total == 6`\n\n### 嵌套数组平坦化\n  ```\nvar flattened = KISSY.reduce([[0,1], [2,3], [4,5]],function(a,b) {\n return a.concat(b);\n});\n// flattened is [0, 1, 2, 3, 4, 5]\n  ```"
+                "\n  ```\nUtil.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){\n return previousValue + currentValue;\n});\n\n// First call\npreviousValue = 0, currentValue = 1, index = 1\n\n// Second call\npreviousValue = 1, currentValue = 2, index = 2\n\n// Third call\npreviousValue = 3, currentValue = 3, index = 3\n\n// Fourth call\npreviousValue = 6, currentValue = 4, index = 4\n\n// array is always the object [0,1,2,3,4] upon which reduce was called\n\n// Return Value: 10\n  ```\n\n  ```\nUtil.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){\n return previousValue + currentValue;\n}, 10);\n\n// First call\npreviousValue = 10, currentValue = 0, index = 0\n\n// Second call\npreviousValue = 10, currentValue = 1, index = 1\n\n// Third call\npreviousValue = 11, currentValue = 2, index = 2\n\n// Fourth call\npreviousValue = 13, currentValue = 3, index = 3\n\n// Fifth call\npreviousValue = 16, currentValue = 4, index = 4\n\n// array is always the object [0,1,2,3,4] upon which reduce was called\n\n// Return Value: 20\n  ```\n\n### 得到数组的值总和\n`var total = Util.reduce([0, 1, 2, 3],function(a, b){ return a + b; }); // total == 6`\n\n### 嵌套数组平坦化\n  ```\nvar flattened = Util.reduce([[0,1], [2,3], [4,5]],function(a,b) {\n return a.concat(b);\n});\n// flattened is [0, 1, 2, 3, 4, 5]\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 698,
+            "line": 691,
             "description": "判断 str 是否以 prefix 开头",
             "itemtype": "method",
             "name": "startsWith",
@@ -19525,7 +19525,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 707,
+            "line": 700,
             "description": "将字符串中的占位符替换为对应的键值",
             "itemtype": "method",
             "name": "substitute",
@@ -19547,14 +19547,14 @@
                 "type": "String"
             },
             "example": [
-                "\n  ```\nvar S = KISSY,\nstr = '{name} is {prop_1} and {prop_2}.',\nobj = {name: 'Jack Bauer', prop_1: 'our lord', prop_2: 'savior'};\n\nS.substitute(str, obj); // => 'Jack Bauer is our lord and savior.'\n  ```"
+                "\n  ```\nvar str = '{name} is {prop_1} and {prop_2}.',\nobj = {name: 'Jack Bauer', prop_1: 'our lord', prop_2: 'savior'};\n\nUtil.substitute(str, obj); // => 'Jack Bauer is our lord and savior.'\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 724,
+            "line": 716,
             "description": "ms 时间内只执行 fn 一次, 即使这段时间内 fn 被调用多次.",
             "itemtype": "method",
             "name": "throttle",
@@ -19581,17 +19581,17 @@
                 "type": "Function"
             },
             "example": [
-                "\n  ```\nfunction sayHi() {\n   alert('hi');\n}\n\nsay = S.throttle(sayHi, 300, this);\nsay();              // 忽略\nS.later(say, 200);  // 忽略\nS.later(say, 350);  // 超过300ms后, 终于执行\n  ```"
+                "\n  ```\nfunction sayHi() {\n   alert('hi');\n}\n\nsay = Util.throttle(sayHi, 300, this);\nsay();              // 忽略\nUtil.later(say, 200);  // 忽略\nUtil.later(say, 350);  // 超过300ms后, 终于执行\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 748,
+            "line": 740,
             "description": "去除字符串两端的空白字符",
             "itemtype": "method",
-            "name": "$.trim",
+            "name": "trim",
             "static": 1,
             "params": [
                 {
@@ -19609,7 +19609,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 756,
+            "line": 748,
             "description": "将字符串中的 html 实体字符替换成对应字符",
             "itemtype": "method",
             "name": "unEscapeHTML",
@@ -19633,7 +19633,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 769,
+            "line": 761,
             "description": "返回一个新数组, 仅包含 arr 去重后的值",
             "itemtype": "method",
             "name": "unique",
@@ -19659,7 +19659,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 778,
+            "line": 770,
             "description": "将参数字符串 str 还原为对象",
             "itemtype": "method",
             "name": "unparam",
@@ -19690,7 +19690,7 @@
                 "type": "Object"
             },
             "example": [
-                "\n  ```\nvar S = KISSY;\n\nS.unparam('foo=1&bar=2'); // => { foo: 1, bar: 2 }\nS.unparam('foo=%81%47'); // gbk 编码 => { foo: \"%81%47\" } 而不是 {foo: \"丢\"}\nS.unparam('foo=1&bar=2&bar=3'); // => { foo: 1, bar: [2, 3] }\nS.unparam('foo=1&bar%5B%5D=2&bar%5B%5D=3'); // => { foo: 1, bar: [2, 3] }\n  ```"
+                "\n  ```\n\nUtil.unparam('foo=1&bar=2'); // => { foo: 1, bar: 2 }\nUtil.unparam('foo=%81%47'); // gbk 编码 => { foo: \"%81%47\" } 而不是 {foo: \"丢\"}\nUtil.unparam('foo=1&bar=2&bar=3'); // => { foo: 1, bar: [2, 3] }\nUtil.unparam('foo=1&bar%5B%5D=2&bar%5B%5D=3'); // => { foo: 1, bar: [2, 3] }\n  ```"
             ],
             "class": "Util",
             "module": "util"

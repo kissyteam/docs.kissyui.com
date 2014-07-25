@@ -557,7 +557,7 @@
 	getX(); // 9, because in this case, &quot;this&quot; refers to the global object
 
 	// create a new function with &#x27;this&#x27; bound to module
-	var boundGetX = KISSY.bind(getX,module);
+	var boundGetX = Util.bind(getX,module);
 	boundGetX(); // 81
 *   &#x60;&#x60;&#x60;
 * ### Currying
@@ -570,7 +570,7 @@
 	var list1 = list(1, 2, 3); // [1, 2, 3]
 
 	//  Create a function with a preset leading argument
-	var leadingZeroList = KISSY.bind(list,undefined, 37);
+	var leadingZeroList = Util.bind(list,undefined, 37);
 
 	var list2 = leadingZeroList(); // [37]
 	var list3 = leadingZeroList(1, 2, 3); // [37, 1, 2, 3]
@@ -591,7 +591,7 @@
 * @return {Function} 返回缓存后的函数对象
 * @example
 *   &#x60;&#x60;&#x60;
-*   self.__onResize = S.buffer(doResize, 100, this);
+*   self.__onResize = Util.buffer(doResize, 100, this);
 *   $(window).on(&quot;resize&quot;, self.__onResize);
 *   &#x60;&#x60;&#x60;
 */
@@ -607,10 +607,9 @@
 * @return {Object} 拷贝后的新对象
 * @example
 *   &#x60;&#x60;&#x60;
-*   var S = KISSY;
 *   var a={x:{y:{z:1}}}
-*   var b=S.clone(a); // =&gt; b={x:y:{z:1}} , b!==a
-*   var c=S.clone(a,function(v,k){if(k==&quot;z&quot;) return false;}) // =&gt; c={x:{y:{}}}
+*   var b=Util.clone(a); // =&gt; b={x:y:{z:1}} , b!==a
+*   var c=Util.clone(a,function(v,k){if(k==&quot;z&quot;) return false;}) // =&gt; c={x:{y:{}}}
 *   &#x60;&#x60;&#x60;
 */
 
@@ -625,22 +624,21 @@
 * @param [context=window] {Object} fn的上下文对象
 * @example
 *   &#x60;&#x60;&#x60;
-var S = KISSY,
-arr = [1, 2, 3, 4, 5],
+var arr = [1, 2, 3, 4, 5],
 obj = {
     &#x27;hi&#x27;: &#x27;kissy&#x27;,
     &#x27;bye&#x27;: &#x27;world&#x27;
 },
 sum = 0;
 
-S.each(arr, function(item) {
+Util.each(arr, function(item) {
     sum += item;
 });
-S.log(sum); // =&gt; 15
+Util.log(sum); // =&gt; 15
 
 
-S.each(obj, function(v,k) {
-    S.log([v,k]);
+Util.each(obj, function(v,k) {
+    Util.log([v,k]);
 });
 *   &#x60;&#x60;&#x60;
 */
@@ -693,7 +691,7 @@ Bird.prototype.fly = function() { alert(this.name + &#x27; is flying now!&#x27;)
 function Chicken(name) {
     Chicken.superclass.constructor.call(this, name);
 }
-S.extend(Chicken, Bird,{
+Util.extend(Chicken, Bird,{
     fly:function(){
         Chicken.superclass.fly.call(this)
         alert(&quot;it&#x27;s my turn&quot;);
@@ -714,13 +712,12 @@ new Chicken(&#x27;kissy&#x27;).fly();
 * @return {Array} 返回符合过滤函数的新数组
 * @example
 *   &#x60;&#x60;&#x60;
-var S = KISSY,
-arr = [1, 2, 3, 4, 5];
+var arr = [1, 2, 3, 4, 5];
 
-var ret = S.filter(arr, function(item) {
+var ret = Util.filter(arr, function(item) {
     return item % 2 === 0;
 });
-S.log(ret); // =&gt; [2, 4]
+Util.log(ret); // =&gt; [2, 4]
 *   &#x60;&#x60;&#x60;
 */
 
@@ -742,13 +739,13 @@ S.log(ret); // =&gt; [2, 4]
 * @return {Object} logger对象
 * @example
 *   &#x60;&#x60;&#x60;
-var logger = KISSY.getLogger(&#x27;KISSY&#x27;);
+var logger = Util.getLogger(&#x27;KISSY&#x27;);
 logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;
 *   &#x60;&#x60;&#x60;
 * __Note__
 * 可以在配置中设置logger的级别，以及是否显示。 当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先
 * &#x60;&#x60;&#x60;
-S.config(&#x27;logger&#x27;, {
+KISSY.config(&#x27;logger&#x27;, {
     includes: [
         {
             logger: /^xx\//
@@ -932,9 +929,8 @@ S.config(&#x27;logger&#x27;, {
 * - &#x60;cancel&#x60; 取消定时器
 * @example
 *   &#x60;&#x60;&#x60;
-var S = KISSY;
 
-S.later(function(data) {
+Util.later(function(data) {
     S.log(data);
 }, 0, false, null, &#x27;I am later data.&#x27;);
 *   &#x60;&#x60;&#x60;
@@ -978,15 +974,14 @@ S.later(function(data) {
 * @return {Object} 合并属性后的新对象
 * @example
 *   &#x60;&#x60;&#x60;
-var S = KISSY,
-a = { a: &#x27;a&#x27; },
+var a = { a: &#x27;a&#x27; },
 b = { b: &#x27;b&#x27; },
 c = { b: &#x27;b2&#x27;, c: &#x27;c&#x27; };
 
-var o = S.merge(a, b, c);
-S.log(o.a); // =&gt; &#x27;a&#x27;
-S.log(o.b); // =&gt; &#x27;b2&#x27;
-S.log(o.c); // =&gt; &#x27;c&#x27;
+var o = Util.merge(a, b, c);
+Util.log(o.a); // =&gt; &#x27;a&#x27;
+Util.log(o.b); // =&gt; &#x27;b2&#x27;
+Util.log(o.c); // =&gt; &#x27;c&#x27;
 *   &#x60;&#x60;&#x60;
 */
 
@@ -1018,7 +1013,7 @@ b = {
     }
 };
 
-S.mix(a, b, {
+Util.mix(a, b, {
     deep: true,
     whitelist: function (name, v) {
         if (name == &#x27;b1&#x27;) {
@@ -1035,18 +1030,17 @@ S.mix(a, b, {
 * 简单 mix:
 *
 *   &#x60;&#x60;&#x60;
-var S = KISSY,
-r = { a: &#x27;a&#x27;, b: &#x27;b&#x27; };
+var r = { a: &#x27;a&#x27;, b: &#x27;b&#x27; };
 
-S.mix(r, { c: &#x27;c&#x27; });
-S.log(r.c); // =&gt; &#x27;c&#x27;
+Util.mix(r, { c: &#x27;c&#x27; });
+Util.log(r.c); // =&gt; &#x27;c&#x27;
 
-S.mix(r, { a: &#x27;a2&#x27; }, false);
-S.log(r.a); // =&gt; &#x27;a&#x27;
+Util.mix(r, { a: &#x27;a2&#x27; }, false);
+Util.log(r.a); // =&gt; &#x27;a&#x27;
 
-S.mix(r, { e: &#x27;e&#x27;, f: &#x27;f&#x27; }, true, [&#x27;f&#x27;]);
-S.log(r.e); // =&gt; undefined
-S.log(r.f); // =&gt; &#x27;f&#x27;
+Util.mix(r, { e: &#x27;e&#x27;, f: &#x27;f&#x27; }, true, [&#x27;f&#x27;]);
+Util.log(r.e); // =&gt; undefined
+Util.log(r.f); // =&gt; &#x27;f&#x27;
 *   &#x60;&#x60;&#x60;
 *
 * 深度 mix:
@@ -1062,9 +1056,9 @@ var object2 = {
 };
 
 //merge object2 into object1, recursively 
-S.mix(object1,object2,undefined,undefined,true);
+Util.mix(object1,object2,undefined,undefined,true);
 
-S.log(object1); // =&gt; { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }
+Util.log(object1); // =&gt; { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }
 *   &#x60;&#x60;&#x60;
 * 该方法在 KISSY 里具有非常重要的地位. JavaScript 是一门动态语言, 利用 mixin 特性, 可以很方便的实现特性的静态复制和动态修改.
 */
@@ -1096,13 +1090,12 @@ S.log(object1); // =&gt; { apple: 0, banana: { weight: 52, price: 200 }, cherry:
 * return {String} 可用于发送请求的参数字符串
 * @example
 * &#x60;&#x60;&#x60;
-var S = KISSY;
 
-S.param({ foo: 1, bar: 2 }); // =&gt; foo=1&amp;bar=2
-S.param({ foo: 1, bar: [2, 3] }); // =&gt; foo=1&amp;bar%5B%5D=2&amp;bar%5B%5D=3
-S.param({ foo: 1, bar: [2, 3] },&#x27;&amp;&#x27;,&#x27;=&#x27;,false); // =&gt; foo=1&amp;bar=2&amp;bar=3
-S.param({ foo: &#x27;&#x27;, bar: 2 }); // =&gt; foo=&amp;bar=2
-S.param({ foo: undefined, bar: 2 }); // =&gt; foo&amp;bar=2
+Util.param({ foo: 1, bar: 2 }); // =&gt; foo=1&amp;bar=2
+Util.param({ foo: 1, bar: [2, 3] }); // =&gt; foo=1&amp;bar%5B%5D=2&amp;bar%5B%5D=3
+Util.param({ foo: 1, bar: [2, 3] },&#x27;&amp;&#x27;,&#x27;=&#x27;,false); // =&gt; foo=1&amp;bar=2&amp;bar=3
+Util.param({ foo: &#x27;&#x27;, bar: 2 }); // =&gt; foo=&amp;bar=2
+Util.param({ foo: undefined, bar: 2 }); // =&gt; foo&amp;bar=2
 *   &#x60;&#x60;&#x60;
 */
 
@@ -1115,7 +1108,7 @@ S.param({ foo: undefined, bar: 2 }); // =&gt; foo&amp;bar=2
 * @example
 *   &#x60;&#x60;&#x60;
 var xml = &quot;&lt;rss version=&#x27;2.0&#x27;&gt;&lt;channel&gt;&lt;title&gt;RSS Title&lt;/title&gt;&lt;/channel&gt;&lt;/rss&gt;&quot;;
-var xmlDoc=KISSY.all(KISSY.parseXML(xml));
+var xmlDoc=Node.all(Util.parseXML(xml));
 alert(xmlDoc.one(&quot;title&quot;).text()); // =&gt; RSS Title
 *   &#x60;&#x60;&#x60;
 */
@@ -1137,13 +1130,13 @@ alert(xmlDoc.one(&quot;title&quot;).text()); // =&gt; RSS Title
 * @return 累计值
 * __Note__
 * reduce 对数组中的每个元素执行 fn 函数，该 fn 接受四个参数：initialValue (或者上次调用 fn 的返回值)， 数组的当前元素，数组的当前位置以及用于遍历的数组.
-* 调用 reduce 类似于：&#x60;KISSY.reduce([],function(previousValue, currentValue, index, array){});&#x60;
+* 调用 reduce 类似于：&#x60;Util.reduce([],function(previousValue, currentValue, index, array){});&#x60;
 * 当第一次调用 fn 时 :
   - 如果调用 reduce 时没有设定 initialValue，previousValue 和 currentValue 是数组的前两个值.
   - 如果调用 reduce 时设定了 initialValue，那么 previousValue 和 initialValue 相等 ，而 currentValue 则和数组的第一个元素相等.
 * @example
 *   &#x60;&#x60;&#x60;
-KISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){
+Util.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){
   return previousValue + currentValue;
 });
 
@@ -1165,7 +1158,7 @@ previousValue = 6, currentValue = 4, index = 4
 *   &#x60;&#x60;&#x60;
 *
 *   &#x60;&#x60;&#x60;
-KISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){
+Util.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){
   return previousValue + currentValue;
 }, 10);
 
@@ -1190,11 +1183,11 @@ previousValue = 16, currentValue = 4, index = 4
 *   &#x60;&#x60;&#x60;
 *
 * ### 得到数组的值总和
-* &#x60;var total = KISSY.reduce([0, 1, 2, 3],function(a, b){ return a + b; }); // total == 6&#x60;
+* &#x60;var total = Util.reduce([0, 1, 2, 3],function(a, b){ return a + b; }); // total == 6&#x60;
 *
 * ### 嵌套数组平坦化
 *   &#x60;&#x60;&#x60;
-var flattened = KISSY.reduce([[0,1], [2,3], [4,5]],function(a,b) {
+var flattened = Util.reduce([[0,1], [2,3], [4,5]],function(a,b) {
   return a.concat(b);
 });
 // flattened is [0, 1, 2, 3, 4, 5]
@@ -1219,11 +1212,10 @@ var flattened = KISSY.reduce([[0,1], [2,3], [4,5]],function(a,b) {
 * @return {String} 将模板和数据结合起来的最终字符串
 * @example
 *   &#x60;&#x60;&#x60;
-var S = KISSY,
-str = &#x27;{name} is {prop_1} and {prop_2}.&#x27;,
+var str = &#x27;{name} is {prop_1} and {prop_2}.&#x27;,
 obj = {name: &#x27;Jack Bauer&#x27;, prop_1: &#x27;our lord&#x27;, prop_2: &#x27;savior&#x27;};
 
-S.substitute(str, obj); // =&gt; &#x27;Jack Bauer is our lord and savior.&#x27;
+Util.substitute(str, obj); // =&gt; &#x27;Jack Bauer is our lord and savior.&#x27;
 *   &#x60;&#x60;&#x60;
 */
 
@@ -1244,16 +1236,16 @@ S.substitute(str, obj); // =&gt; &#x27;Jack Bauer is our lord and savior.&#x27;
     alert(&#x27;hi&#x27;);
  }
 
-say = S.throttle(sayHi, 300, this);
+say = Util.throttle(sayHi, 300, this);
 say();              // 忽略
-S.later(say, 200);  // 忽略
-S.later(say, 350);  // 超过300ms后, 终于执行
+Util.later(say, 200);  // 忽略
+Util.later(say, 350);  // 超过300ms后, 终于执行
 *   &#x60;&#x60;&#x60;
 */
 
 /**
 * 去除字符串两端的空白字符
-* @method $.trim
+* @method trim
 * @static
 * @param str {String} 原始字符串
 * @return {String} 去除空白后新的字符串
@@ -1291,12 +1283,11 @@ S.later(say, 350);  // 超过300ms后, 终于执行
 * @return {Object} 参数的对象表示
 * @example
 *   &#x60;&#x60;&#x60;
-var S = KISSY;
 
-S.unparam(&#x27;foo=1&amp;bar=2&#x27;); // =&gt; { foo: 1, bar: 2 }
-S.unparam(&#x27;foo=%81%47&#x27;); // gbk 编码 =&gt; { foo: &quot;%81%47&quot; } 而不是 {foo: &quot;丢&quot;}
-S.unparam(&#x27;foo=1&amp;bar=2&amp;bar=3&#x27;); // =&gt; { foo: 1, bar: [2, 3] }
-S.unparam(&#x27;foo=1&amp;bar%5B%5D=2&amp;bar%5B%5D=3&#x27;); // =&gt; { foo: 1, bar: [2, 3] }
+Util.unparam(&#x27;foo=1&amp;bar=2&#x27;); // =&gt; { foo: 1, bar: 2 }
+Util.unparam(&#x27;foo=%81%47&#x27;); // gbk 编码 =&gt; { foo: &quot;%81%47&quot; } 而不是 {foo: &quot;丢&quot;}
+Util.unparam(&#x27;foo=1&amp;bar=2&amp;bar=3&#x27;); // =&gt; { foo: 1, bar: [2, 3] }
+Util.unparam(&#x27;foo=1&amp;bar%5B%5D=2&amp;bar%5B%5D=3&#x27;); // =&gt; { foo: 1, bar: [2, 3] }
 *   &#x60;&#x60;&#x60;
 */
  

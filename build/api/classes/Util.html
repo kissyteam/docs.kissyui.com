@@ -547,15 +547,6 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_$.trim">$.trim</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
                                 <a href="#method_augment">augment</a>
 
                                 
@@ -977,6 +968,15 @@
                             </li>
                         
                             <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_trim">trim</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
                                 <a href="#method_unEscapeHTML">unEscapeHTML</a>
 
                                 
@@ -1017,109 +1017,6 @@
         
             <div id="methods" class="ks-tabs-panel">
                 <h2 class="off-left">Methods</h2>
-
-                
-                    <div id="method_$.trim" class="method item">
-    <h3 class="name"><code>$.trim</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>str</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>去除字符串两端的空白字符</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">str</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>原始字符串</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
-                    
-                    <p>去除空白后新的字符串</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
 
                 
                     <div id="method_augment" class="method item">
@@ -1563,7 +1460,7 @@
     getX(); // 9, because in this case, &quot;this&quot; refers to the global object
 
     // create a new function with &#39;this&#39; bound to module
-    var boundGetX = KISSY.bind(getX,module);
+    var boundGetX = Util.bind(getX,module);
     boundGetX(); // 81</code></pre>
 <h3 id="currying">Currying</h3>
 <p>bind 的下一个简单用法是产生一个具备默认参数的函数. 这些参数跟在 context 后面，无论何时调用绑定函数， 当绑定函数调用目标函数时会把它们放在参数列表开头，然后才是传递给绑定函数的用户参数</p>
@@ -1574,7 +1471,7 @@
     var list1 = list(1, 2, 3); // [1, 2, 3]
 
     //  Create a function with a preset leading argument
-    var leadingZeroList = KISSY.bind(list,undefined, 37);
+    var leadingZeroList = Util.bind(list,undefined, 37);
 
     var list2 = leadingZeroList(); // [37]
     var list3 = leadingZeroList(1, 2, 3); // [37, 1, 2, 3]</code></pre>
@@ -1738,7 +1635,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>  self.__onResize = S.buffer(doResize, 100, this);
+                <pre class="code prettyprint"><code>  self.__onResize = Util.buffer(doResize, 100, this);
   $(window).on(&quot;resize&quot;, self.__onResize);</code></pre>
 
             </div>
@@ -1878,10 +1775,9 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>  var S = KISSY;
-  var a={x:{y:{z:1}}}
-  var b=S.clone(a); // =&gt; b={x:y:{z:1}} , b!==a
-  var c=S.clone(a,function(v,k){if(k==&quot;z&quot;) return false;}) // =&gt; c={x:{y:{}}}</code></pre>
+                <pre class="code prettyprint"><code>  var a={x:{y:{z:1}}}
+  var b=Util.clone(a); // =&gt; b={x:y:{z:1}} , b!==a
+  var c=Util.clone(a,function(v,k){if(k==&quot;z&quot;) return false;}) // =&gt; c={x:{y:{}}}</code></pre>
 
             </div>
         </div>
@@ -2091,22 +1987,21 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY,
-arr = [1, 2, 3, 4, 5],
+                <pre class="code prettyprint"><code>var arr = [1, 2, 3, 4, 5],
 obj = {
    &#39;hi&#39;: &#39;kissy&#39;,
    &#39;bye&#39;: &#39;world&#39;
 },
 sum = 0;
 
-S.each(arr, function(item) {
+Util.each(arr, function(item) {
    sum += item;
 });
-S.log(sum); // =&gt; 15
+Util.log(sum); // =&gt; 15
 
 
-S.each(obj, function(v,k) {
-   S.log([v,k]);
+Util.each(obj, function(v,k) {
+   Util.log([v,k]);
 });</code></pre>
 
             </div>
@@ -2614,7 +2509,7 @@ Bird.prototype.fly = function() { alert(this.name + &#39; is flying now!&#39;); 
 function Chicken(name) {
    Chicken.superclass.constructor.call(this, name);
 }
-S.extend(Chicken, Bird,{
+Util.extend(Chicken, Bird,{
    fly:function(){
        Chicken.superclass.fly.call(this)
        alert(&quot;it&#39;s my turn&quot;);
@@ -2778,13 +2673,12 @@ new Chicken(&#39;kissy&#39;).fly();</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY,
-arr = [1, 2, 3, 4, 5];
+                <pre class="code prettyprint"><code>var arr = [1, 2, 3, 4, 5];
 
-var ret = S.filter(arr, function(item) {
+var ret = Util.filter(arr, function(item) {
    return item % 2 === 0;
 });
-S.log(ret); // =&gt; [2, 4]</code></pre>
+Util.log(ret); // =&gt; [2, 4]</code></pre>
 
             </div>
         </div>
@@ -3008,11 +2902,11 @@ S.log(ret); // =&gt; [2, 4]</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var logger = KISSY.getLogger(&#39;KISSY&#39;);
+                <pre class="code prettyprint"><code>var logger = Util.getLogger(&#39;KISSY&#39;);
 logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;</code></pre>
 <p><strong>Note</strong>
 可以在配置中设置logger的级别，以及是否显示。 当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先</p>
-<pre class="code prettyprint"><code>S.config(&#39;logger&#39;, {
+<pre class="code prettyprint"><code>KISSY.config(&#39;logger&#39;, {
    includes: [
        {
            logger: /^xx\//
@@ -5214,9 +5108,8 @@ logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY;
-
-S.later(function(data) {
+                <pre class="code prettyprint"><code>
+Util.later(function(data) {
    S.log(data);
 }, 0, false, null, &#39;I am later data.&#39;);</code></pre>
 
@@ -5735,15 +5628,14 @@ S.later(function(data) {
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY,
-a = { a: &#39;a&#39; },
+                <pre class="code prettyprint"><code>var a = { a: &#39;a&#39; },
 b = { b: &#39;b&#39; },
 c = { b: &#39;b2&#39;, c: &#39;c&#39; };
 
-var o = S.merge(a, b, c);
-S.log(o.a); // =&gt; &#39;a&#39;
-S.log(o.b); // =&gt; &#39;b2&#39;
-S.log(o.c); // =&gt; &#39;c&#39;</code></pre>
+var o = Util.merge(a, b, c);
+Util.log(o.a); // =&gt; &#39;a&#39;
+Util.log(o.b); // =&gt; &#39;b2&#39;
+Util.log(o.c); // =&gt; &#39;c&#39;</code></pre>
 
             </div>
         </div>
@@ -5948,7 +5840,7 @@ b = {
    }
 };
 
-S.mix(a, b, {
+Util.mix(a, b, {
    deep: true,
    whitelist: function (name, v) {
        if (name == &#39;b1&#39;) {
@@ -5972,18 +5864,17 @@ S.mix(a, b, {
 
             <div class="example-content">
                 <p>简单 mix:</p>
-<pre class="code prettyprint"><code>var S = KISSY,
-r = { a: &#39;a&#39;, b: &#39;b&#39; };
+<pre class="code prettyprint"><code>var r = { a: &#39;a&#39;, b: &#39;b&#39; };
 
-S.mix(r, { c: &#39;c&#39; });
-S.log(r.c); // =&gt; &#39;c&#39;
+Util.mix(r, { c: &#39;c&#39; });
+Util.log(r.c); // =&gt; &#39;c&#39;
 
-S.mix(r, { a: &#39;a2&#39; }, false);
-S.log(r.a); // =&gt; &#39;a&#39;
+Util.mix(r, { a: &#39;a2&#39; }, false);
+Util.log(r.a); // =&gt; &#39;a&#39;
 
-S.mix(r, { e: &#39;e&#39;, f: &#39;f&#39; }, true, [&#39;f&#39;]);
-S.log(r.e); // =&gt; undefined
-S.log(r.f); // =&gt; &#39;f&#39;</code></pre>
+Util.mix(r, { e: &#39;e&#39;, f: &#39;f&#39; }, true, [&#39;f&#39;]);
+Util.log(r.e); // =&gt; undefined
+Util.log(r.f); // =&gt; &#39;f&#39;</code></pre>
 <p>深度 mix:</p>
 <pre class="code prettyprint"><code>var object1 = {
  apple: 0,
@@ -5996,9 +5887,9 @@ var object2 = {
 };
 
 //merge object2 into object1, recursively 
-S.mix(object1,object2,undefined,undefined,true);
+Util.mix(object1,object2,undefined,undefined,true);
 
-S.log(object1); // =&gt; { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }</code></pre>
+Util.log(object1); // =&gt; { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }</code></pre>
 <p>该方法在 KISSY 里具有非常重要的地位. JavaScript 是一门动态语言, 利用 mixin 特性, 可以很方便的实现特性的静态复制和动态修改.</p>
 
             </div>
@@ -6289,13 +6180,12 @@ return {String} 可用于发送请求的参数字符串</p>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY;
-
-S.param({ foo: 1, bar: 2 }); // =&gt; foo=1&amp;bar=2
-S.param({ foo: 1, bar: [2, 3] }); // =&gt; foo=1&amp;bar%5B%5D=2&amp;bar%5B%5D=3
-S.param({ foo: 1, bar: [2, 3] },&#39;&amp;&#39;,&#39;=&#39;,false); // =&gt; foo=1&amp;bar=2&amp;bar=3
-S.param({ foo: &#39;&#39;, bar: 2 }); // =&gt; foo=&amp;bar=2
-S.param({ foo: undefined, bar: 2 }); // =&gt; foo&amp;bar=2</code></pre>
+                <pre class="code prettyprint"><code>
+Util.param({ foo: 1, bar: 2 }); // =&gt; foo=1&amp;bar=2
+Util.param({ foo: 1, bar: [2, 3] }); // =&gt; foo=1&amp;bar%5B%5D=2&amp;bar%5B%5D=3
+Util.param({ foo: 1, bar: [2, 3] },&#39;&amp;&#39;,&#39;=&#39;,false); // =&gt; foo=1&amp;bar=2&amp;bar=3
+Util.param({ foo: &#39;&#39;, bar: 2 }); // =&gt; foo=&amp;bar=2
+Util.param({ foo: undefined, bar: 2 }); // =&gt; foo&amp;bar=2</code></pre>
 
             </div>
         </div>
@@ -6391,7 +6281,7 @@ return {XML} xml 文档</p>
 
             <div class="example-content">
                 <pre class="code prettyprint"><code>var xml = &quot;&lt;rss version=&#39;2.0&#39;&gt;&lt;channel&gt;&lt;title&gt;RSS Title&lt;/title&gt;&lt;/channel&gt;&lt;/rss&gt;&quot;;
-var xmlDoc=KISSY.all(KISSY.parseXML(xml));
+var xmlDoc=Node.all(Util.parseXML(xml));
 alert(xmlDoc.one(&quot;title&quot;).text()); // =&gt; RSS Title</code></pre>
 
             </div>
@@ -6622,7 +6512,7 @@ alert(xmlDoc.one(&quot;title&quot;).text()); // =&gt; RSS Title</code></pre>
                     <p>累计值
 <strong>Note</strong>
 reduce 对数组中的每个元素执行 fn 函数，该 fn 接受四个参数：initialValue (或者上次调用 fn 的返回值)， 数组的当前元素，数组的当前位置以及用于遍历的数组.
-调用 reduce 类似于：<code>KISSY.reduce([],function(previousValue, currentValue, index, array));</code>
+调用 reduce 类似于：<code>Util.reduce([],function(previousValue, currentValue, index, array));</code>
 当第一次调用 fn 时 :</p>
 <ul>
 <li>如果调用 reduce 时没有设定 initialValue，previousValue 和 currentValue 是数组的前两个值.</li>
@@ -6639,7 +6529,7 @@ reduce 对数组中的每个元素执行 fn 函数，该 fn 接受四个参数�
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){
+                <pre class="code prettyprint"><code>Util.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){
  return previousValue + currentValue;
 });
 
@@ -6658,7 +6548,7 @@ previousValue = 6, currentValue = 4, index = 4
 // array is always the object [0,1,2,3,4] upon which reduce was called
 
 // Return Value: 10</code></pre>
-<pre class="code prettyprint"><code>KISSY.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){
+<pre class="code prettyprint"><code>Util.reduce([0,1,2,3,4],function(previousValue, currentValue, index, array){
  return previousValue + currentValue;
 }, 10);
 
@@ -6681,9 +6571,9 @@ previousValue = 16, currentValue = 4, index = 4
 
 // Return Value: 20</code></pre>
 <h3 id="-">得到数组的值总和</h3>
-<p><code>var total = KISSY.reduce([0, 1, 2, 3],function(a, b){ return a + b; }); // total == 6</code></p>
+<p><code>var total = Util.reduce([0, 1, 2, 3],function(a, b){ return a + b; }); // total == 6</code></p>
 <h3 id="-">嵌套数组平坦化</h3>
-<pre class="code prettyprint"><code>var flattened = KISSY.reduce([[0,1], [2,3], [4,5]],function(a,b) {
+<pre class="code prettyprint"><code>var flattened = Util.reduce([[0,1], [2,3], [4,5]],function(a,b) {
  return a.concat(b);
 });
 // flattened is [0, 1, 2, 3, 4, 5]</code></pre>
@@ -6945,11 +6835,10 @@ previousValue = 16, currentValue = 4, index = 4
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY,
-str = &#39;{name} is {prop_1} and {prop_2}.&#39;,
+                <pre class="code prettyprint"><code>var str = &#39;{name} is {prop_1} and {prop_2}.&#39;,
 obj = {name: &#39;Jack Bauer&#39;, prop_1: &#39;our lord&#39;, prop_2: &#39;savior&#39;};
 
-S.substitute(str, obj); // =&gt; &#39;Jack Bauer is our lord and savior.&#39;</code></pre>
+Util.substitute(str, obj); // =&gt; &#39;Jack Bauer is our lord and savior.&#39;</code></pre>
 
             </div>
         </div>
@@ -7114,13 +7003,116 @@ S.substitute(str, obj); // =&gt; &#39;Jack Bauer is our lord and savior.&#39;</c
    alert(&#39;hi&#39;);
 }
 
-say = S.throttle(sayHi, 300, this);
+say = Util.throttle(sayHi, 300, this);
 say();              // 忽略
-S.later(say, 200);  // 忽略
-S.later(say, 350);  // 超过300ms后, 终于执行</code></pre>
+Util.later(say, 200);  // 忽略
+Util.later(say, 350);  // 超过300ms后, 终于执行</code></pre>
 
             </div>
         </div>
+    
+</div>
+
+                
+                    <div id="method_trim" class="method item">
+    <h3 class="name"><code>trim</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>str</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>去除字符串两端的空白字符</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">str</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>原始字符串</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    
+                    <p>去除空白后新的字符串</p>
+
+                
+            </div>
+        </div>
+    
+
     
 </div>
 
@@ -7515,12 +7507,11 @@ S.later(say, 350);  // 超过300ms后, 终于执行</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY;
-
-S.unparam(&#39;foo=1&amp;bar=2&#39;); // =&gt; { foo: 1, bar: 2 }
-S.unparam(&#39;foo=%81%47&#39;); // gbk 编码 =&gt; { foo: &quot;%81%47&quot; } 而不是 {foo: &quot;丢&quot;}
-S.unparam(&#39;foo=1&amp;bar=2&amp;bar=3&#39;); // =&gt; { foo: 1, bar: [2, 3] }
-S.unparam(&#39;foo=1&amp;bar%5B%5D=2&amp;bar%5B%5D=3&#39;); // =&gt; { foo: 1, bar: [2, 3] }</code></pre>
+                <pre class="code prettyprint"><code>
+Util.unparam(&#39;foo=1&amp;bar=2&#39;); // =&gt; { foo: 1, bar: 2 }
+Util.unparam(&#39;foo=%81%47&#39;); // gbk 编码 =&gt; { foo: &quot;%81%47&quot; } 而不是 {foo: &quot;丢&quot;}
+Util.unparam(&#39;foo=1&amp;bar=2&amp;bar=3&#39;); // =&gt; { foo: 1, bar: [2, 3] }
+Util.unparam(&#39;foo=1&amp;bar%5B%5D=2&amp;bar%5B%5D=3&#39;); // =&gt; { foo: 1, bar: [2, 3] }</code></pre>
 
             </div>
         </div>
