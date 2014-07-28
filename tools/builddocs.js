@@ -38,7 +38,7 @@ module.exports.buildGuide = function(srcUrl,config){
 		guidesModuleLists = [];
 	fs.readdirSync(guidesPath).forEach(function(dir){
 		var dirName = path.resolve(guidesPath,dir),
-			src = path.normalize('./'+ dir);
+			src = path.normalize('./'+ dir + '/index.html');
 		guidesModuleLists.push({
 			name : dir,
 			src : src
@@ -98,7 +98,7 @@ module.exports.buildDemos = function(srcUrl,config){
 		demoLists = [];
 	fs.readdirSync(demosPath).forEach(function(dir){
 		var dirName = path.resolve(demosPath,dir),
-			src = path.normalize('./' + dir);
+			src = path.normalize('./' + dir + '/index.html');
 		demoLists.push({
 			name : dir,
 			src : src

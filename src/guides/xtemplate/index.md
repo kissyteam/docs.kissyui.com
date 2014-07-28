@@ -631,7 +631,7 @@ void get(name) // 获取当前作用域内数据值（包括附属数据）
 
 **Xtemplate内置以下命令，请避免重复定义同名命令**
 
-<table>
+<table class="table table-bordered table-striped">
     <tr>
         <td>block</td><td>debugger</td><td>each</td><td>extend</td>
     </tr>
