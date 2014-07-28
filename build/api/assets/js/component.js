@@ -175,10 +175,12 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
             Io.get(href,{
                 r : Math.random()
             },function(res){
-                window.history.pushState(null,null,href);
                 var reg = /(<div\sclass="apidocs">[\s\S]*)<div\sid="disqus_thread">/;
                 var newApidocsHtml = res.match(reg)[1],
                     newApidocsDom$ = $(newApidocsHtml);
+
+                sessionStorage.setItem(href,newApidocsHtml);
+                window.history.pushState({ url : href },null,href);
                 $('.apidocs').replaceWith(newApidocsDom$);
 
                 if(href.indexOf('classes') > -1){  //如果是class的页面的话需要重新初始化tabs
@@ -198,6 +200,33 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
                 })();
             });
         });
+
+        window.onpopstate = function(event){
+            var state = event.state,
+                href = state.url,
+                newApidocsDom$ = $(sessionStorage.getItem(href));
+            $('.apidocs').replaceWith(newApidocsDom$);
+
+            if(href.indexOf('classes') > -1){  //如果是class的页面的话需要重新初始化tabs
+                new Tabs({
+                    srcNode: '#classdocs'
+                }).render();
+            }
+
+            //部分刷新时，更新api-options的选择状态
+            (function(){
+                $('#api-options label').each(function(label$){
+                    var checked = label$.all('input').prop('checked'),
+                        optionvalue = label$.attr('optionvalue'),
+                        selector = '#classdocs .' + optionvalue;
+                    checked ? $(selector).show() : $(selector).hide();
+                });
+            })();
+        }
+
+        //第一个页面需要建一条历史记录
+        sessionStorage.setItem(location.href, $('.apidocs').outerHTML());
+        history.replaceState({ url : location.href}, null, location.href);
     }
 
     //api-optional的事件处理
