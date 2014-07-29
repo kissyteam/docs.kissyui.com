@@ -69,19 +69,14 @@ KISSY.use('node,tabs,io', function(S, Node, Tabs, Io){
 	initDisqusThread();
 
 	if(window.history.pushState && window.sessionStorage && window.history.replaceState){
-	    $('#sidebar .panel a').on('click', function(ev){
-	        ev.preventDefault();
-	        var target$ = $(ev.currentTarget),
-	            href = target$.attr('href').replace(/\\/g,'/');
-	        Io.get(href,{
+		function updateMainCotent(href){
+			Io.get(href,{
 	            r : Math.random()
 	        },function(res){
 	            var reg = /(<div.+id="main-content">[\s\S]+)<div.+id="sidebar"/;
 	            var newMainContentHtml = res.match(reg)[1],
 	                newMainContentDom$ = $(newMainContentHtml);
 
-	            sessionStorage.setItem(href,newMainContentHtml); //由于pushState存储不了太多数据，用sessionStorage来存
-	            window.history.pushState({ url : href },null,href);
 	            $('#main-content').replaceWith(newMainContentDom$);
 
 	            //更新sidebar的api链接
@@ -93,22 +88,22 @@ KISSY.use('node,tabs,io', function(S, Node, Tabs, Io){
 	     		}
 	     		initDisqusThread();
 	        });
+		}
+
+	    $('#sidebar .panel a').on('click', function(ev){
+	        ev.halt();
+	        var target$ = $(ev.currentTarget),
+	            href = target$.attr('href').replace(/\\/g,'/');
+	        updateMainCotent(href);
+	        window.history.pushState({ url : href },null,href);
 	    });
 
 	    window.onpopstate = function(event){  //浏览器后退
-	    	var state = event.state,
-	    		newMainContentDom$ = $(sessionStorage.getItem(state.url));
-	    	$('#main-content').replaceWith(newMainContentDom$);
-
-	    	$('#sidebar .link-apidocs').attr('href',state.url);
-	    	if(state.url.indexOf('/demos') > -1){
-	    		editDemoOnlineInit();
+	    	if(event.state){
+	    		updateMainCotent(event.state.url);
 	    	}
-	    	initDisqusThread();
 	    }
-
-	    //第一个页面需要建一条历史记录
-	    sessionStorage.setItem(location.href, $('#main-content').outerHTML());
+	    
 	    history.replaceState({ url : location.href}, null, location.href);
 	}
 });

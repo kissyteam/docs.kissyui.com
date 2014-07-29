@@ -138,11 +138,16 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
         }
     }).render();
 
+    var classdocsTab = null;
     if($('#classdocs').length){
         //index|methods|events|properties tabs
-        new Tabs({
+        classdocsTab = new Tabs({
             srcNode: '#classdocs'
         }).render();
+        //例如用户收藏了地址 http://docs.kissyui.com/classes/Button.html##method_addAttr，需要更新tab状态
+        if(location.hash){
+            updateApiTabWithHash(location.hash);
+        }
     }
 
     //autocomplete
@@ -166,49 +171,42 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
         });
     };
 
-    //部分刷新切换页面
-    if(window.history.pushState != undefined){
-        $('#api-tabview-panel a').on('click', function(ev){
-            ev.preventDefault();
-            var target$ = $(ev.currentTarget),
-                href = target$.attr('href');
-            Io.get(href,{
-                r : Math.random()
-            },function(res){
-                var reg = /(<div\sclass="apidocs">[\s\S]*)<div\sid="disqus_thread">/;
-                var newApidocsHtml = res.match(reg)[1],
-                    newApidocsDom$ = $(newApidocsHtml);
+    function updateApiTabWithHash(hash){
+        var selectedTab = 'index';
+        if(hash.indexOf('method') > -1){
+            selectedTab = 'methods';
+        }else if(hash.indexOf('attr') > -1){
+            selectedTab = 'attrs';
+        }else if(hash.indexOf('event') > -1){
+            selectedTab = 'events'
+        }else if(hash.indexOf('property') > -1){
+            selectedTab = 'properties';
+        }
 
-                sessionStorage.setItem(href,newApidocsHtml);
-                window.history.pushState({ url : href },null,href);
-                $('.apidocs').replaceWith(newApidocsDom$);
+        var tabsArr = classdocsTab.getTabs(),
+            shouldBeShowTab = null;
+        for(var i = 0;i < tabsArr.length; i++){
+            if(tabsArr[i].$el.hasClass(selectedTab)){
+                shouldBeShowTab = tabsArr[i];
+                break;
+            }
+        }
+        classdocsTab.setSelectedTab(shouldBeShowTab);
+        window.scrollTo(0, $(hash).offset().top);
+    }
 
-                if(href.indexOf('classes') > -1){  //如果是class的页面的话需要重新初始化tabs
-                    new Tabs({
-                        srcNode: '#classdocs'
-                    }).render();
-                }
+    function syncApidocsUi(href){
+        Io.get(href,{
+            r : Math.random()
+        },function(res){
+            var reg = /(<div\sclass="apidocs">[\s\S]*)<div\sid="disqus_thread">/;
+            var newApidocsHtml = res.match(reg)[1],
+                newApidocsDom$ = $(newApidocsHtml);
 
-                //部分刷新时，更新api-options的选择状态
-                (function(){
-                    $('#api-options label').each(function(label$){
-                        var checked = label$.all('input').prop('checked'),
-                            optionvalue = label$.attr('optionvalue'),
-                            selector = '#classdocs .' + optionvalue;
-                        checked ? $(selector).show() : $(selector).hide();
-                    });
-                })();
-            });
-        });
-
-        window.onpopstate = function(event){
-            var state = event.state,
-                href = state.url,
-                newApidocsDom$ = $(sessionStorage.getItem(href));
             $('.apidocs').replaceWith(newApidocsDom$);
 
             if(href.indexOf('classes') > -1){  //如果是class的页面的话需要重新初始化tabs
-                new Tabs({
+                classdocsTab = new Tabs({
                     srcNode: '#classdocs'
                 }).render();
             }
@@ -222,13 +220,42 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
                     checked ? $(selector).show() : $(selector).hide();
                 });
             })();
-        }
 
-        //第一个页面需要建一条历史记录
-        sessionStorage.setItem(location.href, $('.apidocs').outerHTML());
-        history.replaceState({ url : location.href}, null, location.href);
+            var hash = location.hash;
+            hash && updateApiTabWithHash(hash);
+        });
     }
 
+    if(window.history.pushState && window.history.replaceState){
+        $('#api-tabview-panel a').on('click', function(ev){
+            ev.halt();
+            var target$ = $(ev.currentTarget),
+                href = target$.attr('href');
+            syncApidocsUi(href);
+            window.history.pushState({ url : href },null,href);
+        });
+        window.onpopstate = function(ev){
+            if(ev.state){
+                syncApidocsUi(ev.state.url);
+            }
+        }
+        window.history.replaceState({ url : location.href },null,location.href);
+    }
+
+    //methods|attrs|events|properties 被点击时的跳转处理
+    $('#bd').delegate('click', '#index .index-item a', function(ev){
+        var target$ = $(ev.currentTarget),
+            hash = target$.attr('href');
+        if(window.history.pushState && window.history.replaceState){
+            ev.halt();
+            syncApidocsUi(location.href);
+            updateApiTabWithHash(hash);
+            var realHref = location.origin + location.pathname + hash;
+            window.history.pushState({ url : realHref },null,realHref);
+        }else{
+            window.location.href = window.location.href + hash;
+        }
+    });
     //api-optional的事件处理
     $('#api-options label').on('click', function(ev){
         var target$ = $(ev.currentTarget);
@@ -237,14 +264,5 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
             optionvalue = target$.attr('optionvalue'),
             selector = '#classdocs .' + optionvalue;
         checked ? $(selector).show() : $(selector).hide();
-    });
-
-    //methods|attrs|events|properties 被点击时的跳转处理
-    $('#bd').delegate('click', '#index .index-item a', function(ev){
-        var target$ = $(ev.currentTarget);
-
-        var tabShouldBeShow = target$.parent().attr('inwhichtab'),
-            selector = '.showmsgdetail .' + tabShouldBeShow;
-        $(selector).fire('click');
     });
 });
