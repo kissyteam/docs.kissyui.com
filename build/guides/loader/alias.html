@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>combo 使用内置模块 - KISSY v5.0 Documentation</title>
+	<title>KISSY Loader 的别名机制 - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -164,25 +164,55 @@
 </script>
 		<div class="row">
 			<div class="col-md-9" id="main-content">
-				<h1>combo 使用内置模块</h1><p>可以通过设置 combine 来 combo 使用内置模块，例如：
-配置的两种方式 :</p>
-<ul>
-<li>KISSY.config()</li>
-<li><code>&lt;script src=’seed.js’ data-config={}&gt;&lt;/script&gt;</code></li>
-</ul>
+				<p></p>
+<h1>KISSY Loader 的别名机制</h1><h2>概述</h2><p>通过 KISSY Loader 的别名机制，项目负责人可以统一指定所使用公共模块的版本并且方便统一升级， 而具体开发者则可以不用关心使用模块的版本信息。</p>
+<h2>项目负责人职责</h2><p>项目负责人首先统计项目可能使用到的公共模块的信息（版本，依赖），将这些公共模块的依赖合并为一个文件（或combo）：
+<code>common-lib.deps.js</code> 并引入到项目的公用头文件中。</p>
+<h2>公共依赖文件</h2><p>假设项目使用到了 3 个 gallery 公共模块，那么 <code>common-lib.deps.js</code> 文件内容如下：</p>
+<pre><code>KISSY.config(<span class="hljs-string">'modules'</span>,{
+    <span class="hljs-string">'gallery/x/1.1/'</span>:{
+        <span class="hljs-keyword">requires</span>:[<span class="hljs-string">'gallery/y/1.3/'</span>]
+    },
+    <span class="hljs-string">'gallery/y/1.3/'</span>:{
+        <span class="hljs-keyword">requires</span>:[<span class="hljs-string">'gallery/z/1.4/'</span>]
+    }
+});
+</code></pre><h2>版本配置</h2><p>项目负责人可以统一指定所使用的公共组件的版本，写入到 <code>common-lib.versions.js</code>， 并引入到项目的公共头文件中。
+例如对应上述依赖的 <code>common-lib.versions.js</code>:</p>
+<pre><code>KISSY.config(<span class="hljs-string">'modules'</span>,{
+    <span class="hljs-string">'gallery/x/'</span>:{
+        <span class="hljs-keyword">alias</span>:[<span class="hljs-string">'gallery/x/1.1'</span>]
+    },
+    <span class="hljs-string">'gallery/y/'</span>:{
+        <span class="hljs-keyword">alias</span>:[<span class="hljs-string">'gallery/y/1.3'</span>]
+    },
+    <span class="hljs-string">'gallery/z/'</span>:{
+        <span class="hljs-keyword">alias</span>:[<span class="hljs-string">'gallery/z/1.4'</span>]
+    }
+});
+</code></pre><h2>具体开发者职责</h2><p>当开发者开发具体模块需要使用到公共模块时，可以不用关注版本信息，直接使用对应模块即可。
+例如一个具体模块 x.js 内容如下：</p>
+<pre><code>KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,X)</span></span>{
+    <span class="hljs-comment">// TODO X</span>
+    <span class="hljs-keyword">return</span> {
 
+    };
+},{
+    requires:[<span class="hljs-string">'gallery/x/'</span>]
+});
+</code></pre>
 				<div id="disqus_thread"></div>
 				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
-				<a id="apilink" href="../../api" style="display:none;"></a>
+				<a id="apilink" href="../../api/modules/loader.html" style="display:none;"></a>
 			</div>
 			<div class="col-md-3" id="sidebar">
-				<a class="link-apidocs btn btn-primary" href="../../api">API Docs</a>
+				<a class="link-apidocs btn btn-primary" href="../../api/modules/loader.html">API Docs</a>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="../../guides/loader/combo.html">combo 使用内置模块</a></p><p><a href="../../guides/loader/import-style.html">importStyle的使用</a></p><p><a href="../../guides/loader/index.html">简单配置包使用</a></p><p><a href="../../guides/loader/kmd.html">KISSY 模块定义规范（KMD）</a></p>
+						<p><a href="../../guides/loader/alias.html">KISSY Loader 的别名机制</a></p><p><a href="../../guides/loader/import-style.html">importStyle的使用</a></p><p><a href="../../guides/loader/index.html">loader基本介绍</a></p><p><a href="../../guides/loader/kmd.html">KISSY 模块定义规范（KMD）</a></p><p><a href="../../guides/loader/timestamp.html">使用 KISSY Loader 管理时间戳</a></p>
 					</div>
 				</div>
 				<div class="panel panel-primary">
