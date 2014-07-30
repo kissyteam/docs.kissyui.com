@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>event模块的基本示例</title>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.4/seed.js"></script>
+</head>
+<body>
+	<button id="shout1">点我一秒后弹出</button>
+	<button id="shout2">shout2</button>
+	<script type="text/javascript">
+	//如果需要自定义事件，引入event模块，`Util.mix`普通对象和[Event.Target](http://docs.kissyui.com/5.0/api/classes/Event.Target.html)即可。如果还需要 `base` 模块提供的get/set等特性可以直接引入 `base` 模块（它依赖event模块）
+	// 实现Klass内部的自定义事件
+	KISSY.add('klass',function(S,Base){
+	    // Klass 是一个类，它在被实例化后1秒会触发一个事件"afterOneSecond"
+	    var Klass = Base.extend({
+	        initializer:function(){
+	            var self = this;
+	            //监听事件
+	            self.on('afterOneSecond',function(ev){
+	            	alert('1秒后触发');
+	            });
+	        }
+	    },{/*ATTRS*/});
+
+	    return Klass;
+	},{
+	    requires:['base']    
+	});
+
+	// 绑定自定义事件
+	KISSY.use('node,klass',function(S, Node, Klass){
+	    Node.all('#shout1').on('click',function(){
+	        // 初始化这个类
+    	    var k = new Klass();
+    	    //一秒后触发事件
+    	    setTimeout(function(){
+    	    	k.fire('afterOneSecond');
+    	    },1000);
+	    })
+	});
+
+	KISSY.use('node',function(S, Node){
+		var $ = Node.all;
+		$('#shout2').on('click', function(ev){
+			alert('shout2');
+		})
+	})
+	</script>
+</body>
+</html>

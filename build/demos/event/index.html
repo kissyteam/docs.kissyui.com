@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>pinch - KISSY v5.0 Documentation</title>
+	<title>event基本示例 - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -152,7 +152,8 @@
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1>pinch</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+<h1>event基本示例</h1><p>event模块下辖多个子模块，被 <code>base</code>,<code>dom</code>,<code>node</code> 这些模块分别依赖。通常如果只需要使用 <code>DOM</code> 事件则无需直接引用 <code>event</code> 模块，使用 <code>node</code> 模块即可。使用use('base')时也无需手动引入event。如果想单独使用自定义事件，则需要use('event')。</p>
+<p><div class="ks-tabs ks-tabs-top" style="height:400px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -161,51 +162,54 @@
     <div class="ks-tabs-body">
         <div class="ks-tabs-panel">
             <div class="editor">
-				
-&lt;!doctype html&gt;
+				&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
-    &lt;meta name=&quot;viewport&quot;
-          content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&gt;
-    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
-    &lt;meta name=&quot;apple-touch-fullscreen&quot; content=&quot;yes&quot;&gt;
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+	&lt;title&gt;event模块的基本示例&lt;&#x2F;title&gt;
+	&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
-&lt;h1&gt;open in ios safari test pinch event&lt;&#x2F;h1&gt;
+	&lt;button id=&quot;shout1&quot;&gt;点我一秒后弹出&lt;&#x2F;button&gt;
+	&lt;button id=&quot;shout2&quot;&gt;shout2&lt;&#x2F;button&gt;
+	&lt;script type=&quot;text&#x2F;javascript&quot;&gt;
+	&#x2F;&#x2F;如果需要自定义事件，引入event模块，&#x60;Util.mix&#x60;普通对象和[Event.Target](http:&#x2F;&#x2F;docs.kissyui.com&#x2F;5.0&#x2F;api&#x2F;classes&#x2F;Event.Target.html)即可。如果还需要 &#x60;base&#x60; 模块提供的get&#x2F;set等特性可以直接引入 &#x60;base&#x60; 模块（它依赖event模块）
+	&#x2F;&#x2F; 实现Klass内部的自定义事件
+	KISSY.add(&#x27;klass&#x27;,function(S,Base){
+	    &#x2F;&#x2F; Klass 是一个类，它在被实例化后1秒会触发一个事件&quot;afterOneSecond&quot;
+	    var Klass = Base.extend({
+	        initializer:function(){
+	            var self = this;
+	            &#x2F;&#x2F;监听事件
+	            self.on(&#x27;afterOneSecond&#x27;,function(ev){
+	            	alert(&#x27;1秒后触发&#x27;);
+	            });
+	        }
+	    },{&#x2F;*ATTRS*&#x2F;});
 
-&lt;div id=&#x27;t&#x27; tabindex=&#x27;0&#x27;
-     style=&#x27;border:1px solid green;
-     width:200px;height:200px;margin:100px&#x27;&gt;
-    pinch me
-&lt;&#x2F;div&gt;
-&lt;script&gt;
+	    return Klass;
+	},{
+	    requires:[&#x27;base&#x27;]    
+	});
 
-    KISSY.use(&#x27;event&#x27;, function (S, Event) {
+	&#x2F;&#x2F; 绑定自定义事件
+	KISSY.use(&#x27;node,klass&#x27;,function(S, Node, Klass){
+	    Node.all(&#x27;#shout1&#x27;).on(&#x27;click&#x27;,function(){
+	        &#x2F;&#x2F; 初始化这个类
+    	    var k = new Klass();
+    	    &#x2F;&#x2F;一秒后触发事件
+    	    setTimeout(function(){
+    	    	k.fire(&#x27;afterOneSecond&#x27;);
+    	    },1000);
+	    })
+	});
 
-        Event.on(&#x27;#t&#x27;, &quot;pinch pinchStart pinchEnd&quot;, function (e) {
-            S.log(e.type + &#x27; : &#x27; + e.scale);
-        });
-
-        var o;
-
-        var t = document.getElementById(&#x27;t&#x27;);
-
-        Event.on(&#x27;#t&#x27;, &#x27;pinchStart&#x27;, function () {
-            o = 1;
-            if (t.style.webkitTransform) {
-                o = parseFloat(t.style.webkitTransform.replace(&#x2F;scale\(&#x2F;, &#x27;&#x27;));
-            }
-        });
-
-        Event.on(&#x27;#t&#x27;, &#x27;pinch&#x27;, function (e) {
-            t.style.webkitTransform = &#x27;scale(&#x27; + (o * e.scale) + &#x27;)&#x27;;
-        });
-
-    });
-
-&lt;&#x2F;script&gt;
+	KISSY.use(&#x27;node&#x27;,function(S, Node){
+		var $ = Node.all;
+		$(&#x27;#shout2&#x27;).on(&#x27;click&#x27;, function(ev){
+			alert(&#x27;shout2&#x27;);
+		})
+	})
+	&lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 &lt;&#x2F;html&gt;
 			</div>
@@ -216,7 +220,7 @@
             </iframe>
         </div>
         <div class="ks-tabs-panel">
-            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/event/cited-by-md/pinch.html" ="text">示例地址：docs.kissyui.com/5.0/demos/event/cited-by-md/pinch.html</p>
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/event/cited-by-md/baseuse.html" ="text">示例地址：docs.kissyui.com/5.0/demos/event/cited-by-md/baseuse.html</p>
             <div class="qrcode"></div>
         </div>
     </div>
