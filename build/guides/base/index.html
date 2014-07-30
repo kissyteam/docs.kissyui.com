@@ -167,7 +167,7 @@
     <span class="hljs-comment">// Your Code...</span>
 });
 </code></pre><p>我们来分别看下Base的这几个特性</p>
-<h2>1，属性管理：Attribute</h2><p>Base 的属性配置来自 Attribute 模块，它提供如下方法：</p>
+<h2 id="1">1，属性管理：Attribute</h2><p>Base 的属性配置来自 Attribute 模块，它提供如下方法：</p>
 <ul>
 <li>addAttr()</li>
 <li>addAttrs()</li>
@@ -282,8 +282,8 @@ dog.on(<span class="hljs-string">'bark'</span>, <span class="hljs-function"><spa
         this.<span class="hljs-function">callSuper</span>(v)
     </span></span></span>}
 });
-</code></pre><h2>2，自定义事件 CustomEvent</h2><p>继承自Base的对象可以分发自定义事件，即实例上有<code>fire()</code>方法。比如上一段代码，bark() 函数中触发了一个自定义事件<code>bark</code>，绑定这个事件即可收到这个事件。具体用法可参照<a href="/5.0/guides/event/index.html">Event自定义事件部分</a>。</p>
-<h2>3，插件机制：Plugin</h2><p>ATTR 的作用是给类本身新增特性，完成类与类之间的代码共享。对于要给实例动态增加新特性，就需要新的机制，插件机制。Base提供了一个配置（plugins）和三个函数（plug、unplug和getPlugin）用来管理插件。在正式讲解之前，读者一定要明白，插件的本质是&quot;代码注入&quot;，即安装和卸载的行为分别执行一段外部脚本。</p>
+</code></pre><h2 id="2">2，自定义事件 CustomEvent</h2><p>继承自Base的对象可以分发自定义事件，即实例上有<code>fire()</code>方法。比如上一段代码，bark() 函数中触发了一个自定义事件<code>bark</code>，绑定这个事件即可收到这个事件。具体用法可参照<a href="/5.0/guides/event/index.html">Event自定义事件部分</a>。</p>
+<h2 id="3">3，插件机制：Plugin</h2><p>ATTR 的作用是给类本身新增特性，完成类与类之间的代码共享。对于要给实例动态增加新特性，就需要新的机制，插件机制。Base提供了一个配置（plugins）和三个函数（plug、unplug和getPlugin）用来管理插件。在正式讲解之前，读者一定要明白，插件的本质是&quot;代码注入&quot;，即安装和卸载的行为分别执行一段外部脚本。</p>
 <p>插件实际上是一个简单对象，在类实例化的时候可以实例化plugin，也可以在实例化后插入plugin，当载入插件时，调用 plugin 的 pluginInitializer 初始化函数。在销毁插件的时候调用 pluginDestructor 析构函数。用法是调用实例的<code>plug(plugin)</code>方法。</p>
 <p>参数plugin可以是类，也可以是实例，如果是类则无参实例化plugin。 两者都会调用plugin的pluginInitializer初始化函数。推荐以实例的形式写插件。</p>
 <p>一个插件对象：</p>
@@ -351,13 +351,23 @@ dog.unplug(<span class="hljs-string">'myname'</span>);<span class="hljs-comment"
 				<a class="link-apidocs btn btn-primary" href="../../api/classes/Base.html">API Docs</a>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
+						<h3 class="panel-title">Outline</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="outline">
+							<li class="level2"><a href="#1">概要</a></li><li class="level3"><a href="#1.1">mix</a></li><li class="level3"><a href="#1.2">merge</a></li><li class="level3"><a href="#1.3">extend</a></li><li class="level3"><a href="#1.4">augment</a></li><li class="level3"><a href="#1.5">clone</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load">
+					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
 						<p><a href="../../guides/base/index.html">Base基本介绍</a></p><p><a href="../../guides/base/oo.html">KISSY中的面向对象</a></p>
 					</div>
 				</div>
-				<div class="panel panel-primary">
+				<div class="panel panel-primary ajax-load">
 					<div class="panel-heading">
 						<h3 class="panel-title">Demos</h3>
 					</div>

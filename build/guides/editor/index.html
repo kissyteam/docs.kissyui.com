@@ -155,10 +155,10 @@
 				<p></p>
 <h1>Editor基本介绍</h1><p>Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事件。拥有多种插件适合在不同场景下使用，如 editor/plugin/font-size,editor/plugin/image 等。</p>
 <p>注：KISSY提供了参考样式<code>http://g.tbcdn.cn/kissy/edge/2014.07.16/editor/theme/cool/editor.css</code>，在使用editor前引入，用户也可以根据需要自定义样式。</p>
-<h2>引用方法</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'editor'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Editor)</span></span>{
+<h2 id="1">引用方法</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'editor'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Editor)</span></span>{
     <span class="hljs-comment">//use editor</span>
 })
-</code></pre><h2>一个简单的调用</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'editor,editor/plugin/font-size'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Editor, FontSize)</span></span>{
+</code></pre><h2 id="2">一个简单的调用</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'editor,editor/plugin/font-size'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Editor, FontSize)</span></span>{
     <span class="hljs-keyword">var</span> myEditor = <span class="hljs-keyword">new</span> Editor({
         width : <span class="hljs-string">'80%'</span>,
         height : <span class="hljs-string">'500px'</span>,
@@ -168,7 +168,7 @@
 
     myEditor.render();
 })
-</code></pre><h2>主要配置参数（更多配置参数请看其api文档）</h2><h4>data</h4><p>{String} 初始化设置编辑器里的内容</p>
+</code></pre><h2 id="3">主要配置参数（更多配置参数请看其api文档）</h2><h4>data</h4><p>{String} 初始化设置编辑器里的内容</p>
 <h4>mode</h4><p>编辑器模式.取值 Editor.SOURCE_MODE 或 Editor.WYSIWYG_MODE</p>
 <h4>customLink</h4><p>String[] 自定义样式表 url 数组</p>
 <h4>textarea</h4><p>{String} - optional. 自定义产生 textarea 节点的 html.</p>
@@ -178,7 +178,7 @@
 </span></span></span>});
 </code></pre><h4>attachForm</h4><p>{Boolean} - 默认 false. 是否监控编辑器输入框所在的 form 提交。 （ form 提交前自动将编辑内容同步到对应 textarea 中 ）</p>
 <h4>customStyle</h4><p>{String} - 自定义样式字符串.</p>
-<h2>主要方法：（更多方法请看其api文档）</h2><h4>execCommand(commandName, arg1, arg2, ...)</h4><ul>
+<h2 id="4">主要方法：（更多方法请看其api文档）</h2><h4>execCommand(commandName, arg1, arg2, ...)</h4><ul>
 <li>commandName (String) 命令名称，由各个插件提供</li>
 <li>arg* 对应命令所需要的参数</li>
 </ul>
@@ -222,13 +222,23 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
 				<a class="link-apidocs btn btn-primary" href="../../api/classes/Editor.html">API Docs</a>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
+						<h3 class="panel-title">Outline</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="outline">
+							<li class="level2"><a href="#1">引用方法</a></li><li class="level2"><a href="#2">一个简单的调用</a></li><li class="level2"><a href="#3">主要配置参数（更多配置参数请看其api文档）</a></li><li class="level2"><a href="#4">主要方法：（更多方法请看其api文档）</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load">
+					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
 						<p><a href="../../guides/editor/index.html">Editor基本介绍</a></p>
 					</div>
 				</div>
-				<div class="panel panel-primary">
+				<div class="panel panel-primary ajax-load">
 					<div class="panel-heading">
 						<h3 class="panel-title">Demos</h3>
 					</div>

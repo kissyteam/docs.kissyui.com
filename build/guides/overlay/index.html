@@ -161,7 +161,7 @@
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'overlay'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Overlay)</span></span>{
     <span class="hljs-comment">// use Overlay</span>
 });
-</code></pre><h2>一个简单的调用</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'overlay'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Overlay)</span></span>{
+</code></pre><h2 id="1">一个简单的调用</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'overlay'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Overlay)</span></span>{
     <span class="hljs-comment">//通过dom元素新建立popup</span>
     <span class="hljs-keyword">var</span> popup = <span class="hljs-keyword">new</span> Overlay.Popup({
         srcNode:<span class="hljs-string">'#dpop'</span>,
@@ -209,7 +209,7 @@
     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre><hr>
-<h2>Overlay/Dialog/Popup API</h2><h3>配置参数</h3><p><code>new Overlay(config)</code></p>
+<h2 id="2">Overlay/Dialog/Popup API</h2><h3 id="2.1">配置参数</h3><p><code>new Overlay(config)</code></p>
 <h4>prefixCls</h4><p>继承自Controller，组件css样式的前缀，默认 “ks-” . 例如假设组件为 menu ，则该组件内的样式类名为 {prefixCls}menu，默认为 “ks-menu”.可用于实现自定义皮肤.</p>
 <h4>srcNode</h4><p>继承自UIBase，当前组件在 dom 树中已经存在的节点.</p>
 <h4>plugins</h4><p>数组，给出插件，插件格式参照<a href="/5.0/guides/base/index.html">Base</a>。</p>
@@ -266,7 +266,7 @@
 <h4>mouseDelay  <code>Popup</code>专有属性</h4><p>单位秒. 可选, triggerType 为 mouse 时, Popup 显示的延迟时间, 默认为 0.1.</p>
 <h4>toggle  <code>Popup</code>专有属性</h4><p>triggerType 为 click 时, Popup 是否有toggle功能，默认为false，不开启</p>
 <hr>
-<h3>实例属性</h3><h4>x</h4><p>x 坐标</p>
+<h3 id="2.2">实例属性</h3><h4>x</h4><p>x 坐标</p>
 <h4>y</h4><p>y 坐标</p>
 <h4>xy</h4><p>xy坐标数组</p>
 <h4>align</h4><p>对其方式，数组类型</p>
@@ -282,7 +282,7 @@
 <h4>footerContent <code>Dialog</code>专有</h4><p>尾部html</p>
 <h4>currentTrigger <code>Popup</code>专有</h4><p>当前的 trigger 节点</p>
 <hr>
-<h3>实例方法</h3><p>Dialog和Popup中都包含同样的实例方法</p>
+<h3 id="2.3">实例方法</h3><p>Dialog和Popup中都包含同样的实例方法</p>
 <h4>plugin(plugin)</h4><p>继承自Base，安装指定插件，参数<code>plugin</code>为Function或者Object，是插件构造器或者插件对象，返回自身,具体参照<a href="/5.0/guides/base/index.html">Base</a></p>
 <h4>unplugin(plugin)</h4><p>继承自Base，卸载插件，参数为字符串或对象，是指定插件的id或者插件对象。返回自身。具体参照<a href="/5.0/guides/base/index.html">Base</a></p>
 <h4>render()</h4><p>继承自UIBase，将组件渲染到dom树中</p>
@@ -294,7 +294,7 @@
 <h4>loading()</h4><p>显示菊花</p>
 <h4>unloading()</h4><p>隐藏菊花</p>
 <hr>
-<h3>实例事件</h3><h4>hide</h4><p>继承自UIBase，当组件隐藏时触发</p>
+<h3 id="2.4">实例事件</h3><h4>hide</h4><p>继承自UIBase，当组件隐藏时触发</p>
 <h4>show</h4><p>继承自UIBase，当组件显示时触发</p>
 <h4>beforeVisibleChange</h4><p>继承自UIBase，当组件隐藏或显示前触发，事件对象上挂两个属性：</p>
 <ul>
@@ -316,13 +316,23 @@
 				<a class="link-apidocs btn btn-primary" href="../../api/classes/Overlay.html">API Docs</a>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
+						<h3 class="panel-title">Outline</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="outline">
+							<li class="level2"><a href="#1">一个简单的调用</a></li><li class="level2"><a href="#2">Overlay/Dialog/Popup API</a></li><li class="level3"><a href="#2.1">配置参数</a></li><li class="level3"><a href="#2.2">实例属性</a></li><li class="level3"><a href="#2.3">实例方法</a></li><li class="level3"><a href="#2.4">实例事件</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load">
+					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
 						<p><a href="../../guides/overlay/index.html">Overlay基本介绍</a></p>
 					</div>
 				</div>
-				<div class="panel panel-primary">
+				<div class="panel panel-primary ajax-load">
 					<div class="panel-heading">
 						<h3 class="panel-title">Demos</h3>
 					</div>

@@ -153,25 +153,25 @@
 		<div class="row">
 			<div class="col-md-9" id="main-content">
 				<p></p>
-<h1>使用 KISSY Loader 管理时间戳</h1><h2>概述</h2><p>通过 kissy loader 可以对 kissy 内置模块，特定包，以及特定模块设置不同的时间戳，其中优先级关系为：</p>
+<h1>使用 KISSY Loader 管理时间戳</h1><h2 id="1">概述</h2><p>通过 kissy loader 可以对 kissy 内置模块，特定包，以及特定模块设置不同的时间戳，其中优先级关系为：</p>
 <p>特定模块时间戳 &gt; 特定包时间戳 &gt; 内置模块时间戳</p>
 <p>当某个模块优先级高的时间戳找不到时，会取值优先级低的时间戳。</p>
-<h2>设置内置模块时间戳</h2><p>通过 KISSY.config(“tag”,..); 设置 kissy 内置模块的时间戳</p>
+<h2 id="2">设置内置模块时间戳</h2><p>通过 KISSY.config(“tag”,..); 设置 kissy 内置模块的时间戳</p>
 <pre><code>KISSY.config(<span class="hljs-string">"tag"</span>,<span class="hljs-string">"1234"</span>);
-</code></pre><h2>设置特定包时间戳</h2><p>通过 KISSY.config(“packages”,...); 设置特定包的时间戳</p>
+</code></pre><h2 id="3">设置特定包时间戳</h2><p>通过 KISSY.config(“packages”,...); 设置特定包的时间戳</p>
 <pre><code><span class="hljs-tag">KISSY</span><span class="hljs-class">.config</span>("<span class="hljs-tag">packages</span>",<span class="hljs-rules">{
     <span class="hljs-rule"><span class="hljs-attribute">crm</span>:<span class="hljs-value">{
         tag:<span class="hljs-string">"xzxc"</span>
     </span></span></span>}
 });
-</code></pre><h2>设置特定模块时间戳</h2><pre><code>通过 KISSY.config(“modules”,<span class="hljs-keyword">...</span>); 设置特定模块的时间戳
+</code></pre><h2 id="4">设置特定模块时间戳</h2><pre><code>通过 KISSY.config(“modules”,<span class="hljs-keyword">...</span>); 设置特定模块的时间戳
 
 KISSY.config(<span class="hljs-string">"modules"</span>,{
     <span class="hljs-string">"crm/x"</span>:{
         tag:<span class="hljs-string">"xzxc"</span>
     }
 });
-</code></pre><h2>总示例</h2><pre><code>KISSY<span class="hljs-built_in">.</span>config({
+</code></pre><h2 id="5">总示例</h2><pre><code>KISSY<span class="hljs-built_in">.</span>config({
     <span class="hljs-built_in">tag</span> : <span class="hljs-string">'20140728'</span>,
     <span class="hljs-comment">// base:''</span>
     packages:{
@@ -207,13 +207,23 @@ use<span class="hljs-function"><span class="hljs-params">(<span class="hljs-stri
 				<a class="link-apidocs btn btn-primary" href="../../api/modules/loader.html">API Docs</a>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
+						<h3 class="panel-title">Outline</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="outline">
+							<li class="level2"><a href="#1">概述</a></li><li class="level2"><a href="#2">设置内置模块时间戳</a></li><li class="level2"><a href="#3">设置特定包时间戳</a></li><li class="level2"><a href="#4">设置特定模块时间戳</a></li><li class="level2"><a href="#5">总示例</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load">
+					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
 						<p><a href="../../guides/loader/alias.html">KISSY Loader 的别名机制</a></p><p><a href="../../guides/loader/import-style.html">importStyle的使用</a></p><p><a href="../../guides/loader/index.html">loader基本介绍</a></p><p><a href="../../guides/loader/kmd.html">KISSY 模块定义规范（KMD）</a></p><p><a href="../../guides/loader/timestamp.html">使用 KISSY Loader 管理时间戳</a></p>
 					</div>
 				</div>
-				<div class="panel panel-primary">
+				<div class="panel panel-primary ajax-load">
 					<div class="panel-heading">
 						<h3 class="panel-title">Demos</h3>
 					</div>

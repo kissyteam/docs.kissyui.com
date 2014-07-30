@@ -68,44 +68,46 @@ KISSY.use('node,tabs,io', function(S, Node, Tabs, Io){
 	//初始化评论功能
 	initDisqusThread();
 
-	if(window.history.pushState && window.sessionStorage && window.history.replaceState){
-		function updateMainCotent(href){
-			Io.get(href,{
-	            r : Math.random()
-	        },function(res){
-	            var reg = /(<div.+id="main-content">[\s\S]+)<div.+id="sidebar"/;
-	            var newMainContentHtml = res.match(reg)[1],
-	                newMainContentDom$ = $(newMainContentHtml);
 
-	            $('#main-content').replaceWith(newMainContentDom$);
+	/* 这段本来是做无刷新页面加载的，但是边栏增加了标题导航后几乎整个页面都要刷新了，所以暂时去掉这功能*/
+	// if(window.history.pushState && window.sessionStorage && window.history.replaceState){
+	// 	function updateMainCotent(href){
+	// 		Io.get(href,{
+	//             r : Math.random()
+	//         },function(res){
+	//             var reg = /(<div.+id="main-content">[\s\S]+)<div.+id="sidebar"/;
+	//             var newMainContentHtml = res.match(reg)[1],
+	//                 newMainContentDom$ = $(newMainContentHtml);
 
-	            //更新sidebar的api链接
-	            var newApiSrc = $('#apilink').attr('href');
-	            $('#sidebar .link-apidocs').attr('href',newApiSrc);
+	//             $('#main-content').replaceWith(newMainContentDom$);
 
-	     		if(href.indexOf('/demos') > -1){  //如果跳到的是demo页面
-	     			editDemoOnlineInit();
-	     		}
-	     		initDisqusThread();
-	        });
-		}
+	//             //更新sidebar的api链接
+	//             var newApiSrc = $('#apilink').attr('href');
+	//             $('#sidebar .link-apidocs').attr('href',newApiSrc);
 
-	    $('#sidebar .panel a').on('click', function(ev){
-	        ev.halt();
-	        var target$ = $(ev.currentTarget),
-	            href = target$.attr('href').replace(/\\/g,'/');
-	        updateMainCotent(href);
-	        window.history.pushState({ url : href },null,href);
-	    });
+	//      		if(href.indexOf('/demos') > -1){  //如果跳到的是demo页面
+	//      			editDemoOnlineInit();
+	//      		}
+	//      		initDisqusThread();
+	//         });
+	// 	}
 
-	    window.onpopstate = function(event){  //浏览器后退
-	    	if(event.state){
-	    		updateMainCotent(event.state.url);
-	    	}
-	    }
+	//     $('#sidebar .ajax-load a').on('click', function(ev){
+	//         ev.halt();
+	//         var target$ = $(ev.currentTarget),
+	//             href = target$.attr('href').replace(/\\/g,'/');
+	//         updateMainCotent(href);
+	//         window.history.pushState({ url : href },null,href);
+	//     });
+
+	//     window.onpopstate = function(event){  //浏览器后退
+	//     	if(event.state){
+	//     		updateMainCotent(event.state.url);
+	//     	}
+	//     }
 	    
-	    history.replaceState({ url : location.href}, null, location.href);
-	}
+	//     history.replaceState({ url : location.href}, null, location.href);
+	// }
 });
 
 

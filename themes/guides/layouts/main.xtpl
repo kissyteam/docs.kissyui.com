@@ -29,13 +29,23 @@
 				<a class="link-apidocs btn btn-primary" href="{{{apilink}}}">API Docs</a>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
+						<h3 class="panel-title">Outline</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="outline">
+							{{{sidebarContent.headerListsHtml}}}
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load">
+					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
 						{{{sidebarContent.featureContent}}}
 					</div>
 				</div>
-				<div class="panel panel-primary">
+				<div class="panel panel-primary ajax-load">
 					<div class="panel-heading">
 						<h3 class="panel-title">Demos</h3>
 					</div>

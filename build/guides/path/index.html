@@ -153,40 +153,40 @@
 		<div class="row">
 			<div class="col-md-9" id="main-content">
 				<p></p>
-<h1>Path的基本介绍</h1><h2>用法</h2><p>通过沙箱来调用</p>
+<h1>Path的基本介绍</h1><h2 id="1">用法</h2><p>通过沙箱来调用</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'path'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Path)</span></span>{
     Path.do_sth();<span class="hljs-comment">// 执行操作</span>
 });
-</code></pre><h2>basename()  <code>&lt;static&gt;</code></h2><p><code>basename(path,ext) =&gt; String</code></p>
+</code></pre><h2 id="2">basename()  <code>&lt;static&gt;</code></h2><p><code>basename(path,ext) =&gt; String</code></p>
 <p>获取域名中的文件名</p>
-<h3>parameter</h3><ul>
+<h3 id="2.1">parameter</h3><ul>
 <li>path：String，路径字符串</li>
 <li>ext：String，需要过滤的扩展名，比如<code>.html</code></li>
 </ul>
-<h3>return</h3><p>返回文件名</p>
-<h3>example</h3><pre><code>Path.<span class="hljs-keyword">basename</span>(<span class="hljs-string">'http://www.taobao.com/index.html'</span>,<span class="hljs-string">'.html'</span>);<span class="hljs-comment">//=&gt; index</span>
-</code></pre><h2>dirname()  <code>&lt;static&gt;</code></h2><p><code>dirname(path) =&gt; String</code></p>
+<h3 id="2.2">return</h3><p>返回文件名</p>
+<h3 id="2.3">example</h3><pre><code>Path.<span class="hljs-keyword">basename</span>(<span class="hljs-string">'http://www.taobao.com/index.html'</span>,<span class="hljs-string">'.html'</span>);<span class="hljs-comment">//=&gt; index</span>
+</code></pre><h2 id="3.3">dirname()  <code>&lt;static&gt;</code></h2><p><code>dirname(path) =&gt; String</code></p>
 <p>返回path所指的文件所在的目录路径</p>
-<h3>parameter</h3><p>path（String），Path全称</p>
-<h3>example</h3><pre><code><span class="hljs-constant">Path</span>.dirname(<span class="hljs-string">'/home/bachi/daily/index.html'</span>);<span class="hljs-regexp">//</span>=&gt;<span class="hljs-regexp">/home/bachi</span><span class="hljs-regexp">/daily</span>
-</code></pre><h2>extname()  <code>&lt;static&gt;</code></h2><p><code>extname(path) =&gt; String</code></p>
+<h3 id="3.4">parameter</h3><p>path（String），Path全称</p>
+<h3 id="3.5">example</h3><pre><code><span class="hljs-constant">Path</span>.dirname(<span class="hljs-string">'/home/bachi/daily/index.html'</span>);<span class="hljs-regexp">//</span>=&gt;<span class="hljs-regexp">/home/bachi</span><span class="hljs-regexp">/daily</span>
+</code></pre><h2 id="4.5">extname()  <code>&lt;static&gt;</code></h2><p><code>extname(path) =&gt; String</code></p>
 <p>获取路径所指文件的扩展名，比如<code>.html</code></p>
-<h3>example</h3><pre><code>Path.extname(<span class="hljs-string">'/home/bachi/daily/index.html'</span>);<span class="hljs-comment">//=&gt; .html</span>
-</code></pre><h2>join()  <code>&lt;static&gt;</code></h2><p><code>join(p1,p2,...) =&gt; String</code></p>
+<h3 id="4.6">example</h3><pre><code>Path.extname(<span class="hljs-string">'/home/bachi/daily/index.html'</span>);<span class="hljs-comment">//=&gt; .html</span>
+</code></pre><h2 id="5.6">join()  <code>&lt;static&gt;</code></h2><p><code>join(p1,p2,...) =&gt; String</code></p>
 <p>以此拼接p1、p2...,遇到<code>../</code>时回退一级目录</p>
-<h3>example</h3><pre><code><span class="hljs-comment">// ../../ 表示回退两级目录</span>
+<h3 id="5.7">example</h3><pre><code><span class="hljs-comment">// ../../ 表示回退两级目录</span>
 Path.<span class="hljs-keyword">join</span>(<span class="hljs-string">'/home/bachi/daily/'</span>,<span class="hljs-string">'project'</span>,<span class="hljs-string">'../../'</span>,<span class="hljs-string">'index.html'</span>);<span class="hljs-comment">//=&gt; /home/bachi/index.html</span>
-</code></pre><h2>normalize()  <code>&lt;static&gt;</code></h2><p><code>normalize(path) =&gt; String</code></p>
+</code></pre><h2 id="6.7">normalize()  <code>&lt;static&gt;</code></h2><p><code>normalize(path) =&gt; String</code></p>
 <p>将path中的无关内容清理掉，返回直接的路径信息</p>
-<h3>example</h3><pre><code>Path.<span class="hljs-built_in">normalize</span>(<span class="hljs-string">'x/y/../z'</span>); <span class="hljs-comment">// =&gt; x/z/</span>
+<h3 id="6.8">example</h3><pre><code>Path.<span class="hljs-built_in">normalize</span>(<span class="hljs-string">'x/y/../z'</span>); <span class="hljs-comment">// =&gt; x/z/</span>
 Path.<span class="hljs-built_in">normalize</span>(<span class="hljs-string">'x/y/z/../'</span>); <span class="hljs-comment">// =&gt; x/y/</span>
-</code></pre><h2>relative()  <code>&lt;static&gt;</code></h2><p><code>relative(from,to) =&gt; String</code></p>
+</code></pre><h2 id="7.8">relative()  <code>&lt;static&gt;</code></h2><p><code>relative(from,to) =&gt; String</code></p>
 <p>计算相对路径</p>
-<h3>example</h3><pre><code><span class="hljs-constant">Path</span>.relative(<span class="hljs-string">'x/'</span>,<span class="hljs-string">'x/y/z'</span>); <span class="hljs-regexp">//</span> =&gt; <span class="hljs-string">'y/z'</span>
+<h3 id="7.9">example</h3><pre><code><span class="hljs-constant">Path</span>.relative(<span class="hljs-string">'x/'</span>,<span class="hljs-string">'x/y/z'</span>); <span class="hljs-regexp">//</span> =&gt; <span class="hljs-string">'y/z'</span>
 <span class="hljs-constant">Path</span>.relative(<span class="hljs-string">'x/t/z'</span>,<span class="hljs-string">'x/'</span>); <span class="hljs-regexp">//</span> =&gt; <span class="hljs-string">'../../'</span>
-</code></pre><h2>resolve()  <code>&lt;static&gt;</code></h2><p><code>resolve([from ...], to) =&gt; String</code></p>
+</code></pre><h2 id="8.9">resolve()  <code>&lt;static&gt;</code></h2><p><code>resolve([from ...], to) =&gt; String</code></p>
 <p>得到绝对地址，算法逻辑参照NodeJS <a href="http://nodejs.org/api/path.html#path_path_resolve_from_to">Path.resolve</a>。</p>
-<h3>example</h3><pre><code>Path.<span class="hljs-built_in">resolve</span>(<span class="hljs-string">'wwwroot'</span>, <span class="hljs-string">'static_files/png/'</span>, <span class="hljs-string">'../gif/image.gif'</span>)
+<h3 id="9">example</h3><pre><code>Path.<span class="hljs-built_in">resolve</span>(<span class="hljs-string">'wwwroot'</span>, <span class="hljs-string">'static_files/png/'</span>, <span class="hljs-string">'../gif/image.gif'</span>)
 // =&gt; <span class="hljs-string">'wwwroot/static_files/gif/image.gif'</span>
 
 Path.<span class="hljs-built_in">resolve</span>(<span class="hljs-string">'/foo/bar'</span>, <span class="hljs-string">'/tmp/file/'</span>)
@@ -200,13 +200,23 @@ Path.<span class="hljs-built_in">resolve</span>(<span class="hljs-string">'/foo/
 				<a class="link-apidocs btn btn-primary" href="../../api/classes/Path.html">API Docs</a>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
+						<h3 class="panel-title">Outline</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="outline">
+							<li class="level2"><a href="#1">用法</a></li><li class="level2"><a href="#2">basename()  <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#2.1">parameter</a></li><li class="level3"><a href="#2.2">return</a></li><li class="level3"><a href="#2.3">example</a></li><li class="level2"><a href="#3.3">dirname()  <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#3.4">parameter</a></li><li class="level3"><a href="#3.5">example</a></li><li class="level2"><a href="#4.5">extname()  <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#4.6">example</a></li><li class="level2"><a href="#5.6">join()  <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#5.7">example</a></li><li class="level2"><a href="#6.7">normalize()  <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#6.8">example</a></li><li class="level2"><a href="#7.8">relative()  <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#7.9">example</a></li><li class="level2"><a href="#8.9">resolve()  <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#9">example</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load">
+					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
 						<p><a href="../../guides/path/index.html">Path的基本介绍</a></p>
 					</div>
 				</div>
-				<div class="panel panel-primary">
+				<div class="panel panel-primary ajax-load">
 					<div class="panel-heading">
 						<h3 class="panel-title">Demos</h3>
 					</div>

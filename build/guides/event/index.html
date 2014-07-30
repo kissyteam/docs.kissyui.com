@@ -158,7 +158,7 @@
     <span class="hljs-comment">// Your code..    </span>
 });
 </code></pre><p>Event是一个复杂的概念，是观察者模式在浏览器端的实现。事件本质上是一个抽象的概念。是让程序具有面向切面编程的特性，通过事件注册来在原有逻辑的某个时机触发外部代码的逻辑。这种方式是最常见的JavaScript设计模式。也是模块之间解耦的最佳选择之一。</p>
-<h2>Node 事件</h2><h3>事件绑定</h3><p>浏览器对DOM节点暴露了一些事件，比如常见的click、mouseover等。在KISSY中通过统一的事件绑定写法来处理事件回调：</p>
+<h2 id="1">Node 事件</h2><h3 id="1.1">事件绑定</h3><p>浏览器对DOM节点暴露了一些事件，比如常见的click、mouseover等。在KISSY中通过统一的事件绑定写法来处理事件回调：</p>
 <pre><code>Event.on(<span class="hljs-string">'#foo'</span>,<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
     <span class="hljs-comment">// 其中this是原生节点</span>
     alert(<span class="hljs-string">'clicked : '</span>+<span class="hljs-keyword">this</span>.id);
@@ -196,7 +196,7 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node'</sp
         self.attr(<span class="hljs-string">"id"</span>) <span class="hljs-comment">// =&gt; d1 或者 d2</span>
     });
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-</code></pre><h3>事件分组</h3><p>on()函数支持事件分组，比如这段代码：</p>
+</code></pre><h3 id="1.2">事件分组</h3><p>on()函数支持事件分组，比如这段代码：</p>
 <pre><code><span class="hljs-keyword">Event</span>.<span class="hljs-keyword">on</span>(foo,<span class="hljs-string">'click.one'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span><span class="hljs-comment">{
     alert('clicked : '+this.id);
 }</span>);</span>
@@ -207,12 +207,12 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node'</sp
 
 <span class="hljs-keyword">Event</span>.<span class="hljs-keyword">remove</span>(foo,<span class="hljs-string">'.two'</span>);
 </code></pre><p>给<code>#foo</code>绑定了两次事件，但每次事件都有一个标识，这时可以清除其中一个标识。</p>
-<h3>绑定多个事件</h3><pre><code><span class="hljs-comment">// 绑定了两个事件</span>
+<h3 id="1.3">绑定多个事件</h3><pre><code><span class="hljs-comment">// 绑定了两个事件</span>
 Event.on(foo,<span class="hljs-string">'mouseenter mouseleave'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
     DOM.toggleClass(<span class="hljs-keyword">this</span>,<span class="hljs-string">"enter"</span>);
 });
 </code></pre><p>上述代码的作用是：一开始 foo 节点没有 enter 样式类, 当鼠标进入时给该节点添加 enter 样式类, 当鼠标移出时把 enter 样式类去掉. 这样就达到了 hover 的效果.</p>
-<h3>事件对象</h3><p>DOM 事件回调函数回传参数为e，注意 e 不是原生事件对象，是封装后的，这时e.target是裸的节点。除了preventDefault()和stopPropagation()之外，e还包含halt()方法，指停止事件加阻止默认行为。</p>
+<h3 id="1.4">事件对象</h3><p>DOM 事件回调函数回传参数为e，注意 e 不是原生事件对象，是封装后的，这时e.target是裸的节点。除了preventDefault()和stopPropagation()之外，e还包含halt()方法，指停止事件加阻止默认行为。</p>
 <pre><code>Event.<span class="hljs-keyword">on</span>(foo,<span class="hljs-string">'mouseup mousedown'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event)</span> {</span>
     console.<span class="hljs-built_in">log</span>(event.<span class="hljs-built_in">type</span> +<span class="hljs-string">" occured"</span>);
 });
@@ -230,7 +230,7 @@ Event.on(foo,<span class="hljs-string">'mouseenter mouseleave'</span>, <span cla
     var node = S.one(e.target);
     alert(node.html());
 }</span>);</span>
-</code></pre><h3>事件移除</h3><p>从符合匹配的 dom 节点中移去相应事件的事件处理器，用 on 绑定的事件处理器可以用 detach 解除绑定. 最简单的情况 detach(elem) 解除该元素上的所有绑定.</p>
+</code></pre><h3 id="1.5">事件移除</h3><p>从符合匹配的 dom 节点中移去相应事件的事件处理器，用 on 绑定的事件处理器可以用 detach 解除绑定. 最简单的情况 detach(elem) 解除该元素上的所有绑定.</p>
 <pre><code><span class="hljs-keyword">Event</span>.detach(foo);
 </code></pre><p>上面的代码解除了 foo 元素上所有事件的事件处理器, 我们也可以解除某一个事件的全部事件处理器:</p>
 <pre><code><span class="hljs-keyword">Event</span>.detach(foo,<span class="hljs-comment">'click');</span>
@@ -257,7 +257,7 @@ Event.on(foo,<span class="hljs-string">'mouseenter mouseleave'</span>, <span cla
 <blockquote>
 <p>如果要解除特定的事件处理器 , detach 的参数必须和对应的 on 参数值相等( == )并且个数一致才能完成解除绑定的目标.</p>
 </blockquote>
-<h3>事件委托</h3><p>为符合匹配的 dom 节点的相应事件添加事件处理器, 并在该节点的子孙节点中匹配 filter 的节点上触发事件时调用.</p>
+<h3 id="1.6">事件委托</h3><p>为符合匹配的 dom 节点的相应事件添加事件处理器, 并在该节点的子孙节点中匹配 filter 的节点上触发事件时调用.</p>
 <p>该方法是 on 方法的增强. 当 on 方法被调用时, 符合选择器的元素被绑定事件处理器, 但如果新增符合要求的节点，就不会再触发事件, 即他们需要另外一次绑定, 例如</p>
 <pre><code><span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"clickme"</span>&gt;</span>
@@ -290,13 +290,13 @@ Event.undelegate(<span class="hljs-built_in">document</span>,<span class="hljs-s
 <p>因为 delegate 是在事件冒泡到代理元素后才开始处理的，那么通过 on 注册到代理元素的子节点的事件处理器已经被触发， 而无法被 delegate 绑定的事件处理器阻止 ( stopPropagation )，但 delegate 事件处理器可以阻止绑定到同一元素但是匹配元素在当前事件处理器之上的 delegate 事件处理器.</p>
 <p>同样可以对 mouseenter , mouseleave 进行委托.<a href="/5.0/demos/event/delegate.html">事件委托的Demo</a></p>
 </blockquote>
-<h3>解除事件委托</h3><p>为符合匹配的 dom 节点的相应事件去除事件处理器</p>
+<h3 id="1.7">解除事件委托</h3><p>为符合匹配的 dom 节点的相应事件去除事件处理器</p>
 <pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">d</span><span class="hljs-params">()</span></span>{}
 
 <span class="hljs-comment">// 解除委托</span>
 Event.undelegate(<span class="hljs-built_in">document</span>,<span class="hljs-string">'click'</span>,<span class="hljs-string">'.clickme'</span>,d);
 </code></pre><p>和 Event.detach 一样, 如果移除特定的委托事件处理器必须保证参数和调用 delegate 时保持一致</p>
-<h3>特殊事件支持</h3><p>KISSY 对常见的DOM事件做了封装，包括原生浏览器不支持的事件。</p>
+<h3 id="1.8">特殊事件支持</h3><p>KISSY 对常见的DOM事件做了封装，包括原生浏览器不支持的事件。</p>
 <ul>
 <li>focusin，元素内部获得焦点</li>
 <li>focusout，元素内部失去焦点</li>
@@ -306,17 +306,17 @@ Event.undelegate(<span class="hljs-built_in">document</span>,<span class="hljs-s
 <li>mouseleave，鼠标移出</li>
 <li>mousewheel，滚轮事件</li>
 </ul>
-<h3>focusin</h3><p>原生只有 ie 支持 focusin 事件，而 kissy 对这一事件进行了 兼容性处理。但一个元素获得焦点或者其子孙元素获得焦点时， focusin 会在该元素上触发（没被子孙元素阻止）。这就是和 focus 事件的区别之处 : 你可以在父元素上监控子元素的 focus 事件，即 focusin 事件支持冒泡.</p>
+<h3 id="1.9">focusin</h3><p>原生只有 ie 支持 focusin 事件，而 kissy 对这一事件进行了 兼容性处理。但一个元素获得焦点或者其子孙元素获得焦点时， focusin 会在该元素上触发（没被子孙元素阻止）。这就是和 focus 事件的区别之处 : 你可以在父元素上监控子元素的 focus 事件，即 focusin 事件支持冒泡.</p>
 <p>这个事件常常和 focusout 一起使用. <a href="/5.0/demos/event/focusin_out.html">Demo</a></p>
-<h3>fousout</h3><p>原生只有 ie 支持 focusout 事件，而 kissy 对这一事件进行了 兼容性处理 .但一个元素获得焦点或者其子孙元素获得焦点时， focusout 会在该元素上触发（没被子孙元素阻止）。这就是和 blur 事件的区别之处 : 你可以在父元素上监控子元素的 blur 事件，即 focusout 事件支持冒泡.</p>
+<h3 id="2">fousout</h3><p>原生只有 ie 支持 focusout 事件，而 kissy 对这一事件进行了 兼容性处理 .但一个元素获得焦点或者其子孙元素获得焦点时， focusout 会在该元素上触发（没被子孙元素阻止）。这就是和 blur 事件的区别之处 : 你可以在父元素上监控子元素的 blur 事件，即 focusout 事件支持冒泡.</p>
 <p><a href="/5.0/demos/event/focusin_out.html">focusout事件的demo</a>.</p>
-<h3>hashchange</h3><p>目前除了 ie67 外都原生支持 hashchange 事件，kissy 对 ie67 也模拟兼容了该事件.当浏览器的 hash 值发生变化时会触发此事件，常常被用来实现单页面应用，因为当用户点击后退与前进进行浏览器导航时会引起 hash 变化.</p>
+<h3 id="2.1">hashchange</h3><p>目前除了 ie67 外都原生支持 hashchange 事件，kissy 对 ie67 也模拟兼容了该事件.当浏览器的 hash 值发生变化时会触发此事件，常常被用来实现单页面应用，因为当用户点击后退与前进进行浏览器导航时会引起 hash 变化.</p>
 <p>此事件只能在当前 window 上注册，注册到其他类型元素上无效！ <code>hash</code> 值推荐为 <code>!/xx/</code> 形式, 前面用 <code>!/</code> 后面用 <code>/</code> 包起来，否则 ie67 可能有诡异现象.</p>
 <pre><code><span class="hljs-keyword">var</span> $=Node.all;
 $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">"hashchange"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
     <span class="hljs-comment">// location.hash -&gt; 当前 hash 值</span>
 });
-</code></pre><h3>valuechange</h3><p>监控 input/textarea 的值变化，当值发生变化时在绑定元素上触发该事件。为什么不使用原生的 change keydown keyup</p>
+</code></pre><h3 id="2.2">valuechange</h3><p>监控 input/textarea 的值变化，当值发生变化时在绑定元素上触发该事件。为什么不使用原生的 change keydown keyup</p>
 <ul>
 <li>change 只有在输入框失去焦点时触发.</li>
 <li>keyup/down 对于国际语言的输入法不能全面支持（鼠标从输入法中选词）</li>
@@ -337,9 +337,9 @@ $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">"hashc
     alert(e.newVal); <span class="hljs-comment">// =&gt; 新值</span>
 });
 </code></pre><p><a href="/5.0/demos/event/valuechange.html">Demo</a></p>
-<h3>mousewheel</h3><p>对鼠标滚轮事件做了浏览器兼容性处理，支持mousewheel事件</p>
-<h3>mouseenter &amp; mouseleave</h3><p>鼠标进入容器和移除容器的操作</p>
-<h3>移动设备事件支持</h3><p>KISSY 对于移动设备做了统一的事件封装，这些事件包括：</p>
+<h3 id="2.3">mousewheel</h3><p>对鼠标滚轮事件做了浏览器兼容性处理，支持mousewheel事件</p>
+<h3 id="2.4">mouseenter &amp; mouseleave</h3><p>鼠标进入容器和移除容器的操作</p>
+<h3 id="2.5">移动设备事件支持</h3><p>KISSY 对于移动设备做了统一的事件封装，这些事件包括：</p>
 <ul>
 <li>doubleTap，双触</li>
 <li>singleTap，单触</li>
@@ -354,17 +354,17 @@ $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">"hashc
 <li>pinchEnd，缩放结束</li>
 <li>shake，摇一摇</li>
 </ul>
-<h3>doubleTap</h3><p>触屏双击事件，快速点击某个dom节点两次后触发，用法和普通DOM事件无异</p>
+<h3 id="2.6">doubleTap</h3><p>触屏双击事件，快速点击某个dom节点两次后触发，用法和普通DOM事件无异</p>
 <pre><code>Event.<span class="hljs-keyword">on</span>(<span class="hljs-string">'#t'</span>, <span class="hljs-string">"singleTap doubleTap"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span>
     alert(<span class="hljs-keyword">e</span>.<span class="hljs-built_in">type</span> + <span class="hljs-string">' : fired'</span>);
 });
 </code></pre><ul>
 <li><a href="/5.0/demos/event/tap.html">双击事件的Demo，在手机中打开此demo</a></li>
 </ul>
-<h3>singleTap</h3><p>触屏单击事件，和双击互斥，当快速点击某个 dom 节点一次（短时间没有再次点击）后触发，<a href="/5.0/demos/event/tap.html">demo</a></p>
-<h3>tap</h3><p>触屏单击，当点击某个 dom 节点后触发， 和 singleTap 的不同支持载入： 触发 doubleTap 就不会触发 singleTap， 而触发 doubleTap 前会触发 tap，<a href="/5.0/demos/event/tap.html">demo</a>。</p>
-<h3>tapHold</h3><p>触屏长按，当常按某个 dom 节点超过 1s 后触发，<a href="/5.0/demos/event/tap.html">Demo</a></p>
-<h3>swipe</h3><p>触屏上当快速划过某个元素时触发，事件对象会挂载这几个属性：</p>
+<h3 id="2.7">singleTap</h3><p>触屏单击事件，和双击互斥，当快速点击某个 dom 节点一次（短时间没有再次点击）后触发，<a href="/5.0/demos/event/tap.html">demo</a></p>
+<h3 id="2.8">tap</h3><p>触屏单击，当点击某个 dom 节点后触发， 和 singleTap 的不同支持载入： 触发 doubleTap 就不会触发 singleTap， 而触发 doubleTap 前会触发 tap，<a href="/5.0/demos/event/tap.html">demo</a>。</p>
+<h3 id="2.9">tapHold</h3><p>触屏长按，当常按某个 dom 节点超过 1s 后触发，<a href="/5.0/demos/event/tap.html">Demo</a></p>
+<h3 id="3">swipe</h3><p>触屏上当快速划过某个元素时触发，事件对象会挂载这几个属性：</p>
 <ul>
 <li>distance：Number，划过的距离</li>
 <li>direction：String，滑动方向，可取值为left/right/up/down</li>
@@ -376,33 +376,33 @@ $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">"hashc
     }
 });
 </code></pre><p><a href="/5.0/demos/event/swipe.html">在触屏设备中打开这个Demo</a></p>
-<h3>rotateStart</h3><p>触屏上开始用双指旋转某个 dom 元素时出现，事件对象上会挂载这两个属性</p>
+<h3 id="3.1">rotateStart</h3><p>触屏上开始用双指旋转某个 dom 元素时出现，事件对象上会挂载这两个属性</p>
 <ul>
 <li>angle：Number，开始时双指的角度</li>
 <li>rotation：Number，固定为0</li>
 </ul>
 <p><a href="/5.0/demos/event/rotate.html">在触屏设备中打开demo</a></p>
-<h3>rotate</h3><p>触屏上用双指旋转某个 dom 元素时出现，事件对象挂载这两个属性</p>
+<h3 id="3.2">rotate</h3><p>触屏上用双指旋转某个 dom 元素时出现，事件对象挂载这两个属性</p>
 <ul>
 <li>angle：Number，开始时双指的角度</li>
 <li>rotation：Number，双指和开始相比改变的角度值</li>
 </ul>
 <p>demo参照上一个例子。</p>
-<h3>rotateEnd</h3><p>触屏上用双指旋转某个 dom 元素结束时触发</p>
-<h3>pinchStart</h3><p>触屏上开始用双指调整某个 dom 元素大小时出现，事件对象挂载这些属性</p>
+<h3 id="3.3">rotateEnd</h3><p>触屏上用双指旋转某个 dom 元素结束时触发</p>
+<h3 id="3.4">pinchStart</h3><p>触屏上开始用双指调整某个 dom 元素大小时出现，事件对象挂载这些属性</p>
 <ul>
 <li>distance：Number，开始时双指的绝对距离</li>
 <li>scale：Number，固定为1</li>
 </ul>
 <p><a href="/5.0/demos/event/pinch.html">在触屏设备中打开Demo</a></p>
-<h3>pinch</h3><p>触屏上用双指调整某个 dom 元素大小时出现，事件对象包含：</p>
+<h3 id="3.5">pinch</h3><p>触屏上用双指调整某个 dom 元素大小时出现，事件对象包含：</p>
 <ul>
 <li>distance：Number，开始时双指的绝对距离</li>
 <li>scale：Number，双指相对于开始调整时具体的倍数</li>
 </ul>
-<h3>pinchEnd</h3><p>触屏上用双指调整某个 dom 元素大小后触发</p>
-<h3>shake</h3><p>摇一摇事件，当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备，<a href="/5.0/demos/event/shake.html">Demo</a></p>
-<h3>移动终端事件和PC端的统一</h3><p>为了兼容移动与pc， kissy Event 提供手势事件的枚举：</p>
+<h3 id="3.6">pinchEnd</h3><p>触屏上用双指调整某个 dom 元素大小后触发</p>
+<h3 id="3.7">shake</h3><p>摇一摇事件，当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备，<a href="/5.0/demos/event/shake.html">Demo</a></p>
+<h3 id="3.8">移动终端事件和PC端的统一</h3><p>为了兼容移动与pc， kissy Event 提供手势事件的枚举：</p>
 <ul>
 <li>start：手势开始事件 Event.Gesture.start ，可认为 pc 上为 &#39;mousedown&#39; , 触屏为 &#39;touchstart&#39;</li>
 <li>move：手势进行事件 Event.Gesture.move ，可认为 pc 上为 &#39;mousemove&#39; , 触屏为 &#39;touchmove&#39;</li>
@@ -411,7 +411,7 @@ $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">"hashc
 <li>doubleTap：手势结束事件 Event.Gesture.doubleTap ，可认为 pc 上为 &#39;dblclick&#39; , 触屏为 &#39;doubleTap&#39;</li>
 </ul>
 <hr>
-<h2>自定义事件</h2><p>事件本身是一个抽象概念，和平台无关、和设备无关、更和浏览器无关，浏览器只是使用“事件”的方法来触发特定的行为，进而触发某段网页逻辑。而常见的DOM事件诸如click,dbclick是浏览器帮我们实现的“特定行为”。而这里的“特定行为”就是触发事件的时机，是可以被重新定义的，原理上，事件都是需要精确的定义的，比如下面这个例子，我们定义了一个新事件：“初始化1秒后”</p>
+<h2 id="4.8">自定义事件</h2><p>事件本身是一个抽象概念，和平台无关、和设备无关、更和浏览器无关，浏览器只是使用“事件”的方法来触发特定的行为，进而触发某段网页逻辑。而常见的DOM事件诸如click,dbclick是浏览器帮我们实现的“特定行为”。而这里的“特定行为”就是触发事件的时机，是可以被重新定义的，原理上，事件都是需要精确的定义的，比如下面这个例子，我们定义了一个新事件：“初始化1秒后”</p>
 <p>这里我们使用Base内嵌的事件对象来描述</p>
 <pre><code><span class="hljs-comment">// 为了便于理解，这里用 add() 将代码隔离开</span>
 
@@ -458,13 +458,23 @@ KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'klass'</s
 				<a class="link-apidocs btn btn-primary" href="../../api/classes/Event.html">API Docs</a>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
+						<h3 class="panel-title">Outline</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="outline">
+							<li class="level2"><a href="#1">Node 事件</a></li><li class="level3"><a href="#1.1">事件绑定</a></li><li class="level3"><a href="#1.2">事件分组</a></li><li class="level3"><a href="#1.3">绑定多个事件</a></li><li class="level3"><a href="#1.4">事件对象</a></li><li class="level3"><a href="#1.5">事件移除</a></li><li class="level3"><a href="#1.6">事件委托</a></li><li class="level3"><a href="#1.7">解除事件委托</a></li><li class="level3"><a href="#1.8">特殊事件支持</a></li><li class="level3"><a href="#1.9">focusin</a></li><li class="level3"><a href="#2">fousout</a></li><li class="level3"><a href="#2.1">hashchange</a></li><li class="level3"><a href="#2.2">valuechange</a></li><li class="level3"><a href="#2.3">mousewheel</a></li><li class="level3"><a href="#2.4">mouseenter &amp; mouseleave</a></li><li class="level3"><a href="#2.5">移动设备事件支持</a></li><li class="level3"><a href="#2.6">doubleTap</a></li><li class="level3"><a href="#2.7">singleTap</a></li><li class="level3"><a href="#2.8">tap</a></li><li class="level3"><a href="#2.9">tapHold</a></li><li class="level3"><a href="#3">swipe</a></li><li class="level3"><a href="#3.1">rotateStart</a></li><li class="level3"><a href="#3.2">rotate</a></li><li class="level3"><a href="#3.3">rotateEnd</a></li><li class="level3"><a href="#3.4">pinchStart</a></li><li class="level3"><a href="#3.5">pinch</a></li><li class="level3"><a href="#3.6">pinchEnd</a></li><li class="level3"><a href="#3.7">shake</a></li><li class="level3"><a href="#3.8">移动终端事件和PC端的统一</a></li><li class="level2"><a href="#4.8">自定义事件</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load">
+					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
 						<p><a href="../../guides/event/index.html">event基本介绍</a></p>
 					</div>
 				</div>
-				<div class="panel panel-primary">
+				<div class="panel panel-primary ajax-load">
 					<div class="panel-heading">
 						<h3 class="panel-title">Demos</h3>
 					</div>

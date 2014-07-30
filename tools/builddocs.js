@@ -14,7 +14,18 @@ var srcDirPath = '',
 	homePageOnlineUrl = '',
 	version = '';
 
+var headerID = 0,
+	headerListsHtml = '';
 markedRenderer.heading = function(text, level){
+	if(level == 2){  //生成的id序列不是全部连续的，但是保证其唯一性就可以了
+		headerID += 1;
+		headerListsHtml += '<li class="level2"><a href="#' + headerID + '">' + text + '</a></li>'; 
+		return '<h' + level + ' id="' + headerID + '">' + text + '</h' + level + '>';
+	}else if(level == 3){
+		headerID = (headerID * 10 + 0.1 * 10)/10;  //fix float type operation bug
+		headerListsHtml += '<li class="level3"><a href="#' + headerID + '">' + text + '</a></li>'; 
+		return '<h' + level + ' id="' + headerID + '">' + text + '</h' + level + '>';
+	}
 	return '<h' + level + '>' + text + '</h' + level + '>';
 };
 markedRenderer.link = function(href, title, text){
@@ -47,6 +58,9 @@ module.exports.buildGuide = function(srcUrl,config){
 			var sideBarHtml = getSideBarHtmlSync(dirName);
 			//将markdown转为html
 			fs.readdirSync(dirName).forEach(function(file){
+				headerID = 0; //每编译一次markdown文件前都重置一下
+				headerListsHtml = '';
+
 				var fileName = path.resolve(dirName,file),
 					fileMD = fs.readFileSync(fileName).toString(),
 					fileHtml = marked(fileMD),
@@ -55,6 +69,7 @@ module.exports.buildGuide = function(srcUrl,config){
 					apiLinkRegResult = apiLinkReg.exec(fileHtml),
 					apilink = '../../api';
 
+				sideBarHtml.headerListsHtml = headerListsHtml;  //调用marked()后即生成
 				if(apiLinkRegResult){
 					apilink = apiLinkRegResult[1];
 					var name = /&quot;(.+)&quot;/.exec(apilink)[1];

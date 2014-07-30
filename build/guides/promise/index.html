@@ -154,8 +154,8 @@
 			<div class="col-md-9" id="main-content">
 				<p></p>
 <h1>Promise的基本介绍</h1><p>“Promises” （有时也称之为deferred）代表着在javascript程序里一种巧妙的编程范式，它代表了一种可能会长时间运行而且不一定必须完整的操作的结果。这种模式不会阻塞和等待长时间的操作完成，而是返回一个代表了承诺的（promised）结果的对象。因此它的核心就是一个promise，代表一个任务结果，这个任务有可能完成有可能没完成。Promise模式唯一需要的一个接口是调用then方法，它可以用来注册当promise完成或者失败时调用的回调函数阅读，详情请<a href="http://wiki.commonjs.org/wiki/Promises/A">CommonJS Promises/A proposal</a> 。</p>
-<h2>Promise 做了什么事情</h2><p>Promise 适用于有异步逻辑的场景</p>
-<h2>代码第一形态</h2><p>实现一个单体，可以传入回调参数，在某个事件发生时触发这个回调，通常我们这样做：</p>
+<h2 id="1">Promise 做了什么事情</h2><p>Promise 适用于有异步逻辑的场景</p>
+<h2 id="2">代码第一形态</h2><p>实现一个单体，可以传入回调参数，在某个事件发生时触发这个回调，通常我们这样做：</p>
 <pre><code><span class="hljs-keyword">var</span> A = {
     a:<span class="hljs-number">1</span>,
     b:<span class="hljs-number">2</span>,
@@ -173,7 +173,7 @@ A.init();
 <li>complete 回调有可能不是在初始化的时候绑定，我们允许在任意位置指定他的回调</li>
 <li>如果指定多个回调时，这些回调之间的先后顺序如何控制</li>
 </ol>
-<h2>代码第二形态</h2><p>这个单体暴露事件，由开发者去绑定事件，事件可以任意绑定</p>
+<h2 id="3">代码第二形态</h2><p>这个单体暴露事件，由开发者去绑定事件，事件可以任意绑定</p>
 <pre><code><span class="hljs-comment">// 让 A 可暴露自定义事件</span>
 <span class="hljs-keyword">var</span> AFactory = <span class="hljs-keyword">new</span> <span class="hljs-function"><span class="hljs-keyword">Function</span></span>;
 augment(AFactory,CustomEvent);
@@ -198,7 +198,7 @@ A.run();
 
 A.run();
 </code></pre><p>这是一种最常见的简写</p>
-<h2>代码第三形态</h2><p>异步操作过程可能耗时很久，但通过写状态可以处理外接逻辑的触发时机先后顺序。这样，回调逻辑从“当xx时触发yy回调”，变为“当xx状态改变为yy时，触发zz回调”。即回调在等待状态改变，这种很语义话的表达方式被抽象出来，即形成了Promise的雏形：</p>
+<h2 id="4">代码第三形态</h2><p>异步操作过程可能耗时很久，但通过写状态可以处理外接逻辑的触发时机先后顺序。这样，回调逻辑从“当xx时触发yy回调”，变为“当xx状态改变为yy时，触发zz回调”。即回调在等待状态改变，这种很语义话的表达方式被抽象出来，即形成了Promise的雏形：</p>
 <pre><code><span class="hljs-transposed_variable">A.</span>run().<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
     <span class="hljs-comment">// 回调1    </span>
 }).<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
@@ -208,20 +208,20 @@ A.run();
 <pre><code><span class="hljs-reserved">var</span> A = {};<span class="hljs-regexp">/* A 的定义 */</span>
 <span class="hljs-reserved">var</span> p1 = <span class="hljs-keyword">new</span> Promise(A);
 p1.<span class="hljs-keyword">when</span>(<span class="hljs-regexp">/*条件*/</span>).<span class="hljs-keyword">then</span>(<span class="hljs-regexp">/*行为*/</span>);
-</code></pre><h2>KISSY Promise 的用法</h2><p>通过沙箱来调用</p>
+</code></pre><h2 id="5">KISSY Promise 的用法</h2><p>通过沙箱来调用</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'promise'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Promise)</span></span>{
     <span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> Promise.Defer(); <span class="hljs-comment">// 使用 Promise</span>
 });
 </code></pre><p>首先看这个<a href="/5.0/demos/promise/index.html">Demo</a>。</p>
-<h2>APIs</h2><p>注意，Promise()不允许在外部被初始化。通过实例化<code>Promise.Defer()</code>来使用Promise的功能。Promise 实例方法有：</p>
-<h2>then()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>then ( fulfilled [, rejected] ) =&gt; void</code></p>
+<h2 id="6">APIs</h2><p>注意，Promise()不允许在外部被初始化。通过实例化<code>Promise.Defer()</code>来使用Promise的功能。Promise 实例方法有：</p>
+<h2 id="7">then()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>then ( fulfilled [, rejected] ) =&gt; void</code></p>
 <p>监听当前实例的成功和失败并返回新的 promise 实例</p>
-<h3>parameter</h3><ul>
+<h3 id="7.1">parameter</h3><ul>
 <li>fulfilled (Function) – 该 promise 成功时的回调，参数为 defer resolve 时的 value.</li>
 <li>rejected (Function) – 该 promise 失败时的回调，参数为 defer reject 时的 reason.</li>
 </ul>
-<h3>return</h3><p>一个新的 promise（Promise类型）. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败.</p>
-<h3>example</h3><p>参照首<a href="/5.0/demos/promise/index.html">Demo</a>。 这里为链式调用写法。</p>
+<h3 id="7.2">return</h3><p>一个新的 promise（Promise类型）. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败.</p>
+<h3 id="7.3">example</h3><p>参照首<a href="/5.0/demos/promise/index.html">Demo</a>。 这里为链式调用写法。</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node,promise'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Node,Promise)</span></span>{
     K.all(<span class="hljs-string">"button"</span>).on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
         <span class="hljs-comment">// 生成一个Promise实例d</span>
@@ -235,34 +235,34 @@ p1.<span class="hljs-keyword">when</span>(<span class="hljs-regexp">/*条件*/</
         d.resolve(<span class="hljs-number">1</span>); <span class="hljs-comment">// 该位置也可以放在 then 前面</span>
     });
 });
-</code></pre><h2>fail()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>fail ( rejected ) =&gt; void</code></p>
+</code></pre><h2 id="8.3">fail()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>fail ( rejected ) =&gt; void</code></p>
 <p>监听当前实例的失败并返回新的 promise 实例.相当于调用 <code>this.then(null,rejected)</code>;</p>
-<h3>parameter</h3><p>rejected (Function) – 该 promise 失败时的回调，参数为 defer reject 时的 reason.</p>
-<h3>return</h3><p>一个新的 promise(（Promise类型）. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败.</p>
-<h2>fin()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>fin ( callback ) =&gt; void</code></p>
+<h3 id="8.4">parameter</h3><p>rejected (Function) – 该 promise 失败时的回调，参数为 defer reject 时的 reason.</p>
+<h3 id="8.5">return</h3><p>一个新的 promise(（Promise类型）. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败.</p>
+<h2 id="9.5">fin()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>fin ( callback ) =&gt; void</code></p>
 <p>监听当前实例的成功和失败并返回新的 promise 实例</p>
-<h3>parameter</h3><p>callback (Function) – 该 promise 成功或失败时的回调， 成功时参数为 defer resolve 时的 value 和 true. 失败时参数为 defer reject 时的 reason 和 false.</p>
-<h3>return</h3><p>一个新的 promise. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败.</p>
-<h2>isResolved()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>isResolved () =&gt; Boolean</code></p>
+<h3 id="9.6">parameter</h3><p>callback (Function) – 该 promise 成功或失败时的回调， 成功时参数为 defer resolve 时的 value 和 true. 失败时参数为 defer reject 时的 reason 和 false.</p>
+<h3 id="9.7">return</h3><p>一个新的 promise. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败.</p>
+<h2 id="10.7">isResolved()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>isResolved () =&gt; Boolean</code></p>
 <p>返回当前 promise 是否成功了</p>
-<h2>isResolved() <code>&lt;static&gt;</code></h2><p><code>isResolved () =&gt; Boolean</code></p>
+<h2 id="11.7">isResolved() <code>&lt;static&gt;</code></h2><p><code>isResolved () =&gt; Boolean</code></p>
 <p>静态方法，作用同上</p>
 <pre><code>Promise.isResolved(promise)
-</code></pre><h2>isRejected()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>isRejected () =&gt; Boolean</code></p>
+</code></pre><h2 id="12.7">isRejected()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>isRejected () =&gt; Boolean</code></p>
 <p>返回当前 promise 是否失败了</p>
-<h2>isRejected() <code>&lt;static&gt;</code></h2><p><code>isRejected () =&gt; Boolean</code></p>
+<h2 id="13.7">isRejected() <code>&lt;static&gt;</code></h2><p><code>isRejected () =&gt; Boolean</code></p>
 <p>静态方法，作用同上</p>
 <pre><code>Promise.isRejected(promise)
-</code></pre><h2>isPromise() <code>&lt;static&gt;</code></h2><p><code>isPromise() =&gt; Boolean</code></p>
+</code></pre><h2 id="14.7">isPromise() <code>&lt;static&gt;</code></h2><p><code>isPromise() =&gt; Boolean</code></p>
 <p>静态方法，判断一个对象是否是Promise实例</p>
 <pre><code>Promise.isPromise(promise)
-</code></pre><h2>when() <code>&lt;static&gt;</code></h2><p><code>when(obj, fulfilled, rejected) =&gt; Promise</code></p>
+</code></pre><h2 id="15.7">when() <code>&lt;static&gt;</code></h2><p><code>when(obj, fulfilled, rejected) =&gt; Promise</code></p>
 <p>返回一个新的 promise。如果 obj 为 promise 类型，相当于 <code>obj.then(fulfilled, rejected)</code></p>
 <p>否则直接调用 <code>fulfilled(obj)</code>，并返回一个成功的 promise</p>
-<h3>parameter</h3><p>obj – 监听的对象.</p>
-<h2>all() <code>&lt;static&gt;</code></h2><p><code>all(objects) =&gt; Promise</code></p>
+<h3 id="15.8">parameter</h3><p>obj – 监听的对象.</p>
+<h2 id="16.8">all() <code>&lt;static&gt;</code></h2><p><code>all(objects) =&gt; Promise</code></p>
 <p>返回一个新的 promise.当 objects 全部成功后新的 promise 成功，否以第一个 promise 的失败值为失败</p>
-<h3>parameter</h3><p>objects – promise或普通对象数组</p>
+<h3 id="16.9">parameter</h3><p>objects – promise或普通对象数组</p>
 
 				<div id="disqus_thread"></div>
 				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
@@ -272,13 +272,23 @@ p1.<span class="hljs-keyword">when</span>(<span class="hljs-regexp">/*条件*/</
 				<a class="link-apidocs btn btn-primary" href="../../api/classes/Promise.html">API Docs</a>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
+						<h3 class="panel-title">Outline</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="outline">
+							<li class="level2"><a href="#1">Promise 做了什么事情</a></li><li class="level2"><a href="#2">代码第一形态</a></li><li class="level2"><a href="#3">代码第二形态</a></li><li class="level2"><a href="#4">代码第三形态</a></li><li class="level2"><a href="#5">KISSY Promise 的用法</a></li><li class="level2"><a href="#6">APIs</a></li><li class="level2"><a href="#7">then()  <code>&lt;Promise 实例方法&gt;</code></a></li><li class="level3"><a href="#7.1">parameter</a></li><li class="level3"><a href="#7.2">return</a></li><li class="level3"><a href="#7.3">example</a></li><li class="level2"><a href="#8.3">fail()  <code>&lt;Promise 实例方法&gt;</code></a></li><li class="level3"><a href="#8.4">parameter</a></li><li class="level3"><a href="#8.5">return</a></li><li class="level2"><a href="#9.5">fin()  <code>&lt;Promise 实例方法&gt;</code></a></li><li class="level3"><a href="#9.6">parameter</a></li><li class="level3"><a href="#9.7">return</a></li><li class="level2"><a href="#10.7">isResolved()  <code>&lt;Promise 实例方法&gt;</code></a></li><li class="level2"><a href="#11.7">isResolved() <code>&lt;static&gt;</code></a></li><li class="level2"><a href="#12.7">isRejected()  <code>&lt;Promise 实例方法&gt;</code></a></li><li class="level2"><a href="#13.7">isRejected() <code>&lt;static&gt;</code></a></li><li class="level2"><a href="#14.7">isPromise() <code>&lt;static&gt;</code></a></li><li class="level2"><a href="#15.7">when() <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#15.8">parameter</a></li><li class="level2"><a href="#16.8">all() <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#16.9">parameter</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load">
+					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
 						<p><a href="../../guides/promise/index.html">Promise的基本介绍</a></p>
 					</div>
 				</div>
-				<div class="panel panel-primary">
+				<div class="panel panel-primary ajax-load">
 					<div class="panel-heading">
 						<h3 class="panel-title">Demos</h3>
 					</div>
