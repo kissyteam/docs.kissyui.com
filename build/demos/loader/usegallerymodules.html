@@ -1,9 +1,9 @@
-	<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>KISSY Loader 的别名机制 - KISSY v5.0 Documentation</title>
+	<title>使用 gallery 上的模块 - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -13,7 +13,6 @@
 	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
 	<script src="/5.0/assets/js/ajax-load.js"></script>
 	<script type="text/javascript" src="/5.0/assets/js/qrcodejs/qrcode.min.js"></script>
-	
 </head>
 <body>
 	<div class="container" id="container">
@@ -151,60 +150,124 @@
 		});
 </script>
 		<div class="row">
-			<div class="col-md-9" id="main-content">
+			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1>KISSY Loader 的别名机制</h1><h2 id="1">概述</h2><p>通过 KISSY Loader 的别名机制，项目负责人可以统一指定所使用公共模块的版本并且方便统一升级， 而具体开发者则可以不用关心使用模块的版本信息。</p>
-<h2 id="2">项目负责人职责</h2><p>项目负责人首先统计项目可能使用到的公共模块的信息（版本，依赖），将这些公共模块的依赖合并为一个文件（或combo）：
-<code>common-lib.deps.js</code> 并引入到项目的公用头文件中。</p>
-<h2 id="3">公共依赖文件</h2><p>假设项目使用到了 3 个 gallery 公共模块，那么 <code>common-lib.deps.js</code> 文件内容如下：</p>
-<pre><code>KISSY.config(<span class="hljs-string">'modules'</span>,{
-    <span class="hljs-string">'gallery/x/1.1/'</span>:{
-        <span class="hljs-keyword">requires</span>:[<span class="hljs-string">'gallery/y/1.3/'</span>]
-    },
-    <span class="hljs-string">'gallery/y/1.3/'</span>:{
-        <span class="hljs-keyword">requires</span>:[<span class="hljs-string">'gallery/z/1.4/'</span>]
-    }
-});
-</code></pre><h2 id="4">版本配置</h2><p>项目负责人可以统一指定所使用的公共组件的版本，写入到 <code>common-lib.versions.js</code>， 并引入到项目的公共头文件中。
-例如对应上述依赖的 <code>common-lib.versions.js</code>:</p>
-<pre><code>KISSY.config(<span class="hljs-string">'modules'</span>,{
-    <span class="hljs-string">'gallery/x/'</span>:{
-        <span class="hljs-keyword">alias</span>:[<span class="hljs-string">'gallery/x/1.1'</span>]
-    },
-    <span class="hljs-string">'gallery/y/'</span>:{
-        <span class="hljs-keyword">alias</span>:[<span class="hljs-string">'gallery/y/1.3'</span>]
-    },
-    <span class="hljs-string">'gallery/z/'</span>:{
-        <span class="hljs-keyword">alias</span>:[<span class="hljs-string">'gallery/z/1.4'</span>]
-    }
-});
-</code></pre><h2 id="5">具体开发者职责</h2><p>当开发者开发具体模块需要使用到公共模块时，可以不用关注版本信息，直接使用对应模块即可。
-例如一个具体模块 x.js 内容如下：</p>
-<pre><code>KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,X)</span></span>{
-    <span class="hljs-comment">// TODO X</span>
-    <span class="hljs-keyword">return</span> {
+<h1>使用 gallery 上的模块</h1><h2 id="17.6">不配置依赖 combo 使用 gallery</h2><p><div class="ks-tabs ks-tabs-top" style="height:200px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+        <div class="ks-tabs-tab ks-button">QRCode</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+&lt;title&gt;Classic Loader 简单配置包使用&lt;&#x2F;title&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{ combine : true }&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;p&gt;
+    请新窗口打开网络面板观看链接数情况
+&lt;&#x2F;p&gt;
 
-    };
-},{
-    requires:[<span class="hljs-string">'gallery/x/'</span>]
+&lt;button id=&#x27;k12&#x27;&gt;引入gallery组件&lt;&#x2F;button&gt;
+
+&lt;script&gt;
+KISSY.use([&#x27;node&#x27;,&#x27;util&#x27;], function (S, Node, Util) {
+    KISSY.augment = Util.augment;  &#x2F;&#x2F;作为示例，这里是为了兼容 gallery&#x2F;browsercache&#x2F;1.0&#x2F; 这个组件，因为它本身是依赖KISSY@1.4.x的
+    Node.one(&quot;#k12&quot;).on(&quot;click&quot;, function () {
+        KISSY.use(&quot;gallery&#x2F;browsercache&#x2F;1.0&#x2F;&quot;, function (S, Mod) {
+            console.log(&#x27;browsercache loaded&#x27;);
+        });
+    });
 });
-</code></pre>
-				<div id="disqus_thread"></div>
-				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
-				<a id="apilink" href="../../api/modules/loader.html" style="display:none;"></a>
+&lt;&#x2F;script&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+        <div class="ks-tabs-panel">
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/loader/cited-by-md/use-gallery.html" ="text">示例地址：docs.kissyui.com/5.0/demos/loader/cited-by-md/use-gallery.html</p>
+            <div class="qrcode"></div>
+        </div>
+    </div>
+</div></p>
+<h2 id="18.6">配置依赖 combo 使用 gallery</h2><p><div class="ks-tabs ks-tabs-top" style="height:200px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+        <div class="ks-tabs-tab ks-button">QRCode</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+&lt;title&gt;Classic Loader 简单配置包使用&lt;&#x2F;title&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{ combine : true }&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;p&gt;
+    请新窗口打开网络面板观看链接数情况
+&lt;&#x2F;p&gt;
+
+&lt;button id=&#x27;k12&#x27;&gt;引入gallery组件&lt;&#x2F;button&gt;
+
+&lt;script&gt;    
+
+KISSY.config({
+    modules : {
+        &#x27;gallery&#x2F;browsercache&#x2F;1.0&#x2F;&#x27; : {
+            requires : [&quot;gallery&#x2F;local-storage&#x2F;1.0&#x2F;&quot;]
+        }
+    }
+});
+
+KISSY.use([&#x27;node&#x27;,&#x27;util&#x27;], function (S, Node, Util) {
+    KISSY.augment = Util.augment;  &#x2F;&#x2F;作为示例，这里是为了兼容 gallery&#x2F;browsercache&#x2F;1.0&#x2F; 这个组件，因为它本身是依赖KISSY@1.4.x的
+    Node.one(&quot;#k12&quot;).on(&quot;click&quot;, function () {
+        KISSY.use(&quot;gallery&#x2F;browsercache&#x2F;1.0&#x2F;&quot;, function (S, Mod) {
+            console.log(&#x27;browsercache loaded&#x27;);
+        });
+    });
+});
+&lt;&#x2F;script&gt;
+
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+        <div class="ks-tabs-panel">
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/loader/cited-by-md/require-use-gallery.html" ="text">示例地址：docs.kissyui.com/5.0/demos/loader/cited-by-md/require-use-gallery.html</p>
+            <div class="qrcode"></div>
+        </div>
+    </div>
+</div></p>
+
+	   			<div id="disqus_thread"></div>
+	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+	   			<a id="apilink" href="../../api/modules/loader.html" style="display:none;"></a>
 			</div>
 			<div class="col-md-3" id="sidebar">
 				<a class="link-apidocs btn btn-primary" href="../../api/modules/loader.html">API Docs</a>
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="panel-title">Outline</h3>
-					</div>
-					<div class="panel-body">
-						<ul class="outline">
-							<li class="level2"><a href="#1">概述</a></li><li class="level2"><a href="#2">设置内置模块时间戳</a></li><li class="level2"><a href="#3">设置特定包时间戳</a></li><li class="level2"><a href="#4">设置特定模块时间戳</a></li><li class="level2"><a href="#5">总示例</a></li>
-						</ul>
-					</div>
-				</div>
 				<div class="panel panel-primary ajax-load">
 					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>

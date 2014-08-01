@@ -4,25 +4,14 @@
 <head>
 <meta charset="utf-8"/>
 <title>Combo Loader 一般示例</title>
-
-<script src="http://g.tbcdn.cn/kissy/k/1.4.2/seed.js" data-config="{combine:true}">
-</script>
-
-<!--<script src="http://localhost/kissy_git/kissy/build/kissy.js" data-config="{combine:true}">-->
-<!--</script>-->
+<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{ combine : true }"></script>
 </head>
 <body>
-<h1>
-    Combo Loader 一般示例
-</h1>
 <p>
-    <a href="javascript:void(0)" onclick="window.open(window.location.href)">
-        请新窗口打开网络面板观看链接数情况
-    </a>
+    开启 combo ,引入内置模块 overlay ，请打开网络面板观察链接数
 </p>
-
 <script>
-KISSY.use('json, gallery/pageNotification/1.0/index', function(S, JSON, PN) {
+KISSY.use(['json','util','gallery/pageNotification/1.0/index'], function(S, JSON, Util, PN) {
     var pn = new PN({
         "closeButton": true,
         "positionClass": "page-notification-top-right",
@@ -39,11 +28,13 @@ KISSY.use('json, gallery/pageNotification/1.0/index', function(S, JSON, PN) {
 
     window.alert = function() {
         var args = arguments[0];
-        args = S.isObject(args) ? JSON.stringify(args) : args.toString();
+        args = Util.isObject(args) ? JSON.stringify(args) : args.toString();
         pn.success(args);
     };
 
-    KISSY.getScript('assets/combo-require.js');
+    KISSY.use(['overlay'],function(S, Overlay){
+        alert('overlay is loaded');
+    })
 });
 </script>
 

@@ -226,36 +226,6 @@ Util.log(ret); // => [2, 4]
 */
 
 /**
-* 将 str 作为输出的 log 的前缀
-* @method getLogger
-* @static
-* @param str {String}  log 的前缀
-* @return {Object} logger对象
-* @example
-*   ```
-var logger = Util.getLogger('KISSY');
-logger.debug("test"); // => "KISSY: test";
-*   ```
-* __Note__
-* 可以在配置中设置logger的级别，以及是否显示。 当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先
-* ```
-KISSY.config('logger', {
-    includes: [
-        {
-            logger: /^xx\//
-        }
-    ],
-    excludes: [
-        {
-            logger: /^xx\//， //以xx/开头的不显示
-            maxLevel: 'info' //不显示 info 及 info 以下的 log
-        }
-    ]
-});
-*   ```
-*/
-
-/**
 * 在全局作用域下执行代码字符串, 避免 eval 的作用域链
 * @method globalEval
 * @static

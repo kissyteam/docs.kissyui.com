@@ -317,6 +317,7 @@ KISSY.use("depMod1,depMod2",{
 * 阻塞加载 css 模块或 js 模块依赖的 css 模块, 和 KISSY.add 中的 require 配置一起使用.
 * @method importStyle
 * @param modName {String|Array} 以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use("mod1,mod2/xx.css");
+* 
 * __Note__
 *
 * ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。
@@ -361,4 +362,36 @@ KISSY.add("yourmod",function(S){
     }
 );
 * ```
+*/
+
+/**
+* 将 str 作为输出的 log 的前缀
+* @method getLogger
+* @static
+* @param str {String}  log 的前缀
+* @return {Object} logger对象
+* @example
+*   ```
+var logger = KISSY.getLogger('KISSY');
+logger.debug("test"); // => "KISSY: test";
+*   ```
+* __Note__
+* 可以在配置中设置logger的级别，以及是否显示，logger级别从低到高顺序是：debug < info < warn < error
+
+当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先。 includes 和 excludes 配置类型为 Array ，每个配置对象配置项有maxLevel,minLevel,logger，注意他们是 "与" 的逻辑关系。
+* ```
+KISSY.config('logger', {
+    includes: [
+        {
+            logger: /^xx\//
+        }
+    ],
+    excludes: [
+        {
+            logger: /^xx\//， //以xx/开头的不显示
+            maxLevel: 'info' //不显示 info 及 info 以下的 log
+        }
+    ]
+});
+*   ```
 */

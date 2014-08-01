@@ -575,6 +575,15 @@ Loader中定义的所有方法都直接通过KISSY对象直接引用，如 <code
                             </li>
                         
                             <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_getLogger">getLogger</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
                                 <a href="#method_getScript">getScript</a>
 
                                 
@@ -1359,6 +1368,135 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
 </div>
 
                 
+                    <div id="method_getLogger" class="method item">
+    <h3 class="name"><code>getLogger</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>str</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>将 str 作为输出的 log 的前缀</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">str</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>log 的前缀</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    
+                    <p>logger对象</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var logger = KISSY.getLogger(&#39;KISSY&#39;);
+logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;</code></pre>
+<p><strong>Note</strong>
+可以在配置中设置logger的级别，以及是否显示，logger级别从低到高顺序是：debug &lt; info &lt; warn &lt; error</p>
+<p>当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先。 includes 和 excludes 配置类型为 Array ，每个配置对象配置项有maxLevel,minLevel,logger，注意他们是 &quot;与&quot; 的逻辑关系。</p>
+<pre class="code prettyprint"><code>KISSY.config(&#39;logger&#39;, {
+   includes: [
+       {
+           logger: /^xx\//
+       }
+   ],
+   excludes: [
+       {
+           logger: /^xx\//， //以xx/开头的不显示
+           maxLevel: &#39;info&#39; //不显示 info 及 info 以下的 log
+       }
+   ]
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
                     <div id="method_getScript" class="method item">
     <h3 class="name"><code>getScript</code></h3>
 
@@ -1610,8 +1748,8 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
                     
 
                     <div class="param-description">
-                        <p>以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use(&quot;mod1,mod2/xx.css&quot;);
-<strong>Note</strong></p>
+                        <p>以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use(&quot;mod1,mod2/xx.css&quot;);</p>
+<p><strong>Note</strong></p>
 <p>ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。</p>
 <ul>
 <li>先决条件

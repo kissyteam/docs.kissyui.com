@@ -14500,7 +14500,7 @@
             "params": [
                 {
                     "name": "modName",
-                    "description": "以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use(\"mod1,mod2/xx.css\");\n__Note__\n\nImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。\n- 先决条件\n头部引入`<script src='http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js'></script>`\n- 使用指南\n\n```\n\tKISSY.config('modules', {\n\t  'components/nav/index': {requires: ['components/nav/index.css']},\n\t  'components/layout/index': {requires: ['components/layout/index.css']},\n\t  'components/home/index': {requires: ['components/nav/index','components/layout/index']}\n\t});\n\n\tKISSY.config({\n\t  'combine':true,\n\t  'packages':[{\n\t    'name':'components',\n\t    'base':'http://assets.etao.net/apps/e/hotel/130716',\n\t    'debug':'true'\n\t  }]\n\t});\n\n\t//下面是要我们手工维护的模块列表\n\tKISSY.importStyle('components/home/index');\n```",
+                    "description": "以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use(\"mod1,mod2/xx.css\");\n\n__Note__\n\nImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。\n- 先决条件\n头部引入`<script src='http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js'></script>`\n- 使用指南\n\n```\n\tKISSY.config('modules', {\n\t  'components/nav/index': {requires: ['components/nav/index.css']},\n\t  'components/layout/index': {requires: ['components/layout/index.css']},\n\t  'components/home/index': {requires: ['components/nav/index','components/layout/index']}\n\t});\n\n\tKISSY.config({\n\t  'combine':true,\n\t  'packages':[{\n\t    'name':'components',\n\t    'base':'http://assets.etao.net/apps/e/hotel/130716',\n\t    'debug':'true'\n\t  }]\n\t});\n\n\t//下面是要我们手工维护的模块列表\n\tKISSY.importStyle('components/home/index');\n```",
                     "type": "String|Array"
                 }
             ],
@@ -14509,7 +14509,7 @@
         },
         {
             "file": "src/api/loader.js",
-            "line": 348,
+            "line": 349,
             "description": "添加模块",
             "itemtype": "method",
             "name": "require",
@@ -14523,6 +14523,30 @@
             ],
             "example": [
                 "\nrequire 是一个语法糖，提供了快捷引用已经注册的模块。\n```\nKISSY.add(\"yourmod\",function(S){\n       var Mod1 = S.require('depMod1');\n       var Mod2 = S.require('depMod2');\n   },{\n       requires:['depMod1','depMod2']\n   }\n);\n```"
+            ],
+            "class": "Loader",
+            "module": "loader"
+        },
+        {
+            "file": "src/api/loader.js",
+            "line": 367,
+            "description": "将 str 作为输出的 log 的前缀",
+            "itemtype": "method",
+            "name": "getLogger",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "log 的前缀",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "logger对象",
+                "type": "Object"
+            },
+            "example": [
+                "\n  ```\nvar logger = KISSY.getLogger('KISSY');\nlogger.debug(\"test\"); // => \"KISSY: test\";\n  ```\n__Note__\n可以在配置中设置logger的级别，以及是否显示，logger级别从低到高顺序是：debug < info < warn < error\n\n当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先。 includes 和 excludes 配置类型为 Array ，每个配置对象配置项有maxLevel,minLevel,logger，注意他们是 \"与\" 的逻辑关系。\n```\nKISSY.config('logger', {\n   includes: [\n       {\n           logger: /^xx\\//\n       }\n   ],\n   excludes: [\n       {\n           logger: /^xx\\//， //以xx/开头的不显示\n           maxLevel: 'info' //不显示 info 及 info 以下的 log\n       }\n   ]\n});\n  ```"
             ],
             "class": "Loader",
             "module": "loader"
@@ -18712,30 +18736,6 @@
         {
             "file": "src/api/util.js",
             "line": 228,
-            "description": "将 str 作为输出的 log 的前缀",
-            "itemtype": "method",
-            "name": "getLogger",
-            "static": 1,
-            "params": [
-                {
-                    "name": "str",
-                    "description": "log 的前缀",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "logger对象",
-                "type": "Object"
-            },
-            "example": [
-                "\n  ```\nvar logger = Util.getLogger('KISSY');\nlogger.debug(\"test\"); // => \"KISSY: test\";\n  ```\n__Note__\n可以在配置中设置logger的级别，以及是否显示。 当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先\n```\nKISSY.config('logger', {\n   includes: [\n       {\n           logger: /^xx\\//\n       }\n   ],\n   excludes: [\n       {\n           logger: /^xx\\//， //以xx/开头的不显示\n           maxLevel: 'info' //不显示 info 及 info 以下的 log\n       }\n   ]\n});\n  ```"
-            ],
-            "class": "Util",
-            "module": "util"
-        },
-        {
-            "file": "src/api/util.js",
-            "line": 258,
             "description": "在全局作用域下执行代码字符串, 避免 eval 的作用域链",
             "itemtype": "method",
             "name": "globalEval",
@@ -18752,7 +18752,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 265,
+            "line": 235,
             "description": "返回全局唯一 id",
             "itemtype": "method",
             "name": "guid",
@@ -18773,7 +18773,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 273,
+            "line": 243,
             "description": "判断元素 elem 是否在数组 arr 中",
             "itemtype": "method",
             "name": "inArray",
@@ -18799,7 +18799,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 282,
+            "line": 252,
             "description": "返回元素 elem 在数组 arr 中的序号",
             "itemtype": "method",
             "name": "indexOf",
@@ -18825,7 +18825,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 291,
+            "line": 261,
             "description": "判断是否数组",
             "itemtype": "method",
             "name": "isArray",
@@ -18846,7 +18846,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 299,
+            "line": 269,
             "description": "判断是否布尔值",
             "itemtype": "method",
             "name": "isBoolean",
@@ -18867,7 +18867,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 307,
+            "line": 277,
             "description": "判断是否日期",
             "itemtype": "method",
             "name": "isDate",
@@ -18888,7 +18888,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 315,
+            "line": 285,
             "description": "判断是否空对象(没有任何可遍历的属性)",
             "itemtype": "method",
             "name": "isEmptyObject",
@@ -18909,7 +18909,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 323,
+            "line": 293,
             "description": "判断是否函数",
             "itemtype": "method",
             "name": "isFunction",
@@ -18930,7 +18930,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 331,
+            "line": 301,
             "description": "判断是否 null",
             "itemtype": "method",
             "name": "isNull",
@@ -18951,7 +18951,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 339,
+            "line": 309,
             "description": "判断是否有效数值",
             "itemtype": "method",
             "name": "isNumber",
@@ -18972,7 +18972,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 347,
+            "line": 317,
             "description": "判断是否为对象",
             "itemtype": "method",
             "name": "isObject",
@@ -18993,7 +18993,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 355,
+            "line": 325,
             "description": "判断是否是普通对象, 通过 {} 或 new FunctionClass/Object() 创建的, 不包括内置对象以及宿主对象.",
             "itemtype": "method",
             "name": "isPlainObject",
@@ -19014,7 +19014,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 363,
+            "line": 333,
             "description": "判断是否正则表达式",
             "itemtype": "method",
             "name": "isRegExp",
@@ -19035,7 +19035,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 371,
+            "line": 341,
             "description": "判断是否字符串",
             "itemtype": "method",
             "name": "isString",
@@ -19056,7 +19056,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 379,
+            "line": 349,
             "description": "判断是否 undefined",
             "itemtype": "method",
             "name": "isUndefined",
@@ -19077,7 +19077,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 387,
+            "line": 357,
             "description": "判断参数是否为浏览器 window",
             "itemtype": "method",
             "name": "isWindow",
@@ -19098,7 +19098,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 395,
+            "line": 365,
             "description": "将对象的所有属性名作为数组返回",
             "itemtype": "method",
             "name": "keys",
@@ -19119,7 +19119,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 403,
+            "line": 373,
             "description": "返回元素 elem 在数组 arr 中最后出现的序号",
             "itemtype": "method",
             "name": "lastIndexOf",
@@ -19145,7 +19145,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 412,
+            "line": 382,
             "description": "延迟执行指定函数 fn",
             "itemtype": "method",
             "name": "later",
@@ -19193,7 +19193,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 433,
+            "line": 403,
             "description": "输出调试信息",
             "itemtype": "method",
             "name": "log",
@@ -19220,7 +19220,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 444,
+            "line": 414,
             "description": "将对象 o 转换为数组.",
             "itemtype": "method",
             "name": "makeArray",
@@ -19241,7 +19241,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 452,
+            "line": 422,
             "description": "创建一个新数组, 数组结果是在对每个原数组元素调用指定函数的返回值.",
             "itemtype": "method",
             "name": "map",
@@ -19273,7 +19273,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 462,
+            "line": 432,
             "description": "将多个对象的成员合并到一个新对象上. 参数中, 后面的对象成员会覆盖前面的.",
             "itemtype": "method",
             "name": "merge",
@@ -19302,7 +19302,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 482,
+            "line": 452,
             "description": "将 supplier 对象的成员复制到 receiver 对象上.",
             "itemtype": "method",
             "name": "mix",
@@ -19347,7 +19347,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 560,
+            "line": 530,
             "description": "根据参数创建命名空间对象",
             "itemtype": "method",
             "name": "namespace",
@@ -19374,7 +19374,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 569,
+            "line": 539,
             "description": "返回 new Date().getTime()",
             "itemtype": "method",
             "name": "date",
@@ -19388,7 +19388,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 576,
+            "line": 546,
             "description": "将对象 o 转换为参数字符串, 用于发送 http 请求",
             "itemtype": "method",
             "name": "param",
@@ -19429,7 +19429,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 596,
+            "line": 566,
             "description": "将字符串转化为 xml 文档",
             "itemtype": "method",
             "name": "parseXML",
@@ -19449,7 +19449,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 610,
+            "line": 580,
             "description": "在 DOM 加载完毕时执行回调函数fn",
             "itemtype": "method",
             "name": "ready",
@@ -19466,7 +19466,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 617,
+            "line": 587,
             "description": "从左向右对每个数组元素调用给定函数，并把返回值累积起来",
             "itemtype": "method",
             "name": "reduce",
@@ -19499,7 +19499,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 691,
+            "line": 661,
             "description": "判断 str 是否以 prefix 开头",
             "itemtype": "method",
             "name": "startsWith",
@@ -19525,7 +19525,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 700,
+            "line": 670,
             "description": "将字符串中的占位符替换为对应的键值",
             "itemtype": "method",
             "name": "substitute",
@@ -19554,7 +19554,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 716,
+            "line": 686,
             "description": "ms 时间内只执行 fn 一次, 即使这段时间内 fn 被调用多次.",
             "itemtype": "method",
             "name": "throttle",
@@ -19588,7 +19588,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 740,
+            "line": 710,
             "description": "去除字符串两端的空白字符",
             "itemtype": "method",
             "name": "trim",
@@ -19609,7 +19609,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 748,
+            "line": 718,
             "description": "将字符串中的 html 实体字符替换成对应字符",
             "itemtype": "method",
             "name": "unEscapeHTML",
@@ -19633,7 +19633,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 761,
+            "line": 731,
             "description": "返回一个新数组, 仅包含 arr 去重后的值",
             "itemtype": "method",
             "name": "unique",
@@ -19659,7 +19659,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 770,
+            "line": 740,
             "description": "将参数字符串 str 还原为对象",
             "itemtype": "method",
             "name": "unparam",
