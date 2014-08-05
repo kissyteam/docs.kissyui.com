@@ -153,12 +153,12 @@
 		<div class="row">
 			<div class="col-md-9" id="main-content">
 				<p></p>
-<h1>Editor基本介绍</h1><p>Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事件。拥有多种插件适合在不同场景下使用，如 editor/plugin/font-size,editor/plugin/image 等。</p>
+<h1 id="Editor基本介绍">Editor基本介绍</h1><p>Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事件。拥有多种插件适合在不同场景下使用，如 editor/plugin/font-size,editor/plugin/image 等。</p>
 <p>注：KISSY提供了参考样式<code>http://g.tbcdn.cn/kissy/edge/2014.07.16/editor/theme/cool/editor.css</code>，在使用editor前引入，用户也可以根据需要自定义样式。</p>
-<h2 id="1">引用方法</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'editor'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Editor)</span></span>{
+<h2 id="引用方法">引用方法</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'editor'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Editor)</span></span>{
     <span class="hljs-comment">//use editor</span>
 })
-</code></pre><h2 id="2">一个简单的调用</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'editor,editor/plugin/font-size'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Editor, FontSize)</span></span>{
+</code></pre><h2 id="一个简单的调用">一个简单的调用</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'editor,editor/plugin/font-size'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Editor, FontSize)</span></span>{
     <span class="hljs-keyword">var</span> myEditor = <span class="hljs-keyword">new</span> Editor({
         width : <span class="hljs-string">'80%'</span>,
         height : <span class="hljs-string">'500px'</span>,
@@ -168,17 +168,17 @@
 
     myEditor.render();
 })
-</code></pre><h2 id="3">主要配置参数（更多配置参数请看其api文档）</h2><h4>data</h4><p>{String} 初始化设置编辑器里的内容</p>
-<h4>mode</h4><p>编辑器模式.取值 Editor.SOURCE_MODE 或 Editor.WYSIWYG_MODE</p>
-<h4>customLink</h4><p>String[] 自定义样式表 url 数组</p>
-<h4>textarea</h4><p>{String} - optional. 自定义产生 textarea 节点的 html.</p>
+</code></pre><h2 id="主要配置参数（更多配置参数请看其api文档）">主要配置参数（更多配置参数请看其api文档）</h2><h4 id="data">data</h4><p>{String} 初始化设置编辑器里的内容</p>
+<h4 id="mode">mode</h4><p>编辑器模式.取值 Editor.SOURCE_MODE 或 Editor.WYSIWYG_MODE</p>
+<h4 id="customLink">customLink</h4><p>String[] 自定义样式表 url 数组</p>
+<h4 id="textarea">textarea</h4><p>{String} - optional. 自定义产生 textarea 节点的 html.</p>
 <p>例如可以指定全新产生 editor 所属 textarea 的 name 值</p>
 <pre><code><span class="hljs-tag">new</span> <span class="hljs-tag">Editor</span>(<span class="hljs-rules">{
     <span class="hljs-rule"><span class="hljs-attribute">textarea</span>:<span class="hljs-value"> <span class="hljs-string">'&lt;textarea name="custom"&gt;&lt;/textarea&gt;'</span>
 </span></span></span>});
-</code></pre><h4>attachForm</h4><p>{Boolean} - 默认 false. 是否监控编辑器输入框所在的 form 提交。 （ form 提交前自动将编辑内容同步到对应 textarea 中 ）</p>
-<h4>customStyle</h4><p>{String} - 自定义样式字符串.</p>
-<h2 id="4">主要方法：（更多方法请看其api文档）</h2><h4>execCommand(commandName, arg1, arg2, ...)</h4><ul>
+</code></pre><h4 id="attachForm">attachForm</h4><p>{Boolean} - 默认 false. 是否监控编辑器输入框所在的 form 提交。 （ form 提交前自动将编辑内容同步到对应 textarea 中 ）</p>
+<h4 id="customStyle">customStyle</h4><p>{String} - 自定义样式字符串.</p>
+<h2 id="主要方法：（更多方法请看其api文档）">主要方法：（更多方法请看其api文档）</h2><h4 id="execCommand(commandName, arg1, arg2, ...)">execCommand(commandName, arg1, arg2, ...)</h4><ul>
 <li>commandName (String) 命令名称，由各个插件提供</li>
 <li>arg* 对应命令所需要的参数</li>
 </ul>
@@ -186,23 +186,23 @@
 <pre><code><span class="hljs-keyword">editor</span>.execCommand(<span class="hljs-string">"fontSize"</span>,<span class="hljs-string">"10px"</span>); <span class="hljs-comment">//=&gt; 设置选区文字大小为10px.</span>
 <span class="hljs-keyword">editor</span>.execCommand(<span class="hljs-string">"fontSize"</span>,<span class="hljs-string">"10px"</span>); <span class="hljs-comment">//=&gt; 取消设置选区文字大小为10px.</span>
 <span class="hljs-keyword">editor</span>.queryCommandValue(<span class="hljs-string">"fontSize"</span>); <span class="hljs-comment">//=&gt; 返回 10px</span>
-</code></pre><h4>hasCommand(commandName)</h4><ul>
+</code></pre><h4 id="hasCommand(commandName)">hasCommand(commandName)</h4><ul>
 <li>commandName (String) 命令名称，由各个插件提供</li>
 </ul>
 <p>编辑器是否存在该命令</p>
-<h4>queryCommandValue(commandName)</h4><ul>
+<h4 id="queryCommandValue(commandName)">queryCommandValue(commandName)</h4><ul>
 <li>commandName (String) – 命令名称，由各个插件提供</li>
 </ul>
 <p>查询该命令对应的当前编辑值</p>
-<h4>sync()</h4><p>同步编辑器内容到对应的 textarea</p>
-<h4>focus()</h4><p>使得编辑器获得焦点</p>
-<h4>blur()</h4><p>使得编辑器失去焦点</p>
-<h4>docReady(fn)</h4><ul>
+<h4 id="sync()">sync()</h4><p>同步编辑器内容到对应的 textarea</p>
+<h4 id="focus()">focus()</h4><p>使得编辑器获得焦点</p>
+<h4 id="blur()">blur()</h4><p>使得编辑器失去焦点</p>
+<h4 id="docReady(fn)">docReady(fn)</h4><ul>
 <li>fn (Function) 编辑器文档 ready 后触发</li>
 </ul>
 <p>注册函数到编辑器文档 ready 队列（编辑器文档 ready 后触发）。
 该函数在编辑器生存周期内可能会运行多次（每次切换源码模式再切换回可视化模式都会因为编辑器文档重建而触发）</p>
-<h4>insertElement(element)</h4><ul>
+<h4 id="insertElement(element)">insertElement(element)</h4><ul>
 <li>element (KISSY.Node) 待插入的元素节点。（需从编辑器文档中创建）</li>
 </ul>
 <p>往编辑器中插入元素
@@ -212,7 +212,7 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
     editor.insertElement(<span class="hljs-keyword">new</span> KISSY.Node(<span class="hljs-string">'&lt;span&gt;haha&lt;/span&gt;'</span>),
     <span class="hljs-literal">null</span>,editor.<span class="hljs-keyword">get</span>(<span class="hljs-string">'document'</span>)[<span class="hljs-number">0</span>]);
 },<span class="hljs-number">50</span>);
-</code></pre><h4>getData()</h4><p>获得编辑器里面的内容</p>
+</code></pre><h4 id="getData()">getData()</h4><p>获得编辑器里面的内容</p>
 
 				<div id="disqus_thread"></div>
 				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
@@ -226,7 +226,7 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
 					</div>
 					<div class="panel-body">
 						<ul class="outline">
-							<li class="level2"><a href="#1">引用方法</a></li><li class="level2"><a href="#2">一个简单的调用</a></li><li class="level2"><a href="#3">主要配置参数（更多配置参数请看其api文档）</a></li><li class="level2"><a href="#4">主要方法：（更多方法请看其api文档）</a></li>
+							<li class="level2"><a href="#引用方法">引用方法</a></li><li class="level2"><a href="#一个简单的调用">一个简单的调用</a></li><li class="level2"><a href="#主要配置参数（更多配置参数请看其api文档）">主要配置参数（更多配置参数请看其api文档）</a></li><li class="level2"><a href="#主要方法：（更多方法请看其api文档）">主要方法：（更多方法请看其api文档）</a></li>
 						</ul>
 					</div>
 				</div>

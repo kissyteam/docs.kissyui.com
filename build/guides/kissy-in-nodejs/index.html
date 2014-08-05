@@ -152,14 +152,14 @@
 </script>
 		<div class="row">
 			<div class="col-md-9" id="main-content">
-				<h1>kissy in nodejs基本介绍</h1><p>KISSY 是一款跨终端的 Javascript 框架，不仅能在浏览器端使用，还可以运行在 NODE 环境中。</p>
-<h2 id="1">在 Node 环境安装 KISSY</h2><pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> kissy</span>
-</code></pre><h2 id="2">使用 KISSY 提供的模块</h2><pre><code><span class="hljs-keyword">var</span> xtemplate = require('kissy/lib/xtemplate');
+				<h1 id="kissy in nodejs基本介绍">kissy in nodejs基本介绍</h1><p>KISSY 是一款跨终端的 Javascript 框架，不仅能在浏览器端使用，还可以运行在 NODE 环境中。</p>
+<h2 id="在 Node 环境安装 KISSY">在 Node 环境安装 KISSY</h2><pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> kissy</span>
+</code></pre><h2 id="使用 KISSY 提供的模块">使用 KISSY 提供的模块</h2><pre><code><span class="hljs-keyword">var</span> xtemplate = require('kissy/lib/xtemplate');
 <span class="hljs-keyword">var</span> xtpl = '<span class="hljs-type">Hello</span>,{{name}}',
     data = { name : 'kissy' },
     <span class="hljs-literal">result</span> = new xtemplate(xtpl).render(data);
 console.log(<span class="hljs-literal">result</span>);  // hello,kissy
-</code></pre><h2 id="3">KISSY 在 Node 环境下的模块</h2><p>在 Node 环境下， KISSY 提供如下模块： <code>kissy/lib/date/format</code> , <code>kissy/lib/date/gregorian</code> , <code>kissy/lib/dom/selector</code> , <code>kissy/lib/event/custom</code> , <code>kissy/lib/xtemplate</code> , <code>kissy/lib/attribute</code> , <code>kissy/lib/base</code> , <code>kissy/lib/color</code> , <code>kissy/lib/html-parser</code> , <code>kissy/lib/promise</code> , <code>kissy/lib/util</code></p>
+</code></pre><h2 id="KISSY 在 Node 环境下的模块">KISSY 在 Node 环境下的模块</h2><p>在 Node 环境下， KISSY 提供如下模块： <code>kissy/lib/date/format</code> , <code>kissy/lib/date/gregorian</code> , <code>kissy/lib/dom/selector</code> , <code>kissy/lib/event/custom</code> , <code>kissy/lib/xtemplate</code> , <code>kissy/lib/attribute</code> , <code>kissy/lib/base</code> , <code>kissy/lib/color</code> , <code>kissy/lib/html-parser</code> , <code>kissy/lib/promise</code> , <code>kissy/lib/util</code></p>
 <p>各个模块的用法和与之对应的浏览器端的模块api用法相当，只是引用方法不同。例如：</p>
 <pre><code><span class="hljs-comment">//在 Node 环境下使用 color</span>
 <span class="hljs-keyword">var</span> color = <span class="hljs-built_in">require</span>(<span class="hljs-string">'kissy/lib/color'</span>),
@@ -184,7 +184,7 @@ KISSY.use(<span class="hljs-string">'color'</span>, <span class="hljs-function">
 					</div>
 					<div class="panel-body">
 						<ul class="outline">
-							<li class="level2"><a href="#1">在 Node 环境安装 KISSY</a></li><li class="level2"><a href="#2">使用 KISSY 提供的模块</a></li><li class="level2"><a href="#3">KISSY 在 Node 环境下的模块</a></li>
+							<li class="level2"><a href="#在 Node 环境安装 KISSY">在 Node 环境安装 KISSY</a></li><li class="level2"><a href="#使用 KISSY 提供的模块">使用 KISSY 提供的模块</a></li><li class="level2"><a href="#KISSY 在 Node 环境下的模块">KISSY 在 Node 环境下的模块</a></li>
 						</ul>
 					</div>
 				</div>
@@ -193,7 +193,7 @@ KISSY.use(<span class="hljs-string">'color'</span>, <span class="hljs-function">
 						<h3 class="panel-title">Features</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="../../guides/kissy in nodejs/index.html">kissy in nodejs基本介绍</a></p>
+						<p><a href="../../guides/kissy-in-nodejs/index.html">kissy in nodejs基本介绍</a></p>
 					</div>
 				</div>
 				<div class="panel panel-primary ajax-load">

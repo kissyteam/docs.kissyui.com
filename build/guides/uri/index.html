@@ -153,54 +153,54 @@
 		<div class="row">
 			<div class="col-md-9" id="main-content">
 				<p></p>
-<h1>Uri的基本介绍</h1><p>uri 解析模块，用于处理URL，通过沙箱来调用</p>
+<h1 id="Uri的基本介绍">Uri的基本介绍</h1><p>uri 解析模块，用于处理URL，通过沙箱来调用</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'uri'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Uri)</span></span>{
     <span class="hljs-keyword">var</span> new_uri = <span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://url'</span>);
     new_uri.do_something();<span class="hljs-comment">// uri 执行相关的方法</span>
 })
-</code></pre><h2 id="1">clone()，克隆一个实例</h2><p><code>clone() =&gt; Uri</code>:：返回一个当前 uri 实例的克隆对象</p>
+</code></pre><h2 id="clone()，克隆一个实例">clone()，克隆一个实例</h2><p><code>clone() =&gt; Uri</code>:：返回一个当前 uri 实例的克隆对象</p>
 <pre><code><span class="hljs-keyword">var</span> one = <span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>);
 <span class="hljs-keyword">var</span> two = one.<span class="hljs-keyword">clone</span>() <span class="hljs-comment">// 克隆一个新的Uri实例</span>
-</code></pre><h2 id="2">resolve()</h2><p><code>resolve (other) =&gt; Uri</code>：合并解析出一个完整的URL，返回新的 uri 实例</p>
+</code></pre><h2 id="resolve()">resolve()</h2><p><code>resolve (other) =&gt; Uri</code>：合并解析出一个完整的URL，返回新的 uri 实例</p>
 <pre><code><span class="hljs-keyword">var</span> one = <span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>);
 one.resolve(<span class="hljs-string">'foo'</span>).toString() <span class="hljs-comment">// =&gt; http://www.g.cn/foo</span>
 one.resolve(<span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'?foo'</span>)).toString() <span class="hljs-comment">// =&gt; http://www.g.cn/x?foo</span>
-</code></pre><h2 id="3">getScheme() 得到协议部分</h2><p>用法：<code>getScheme () =&gt; String</code></p>
+</code></pre><h2 id="getScheme() 得到协议部分">getScheme() 得到协议部分</h2><p>用法：<code>getScheme () =&gt; String</code></p>
 <pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>).getScheme() <span class="hljs-comment">// =&gt; http</span>
-</code></pre><h2 id="4">setScheme() 设置协议部分</h2><p>设置 uri 实例的 scheme 部分</p>
+</code></pre><h2 id="setScheme() 设置协议部分">setScheme() 设置协议部分</h2><p>设置 uri 实例的 scheme 部分</p>
 <pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>).setScheme(<span class="hljs-string">'ftp'</span>).getScheme() <span class="hljs-comment">// =&gt; ftp</span>
-</code></pre><h2 id="5">getHostname()  得到hostname</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn:8888/x'</span>).getHostname() <span class="hljs-comment">// =&gt; www.g.cn</span>
-</code></pre><h2 id="6">setHostname()  设置hostname</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn:8888/x'</span>).setHostname(<span class="hljs-string">'www.google.com'</span>).toString()
+</code></pre><h2 id="getHostname()  得到hostname">getHostname()  得到hostname</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn:8888/x'</span>).getHostname() <span class="hljs-comment">// =&gt; www.g.cn</span>
+</code></pre><h2 id="setHostname()  设置hostname">setHostname()  设置hostname</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn:8888/x'</span>).setHostname(<span class="hljs-string">'www.google.com'</span>).toString()
 <span class="hljs-comment">// =&gt; http://www.google.com:8888/x</span>
-</code></pre><h2 id="7">getUserInfo()  得到用户信息</h2><p>获取当前 uri 实例的 user info</p>
+</code></pre><h2 id="getUserInfo()  得到用户信息">getUserInfo()  得到用户信息</h2><p>获取当前 uri 实例的 user info</p>
 <pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://my:pass@www.g.cn:8888/x'</span>).getUserInfo() <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'my:pass'</span>
-</code></pre><h2 id="8">setUserInfo()  设置用户信息</h2><p>设置当前 uri 实例的 user info</p>
+</code></pre><h2 id="setUserInfo()  设置用户信息">setUserInfo()  设置用户信息</h2><p>设置当前 uri 实例的 user info</p>
 <pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://my:pass@www.g.cn:8888/x'</span>).setUserInfo(<span class="hljs-string">'m:p'</span>).getUserInfo()
 <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'m:p'</span>
-</code></pre><h2 id="9">getPort() 获取当前 uri 实例的端口值</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-symbol">'http</span>:<span class="hljs-comment">//my:pass@www.g.cn:8888/x').getPort()</span>
+</code></pre><h2 id="getPort() 获取当前 uri 实例的端口值">getPort() 获取当前 uri 实例的端口值</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-symbol">'http</span>:<span class="hljs-comment">//my:pass@www.g.cn:8888/x').getPort()</span>
 <span class="hljs-comment">// =&gt; '8888'</span>
-</code></pre><h2 id="10">setPort()  设置当前 uri 实例的端口值</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://my:pass@www.g.cn:8888/x'</span>).setPort(<span class="hljs-string">'88'</span>).toString()
+</code></pre><h2 id="setPort()  设置当前 uri 实例的端口值">setPort()  设置当前 uri 实例的端口值</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://my:pass@www.g.cn:8888/x'</span>).setPort(<span class="hljs-string">'88'</span>).toString()
 <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-attribute">http</span>:<span class="hljs-regexp">//m</span><span class="hljs-attribute">y</span>:pass<span class="hljs-property">@www</span>.g.<span class="hljs-attribute">cn</span>:<span class="hljs-number">88</span>/x
-</code></pre><h2 id="11">getPath()  获取当前 uri 实例的路径</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-symbol">'http</span>:<span class="hljs-comment">//www.g.cn/x').getPath()</span>
+</code></pre><h2 id="getPath()  获取当前 uri 实例的路径">getPath()  获取当前 uri 实例的路径</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-symbol">'http</span>:<span class="hljs-comment">//www.g.cn/x').getPath()</span>
 <span class="hljs-comment">// =&gt; /x</span>
-</code></pre><h2 id="12">setPath() 设置当前 uri 实例的路径</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>).setPath(<span class="hljs-string">'/y'</span>).toString()
+</code></pre><h2 id="setPath() 设置当前 uri 实例的路径">setPath() 设置当前 uri 实例的路径</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x'</span>).setPath(<span class="hljs-string">'/y'</span>).toString()
 <span class="hljs-comment">// =&gt; http://www.g.cn/y</span>
-</code></pre><h2 id="13">getQuery() 获取当前 uri 实例的查询参数实例</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x?x=1'</span>).getQuery().<span class="hljs-keyword">get</span>(<span class="hljs-string">'x'</span>)
+</code></pre><h2 id="getQuery() 获取当前 uri 实例的查询参数实例">getQuery() 获取当前 uri 实例的查询参数实例</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x?x=1'</span>).getQuery().<span class="hljs-keyword">get</span>(<span class="hljs-string">'x'</span>)
 <span class="hljs-comment">// =&gt; 1</span>
-</code></pre><h2 id="14">setQuery()  设置当前 uri 实例的查询参数</h2><p>参数：query ({String|Uri.Query}) –     字符串或者Uri.Query实例</p>
+</code></pre><h2 id="setQuery()  设置当前 uri 实例的查询参数">setQuery()  设置当前 uri 实例的查询参数</h2><p>参数：query ({String|Uri.Query}) –     字符串或者Uri.Query实例</p>
 <pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x?x=1'</span>).setQuery(<span class="hljs-string">'y=1'</span>).toString();
 <span class="hljs-comment">// =&gt; http://www.g.cn/x?y=1</span>
 
 <span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x?x=1'</span>).setQuery(<span class="hljs-keyword">new</span> Uri.Query(<span class="hljs-string">'y=1'</span>)).toString();
 <span class="hljs-comment">// =&gt; http://www.g.cn/x?y=1</span>
-</code></pre><h2 id="15">getFragment() 获取当前 uri 实例的 hash</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x?x=1#y=2'</span>).getFragment() <span class="hljs-comment">// =&gt; y=2</span>
-</code></pre><h2 id="16">setFragment() 设置当前 uri 实例的 hash</h2><p>参数：hash ({String}) –  hash值</p>
+</code></pre><h2 id="getFragment() 获取当前 uri 实例的 hash">getFragment() 获取当前 uri 实例的 hash</h2><pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-string">'http://www.g.cn/x?x=1#y=2'</span>).getFragment() <span class="hljs-comment">// =&gt; y=2</span>
+</code></pre><h2 id="setFragment() 设置当前 uri 实例的 hash">setFragment() 设置当前 uri 实例的 hash</h2><p>参数：hash ({String}) –  hash值</p>
 <pre><code>new <span class="hljs-constant">Uri</span>(<span class="hljs-string">'http://www.g.cn/x?x=1#y=2'</span>).setFragment(<span class="hljs-string">'x=3'</span>).toString()
 /<span class="hljs-regexp">/ =&gt; http:/</span><span class="hljs-regexp">/www.g.cn/x</span>?x=<span class="hljs-number">1</span><span class="hljs-comment">#x=3</span>
-</code></pre><h2 id="17">isSameOriginAs()  验证同源</h2><p>验证当前 uri 实例和 other 是否是同源关系(hostname port scheme 相同)</p>
+</code></pre><h2 id="isSameOriginAs()  验证同源">isSameOriginAs()  验证同源</h2><p>验证当前 uri 实例和 other 是否是同源关系(hostname port scheme 相同)</p>
 <pre><code><span class="hljs-keyword">new</span> Uri(<span class="hljs-symbol">'http</span>:<span class="hljs-comment">//www.g.cn/x?x=1#y=2')</span>
 .isSameOriginAs(<span class="hljs-keyword">new</span> Uri(<span class="hljs-symbol">'http</span>:<span class="hljs-comment">//www.g.cn:88/x?x=1#y=2')) // =&gt; false</span>
-</code></pre><h2 id="18">toString()  序列化当前 uri 实例的 hash</h2><p>参数：arr ({Boolean}) – 同 param() 同名参数</p>
+</code></pre><h2 id="toString()  序列化当前 uri 实例的 hash">toString()  序列化当前 uri 实例的 hash</h2><p>参数：arr ({Boolean}) – 同 param() 同名参数</p>
 <pre><code>new Uri('http://www.g.cn/x?<span class="hljs-variable">x=</span><span class="hljs-number">1</span>&amp;<span class="hljs-variable">x=</span><span class="hljs-number">2</span>').<span class="hljs-built_in">toString</span>(<span class="hljs-constant">false</span>)
 // =&gt; 'http://www.g.cn/x?<span class="hljs-variable">x=</span><span class="hljs-number">1</span>&amp;<span class="hljs-variable">x=</span><span class="hljs-number">2</span>'
 
@@ -219,7 +219,7 @@ new Uri('http://www.g.cn/x?<span class="hljs-variable">x=</span><span class="hlj
 					</div>
 					<div class="panel-body">
 						<ul class="outline">
-							<li class="level2"><a href="#1">clone()，克隆一个实例</a></li><li class="level2"><a href="#2">resolve()</a></li><li class="level2"><a href="#3">getScheme() 得到协议部分</a></li><li class="level2"><a href="#4">setScheme() 设置协议部分</a></li><li class="level2"><a href="#5">getHostname()  得到hostname</a></li><li class="level2"><a href="#6">setHostname()  设置hostname</a></li><li class="level2"><a href="#7">getUserInfo()  得到用户信息</a></li><li class="level2"><a href="#8">setUserInfo()  设置用户信息</a></li><li class="level2"><a href="#9">getPort() 获取当前 uri 实例的端口值</a></li><li class="level2"><a href="#10">setPort()  设置当前 uri 实例的端口值</a></li><li class="level2"><a href="#11">getPath()  获取当前 uri 实例的路径</a></li><li class="level2"><a href="#12">setPath() 设置当前 uri 实例的路径</a></li><li class="level2"><a href="#13">getQuery() 获取当前 uri 实例的查询参数实例</a></li><li class="level2"><a href="#14">setQuery()  设置当前 uri 实例的查询参数</a></li><li class="level2"><a href="#15">getFragment() 获取当前 uri 实例的 hash</a></li><li class="level2"><a href="#16">setFragment() 设置当前 uri 实例的 hash</a></li><li class="level2"><a href="#17">isSameOriginAs()  验证同源</a></li><li class="level2"><a href="#18">toString()  序列化当前 uri 实例的 hash</a></li>
+							<li class="level2"><a href="#clone()，克隆一个实例">clone()，克隆一个实例</a></li><li class="level2"><a href="#resolve()">resolve()</a></li><li class="level2"><a href="#getScheme() 得到协议部分">getScheme() 得到协议部分</a></li><li class="level2"><a href="#setScheme() 设置协议部分">setScheme() 设置协议部分</a></li><li class="level2"><a href="#getHostname()  得到hostname">getHostname()  得到hostname</a></li><li class="level2"><a href="#setHostname()  设置hostname">setHostname()  设置hostname</a></li><li class="level2"><a href="#getUserInfo()  得到用户信息">getUserInfo()  得到用户信息</a></li><li class="level2"><a href="#setUserInfo()  设置用户信息">setUserInfo()  设置用户信息</a></li><li class="level2"><a href="#getPort() 获取当前 uri 实例的端口值">getPort() 获取当前 uri 实例的端口值</a></li><li class="level2"><a href="#setPort()  设置当前 uri 实例的端口值">setPort()  设置当前 uri 实例的端口值</a></li><li class="level2"><a href="#getPath()  获取当前 uri 实例的路径">getPath()  获取当前 uri 实例的路径</a></li><li class="level2"><a href="#setPath() 设置当前 uri 实例的路径">setPath() 设置当前 uri 实例的路径</a></li><li class="level2"><a href="#getQuery() 获取当前 uri 实例的查询参数实例">getQuery() 获取当前 uri 实例的查询参数实例</a></li><li class="level2"><a href="#setQuery()  设置当前 uri 实例的查询参数">setQuery()  设置当前 uri 实例的查询参数</a></li><li class="level2"><a href="#getFragment() 获取当前 uri 实例的 hash">getFragment() 获取当前 uri 实例的 hash</a></li><li class="level2"><a href="#setFragment() 设置当前 uri 实例的 hash">setFragment() 设置当前 uri 实例的 hash</a></li><li class="level2"><a href="#isSameOriginAs()  验证同源">isSameOriginAs()  验证同源</a></li><li class="level2"><a href="#toString()  序列化当前 uri 实例的 hash">toString()  序列化当前 uri 实例的 hash</a></li>
 						</ul>
 					</div>
 				</div>

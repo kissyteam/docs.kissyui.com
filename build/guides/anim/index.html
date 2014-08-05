@@ -153,7 +153,7 @@
 		<div class="row">
 			<div class="col-md-9" id="main-content">
 				<p></p>
-<h1>Anim基本介绍</h1><p>KISSY 动画，这样来载入anim模块：</p>
+<h1 id="Anim基本介绍">Anim基本介绍</h1><p>KISSY 动画，这样来载入anim模块：</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'anim'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Anim)</span></span>{
     <span class="hljs-comment">// use Anim</span>
 });
@@ -180,7 +180,7 @@ KISSY.use(<span class="hljs-string">'node,anim'</span>,<span class="hljs-keyword
         });
     })</p>
 <p>此外，node节点还挂载一些常用的做动画的函数，比如fadeIn、fadeOut、slideUp、slideDown等(<a href="/5.0/guides/node/index.html">具体请参照Node</a>)</p>
-<h2 id="1">实例化动画的传参</h2><p>刨除直接通过node.animate()创建的动画之外，通过Anim可以生成一个<code>动画实例</code>。动画实例是用来描述动画的一些基本属性，比如，从<code>什么状态</code>动画到<code>什么状态</code>，动画时间，缓动效果，暂停和继续动画等。
+<h2 id="实例化动画的传参">实例化动画的传参</h2><p>刨除直接通过node.animate()创建的动画之外，通过Anim可以生成一个<code>动画实例</code>。动画实例是用来描述动画的一些基本属性，比如，从<code>什么状态</code>动画到<code>什么状态</code>，动画时间，缓动效果，暂停和继续动画等。
 通过<code>Anim</code>这样实例化一个动画实例（<a href="/5.0/demos/anim/index.html">参照Demo</a>）：</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">"anim"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Anim)</span></span>{
     <span class="hljs-comment">// 初始化动画实例</span>
@@ -242,21 +242,21 @@ KISSY.use(<span class="hljs-string">'node,anim'</span>,<span class="hljs-keyword
 </ul>
 </li>
 </ul>
-<h2 id="2">Anim 动画实例的方法</h2><p>Anim动画实例上可调用这些方法</p>
-<h3 id="2.1">isRunning()</h3><p>判断当前动画对象是否在执行动画过程中</p>
-<h3 id="2.2">isPaused()</h3><p>判断当前动画是否被停止</p>
-<h3 id="2.3">run()</h3><p>开始当前动画</p>
-<h3 id="2.4">stop()</h3><p>结束当前动画</p>
+<h2 id="Anim 动画实例的方法">Anim 动画实例的方法</h2><p>Anim动画实例上可调用这些方法</p>
+<h3 id="isRunning()">isRunning()</h3><p>判断当前动画对象是否在执行动画过程中</p>
+<h3 id="isPaused()">isPaused()</h3><p>判断当前动画是否被停止</p>
+<h3 id="run()">run()</h3><p>开始当前动画</p>
+<h3 id="stop()">stop()</h3><p>结束当前动画</p>
 <pre><code><span class="hljs-comment">// 终止当前动画，动画会在当前帧直接停止（不触发 complete 回调）. </span>
 anim.stop(<span class="hljs-literal">false</span>);<span class="hljs-comment">//默认为false</span>
 <span class="hljs-comment">// 为 true 时, 动画停止时会立刻跳到最后一帧（触发 complete 回调）</span>
 anim.stop(<span class="hljs-literal">true</span>);
-</code></pre><h3 id="2.5">pause()</h3><p>在动画实例上调用, 暂停当前动画实例的动画.</p>
-<h3 id="2.6">resume()</h3><p>继续当前动画实例的动画.</p>
-<h2 id="3.6">Anim 的静态方法</h2><h3 id="3.7">静态方法 isRunning(elem)</h3><p>判断elem上是否有动画对象在执行</p>
+</code></pre><h3 id="pause()">pause()</h3><p>在动画实例上调用, 暂停当前动画实例的动画.</p>
+<h3 id="resume()">resume()</h3><p>继续当前动画实例的动画.</p>
+<h2 id="Anim 的静态方法">Anim 的静态方法</h2><h3 id="静态方法 isRunning(elem)">静态方法 isRunning(elem)</h3><p>判断elem上是否有动画对象在执行</p>
 <pre><code>Anim.isRunning(elem);
-</code></pre><h3 id="3.8">静态方法 isPaused()</h3><p>用于判断 elem 上是否有动画对象在暂停，用法同上</p>
-<h3 id="3.9">静态方法 stop()</h3><p>停止某元素上的动画（集合）.调用方法。</p>
+</code></pre><h3 id="静态方法 isPaused()">静态方法 isPaused()</h3><p>用于判断 elem 上是否有动画对象在暂停，用法同上</p>
+<h3 id="静态方法 stop()">静态方法 stop()</h3><p>停止某元素上的动画（集合）.调用方法。</p>
 <p><code>Anim.stop (elem, end, clearQueue, queueName)</code></p>
 <ul>
 <li>elem (HTMLElement|window) – 作用动画的元素节点.</li>
@@ -269,11 +269,11 @@ anim.stop(<span class="hljs-literal">true</span>);
 </ul>
 </li>
 </ul>
-<h3 id="4">静态方法 pause()</h3><p>暂停某元素上的动画（集合）.调用方法，其中queueName参数含义同上</p>
+<h3 id="静态方法 pause()">静态方法 pause()</h3><p>暂停某元素上的动画（集合）.调用方法，其中queueName参数含义同上</p>
 <p><code>Anim.pause (elem, queueName)</code></p>
-<h3 id="4.1">静态方法 resume()</h3><p>继续某元素上的动画，调用方法，其中queueName含义同上</p>
+<h3 id="静态方法 resume()">静态方法 resume()</h3><p>继续某元素上的动画，调用方法，其中queueName含义同上</p>
 <p><code>Anim.resume (elem, queueName)</code></p>
-<h2 id="5.1">动画实例的事件</h2><h3 id="5.2">complete 事件</h3><p>动画结束后会触发<code>complete</code>事件</p>
+<h2 id="动画实例的事件">动画实例的事件</h2><h3 id="complete 事件">complete 事件</h3><p>动画结束后会触发<code>complete</code>事件</p>
 
 				<div id="disqus_thread"></div>
 				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
@@ -287,7 +287,7 @@ anim.stop(<span class="hljs-literal">true</span>);
 					</div>
 					<div class="panel-body">
 						<ul class="outline">
-							<li class="level2"><a href="#1">实例化动画的传参</a></li><li class="level2"><a href="#2">Anim 动画实例的方法</a></li><li class="level3"><a href="#2.1">isRunning()</a></li><li class="level3"><a href="#2.2">isPaused()</a></li><li class="level3"><a href="#2.3">run()</a></li><li class="level3"><a href="#2.4">stop()</a></li><li class="level3"><a href="#2.5">pause()</a></li><li class="level3"><a href="#2.6">resume()</a></li><li class="level2"><a href="#3.6">Anim 的静态方法</a></li><li class="level3"><a href="#3.7">静态方法 isRunning(elem)</a></li><li class="level3"><a href="#3.8">静态方法 isPaused()</a></li><li class="level3"><a href="#3.9">静态方法 stop()</a></li><li class="level3"><a href="#4">静态方法 pause()</a></li><li class="level3"><a href="#4.1">静态方法 resume()</a></li><li class="level2"><a href="#5.1">动画实例的事件</a></li><li class="level3"><a href="#5.2">complete 事件</a></li>
+							<li class="level2"><a href="#实例化动画的传参">实例化动画的传参</a></li><li class="level2"><a href="#Anim 动画实例的方法">Anim 动画实例的方法</a></li><li class="level3"><a href="#isRunning()">isRunning()</a></li><li class="level3"><a href="#isPaused()">isPaused()</a></li><li class="level3"><a href="#run()">run()</a></li><li class="level3"><a href="#stop()">stop()</a></li><li class="level3"><a href="#pause()">pause()</a></li><li class="level3"><a href="#resume()">resume()</a></li><li class="level2"><a href="#Anim 的静态方法">Anim 的静态方法</a></li><li class="level3"><a href="#静态方法 isRunning(elem)">静态方法 isRunning(elem)</a></li><li class="level3"><a href="#静态方法 isPaused()">静态方法 isPaused()</a></li><li class="level3"><a href="#静态方法 stop()">静态方法 stop()</a></li><li class="level3"><a href="#静态方法 pause()">静态方法 pause()</a></li><li class="level3"><a href="#静态方法 resume()">静态方法 resume()</a></li><li class="level2"><a href="#动画实例的事件">动画实例的事件</a></li><li class="level3"><a href="#complete 事件">complete 事件</a></li>
 						</ul>
 					</div>
 				</div>

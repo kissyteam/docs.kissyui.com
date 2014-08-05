@@ -3,6 +3,18 @@
 var fs = require( 'fs' ),
     path = require('path'),
     stat = fs.stat;
+
+function clone(obj){
+    var res = {};
+    for(item in obj){
+        res[item] = obj[item];
+    }
+    return res;
+}
+
+
+
+
 /*
  * 复制目录中的所有文件包括子目录
  * @param{ String } 需要复制的目录
@@ -82,5 +94,6 @@ var exists = function( src, dst, callback ){
 
 module.exports = {
     exists : exists,
-    copy : copy
+    copy : copy,
+    clone : clone
 };

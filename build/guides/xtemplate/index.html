@@ -152,7 +152,7 @@
 </script>
 		<div class="row">
 			<div class="col-md-9" id="main-content">
-				<h1>XTemplate基本介绍</h1><h2 id="1">基本 api</h2><h3 id="1.1">Class</h3><p>XTemplate/XTemplateRuntime</p>
+				<h1 id="XTemplate基本介绍">XTemplate基本介绍</h1><h2 id="基本 api">基本 api</h2><h3 id="Class">Class</h3><p>XTemplate/XTemplateRuntime</p>
 <p>构造器参数</p>
 <table class="table table-bordered table-striped">
     <thead>
@@ -199,7 +199,7 @@
 </table>
 
 
-<h3 id="1.2">Methods</h3><pre><code class="lang-javascript"><span class="hljs-built_in">String</span> render(data:<span class="hljs-built_in">Object</span>, callback:<span class="hljs-built_in">Function</span>) <span class="hljs-comment">// 渲染数据，参数含义如下</span>
+<h3 id="Methods">Methods</h3><pre><code class="lang-javascript"><span class="hljs-built_in">String</span> render(data:<span class="hljs-built_in">Object</span>, callback:<span class="hljs-built_in">Function</span>) <span class="hljs-comment">// 渲染数据，参数含义如下</span>
 </code></pre>
 <table class="table table-bordered table-striped">
     <thead>
@@ -225,17 +225,17 @@
 
 
 
-<h2 id="2.2">浏览器端使用</h2><h3 id="2.3">载入 kissy</h3><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js'</span> 
+<h2 id="浏览器端使用">浏览器端使用</h2><h3 id="载入 kissy">载入 kissy</h3><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js'</span> 
 
 <span class="hljs-attribute">data-config</span>=<span class="hljs-value">'{combine:true}'</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<h3 id="2.4">未预编译</h3><pre><code class="lang-javascript">KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'xtemplate'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,XTemplate)</span></span>{
+<h3 id="未预编译">未预编译</h3><pre><code class="lang-javascript">KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'xtemplate'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,XTemplate)</span></span>{
   <span class="hljs-keyword">new</span> XTemplate(<span class="hljs-string">'{{x}}'</span>,{name: <span class="hljs-string">'x-tpl'</span>}).render({x:<span class="hljs-number">1</span>},<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(error,z)</span></span>{
     <span class="hljs-comment">// z=&gt;1</span>
   });
 })
 </code></pre>
-<h3 id="2.5">预编译</h3><pre><code>npm install kissy<span class="hljs-variable">@5</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>-alpha.<span class="hljs-number">10</span> -g
+<h3 id="预编译">预编译</h3><pre><code>npm install kissy<span class="hljs-variable">@5</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>-alpha.<span class="hljs-number">10</span> -g
 kissy-xtemplate -p x/   <span class="hljs-regexp">//</span> x/ 为模板文件目录，模板后缀为 xtpl
 </code></pre><p>命令参数列表</p>
 <table class="table table-bordered table-striped">
@@ -283,42 +283,42 @@ kissy-xtemplate -p x/   <span class="hljs-regexp">//</span> x/ 为模板文件�
   });
 })
 </code></pre>
-<h2 id="3.5">node 下使用</h2><p>安装:</p>
+<h2 id="node 下使用">node 下使用</h2><p>安装:</p>
 <pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> xtpl</span>
 </code></pre><p>express 下使用:</p>
 <pre><code class="lang-javascript">app.<span class="hljs-keyword">set</span>(<span class="hljs-string">"view engine"</span>, <span class="hljs-string">"xtpl"</span>);
 </code></pre>
 <p>模板文件全部为 xtpl 后缀，目录规范和渲染同 express</p>
-<h2 id="4.5">语法</h2><h3 id="4.6">基本类型</h3><p>支持 true false null undefined number string map array</p>
-<h3 id="4.7">map</h3><p>值为基本类型</p>
+<h2 id="语法">语法</h2><h3 id="基本类型">基本类型</h3><p>支持 true false null undefined number string map array</p>
+<h3 id="map">map</h3><p>值为基本类型</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">with</span></span>({
   <span class="hljs-variable">x</span>:2
 })}}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-variable">x</span>}}</span><span class="xml">  // =&gt; 2
 </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">with</span></span>}}</span><span class="xml"></span>
-</code></pre><h3 id="4.8">array</h3><p>元素项为基本类型</p>
+</code></pre><h3 id="array">array</h3><p>元素项为基本类型</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>([1,2,4])}}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml">  // =&gt; 1 2 4
 </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"></span>
-</code></pre><h3 id="4.9">转义</h3><h4>使用 {{%%}}</h4><pre><code><span class="xml"></span><span class="hljs-expression">{{%
+</code></pre><h3 id="转义">转义</h3><h4 id="使用 {{%%}}">使用 {{%%}}</h4><pre><code><span class="xml"></span><span class="hljs-expression">{{%
 
 {{<span class="hljs-variable">x</span>}}</span><span class="xml">
 
 %}}  // =&gt; </span><span class="hljs-expression">{{<span class="hljs-variable">x</span>}}</span><span class="xml"></span>
-</code></pre><h4>使用 \{{</h4><pre><code><span class="xml">\</span><span class="hljs-expression">{{<span class="hljs-variable">a</span>}}</span><span class="xml">  // -&gt; </span><span class="hljs-expression">{{<span class="hljs-variable">a</span>}}</span><span class="xml"></span>
-</code></pre><h4>angularjs</h4><p>如果是 angularjs 的话，可以直接配置 angularjs 使用不同的标记</p>
+</code></pre><h4 id="使用 \{{">使用 \{{</h4><pre><code><span class="xml">\</span><span class="hljs-expression">{{<span class="hljs-variable">a</span>}}</span><span class="xml">  // -&gt; </span><span class="hljs-expression">{{<span class="hljs-variable">a</span>}}</span><span class="xml"></span>
+</code></pre><h4 id="angularjs">angularjs</h4><p>如果是 angularjs 的话，可以直接配置 angularjs 使用不同的标记</p>
 <p><a href="http://stackoverflow.com/questions/13671701/angularjs-twig-conflict-with-double-curly-braces">http://stackoverflow.com/questions/13671701/angularjs-twig-conflict-with-double-curly-braces</a></p>
-<h3 id="5">注释</h3><pre><code><span class="xml"></span><span class="hljs-expression">{{! <span class="hljs-variable">zhu</span> <span class="hljs-variable">shi</span> }}</span><span class="xml"></span>
-</code></pre><h3 id="5.1">变量渲染</h3><p>转义：</p>
+<h3 id="注释">注释</h3><pre><code><span class="xml"></span><span class="hljs-expression">{{! <span class="hljs-variable">zhu</span> <span class="hljs-variable">shi</span> }}</span><span class="xml"></span>
+</code></pre><h3 id="变量渲染">变量渲染</h3><p>转义：</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">x</span>}}</span><span class="xml"></span>
 </code></pre><p>非转义:</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{{<span class="hljs-variable">x</span>}}</span><span class="xml">}</span>
-</code></pre><h3 id="5.2">根数据访问</h3><pre><code class="lang-javascript">var x = {<span class="hljs-property">name</span>:<span class="hljs-number">1</span>,arr:[{<span class="hljs-property">name</span>:<span class="hljs-number">2</span>}]}
+</code></pre><h3 id="根数据访问">根数据访问</h3><pre><code class="lang-javascript">var x = {<span class="hljs-property">name</span>:<span class="hljs-number">1</span>,arr:[{<span class="hljs-property">name</span>:<span class="hljs-number">2</span>}]}
 </code></pre>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">arr</span>)}}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-variable">root.name</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">name</span>}}</span><span class="xml"> </span><span class="hljs-expression">{{! 12 }}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"></span>
-</code></pre><h3 id="5.3">支持变量属性获取</h3><pre><code class="lang-javascript"><span class="hljs-keyword">var</span> x = {
+</code></pre><h3 id="支持变量属性获取">支持变量属性获取</h3><pre><code class="lang-javascript"><span class="hljs-keyword">var</span> x = {
     y: <span class="hljs-number">1</span>
 };
 <span class="hljs-keyword">var</span> y = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
@@ -330,15 +330,15 @@ kissy-xtemplate -p x/   <span class="hljs-regexp">//</span> x/ 为模板文件�
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">x.y</span>}}</span><span class="xml"> // 1
 </span><span class="hljs-expression">{{<span class="hljs-variable">y</span>[1]}}</span><span class="xml"> // 2
 </span><span class="hljs-expression">{{<span class="hljs-variable">z</span>[<span class="hljs-variable">x</span>]}}</span><span class="xml"> // 1</span>
-</code></pre><h3 id="5.4">调用变量方法</h3><p>注意：该用法会影响性能，推荐自定义命令</p>
+</code></pre><h3 id="调用变量方法">调用变量方法</h3><p>注意：该用法会影响性能，推荐自定义命令</p>
 <pre><code class="lang-javascript"><span class="hljs-attribute">var x </span>=<span class="hljs-string"> [1, 2, 3];</span>
 </code></pre>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">x.slice</span>(1))}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml"> </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"> // =&gt; 2 3</span>
-</code></pre><h3 id="5.5">变量运算</h3><p>支持 + - * / %</p>
+</code></pre><h3 id="变量运算">变量运算</h3><p>支持 + - * / %</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">x</span>+<span class="hljs-variable">y</span>}}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-variable">x</span> + <span class="hljs-string">"1"</span>}}</span><span class="xml">
 </span><span class="hljs-expression">{{ <span class="hljs-variable">y</span> <span class="hljs-variable">-</span> 1 }}</span><span class="xml"></span>
-</code></pre><h3 id="5.6">比较操作</h3><p>支持 if elseif else === !=== &gt; &gt;= &lt; &lt;=</p>
+</code></pre><h3 id="比较操作">比较操作</h3><p>支持 if elseif else === !=== &gt; &gt;= &lt; &lt;=</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span></span>( <span class="hljs-variable">x</span>===1 )}}</span><span class="xml">
 1
 </span><span class="hljs-expression">{{<span class="hljs-variable">elseif</span> (<span class="hljs-variable">x</span>===2)}}</span><span class="xml">
@@ -349,12 +349,12 @@ kissy-xtemplate -p x/   <span class="hljs-regexp">//</span> x/ 为模板文件�
 
 </span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span> </span>( (<span class="hljs-variable">x</span>+1) &gt; 2 )}}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml"></span>
-</code></pre><h3 id="5.7">逻辑操作</h3><p>支持 || &amp;&amp;</p>
+</code></pre><h3 id="逻辑操作">逻辑操作</h3><p>支持 || &amp;&amp;</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span></span>(<span class="hljs-variable">x</span>&gt;1 &amp;&amp; <span class="hljs-variable">y</span>&lt;2)}}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml"></span>
 </code></pre><pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">if</span></span>(!<span class="hljs-variable">x</span>)}}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">if</span></span>}}</span><span class="xml"></span>
-</code></pre><h3 id="5.8">循环</h3><p>可以对数组或对象进行循环操作，默认获取循环对象值为 {{this}}，键为 {{xindex}} , 也可以指定.</p>
+</code></pre><h3 id="循环">循环</h3><p>可以对数组或对象进行循环操作，默认获取循环对象值为 {{this}}，键为 {{xindex}} , 也可以指定.</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> x = [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>];
 </code></pre>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">x</span>)}}</span><span class="xml">
@@ -364,26 +364,26 @@ kissy-xtemplate -p x/   <span class="hljs-regexp">//</span> x/ 为模板文件�
 </span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">x</span>,<span class="hljs-string">"value"</span>,<span class="hljs-string">"key"</span>)}}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-variable">key</span>}}</span><span class="xml"> </span><span class="hljs-expression">{{<span class="hljs-variable">value</span>}}</span><span class="xml"> // 0 a 1 b
 </span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"></span>
-</code></pre><h3 id="5.9">范围循环</h3><p>可以对 start 和 end(不包含) 范围内的数字进行循环</p>
+</code></pre><h3 id="范围循环">范围循环</h3><p>可以对 start 和 end(不包含) 范围内的数字进行循环</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">range</span>(0,3))}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"> // 012
 </span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">range</span>(3,0))}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"> // 321
 </span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">each</span></span>(<span class="hljs-variable">range</span>(3,0,2))}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">this</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-end-block">/<span class="hljs-keyword">each</span></span>}}</span><span class="xml"> // 31</span>
-</code></pre><h3 id="6">设置操作</h3><pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">set</span>(<span class="hljs-variable">x</span>=1)}}</span><span class="xml">
+</code></pre><h3 id="设置操作">设置操作</h3><pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">set</span>(<span class="hljs-variable">x</span>=1)}}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-variable">set</span>(<span class="hljs-variable">y</span>=3,<span class="hljs-variable">z</span>=2)}}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-variable">x</span>}}</span><span class="xml"> // 1
 </span><span class="hljs-expression">{{<span class="hljs-variable">y</span>+<span class="hljs-variable">z</span>}}</span><span class="xml"> // 5</span>
-</code></pre><h3 id="6.1">宏</h3><pre><code><span class="xml">// 声明
+</code></pre><h3 id="宏">宏</h3><pre><code><span class="xml">// 声明
 </span><span class="hljs-expression">{{<span class="hljs-begin-block">#macro</span>(<span class="hljs-string">"test"</span>,<span class="hljs-string">"param"</span> <span class="hljs-variable">default</span>=1)}}</span><span class="xml">param is </span><span class="hljs-expression">{{<span class="hljs-variable">param</span>}}</span><span class="xml"> </span><span class="hljs-expression">{{<span class="hljs-variable">default</span>}}</span><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-end-block">/macro</span>}}</span><span class="xml">
 
 // 调用宏
 </span><span class="hljs-expression">{{<span class="hljs-variable">macro</span>(<span class="hljs-string">"test"</span>,<span class="hljs-string">"2"</span>)}}</span><span class="xml"> // =&gt; param is 2 1
 
 </span><span class="hljs-expression">{{<span class="hljs-variable">macro</span>(<span class="hljs-string">"test"</span>, <span class="hljs-string">"2"</span>, 2)}}</span><span class="xml"> // =&gt; param is 2 2</span>
-</code></pre><h3 id="6.2">包含操作</h3><p>x.xtpl</p>
+</code></pre><h3 id="包含操作">包含操作</h3><p>x.xtpl</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">z</span>}}</span><span class="xml"></span>
 </code></pre><p>y.xtpl</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">include</span>(<span class="hljs-string">"x"</span>)}}</span><span class="xml"></span>
-</code></pre><h3 id="6.3">继承</h3><p>layout.xtpl</p>
+</code></pre><h3 id="继承">继承</h3><p>layout.xtpl</p>
 <pre><code class="lang-html"><span class="xml"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
@@ -411,7 +411,7 @@ kissy-xtemplate -p x/   <span class="hljs-regexp">//</span> x/ 为模板文件�
     <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span></span><span class="hljs-expression">{{<span class="hljs-variable">title</span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
 </span><span class="hljs-expression">{{<span class="hljs-end-block">/block</span>}}</span><span class="xml"></span>
 </code></pre>
-<h3 id="6.4">自定义命令</h3><h4>nodejs 全局命令</h4><p>同步调用行内：</p>
+<h3 id="自定义命令">自定义命令</h3><h4 id="nodejs 全局命令">nodejs 全局命令</h4><p>同步调用行内：</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xtpl = <span class="hljs-built_in">require</span>(<span class="hljs-string">'xtpl'</span>);
 xtpl.XTemplate.addCommand(<span class="hljs-string">'xInline'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(scope, option)</span></span>{
   <span class="hljs-keyword">return</span> option.params[<span class="hljs-number">0</span>]+<span class="hljs-string">'1'</span>;
@@ -466,7 +466,7 @@ xtpl.XTemplate.addCommand(<span class="hljs-string">'xInline'</span>,<span class
 </span><span class="hljs-expression">{{<span class="hljs-variable">ret</span>}}</span><span class="xml">
 </span><span class="hljs-expression">{{<span class="hljs-end-block">/xBlock</span>}}</span><span class="xml">
 // =&gt; 21</span>
-</code></pre><h4>浏览器命令</h4><p>全局：</p>
+</code></pre><h4 id="浏览器命令">浏览器命令</h4><p>全局：</p>
 <pre><code class="lang-javascript">KISSY.use(<span class="hljs-string">'xtemplate/runtime'</span>,<span class="hljs-keyword">function</span>(S,XTemplate){
     XTemplate.addCommand(<span class="hljs-keyword">...</span>) // 同 nodejs
 });
@@ -484,7 +484,7 @@ xtpl.XTemplate.addCommand(<span class="hljs-string">'xInline'</span>,<span class
     })<span class="hljs-keyword">...</span>
 });
 </code></pre>
-<h3 id="6.5">Buffer api</h3><h4>Methods</h4><pre><code class="lang-javascript">Buffer write(data:<span class="hljs-built_in">String</span>, <span class="hljs-built_in">escape</span>:<span class="hljs-built_in">Boolean</span>) <span class="hljs-comment">// 写数据到缓冲区</span>
+<h3 id="Buffer api">Buffer api</h3><h4 id="Methods">Methods</h4><pre><code class="lang-javascript">Buffer write(data:<span class="hljs-built_in">String</span>, <span class="hljs-built_in">escape</span>:<span class="hljs-built_in">Boolean</span>) <span class="hljs-comment">// 写数据到缓冲区</span>
 </code></pre>
 <table class="table table-bordered table-striped">
     <thead>
@@ -516,11 +516,11 @@ Buffer end(data, <span class="hljs-built_in">escape</span>) <span class="hljs-co
 
 Buffer error(reason) <span class="hljs-comment">// 触发 render 异步回调为失败。 reason 为回调的第一个参数.</span>
 </code></pre>
-<h3 id="6.6">Scope api</h3><h4>Members</h4><pre><code class="lang-javascript"><span class="hljs-keyword">parent</span> <span class="hljs-comment">// 上级作用域</span>
+<h3 id="Scope api">Scope api</h3><h4 id="Members">Members</h4><pre><code class="lang-javascript"><span class="hljs-keyword">parent</span> <span class="hljs-comment">// 上级作用域</span>
 
 root <span class="hljs-comment">// 顶层作用域</span>
 </code></pre>
-<h4>Methods</h4><pre><code class="lang-javascript"><span class="hljs-keyword">void</span> setParent(scope: Scope) <span class="hljs-comment">// 设置当前作用域的上级作用域</span>
+<h4 id="Methods">Methods</h4><pre><code class="lang-javascript"><span class="hljs-keyword">void</span> setParent(scope: Scope) <span class="hljs-comment">// 设置当前作用域的上级作用域</span>
 
 <span class="hljs-keyword">void</span> setData(data) <span class="hljs-comment">// 设置当前作用域内数据</span>
 
@@ -530,7 +530,7 @@ root <span class="hljs-comment">// 顶层作用域</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-keyword">get</span>(name) <span class="hljs-comment">// 获取当前作用域内数据值（包括附属数据）</span>
 </code></pre>
-<h2 id="7.6">Reserved words</h2><p><strong>Xtemplate内置以下命令，请避免重复定义同名命令</strong></p>
+<h2 id="Reserved words">Reserved words</h2><p><strong>Xtemplate内置以下命令，请避免重复定义同名命令</strong></p>
 <table class="table table-bordered table-striped">
     <tr>
         <td>block</td><td>debugger</td><td>each</td><td>extend</td>
@@ -544,7 +544,7 @@ root <span class="hljs-comment">// 顶层作用域</span>
 </table>
 
 
-<h2 id="8.6">performance</h2><p><a href="http://dev.kissyui.com/kissy/src/xtemplate/-/benchmark/">xtpl jade ejs nunjucks handlebars dust</a></p>
+<h2 id="performance">performance</h2><p><a href="http://dev.kissyui.com/kissy/src/xtemplate/-/benchmark/">xtpl jade ejs nunjucks handlebars dust</a></p>
 
 				<div id="disqus_thread"></div>
 				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
@@ -558,7 +558,7 @@ root <span class="hljs-comment">// 顶层作用域</span>
 					</div>
 					<div class="panel-body">
 						<ul class="outline">
-							<li class="level2"><a href="#1">基本 api</a></li><li class="level3"><a href="#1.1">Class</a></li><li class="level3"><a href="#1.2">Methods</a></li><li class="level2"><a href="#2.2">浏览器端使用</a></li><li class="level3"><a href="#2.3">载入 kissy</a></li><li class="level3"><a href="#2.4">未预编译</a></li><li class="level3"><a href="#2.5">预编译</a></li><li class="level2"><a href="#3.5">node 下使用</a></li><li class="level2"><a href="#4.5">语法</a></li><li class="level3"><a href="#4.6">基本类型</a></li><li class="level3"><a href="#4.7">map</a></li><li class="level3"><a href="#4.8">array</a></li><li class="level3"><a href="#4.9">转义</a></li><li class="level3"><a href="#5">注释</a></li><li class="level3"><a href="#5.1">变量渲染</a></li><li class="level3"><a href="#5.2">根数据访问</a></li><li class="level3"><a href="#5.3">支持变量属性获取</a></li><li class="level3"><a href="#5.4">调用变量方法</a></li><li class="level3"><a href="#5.5">变量运算</a></li><li class="level3"><a href="#5.6">比较操作</a></li><li class="level3"><a href="#5.7">逻辑操作</a></li><li class="level3"><a href="#5.8">循环</a></li><li class="level3"><a href="#5.9">范围循环</a></li><li class="level3"><a href="#6">设置操作</a></li><li class="level3"><a href="#6.1">宏</a></li><li class="level3"><a href="#6.2">包含操作</a></li><li class="level3"><a href="#6.3">继承</a></li><li class="level3"><a href="#6.4">自定义命令</a></li><li class="level3"><a href="#6.5">Buffer api</a></li><li class="level3"><a href="#6.6">Scope api</a></li><li class="level2"><a href="#7.6">Reserved words</a></li><li class="level2"><a href="#8.6">performance</a></li>
+							<li class="level2"><a href="#基本 api">基本 api</a></li><li class="level3"><a href="#Class">Class</a></li><li class="level3"><a href="#Methods">Methods</a></li><li class="level2"><a href="#浏览器端使用">浏览器端使用</a></li><li class="level3"><a href="#载入 kissy">载入 kissy</a></li><li class="level3"><a href="#未预编译">未预编译</a></li><li class="level3"><a href="#预编译">预编译</a></li><li class="level2"><a href="#node 下使用">node 下使用</a></li><li class="level2"><a href="#语法">语法</a></li><li class="level3"><a href="#基本类型">基本类型</a></li><li class="level3"><a href="#map">map</a></li><li class="level3"><a href="#array">array</a></li><li class="level3"><a href="#转义">转义</a></li><li class="level3"><a href="#注释">注释</a></li><li class="level3"><a href="#变量渲染">变量渲染</a></li><li class="level3"><a href="#根数据访问">根数据访问</a></li><li class="level3"><a href="#支持变量属性获取">支持变量属性获取</a></li><li class="level3"><a href="#调用变量方法">调用变量方法</a></li><li class="level3"><a href="#变量运算">变量运算</a></li><li class="level3"><a href="#比较操作">比较操作</a></li><li class="level3"><a href="#逻辑操作">逻辑操作</a></li><li class="level3"><a href="#循环">循环</a></li><li class="level3"><a href="#范围循环">范围循环</a></li><li class="level3"><a href="#设置操作">设置操作</a></li><li class="level3"><a href="#宏">宏</a></li><li class="level3"><a href="#包含操作">包含操作</a></li><li class="level3"><a href="#继承">继承</a></li><li class="level3"><a href="#自定义命令">自定义命令</a></li><li class="level3"><a href="#Buffer api">Buffer api</a></li><li class="level3"><a href="#Scope api">Scope api</a></li><li class="level2"><a href="#Reserved words">Reserved words</a></li><li class="level2"><a href="#performance">performance</a></li>
 						</ul>
 					</div>
 				</div>

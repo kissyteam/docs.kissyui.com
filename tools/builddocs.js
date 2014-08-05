@@ -14,19 +14,13 @@ var srcDirPath = '',
 	homePageOnlineUrl = '',
 	version = '';
 
-var headerID = 0,
-	headerListsHtml = '';
+var headerListsHtml = '';
 markedRenderer.heading = function(text, level){
-	if(level == 2){  //生成的id序列不是全部连续的，但是保证其唯一性就可以了
-		headerID += 1;
-		headerListsHtml += '<li class="level2"><a href="#' + headerID + '">' + text + '</a></li>'; 
-		return '<h' + level + ' id="' + headerID + '">' + text + '</h' + level + '>';
-	}else if(level == 3){
-		headerID = (headerID * 10 + 0.1 * 10)/10;  //fix float type operation bug
-		headerListsHtml += '<li class="level3"><a href="#' + headerID + '">' + text + '</a></li>'; 
-		return '<h' + level + ' id="' + headerID + '">' + text + '</h' + level + '>';
+	if(level == 2 || level == 3){
+		headerListsHtml += '<li class="level' + level + '"><a href="#' + text + '">' + text + '</a></li>'; 
 	}
-	return '<h' + level + '>' + text + '</h' + level + '>';
+
+	return '<h' + level + ' id="' + text + '">' + text + '</h' + level + '>';
 };
 markedRenderer.link = function(href, title, text){
 	href = href.replace('{{{version}}}','/'+version);
@@ -58,8 +52,7 @@ module.exports.buildGuide = function(srcUrl,config){
 			var sideBarHtml = getSideBarHtmlSync(dirName);
 			//将markdown转为html
 			fs.readdirSync(dirName).forEach(function(file){
-				headerID = 0; //每编译一次markdown文件前都重置一下
-				headerListsHtml = '';
+				headerListsHtml = '';   //每编译一次markdown文件前都重置一下
 
 				var fileName = path.resolve(dirName,file),
 					fileMD = fs.readFileSync(fileName).toString(),
@@ -68,7 +61,6 @@ module.exports.buildGuide = function(srcUrl,config){
 					apiLinkReg = /\(\(\(apilink\s*(.+)\)\)\)/,
 					apiLinkRegResult = apiLinkReg.exec(fileHtml),
 					apilink = '../../api';
-
 				sideBarHtml.headerListsHtml = headerListsHtml;  //调用marked()后即生成
 				if(apiLinkRegResult){
 					apilink = apiLinkRegResult[1];
@@ -77,10 +69,11 @@ module.exports.buildGuide = function(srcUrl,config){
 					fileHtml = fileHtml.replace(apiLinkRegResult[0],'');
 				}
 
+				var newSideBarHtml = util.clone(sideBarHtml);  //拷贝对象，下面的模板渲染是异步的，引用类型sideBarHtml会被改变，需要拷贝
 				var mainXtplPath = path.resolve(srcDirPath,'../themes/guides/layouts/main.xtpl'),
 					desFile = xtpl.__express(mainXtplPath,{
 						mainContent : fileHtml,
-						sidebarContent : sideBarHtml,
+						sidebarContent : newSideBarHtml,
 						apilink : apilink,
 						version : version,
 						title : title,

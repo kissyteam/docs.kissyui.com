@@ -152,7 +152,7 @@
 </script>
 		<div class="row">
 			<div class="col-md-9" id="main-content">
-				<h1>KISSY 模块定义规范（KMD）</h1><hr>
+				<h1 id="KISSY 模块定义规范（KMD）">KISSY 模块定义规范（KMD）</h1><hr>
 <p>模块：即一段独立成文件的代码单元。最常见的浏览器端 JavaScript 单元是：</p>
 <pre><code><span class="hljs-comment">// within a file</span>
 (<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(doc)</span></span>{
@@ -174,10 +174,10 @@
 <li>所依赖的模块</li>
 </ol>
 <p>KISSY 在诞生之初就确立了模块化的架构，以此抽象出现在的 KISSY 模块定义规范（KISSY Module Defination，简称 KMD）。这份规范明确了 KISSY 所遵循的书写格式和基本交互。</p>
-<h1>API 规范</h1><h2 id="1">add() <code>Function</code></h2><p><code>add</code>函数挂载在全局对象<code>KISSY</code>上，用来定义模块。</p>
+<h1 id="API 规范">API 规范</h1><h2 id="add() <code>Function</code>">add() <code>Function</code></h2><p><code>add</code>函数挂载在全局对象<code>KISSY</code>上，用来定义模块。</p>
 <pre><code><span class="hljs-function"><span class="hljs-title">add</span><span class="hljs-params">(name?,factory?,deps)</span></span>
 </code></pre><p>其中字符串<code>name</code>表示模块的注册名称，<code>factory</code>表示模块的主内容/逻辑，<code>deps</code>是一个对象，表示模块依赖</p>
-<h3 id="1.1">add(name,factory)</h3><p><code>add</code>函数第一个参数是<code>name</code>，表示要注册模块的名字，<code>factory</code>可以是函数，也可以是对象或字符串。</p>
+<h3 id="add(name,factory)">add(name,factory)</h3><p><code>add</code>函数第一个参数是<code>name</code>，表示要注册模块的名字，<code>factory</code>可以是函数，也可以是对象或字符串。</p>
 <p><code>factory</code>为函数时，表示模块的实现逻辑，回调函数回传第一个参数总是<code>KISSY</code>全局对象，约定写为<code>S</code>，该函数的返回值即为模块的返回值，该返回值将会传入调用这个模块的沙箱中：</p>
 <pre><code>add(<span class="hljs-string">'module-name'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S)</span></span>{
     <span class="hljs-comment">// 模块代码</span>
@@ -190,7 +190,7 @@
 add('module-name',{
     'foo':'bar'    
 });
-</code></pre><h3 id="1.2">add(name,factory,deps)</h3><p>当给<code>add</code>函数传入最后一个参数<code>deps</code>，这时<code>deps</code>表示该模块的依赖，其中<code>requires</code>属性是一个数组，数组元素可以是其他模块的名字<code>name</code>，也可以是指向模块的路径，<code>factory</code>如果是函数，则函数中的回传参数除第一个<code>S</code>（全局对象 KISSY）外依次对应每个模块的返回值：</p>
+</code></pre><h3 id="add(name,factory,deps)">add(name,factory,deps)</h3><p>当给<code>add</code>函数传入最后一个参数<code>deps</code>，这时<code>deps</code>表示该模块的依赖，其中<code>requires</code>属性是一个数组，数组元素可以是其他模块的名字<code>name</code>，也可以是指向模块的路径，<code>factory</code>如果是函数，则函数中的回传参数除第一个<code>S</code>（全局对象 KISSY）外依次对应每个模块的返回值：</p>
 <pre><code>add(<span class="hljs-string">'module-name'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,A,B,C)</span></span>{
     <span class="hljs-comment">// 模块代码    </span>
     <span class="hljs-keyword">return</span> sth;
@@ -199,7 +199,7 @@ add('module-name',{
         <span class="hljs-string">'mod-a'</span>,<span class="hljs-string">'mod-b'</span>,<span class="hljs-string">'mod-c'</span>
     ]
 });
-</code></pre><h3 id="1.3">add(factory,deps)</h3><p><code>name</code>参数可以省略，但仅限于一个 JS 文件包含一个<code>add()</code>（这时文件名可以用作模块名），如果一个文件包含多个<code>add()</code>，则必须为每个<code>add()</code>指定模块名，即<code>name</code>参数不可省略，比如：</p>
+</code></pre><h3 id="add(factory,deps)">add(factory,deps)</h3><p><code>name</code>参数可以省略，但仅限于一个 JS 文件包含一个<code>add()</code>（这时文件名可以用作模块名），如果一个文件包含多个<code>add()</code>，则必须为每个<code>add()</code>指定模块名，即<code>name</code>参数不可省略，比如：</p>
 <pre><code><span class="hljs-comment">// a.js，这里的add()没有指定name</span>
 add(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S)</span></span>{
     <span class="hljs-comment">// A 模块逻辑</span>
@@ -227,7 +227,7 @@ add(<span class="hljs-string">'mod-a'</span>,<span class="hljs-function"><span c
 add(<span class="hljs-string">'mod-b'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S)</span></span>{
     <span class="hljs-comment">// 逻辑段B</span>
 });
-</code></pre><h3 id="1.4">add(factory)</h3><p>也可以选择 commonjs 的模块书写方式，这种写法仅限于一个 JS 文件包含一个<code>add()</code>（这时文件名可以用作模块名），例如</p>
+</code></pre><h3 id="add(factory)">add(factory)</h3><p>也可以选择 commonjs 的模块书写方式，这种写法仅限于一个 JS 文件包含一个<code>add()</code>（这时文件名可以用作模块名），例如</p>
 <pre><code><span class="hljs-comment">// a/b.js</span>
 KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,require,exports,module)</span></span>{
     <span class="hljs-keyword">var</span> c = <span class="hljs-built_in">require</span>(<span class="hljs-string">'a/c'</span>);
@@ -245,8 +245,8 @@ KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span>
     <span class="hljs-keyword">var</span> C = <span class="hljs-built_in">require</span>(<span class="hljs-string">'c'</span>);
     <span class="hljs-comment">// Your code...</span>
 });
-</code></pre><h2 id="2.4">require() <code>Function</code></h2><p><code>require</code>函数挂载在全局对象<code>KISSY</code>上，用来获取已加载的模块的值。</p>
-<h3 id="2.5">require(name)</h3><p>获取已经注册的模块的返回值，这里注意，要保证所有依赖的模块都已经注册过，<code>require()</code>函数才会正确返回，如果有未注册的模块，<code>require()</code>不会计算依赖并动态加载。该函数只是针对已经注册过模块起作用，是一种快捷调用模块返回值的方法：</p>
+</code></pre><h2 id="require() <code>Function</code>">require() <code>Function</code></h2><p><code>require</code>函数挂载在全局对象<code>KISSY</code>上，用来获取已加载的模块的值。</p>
+<h3 id="require(name)">require(name)</h3><p>获取已经注册的模块的返回值，这里注意，要保证所有依赖的模块都已经注册过，<code>require()</code>函数才会正确返回，如果有未注册的模块，<code>require()</code>不会计算依赖并动态加载。该函数只是针对已经注册过模块起作用，是一种快捷调用模块返回值的方法：</p>
 <pre><code><span class="hljs-comment">// 注册模块</span>
 S.add(<span class="hljs-string">'a'</span>,{
     <span class="hljs-string">'foo'</span>:<span class="hljs-string">'bar'</span>    
@@ -254,8 +254,8 @@ S.add(<span class="hljs-string">'a'</span>,{
 
 <span class="hljs-comment">// 获取已经注册模块的值</span>
 S.<span class="hljs-keyword">require</span>(<span class="hljs-string">'a'</span>); <span class="hljs-comment">// =&gt; {'foo':'bar'}</span>
-</code></pre><h2 id="3.5">use() <code>Function</code></h2><p><code>use</code>函数挂载在全局对象<code>KISSY</code>上，用来异步调用模块，并在模块加载完成后运行沙箱逻辑。</p>
-<h3 id="3.6">use(name,sandbox)</h3><p><code>name</code>是一个字符串，表示要载入模块的名字（列表），如果有多个名字，则中间用逗号分隔，函数<code>sandbox</code>为加载并注册完成这些模块后的回调逻辑，带入第一个参数为<code>KISSY</code>全局对象，默认缩写为<code>S</code>，其他参数依次带入所载入的模块返回的对象。</p>
+</code></pre><h2 id="use() <code>Function</code>">use() <code>Function</code></h2><p><code>use</code>函数挂载在全局对象<code>KISSY</code>上，用来异步调用模块，并在模块加载完成后运行沙箱逻辑。</p>
+<h3 id="use(name,sandbox)">use(name,sandbox)</h3><p><code>name</code>是一个字符串，表示要载入模块的名字（列表），如果有多个名字，则中间用逗号分隔，函数<code>sandbox</code>为加载并注册完成这些模块后的回调逻辑，带入第一个参数为<code>KISSY</code>全局对象，默认缩写为<code>S</code>，其他参数依次带入所载入的模块返回的对象。</p>
 <pre><code><span class="hljs-keyword">use</span>(<span class="hljs-string">'mod-a, mod-b'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,ModA,ModB)</span></span>{
     <span class="hljs-comment">// 沙箱逻辑</span>
 });
@@ -264,8 +264,8 @@ S.<span class="hljs-keyword">require</span>(<span class="hljs-string">'a'</span>
     <span class="hljs-comment">// 沙箱逻辑    </span>
 });
 </code></pre><p>例子中的模块 A 和模块 B 在注册模块名时的书写方法请参照<code>add()</code>。</p>
-<h2 id="4.6">config() <code>Function</code></h2><p><code>config</code>函数挂载在全局对象<code>KISSY</code>上，用来读写全局配置项，包括注册<strong>包</strong>、预注册<strong>模块</strong>名称，模块文件的引用规则等等。</p>
-<h3 id="4.7">config(name,pkg)</h3><p>写配置项，<code>name</code>表示配置项名称，<code>pkg</code>表示配置项的值，其中配置项包括：</p>
+<h2 id="config() <code>Function</code>">config() <code>Function</code></h2><p><code>config</code>函数挂载在全局对象<code>KISSY</code>上，用来读写全局配置项，包括注册<strong>包</strong>、预注册<strong>模块</strong>名称，模块文件的引用规则等等。</p>
+<h3 id="config(name,pkg)">config(name,pkg)</h3><p>写配置项，<code>name</code>表示配置项名称，<code>pkg</code>表示配置项的值，其中配置项包括：</p>
 <ul>
 <li>modules，JSON 对象，预注册的模块关系依赖</li>
 <li>combine，Boolean值，是否开启动态合并</li>
@@ -351,7 +351,7 @@ config(<span class="hljs-string">'modules'</span>,{
 
 <span class="hljs-comment">// 正常使用模块</span>
 <span class="hljs-keyword">use</span>(<span class="hljs-string">'mod-a'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S)</span></span>{});
-</code></pre><h3 id="4.8">config(cfg)</h3><p>写配置项的另外一种写法，即传入一个JSON对象<code>cfg</code>：</p>
+</code></pre><h3 id="config(cfg)">config(cfg)</h3><p>写配置项的另外一种写法，即传入一个JSON对象<code>cfg</code>：</p>
 <pre><code>config({
     modules:{
         // 模块依赖关系Map
@@ -364,10 +364,10 @@ config(<span class="hljs-string">'modules'</span>,{
     debug:false
     //<span class="hljs-keyword">...</span>
 });
-</code></pre><h3 id="4.9">config(name)</h3><p>读配置项</p>
+</code></pre><h3 id="config(name)">config(name)</h3><p>读配置项</p>
 <pre><code><span class="hljs-comment">// 获取当前的全局配置</span>
 <span class="hljs-keyword">var</span> combine = config(<span class="hljs-string">'combine'</span>);
-</code></pre><h2 id="5.9">小结</h2><p>以上为 KMD 模块定义规范的全部内容，经常使用的 API 只有 <code>use</code>、<code>add</code>、<code>config</code>。</p>
+</code></pre><h2 id="小结">小结</h2><p>以上为 KMD 模块定义规范的全部内容，经常使用的 API 只有 <code>use</code>、<code>add</code>、<code>config</code>。</p>
 <p>KMD 规范诞生之初还未有<a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS规范</a>以及<a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a> 和 <a href="https://github.com/seajs/seajs/issues/242">CMD</a>。经典的 <a href="http://yuilibrary.com/yui/docs/yui/loader.html">YUI3 Loader</a> 受限于单一的业务场景（门户网站），至今未完全形成规范。KMD 作为一个完整的模块规范，崇尚约定，保持简单，并在 Loader 的实现过程中，新增了别名、包配置、动态combo等实际工作中常用的功能，即有别于 AMD 和 CMD 的过于纯粹，又不同于 YUILoader 的繁杂配置，保持其易用和实用。</p>
 
 				<div id="disqus_thread"></div>
@@ -382,7 +382,7 @@ config(<span class="hljs-string">'modules'</span>,{
 					</div>
 					<div class="panel-body">
 						<ul class="outline">
-							<li class="level2"><a href="#1">概述</a></li><li class="level2"><a href="#2">设置内置模块时间戳</a></li><li class="level2"><a href="#3">设置特定包时间戳</a></li><li class="level2"><a href="#4">设置特定模块时间戳</a></li><li class="level2"><a href="#5">总示例</a></li>
+							<li class="level2"><a href="#add() <code>Function</code>">add() <code>Function</code></a></li><li class="level3"><a href="#add(name,factory)">add(name,factory)</a></li><li class="level3"><a href="#add(name,factory,deps)">add(name,factory,deps)</a></li><li class="level3"><a href="#add(factory,deps)">add(factory,deps)</a></li><li class="level3"><a href="#add(factory)">add(factory)</a></li><li class="level2"><a href="#require() <code>Function</code>">require() <code>Function</code></a></li><li class="level3"><a href="#require(name)">require(name)</a></li><li class="level2"><a href="#use() <code>Function</code>">use() <code>Function</code></a></li><li class="level3"><a href="#use(name,sandbox)">use(name,sandbox)</a></li><li class="level2"><a href="#config() <code>Function</code>">config() <code>Function</code></a></li><li class="level3"><a href="#config(name,pkg)">config(name,pkg)</a></li><li class="level3"><a href="#config(cfg)">config(cfg)</a></li><li class="level3"><a href="#config(name)">config(name)</a></li><li class="level2"><a href="#小结">小结</a></li>
 						</ul>
 					</div>
 				</div>

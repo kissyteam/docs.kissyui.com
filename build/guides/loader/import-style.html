@@ -152,13 +152,13 @@
 </script>
 		<div class="row">
 			<div class="col-md-9" id="main-content">
-				<h1>importStyle的使用</h1><h2 id="1">概述</h2><p>ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。</p>
-<h2 id="2">先决条件</h2><ul>
+				<h1 id="importStyle的使用">importStyle的使用</h1><h2 id="概述">概述</h2><p>ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。</p>
+<h2 id="先决条件">先决条件</h2><ul>
 <li>头部引入<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js'</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre></li>
 <li>页面是基于 KISSY 模块规范开发的，如依赖css，需要显式在requires里声明</li>
 </ul>
-<h2 id="3">使用指南</h2><pre><code>KISSY.config('modules', {
+<h2 id="使用指南">使用指南</h2><pre><code>KISSY.config('modules', {
   'components/nav/index': {requires: ['components/nav/index.css']},
   'components/layout/index': {requires: ['components/layout/index.css']},
   'components/home/index': {requires: ['components/nav/index<span class="hljs-string">','</span>components/layout/index']}
@@ -188,7 +188,7 @@ KISSY.importStyle('components/home/index');
 					</div>
 					<div class="panel-body">
 						<ul class="outline">
-							<li class="level2"><a href="#1">概述</a></li><li class="level2"><a href="#2">设置内置模块时间戳</a></li><li class="level2"><a href="#3">设置特定包时间戳</a></li><li class="level2"><a href="#4">设置特定模块时间戳</a></li><li class="level2"><a href="#5">总示例</a></li>
+							<li class="level2"><a href="#概述">概述</a></li><li class="level2"><a href="#先决条件">先决条件</a></li><li class="level2"><a href="#使用指南">使用指南</a></li>
 						</ul>
 					</div>
 				</div>

@@ -153,11 +153,11 @@
 		<div class="row">
 			<div class="col-md-9" id="main-content">
 				<p></p>
-<h1>loader基本介绍</h1><blockquote>
+<h1 id="loader基本介绍">loader基本介绍</h1><blockquote>
 <p>loader 是脚本加载器的实现， 弥补了 javascript 语言机制的不足, 提供类似其他语言原生的模块化机制。KISSY loader 实现了 <a href="/5.0/guides/loader/kmd.html">KISSY 模块规范</a>。</p>
 </blockquote>
-<h3 id="0.1">add()  <code>&lt;static&gt;</code></h3><p><code>add(name,fn[,config]) ⇒ void</code></p>
-<h4>parameters</h4><ul>
+<h3 id="add()  <code>&lt;static&gt;</code>">add()  <code>&lt;static&gt;</code></h3><p><code>add(name,fn[,config]) ⇒ void</code></p>
+<h4 id="parameters">parameters</h4><ul>
 <li>name (string) – 模块名。可选。</li>
 <li>fn (function) – 模块定义函数</li>
 <li>config (object) – 模块的一些格外属性, 是JSON对象，包含属性：<ul>
@@ -200,7 +200,7 @@ KISSY.add(<span class="hljs-string">"tc/mods/mod1"</span>,<span class="hljs-func
 </code></pre><blockquote>
 <p><em>Changed in version 1.3+</em>: KISSY.add 表示模块定义, fn 并不会执行, 只有在 use 时才执行, 懒加载原则.</p>
 </blockquote>
-<h3 id="0.2">add(factory)</h3><p>也可以选择 commonjs 的模块书写方式，这种写法仅限于一个 JS 文件包含一个<code>add()</code>（这时文件名可以用作模块名），例如</p>
+<h3 id="add(factory)">add(factory)</h3><p>也可以选择 commonjs 的模块书写方式，这种写法仅限于一个 JS 文件包含一个<code>add()</code>（这时文件名可以用作模块名），例如</p>
 <pre><code><span class="hljs-comment">// a/b.js</span>
 KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,require,exports,module)</span></span>{
     <span class="hljs-keyword">var</span> c = <span class="hljs-built_in">require</span>(<span class="hljs-string">'a/c'</span>);
@@ -213,7 +213,7 @@ KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span>
 <li><code>config(name,value) ⇒ void</code>，name：参数名，value：参数值</li>
 <li><code>config(name) ⇒ data</code>，返回参数名的值</li>
 </ul>
-<h4>parameters</h4><p>全局配置函数，用以读写全局配置项，包括注册包、预注册模块名称，模块文件的引用规则等等。其中配置项包括这些字段，<code>modules</code>和<code>packages</code>是JSON对象：</p>
+<h4 id="parameters">parameters</h4><p>全局配置函数，用以读写全局配置项，包括注册包、预注册模块名称，模块文件的引用规则等等。其中配置项包括这些字段，<code>modules</code>和<code>packages</code>是JSON对象：</p>
 <ul>
 <li><strong>modules</strong>，JSON 对象，预注册的模块关系依赖</li>
 <li><strong>packages</strong>，JSON 对象，包配置</li>
@@ -245,7 +245,7 @@ KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span>
 <li>base，字符串, 表示包所在的 url 路径, 相对路径表示相对于当前页面路径, 如果需要相对于当前执行脚本路径, 则需要自己处理：<br /><code>var scripts=document.getElementsByTagName(&quot;script&quot;);</code><br /><code>alert(scripts[scripts.length-1].src);</code></li>
 <li>charset，字符串, 表示宝贝所有模块定义文件的编码格式, 默认 utf-8</li>
 </ul>
-<h4>Example</h4><p>配置项可以在脚本引用时带入，比如：</p>
+<h4 id="Example">Example</h4><p>配置项可以在脚本引用时带入，比如：</p>
 <pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'seed.js'</span> <span class="hljs-attribute">data-config</span>=<span class="hljs-value">'{combine:true}'</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre><p>完整的配置样例：</p>
 <pre><code>KISSY.config({
@@ -311,12 +311,12 @@ KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span>
 </code></pre><blockquote>
 <p>模块名也可以省略, 不过部署阶段需要使用 <a href="https://github.com/daxingplay/kmc">KISSY Module Compiler</a> 静态打包。</p>
 </blockquote>
-<h3 id="0.3">getScript()  <code>&lt;static&gt;</code></h3><ul>
+<h3 id="getScript()  <code>&lt;static&gt;</code>">getScript()  <code>&lt;static&gt;</code></h3><ul>
 <li><code>getScript(url,config) ⇒ HTMLElement</code></li>
 <li><code>getScript(url,success,charset) ⇒ HTMLElement</code>，简写写法</li>
 </ul>
 <p>动态加载目标地址的资源文件，config 为JSON对象，返回值为HTMLElement，为创建的link或者script节点，参数如下：</p>
-<h4>parameters</h4><ul>
+<h4 id="parameters">parameters</h4><ul>
 <li>url（string），js/css 资源地址</li>
 <li>config，JSON 对象，包含属性有：<ul>
 <li>charset（string），资源文件的字符编码</li>
@@ -326,15 +326,15 @@ KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span>
 </ul>
 </li>
 </ul>
-<h4>return</h4><p><code>HTMLElement</code> 返回创建的link或者script节点</p>
-<h4>Example</h4><p>简写写法<code>getScript(url,success,charset)</code>中，<code>success</code>为回调函数，<code>charset</code>为编码类型。相当于：</p>
+<h4 id="return">return</h4><p><code>HTMLElement</code> 返回创建的link或者script节点</p>
+<h4 id="Example">Example</h4><p>简写写法<code>getScript(url,success,charset)</code>中，<code>success</code>为回调函数，<code>charset</code>为编码类型。相当于：</p>
 <pre><code> <span class="hljs-tag">KISSY</span><span class="hljs-class">.getScript</span>(<span class="hljs-tag">url</span> , <span class="hljs-rules">{ 
      <span class="hljs-rule"><span class="hljs-attribute">success </span>:<span class="hljs-value"> success , 
      charset : charset 
 </span></span></span>});
-</code></pre><h3 id="0.4">use()  <code>&lt;static&gt;</code></h3><p><code>use (modNames[,callback]) ⇒  void</code></p>
+</code></pre><h3 id="use()  <code>&lt;static&gt;</code>">use()  <code>&lt;static&gt;</code></h3><p><code>use (modNames[,callback]) ⇒  void</code></p>
 <p>载入并运行模块,和<code>add</code>一起使用，详细用法参照<a href="/5.0/guides/loader/kmd.html">KISSY 模块规范</a>，<code>callback</code>类型可以是function也可以是object。参数说明：</p>
-<h4>parameters</h4><ul>
+<h4 id="parameters">parameters</h4><ul>
 <li>modNames (String|String[]) – 以逗号（<code>,</code>）分割的模块名称,例如 <code>KISSY.use(&quot;custommod,custommod2&quot;)</code></li>
 <li>callback (function|Object) – 当 <code>modNames</code> 中所有模块载入并执行完毕后执行的函数或者对象描述，当callback类型为Object时，可传入两个属性：<ul>
 <li>success (function) – 当 <code>modNames</code> 中所有模块加载完毕后执行的函数</li>
@@ -342,7 +342,7 @@ KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span>
 </ul>
 </li>
 </ul>
-<h4>Example</h4><p>callback为函数时</p>
+<h4 id="Example">Example</h4><p>callback为函数时</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">"depMod1,depMod2"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,DepMod1,DepMod2)</span></span>{
     <span class="hljs-comment">// Your code...</span>
 });
@@ -358,10 +358,10 @@ KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span>
 </code></pre><blockquote>
 <p>如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 use 即可, 如果模块名以 <code>/</code> 结尾, 则自动加后缀 <code>index</code> , 例如 <code>use(&quot;mods/m1/&quot;)</code> 相当于 <code>use(&quot;mods/m1/index&quot;)</code> , 即自动加载 <code>m1</code> 目录下的 <code>index.js</code></p>
 </blockquote>
-<h3 id="0.5">importStyle()  <code>&lt;static&gt;</code></h3><p><code>importStyle (modNames) =&gt; void</code></p>
+<h3 id="importStyle()  <code>&lt;static&gt;</code>">importStyle()  <code>&lt;static&gt;</code></h3><p><code>importStyle (modNames) =&gt; void</code></p>
 <p>阻塞加载 css 模块或 js 模块依赖的 css 模块, 和 KISSY.add 中的 require 配置一起使用.</p>
-<h4>parameter</h4><p>modNames (String|String[]) – 以<code>,</code>分割的 js 模块或 css 模块名称集合字符串,例如 <code>KISSY.use(&quot;mod1,mod2/xx.css&quot;)</code>;</p>
-<h2 id="1.5">require</h2><p>如果<code>requires</code>的模块过多，回调参数需要和模块列表一一对应，有没有更简单的办法？</p>
+<h4 id="parameter">parameter</h4><p>modNames (String|String[]) – 以<code>,</code>分割的 js 模块或 css 模块名称集合字符串,例如 <code>KISSY.use(&quot;mod1,mod2/xx.css&quot;)</code>;</p>
+<h2 id="require">require</h2><p>如果<code>requires</code>的模块过多，回调参数需要和模块列表一一对应，有没有更简单的办法？</p>
 <p>经常看到这种代码：</p>
 <pre><code>// requires 的模块太多，一不小心就和 <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> 里的回调不对应了
 KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,A,B,C,D,E,F,G)</span></span>{
@@ -387,7 +387,7 @@ KISSY.add(<span class="hljs-function"><span class="hljs-keyword">function</span>
 					</div>
 					<div class="panel-body">
 						<ul class="outline">
-							<li class="level2"><a href="#1">概述</a></li><li class="level2"><a href="#2">设置内置模块时间戳</a></li><li class="level2"><a href="#3">设置特定包时间戳</a></li><li class="level2"><a href="#4">设置特定模块时间戳</a></li><li class="level2"><a href="#5">总示例</a></li>
+							<li class="level3"><a href="#add()  <code>&lt;static&gt;</code>">add()  <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#add(factory)">add(factory)</a></li><li class="level3"><a href="#getScript()  <code>&lt;static&gt;</code>">getScript()  <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#use()  <code>&lt;static&gt;</code>">use()  <code>&lt;static&gt;</code></a></li><li class="level3"><a href="#importStyle()  <code>&lt;static&gt;</code>">importStyle()  <code>&lt;static&gt;</code></a></li><li class="level2"><a href="#require">require</a></li>
 						</ul>
 					</div>
 				</div>
