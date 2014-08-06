@@ -68,6 +68,30 @@ KISSY.use('node,tabs,io', function(S, Node, Tabs, Io){
 	//初始化评论功能
 	initDisqusThread();
 
+	// if(location.href.indexOf('5.0/guides') > -1){
+		var sidebar$ = $('#sidebar'),
+			sidebarLeft = sidebar$.offset().left,
+			sidebarTop = sidebar$.offset().top,
+			sidebarWidth = sidebar$.innerWidth();
+		window.onscroll = function(){
+			var scrollTop = document.body.scrollTop;
+			if(scrollTop > sidebarTop){
+				sidebar$.css({
+					position : 'fixed',
+					left : sidebarLeft,
+					top : 0,
+					width : sidebarWidth,
+					marginTop : '0px'
+				});
+			}else{
+				sidebar$.css({
+					position : '',
+					left : '0px',
+					marginTop : '100px'
+				});
+			}
+		}
+	// }
 
 	/* 这段本来是做无刷新页面加载的，但是边栏增加了标题导航后几乎整个页面都要刷新了，所以暂时去掉这功能*/
 	// if(window.history.pushState && window.sessionStorage && window.history.replaceState){

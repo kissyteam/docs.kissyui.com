@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>节点上的动画 - KISSY v5.0 Documentation</title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/github.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+	<script type="text/javascript" src="/5.0/assets/js/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute',
+						listeners : {
+							click : function(){
+								window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
+							}
+						}
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								},
+								{
+									content : 'Gallery',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://gallery.kissyui.com/';
+										}
+									}
+								},
+								{
+									content : 'Kissy Blog',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://blog.kissyui.com/';
+										}
+									}
+								},
+								{
+									content : 'KMC',
+									listeners : {
+										click : function(){
+											window.location.href = 'https://github.com/daxingplay/grunt-kmc/blob/master/README.md';
+										}
+									}
+								},
+								{
+									content : 'ABC',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://abc.f2e.taobao.net/';
+										}
+									}
+								},
+								{
+									content : 'Clam',
+									listeners : {
+										click : function(){
+											window.location.href = 'https://github.com/jayli/generator-clam/blob/master/README.md';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-9"  id="main-content">
+				<p></p>
+<h1 id="节点上的动画">节点上的动画</h1><h2 id="节点实例动画操作">节点实例动画操作</h2><p><div class="ks-tabs ks-tabs-top" style="height:500px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+        <div class="ks-tabs-tab ks-button">QRCode</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+&lt;title&gt;Demo - 节点实例动画操作&lt;&#x2F;title&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;style type=&quot;text&#x2F;css&quot;&gt;
+	.ks-button {
+        display: inline-block;
+        *display: inline;
+        *zoom:1;
+        margin: 2px;
+        font-family: Arial, sans-serif;
+        color: #000;
+        &#x2F;* Client apps may override the URL at which they serve the image. *&#x2F;
+        background: #ddd url(button-bg.png) repeat-x top left;
+        text-decoration: none;
+        list-style: none;
+        vertical-align: middle;
+        cursor: default;
+        outline: none;
+        border-radius: 2px;
+        border-style: solid;
+        border-color: #aaa;
+        border-width: 1px;
+        &#x2F;* By default in FF2, block elements inside a moz-inline-box are stacked
+       * horizontally next to each other.  This stops that weird behavior. *&#x2F;
+        -moz-box-orient: vertical;
+        padding: 3px 4px;
+        white-space: nowrap; &#x2F;* Prevents buttons from line breaking on android. *&#x2F;
+    }
+
+    &#x2F;* State: disabled. *&#x2F;
+    .ks-button-disabled {
+        background-image: none !important;
+        opacity: 0.3;
+        cursor: default !important;
+        -moz-opacity: 0.3;
+        filter: alpha(opacity = 30);
+        color: #333 !important;
+        border-color: #999 !important;
+    }
+
+    &#x2F;* Pre-IE7 IE hack; ignored by IE7 and all non-IE browsers. *&#x2F;
+    * html .ks-button-disabled {
+        margin: 2px 1px !important;
+        padding: 0 1px !important;
+    }
+
+    &#x2F;* IE7-only hack; ignored by all other browsers. *&#x2F;
+    *:first-child+html .ks-button-disabled {
+        margin: 2px 1px !important;
+        padding: 0 1px !important;
+    }
+
+    &#x2F;* State: hover. *&#x2F;
+    .ks-button-hover {
+        border-color: #9cf #69e #69e #7af !important; &#x2F;* Hover border wins. *&#x2F;
+    }
+
+    &#x2F;* State: active, checked. *&#x2F;
+    .ks-button-active,
+    .ks-button-checked {
+        background-color: #bbb;
+        background-position: bottom left;
+    }
+
+    &#x2F;* State: focused. *&#x2F;
+    .ks-button-focused {
+        border-color: orange;
+    }
+
+    .ks-button-collapse-left {
+        margin-left: 0 !important;
+        border-radius: 0 2px 2px 0;
+        border-left: none;
+    }
+
+    .ks-button-collapse-right {
+        border-right: none !important;
+        border-radius: 2px 0 0 2px;
+        margin-right: 0 !important;
+    }
+
+    .box {
+        width: 160px;
+        height: 160px;
+        background: #AABBCC;
+    }
+&lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;
+&lt;div class=&quot;box&quot; id=&quot;anim_toggle&quot;&gt;
+    toggle 动画
+&lt;&#x2F;div&gt;
+&lt;div id=&quot;demo_toggle&quot;&gt;&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;box&quot; id=&quot;anim_slide&quot;&gt;
+    slideUp&#x2F;slideDown 动画
+&lt;&#x2F;div&gt;
+
+&lt;div id=&quot;demo_slide&quot;&gt;&lt;&#x2F;div&gt;
+
+&lt;div class=&quot;box&quot;  id=&quot;anim_fade&quot;&gt;
+    fadeIn&#x2F;fadeOut 动画
+&lt;&#x2F;div&gt;
+
+&lt;div id=&quot;demo_fade&quot;&gt;&lt;&#x2F;div&gt;
+
+&lt;script type=&quot;text&#x2F;javascript&quot;&gt;
+	KISSY.use([&#x27;node&#x27;,&#x27;button&#x27;], function(S, Node, Button){
+		var anim_toggle = Node.one(&quot;#anim_toggle&quot;),
+	    anim_slide = Node.one(&quot;#anim_slide&quot;),
+	    anim_fade = Node.one(&quot;#anim_fade&quot;);
+
+	    var demo_toggle = new Button({
+	        content: &quot;toggle&quot;,
+	        render: &quot;#demo_toggle&quot;
+	    });
+	    demo_toggle.render();
+	    demo_toggle.on(&quot;click&quot;, function () {
+	        anim_toggle.toggle(1);
+	    });
+
+	    var demo_slide = new Button({
+	        content: &quot;slideDown&#x2F;slideUp&quot;,
+	        render: &quot;#demo_slide&quot;
+	    });
+	    demo_slide.render();
+	    demo_slide.on(&quot;click&quot;, function () {
+	        if (anim_slide.css(&quot;display&quot;) === &quot;none&quot;) {
+	            anim_slide.slideDown();
+	        } else {
+	            anim_slide.slideUp();
+	        }
+	    });
+
+	    var demo_fade = new Button({
+	        content: &quot;fadeIn&#x2F;fadeOut&quot;,
+	        render: &quot;#demo_fade&quot;
+	    });
+	    demo_fade.render();
+	    demo_fade.on(&quot;click&quot;, function () {
+	        if (anim_fade.css(&quot;display&quot;) === &quot;none&quot;)
+	            anim_fade.fadeIn();
+	        else
+	            anim_fade.fadeOut();
+	    });
+	})
+&lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+        <div class="ks-tabs-panel">
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/anim/cited-by-md/demo1.html" ="text">示例地址：docs.kissyui.com/5.0/demos/anim/cited-by-md/demo1.html</p>
+            <div class="qrcode"></div>
+        </div>
+    </div>
+</div></p>
+<h2 id="节点上的 stop 示例">节点上的 stop 示例</h2><p><div class="ks-tabs ks-tabs-top" style="height:300px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+        <div class="ks-tabs-tab ks-button">QRCode</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+&lt;title&gt;Demo - 节点上的 stop 示例&lt;&#x2F;title&gt;
+&lt;link href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;css&#x2F;dpl&#x2F;base.css&quot; rel=&quot;stylesheet&quot;&#x2F;&gt;
+&lt;style&gt;
+.ks-button {
+    display: inline-block;
+    *display: inline;
+    *zoom:1;
+    margin: 2px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    &#x2F;* Client apps may override the URL at which they serve the image. *&#x2F;
+    background: #ddd url(button-bg.png) repeat-x top left;
+    text-decoration: none;
+    list-style: none;
+    vertical-align: middle;
+    cursor: default;
+    outline: none;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #aaa;
+    border-width: 1px;
+    &#x2F;* By default in FF2, block elements inside a moz-inline-box are stacked
+   * horizontally next to each other.  This stops that weird behavior. *&#x2F;
+    -moz-box-orient: vertical;
+    padding: 3px 4px;
+    white-space: nowrap; &#x2F;* Prevents buttons from line breaking on android. *&#x2F;
+}
+
+&#x2F;* State: disabled. *&#x2F;
+.ks-button-disabled {
+    background-image: none !important;
+    opacity: 0.3;
+    cursor: default !important;
+    -moz-opacity: 0.3;
+    filter: alpha(opacity = 30);
+    color: #333 !important;
+    border-color: #999 !important;
+}
+
+&#x2F;* Pre-IE7 IE hack; ignored by IE7 and all non-IE browsers. *&#x2F;
+* html .ks-button-disabled {
+    margin: 2px 1px !important;
+    padding: 0 1px !important;
+}
+
+&#x2F;* IE7-only hack; ignored by all other browsers. *&#x2F;
+*:first-child+html .ks-button-disabled {
+    margin: 2px 1px !important;
+    padding: 0 1px !important;
+}
+
+&#x2F;* State: hover. *&#x2F;
+.ks-button-hover {
+    border-color: #9cf #69e #69e #7af !important; &#x2F;* Hover border wins. *&#x2F;
+}
+
+&#x2F;* State: active, checked. *&#x2F;
+.ks-button-active,
+.ks-button-checked {
+    background-color: #bbb;
+    background-position: bottom left;
+}
+
+&#x2F;* State: focused. *&#x2F;
+.ks-button-focused {
+    border-color: orange;
+}
+
+.ks-button-collapse-left {
+    margin-left: 0 !important;
+    border-radius: 0 2px 2px 0;
+    border-left: none;
+}
+
+.ks-button-collapse-right {
+    border-right: none !important;
+    border-radius: 2px 0 0 2px;
+    margin-right: 0 !important;
+}
+
+
+
+div.block {
+    position: absolute;
+    background-color: #abc;
+    left: 0;
+    top:0;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+}
+&lt;&#x2F;style&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;div style=&quot;position:relative;height:72px;&quot;&gt;
+    &lt;div class=&quot;block&quot;&gt;&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;script type=&quot;text&#x2F;javascript&quot;&gt;
+	KISSY.use(&quot;node,button&quot;, function(S, Node, Button) {
+	    var $ = Node.all;
+
+	    var go = new Button({
+	        content: &quot;GO!&quot;
+	    }), stop = new Button({
+	        content: &quot;STOP!&quot;
+	    }), back = new Button({
+	        content: &quot;BACK!&quot;
+	    });
+	    go.render();
+	    stop.render();
+	    back.render();
+
+	    &#x2F;* Start animation *&#x2F;
+	    go.on(&quot;click&quot;, function(e) {
+	        go.set(&quot;disabled&quot;, true);
+	        back.set(&quot;disabled&quot;, true);
+	        $(&quot;.block&quot;).animate({left: (parseInt($(&quot;.block&quot;).css(&quot;left&quot;)) + 100) + &#x27;px&#x27;}, 2, undefined, function() {
+	            go.set(&quot;disabled&quot;, false);
+	            back.set(&quot;disabled&quot;, false);
+	        });
+	        e.halt();
+	    });
+
+	    &#x2F;* Stop animation when button is clicked *&#x2F;
+	    stop.on(&#x27;click&#x27;, function() {
+	        go.set(&quot;disabled&quot;, false);
+	        back.set(&quot;disabled&quot;, false);
+	        $(&quot;.block&quot;).stop();
+	    });
+
+	    &#x2F;* Start animation in the opposite direction *&#x2F;
+	    back.on(&#x27;click&#x27;, function(e) {
+	        go.set(&quot;disabled&quot;, true);
+	        back.set(&quot;disabled&quot;, true);
+	        $(&quot;.block&quot;).animate({left: Math.max(parseInt($(&quot;.block&quot;).css(&quot;left&quot;)) - 100,0) + &#x27;px&#x27;}, 2, undefined, function() {
+	            go.set(&quot;disabled&quot;, false);
+	            back.set(&quot;disabled&quot;, false);
+	        });
+	        e.halt();
+	    });
+	});
+
+&lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+        <div class="ks-tabs-panel">
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/anim/cited-by-md/demo2.html" ="text">示例地址：docs.kissyui.com/5.0/demos/anim/cited-by-md/demo2.html</p>
+            <div class="qrcode"></div>
+        </div>
+    </div>
+</div></p>
+
+	   			<div id="disqus_thread"></div>
+	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+	   			<a id="apilink" href="../../api/classes/Anim.html" style="display:none;"></a>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/Anim.html">API Docs</a>
+				<div class="panel panel-primary ajax-load">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../guides/anim/index.html">Anim基本介绍</a></p>
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../demos/anim/easing.html">easing可视化</a></p><p><a href="../../demos/anim/index.html">anim的基本使用</a></p><p><a href="../../demos/anim/node.html">节点上的动画</a></p><p><a href="../../demos/anim/scroll.html">滚动示例</a></p>
+					</div>
+				</div>
+			</div>
+			<div id="disqus_thread"></div>
+<script>
+    if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+     //var disqus_identifier = '/anim';
+     //var disqus_url = window.location;
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    }
+</script>
+<script>
+    window.onload = function(){
+        (function() {
+        var cx = '003618533255763067140:5nkycw1pbey';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    }
+</script>
+		</div>
+	</div>
+</body>
+</html>

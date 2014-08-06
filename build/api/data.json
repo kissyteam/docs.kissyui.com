@@ -18523,7 +18523,7 @@
                 },
                 {
                     "name": "filter",
-                    "description": "过滤函数，返回false则不拷贝该元素。传入参数为：\n- 待克隆值为数组, 参数同 KISSY.filter() , 上下文对象为全局 window\n- 待克隆值为普通对象, 参数为对象的每个键, 每个键对应的值, 当前对象, 上下文对象为当前对象",
+                    "description": "过滤函数，返回false则不拷贝该元素。传入参数为：\n- 待克隆值为数组, 参数同 [Util.filter()](/5.0/api/classes/Util.html#method_filter) , 上下文对象为全局 window\n- 待克隆值为普通对象, 参数为对象的每个键对应的值, 每个键, 当前对象.(PS:上下文对象为当前对象)",
                     "type": "Function",
                     "optional": true
                 }
