@@ -179,14 +179,14 @@
         color: #999;
     }
 &lt;&#x2F;style&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.2&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot; data-config=&quot;{combine:false}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;button id=&quot;run&quot;&gt;开始动画&lt;&#x2F;button&gt;
 &lt;div id=&quot;test1&quot; &gt;^o^&lt;&#x2F;div&gt;
 
 &lt;script&gt;
-    KISSY.use(&quot;anim,node&quot;,function(S,Anim,Node){
+    KISSY.use(&quot;anim&#x2F;timer,node&quot;,function(S,Anim,Node){
          var anim = Anim(
             &#x27;#test1&#x27;,
             {
@@ -204,7 +204,7 @@
                 &#x27;color&#x27;: &#x27;#FF3333&#x27;
             },
             {
-                duration : 5,
+                duration : 3,
                 easing : &quot;bounceOut&quot;,
                 complete : function(){
                     alert(&quot;动画结束&quot;);

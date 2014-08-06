@@ -1,5 +1,5 @@
-KISSY.add(function(S, N, E, A, IO){
-	var $ = S.all;
+KISSY.add(function(S, Node, Event, Anim, IO){
+	var $ = Node.all;
 
 	var opLotto = {
 		init: function(){
@@ -38,13 +38,18 @@ KISSY.add(function(S, N, E, A, IO){
 				'border-radius': '50px'
 			}).animate({
 				'top': parseInt(offsetTop, 10) - 50
-			}, 0.2, 'easeOut').animate({
+			},{
+				duration : 0.2
+			}).animate({
 				'top': 200,
 				'left': 200,
 				'opacity': 0
-			}, 1, 'bounceOut', function() {
-				cloneItem.remove();
-				self._print(index);
+			},{
+				duration : 1,
+				complete : function(){
+					cloneItem.remove();
+					self._print(index);
+				}
 			});
 		},
 		_print: function(index){
@@ -57,4 +62,4 @@ KISSY.add(function(S, N, E, A, IO){
 
 	return opLotto;
 
-}, {requires: ['node', 'event', 'anim', 'ajax']});
+}, {requires: ['node', 'event', 'anim', 'io']});

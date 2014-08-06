@@ -168,7 +168,7 @@
     &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
     
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.2&#x2F;seed-min.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
     &lt;style&gt;
         body {
             background: #000;
@@ -197,8 +197,8 @@
 &lt;&#x2F;div&gt;
 
 &lt;script&gt;
-    KISSY.use(&#x27;core,gallery&#x2F;raphael&#x2F;1.0&#x2F;&#x27;, function (S, _, Raphael) {
-        var $ = S.all;
+    KISSY.use([&#x27;node&#x27;,&#x27;anim&#x2F;timer&#x27;,&#x27;util&#x27;,&#x27;gallery&#x2F;raphael&#x2F;1.0&#x2F;&#x27;], function (S, Node, Anim, Util, Raphael) {
+        var $ = Node.all;
         var easings = [
             [
                 &quot;swing&quot;
@@ -234,7 +234,7 @@
                 height = 600,
                 gap = [0, 0, 100, 250, 0];
 
-        var easingFns = S.Anim.Easing;
+        var easingFns = Anim.Easing;
 
         for (var i = 0; i &lt; easings.length; i++) {
             var single = easings[i];
@@ -281,7 +281,7 @@
             for (var j = 0; j &lt; easings.length; j++) {
                 var color = nextColour(),
                         path = &quot;&quot;;
-                easingHtml.push(S.substitute(&quot;&lt;span style=&#x27;color:{color}&#x27;&gt;{easing}&lt;&#x2F;span&gt;&quot;, {
+                easingHtml.push(Util.substitute(&quot;&lt;span style=&#x27;color:{color}&#x27;&gt;{easing}&lt;&#x2F;span&gt;&quot;, {
                     color: Raphael.getRGB(color).hex,
                     easing: easings[j]
                 }));

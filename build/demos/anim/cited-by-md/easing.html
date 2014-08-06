@@ -5,7 +5,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     
-    <script src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+    <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
     <style>
         body {
             background: #000;
@@ -34,8 +34,8 @@
 </div>
 
 <script>
-    KISSY.use('core,gallery/raphael/1.0/', function (S, _, Raphael) {
-        var $ = S.all;
+    KISSY.use(['node','anim/timer','util','gallery/raphael/1.0/'], function (S, Node, Anim, Util, Raphael) {
+        var $ = Node.all;
         var easings = [
             [
                 "swing"
@@ -71,7 +71,7 @@
                 height = 600,
                 gap = [0, 0, 100, 250, 0];
 
-        var easingFns = S.Anim.Easing;
+        var easingFns = Anim.Easing;
 
         for (var i = 0; i < easings.length; i++) {
             var single = easings[i];
@@ -118,7 +118,7 @@
             for (var j = 0; j < easings.length; j++) {
                 var color = nextColour(),
                         path = "";
-                easingHtml.push(S.substitute("<span style='color:{color}'>{easing}</span>", {
+                easingHtml.push(Util.substitute("<span style='color:{color}'>{easing}</span>", {
                     color: Raphael.getRGB(color).hex,
                     easing: easings[j]
                 }));
