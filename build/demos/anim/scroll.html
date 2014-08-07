@@ -252,7 +252,7 @@
         border: 5px solid #AABBCC;
     }
 &lt;&#x2F;style&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 
@@ -268,14 +268,14 @@
     &lt;&#x2F;div&gt;
 &lt;&#x2F;div&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-    KISSY.use([&#x27;anim&#x27;, &#x27;button&#x27;], function(S, Anim, Button){
+    KISSY.use([&#x27;anim&#x2F;timer&#x27;, &#x27;button&#x27;], function(S, TimerAnim, Button){
         var b = new Button({
             content : &#x27;run scroll animation&#x27;
         });
         b.render();
         b.on(&#x27;click&#x27;, function(){
             b.set(&quot;disabled&quot;, true);
-            Anim(&#x27;#test8&#x27;,{
+            TimerAnim(&#x27;#test8&#x27;,{
                 scrollLeft : 500
             },{
                 duration : 5,
@@ -408,7 +408,7 @@
 	&lt;div style=&quot;height:600px;&quot;&gt;&lt;&#x2F;div&gt;
 	&lt;div id=&quot;scrollDown&quot;&gt;&lt;&#x2F;div&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-	KISSY.use(&quot;node,button&quot;, function(S, Node, Button) {
+	KISSY.use([&#x27;node&#x27;,&#x27;button&#x27;,&#x27;anim&#x2F;timer&#x27;], function(S, Node, Button, TimerAnim) {
 	    var $ = Node.all;
 
 	    var scrollUp = new Button({
@@ -417,12 +417,12 @@
 	    });
 	    scrollUp.render();
 	    scrollUp.on(&quot;click&quot;, function() {
-	        $(window).animate({
-	            scrollTop : $(&quot;#scrollDown&quot;).offset().top
-	        },{
-	        	duration : 1,
-	        	easing : &#x27;easeOut&#x27;
-	        });
+            TimerAnim(window,{
+                scrollTop : $(&quot;#scrollDown&quot;).offset().top
+            },{
+                duration : 1,
+                easing : &#x27;easeOut&#x27;
+            });
 	    });
 
 	    var scrollDown = new Button({
@@ -431,12 +431,12 @@
 	    });
 	    scrollDown.render();
 	    scrollDown.on(&quot;click&quot;, function() {
-	        $(window).animate({
-	            scrollTop:$(&quot;#scrollUp&quot;).offset().top
-	        },{
-	        	duration : 1,
-	        	easing : &#x27;easeOut&#x27;
-	        });
+	        TimerAnim(window,{
+                scrollTop : $(&quot;#scrollUp&quot;).offset().top
+            },{
+                duration : 1,
+                easing : &#x27;easeOut&#x27;
+            });
 	    });
 
 	});
@@ -476,7 +476,7 @@
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="../../demos/anim/easing.html">easing可视化</a></p><p><a href="../../demos/anim/index.html">anim的基本使用</a></p><p><a href="../../demos/anim/node.html">节点上的动画</a></p><p><a href="../../demos/anim/scroll.html">滚动示例</a></p>
+						<p><a href="../../demos/anim/anim-promise.html">Anim 使用 Promise API 示例</a></p><p><a href="../../demos/anim/anim-queue.html">动画队列示例</a></p><p><a href="../../demos/anim/custom.html">自定义动画</a></p><p><a href="../../demos/anim/index.html">anim的基本使用</a></p><p><a href="../../demos/anim/node.html">节点上的动画</a></p><p><a href="../../demos/anim/scroll.html">滚动示例</a></p><p><a href="../../demos/anim/timeline.html">动画曲线可视化</a></p><p><a href="../../demos/anim/tranform.html">跨浏览器transform</a></p>
 					</div>
 				</div>
 			</div>

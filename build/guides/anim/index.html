@@ -157,7 +157,8 @@
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'anim'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Anim)</span></span>{
     <span class="hljs-comment">// use Anim</span>
 });
-</code></pre><p>由于<code>node</code>模块依赖<code>anim</code>，通常我们使用node时，使用node.animate()方法即可对某个已知节点作动画。即</p>
+</code></pre><p>注：KISSY 会自动判断浏览器是否支持 <code>css3 transition</code> ，如果支持则载入的 <code>anim</code> 模块其实是 <code>anim/transition</code> 模块（KISSY在seed.js里面做了alias），否则载入 <code>anim/timer</code> 模块， node 模块依赖的 anim 也是同样道理。此外，<em>自定义动画</em>等不能用 <code>css3 transition</code> 来实现的动画需要保证使用 <code>anim/timer</code> 模块来实现。</p>
+<p>由于<code>node</code>模块依赖<code>anim</code>，通常我们使用node时，使用node.animate()方法即可对某个已知节点作动画。即</p>
 <pre><code>Node.all(<span class="hljs-string">".foo"</span>).each(<span class="hljs-keyword">function</span>(n){
     new Anim(n,<span class="hljs-keyword">...</span>).run();
 });
@@ -304,7 +305,7 @@ anim.stop(<span class="hljs-literal">true</span>);
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="../../demos/anim/easing.html">easing可视化</a></p><p><a href="../../demos/anim/index.html">anim的基本使用</a></p><p><a href="../../demos/anim/node.html">节点上的动画</a></p><p><a href="../../demos/anim/scroll.html">滚动示例</a></p>
+						<p><a href="../../demos/anim/anim-promise.html">Anim 使用 Promise API 示例</a></p><p><a href="../../demos/anim/anim-queue.html">动画队列示例</a></p><p><a href="../../demos/anim/custom.html">自定义动画</a></p><p><a href="../../demos/anim/index.html">anim的基本使用</a></p><p><a href="../../demos/anim/node.html">节点上的动画</a></p><p><a href="../../demos/anim/scroll.html">滚动示例</a></p><p><a href="../../demos/anim/timeline.html">动画曲线可视化</a></p><p><a href="../../demos/anim/tranform.html">跨浏览器transform</a></p>
 					</div>
 				</div>
 			</div>

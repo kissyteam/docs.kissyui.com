@@ -7,6 +7,8 @@ KISSY 动画，这样来载入anim模块：
 		// use Anim
 	});
 
+注：KISSY 会自动判断浏览器是否支持 `css3 transition` ，如果支持则载入的 `anim` 模块其实是 `anim/transition` 模块（KISSY在seed.js里面做了alias），否则载入 `anim/timer` 模块， node 模块依赖的 anim 也是同样道理。此外，*自定义动画*等不能用 `css3 transition` 来实现的动画需要保证使用 `anim/timer` 模块来实现。
+
 由于`node`模块依赖`anim`，通常我们使用node时，使用node.animate()方法即可对某个已知节点作动画。即
 
 	Node.all(".foo").each(function(n){

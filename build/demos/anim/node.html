@@ -167,85 +167,9 @@
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;title&gt;Demo - 节点实例动画操作&lt;&#x2F;title&gt;
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;.&#x2F;assets&#x2F;custombutton.css&quot;&gt;
 &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;style type=&quot;text&#x2F;css&quot;&gt;
-	.ks-button {
-        display: inline-block;
-        *display: inline;
-        *zoom:1;
-        margin: 2px;
-        font-family: Arial, sans-serif;
-        color: #000;
-        &#x2F;* Client apps may override the URL at which they serve the image. *&#x2F;
-        background: #ddd url(button-bg.png) repeat-x top left;
-        text-decoration: none;
-        list-style: none;
-        vertical-align: middle;
-        cursor: default;
-        outline: none;
-        border-radius: 2px;
-        border-style: solid;
-        border-color: #aaa;
-        border-width: 1px;
-        &#x2F;* By default in FF2, block elements inside a moz-inline-box are stacked
-       * horizontally next to each other.  This stops that weird behavior. *&#x2F;
-        -moz-box-orient: vertical;
-        padding: 3px 4px;
-        white-space: nowrap; &#x2F;* Prevents buttons from line breaking on android. *&#x2F;
-    }
-
-    &#x2F;* State: disabled. *&#x2F;
-    .ks-button-disabled {
-        background-image: none !important;
-        opacity: 0.3;
-        cursor: default !important;
-        -moz-opacity: 0.3;
-        filter: alpha(opacity = 30);
-        color: #333 !important;
-        border-color: #999 !important;
-    }
-
-    &#x2F;* Pre-IE7 IE hack; ignored by IE7 and all non-IE browsers. *&#x2F;
-    * html .ks-button-disabled {
-        margin: 2px 1px !important;
-        padding: 0 1px !important;
-    }
-
-    &#x2F;* IE7-only hack; ignored by all other browsers. *&#x2F;
-    *:first-child+html .ks-button-disabled {
-        margin: 2px 1px !important;
-        padding: 0 1px !important;
-    }
-
-    &#x2F;* State: hover. *&#x2F;
-    .ks-button-hover {
-        border-color: #9cf #69e #69e #7af !important; &#x2F;* Hover border wins. *&#x2F;
-    }
-
-    &#x2F;* State: active, checked. *&#x2F;
-    .ks-button-active,
-    .ks-button-checked {
-        background-color: #bbb;
-        background-position: bottom left;
-    }
-
-    &#x2F;* State: focused. *&#x2F;
-    .ks-button-focused {
-        border-color: orange;
-    }
-
-    .ks-button-collapse-left {
-        margin-left: 0 !important;
-        border-radius: 0 2px 2px 0;
-        border-left: none;
-    }
-
-    .ks-button-collapse-right {
-        border-right: none !important;
-        border-radius: 2px 0 0 2px;
-        margin-right: 0 !important;
-    }
-
     .box {
         width: 160px;
         height: 160px;
@@ -344,86 +268,8 @@
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;title&gt;Demo - 节点上的 stop 示例&lt;&#x2F;title&gt;
 &lt;link href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot; rel=&quot;stylesheet&quot;&#x2F;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;.&#x2F;assets&#x2F;custombutton.css&quot;&gt;
 &lt;style&gt;
-.ks-button {
-    display: inline-block;
-    *display: inline;
-    *zoom:1;
-    margin: 2px;
-    font-family: Arial, sans-serif;
-    color: #000;
-    &#x2F;* Client apps may override the URL at which they serve the image. *&#x2F;
-    background: #ddd url(button-bg.png) repeat-x top left;
-    text-decoration: none;
-    list-style: none;
-    vertical-align: middle;
-    cursor: default;
-    outline: none;
-    border-radius: 2px;
-    border-style: solid;
-    border-color: #aaa;
-    border-width: 1px;
-    &#x2F;* By default in FF2, block elements inside a moz-inline-box are stacked
-   * horizontally next to each other.  This stops that weird behavior. *&#x2F;
-    -moz-box-orient: vertical;
-    padding: 3px 4px;
-    white-space: nowrap; &#x2F;* Prevents buttons from line breaking on android. *&#x2F;
-}
-
-&#x2F;* State: disabled. *&#x2F;
-.ks-button-disabled {
-    background-image: none !important;
-    opacity: 0.3;
-    cursor: default !important;
-    -moz-opacity: 0.3;
-    filter: alpha(opacity = 30);
-    color: #333 !important;
-    border-color: #999 !important;
-}
-
-&#x2F;* Pre-IE7 IE hack; ignored by IE7 and all non-IE browsers. *&#x2F;
-* html .ks-button-disabled {
-    margin: 2px 1px !important;
-    padding: 0 1px !important;
-}
-
-&#x2F;* IE7-only hack; ignored by all other browsers. *&#x2F;
-*:first-child+html .ks-button-disabled {
-    margin: 2px 1px !important;
-    padding: 0 1px !important;
-}
-
-&#x2F;* State: hover. *&#x2F;
-.ks-button-hover {
-    border-color: #9cf #69e #69e #7af !important; &#x2F;* Hover border wins. *&#x2F;
-}
-
-&#x2F;* State: active, checked. *&#x2F;
-.ks-button-active,
-.ks-button-checked {
-    background-color: #bbb;
-    background-position: bottom left;
-}
-
-&#x2F;* State: focused. *&#x2F;
-.ks-button-focused {
-    border-color: orange;
-}
-
-.ks-button-collapse-left {
-    margin-left: 0 !important;
-    border-radius: 0 2px 2px 0;
-    border-left: none;
-}
-
-.ks-button-collapse-right {
-    border-right: none !important;
-    border-radius: 2px 0 0 2px;
-    margin-right: 0 !important;
-}
-
-
-
 div.block {
     position: absolute;
     background-color: #abc;
@@ -521,7 +367,7 @@ div.block {
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="../../demos/anim/easing.html">easing可视化</a></p><p><a href="../../demos/anim/index.html">anim的基本使用</a></p><p><a href="../../demos/anim/node.html">节点上的动画</a></p><p><a href="../../demos/anim/scroll.html">滚动示例</a></p>
+						<p><a href="../../demos/anim/anim-promise.html">Anim 使用 Promise API 示例</a></p><p><a href="../../demos/anim/anim-queue.html">动画队列示例</a></p><p><a href="../../demos/anim/custom.html">自定义动画</a></p><p><a href="../../demos/anim/index.html">anim的基本使用</a></p><p><a href="../../demos/anim/node.html">节点上的动画</a></p><p><a href="../../demos/anim/scroll.html">滚动示例</a></p><p><a href="../../demos/anim/timeline.html">动画曲线可视化</a></p><p><a href="../../demos/anim/tranform.html">跨浏览器transform</a></p>
 					</div>
 				</div>
 			</div>
