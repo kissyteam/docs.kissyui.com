@@ -37,7 +37,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="panel panel-primary ajax-load">
+				<div class="panel panel-primary ajax-load {{#if(!sidebarContent.featureContent)}}hide{{/if}}">
 					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
 					</div>
@@ -45,7 +45,7 @@
 						{{{sidebarContent.featureContent}}}
 					</div>
 				</div>
-				<div class="panel panel-primary ajax-load">
+				<div class="panel panel-primary ajax-load {{#if(!sidebarContent.demosContent)}}hide{{/if}}">
 					<div class="panel-heading">
 						<h3 class="panel-title">Demos</h3>
 					</div>
