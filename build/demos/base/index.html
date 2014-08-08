@@ -152,8 +152,7 @@
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1 id="Base基本使用示例">Base基本使用示例</h1><p>下面例子共用三个类 Person/Student/Teacher ，其中 Student 和 Teacher 都是继承自 Person ，演示结果请打开控制台查看，具体细节查看demo代码。</p>
-<p><div class="ks-tabs ks-tabs-top" style="height:400px;">
+<h1 id="Base基本使用示例">Base基本使用示例</h1><p><div class="ks-tabs ks-tabs-top" style="height:400px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -169,7 +168,8 @@
         &lt;title&gt;KISSY Base DEMO&lt;&#x2F;title&gt;
         &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt; &lt;&#x2F;head&gt;
     &lt;body&gt;
-        &lt;label for=&quot;J_input&quot;&gt;选择角色：&lt;&#x2F;label&gt;
+        &lt;h3&gt;下面例子共用三个类 Person&#x2F;Student&#x2F;Teacher ，其中 Student 和 Teacher 都是继承自 Person ，演示结果请打开控制台查看，具体细节查看demo代码。&lt;&#x2F;h3&gt;
+        &lt;label for=&quot;J_input&quot;&gt;先选择角色再操作：&lt;&#x2F;label&gt;
         &lt;select id=&quot;J_input&quot;&gt;
             &lt;option selected&gt; &lt;&#x2F;option&gt;
             &lt;option value=&quot;person&quot;&gt;Person&lt;&#x2F;option&gt;
@@ -178,12 +178,19 @@
         &lt;&#x2F;select&gt;
         &lt;p&gt;Common Operation:&lt;&#x2F;p&gt;
         &lt;div id=&quot;common&quot;&gt;
-            &lt;button id=&quot;introduce&quot;&gt;Introduce&lt;&#x2F;button&gt;
+            &lt;button id=&quot;introduce&quot;&gt;自我介绍&lt;&#x2F;button&gt;
+            &lt;br&#x2F;&gt;
+            &lt;label&gt;请输入名字（名字不能为空）：&lt;&#x2F;label&gt;
             &lt;input type=&quot;text&quot; id=&quot;Name&quot;&gt;
             &lt;button id=&quot;setName&quot;&gt;SetName&lt;&#x2F;button&gt;
+            &lt;br&#x2F;&gt;
+            
+            &lt;label for=&quot;Age&quot;&gt;请输入年龄（必须是数字）：&lt;&#x2F;label&gt;
             &lt;input type=&quot;text&quot; id=&quot;Age&quot;&gt;
             &lt;button id=&quot;setAge&quot;&gt;SetAge&lt;&#x2F;button&gt;
-            &lt;button id=&quot;changeGender&quot;&gt;changeGender&lt;&#x2F;button&gt;
+            &lt;br&#x2F;&gt;
+            &lt;label for=&quot;changeGender&quot;&gt;当尝试改变性别时阻止发生：&lt;&#x2F;label&gt;
+            &lt;button id=&quot;changeGender&quot;&gt;改变性别&lt;&#x2F;button&gt;
         &lt;&#x2F;div&gt;
 
         &lt;p&gt;Student Operation:&lt;&#x2F;p&gt;
@@ -255,7 +262,7 @@
                         value: 1,
                         validator: function(value) {
                             value = parseInt(value);
-                            if (!Util.isNumber(value) &amp;&amp; value != NaN || (value &lt; 1 &amp;&amp; value &gt; 100)) {
+                            if (!Util.isNumber(value) || Number.isNaN(value) || (value &lt; 1 &amp;&amp; value &gt; 100)) {
                                 return &quot;Please set correct age!&quot;;
                             }
                         }
@@ -398,6 +405,13 @@
                 school: &#x27;MIT&#x27;,
                 from: &#x27;China&#x27;
             });
+            &#x2F;*
+            阻止改变性别
+             *&#x2F;
+            student.on(&#x27;beforeGenderChange&#x27;, function(ev) {
+                ev.preventDefault();
+                console.log(&quot;Gender can&#x27;t change!&quot;);
+            });
 
             window.teacher = new Teacher({
                 name: &quot;David&quot;,
@@ -406,7 +420,13 @@
                 teach: &quot;Math&quot;,
                 level: Level[&quot;INTERMEDIATE&quot;]
             });
-
+            &#x2F;*
+            阻止改变性别
+             *&#x2F;
+            teacher.on(&#x27;beforeGenderChange&#x27;, function(ev) {
+                ev.preventDefault();
+                console.log(&quot;Gender can&#x27;t change!&quot;);
+            });
             teacher.on(&#x27;beforeLevelChange&#x27;, function(ev) {
                 if (ev.newVal &gt; Level.SPECIAL) {
                     ev.preventDefault();

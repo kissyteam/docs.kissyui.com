@@ -5,7 +5,8 @@
         <title>KISSY Base DEMO</title>
         <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script> </head>
     <body>
-        <label for="J_input">选择角色：</label>
+        <h3>下面例子共用三个类 Person/Student/Teacher ，其中 Student 和 Teacher 都是继承自 Person ，演示结果请打开控制台查看，具体细节查看demo代码。</h3>
+        <label for="J_input">先选择角色再操作：</label>
         <select id="J_input">
             <option selected> </option>
             <option value="person">Person</option>
@@ -14,12 +15,19 @@
         </select>
         <p>Common Operation:</p>
         <div id="common">
-            <button id="introduce">Introduce</button>
+            <button id="introduce">自我介绍</button>
+            <br/>
+            <label>请输入名字（名字不能为空）：</label>
             <input type="text" id="Name">
             <button id="setName">SetName</button>
+            <br/>
+            
+            <label for="Age">请输入年龄（必须是数字）：</label>
             <input type="text" id="Age">
             <button id="setAge">SetAge</button>
-            <button id="changeGender">changeGender</button>
+            <br/>
+            <label for="changeGender">当尝试改变性别时阻止发生：</label>
+            <button id="changeGender">改变性别</button>
         </div>
 
         <p>Student Operation:</p>
@@ -91,7 +99,7 @@
                         value: 1,
                         validator: function(value) {
                             value = parseInt(value);
-                            if (!Util.isNumber(value) && value != NaN || (value < 1 && value > 100)) {
+                            if (!Util.isNumber(value) || Number.isNaN(value) || (value < 1 && value > 100)) {
                                 return "Please set correct age!";
                             }
                         }
@@ -234,6 +242,13 @@
                 school: 'MIT',
                 from: 'China'
             });
+            /*
+            阻止改变性别
+             */
+            student.on('beforeGenderChange', function(ev) {
+                ev.preventDefault();
+                console.log("Gender can't change!");
+            });
 
             window.teacher = new Teacher({
                 name: "David",
@@ -242,7 +257,13 @@
                 teach: "Math",
                 level: Level["INTERMEDIATE"]
             });
-
+            /*
+            阻止改变性别
+             */
+            teacher.on('beforeGenderChange', function(ev) {
+                ev.preventDefault();
+                console.log("Gender can't change!");
+            });
             teacher.on('beforeLevelChange', function(ev) {
                 if (ev.newVal > Level.SPECIAL) {
                     ev.preventDefault();
