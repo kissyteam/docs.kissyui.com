@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
+</head>
+<body>
+
+<style>
+    #t {
+        width: 100px;
+        height: 30px;
+        border: 5px solid blue;
+    }
+</style>
+
+<h1>Anim promise</h1>
+<p>过程数据请打开控制台查看</p>
+
+<div id="t"></div>
+
+<script>
+KISSY.use(['node', 'anim'], function (S, Node, Anim) {
+    var anim = new Anim('#t',
+        {
+            width: 300
+        },{
+            duration: 1,
+            complete: function () {
+                console.log(this);
+            }
+    }).run().then(function () {
+                console.log('then');
+                console.log(anim);
+            });
+});
+</script>
+</body>

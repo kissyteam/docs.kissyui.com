@@ -1,4 +1,4 @@
-KISSY.add(function(S, Node, Event, Anim, IO){
+KISSY.add(function(S, Node, IO){
 	var $ = Node.all;
 
 	var opLotto = {
@@ -62,4 +62,4 @@ KISSY.add(function(S, Node, Event, Anim, IO){
 
 	return opLotto;
 
-}, {requires: ['node', 'event', 'anim', 'io']});
+}, {requires: ['node', 'io']});

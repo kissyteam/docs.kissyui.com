@@ -14,7 +14,7 @@
         font-family: Arial, sans-serif;
         color: #000;
         /* Client apps may override the URL at which they serve the image. */
-        background: #ddd url(button-bg.png) repeat-x top left;
+        background: #ddd url(assets/button-bg.png) repeat-x top left;
         text-decoration: none;
         list-style: none;
         vertical-align: middle;
@@ -89,7 +89,7 @@
 	<div style="height:600px;"></div>
 	<div id="scrollDown"></div>
 <script type="text/javascript">
-	KISSY.use("node,button", function(S, Node, Button) {
+	KISSY.use(['node','button','anim/timer'], function(S, Node, Button, TimerAnim) {
 	    var $ = Node.all;
 
 	    var scrollUp = new Button({
@@ -98,12 +98,12 @@
 	    });
 	    scrollUp.render();
 	    scrollUp.on("click", function() {
-	        $(window).animate({
-	            scrollTop : $("#scrollDown").offset().top
-	        },{
-	        	duration : 1,
-	        	easing : 'easeOut'
-	        });
+            TimerAnim(document.body,{
+                scrollTop : $("#scrollDown").offset().top
+            },{
+                duration : 1,
+                easing : 'easeOut'
+            });
 	    });
 
 	    var scrollDown = new Button({
@@ -112,12 +112,12 @@
 	    });
 	    scrollDown.render();
 	    scrollDown.on("click", function() {
-	        $(window).animate({
-	            scrollTop:$("#scrollUp").offset().top
-	        },{
-	        	duration : 1,
-	        	easing : 'easeOut'
-	        });
+	        TimerAnim(document.body,{
+                scrollTop : $("#scrollUp").offset().top
+            },{
+                duration : 1,
+                easing : 'easeOut'
+            });
 	    });
 
 	});

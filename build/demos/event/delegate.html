@@ -166,7 +166,7 @@
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
-
+    &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;style&gt;
 
         button {
@@ -183,7 +183,7 @@
         }
     &lt;&#x2F;style&gt;
 
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;div class=&#x27;out&#x27; id=&#x27;i4&#x27;&gt;
@@ -195,8 +195,8 @@
 &lt;&#x2F;div&gt;
 &lt;div id=&#x27;log&#x27;&gt;&lt;&#x2F;div&gt;
 &lt;script&gt;
-    KISSY.use(&#x27;core&#x27;, function (S) {
-        var $ = KISSY.Node.all;
+    KISSY.use(&#x27;node&#x27;, function (S, Node) {
+        var $ = Node.all;
 
         $(&#x27;#i4&#x27;).delegate(&#x27;click&#x27;, &#x27;.inner&#x27;, function (e) {
             var target = e.target, currentTarget = e.currentTarget;
@@ -235,7 +235,7 @@
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
-
+    &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;style&gt;
 
         button {
@@ -252,7 +252,7 @@
         }
     &lt;&#x2F;style&gt;
 
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;div class=&#x27;out&#x27; id=&#x27;i4&#x27; style=&#x27;width:300px;height:300px;border:1px solid green;&#x27;&gt;
@@ -267,8 +267,8 @@
 &lt;hr&#x2F;&gt;
 &lt;div id=&#x27;log&#x27;&gt;&lt;&#x2F;div&gt;
 &lt;script&gt;
-    KISSY.use(&#x27;core&#x27;, function (S) {
-        var $ = KISSY.Node.all;
+    KISSY.use([&#x27;node&#x27;], function (S, Node) {
+        var $ = Node.all;
         $(&#x27;#i4&#x27;).delegate(&#x27;mouseenter mouseleave click&#x27;, &#x27;.inner&#x27;, function (e) {
             $(&#x27;#log&#x27;).prepend(e.type + &quot; : &quot; + e.currentTarget.id + &quot;&lt;br&#x2F;&gt;&quot;);
         });
@@ -304,7 +304,7 @@
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
-
+    &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;style&gt;
 
         button {
@@ -321,7 +321,7 @@
         }
     &lt;&#x2F;style&gt;
 
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;div class=&#x27;out&#x27; id=&#x27;i4&#x27;&gt;
@@ -333,8 +333,8 @@
 &lt;&#x2F;div&gt;
 &lt;div id=&#x27;log&#x27;&gt;&lt;&#x2F;div&gt;
 &lt;script&gt;
-    KISSY.use(&#x27;core&#x27;, function (S) {
-        var $ = KISSY.Node.all;
+    KISSY.use([&#x27;node&#x27;], function (S, Node) {
+        var $ = Node.all;
 
         $(&#x27;#i4&#x27;).delegate(&#x27;click&#x27;, &#x27;.inner&#x27;, function (e) {
             var target = e.target, currentTarget = e.currentTarget;
@@ -380,7 +380,7 @@
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="../../demos/event/delegate.html">事件委托</a></p><p><a href="../../demos/event/detach.html">事件移除</a></p><p><a href="../../demos/event/focusin_out.html">focusin/focusout</a></p><p><a href="../../demos/event/index.html">event基本示例</a></p><p><a href="../../demos/event/pinch.html">pinch</a></p><p><a href="../../demos/event/rotate.html">rotate</a></p><p><a href="../../demos/event/shake.html">shake</a></p><p><a href="../../demos/event/swipe.html">swipe</a></p><p><a href="../../demos/event/tap.html">tap</a></p><p><a href="../../demos/event/valuechange.html">valuechange</a></p>
+						<p><a href="../../demos/event/delegate.html">事件委托</a></p><p><a href="../../demos/event/detach.html">事件移除</a></p><p><a href="../../demos/event/focusin_out.html">focusin/focusout</a></p><p><a href="../../demos/event/index.html">event基本示例</a></p><p><a href="../../demos/event/pinch.html">pinch</a></p><p><a href="../../demos/event/rotate.html">rotate</a></p><p><a href="../../demos/event/shake.html">shake</a></p><p><a href="../../demos/event/swipe.html">swipe</a></p><p><a href="../../demos/event/tap.html">tap</a></p>
 					</div>
 				</div>
 			</div>

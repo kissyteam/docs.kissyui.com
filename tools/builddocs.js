@@ -120,6 +120,10 @@ module.exports.buildDemos = function(srcUrl,config){
 					mainXtplPath = path.resolve(srcDirPath,'../themes/demos/layouts/main.xtpl'),
 					demoCodeXtplPath = path.resolve(srcDirPath,'../themes/demos/layouts/demo-code.xtpl');
 				if(fs.statSync(fileName).isDirectory()){
+					var citedByMdPath = fileName,
+						desCitedByMdPath = citedByMdPath.replace('src','build');
+					util.exists(citedByMdPath, desCitedByMdPath, util.copy);  //将cited-by-md文件夹搬过去
+
 					var assetsPath = path.resolve(fileName+'/assets'),   //将assets文件夹放到相应的demo模块目录
 						desAssetsPath = assetsPath.replace('src','build').replace('cited-by-md','');
 					fs.existsSync(assetsPath) && util.exists(assetsPath, desAssetsPath, util.copy);
