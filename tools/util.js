@@ -58,7 +58,7 @@ var copy = function( src, dst ){
 
 function mkdirRecursion(dirPath,callback){
     if(fs.existsSync(dirPath)){   //如果已经存在
-       callback();
+       callback && callback();
        return;
     }
     if(fs.existsSync(path.dirname(dirPath))){  //父目录是否存在
@@ -95,5 +95,6 @@ var exists = function( src, dst, callback ){
 module.exports = {
     exists : exists,
     copy : copy,
-    clone : clone
+    clone : clone,
+    mkdirRecursion : mkdirRecursion
 };
