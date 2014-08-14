@@ -309,7 +309,7 @@
 /**
 增加日历的年份
 @method addYear
-@param v {Number} 对应域要增加的值
+@param v {Number} 对应域要增加的值。例如现在是2014年，dateGregorian.getYear() 返回2014，dateGregorian.addYear(2)则变成 2016
 */
 
 /**
@@ -328,6 +328,17 @@
 增加当前的天中的哪一小时
 @method addHourOfDay
 @param v {Number} 对应域要增加的值
+@example
+```
+var date = new DateGregorian();
+date.setTime(+new Date());
+var df = DateFormat.getInstance();
+df.format(date);  //14-8-14 下午7:24
+date.getHourOfDay()  // 19
+date.addHourOfDay(2);
+df.format(date);  //14-8-14 下午9:24 
+date.getHourOfDay()  // 21  在原基础加了两个小时
+```
 */
 
 /**

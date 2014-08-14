@@ -5507,7 +5507,7 @@
         {
             "file": "src/api/date/format.js",
             "line": 16,
-            "description": "日期时间格式对象，形式如下：\n\nStyle.FULL: yyyy年M月d日 EEEE ahh时mm分ss秒 GMTZ\n\nStyle.LONG: yyyy年M月d日 ahh时mm分ss秒\n\nStyle.MEDIUM: yyyy-M-d H:mm:ss\n\nStyle.SHORT: yy-M-d ah:mm",
+            "description": "日期时间格式对象，形式如下：\n\nStyle.FULL: yyyy年M月d日 EEEE ahh时mm分ss秒 GMTZ\n\nStyle.LONG: yyyy年M月d日 ahh时mm分ss秒\n\nStyle.MEDIUM: yyyy-M-d H:mm:ss    \n\nStyle.SHORT: yy-M-d ah:mm",
             "itemtype": "attribute",
             "name": "Style",
             "type": "Object",
@@ -5533,7 +5533,7 @@
                 "type": "String"
             },
             "example": [
-                "\n```\n//GregorianCalendar是另一个Class\nvar gregorianCalendar = new GregorianCalendar(2013,GregorianCalendar.JULY, 11, 12, 31, 19);\nvar df = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.FULL);\ndf.format(gregorianCalendar);\n```"
+                "\n```\n//GregorianCalendar是另一个Class\nvar gregorianCalendar = new GregorianCalendar();\ngregorianCalendar.setTime(new Date());\nvar df = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.FULL);\ndf.format(gregorianCalendar);  //例如现在的：2014年8月14日 星期四 下午05时23分36秒 GMT+0800\n\nvar df2 = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.SHORT);\ndf2.format(gregorianCalendar); //例如现在的：2014年8月14日 星期四 下午5:23\n\nvar df3 = DateTimeFormat.getDateInstance(Style.FULL);\ndf3.format(gregorianCalendar); //例如现在的：2014年8月14日 星期四\n```"
             ],
             "class": "Date.Format",
             "module": "date/format",
@@ -5541,7 +5541,7 @@
         },
         {
             "file": "src/api/date/format.js",
-            "line": 45,
+            "line": 52,
             "description": "解析时间字符串，转换成对应的公历对象",
             "itemtype": "method",
             "name": "parse",
@@ -5565,7 +5565,7 @@
         },
         {
             "file": "src/api/date/format.js",
-            "line": 58,
+            "line": 65,
             "description": "获取当前日期和时间在给定区域和时差下的默认格式化的 DateTimeFormat 对象",
             "itemtype": "method",
             "name": "getInstance",
@@ -5587,7 +5587,7 @@
                 "type": "String"
             },
             "example": [
-                "\n```\n//相当于\ngetDateTimeInstance(DateTimeStyle.SHORT, DateTimeStyle.SHORT, locale, timeZoneOffset)\n```"
+                "\n```\n//相当于\ngetDateTimeInstance(DateTimeStyle.SHORT, DateTimeStyle.SHORT, locale, timeZoneOffset)\nformat后得到的字符串形如： 14-8-14 下午5:44\n```"
             ],
             "class": "Date.Format",
             "module": "date/format",
@@ -5595,7 +5595,7 @@
         },
         {
             "file": "src/api/date/format.js",
-            "line": 72,
+            "line": 80,
             "description": "获取当前日期在给定区域和时差及格式下的 DateTimeFormat 对象",
             "itemtype": "method",
             "name": "getDateInstance",
@@ -5627,7 +5627,7 @@
         },
         {
             "file": "src/api/date/format.js",
-            "line": 82,
+            "line": 90,
             "description": "获取当前日期和时间在给定区域和时差及格式下的DateTimeFormat对象",
             "itemtype": "method",
             "name": "getDateTimeInstance",
@@ -5664,7 +5664,7 @@
         },
         {
             "file": "src/api/date/format.js",
-            "line": 93,
+            "line": 101,
             "description": "获取当前时间在给定区域和时差及格式下的DateTimeFormat对象",
             "itemtype": "method",
             "name": "getTimeInstance",
@@ -6352,7 +6352,7 @@
             "params": [
                 {
                     "name": "v",
-                    "description": "对应域要增加的值",
+                    "description": "对应域要增加的值。例如现在是2014年，dateGregorian.getYear() 返回2014，dateGregorian.addYear(2)则变成 2016",
                     "type": "Number"
                 }
             ],
@@ -6407,13 +6407,16 @@
                     "type": "Number"
                 }
             ],
+            "example": [
+                "\n```\nvar date = new DateGregorian();\ndate.setTime(+new Date());\nvar df = DateFormat.getInstance();\ndf.format(date);  //14-8-14 下午7:24\ndate.getHourOfDay()  // 19\ndate.addHourOfDay(2);\ndf.format(date);  //14-8-14 下午9:24 \ndate.getHourOfDay()  // 21  在原基础加了两个小时\n```"
+            ],
             "class": "Date.GregorianCalendar",
             "module": "date/gregorian",
             "namespace": "Date"
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 333,
+            "line": 344,
             "description": "增加分钟域的值",
             "itemtype": "method",
             "name": "addMinutes",
@@ -6430,7 +6433,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 339,
+            "line": 350,
             "description": "增加秒位的值",
             "itemtype": "method",
             "name": "addSeconds",
@@ -6447,7 +6450,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 345,
+            "line": 356,
             "description": "增加毫秒位的值",
             "itemtype": "method",
             "name": "addMilliseconds",
@@ -6464,7 +6467,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 351,
+            "line": 362,
             "description": "增加为当前年的第几周",
             "itemtype": "method",
             "name": "addWeekOfYear",
@@ -6481,7 +6484,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 357,
+            "line": 368,
             "description": "增加为当前月的第几周",
             "itemtype": "method",
             "name": "addWeekOfMonth",
@@ -6498,7 +6501,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 363,
+            "line": 374,
             "description": "增加为当前年中的第几天",
             "itemtype": "method",
             "name": "addDayOfYear",
@@ -6515,7 +6518,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 369,
+            "line": 380,
             "description": "增加为当前周中的第几天",
             "itemtype": "method",
             "name": "addDayOfWeek",
@@ -6532,7 +6535,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 375,
+            "line": 386,
             "description": "增加为当前月的当前周的第几天",
             "itemtype": "method",
             "name": "addDayOfWeekInMonth",
@@ -6549,7 +6552,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 381,
+            "line": 392,
             "description": "增加对应日历域的值",
             "itemtype": "method",
             "name": "roll",
@@ -6571,7 +6574,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 388,
+            "line": 399,
             "description": "增加日历的年份",
             "itemtype": "method",
             "name": "rollYear",
@@ -6588,7 +6591,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 394,
+            "line": 405,
             "description": "增加日历的月份",
             "itemtype": "method",
             "name": "rollMonth",
@@ -6605,7 +6608,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 400,
+            "line": 411,
             "description": "增加日历当前月中的某一天",
             "itemtype": "method",
             "name": "rollDayOfMonth",
@@ -6622,7 +6625,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 406,
+            "line": 417,
             "description": "增加当前的天中的哪一小时",
             "itemtype": "method",
             "name": "rollHourOfDay",
@@ -6639,7 +6642,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 412,
+            "line": 423,
             "description": "增加分钟域的值",
             "itemtype": "method",
             "name": "rollMinutes",
@@ -6656,7 +6659,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 418,
+            "line": 429,
             "description": "增加秒位的值",
             "itemtype": "method",
             "name": "rollSeconds",
@@ -6673,7 +6676,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 424,
+            "line": 435,
             "description": "增加毫秒位的值",
             "itemtype": "method",
             "name": "rollMilliseconds",
@@ -6690,7 +6693,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 430,
+            "line": 441,
             "description": "增加为当前年的第几周",
             "itemtype": "method",
             "name": "rollWeekOfYear",
@@ -6707,7 +6710,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 436,
+            "line": 447,
             "description": "增加为当前月的第几周",
             "itemtype": "method",
             "name": "rollWeekOfMonth",
@@ -6724,7 +6727,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 442,
+            "line": 453,
             "description": "增加为当前年中的第几天",
             "itemtype": "method",
             "name": "rollDayOfYear",
@@ -6741,7 +6744,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 448,
+            "line": 459,
             "description": "增加为当前周中的第几天",
             "itemtype": "method",
             "name": "rollDayOfWeek",
@@ -6758,7 +6761,7 @@
         },
         {
             "file": "src/api/date/gregorian.js",
-            "line": 454,
+            "line": 465,
             "description": "增加为当前月的当前周的第几天",
             "itemtype": "method",
             "name": "rollDayOfWeekInMonth",

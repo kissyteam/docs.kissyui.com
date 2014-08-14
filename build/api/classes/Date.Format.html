@@ -857,9 +857,16 @@
 
             <div class="example-content">
                 <pre class="code prettyprint"><code>//GregorianCalendar是另一个Class
-var gregorianCalendar = new GregorianCalendar(2013,GregorianCalendar.JULY, 11, 12, 31, 19);
+var gregorianCalendar = new GregorianCalendar();
+gregorianCalendar.setTime(new Date());
 var df = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.FULL);
-df.format(gregorianCalendar);</code></pre>
+df.format(gregorianCalendar);  //例如现在的：2014年8月14日 星期四 下午05时23分36秒 GMT+0800
+
+var df2 = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.SHORT);
+df2.format(gregorianCalendar); //例如现在的：2014年8月14日 星期四 下午5:23
+
+var df3 = DateTimeFormat.getDateInstance(Style.FULL);
+df3.format(gregorianCalendar); //例如现在的：2014年8月14日 星期四</code></pre>
 
             </div>
         </div>
@@ -1304,7 +1311,8 @@ df.format(gregorianCalendar);</code></pre>
 
             <div class="example-content">
                 <pre class="code prettyprint"><code>//相当于
-getDateTimeInstance(DateTimeStyle.SHORT, DateTimeStyle.SHORT, locale, timeZoneOffset)</code></pre>
+getDateTimeInstance(DateTimeStyle.SHORT, DateTimeStyle.SHORT, locale, timeZoneOffset)
+format后得到的字符串形如： 14-8-14 下午5:44</code></pre>
 
             </div>
         </div>
@@ -1614,7 +1622,7 @@ var cal = df.parse(str);</code></pre>
         <p>日期时间格式对象，形式如下：</p>
 <p>Style.FULL: yyyy年M月d日 EEEE ahh时mm分ss秒 GMTZ</p>
 <p>Style.LONG: yyyy年M月d日 ahh时mm分ss秒</p>
-<p>Style.MEDIUM: yyyy-M-d H:mm:ss</p>
+<p>Style.MEDIUM: yyyy-M-d H:mm:ss    </p>
 <p>Style.SHORT: yy-M-d ah:mm</p>
 
     </div>

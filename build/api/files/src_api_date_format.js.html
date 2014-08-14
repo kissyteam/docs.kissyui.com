@@ -526,7 +526,7 @@ Style.FULL: yyyy年M月d日 EEEE ahh时mm分ss秒 GMTZ
 
 Style.LONG: yyyy年M月d日 ahh时mm分ss秒
 
-Style.MEDIUM: yyyy-M-d H:mm:ss
+Style.MEDIUM: yyyy-M-d H:mm:ss    
 
 Style.SHORT: yy-M-d ah:mm
 
@@ -542,9 +542,16 @@ Style.SHORT: yy-M-d ah:mm
 @example
 &#x60;&#x60;&#x60;
 //GregorianCalendar是另一个Class
-var gregorianCalendar = new GregorianCalendar(2013,GregorianCalendar.JULY, 11, 12, 31, 19);
+var gregorianCalendar = new GregorianCalendar();
+gregorianCalendar.setTime(new Date());
 var df = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.FULL);
-df.format(gregorianCalendar);
+df.format(gregorianCalendar);  //例如现在的：2014年8月14日 星期四 下午05时23分36秒 GMT+0800
+
+var df2 = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.SHORT);
+df2.format(gregorianCalendar); //例如现在的：2014年8月14日 星期四 下午5:23
+
+var df3 = DateTimeFormat.getDateInstance(Style.FULL);
+df3.format(gregorianCalendar); //例如现在的：2014年8月14日 星期四
 &#x60;&#x60;&#x60;
 */
 
@@ -572,6 +579,7 @@ var cal = df.parse(str);
 &#x60;&#x60;&#x60;
 //相当于
 getDateTimeInstance(DateTimeStyle.SHORT, DateTimeStyle.SHORT, locale, timeZoneOffset)
+format后得到的字符串形如： 14-8-14 下午5:44
 &#x60;&#x60;&#x60;
 */
 

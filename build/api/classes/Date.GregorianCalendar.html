@@ -1634,6 +1634,22 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var date = new DateGregorian();
+date.setTime(+new Date());
+var df = DateFormat.getInstance();
+df.format(date);  //14-8-14 下午7:24
+date.getHourOfDay()  // 19
+date.addHourOfDay(2);
+df.format(date);  //14-8-14 下午9:24 
+date.getHourOfDay()  // 21  在原基础加了两个小时</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
                 
@@ -2201,7 +2217,7 @@
                     
 
                     <div class="param-description">
-                        <p>对应域要增加的值</p>
+                        <p>对应域要增加的值。例如现在是2014年，dateGregorian.getYear() 返回2014，dateGregorian.addYear(2)则变成 2016</p>
 
                     </div>
 
