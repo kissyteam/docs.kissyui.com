@@ -52,6 +52,7 @@ module.exports.buildGuide = function(srcUrl,config){
 			var sideBarHtml = getSideBarHtmlSync(dirName);
 			//将markdown转为html
 			fs.readdirSync(dirName).forEach(function(file){
+				if(file.indexOf('DS_Store') > -1){ return; };
 				headerListsHtml = '';   //每编译一次markdown文件前都重置一下
 
 				var fileName = path.resolve(dirName,file),
@@ -115,7 +116,7 @@ module.exports.buildDemos = function(srcUrl,config){
 			var sideBarHtml = getSideBarHtmlSync(dirName);
 
 			fs.readdirSync(dirName).forEach(function(file){
-
+				if(file.indexOf('DS_Store') > -1){ return; };
 				var fileName = path.resolve(dirName,file),
 					mainXtplPath = path.resolve(srcDirPath,'../themes/demos/layouts/main.xtpl'),
 					demoCodeXtplPath = path.resolve(srcDirPath,'../themes/demos/layouts/demo-code.xtpl');
@@ -210,7 +211,7 @@ module.exports.buildOthers = function(srcUrl,config){
 	var mainXtplPath = path.resolve(srcDirPath,'../themes/layouts/main.xtpl');
 
 	fs.readdirSync(srcDirPath).forEach(function(file){
-		if(file === 'api' || file === 'demos' || file === 'guides' || file === 'assets'){
+		if(file === 'api' || file === 'demos' || file === 'guides' || file === 'assets' || file === '.DS_Store'){
 			return;  //这个三个目录在其他地方处理，如buildGuides/buildDemos等
 		}
 		var fileName = path.resolve(srcDirPath,file);
@@ -281,6 +282,7 @@ function getFeatures(dirUrl){
 	var featureContent = '';
 	if(fs.existsSync(dirUrl)){
 		fs.readdirSync(dirUrl).forEach(function(file){
+			if(file.indexOf('DS_Store') > -1){ return; };
 			var fileName = path.resolve(dirUrl,file);
 			if(fs.statSync(fileName).isDirectory()){
 				return;  //如果是文件夹，在这里暂时是cited-by-md文件夹，不处理
