@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>promise 简单使用 - KISSY v5.0 Documentation</title>
+	<title>回调嵌套处理 - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -152,7 +152,7 @@
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1 id="promise 简单使用">promise 简单使用</h1><p><div class="ks-tabs ks-tabs-top" style="height:500px;">
+<h1 id="回调嵌套处理">回调嵌套处理</h1><p><div class="ks-tabs ks-tabs-top" style="height:500px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -166,36 +166,32 @@
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
-&lt;title&gt;promise简单使用&lt;&#x2F;title&gt;
+&lt;title&gt;promise-嵌套处理&lt;&#x2F;title&gt;
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;assets&#x2F;bootstrap.css&quot;&gt;
 &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
-&lt;h4&gt;promise适用于有异步逻辑的场景，能减少回调函数的嵌套，让代码更加优雅，可读性提高等&lt;&#x2F;h4&gt;
+&lt;h4&gt;成功回调可以返回新的 promise 进行嵌套处理&lt;&#x2F;h4&gt;
 &lt;p&gt;查看代码，点击下面按钮观察结果&lt;&#x2F;p&gt;
-&lt;button id=&quot;demo1&quot; class=&quot;btn btn-default btn-sm&quot;&gt;点我执行&lt;&#x2F;button&gt;
+&lt;button id=&quot;demo7&quot; class=&quot;btn btn-default btn-sm&quot;&gt;点我执行&lt;&#x2F;button&gt;
 
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
     KISSY.use([&#x27;node&#x27;, &#x27;promise&#x27;], function(S, Node, Promise){
         var $ = Node.all;
 
-        $(&#x27;#demo1&#x27;).on(&#x27;click&#x27;, function(ev){
-            var defer1 = new Promise.Defer(),
-            promise1 = defer1.promise;
-
-            &#x2F;&#x2F;监听这个promise的成功或失败
-            promise1.then(function(promisedValue){   
-                alert(promisedValue);
-            },function(reason){
-                alert(reason);
-            });
-
-
-            setTimeout(function(){
-                &#x2F;&#x2F;just do something async
-                
-                defer1.resolve(&#x27;Let it success!&#x27;);  &#x2F;&#x2F;当想要让这个promise响应状态时调用相应的方法
-            },1000);
+        $(&#x27;#demo7&#x27;).on(&#x27;click&#x27;, function(){
+           	var d = new Promise.Defer();
+		    d.resolve(1);
+		    var promise = d.promise;
+		    promise.then(function (v) {
+		        var d = new Promise.Defer();
+		        setTimeout(function () {
+		            d.resolve(v + 1);
+		        }, 1000);
+		        return d.promise;
+		    }).then(function (v) {
+		        alert(v); &#x2F;&#x2F; 一秒后弹出 2
+		    });
         });
     })
 &lt;&#x2F;script&gt;
@@ -209,7 +205,7 @@
             </iframe>
         </div>
         <div class="ks-tabs-panel">
-            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/promise/cited-by-md/baseuse.html" ="text">示例地址：docs.kissyui.com/5.0/demos/promise/cited-by-md/baseuse.html</p>
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/promise/cited-by-md/demo7.html" ="text">示例地址：docs.kissyui.com/5.0/demos/promise/cited-by-md/demo7.html</p>
             <div class="qrcode"></div>
         </div>
     </div>

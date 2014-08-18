@@ -3,240 +3,38 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>promise使用示例</title>
+<title>promise简单使用</title>
 <link rel="stylesheet" type="text/css" href="assets/bootstrap.css">
 <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
 </head>
 <body>
-<h3>点击下面各个按钮查看演示结果</h3>
-<br/>
-<div style="margin-bottom:20px;">
-    <h4>链式传递的效果</h4>
-    <button id="demo1" class="btn btn-default btn-sm">点我执行</button>
-    <pre>
-        <code>
-$('#demo1').on('click', function(){
-    var d = new Promise.Defer();
-    var promise = d.promise;
-    promise.then(function (v) {
-        return v + 1;
-    }).then(function (v) {
-            alert(v); // => 2
-        });
-    d.resolve(1); // 该位置也可以放在 then 前面
-});
-        </code>
-    </pre>
-</div>
-<div style="margin-bottom:20px;">
-    <h4>resolve 和 then 没有顺序依赖</h4>
-    <button id="demo2" class="btn btn-default btn-sm">点我执行</button>
-    <pre>
-        <code>
-$('#demo2').on('click', function(){
-    var d = new Promise.Defer();
-    d.resolve(1); // 该位置也可以放在 then 前面
-    var promise = d.promise;
-    promise.then(function (v) {
-        return v + 1;
-    }).then(function (v) {
-            alert(v); // => 2
-    });
-});
-        </code>
-    </pre>
-</div>
-<div style="margin-bottom:20px;">
-    <h4>错误可以被传递</h4>
-    <button id="demo3" class="btn btn-default btn-sm">点我执行</button>
-    <pre>
-        <code>
-$('#demo3').on('click', function(){
-    var d = new Promise.Defer();
-    d.reject("wrong");
-    var promise = d.promise;
-    promise.then(function (v) {
-        return v + 1;
-    }).then(function (v) {
-            alert(v);
-    }, function (reason) {
-        alert(reason); // => "wrong"
-    });
-});
-        </code>
-    </pre>
-</div>
-<div style="margin-bottom:20px;">
-    <h4>前一个 promise 如果处理了错误并返回会影响下一个 promise 的成功回调</h4>
-    <button id="demo4" class="btn btn-default btn-sm">点我执行</button>
-    <pre>
-        <code>
-$('#demo4').on('click', function(){
-    var d = new Promise.Defer();
-    d.reject("wrong");
-    var promise = d.promise;
-    promise.then(function (v) {
-        return v + 1;
-    },function (reason) {
-        return 2;
-    }).then(function (v) {
-        alert(v); // => 2
-    }, function (reason) {
-        alert(reason); // 不执行
-    });
-});
-        </code>
-    </pre>
-</div>
-<div style="margin-bottom:20px;">
-    <h4>前一个 promise 的成功或失败回调如果抛出异常则影响下一个 promise 的失败回调</h4>
-    <button id="demo5" class="btn btn-default btn-sm">点我执行</button>
-    <pre>
-        <code>
-$('#demo5').on('click', function(){
-    var d = new Promise.Defer();
-    d.resolve(1);
-    var promise = d.promise;
-    promise.then(function (v) {
-        throw "I am custom error:" + v;
-    },function (reason) {
-        return 2;
-    }).then(function (v) {
-        alert(v); // 不回调
-    }, function (reason) {
-        alert(reason); // =>2
-    });
-});
-        </code>
-    </pre>
-</div>
-<div style="margin-bottom:20px;">
-    <h4>成功回调可以返回新的 promise 进行嵌套处理</h4>
-    <button id="demo6" class="btn btn-default btn-sm">点我执行</button>
-    <pre>
-        <code>
-$('#demo6').on('click', function(){
-    var d = new Promise.Defer();
-    d.resolve(1);
-    var promise = d.promise;
-    promise.then(function (v) {
-        var d = new Promise.Defer();
-        setTimeout(function () {
-            d.resolve(v + 1);
-        }, 1000);
-        return d.promise;
-    }).then(function (v) {
-        alert(v); // 一秒后弹出 2
-    });
-});
-        </code>
-    </pre>
-</div>
-<div style="margin-bottom:20px;">
-    <h4>Promise Done 的使用示例</h4>
-    <button id="demo7" class="btn btn-default btn-sm">点我执行</button>
-    <pre>
-        <code>
-$('#demo7').on('click', function(){
-    var d = new Promise.Defer();
-    setTimeout(function() {d.reject("reject")}, 1000);
-    var promise = d.promise;
-    promise.done(function(){  //done和then不同的是：如果没有设置回调函数去处理reject则会抛出异常在控制台输出
-        alert('success');
-    });
-});
-        </code>
-    </pre>
-</div>
-<script>
-    KISSY.use(['node','promise'], function(S, Node, Promise){
+<h4>promise适用于有异步逻辑的场景，能减少回调函数的嵌套，让代码更加优雅，可读性提高等</h4>
+<p>查看代码，点击下面按钮观察结果</p>
+<button id="demo1" class="btn btn-default btn-sm">点我执行</button>
+
+<script type="text/javascript">
+    KISSY.use(['node', 'promise'], function(S, Node, Promise){
         var $ = Node.all;
 
-        $('#demo1').on('click', function(){
-            var d = new Promise.Defer();
-            var promise = d.promise;
-            promise.then(function (v) {
-                return v + 1;
-            }).then(function (v) {
-                    alert(v); // => 2
-                });
-            d.resolve(1); // 该位置也可以放在 then 前面
-        });
+        $('#demo1').on('click', function(ev){
+            var defer1 = new Promise.Defer(),
+            promise1 = defer1.promise;
 
-        $('#demo2').on('click', function(){
-            var d = new Promise.Defer();
-            d.resolve(1); // 该位置也可以放在 then 前面
-            var promise = d.promise;
-            promise.then(function (v) {
-                return v + 1;
-            }).then(function (v) {
-                    alert(v); // => 2
+            //监听这个promise的成功或失败
+            promise1.then(function(promisedValue){   
+                alert(promisedValue);
+            },function(reason){
+                alert(reason);
             });
-        });
-        $('#demo3').on('click', function(){
-            var d = new Promise.Defer();
-            d.reject("wrong");
-            var promise = d.promise;
-            promise.then(function (v) {
-                return v + 1;
-            }).then(function (v) {
-                    alert(v);
-            }, function (reason) {
-                alert(reason); // => "wrong"
-            });
-        });
-        $('#demo4').on('click', function(){
-            var d = new Promise.Defer();
-            d.reject("wrong");
-            var promise = d.promise;
-            promise.then(function (v) {
-                return v + 1;
-            },function (reason) {
-                return 2;
-            }).then(function (v) {
-                alert(v); // => 2
-            }, function (reason) {
-                alert(reason); // 不执行
-            });
-        });
-        $('#demo5').on('click', function(){
-            var d = new Promise.Defer();
-            d.resolve(1);
-            var promise = d.promise;
-            promise.then(function (v) {
-                throw "I am custom error:" + v;
-            },function (reason) {
-                return 2;
-            }).then(function (v) {
-                alert(v); // 不回调
-            }, function (reason) {
-                alert(reason); // =>2
-            });
-        });
-        $('#demo6').on('click', function(){
-            var d = new Promise.Defer();
-            d.resolve(1);
-            var promise = d.promise;
-            promise.then(function (v) {
-                var d = new Promise.Defer();
-                setTimeout(function () {
-                    d.resolve(v + 1);
-                }, 1000);
-                return d.promise;
-            }).then(function (v) {
-                alert(v); // 一秒后弹出 2
-            });
-        });
-        $('#demo7').on('click', function(){
-            var d = new Promise.Defer();
-            setTimeout(function() {d.reject("reject")}, 1000);
-            var promise = d.promise;
-            promise.done(function(){  //done和then不同的是：如果没有设置回调函数去处理reject则会抛出异常在控制台输出
-                alert('success');
-            });
+
+
+            setTimeout(function(){
+                //just do something async
+                
+                defer1.resolve('Let it success!');  //当想要让这个promise响应状态时调用相应的方法
+            },1000);
         });
     })
 </script>
-
 </body>
 </html>
