@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>DateFormat的使用示例 - KISSY v5.0 Documentation</title>
+	<title>DatePicker 使用示例 - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -152,7 +152,7 @@
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1 id="DateFormat的使用示例">DateFormat的使用示例</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+<h1 id="DatePicker 使用示例">DatePicker 使用示例</h1><p><div class="ks-tabs ks-tabs-top" style="height:700px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -167,90 +167,38 @@
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;title&gt;DateFormat的示例&lt;&#x2F;title&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;
-   &lt;p&gt;说明：要注意区分 date&#x2F;format（时间格式化类） 和 date&#x2F;gregorian（时间类） 这两个模块的提供的Class: DateFormat和DateGregorian，DateFormat就是设定一些规则来确定DateGregorian的输出字符串形式，例如是这种日期时间完整格式(2014年8月14日 星期四 下午07时34分25秒 GMT+0800)或者日期时间中长度格式(2014-8-14 19:34:25)&lt;&#x2F;p&gt;
-   &lt;p&gt;不同的DateFormat对象使得DateGregorian输出的日期时间形式不同，如下：&lt;&#x2F;p&gt;
-
-   &lt;p&gt;
-       &lt;span&gt;当前时间：&lt;&#x2F;span&gt; &lt;span id=&quot;str&quot; style=&quot;color:#5c5;&quot;&gt;&lt;&#x2F;span&gt;
-   &lt;&#x2F;p&gt;
-   
-
-   &lt;p&gt;下面不同按钮调用不同的DateFormat对象来格式化Gregorian对象：&lt;&#x2F;p&gt;
-    &lt;div id=&quot;buttons&quot;&gt;
-        &lt;button value=&quot;dtf_FULL&quot;&gt;日期时间完整格式&lt;&#x2F;button&gt;
-        &lt;button value=&quot;dtf_LONG&quot;&gt;日期时间长格式&lt;&#x2F;button&gt;
-        &lt;button value=&quot;dtf_MEDIUM&quot;&gt;日期时间中长度格式&lt;&#x2F;button&gt;
-        &lt;button value=&quot;dtf_SHORT&quot;&gt;日期时间短长度格式&lt;&#x2F;button&gt;
-        &lt;br&#x2F;&gt;
-        &lt;button value=&quot;tf_FULL&quot;&gt;只格式化时间完整格式&lt;&#x2F;button&gt;
-        &lt;button value=&quot;df_MEDIUM&quot;&gt;只格式化日期中长度格式&lt;&#x2F;button&gt;
-        &lt;button value=&quot;instance&quot;&gt;格式化日期时间(instance)&lt;&#x2F;button&gt;
-    &lt;&#x2F;div&gt;
-    &lt;p&gt;
-        &lt;span&gt;根据当前时间格式字符串来解析出时间对象，需要使用相应的时间格式化对象才能解析，且需当前时间字符串有相应的数据才能拿到，例如“2014-8-14”这个解析后再&quot;getHourOfDay&quot;就会出错，故下面的按钮在某些时间格式下会出错：&lt;&#x2F;span&gt; &lt;button id=&quot;parse&quot;&gt;解析&lt;&#x2F;button&gt;
-    &lt;&#x2F;p&gt;
-    &lt;p&gt;解析得到时间对象后可用下面的方法拿到时间对象的相应数据：&lt;&#x2F;p&gt;
-    &lt;div id=&quot;gets&quot;&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getYear&quot;&gt;getYear&lt;&#x2F;button&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getMonth&quot;&gt;getMonth&lt;&#x2F;button&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getDayOfMonth&quot;&gt;getDayOfMonth&lt;&#x2F;button&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getHourOfDay&quot;&gt;getHourOfDay&lt;&#x2F;button&gt;
-        &lt;br&#x2F;&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getMinutes&quot;&gt;getMinutes&lt;&#x2F;button&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getSeconds&quot;&gt;getSeconds&lt;&#x2F;button&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getMilliseconds&quot;&gt;getMilliseconds&lt;&#x2F;button&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getWeekOfYear&quot;&gt;getWeekOfYear&lt;&#x2F;button&gt;
-        &lt;br&#x2F;&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getWeekOfMonth&quot;&gt;getWeekOfMonth&lt;&#x2F;button&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getDayOfYear&quot;&gt;getDayOfYear&lt;&#x2F;button&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getDayOfWeek&quot;&gt;getDayOfWeek&lt;&#x2F;button&gt;
-        &lt;button disabled=&quot;disabled&quot; value=&quot;getDayOfWeekInMonth&quot;&gt;getDayOfWeekInMonth&lt;&#x2F;button&gt;
-    &lt;&#x2F;div&gt;
-
+&lt;h3&gt;DatePicker 简单使用示例&lt;&#x2F;h3&gt;
+&lt;p&gt;
+    DatePicker 是一个嵌入式的日历控件，如需使用悬浮式的日历控件请使用 date&#x2F;popup-picker 模块提供的 PopupDatePicker。
+&lt;&#x2F;p&gt;
+&lt;div id=&quot;holder&quot;&gt;&lt;&#x2F;div&gt;
+&lt;div id=&quot;result&quot;&gt;&lt;&#x2F;div&gt;
     &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-    KISSY.use([&#x27;node&#x27;, &#x27;event&#x27;, &#x27;date&#x2F;gregorian&#x27;, &#x27;date&#x2F;format&#x27;], function(S, Node, Event, DateGregorian, DateFormat) {
-            var $ = Node.all;
-            var Style = DateFormat.Style;
-            var currentStyle = &quot;dtf_FULL&quot;;
-            &#x2F;&#x2F;获得时间对象
-            var dategregorian_ins = new DateGregorian();
-            var calendar;
-            &#x2F;&#x2F;给时间对象设定当前时间
-            dategregorian_ins.setTime(+new Date());  &#x2F;&#x2F;注意dategregorian_ins.setTime的参数一定要是Number类型
+        &#x2F;&#x2F; KISSY.config(&#x27;lang&#x27;, &#x27;en-us&#x27;);  &#x2F;&#x2F;如果配置语言为英文，日历组件会自动显示为英文
+        KISSY.use(&#x27;node, date&#x2F;picker, date&#x2F;format,date&#x2F;picker&#x2F;assets&#x2F;dpl.css&#x27;, function(S, Node, DatePicker, DateFormat) {
+            var result = Node.all(&quot;#result&quot;);
+            var picker = new DatePicker({
+                render: &quot;#holder&quot;,
+                showClear : false,  &#x2F;&#x2F; showClear 和 showToday 一定要一起配置成相同的才生效
+                showToday : false,
+                disabledDate : function(current, value){
+                    var date = new Date();
+                    return current.getDayOfMonth() &lt; date.getDate();   &#x2F;&#x2F;在当前时刻日期之前的日期都不能被选择
+                }
+            }).render();
 
-            var formatInstanceStyle = {
-                dtf_FULL: DateFormat.getDateTimeInstance(Style.FULL, Style.FULL), &#x2F;&#x2F;日期时间完整格式
-                dtf_LONG: DateFormat.getDateTimeInstance(Style.LONG, Style.LONG), &#x2F;&#x2F;日期时间长格式
-                dtf_MEDIUM: DateFormat.getDateTimeInstance(Style.MEDIUM, Style.MEDIUM), &#x2F;&#x2F;日期时间中长度格式
-                dtf_SHORT: DateFormat.getDateTimeInstance(Style.SHORT, Style.SHORT), &#x2F;&#x2F;日期时间短长度格式
-                tf_FULL: DateFormat.getTimeInstance(Style.FULL), &#x2F;&#x2F;只格式化时间
-                df_MEDIUM: DateFormat.getDateInstance(Style.MEDIUM), &#x2F;&#x2F;只格式化日期
-                instance: DateFormat.getInstance() &#x2F;&#x2F;相当于DateFormat.getDateTimeInstance(Style.SHORT, Style.SHORT);
-            };
-            &#x2F;&#x2F;format方法用法
-            $(&quot;#str&quot;).text(formatInstanceStyle[&quot;dtf_FULL&quot;].format(dategregorian_ins));
-
-            Event.delegate(&quot;#buttons&quot;, &#x27;click&#x27;, &#x27;button&#x27;, function(event) {
-                currentStyle = $(event.currentTarget).val();
-                var str = formatInstanceStyle[currentStyle].format(dategregorian_ins);
-                $(&quot;#str&quot;).text(str);
-            });
-
-            &#x2F;&#x2F;parse方法用法
-            $(&quot;#parse&quot;).on(&#x27;click&#x27;, function(event) {
-                var str = $(&quot;#str&quot;).text();
-                calendar = formatInstanceStyle[currentStyle].parse(str); &#x2F;&#x2F;需用对应的格式去解析
-                $(&quot;#gets button&quot;).removeAttr(&#x27;disabled&#x27;);
-            });
-
-            Event.delegate(&#x27;#gets&#x27;, &#x27;click&#x27;, &#x27;button&#x27;, function(event) {
-                var func = $(event.currentTarget).val();
-                var value = calendar[func]();
-                alert(value);
+            picker.on(&#x27;select&#x27;, function(e) {
+                var value = e.value;
+                if (value) {
+                    result.html(DateFormat.getDateInstance(DateFormat.Style.FULL).format(value));
+                } else {
+                    result.html(null);
+                }
             });
         });
     &lt;&#x2F;script&gt;
@@ -264,7 +212,7 @@
             </iframe>
         </div>
         <div class="ks-tabs-panel">
-            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/date/cited-by-md/dateformat.html" ="text">示例地址：docs.kissyui.com/5.0/demos/date/cited-by-md/dateformat.html</p>
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/date/cited-by-md/date-picker-zh.html" ="text">示例地址：docs.kissyui.com/5.0/demos/date/cited-by-md/date-picker-zh.html</p>
             <div class="qrcode"></div>
         </div>
     </div>
@@ -272,10 +220,10 @@
 
 	   			<div id="disqus_thread"></div>
 	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
-	   			<a id="apilink" href="../../api/classes/Date.Format.html" style="display:none;"></a>
+	   			<a id="apilink" href="../../api/classes/Date.Picker.html" style="display:none;"></a>
 			</div>
 			<div class="col-md-3" id="sidebar">
-				<a class="link-apidocs btn btn-primary" href="../../api/classes/Date.Format.html">API Docs</a>
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/Date.Picker.html">API Docs</a>
 				<div class="panel panel-primary ajax-load hide">
 					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>

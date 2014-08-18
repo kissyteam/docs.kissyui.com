@@ -13,30 +13,41 @@
 */
 
 /**
-一个过滤函数，用于判断日期是否可用.可用返回true，反之返回false
+一个过滤函数，用于判断日期是否可以被选择（出发select事件），返回true说明当前循环中的日期不可用，返回false说明当前循环中的日期可用
+
+- current {GregorianCalendar} 时间对象，在当前日历页要显示出来的日期对应的日历对象
+- value {GregorianCalendar} 时间对象，当前被选中的日期的GregorianCalendar时间对象。默认是代码运行当前时刻的GregorianCalendar时间对象
+
 ```
 disabledDate: function (current, value) {
-    return current.getMonth() < value.getMonth();
+	var date = new Date();
+	return current.getDayOfMonth() < date.getDay();  //表示在当前日期之前的日期都不能被选择
 }
 ```
+
 @attribute disabledDate {Function}
+
 */
 
 
 /**
-是否显示周的数字形式.显示为true，反之为false
+是否显示每一行日期所在一年中的第几周(weekOfYear)的数字形式.显示为true，反之为false
 @attribute showWeekNumber {Boolean}
+@default true
 */
 
 /**
-是否显示今天.显示为true，反之为false
+是否显示今天.显示为true，反之为false。需要和 showClear 一起设置相同才生效
 @attribute showToday {Boolean}
+@default true
 */
 
 /**
-指定每个日期单元的渲染方式.函数接受两个参数
-- current: 当前的日期值 
-- value : 初始化 picker 是设置的值，默认为当前时间
+指定每个日期单元的渲染方式，返回的 html 字符串将渲染在对应的日期单元上面。函数接受两个参数
+
+- current {GregorianCalendar} 时间对象，在当前日历页要显示出来的日期对应的日历对象
+- value {GregorianCalendar} 时间对象，当前被选中的日期的GregorianCalendar时间对象。默认是代码运行当前时刻的GregorianCalendar时间对象
+
 @attribute dateRender {Function} 
 */
 
@@ -46,7 +57,7 @@ locale 信息
 */
 
 /**
-是否显示清除按钮，默认 true
+是否显示清除按钮，默认 true。需要和 showToday 一起设置相同才生效
 @attribute showClear {Boolean}
 */
 

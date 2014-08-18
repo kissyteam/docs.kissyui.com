@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>DateFormat的示例</title>
+<link rel="stylesheet" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
+<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+</head>
+
+<body>
+<h3>DatePicker 简单使用示例</h3>
+<p>
+    DatePicker 是一个嵌入式的日历控件，如需使用悬浮式的日历控件请使用 date/popup-picker 模块提供的 PopupDatePicker。
+</p>
+<div id="holder"></div>
+<div id="result"></div>
+    <script type="text/javascript">
+        // KISSY.config('lang', 'en-us');  //如果配置语言为英文，日历组件会自动显示为英文
+        KISSY.use('node, date/picker, date/format,date/picker/assets/dpl.css', function(S, Node, DatePicker, DateFormat) {
+            var result = Node.all("#result");
+            var picker = new DatePicker({
+                render: "#holder",
+                showClear : false,  // showClear 和 showToday 一定要一起配置成相同的才生效
+                showToday : false,
+                disabledDate : function(current, value){
+                    var date = new Date();
+                    return current.getDayOfMonth() < date.getDate();   //在当前时刻日期之前的日期都不能被选择
+                }
+            }).render();
+
+            picker.on('select', function(e) {
+                var value = e.value;
+                if (value) {
+                    result.html(DateFormat.getDateInstance(DateFormat.Style.FULL).format(value));
+                } else {
+                    result.html(null);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
