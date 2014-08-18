@@ -6847,7 +6847,7 @@
         {
             "file": "src/api/date/picker.js",
             "line": 64,
-            "description": "当选择时触发的事件",
+            "description": "当选择时触发的事件\n\n- e {CustomEventObject} 自定义事件对象\n- e.value {GregorianCalendar} 时间对象",
             "itemtype": "event",
             "name": "select",
             "example": [
@@ -6860,7 +6860,7 @@
         {
             "file": "src/api/date/popup-picker.js",
             "line": 23,
-            "description": "当失去焦点是触发的事件",
+            "description": "当失去焦点是触发的事件\n\n- e {CustomEventObject} 自定义事件对象\n- e.value {GregorianCalendar} 时间对象",
             "itemtype": "event",
             "name": "blur",
             "example": [

@@ -22,6 +22,10 @@ KISSY.use('date/popup-picker',function(S, PopupDatePicker){
 
 /**
 当失去焦点是触发的事件
+
+- e {CustomEventObject} 自定义事件对象
+- e.value {GregorianCalendar} 时间对象
+
 @event blur
 @example
 ```

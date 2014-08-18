@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>DatePicker 使用示例 - KISSY v5.0 Documentation</title>
+	<title>PopupDatePicker 使用示例 - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -152,7 +152,7 @@
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1 id="DatePicker 使用示例">DatePicker 使用示例</h1><p><div class="ks-tabs ks-tabs-top" style="height:700px;">
+<h1 id="PopupDatePicker 使用示例">PopupDatePicker 使用示例</h1><p><div class="ks-tabs ks-tabs-top" style="height:700px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -161,43 +161,76 @@
     <div class="ks-tabs-body">
         <div class="ks-tabs-panel">
             <div class="editor">
-				
-&lt;!doctype html&gt;
+				&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
-&lt;title&gt;DatePicker 简单使用示例&lt;&#x2F;title&gt;
+&lt;title&gt;PopupDatePicker 使用示例&lt;&#x2F;title&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
 &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;
-&lt;h3&gt;DatePicker 简单使用示例&lt;&#x2F;h3&gt;
+&lt;h3&gt;PopupDatePicker 使用示例&lt;&#x2F;h3&gt;
 &lt;p&gt;
-    DatePicker 是一个嵌入式的日历控件，如需使用悬浮式的日历控件请使用 date&#x2F;popup-picker 模块提供的 PopupDatePicker。
+    PopupDatePicker 是一个悬浮式的日历控件，如需使用嵌入式的日历控件请使用 date&#x2F;picker 模块提供的 DatePicker。
 &lt;&#x2F;p&gt;
-&lt;div id=&quot;holder&quot;&gt;&lt;&#x2F;div&gt;
-&lt;div id=&quot;result&quot;&gt;&lt;&#x2F;div&gt;
+&lt;input type=&quot;text&quot; id=&quot;date&quot;&gt;
+&lt;button id=&quot;popup&quot;&gt;选择日期&lt;&#x2F;button&gt;
     &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-        &#x2F;&#x2F; KISSY.config(&#x27;lang&#x27;, &#x27;en-us&#x27;);  &#x2F;&#x2F;如果配置语言为英文，日历组件会自动显示为英文
-        KISSY.use(&#x27;node, date&#x2F;picker, date&#x2F;format,date&#x2F;picker&#x2F;assets&#x2F;dpl.css&#x27;, function(S, Node, DatePicker, DateFormat) {
-            var result = Node.all(&quot;#result&quot;);
-            var picker = new DatePicker({
-                render: &quot;#holder&quot;,
-                showClear : false,  &#x2F;&#x2F; showClear 和 showToday 一定要一起配置成相同的才生效
-                showToday : false,
-                disabledDate : function(current, value){
-                    var date = new Date();
-                    return current.getDayOfMonth() &lt; date.getDate();   &#x2F;&#x2F;在当前时刻日期之前的日期都不能被选择
-                }
-            }).render();
+        KISSY.use(&#x27;node, date&#x2F;popup-picker, date&#x2F;format,date&#x2F;picker&#x2F;assets&#x2F;dpl.css&#x27;, function(S, Node, PopupDatePicker, DateFormat) {
+            var input = Node.all(&#x27;#date&#x27;);
+            var dateFormat = DateFormat.getDateInstance(DateFormat.Style.FULL);
+            var picker = null;
 
-            picker.on(&#x27;select&#x27;, function(e) {
-                var value = e.value;
-                if (value) {
-                    result.html(DateFormat.getDateInstance(DateFormat.Style.FULL).format(value));
-                } else {
-                    result.html(null);
+            Node.all(&#x27;#popup&#x27;).on(&#x27;click&#x27;, showPicker);
+
+            function showPicker(e) {
+                e.preventDefault();
+                if (!picker) {
+                    picker = createPicker();
+                }
+
+                if (input.val()) {
+                    var val;
+                    try {
+                        val = dateFormat.parse(input.val());
+                        picker.set(&#x27;value&#x27;, val);
+                    } catch(err) {}
+                }
+
+                picker.set(&#x27;align&#x27;, {
+                    node: input,
+                    points: [&#x27;bl&#x27;, &#x27;tl&#x27;]
+                });
+
+                picker.show();
+                picker.focus();
+            }
+
+            function createPicker() {
+                picker = new PopupDatePicker({
+                    shim:true
+                });
+
+                picker.on(&#x27;blur&#x27;, function () {
+                    picker.hide();
+                });
+
+                picker.on(&#x27;select&#x27;, function (e) {
+                    if (e.value) {
+                        input.val(dateFormat.format(e.value));
+                    } else {
+                        input.val(&#x27;&#x27;);
+                    }
+                    input[0].focus();
+                });
+                return picker;
+            }
+
+            input.on(&#x27;keydown&#x27;, function (e) {
+                if (e.keyCode == Node.KeyCode.DOWN) {
+                    showPicker(e);
                 }
             });
         });
@@ -212,7 +245,7 @@
             </iframe>
         </div>
         <div class="ks-tabs-panel">
-            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/date/cited-by-md/date-picker-zh.html" ="text">示例地址：docs.kissyui.com/5.0/demos/date/cited-by-md/date-picker-zh.html</p>
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/date/cited-by-md/date-popup-picker.html" ="text">示例地址：docs.kissyui.com/5.0/demos/date/cited-by-md/date-popup-picker.html</p>
             <div class="qrcode"></div>
         </div>
     </div>
@@ -220,10 +253,10 @@
 
 	   			<div id="disqus_thread"></div>
 	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
-	   			<a id="apilink" href="../../api/classes/Date.Picker.html" style="display:none;"></a>
+	   			<a id="apilink" href="../../api/classes/Date.PopupDatePicker.html" style="display:none;"></a>
 			</div>
 			<div class="col-md-3" id="sidebar">
-				<a class="link-apidocs btn btn-primary" href="../../api/classes/Date.Picker.html">API Docs</a>
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/Date.PopupDatePicker.html">API Docs</a>
 				<div class="panel panel-primary ajax-load hide">
 					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>

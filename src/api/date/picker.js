@@ -63,6 +63,10 @@ locale 信息
 
 /**
 当选择时触发的事件
+
+- e {CustomEventObject} 自定义事件对象
+- e.value {GregorianCalendar} 时间对象
+
 @event select
 @example
 ```
