@@ -43,11 +43,6 @@
 @default 1000
 */
 
-/**
-是否禁用改拖对象功能
-@attribute disabled {Boolean}
-@default false
-*/
 
 /**
 默认 false。关联元素是否随鼠标移动。（例如：resize 功能完全不需要关联元素移动）
@@ -67,11 +62,14 @@ new Draggable({
 
 /**
 枚举值, 默认值 “point”, 和 Droppable 关联, 决定何时和可放对象开始交互(触发相应事件), 可取值 “point”,”intersect”,”strict”
+
 - 在 “point” 模式下, 只要鼠标略过可放对象, 即开始和可放对象交互.
 - 在 “intersect” 模式下, 只要拖动对象和可放对象有交集, 即开始和可放对象交互.
 - 在 “strict” 模式下, 只有拖动对象完全位于可放对象内, 才开始和可放对象交互
+
 @attribute mode {String} 
 @default 'point'
+*/
 
 /**
 等于 "point"
@@ -104,7 +102,7 @@ new Draggable({
 */
 
 /**
-表示配置项中 node 代表的节点.
+只读。表示配置项中 node 代表的节点.
 @attribute dragNode
 @type KISSY.Node
 */
@@ -189,12 +187,6 @@ new Draggable({
 /**
 可与拖动对象交互的节点. 例如： {‘x’:1,’y’:1} 表示属于 x 和 y 组.
 @attribute groups {Object} 
-*/
-
-/**
-默认 false。是否禁用改拖对象功能.
-@attribute disabled {Boolean} 
-@default false
 */
 
 

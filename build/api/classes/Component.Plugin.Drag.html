@@ -797,6 +797,10 @@
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
+                                <a href="#attr_mode">mode</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_move">move</a>
                             </li>
                         
@@ -3406,6 +3410,59 @@ or
 </div>
 
                 
+                    <div id="attr_mode" class="attr item inherited">
+    <a name="config_mode"></a> 
+    <h3 class="name"><code>mode</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/DD.Draggable.html#attr_mode">DD.Draggable</a>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>枚举值, 默认值 “point”, 和 Droppable 关联, 决定何时和可放对象开始交互(触发相应事件), 可取值 “point”,”intersect”,”strict”</p>
+<ul>
+<li>在 “point” 模式下, 只要鼠标略过可放对象, 即开始和可放对象交互.</li>
+<li>在 “intersect” 模式下, 只要拖动对象和可放对象有交集, 即开始和可放对象交互.</li>
+<li>在 “strict” 模式下, 只有拖动对象完全位于可放对象内, 才开始和可放对象交互</li>
+</ul>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;point&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_move" class="attr item inherited">
     <a name="config_move"></a> 
     <h3 class="name"><code>move</code></h3>
@@ -3606,20 +3663,10 @@ or
     </div>
 
     <div class="description">
-        <p>枚举值, 默认值 “point”, 和 Droppable 关联, 决定何时和可放对象开始交互(触发相应事件), 可取值 “point”,”intersect”,”strict”</p>
-<ul>
-<li>在 “point” 模式下, 只要鼠标略过可放对象, 即开始和可放对象交互.</li>
-<li>在 “intersect” 模式下, 只要拖动对象和可放对象有交集, 即开始和可放对象交互.</li>
-<li>在 “strict” 模式下, 只有拖动对象完全位于可放对象内, 才开始和可放对象交互</li>
-</ul>
+        <p>等于 &quot;point&quot;</p>
 
     </div>
 
-    
-        <p><strong>Default:</strong> &#x27;point&#x27;
-
-/**
-等于 &quot;point&quot;</p>
     
 
     
