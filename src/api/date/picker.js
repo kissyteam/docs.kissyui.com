@@ -16,7 +16,7 @@
 一个过滤函数，用于判断日期是否可以被选择（出发select事件），返回true说明当前循环中的日期不可用，返回false说明当前循环中的日期可用
 
 - current {GregorianCalendar} 时间对象，在当前日历页要显示出来的日期对应的日历对象
-- value {GregorianCalendar} 时间对象，当前被选中的日期的GregorianCalendar时间对象。默认是代码运行当前时刻的GregorianCalendar时间对象
+- value {GregorianCalendar} 时间对象，当前被选中的日期的GregorianCalendar时间对象。初始化Date.Picker时默认是代码运行当前时刻的GregorianCalendar时间对象，但选择日期后会被选中的日期的GregorianCalendar时间对象
 
 ```
 disabledDate: function (current, value) {

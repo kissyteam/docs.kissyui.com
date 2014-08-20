@@ -22,11 +22,7 @@
             var picker = new DatePicker({
                 render: "#holder",
                 showClear : false,  // showClear 和 showToday 一定要一起配置成相同的才生效
-                showToday : false,
-                disabledDate : function(current, value){
-                    var date = new Date();
-                    return current.getDayOfMonth() < date.getDate();   //在当前时刻日期之前的日期都不能被选择
-                }
+                showToday : false
             }).render();
 
             picker.on('select', function(e) {

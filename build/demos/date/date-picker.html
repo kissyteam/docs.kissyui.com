@@ -185,11 +185,7 @@
             var picker = new DatePicker({
                 render: &quot;#holder&quot;,
                 showClear : false,  &#x2F;&#x2F; showClear 和 showToday 一定要一起配置成相同的才生效
-                showToday : false,
-                disabledDate : function(current, value){
-                    var date = new Date();
-                    return current.getDayOfMonth() &lt; date.getDate();   &#x2F;&#x2F;在当前时刻日期之前的日期都不能被选择
-                }
+                showToday : false
             }).render();
 
             picker.on(&#x27;select&#x27;, function(e) {
@@ -237,7 +233,7 @@
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="../../demos/date/date-picker.html">DatePicker 使用示例</a></p><p><a href="../../demos/date/gregorian-calendar.html">GregorianGalendar使用示例</a></p><p><a href="../../demos/date/index.html">DateFormat的使用示例</a></p><p><a href="../../demos/date/popup-date-picker.html">PopupDatePicker 使用示例</a></p>
+						<p><a href="../../demos/date/date-picker.html">DatePicker 使用示例</a></p><p><a href="../../demos/date/gregorian-calendar.html">GregorianGalendar使用示例</a></p><p><a href="../../demos/date/index.html">DateFormat的使用示例</a></p><p><a href="../../demos/date/limit-selected-date.html">DatePicker限定选择日期</a></p><p><a href="../../demos/date/popup-date-picker.html">PopupDatePicker 使用示例</a></p>
 					</div>
 				</div>
 			</div>
