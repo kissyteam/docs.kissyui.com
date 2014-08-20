@@ -8,11 +8,21 @@
 */
 
 /**
+使得节点可被拖动
 @class Draggable
 @constructor
 @extends Base
 @namespace DD
 @param config {Object}
+@example
+
+	KISSY.use(['dd'],function(S, DD){
+        var drag=new DD.Draggable({
+            node:'#test-drag',
+            cursor:'move',
+            move:true
+        });
+    });
 */
 
 /**
@@ -28,19 +38,8 @@
 /**
 作为鼠标在其上按下时触发节点拖放的钩子. 字符串时表示选择器字符串. 如果不设置, 则整个 node 作为触发钩子.
 #### handlers 的每个元素 DOM 节点必须位于配置项 node DOM 子树中.
-@attribute handlers {String[]|HTMLElement[]} 
-*/
-
-/**
-默认 3, 表示鼠标按下后移动多少像素后触发 dragstart 事件
-@attribute clickPixelThresh {Number}
-@default 3
-*/
-
-/**
-默认 1000, 表示鼠标按下多长时间后触发 dragstart 事件. 可通过 DDM.set(“bufferTime”,xx) 设置.
-@attribute bufferTime {Number} 
-@default 1000
+@attribute handlers {HTMLElement[]|Function[]|String[]} 
+@default 配置中的 node 设置的节点
 */
 
 
@@ -63,8 +62,8 @@ new Draggable({
 /**
 枚举值, 默认值 “point”, 和 Droppable 关联, 决定何时和可放对象开始交互(触发相应事件), 可取值 “point”,”intersect”,”strict”
 
-- 在 “point” 模式下, 只要鼠标略过可放对象, 即开始和可放对象交互.
-- 在 “intersect” 模式下, 只要拖动对象和可放对象有交集, 即开始和可放对象交互.
+- 在 “point” 模式下, 鼠标进入Droppable对象区域, 即开始和可放对象交互.
+- 在 “intersect” 模式下, 只要Draggable对象和Droppable对象有交集, 即开始和可放对象交互.
 - 在 “strict” 模式下, 只有拖动对象完全位于可放对象内, 才开始和可放对象交互
 
 @attribute mode {String} 
@@ -93,12 +92,6 @@ new Draggable({
 是否禁用或启用拖放功能
 @attribute disabled
 @type Boolean
-*/
-
-/**
-只读。表示当前拖动的节点, 在应用 DD.Proxy 时表示代理节点.
-@attribute node
-@type KISSY.Node
 */
 
 /**
@@ -172,11 +165,23 @@ new Draggable({
 
 
 /**
+可放对象，通常用来监听事件，和Draggable一起使用做拖动交互
 @class Droppable
 @constructor
 @extends Base
 @namespace DD
 @param config {Object}
+@example
+
+	KISSY.use(['dd'], function(S, DD){
+		var Droppable = DD.Droppable;
+		var drop = new Droppable({
+			node : '#dropArea'
+		});
+		drop.on('drophit', function(ev){
+			//do something
+		})
+	})
 */
 
 /**
@@ -225,13 +230,25 @@ new Draggable({
 
 
 
-
 /**
-拖放的中央控制对象, 所有的拖放实例的事件都会向其冒泡.
+拖放的中央控制对象, 所有的拖放实例的事件都会向其冒泡，通常用来监听所有拖放示例的事件做相应处理
+
+	KISSY.use(['dd'], function(S, DD){
+		var DDM = DD.DDM;
+	
+			DDM.on('dragstart', function(ev){
+				//do something
+			});
+			DDM.on('dragend', function(ev){
+				//do something
+			});
+	})
+
 @class DDM
 @extends Base
 @namespace DD
 @static
+
 */
 
 /**
@@ -352,6 +369,16 @@ new Draggable({
 @extends DD.Draggable
 @namespace DD
 @param config {Object}
+@example
+	KISSY.use(['dd'],function(S, DD){
+		var DraggableDelegate = DD.DraggableDelegate;
+		new DraggableDelegate({
+            container:"#container3",
+            handlers:['.cheader'],
+            selector:'.component',
+            move:true
+        });
+	})
 */
 
 /**
@@ -379,9 +406,6 @@ new Draggable({
 当前正在拖动的被委托的容器内子节点
 @attribute dragNode {KISSY.Node}
 */
-
-
-
 
 /**
 为 Draggable 对象提供所需要的代理节点

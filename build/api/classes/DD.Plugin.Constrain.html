@@ -620,12 +620,15 @@
 });
 
 KISSY.use(&quot;dd,dd/plugin/constrain&quot;,function(S,DD,Constrain){
+    var constrain = new Constrain({
+      constrain : &#39;#container&#39; //限制拖动区域为 container 元素
+    });
     new DD.Draggable({
         node:&#39;#drag&#39;,
-        plugins:[ new Constrain({
-            constrain:&#39;#container&#39; // 限制拖动区域为 container 节点所占据区域
-        }) ]
+        plugins:[ constrain ]  
     });
+
+    constrain.set(&quot;constrain&quot;, &quot;window&quot;);  //改变限制拖动区域
  });</code></pre>
 
             </div>

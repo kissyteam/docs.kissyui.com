@@ -607,6 +607,24 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;dd&#39;, &#39;dd/plugin/proxy&#39;],function(S, DD, Proxy){
+    var drag=new DD.Draggable({
+        node:&#39;#test-drag&#39;,
+        cursor:&#39;move&#39;,
+        move:true
+    });
+
+    //使用proxy插件来跟踪鼠标移动
+    drag.plug(Proxy);
+});</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
     </div>

@@ -522,7 +522,17 @@
 
 
 <div class="box intro">
-    <p>拖放的中央控制对象, 所有的拖放实例的事件都会向其冒泡.</p>
+    <p>拖放的中央控制对象, 所有的拖放实例的事件都会向其冒泡，通常用来监听所有拖放示例的事件做相应处理</p>
+<pre class="code prettyprint"><code>KISSY.use([&#39;dd&#39;], function(S, DD){
+    var DDM = DD.DDM;
+
+        DDM.on(&#39;dragstart&#39;, function(ev){
+            //do something
+        });
+        DDM.on(&#39;dragend&#39;, function(ev){
+            //do something
+        });
+})</code></pre>
 
 </div>
 

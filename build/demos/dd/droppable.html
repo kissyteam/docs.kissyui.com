@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>拖放元素示例 Droppable - KISSY v5.0 Documentation</title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/github.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+	<script type="text/javascript" src="/5.0/assets/js/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute',
+						listeners : {
+							click : function(){
+								window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
+							}
+						}
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								},
+								{
+									content : 'Gallery',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://gallery.kissyui.com/';
+										}
+									}
+								},
+								{
+									content : 'Kissy Blog',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://blog.kissyui.com/';
+										}
+									}
+								},
+								{
+									content : 'KMC',
+									listeners : {
+										click : function(){
+											window.location.href = 'https://github.com/daxingplay/grunt-kmc/blob/master/README.md';
+										}
+									}
+								},
+								{
+									content : 'ABC',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://abc.f2e.taobao.net/';
+										}
+									}
+								},
+								{
+									content : 'Clam',
+									listeners : {
+										click : function(){
+											window.location.href = 'https://github.com/jayli/generator-clam/blob/master/README.md';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-9"  id="main-content">
+				<p></p>
+<h1 id="拖放元素示例 Droppable">拖放元素示例 Droppable</h1><p><div class="ks-tabs ks-tabs-top" style="height:600px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+        <div class="ks-tabs-tab ks-button">QRCode</div>
+    </div>
+    <div class="ks-tabs-body">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+&lt;title&gt;Draggable 简单使用示例&lt;&#x2F;title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;assets&#x2F;box.css&quot;&gt;
+&lt;style type=&quot;text&#x2F;css&quot;&gt;
+.container {
+    height: 270px;
+    padding: 10px;
+    position: relative;
+}
+
+.component {
+    margin: 10px 10px;
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    overflow: hidden;
+    line-height:20px;
+}
+
+.cheader {
+    cursor: move;
+    border: 1px solid black;
+    height: 20px;
+    line-height: 20px;
+}
+
+#drop, #drop3 {
+    height: 100px;
+    line-height: 30px;
+  
+}
+
+.box .ks-dd{
+    background:white;
+    opacity:1;
+    *filter:alpha(opacity=100);
+}
+.box .ks-dd-drag-over {
+    background: #a52a2a;
+}
+
+.box .ks-dd-drop-over {
+    background: #fa8072;
+    opacity:0.6;
+    *filter:alpha(opacity=60);
+}
+
+#container3 .component .cheader {
+    cursor: move;
+}
+&lt;&#x2F;style&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;
+&lt;h3&gt;Droppable 简单使用示例&lt;&#x2F;h3&gt;
+&lt;p&gt;
+    注意区分Draggable配置项 mode 的三种模式：&lt;br&gt;
+    intersect :区域相交就算enter &lt;br&gt;
+    strict : drag 区域完全在 drop 区域内才算 &lt;br&gt;
+    point : 鼠标在移动中进入 drop 区域内 默认 point
+&lt;&#x2F;p&gt;
+&lt;div id=&quot;container&quot; class=&quot;container&quot;&gt;
+    &lt;div class=&quot;box component&quot; id=&quot;intersect&quot;&gt;
+        &lt;s class=&quot;box-tp&quot;&gt;&lt;b&gt;&lt;&#x2F;b&gt;&lt;&#x2F;s&gt;
+        &lt;div class=&quot;box-hd&quot;&gt;
+            &lt;h3&gt;Drag&lt;&#x2F;h3&gt;
+        &lt;&#x2F;div&gt;
+        &lt;div class=&quot;box-bd&quot;&gt;
+            intersect drag
+        &lt;&#x2F;div&gt;
+        &lt;s class=&quot;box-bt&quot;&gt;&lt;b&gt;&lt;&#x2F;b&gt;&lt;&#x2F;s&gt;
+    &lt;&#x2F;div&gt;
+    
+    &lt;div class=&quot;box component&quot; id=&quot;strict&quot;&gt;
+        &lt;s class=&quot;box-tp&quot;&gt;&lt;b&gt;&lt;&#x2F;b&gt;&lt;&#x2F;s&gt;
+        &lt;div class=&quot;box-hd&quot;&gt;
+            &lt;h3&gt;Drag&lt;&#x2F;h3&gt;
+        &lt;&#x2F;div&gt;
+        &lt;div class=&quot;box-bd&quot;&gt;
+            strict drag
+        &lt;&#x2F;div&gt;
+        &lt;s class=&quot;box-bt&quot;&gt;&lt;b&gt;&lt;&#x2F;b&gt;&lt;&#x2F;s&gt;
+    &lt;&#x2F;div&gt;
+    
+    &lt;div class=&quot;box component&quot; id=&quot;point&quot;&gt;
+        &lt;s class=&quot;box-tp&quot;&gt;&lt;b&gt;&lt;&#x2F;b&gt;&lt;&#x2F;s&gt;
+        &lt;div class=&quot;box-hd&quot;&gt;
+            &lt;h3&gt;Drag&lt;&#x2F;h3&gt;
+        &lt;&#x2F;div&gt;
+        &lt;div class=&quot;box-bd&quot;&gt;
+            point drag
+        &lt;&#x2F;div&gt;
+        &lt;s class=&quot;box-bt&quot;&gt;&lt;b&gt;&lt;&#x2F;b&gt;&lt;&#x2F;s&gt;
+    &lt;&#x2F;div&gt;
+   
+    
+    &lt;div class=&quot;box&quot; &gt;
+        &lt;s class=&quot;box-tp&quot;&gt;&lt;b&gt;&lt;&#x2F;b&gt;&lt;&#x2F;s&gt;
+        &lt;div id=&quot;drop&quot; class=&quot;box-bd ks-dd&quot;&gt;
+            drop zone
+        &lt;&#x2F;div&gt;
+        &lt;s class=&quot;box-bt&quot;&gt;&lt;b&gt;&lt;&#x2F;b&gt;&lt;&#x2F;s&gt;
+    &lt;&#x2F;div&gt;
+    
+&lt;&#x2F;div&gt;
+    &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
+        KISSY.use([&#x27;node&#x27;, &#x27;dd&#x27;], function (S, Node, DD) {
+            var DDM = DD.DDM,
+                Draggable = DD.Draggable,
+                Droppable = DD.Droppable,
+                DropMode=Draggable.DropMode;
+            var p;
+
+            &#x2F;**
+             * 集中监听所有
+             *&#x2F;
+            DDM.on(&quot;dragstart&quot;, function(ev) {
+                var c = ev.drag;
+                p = c.get(&quot;dragNode&quot;).css(&quot;position&quot;);
+            });
+            DDM.on(&quot;dragend&quot;, function(ev) {
+                var c = ev.drag;
+                c.get(&quot;dragNode&quot;).css(&quot;position&quot;, p);
+            });
+
+            &#x2F;**
+             * 简单拖放
+             *&#x2F;
+            c1 = new Draggable({
+                node:&quot;#intersect&quot;,
+                &#x2F;&#x2F;模式,
+                &#x2F;&#x2F; intersect :区域相交就算enter
+                &#x2F;&#x2F; strict : drag 区域完全在 drop 区域内才算
+                &#x2F;&#x2F; point : 鼠标在移动中进入 drop 区域内
+                &#x2F;&#x2F;默认 point
+                mode:DropMode.INTERSECT,
+                move:true
+            });
+            new Draggable({
+                node:&quot;#strict&quot;,
+                mode:DropMode.STRICT,
+                move:true
+            });
+            new Draggable({
+                node:&quot;#point&quot;,
+                move:true
+            });
+
+
+            var drop = new Droppable({
+                node:&quot;#drop&quot;
+            });
+            function onhit(ev) {
+                ev.drag.get(&quot;node&quot;).css(&quot;margin&quot;, &quot;5px 10px&quot;);
+                ev.drag.get(&quot;node&quot;).appendTo(ev.drop.get(&quot;node&quot;));
+                ev.drag.destroy();
+            }
+            drop.on(&quot;drophit&quot;,onhit);
+
+        });
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+        <div class="ks-tabs-panel">
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/dd/cited-by-md/droppable.html" ="text">示例地址：docs.kissyui.com/5.0/demos/dd/cited-by-md/droppable.html</p>
+            <div class="qrcode"></div>
+        </div>
+    </div>
+</div></p>
+
+	   			<div id="disqus_thread"></div>
+	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+	   			<a id="apilink" href="../../api/classes/DD.Droppable.html" style="display:none;"></a>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/DD.Droppable.html">API Docs</a>
+				<div class="panel panel-primary ajax-load hide">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load ">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../demos/dd/constrain.html">限制拖动区域 Constrain</a></p><p><a href="../../demos/dd/drag-sort.html">拖动排序示例</a></p><p><a href="../../demos/dd/draggable-delegate.html">拖放元素示例 DraggableDelegate</a></p><p><a href="../../demos/dd/droppable.html">拖放元素示例 Droppable</a></p><p><a href="../../demos/dd/index.html">基本拖动示例</a></p>
+					</div>
+				</div>
+			</div>
+			<div id="disqus_thread"></div>
+<script>
+    if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+     //var disqus_identifier = '/anim';
+     //var disqus_url = window.location;
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    }
+</script>
+<script>
+    window.onload = function(){
+        (function() {
+        var cx = '003618533255763067140:5nkycw1pbey';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    }
+</script>
+		</div>
+	</div>
+</body>
+</html>

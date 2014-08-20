@@ -9,6 +9,17 @@ Draggable 插件,可代理拖放对象
 @extends Base
 @namespace DD.Plugin
 @param config {Object}
+@example
+	KISSY.use(['dd', 'dd/plugin/proxy'],function(S, DD, Proxy){
+        var drag=new DD.Draggable({
+            node:'#test-drag',
+            cursor:'move',
+            move:true
+        });
+
+        //使用proxy插件来跟踪鼠标移动
+        drag.plug(Proxy);
+    });
 */
 
 /**

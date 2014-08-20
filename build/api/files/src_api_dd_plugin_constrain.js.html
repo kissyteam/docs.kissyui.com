@@ -513,6 +513,7 @@
 @constructor
 @extends Base
 @namespace DD.Plugin
+@extends Base
 @param config {Object}
 @example
 &#x60;&#x60;&#x60;
@@ -526,12 +527,15 @@ KISSY.use(&quot;dd,dd/plugin/constrain&quot;,function(S,DD,Constrain){
 });
 
 KISSY.use(&quot;dd,dd/plugin/constrain&quot;,function(S,DD,Constrain){
+    var constrain = new Constrain({
+      constrain : &#x27;#container&#x27; //限制拖动区域为 container 元素
+    });
     new DD.Draggable({
         node:&#x27;#drag&#x27;,
-        plugins:[ new Constrain({
-            constrain:&#x27;#container&#x27; // 限制拖动区域为 container 节点所占据区域
-        }) ]
+        plugins:[ constrain ]  
     });
+
+    constrain.set(&quot;constrain&quot;, &quot;window&quot;);  //改变限制拖动区域
  });
  &#x60;&#x60;&#x60;
  */

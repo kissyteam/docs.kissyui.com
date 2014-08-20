@@ -765,14 +765,6 @@
                     <ul class="index-list attrs extends">
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_bufferTime">bufferTime</a>
-                            </li>
-                        
-                            <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_clickPixelThresh">clickPixelThresh</a>
-                            </li>
-                        
-                            <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_disabled">disabled</a>
                             </li>
                         
@@ -804,7 +796,7 @@
                                 <a href="#attr_move">move</a>
                             </li>
                         
-                            <li class="index-item attr inherited inherited" inwhichtab="attrs">
+                            <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_node">node</a>
                             </li>
                         
@@ -3011,102 +3003,6 @@ dog.run();</code></pre>
                 <h2 class="off-left">Attributes</h2>
 
                 
-                    <div id="attr_bufferTime" class="attr item inherited">
-    <a name="config_bufferTime"></a> 
-    <h3 class="name"><code>bufferTime</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/DD.Draggable.html#attr_bufferTime">DD.Draggable</a>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>默认 1000, 表示鼠标按下多长时间后触发 dragstart 事件. 可通过 DDM.set(“bufferTime”,xx) 设置.</p>
-
-    </div>
-
-    
-        <p><strong>Default:</strong> 1000</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_clickPixelThresh" class="attr item inherited">
-    <a name="config_clickPixelThresh"></a> 
-    <h3 class="name"><code>clickPixelThresh</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/DD.Draggable.html#attr_clickPixelThresh">DD.Draggable</a>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>默认 3, 表示鼠标按下后移动多少像素后触发 dragstart 事件</p>
-
-    </div>
-
-    
-        <p><strong>Default:</strong> 3</p>
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="attr_disabled" class="attr item inherited">
     <a name="config_disabled"></a> 
     <h3 class="name"><code>disabled</code></h3>
@@ -3248,7 +3144,7 @@ dog.run();</code></pre>
                     <div id="attr_handlers" class="attr item inherited">
     <a name="config_handlers"></a> 
     <h3 class="name"><code>handlers</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String[]</a> | <a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement[]</a></span>
+    <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement[]</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function[]</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String[]</a></span>
 
     
 
@@ -3284,6 +3180,8 @@ dog.run();</code></pre>
 
     </div>
 
+    
+        <p><strong>Default:</strong> 配置中的 node 设置的节点</p>
     
 
     
@@ -3441,8 +3339,8 @@ or
     <div class="description">
         <p>枚举值, 默认值 “point”, 和 Droppable 关联, 决定何时和可放对象开始交互(触发相应事件), 可取值 “point”,”intersect”,”strict”</p>
 <ul>
-<li>在 “point” 模式下, 只要鼠标略过可放对象, 即开始和可放对象交互.</li>
-<li>在 “intersect” 模式下, 只要拖动对象和可放对象有交集, 即开始和可放对象交互.</li>
+<li>在 “point” 模式下, 鼠标进入Droppable对象区域, 即开始和可放对象交互.</li>
+<li>在 “intersect” 模式下, 只要Draggable对象和Droppable对象有交集, 即开始和可放对象交互.</li>
 <li>在 “strict” 模式下, 只有拖动对象完全位于可放对象内, 才开始和可放对象交互</li>
 </ul>
 
@@ -3541,12 +3439,9 @@ or
 
     <div class="meta">
         
-            <p>Inherited from
-            <a href="../classes/DD.Draggable.html#attr_node">
-                DD.Draggable
-            </a>
             
-            but overwritten by this Class
+                <p>Inherited from
+                <a href="../classes/DD.Draggable.html#attr_node">DD.Draggable</a>
             
         
         </p>

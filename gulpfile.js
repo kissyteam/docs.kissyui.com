@@ -52,5 +52,9 @@ gulp.task('linkserver',function(){
 	fs.symlinkSync(buildPath,serverLinkPath,'dir');
 });
 
+gulp.task('watch', function(){
+	gulp.watch(['src/**/*', '!src/api/**/*'], ['copyassets', 'buildguide']);
+	gulp.watch(['src/api/**/*'], ['buildapi']);
+})
 
 gulp.task('default',['copyassets', 'buildapi', 'buildguide']);

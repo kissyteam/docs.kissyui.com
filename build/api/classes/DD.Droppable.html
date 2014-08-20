@@ -522,7 +522,8 @@
 
 
 <div class="box intro">
-    
+    <p>可放对象，通常用来监听事件，和Draggable一起使用做拖动交互</p>
+
 </div>
 
 
@@ -605,6 +606,23 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;dd&#39;], function(S, DD){
+    var Droppable = DD.Droppable;
+    var drop = new Droppable({
+        node : &#39;#dropArea&#39;
+    });
+    drop.on(&#39;drophit&#39;, function(ev){
+        //do something
+    })
+})</code></pre>
+
+            </div>
+        </div>
     
 </div>
 

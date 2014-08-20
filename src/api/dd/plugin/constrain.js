@@ -7,6 +7,7 @@
 @constructor
 @extends Base
 @namespace DD.Plugin
+@extends Base
 @param config {Object}
 @example
 ```
@@ -20,12 +21,15 @@ KISSY.use("dd,dd/plugin/constrain",function(S,DD,Constrain){
 });
 
 KISSY.use("dd,dd/plugin/constrain",function(S,DD,Constrain){
+    var constrain = new Constrain({
+      constrain : '#container' //限制拖动区域为 container 元素
+    });
     new DD.Draggable({
         node:'#drag',
-        plugins:[ new Constrain({
-            constrain:'#container' // 限制拖动区域为 container 节点所占据区域
-        }) ]
+        plugins:[ constrain ]  
     });
+
+    constrain.set("constrain", "window");  //改变限制拖动区域
  });
  ```
  */
