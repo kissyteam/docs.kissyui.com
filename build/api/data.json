@@ -227,6 +227,19 @@
                 "Editor.Plugin": 1
             }
         },
+        "src/api/editor/plugin/button.js": {
+            "name": "src/api/editor/plugin/button.js",
+            "modules": {
+                "editor/plugin/button": 1
+            },
+            "classes": {
+                "Editor.Plugin.Button": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Editor.Plugin": 1
+            }
+        },
         "src/api/editor/plugin/checkbox-source-area.js": {
             "name": "src/api/editor/plugin/checkbox-source-area.js",
             "modules": {
@@ -1388,6 +1401,20 @@
             },
             "tag": "module",
             "file": "src/api/editor/plugin/bold.js",
+            "line": 5
+        },
+        "editor/plugin/button": {
+            "name": "editor/plugin/button",
+            "submodules": {},
+            "classes": {
+                "Editor.Plugin.Button": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Editor.Plugin": 1
+            },
+            "tag": "module",
+            "file": "src/api/editor/plugin/button.js",
             "line": 5
         },
         "editor/plugin/checkbox-source-area": {
@@ -2763,6 +2790,24 @@
             "line": 5,
             "description": "编辑器的字体加粗插件\n\n### 提供的Commands\n- bold\n\n```\n//调用命令方式\n\neditor.execCommand(\"bold\"); // 设置选区文字加粗\n\neditor.execCommand(\"bold\"); // 取消选区文字加粗\n\neditor.queryCommandValue(\"bold\") //=>false\n```"
         },
+        "Editor.Plugin.Button": {
+            "name": "Editor.Plugin.Button",
+            "shortname": "Editor.Plugin.Button",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "editor/plugin/button",
+            "namespace": "Editor.Plugin",
+            "file": "src/api/editor/plugin/button.js",
+            "line": 5,
+            "description": "编辑器的按钮插件，加载后为 Editor 拓展 addButton 方法(为编辑器工具栏增加一个按钮. 一般用于插件编写.)。而这个插件模块提供的接口就是 button 模块的接口",
+            "is_constructor": 1,
+            "example": [
+                "\n\tKISSY.use('editor,editor/plugin/button', function(S, Editor, Button){\n\t\tvar editor = new Editor({\n\t\t\trender : '#container'\n\t\t});\n\t\teditor.addButton(\"plugin2\", {   //addButton方法在加载 editor/plugin/button 插件后才会拥有\n\t\t    content:'<div style=\"margin: 2px;border: 1px solid red;padding: 1px;\">p2</div>',\n\t\t    listeners:{\n\t\t        click:function () {\n\t\t            alert('i am running')\n\t\t        }\n\t\t    }\n\t\t});\n\n\t\t//editor/plugin/button模块的接口和 button 模块一致\n\t\tvar button1 = new Button({\n\t        content: \"自定义样式按钮1\",\n\t        width: 200,\n\t        tooltip: \"我有新皮肤\"\n\t    });\n\t    button1.render();\n\t})"
+            ]
+        },
         "Editor.Plugin.CheckBoxSourceArea": {
             "name": "Editor.Plugin.CheckBoxSourceArea",
             "shortname": "Editor.Plugin.CheckBoxSourceArea",
@@ -3868,7 +3913,7 @@
             "namespace": "",
             "file": "src/api/editor.js",
             "line": 5,
-            "description": "编辑器\n\n### Note1\n\n##### kissy提供参考的初始样式，但用户也可以自己自定义样式。参考样式地址为\n`http://g.tbcdn.cn/kissy/k/1.4.2/css/dpl/base-min.css`\n`http://g.tbcdn.cn/kissy/k/1.4.2/editor/theme/cool/editor-min.css?1`\n\n### Note2\neditor提供如下插件：\n[back-color](/5.0/api/classes/Editor.Plugin.BackColor.html),[bold](/5.0/api/classes/Editor.Plugin.Bold.html),[checkbox-source-area](/5.0/api/classes/Editor.Plugin.CheckboxSourceArea.html),[code](/5.0/api/classes/Editor.Plugin.Code.html),[draft](/5.0/api/classes/Editor.Plugin.Draft.html),[drag-upload](/5.0/api/classes/Editor.Plugin.DragUpload.html),[element-path](/5.0/api/classes/Editor.Plugin.ElementPath.html),[flash](/5.0/api/classes/Editor.Plugin.Flash.html),[font-color](/5.0/api/classes/Editor.Plugin.FontColor.html),[font-family](/5.0/api/classes/Editor.Plugin.FontFamily.html),[font-size](/5.0/api/classes/Editor.Plugin.FontSize.html),[heading](/5.0/api/classes/Editor.Plugin.Heading.html),[image](/5.0/api/classes/Editor.Plugin.Image.html),[indent](/5.0/api/classes/Editor.Plugin.Indent.html),[italic](/5.0/api/classes/Editor.Plugin.Italic.html),[justify-left](/5.0/api/classes/Editor.Plugin.JustifyLeft.html),[justify-center](/5.0/api/classes/Editor.Plugin.JustifyCenter.html),[justify-right](/5.0/api/classes/Editor.Plugin.JustifyRight.html),[link](/5.0/api/classes/Editor.Plugin.Link.html),[maximize](/5.0/api/classes/Editor.Plugin.Maximize.html),[multiple-upload](/5.0/api/classes/Editor.Plugin.MultipleUpload.html),[ordered-list](/5.0/api/classes/Editor.Plugin.OrderedList.html),[outdent](/5.0/api/classes/Editor.Plugin.Outdent.html),[page-break](/5.0/api/classes/Editor.Plugin.PageBreak.html),[preview](/5.0/api/classes/Editor.Plugin.Preview.html),[remove-format](/5.0/api/classes/Editor.Plugin.RemoveFormat.html),[resize](/5.0/api/classes/Editor.Plugin.EditorResize.html),[separator](/5.0/api/classes/Editor.Plugin.Separator.html),[smiley](/5.0/api/classes/Editor.Plugin.Smiley.html),[source-area](/5.0/api/classes/Editor.Plugin.SourceArea.html),[strike-through](/5.0/api/classes/Editor.Plugin.StrikeThrough.html),[table](/5.0/api/classes/Editor.Plugin.Table.html),[underline](/5.0/api/classes/Editor.Plugin.Underline.html),[undo](/5.0/api/classes/Editor.Plugin.Undo.html),[unordered-list](/5.0/api/classes/Editor.Plugin.UnOrderedList.html),[video](/5.0/api/classes/Editor.Plugin.Video.html),[xiami-music](/5.0/api/classes/Editor.Plugin.XiaMiMusic.html)",
+            "description": "编辑器\n\n### Note1\n\n##### kissy提供参考的初始样式，但用户也可以自己自定义样式。参考样式地址为\n`http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css`\n`http://g.tbcdn.cn/kissy/edge/2014.07.16/editor/theme/cool/editor.css?1`\n\n### Note2\neditor提供如下插件：\n[back-color](/5.0/api/classes/Editor.Plugin.BackColor.html),[bold](/5.0/api/classes/Editor.Plugin.Bold.html),[checkbox-source-area](/5.0/api/classes/Editor.Plugin.CheckboxSourceArea.html),[code](/5.0/api/classes/Editor.Plugin.Code.html),[draft](/5.0/api/classes/Editor.Plugin.Draft.html),[drag-upload](/5.0/api/classes/Editor.Plugin.DragUpload.html),[element-path](/5.0/api/classes/Editor.Plugin.ElementPath.html),[flash](/5.0/api/classes/Editor.Plugin.Flash.html),[font-color](/5.0/api/classes/Editor.Plugin.FontColor.html),[font-family](/5.0/api/classes/Editor.Plugin.FontFamily.html),[font-size](/5.0/api/classes/Editor.Plugin.FontSize.html),[heading](/5.0/api/classes/Editor.Plugin.Heading.html),[image](/5.0/api/classes/Editor.Plugin.Image.html),[indent](/5.0/api/classes/Editor.Plugin.Indent.html),[italic](/5.0/api/classes/Editor.Plugin.Italic.html),[justify-left](/5.0/api/classes/Editor.Plugin.JustifyLeft.html),[justify-center](/5.0/api/classes/Editor.Plugin.JustifyCenter.html),[justify-right](/5.0/api/classes/Editor.Plugin.JustifyRight.html),[link](/5.0/api/classes/Editor.Plugin.Link.html),[maximize](/5.0/api/classes/Editor.Plugin.Maximize.html),[multiple-upload](/5.0/api/classes/Editor.Plugin.MultipleUpload.html),[ordered-list](/5.0/api/classes/Editor.Plugin.OrderedList.html),[outdent](/5.0/api/classes/Editor.Plugin.Outdent.html),[page-break](/5.0/api/classes/Editor.Plugin.PageBreak.html),[preview](/5.0/api/classes/Editor.Plugin.Preview.html),[remove-format](/5.0/api/classes/Editor.Plugin.RemoveFormat.html),[resize](/5.0/api/classes/Editor.Plugin.EditorResize.html),[separator](/5.0/api/classes/Editor.Plugin.Separator.html),[smiley](/5.0/api/classes/Editor.Plugin.Smiley.html),[source-area](/5.0/api/classes/Editor.Plugin.SourceArea.html),[strike-through](/5.0/api/classes/Editor.Plugin.StrikeThrough.html),[table](/5.0/api/classes/Editor.Plugin.Table.html),[underline](/5.0/api/classes/Editor.Plugin.Underline.html),[undo](/5.0/api/classes/Editor.Plugin.Undo.html),[unordered-list](/5.0/api/classes/Editor.Plugin.UnOrderedList.html),[video](/5.0/api/classes/Editor.Plugin.Video.html),[xiami-music](/5.0/api/classes/Editor.Plugin.XiaMiMusic.html)",
             "is_constructor": 1,
             "extends": "Component.Control",
             "params": [
@@ -12299,17 +12344,17 @@
         {
             "file": "src/api/editor.js",
             "line": 38,
-            "description": "自定义产生 textarea 节点的 html.\n\n例如可以指定全新产生 editor 所属 textarea 的 name 值\n```\nnew Editor({\n    textarea: '<textarea name=\"custom\"></textarea>'\n});\n```",
+            "description": "自定义textarea的属性。\n\n例如可以指定全新产生 editor 所属 textarea 的 name 值\n```\nnew Editor({\n    textareaAttrs: {\n        name : 'myTextarea'\n    }\n});\n```",
             "itemtype": "attribute",
-            "name": "textarea",
-            "type": "String",
+            "name": "textareaAttrs",
+            "type": "Objec",
             "optional": 1,
             "class": "Editor",
             "module": "editor"
         },
         {
             "file": "src/api/editor.js",
-            "line": 51,
+            "line": 53,
             "description": "默认 false. 是否监控编辑器输入框所在的 form 提交。 （ form 提交前自动将编辑内容同步到对应 textarea 中 ）",
             "itemtype": "attribute",
             "name": "attachForm",
@@ -12319,7 +12364,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 57,
+            "line": 59,
             "description": "自定义样式字符串",
             "itemtype": "attribute",
             "name": "customStyle",
@@ -12329,7 +12374,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 62,
+            "line": 64,
             "description": "编辑器源码模式",
             "itemtype": "attribute",
             "name": "SOURCE_MODE",
@@ -12339,7 +12384,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 67,
+            "line": 69,
             "description": "编辑器可视化模式",
             "itemtype": "attribute",
             "name": "WYSIWYG_MODE",
@@ -12349,7 +12394,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 73,
+            "line": 75,
             "description": "编辑器的 iframe.只读",
             "itemtype": "attribute",
             "name": "iframe",
@@ -12359,7 +12404,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 78,
+            "line": 80,
             "description": "编辑器 iframe 的 window.只读.",
             "itemtype": "attribute",
             "name": "window",
@@ -12369,7 +12414,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 83,
+            "line": 85,
             "description": "编辑器 iframe 的 document.只读.",
             "itemtype": "attribute",
             "name": "document",
@@ -12379,7 +12424,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 88,
+            "line": 90,
             "description": "编辑器 iframe 的父节点.只读",
             "itemtype": "attribute",
             "name": "iframeWrapEl",
@@ -12389,7 +12434,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 93,
+            "line": 95,
             "description": "编辑器的 toolbar 节点.只读.",
             "itemtype": "attribute",
             "name": "toolBarEl",
@@ -12399,7 +12444,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 98,
+            "line": 100,
             "description": "编辑器的 statusbar 节点.只读.",
             "itemtype": "attribute",
             "name": "statusBarEl",
@@ -12409,7 +12454,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 104,
+            "line": 106,
             "description": "编辑器 body 下的格式化后的 html 内容.可读写",
             "itemtype": "attribute",
             "name": "formatData",
@@ -12419,7 +12464,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 109,
+            "line": 111,
             "description": "调用编辑器的响应命令功能",
             "itemtype": "method",
             "name": "execCommand",
@@ -12439,7 +12484,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 116,
+            "line": 118,
             "description": "编辑器是否存在该命令",
             "itemtype": "method",
             "name": "hasCommand",
@@ -12455,7 +12500,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 122,
+            "line": 124,
             "description": "查询该命令对应的当前编辑值",
             "itemtype": "method",
             "name": "queryCommandValue",
@@ -12471,7 +12516,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 128,
+            "line": 130,
             "description": "同步编辑器内容到对应的 textarea",
             "itemtype": "method",
             "name": "sync",
@@ -12480,7 +12525,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 133,
+            "line": 135,
             "description": "获取编辑器文档的完整 html（不仅仅是 body 内的内容）",
             "itemtype": "method",
             "name": "getDocHtml",
@@ -12489,7 +12534,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 138,
+            "line": 140,
             "description": "使得编辑器获得焦点",
             "itemtype": "method",
             "name": "focus",
@@ -12498,7 +12543,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 143,
+            "line": 145,
             "description": "使得编辑器失去焦点",
             "itemtype": "method",
             "name": "blur",
@@ -12507,7 +12552,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 148,
+            "line": 150,
             "description": "添加自定义样式到编辑器文档中",
             "itemtype": "method",
             "name": "addCustomStyle",
@@ -12528,7 +12573,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 155,
+            "line": 157,
             "description": "删除编辑器文档的自定义样式",
             "itemtype": "method",
             "name": "removeCustomStyle",
@@ -12544,7 +12589,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 161,
+            "line": 163,
             "description": "添加自定义样式表到编辑器文档中",
             "itemtype": "method",
             "name": "addCustomLink",
@@ -12560,7 +12605,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 167,
+            "line": 169,
             "description": "删除编辑器文档的自定义样式表",
             "itemtype": "method",
             "name": "removeCustomLink",
@@ -12576,7 +12621,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 173,
+            "line": 175,
             "description": "注册函数到编辑器文档 ready 队列（编辑器文档 ready 后触发）\n#### 该函数在编辑器生存周期内可能会运行多次（每次切换源码模式再切换回可视化模式都会因为编辑器文档重建而触发）",
             "itemtype": "method",
             "name": "docReady",
@@ -12592,7 +12637,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 180,
+            "line": 182,
             "description": "往编辑器中插入元素",
             "itemtype": "method",
             "name": "insertElement",
@@ -12608,7 +12653,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 194,
+            "line": 196,
             "description": "往编辑器中插入 html 串",
             "itemtype": "method",
             "name": "insertHtml",
@@ -12624,31 +12669,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 207,
-            "description": "为编辑器工具栏增加一个按钮. 一般用于插件编写.",
-            "itemtype": "method",
-            "name": "addButton",
-            "params": [
-                {
-                    "name": "id",
-                    "description": "按钮 id",
-                    "type": "String"
-                },
-                {
-                    "name": "cfg",
-                    "description": "button配置，详见[Button](/5.0/api/classes/Editor.Plugin.Button.html)",
-                    "type": "Object"
-                }
-            ],
-            "example": [
-                "\n```\neditor.addButton(\"plugin2\", {\n    content:'<div style=\"margin: 2px;border: 1px solid red;padding: 1px;\">p2</div>',\n    listeners:{\n        click:function () {\n            alert('i am running')\n        }\n    }\n});\n```"
-            ],
-            "class": "Editor",
-            "module": "editor"
-        },
-        {
-            "file": "src/api/editor.js",
-            "line": 225,
+            "line": 209,
             "description": "为编辑器工具栏增加一个下拉菜单按钮. 一般用于插件编写.",
             "itemtype": "method",
             "name": "addSelect",
@@ -12672,7 +12693,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 252,
+            "line": 236,
             "description": "获取选中的html字符串",
             "itemtype": "method",
             "name": "getSelectedHtml",
@@ -12685,7 +12706,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 258,
+            "line": 242,
             "description": "获得编辑器里面的内容",
             "itemtype": "method",
             "name": "getData",
@@ -12710,7 +12731,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 266,
+            "line": 250,
             "description": "设置编辑器里的内容",
             "itemtype": "method",
             "name": "setData",
@@ -12726,7 +12747,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 272,
+            "line": 256,
             "description": "当用户黏贴文本触发，可返回值用来修改用户的黏贴内容",
             "itemtype": "event",
             "name": "paste",
@@ -12742,7 +12763,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 278,
+            "line": 262,
             "description": "当编辑区域获得焦点时触发",
             "itemtype": "event",
             "name": "focus",
@@ -12751,7 +12772,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 283,
+            "line": 267,
             "description": "当编辑区域失去焦点时触发",
             "itemtype": "event",
             "name": "blur",
@@ -12760,7 +12781,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 288,
+            "line": 272,
             "description": "当切换到可视化模式后触发",
             "itemtype": "event",
             "name": "wysiwygMode",
@@ -12769,7 +12790,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 293,
+            "line": 277,
             "description": "当切换到源码模式后触发",
             "itemtype": "event",
             "name": "sourceMode",
@@ -12778,7 +12799,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 298,
+            "line": 282,
             "description": "当用户光标路径变化后触发",
             "itemtype": "event",
             "name": "selectionChange",
@@ -12804,7 +12825,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 306,
+            "line": 290,
             "description": "当弹出插件窗口事触发",
             "itemtype": "event",
             "name": "dialogShow",

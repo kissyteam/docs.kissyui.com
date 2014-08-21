@@ -36,6 +36,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Editor",
         "Editor.Plugin.BackColor",
         "Editor.Plugin.Bold",
+        "Editor.Plugin.Button",
         "Editor.Plugin.CheckBoxSourceArea",
         "Editor.Plugin.Code",
         "Editor.Plugin.Draft",
@@ -143,6 +144,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "editor",
         "editor_plugin_back-color",
         "editor_plugin_bold",
+        "editor_plugin_button",
         "editor_plugin_checkbox-source-area",
         "editor_plugin_code",
         "editor_plugin_draft",
@@ -323,6 +325,10 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "editor/plugin/bold",
             "name": "editor_plugin_bold"
+        },
+        {
+            "displayName": "editor/plugin/button",
+            "name": "editor_plugin_button"
         },
         {
             "displayName": "editor/plugin/checkbox-source-area",

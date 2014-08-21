@@ -108,6 +108,7 @@ module.exports.buildDemos = function(srcUrl,config){
 	fs.readdirSync(demosPath).forEach(function(dir){
 		var dirName = path.resolve(demosPath,dir),
 			src = path.normalize('./' + dir + '/index.html');
+		if(dirName.indexOf('DS_Store') > -1){ return; };
 		demoLists.push({
 			name : dir,
 			src : src

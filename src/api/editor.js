@@ -8,8 +8,8 @@
 ### Note1
 
 ##### kissy提供参考的初始样式，但用户也可以自己自定义样式。参考样式地址为
-`http://g.tbcdn.cn/kissy/k/1.4.2/css/dpl/base-min.css`
-`http://g.tbcdn.cn/kissy/k/1.4.2/editor/theme/cool/editor-min.css?1`
+`http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css`
+`http://g.tbcdn.cn/kissy/edge/2014.07.16/editor/theme/cool/editor.css?1`
 
 ### Note2
 editor提供如下插件：
@@ -36,15 +36,17 @@ editor提供如下插件：
 */
 
 /**
-自定义产生 textarea 节点的 html.
+自定义textarea的属性。
 
 例如可以指定全新产生 editor 所属 textarea 的 name 值
 ```
 new Editor({
-    textarea: '<textarea name="custom"></textarea>'
+    textareaAttrs: {
+        name : 'myTextarea'
+    }
 });
 ```
-@attribute textarea {String}
+@attribute textareaAttrs {Objec}
 @optional
 */
 
@@ -201,24 +203,6 @@ editor.focus();
 setTimeout(function(){
     editor.insertHtml('<span>haha</span>');
 },50);
-```
-*/
-
-/**
-为编辑器工具栏增加一个按钮. 一般用于插件编写.
-@method addButton 
-@param id {String}  按钮 id
-@param cfg {Object} button配置，详见[Button](/5.0/api/classes/Editor.Plugin.Button.html)
-@example
-```
-editor.addButton("plugin2", {
-    content:'<div style="margin: 2px;border: 1px solid red;padding: 1px;">p2</div>',
-    listeners:{
-        click:function () {
-            alert('i am running')
-        }
-    }
-});
 ```
 */
 
