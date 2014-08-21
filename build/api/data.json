@@ -695,6 +695,30 @@
                 "Editor.Plugin": 1
             }
         },
+        "src/api/event/custom.js": {
+            "name": "src/api/event/custom.js",
+            "modules": {
+                "event/custom": 1
+            },
+            "classes": {
+                "CustomEvent.Target": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "CustomEvent": 1
+            }
+        },
+        "src/api/event/dom.js": {
+            "name": "src/api/event/dom.js",
+            "modules": {
+                "event/dom": 1
+            },
+            "classes": {
+                "DomEvent": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/api/resizable/plugin/proxy.js": {
             "name": "src/api/resizable/plugin/proxy.js",
             "modules": {
@@ -769,19 +793,27 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/api/attribute.js": {
+            "name": "src/api/attribute.js",
+            "modules": {
+                "attribute": 1
+            },
+            "classes": {
+                "Attribute": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/api/base.js": {
             "name": "src/api/base.js",
             "modules": {
                 "base": 1
             },
             "classes": {
-                "Base": 1,
-                "Base.Attribute": 1
+                "Base": 1
             },
             "fors": {},
-            "namespaces": {
-                "Base": 1
-            }
+            "namespaces": {}
         },
         "src/api/button.js": {
             "name": "src/api/button.js",
@@ -1907,6 +1939,34 @@
             "file": "src/api/editor/plugin/xiami-music.js",
             "line": 5
         },
+        "event/custom": {
+            "name": "event/custom",
+            "submodules": {},
+            "classes": {
+                "CustomEvent.Target": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "CustomEvent": 1
+            },
+            "tag": "module",
+            "file": "src/api/event/custom.js",
+            "line": 7,
+            "description": "自定义事件模块"
+        },
+        "event/dom": {
+            "name": "event/dom",
+            "submodules": {},
+            "classes": {
+                "DomEvent": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/event/dom.js",
+            "line": 6,
+            "description": "根据设备环境加载响应的子模块来处理 DOM 的事件模块"
+        },
         "resizable/plugin/proxy": {
             "name": "resizable/plugin/proxy",
             "submodules": {},
@@ -1989,21 +2049,30 @@
             "line": 6,
             "description": "提供动画支持"
         },
+        "attribute": {
+            "name": "attribute",
+            "submodules": {},
+            "classes": {
+                "Attribute": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/attribute.js",
+            "line": 6
+        },
         "base": {
             "name": "base",
             "submodules": {},
             "classes": {
-                "Base": 1,
-                "Base.Attribute": 1
-            },
-            "fors": {},
-            "namespaces": {
                 "Base": 1
             },
+            "fors": {},
+            "namespaces": {},
             "tag": "module",
             "file": "src/api/base.js",
-            "line": 206,
-            "description": "鉴于不同浏览器对属性描述符的支持并不统一, KISSY 的 attribute 模块, 模拟实现了属性描述符, 提供属性的获取和设置操作, 即属性的 getter 和 setter 动作.\n\n而 KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 让继承 Base 的子类自动具有 attribute 的功能.如果你想让自定义类默认就支持 attribute 功能, 请直接继承 Base"
+            "line": 7,
+            "description": "KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 让继承 Base 的子类自动具有 attribute 的功能.如果你想让自定义类默认就支持 attribute 功能, 请直接继承 Base"
         },
         "button": {
             "name": "button",
@@ -3391,6 +3460,37 @@
             "line": 5,
             "description": "编辑器的虾米音乐插件"
         },
+        "CustomEvent.Target": {
+            "name": "CustomEvent.Target",
+            "shortname": "CustomEvent.Target",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [
+                "Attribute"
+            ],
+            "module": "event/custom",
+            "namespace": "CustomEvent",
+            "file": "src/api/event/custom.js",
+            "line": 7,
+            "description": "通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件。此外，如果要自定义事件也可以直接拓展 Base。\n\n__Note__\n\n注意 CustomEvent.Target 仅用于 mix/augment ，不可以直接使用。使用示例：\n```\nKISSY.use('util,event/custom', function(S, Util, CustomEvent){\n\tfunction Dog(name){\n\t\tthis.name = name;\n\t}\n\tUtil.augment(Dog, CustomEvent.Target, {\n\t\tshout : function(){\n\t\t\tthis.fire('shout',{\n\t\t\t\tcontent : 'I am hungry...'\n\t\t\t});\n\t\t}\n\t});\n\tvar myDog = new Dog('cuteDog');\n\tmyDog.on('shout', function(ev){\n\t\talert(this.name + 'say that ' + ev.conent);\n\t});\n\n\tmyDog.shout();\n})\n\n```"
+        },
+        "DomEvent": {
+            "name": "DomEvent",
+            "shortname": "DomEvent",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "event/dom",
+            "namespace": "",
+            "file": "src/api/event/dom.js",
+            "line": 6,
+            "description": "处理 DOM 事件\n```\nKISSY.use('event/dom', function(S, DomEvent){\n    DomEvent.on(document.body,{\n        'click':{\n            fn:function(){\n                alert('hello,kissy..');\n            },\n            // filter: '', // delegate,\n            once:true // 绑定一次\n        },\n        'mouseenter':function(){}\n    });\n\n    //写法相当于\n    DomEvent.on(document.body, 'click', function(){\n\t\talert('hello,kissy..');\n    })\n})\n```",
+            "static": 1
+        },
         "Resizable.Plugin.Proxy": {
             "name": "Resizable.Plugin.Proxy",
             "shortname": "Resizable.Plugin.Proxy",
@@ -3550,6 +3650,24 @@
                 }
             ]
         },
+        "Attribute": {
+            "name": "Attribute",
+            "shortname": "Attribute",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "attribute",
+            "namespace": "",
+            "file": "src/api/attribute.js",
+            "line": 6,
+            "description": "鉴于不同浏览器对属性描述符的支持并不统一, KISSY 的 attribute 模块, 模拟实现了属性描述符, 提供属性的获取和设置操作, 即属性的 getter 和 setter 动作，它还有所有 CustomEvent.Target 的方法。",
+            "uses": [
+                "CustomEvent.Target"
+            ],
+            "is_constructor": 1
+        },
         "Base": {
             "name": "Base",
             "shortname": "Base",
@@ -3561,13 +3679,10 @@
             "module": "base",
             "namespace": "",
             "file": "src/api/base.js",
-            "line": 9,
-            "description": "如果你想让类默认就支持 [Base.Attribute](/5.0/api/classes/Base.Attribute.html) 功能, 请直接继承[Base](/5.0/api/classes/Base.html)。\n\n注：使用 Base 时, 虽然你还是可以通过 addAttr() 添加支持需要支持 setter/getter 的属性, 但最好还是把这些属性和它们的配置定义在类的 ATTRS 成员中. 即通过设置自定义类的 ATTRS 静态属性来给类实例对象添加属性管理机制.",
+            "line": 7,
+            "description": "如果你想让类默认就支持 [Attribute](/5.0/api/classes/Attribute.html) 功能, 请直接继承[Base](/5.0/api/classes/Base.html)。\n\n注：使用 Base 时, 虽然你还是可以通过 addAttr() 添加支持需要支持 setter/getter 的属性, 但最好还是把这些属性和它们的配置定义在类的 ATTRS 成员中. 即通过设置自定义类的 ATTRS 静态属性来给类实例对象添加属性管理机制.",
             "is_constructor": 1,
-            "extends": "Base.Attribute",
-            "uses": [
-                "Event.Target"
-            ],
+            "extends": "Attribute",
             "params": [
                 {
                     "name": "config",
@@ -3578,21 +3693,6 @@
             "example": [
                 "\n```\nKISSY.use('base', function(S, Base) {\n    var myClass = Base.extend({},{\n        ATTRS : {\n            size: {\n                value: 0,\n                setter: function(v) {\n                    if (S.isString(v) && v.indexOf('inch')!== -1) {\n                        return parseFloat(v)*10/3;\n                    }\n                    return parseFloat(v);\n                },\n                getter: function(v) {\n                    return v;\n                }\n            }\n        }\n     });\n\n    var cls = new myClass();\n\n    // 绑定事件\n    cls.on('afterSizeChange', function(ev){\n        console.log('change '+ ev.attrName + ': '+ev.prevVal+' --> '+ev.newVal);\n    });\n\n    // 设置属性\n    cls.set('size', 20);\n\n    // 获取属性\n    alert(cls.get('size'));\n\n    // 重置\n    cls.reset();\n    alert(cls.get('size'));\n});\n```"
             ]
-        },
-        "Base.Attribute": {
-            "name": "Base.Attribute",
-            "shortname": "Base.Attribute",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "base",
-            "namespace": "Base",
-            "file": "src/api/base.js",
-            "line": 206,
-            "description": "包含一些属性操作的方法，仅用于 [augment()](/5.0/api/classes/Util.html#method_augment)]",
-            "is_constructor": 1
         },
         "Button": {
             "name": "Button",
@@ -3946,9 +4046,7 @@
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": [
-                "Base"
-            ],
+            "extension_for": [],
             "module": "event",
             "namespace": "Event",
             "file": "src/api/event.js",
@@ -7490,6 +7588,556 @@
             "namespace": "Editor.Plugin"
         },
         {
+            "file": "src/api/event/custom.js",
+            "line": 38,
+            "description": "触发绑定 type 类型的事件处理器, 并给触发的事件处理器的事件对象参数中混入数据 eventData",
+            "itemtype": "method",
+            "name": "fire",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "要触发的自定义事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "eventData",
+                    "description": "要混入触发事件对象的数据对象",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值",
+                "type": "Boolean"
+            },
+            "class": "CustomEvent.Target",
+            "module": "event/custom",
+            "namespace": "CustomEvent"
+        },
+        {
+            "file": "src/api/event/custom.js",
+            "line": 46,
+            "description": "配置自定义事件的一些特有信息",
+            "itemtype": "method",
+            "name": "publish",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "要触发的自定义事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "cfg",
+                    "description": "事件的具体配置对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "bubbles",
+                            "description": "类型 boolean. 是否支持冒泡。 默认 true",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "defaultFn",
+                            "description": "",
+                            "type": "Function",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "class": "CustomEvent.Target",
+            "module": "event/custom",
+            "namespace": "CustomEvent"
+        },
+        {
+            "file": "src/api/event/custom.js",
+            "line": 55,
+            "description": "添加冒泡事件源对象",
+            "itemtype": "method",
+            "name": "addTarget",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "事件往上冒泡的事件源",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n```\nKISSY.use(\"util,event/custom\", function(S, Util, CustomEvent) {\n    function Custom(id){\n        this.id = id;\n        this.publish(\"run\",{\n            bubbles:1\n        });\n    }\n\n    Util.augment(Custom, CustomEvent.Target);\n\n    var c1 = new Custom(\"c1\");\n\n    var c2 = new Custom(\"c1\");\n\n    c1.addTarget(c2);\n\n    c2.on(\"run\",function(e){\n        S.log(e.target.id +\" fires event run\"); // => c1 fires event run\n    });\n\n    c1.fire(\"run\");\n});\n```"
+            ],
+            "class": "CustomEvent.Target",
+            "module": "event/custom",
+            "namespace": "CustomEvent"
+        },
+        {
+            "file": "src/api/event/custom.js",
+            "line": 86,
+            "description": "删除冒泡事件源对象",
+            "itemtype": "method",
+            "name": "removeTarget",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "事件往上冒泡的事件源",
+                    "type": "Object"
+                }
+            ],
+            "class": "CustomEvent.Target",
+            "module": "event/custom",
+            "namespace": "CustomEvent"
+        },
+        {
+            "file": "src/api/event/custom.js",
+            "line": 92,
+            "description": "为相应事件添加事件处理器",
+            "itemtype": "method",
+            "name": "on",
+            "params": [
+                {
+                    "name": "eventType",
+                    "description": "\n- 当为String时 包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"\n- 当为Object时，类似这样：\n```\n{\n    'click':{\n        fn:function(){\n        },\n        filter: '' // delegate,\n        once:true // 绑定一次\n    },\n    'mouseenter':function(){}\n}\n```",
+                    "type": "String|Object"
+                },
+                {
+                    "name": "fn",
+                    "description": "当事件触发时的回调函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "scope",
+                    "description": "回调函数的 this 值. 如果不指定默认为绑定事件的当前元素",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "CustomEvent.Target",
+            "module": "event/custom",
+            "namespace": "CustomEvent"
+        },
+        {
+            "file": "src/api/event/custom.js",
+            "line": 113,
+            "description": "解除绑定的事件处理器",
+            "itemtype": "method",
+            "name": "detach",
+            "params": [
+                {
+                    "name": "eventType",
+                    "description": "",
+                    "type": "String|Object"
+                },
+                {
+                    "name": "fn",
+                    "description": "当事件触发时的回调函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "scope",
+                    "description": "回调函数的 this 值. 如果不指定默认为绑定事件的当前元素",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "CustomEvent.Target",
+            "module": "event/custom",
+            "namespace": "CustomEvent"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 31,
+            "description": "为符合匹配的 dom 节点的相应事件添加事件处理器",
+            "itemtype": "method",
+            "name": "on",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "",
+                    "type": "String|Object"
+                },
+                {
+                    "name": "fn",
+                    "description": "当事件触发时的回调函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "scope",
+                    "description": "回调函数的 this 值. 如果不指定默认为绑定事件的当前元素\n\n__Note__\n\non 方法是给文档添加行为的主要方式. 所有的事件类型, 例如 focus , mouseover , resize 都是有效的事件类型\n\nwindow 的 beforeunload 和 error 事件使用了不标准的方式, 该方法不支持, 请直接在 window 对象上注册事件处理器\n\n当一个节点的某个事件触发时, 绑定该事件的所有处理器都会被调用.如果有多个事件处理器, 则他们的执行顺序和绑定的顺序保持一致, 当所有的事件处理器执行完毕后, 事件才继续向上传播",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 49,
+            "description": "为符合匹配的 dom 节点的相应事件添加事件处理器, 并在该节点的子孙节点中匹配 filter 的节点上触发事件时调用",
+            "itemtype": "method",
+            "name": "delegate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"",
+                    "type": "String"
+                },
+                {
+                    "name": "filter",
+                    "description": "可参见 `dom.filter()` 的 filter 参数",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "当事件触发时的回调函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "scope",
+                    "description": "回调函数的 this 值. 如果不指定默认为绑定事件的当前元素",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "example": [
+                "\n__Note1__\n\n该方法是 on 方法的增强. 当 on 方法被调用时, 符合选择器的元素被绑定事件处理器, 而后面添加的元素则没有, 即他们需要另外一次绑定, 例如\n```\n<body>\n  <div class=\"clickme\">\n    Click here\n  </div>\n</body>\n```\n绑定一个 click 事件的事件触发器：\n```\nDomEvent.on('.clickme','click', function() {\n  // Bound handler called.\n});\n```\n当该元素被点击时, 调用对应的事件处理器. 但是如果新加入一个元素：\n\n`Node.all('body').append('<div class=\"clickme\">Another target</div>');`\n\n新元素匹配选择器 clickme ,但是他如果不再次 on , 则在他上面的点击不会有任何效果.\ndelegate 方法提供了解决方法, 如果这样调用：\n```\nDomEvent.delegate(document,'click','.clickme',function(){\n   // Bound handler called.\n});\n```\n这样的话如果今后又添加了一个元素\n```\nNode.all('body').append('<div class=\"clickme\">Another target</div>');\n```\n在新元素上点击仍然会调用之前的事件处理器.\n\n可以使用 undelegate 来移除之前的绑定:\n```\nfunction d(){\n}\n\nDomEvent.delegate(document,'click','.clickme',d);\n\nDomEvent.undelegate(document,'click','.clickme',d);\n```\n\n__Note2__\n\n- 不能在 object , embed , applet 元素上注册事件\n- 事件处理器回调函数中 this 指向 scope (没指定指向绑定事件的元素), 传入的参数为 event , event.target 指向事件触发源, event.currentTarget 指向当前事件处理器调用所在的匹配 filter 的元素\n- 可以使用 stopPropagation() 来停止事件的向上冒泡, 这样就不会在同样符合 filter 条件的祖先节点上调用事件处理器\n- 同样可以对 mouseenter , mouseleave 进行委托\n- 因为 delegate 是在事件冒泡到代理元素后才开始处理的，那么通过 on 注册到代理元素的子节点的事件处理器已经被触发， 而无法被 delegate 绑定的事件处理器阻止 ( stopPropagation )，但 delegate 事件处理器可以阻止绑定到同一元素但是匹配元素在当前事件处理器之上的 delegate 事件处理器"
+            ],
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 111,
+            "description": "从符合匹配的 dom 节点中移去相应事件的事件处理器",
+            "itemtype": "method",
+            "name": "detach",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "fn",
+                    "description": "当事件触发时的回调函数",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "scope",
+                    "description": "回调函数的 this 值. 如果不指定默认为绑定事件的当前元素\n\n__Note__\n\n- 用 on 绑定的事件处理器可以用 detach 解除绑定. 最简单的情况 detach(elem) 解除该元素上的所有绑定\n```\nDomEvent.detach('#foo');\n```\n- 上面的代码解除了 foo 元素上所有事件的事件处理器, 我们也可以解除某一个事件的全部事件处理器:\n```\nDomEvent.detach('#foo','click');\n```\n- 当时如果程序对同一事件指定了不同的事件处理器, 这时就需要后面两个参数了\n```\nvar handler = function() {\n  alert('The quick brown fox jumps over the lazy dog.');\n};\nDomEvent.on('#foo','click', handler);\nDomEvent.detach('#foo','click', handler);\n```\n- 通过指定第三个参数, 我们可以保证该事件的其他事件处理器不受影响, 注意下面的代码则不会生效：\n\t```\n\tvar handler = function() {\n\t  alert('The quick brown fox jumps over the lazy dog.');\n\t};\n\tvar obj={x:1};\n\tDomEvent.on('#foo','click', handler,obj);\n\n\tDomEvent.detach('#foo','click', function() {\n\t  alert('The quick brown fox jumps over the lazy dog.');\n\t},obj);\n\n\tDomEvent.detach('#foo','click', handler,{x:1});\n\n\t//虽然后面的两个 detach 参数从字面上来看完全一样, 但是由于是不同的对象, 所有仍然不会生效. 如果需要解除特定的事件处理器, 我们需要同一个对象( 函数 )引用, 而不是恰好字面上相同的不同对象\n\t```\n- DomEvent.detach 支持 deep ，递归移除子节点事件\n```\nDomEvent.detach(document.body,{\n    'click':{\n        deep:true\n    }\n});\nDomEvent.detach(document.body,{\n    // 全部事件\n    '':{\n        deep:true\n    }\n});\n```",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 170,
+            "description": "为符合匹配的 dom 节点的相应事件去除事件处理器",
+            "itemtype": "method",
+            "name": "undelegate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"",
+                    "type": "String"
+                },
+                {
+                    "name": "filter",
+                    "description": "可参见 `dom.filter()` 的 filter 参数",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "当事件触发时的回调函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "scope",
+                    "description": "回调函数的 this 值. 如果不指定默认为绑定事件的当前元素\n__Note__\n和 DomEvent.detach 一样, 如果移除特定的委托事件处理器必须保证参数和调用 delegate 时保持一致.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 183,
+            "description": "执行符合匹配的 dom 节点的相应事件的事件处理器（并冒泡）和默认行为",
+            "itemtype": "method",
+            "name": "fire",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"",
+                    "type": "String"
+                },
+                {
+                    "name": "domEvent",
+                    "description": "模拟原生事件的一些属性值信息",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值\n\n__Note__\n\n用 Event.on 绑定的事件处理器可以被用户触发的原生事件调用. 但是这些事件处理器也可以使用 fire 手动调用. 调用 fire() 和用户触发导致的处理器调用调用是一样的顺序\n```\nDomEvent.on('#foo','click',function(){\n    alert(DOM.text(this));\n});\n\nDomEvent.fire('#foo','click');\n```",
+                "type": "Boolean"
+            },
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 204,
+            "description": "执行符合匹配的 dom 节点的相应事件的事件处理器",
+            "itemtype": "method",
+            "name": "fireHandler",
+            "static": 1,
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)",
+                    "type": "String|HTMLCollection|Array<HTMLElement>"
+                },
+                {
+                    "name": "eventType",
+                    "description": "包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 \"click.one\" , \"click.two\"",
+                    "type": "String"
+                },
+                {
+                    "name": "domEvent",
+                    "description": "模拟原生事件的一些属性值信息",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值\n\n__Note__\n\nfireHandler 和 fire 的区别在于:\n- fire 会冒泡以及执行对应事件的默认行为\n- fireHandler 只会执行当前节点的处理函数",
+                "type": "Boolean"
+            },
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 220,
+            "description": "原生只有 ie 支持 focusin 事件，而 kissy 对这一事件进行了 [兼容性处理](http://yiminghe.iteye.com/blog/813255)\n但一个元素获得焦点或者其子孙元素获得焦点时， focusin 会在该元素上触发（没被子孙元素阻止）。这就是和 focus 事件的区别之处 : 你可以在父元素上监控子元素的 focus 事件，即 focusin 事件支持冒泡.\n\n这个事件常常和 focusout 一起使用",
+            "itemtype": "event",
+            "name": "focusin",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 228,
+            "description": "原生只有 ie 支持 focusout 事件，而 kissy 对这一事件进行了 [兼容性处理](http://yiminghe.iteye.com/blog/813255)\n但一个元素获得焦点或者其子孙元素获得焦点时， focusout 会在该元素上触发（没被子孙元素阻止）。这就是和 focus 事件的区别之处 : 你可以在父元素上监控子元素的 focus 事件，即 focusout 事件支持冒泡.\n\n这个事件常常和 focusin 一起使用",
+            "itemtype": "event",
+            "name": "focusout",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 236,
+            "description": "目前除了 ie67 外都原生支持 hashchange 事件，kissy 对 ie67 也模拟兼容了该事件.\n\n当浏览器的 hash 值发生变化时会触发此事件，常常被用来实现单页面应用[存在广泛争议](http://danwebb.net/2011/5/28/it-is-about-the-hashbangs)\n\n当用户点击后退与前进进行浏览器导航时会引起 hash 变化\n\n此事件只能在当前 window 上注册，注册到其他类型元素上无效！ hash 值推荐为 !/xx/ 形式, 前面用 !/ 后面用 / 包起来，否则 ie67 可能有诡异现象",
+            "itemtype": "event",
+            "name": "hashchange",
+            "example": [
+                "\n```\nKISSY.use('node,event/dom', function(S, Node, DomEvent){\n\tvar $ = Node.all;\n\t$(window).on(\"hashchange\",function(){\n\t    // location.hash -> 当前 hash 值\n\t});\n})\n\n```"
+            ],
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 259,
+            "description": "模拟 ie 有但是其他浏览器却没的最有用的事件[mouseenter](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-mouseenter)\n\n__mouseenter 不会冒泡，想要代理这个事件的话用 delegate() 方法__",
+            "itemtype": "event",
+            "name": "mouseenter",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 266,
+            "description": "模拟 ie 有但是其他浏览器却没的最有用的事件[mouseleave](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-mouseleave)\n\n__mouseleave 不会冒泡，想要代理这个事件的话用 delegate() 方法__",
+            "itemtype": "event",
+            "name": "mouseleave",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 273,
+            "description": "对 mousewheel 事件做了浏览器兼容性处理\n滚轮事件有两个属性:\n- e.deltaY (Number) – 纵向滚动幅度，一般是正数表示向上滚动，负数表示向下滚动\n- e.deltaX (Number) – 横向滚动幅度，一般是正数表示向左滚动，负数表示向右滚动",
+            "itemtype": "event",
+            "name": "mousewheel",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 281,
+            "description": "触屏上的双击事件",
+            "itemtype": "event",
+            "name": "doubleTap",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 286,
+            "description": "触屏上的单击事件,和双击互斥\n\n当快速点击某个 dom 节点一次（短时间没有再次点击）后触发",
+            "itemtype": "event",
+            "name": "singleTap",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 293,
+            "description": "触屏上的单击事件,可用 preventDefault 防止链接点击跳转\n\n当点击某个 dom 节点后触发， 和 singleTap 的不同支持载入： 触发 doubleTap 就不会触发 singleTap， 而触发 doubleTap 前会触发 tap",
+            "itemtype": "event",
+            "name": "tap",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 300,
+            "description": "当长按某个 dom 节点超过 1s 后触发",
+            "itemtype": "event",
+            "name": "tapHold",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 305,
+            "description": "触屏上开始用双指旋转某个 dom 元素时触发\n包括格外下面的属性：\n- angle {Number} 开始时双指的角度值\n- rotation {Number} 固定为 0",
+            "itemtype": "event",
+            "name": "rotateStart",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 313,
+            "description": "触屏上用双指旋转某个 dom 元素时出现\n包括格外下面的属性：\n- angle {Number} 开始时双指的角度值\n- rotation {Number} 双指和开始相比改变的角度值",
+            "itemtype": "event",
+            "name": "rotate",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 321,
+            "description": "触屏上用双指旋转某个 dom 元素结束时触发",
+            "itemtype": "event",
+            "name": "rotateEnd",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 326,
+            "description": "触屏上开始用双指调整某个 dom 元素大小时触发\n包括格外下面的属性：\n- distance {Number} 开始时双指的绝对距离\n- scale {Number} 固定为 1",
+            "itemtype": "event",
+            "name": "pinchStart",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 334,
+            "description": "触屏上开始用双指调整某个 dom 元素大小时出现\n包括格外下面的属性：\n- distance {Number} 开始时双指的绝对距离\n- scale {Number} 固定为 1",
+            "itemtype": "event",
+            "name": "pinch",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 342,
+            "description": "触屏上用双指调整某个 dom 元素大小后触发",
+            "itemtype": "event",
+            "name": "pinchEnd",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 347,
+            "description": "当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备",
+            "itemtype": "event",
+            "name": "shake",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 352,
+            "description": "为了兼容移动与pc， kissy event 提供了手势事件.\n\n__手势开始事件__",
+            "itemtype": "event",
+            "name": "start",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 359,
+            "description": "为了兼容移动与pc， kissy event 提供了手势事件.\n\n__手势进行事件__",
+            "itemtype": "event",
+            "name": "move",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
+            "file": "src/api/event/dom.js",
+            "line": 366,
+            "description": "为了兼容移动与pc， kissy event 提供了手势事件.\n\n__手势结束事件__",
+            "itemtype": "event",
+            "name": "end",
+            "class": "DomEvent",
+            "module": "event/dom"
+        },
+        {
             "file": "src/api/resizable/plugin/proxy.js",
             "line": 14,
             "description": "当 Resizable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Resizable 对象, 返回值类型为 KISSY.Node . 该属性有默认值:\n```\nfunction(resizable) {\n    return new Node(resizable.get(\"node\")[0].cloneNode(true));\n}\n```\n\n即代理节点和当前节点保持一致.",
@@ -8125,155 +8773,8 @@
             "module": "anim"
         },
         {
-            "file": "src/api/base.js",
-            "line": 60,
-            "description": "配置组件的事件绑定,例如:\n```\n{\n    listeners:{\n        customEvent:function(e){\n            alert(e.type); // => \"customEvent\"\n        }\n    }\n}\n\nor\n\n{\n    listeners:{\n        customEvent:{\n            fn:function(e){\n                // e.type // => customEvent\n                // this.xx => 1\n            },\n            context:{xx:1}\n        }\n    }\n}\n```",
-            "itemtype": "attribute",
-            "name": "listeners",
-            "type": "Object",
-            "class": "Base",
-            "module": "base"
-        },
-        {
-            "file": "src/api/base.js",
-            "line": 88,
-            "description": "插件构造器数组或插件对象数组. 例如\n```\n{\n    plugins: [ Plugin1,Plugin2 ]\n}\n\n// or\n\n{\n    plugins: [new Plugin1(cfg),new Plugin2(cfg)]\n}\n```",
-            "itemtype": "attribute",
-            "name": "plugins",
-            "type": "Function[]|Object[]",
-            "class": "Base",
-            "module": "base"
-        },
-        {
-            "file": "src/api/base.js",
-            "line": 105,
-            "description": "从当前类上扩展出一个子类",
-            "itemtype": "method",
-            "name": "extend",
-            "static": 1,
-            "params": [
-                {
-                    "name": "extensions",
-                    "description": "扩展类数组",
-                    "type": "Function[]",
-                    "optional": true
-                },
-                {
-                    "name": "methodDesc",
-                    "description": "方法集合键值对",
-                    "type": "Object"
-                },
-                {
-                    "name": "staticAttributes",
-                    "description": "放到新产生组件类上的静态属性集合键值对，其中 ATTRS 属性特殊对待",
-                    "type": "Object"
-                },
-                {
-                    "name": "desc",
-                    "description": "类元信息",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "name",
-                            "description": "类名",
-                            "type": "String"
-                        }
-                    ]
-                }
-            ],
-            "class": "Base",
-            "module": "base"
-        },
-        {
-            "file": "src/api/base.js",
-            "line": 116,
-            "description": "调用父类的对应方法，如果没有，则返回undefined",
-            "itemtype": "method",
-            "name": "callSuper",
-            "example": [
-                "\n```\nKISSY.use('base', function(S, Base) {\n    var A = Base.extend({\n        m: function (value) {\n            return 'am:' + value;\n        },\n        m2: function (value) {\n            return 'am2:' + value;\n        }\n    });\n\n    var B = A.extend({\n        m: function(value) {\n            return 'bm:(' + this.callSuper(value) + ')';\n        },\n        m2: function(value) {\n            return 'bm2(' + this.callSuper.apply(this, arguments) + ')';\n        }\n    });\n\n    var b = new B();\n    console.log(b.m(1));\n    console.log(b.m2(2));\n});\n```"
-            ],
-            "class": "Base",
-            "module": "base"
-        },
-        {
-            "file": "src/api/base.js",
-            "line": 147,
-            "description": "安装指定插件",
-            "itemtype": "method",
-            "name": "plug",
-            "params": [
-                {
-                    "name": "plugin",
-                    "description": "指定的插件构造器或者插件对象",
-                    "type": "Function|Object"
-                }
-            ],
-            "return": {
-                "description": "自身"
-            },
-            "example": [
-                "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    new Overlay({\n        content:'test'\n    }).plug(new Resize({\n        handlers:['t','t']\n    }));\n});\n```"
-            ],
-            "class": "Base",
-            "module": "base"
-        },
-        {
-            "file": "src/api/base.js",
-            "line": 164,
-            "description": "卸载指定插件",
-            "itemtype": "method",
-            "name": "unplug",
-            "params": [
-                {
-                    "name": "plugin",
-                    "description": "指定的插件构造器或者插件对象",
-                    "type": "Function|Object"
-                }
-            ],
-            "return": {
-                "description": "自身"
-            },
-            "example": [
-                "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    var o= new Overlay({\n        content:'test'\n    }).plug(new Resize({\n        handlers:['t','t']\n    }));\n\n    o.unplug('component/plugin/resize'); // 卸载 resize 插件\n});\n```"
-            ],
-            "class": "Base",
-            "module": "base"
-        },
-        {
-            "file": "src/api/base.js",
-            "line": 183,
-            "description": "根据指定的 id 获取对应的plugin实例",
-            "itemtype": "method",
-            "name": "getPlugin",
-            "params": [
-                {
-                    "name": "id",
-                    "description": "plugin实例的id",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "对应的plugin实例"
-            },
-            "example": [
-                "\n```\ndialog.getPlugin('component/plugin/drag')\n   .getPlugin('dd/plugin/constrain')\n   .set('constrain', false);\n```"
-            ],
-            "class": "Base",
-            "module": "base"
-        },
-        {
-            "file": "src/api/base.js",
-            "line": 196,
-            "description": "销毁实例",
-            "itemtype": "method",
-            "name": "destroy",
-            "class": "Base",
-            "module": "base"
-        },
-        {
-            "file": "src/api/base.js",
-            "line": 213,
+            "file": "src/api/attribute.js",
+            "line": 13,
             "description": "给宿主对象增加一个属性",
             "itemtype": "method",
             "name": "addAttr",
@@ -8316,13 +8817,12 @@
                     ]
                 }
             ],
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
         },
         {
-            "file": "src/api/base.js",
-            "line": 225,
+            "file": "src/api/attribute.js",
+            "line": 25,
             "description": "批量添加属性",
             "itemtype": "method",
             "name": "addAttrs",
@@ -8338,13 +8838,12 @@
                     "type": "Object"
                 }
             ],
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
         },
         {
-            "file": "src/api/base.js",
-            "line": 232,
+            "file": "src/api/attribute.js",
+            "line": 32,
             "description": "判断是否有名为 name 的属性",
             "itemtype": "method",
             "name": "hasAttr",
@@ -8359,13 +8858,12 @@
                 "description": "",
                 "type": "Boolean"
             },
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
         },
         {
-            "file": "src/api/base.js",
-            "line": 239,
+            "file": "src/api/attribute.js",
+            "line": 39,
             "description": "删除名为 name 的属性",
             "itemtype": "method",
             "name": "removeAttr",
@@ -8376,13 +8874,12 @@
                     "type": "String"
                 }
             ],
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
         },
         {
-            "file": "src/api/base.js",
-            "line": 245,
+            "file": "src/api/attribute.js",
+            "line": 45,
             "description": "设置属性 name 的值为 value",
             "itemtype": "method",
             "name": "set",
@@ -8424,13 +8921,12 @@
                 "description": "该次属性设置是否生效（是否通过了 validator 验证）",
                 "type": "Boolean"
             },
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
         },
         {
-            "file": "src/api/base.js",
-            "line": 257,
+            "file": "src/api/attribute.js",
+            "line": 57,
             "description": "获取属性 name 的值",
             "itemtype": "method",
             "name": "get",
@@ -8441,13 +8937,12 @@
                     "type": "String"
                 }
             ],
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
         },
         {
-            "file": "src/api/base.js",
-            "line": 263,
+            "file": "src/api/attribute.js",
+            "line": 63,
             "description": "获取目前实例的所有属性键值对集合",
             "itemtype": "method",
             "name": "getAttrVals",
@@ -8455,13 +8950,12 @@
                 "description": "属性键值对集合",
                 "type": "Object"
             },
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
         },
         {
-            "file": "src/api/base.js",
-            "line": 269,
+            "file": "src/api/attribute.js",
+            "line": 69,
             "description": "重置属性 name 为初始值. (调用一次 set() )",
             "itemtype": "method",
             "name": "reset",
@@ -8484,13 +8978,12 @@
                     ]
                 }
             ],
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
         },
         {
-            "file": "src/api/base.js",
-            "line": 277,
+            "file": "src/api/attribute.js",
+            "line": 77,
             "description": "将所有属性全部重置为初始值. (调用一次 set() )",
             "itemtype": "method",
             "name": "reset",
@@ -8508,13 +9001,12 @@
                     ]
                 }
             ],
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
         },
         {
-            "file": "src/api/base.js",
-            "line": 284,
+            "file": "src/api/attribute.js",
+            "line": 84,
             "description": "名为 “attrName” 的属性, 在改变它的值之前触发该事件",
             "itemtype": "event",
             "name": "beforeAttrNameChange",
@@ -8545,13 +9037,12 @@
                     ]
                 }
             ],
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
         },
         {
-            "file": "src/api/base.js",
-            "line": 294,
+            "file": "src/api/attribute.js",
+            "line": 94,
             "description": "名为 “attrName” 的属性, 在改变它的值之后触发该事件",
             "itemtype": "event",
             "name": "afterAttrNameChange",
@@ -8582,13 +9073,12 @@
                     ]
                 }
             ],
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
         },
         {
-            "file": "src/api/base.js",
-            "line": 304,
+            "file": "src/api/attribute.js",
+            "line": 104,
             "description": "每调用 [set()](/5.0/api/classes/Attribute.html#method_set) 一次后就触发一次该事件",
             "itemtype": "event",
             "name": "*change",
@@ -8619,9 +9109,155 @@
                     ]
                 }
             ],
-            "class": "Base.Attribute",
-            "module": "base",
-            "namespace": "Base"
+            "class": "Attribute",
+            "module": "attribute"
+        },
+        {
+            "file": "src/api/base.js",
+            "line": 57,
+            "description": "配置组件的事件绑定,例如:\n```\n{\n    listeners:{\n        customEvent:function(e){\n            alert(e.type); // => \"customEvent\"\n        }\n    }\n}\n\nor\n\n{\n    listeners:{\n        customEvent:{\n            fn:function(e){\n                // e.type // => customEvent\n                // this.xx => 1\n            },\n            context:{xx:1}\n        }\n    }\n}\n```",
+            "itemtype": "attribute",
+            "name": "listeners",
+            "type": "Object",
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src/api/base.js",
+            "line": 85,
+            "description": "插件构造器数组或插件对象数组. 例如\n```\n{\n    plugins: [ Plugin1,Plugin2 ]\n}\n\n// or\n\n{\n    plugins: [new Plugin1(cfg),new Plugin2(cfg)]\n}\n```",
+            "itemtype": "attribute",
+            "name": "plugins",
+            "type": "Function[]|Object[]",
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src/api/base.js",
+            "line": 102,
+            "description": "从当前类上扩展出一个子类",
+            "itemtype": "method",
+            "name": "extend",
+            "static": 1,
+            "params": [
+                {
+                    "name": "extensions",
+                    "description": "扩展类数组",
+                    "type": "Function[]",
+                    "optional": true
+                },
+                {
+                    "name": "methodDesc",
+                    "description": "方法集合键值对",
+                    "type": "Object"
+                },
+                {
+                    "name": "staticAttributes",
+                    "description": "放到新产生组件类上的静态属性集合键值对，其中 ATTRS 属性特殊对待",
+                    "type": "Object"
+                },
+                {
+                    "name": "desc",
+                    "description": "类元信息",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "类名",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src/api/base.js",
+            "line": 113,
+            "description": "调用父类的对应方法，如果没有，则返回undefined",
+            "itemtype": "method",
+            "name": "callSuper",
+            "example": [
+                "\n```\nKISSY.use('base', function(S, Base) {\n    var A = Base.extend({\n        m: function (value) {\n            return 'am:' + value;\n        },\n        m2: function (value) {\n            return 'am2:' + value;\n        }\n    });\n\n    var B = A.extend({\n        m: function(value) {\n            return 'bm:(' + this.callSuper(value) + ')';\n        },\n        m2: function(value) {\n            return 'bm2(' + this.callSuper.apply(this, arguments) + ')';\n        }\n    });\n\n    var b = new B();\n    console.log(b.m(1));\n    console.log(b.m2(2));\n});\n```"
+            ],
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src/api/base.js",
+            "line": 144,
+            "description": "安装指定插件",
+            "itemtype": "method",
+            "name": "plug",
+            "params": [
+                {
+                    "name": "plugin",
+                    "description": "指定的插件构造器或者插件对象",
+                    "type": "Function|Object"
+                }
+            ],
+            "return": {
+                "description": "自身"
+            },
+            "example": [
+                "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    new Overlay({\n        content:'test'\n    }).plug(new Resize({\n        handlers:['t','t']\n    }));\n});\n```"
+            ],
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src/api/base.js",
+            "line": 161,
+            "description": "卸载指定插件",
+            "itemtype": "method",
+            "name": "unplug",
+            "params": [
+                {
+                    "name": "plugin",
+                    "description": "指定的插件构造器或者插件对象",
+                    "type": "Function|Object"
+                }
+            ],
+            "return": {
+                "description": "自身"
+            },
+            "example": [
+                "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    var o= new Overlay({\n        content:'test'\n    }).plug(new Resize({\n        handlers:['t','t']\n    }));\n\n    o.unplug('component/plugin/resize'); // 卸载 resize 插件\n});\n```"
+            ],
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src/api/base.js",
+            "line": 180,
+            "description": "根据指定的 id 获取对应的plugin实例",
+            "itemtype": "method",
+            "name": "getPlugin",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "plugin实例的id",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "对应的plugin实例"
+            },
+            "example": [
+                "\n```\ndialog.getPlugin('component/plugin/drag')\n   .getPlugin('dd/plugin/constrain')\n   .set('constrain', false);\n```"
+            ],
+            "class": "Base",
+            "module": "base"
+        },
+        {
+            "file": "src/api/base.js",
+            "line": 193,
+            "description": "销毁实例",
+            "itemtype": "method",
+            "name": "destroy",
+            "class": "Base",
+            "module": "base"
         },
         {
             "file": "src/api/button.js",

@@ -2,8 +2,8 @@ YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
         "Anim",
+        "Attribute",
         "Base",
-        "Base.Attribute",
         "Button",
         "Color",
         "ComboBox",
@@ -20,6 +20,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Component.Plugin.Drag",
         "Component.Plugin.Resize",
         "Cookie",
+        "CustomEvent.Target",
         "DD.DDM",
         "DD.Draggable",
         "DD.DraggableDelegate",
@@ -33,6 +34,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Date.Picker",
         "Date.PopupDatePicker",
         "Dom",
+        "DomEvent",
         "Editor",
         "Editor.Plugin.BackColor",
         "Editor.Plugin.Bold",
@@ -119,6 +121,7 @@ YUI.add("yuidoc-meta", function(Y) {
     ],
     "modules": [
         "anim",
+        "attribute",
         "base",
         "button",
         "color",
@@ -181,6 +184,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "editor_plugin_video",
         "editor_plugin_xiami-music",
         "event",
+        "event_custom",
+        "event_dom",
         "feature",
         "filter-menu",
         "io",
@@ -216,9 +221,13 @@ YUI.add("yuidoc-meta", function(Y) {
             "description": "提供动画支持"
         },
         {
+            "displayName": "attribute",
+            "name": "attribute"
+        },
+        {
             "displayName": "base",
             "name": "base",
-            "description": "鉴于不同浏览器对属性描述符的支持并不统一, KISSY 的 attribute 模块, 模拟实现了属性描述符, 提供属性的获取和设置操作, 即属性的 getter 和 setter 动作.\n\n而 KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 让继承 Base 的子类自动具有 attribute 的功能.如果你想让自定义类默认就支持 attribute 功能, 请直接继承 Base"
+            "description": "KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 让继承 Base 的子类自动具有 attribute 的功能.如果你想让自定义类默认就支持 attribute 功能, 请直接继承 Base"
         },
         {
             "displayName": "button",
@@ -474,6 +483,16 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "event",
             "name": "event",
             "description": "提供类Event"
+        },
+        {
+            "displayName": "event/custom",
+            "name": "event_custom",
+            "description": "自定义事件模块"
+        },
+        {
+            "displayName": "event/dom",
+            "name": "event_dom",
+            "description": "根据设备环境加载响应的子模块来处理 DOM 的事件模块"
         },
         {
             "displayName": "feature",

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Base.Attribute - API Documentation — KISSY v5.0 Documentation</title>
+    <title>CustomEvent.Target - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
     <link rel="stylesheet" href="/5.0/assets/css/custom.css">
@@ -58,9 +58,9 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Anim href="/5.0/api/classes/Anim.html">Anim</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Base href="/5.0/api/classes/Base.html">Base</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Attribute href="/5.0/api/classes/Attribute.html">Attribute</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Base.Attribute href="/5.0/api/classes/Base.Attribute.html">Base.Attribute</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Base href="/5.0/api/classes/Base.html">Base</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Button href="/5.0/api/classes/Button.html">Button</a></li>
             
@@ -94,6 +94,8 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Cookie href="/5.0/api/classes/Cookie.html">Cookie</a></li>
             
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=CustomEvent.Target href="/5.0/api/classes/CustomEvent.Target.html">CustomEvent.Target</a></li>
+            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Date.Format href="/5.0/api/classes/Date.Format.html">Date.Format</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Date.GregorianCalendar href="/5.0/api/classes/Date.GregorianCalendar.html">Date.GregorianCalendar</a></li>
@@ -119,6 +121,8 @@
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=DD.Plugin.Scroll href="/5.0/api/classes/DD.Plugin.Scroll.html">DD.Plugin.Scroll</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Dom href="/5.0/api/classes/Dom.html">Dom</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=DomEvent href="/5.0/api/classes/DomEvent.html">DomEvent</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Editor href="/5.0/api/classes/Editor.html">Editor</a></li>
             
@@ -292,6 +296,8 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=anim href="/5.0/api/modules/anim.html">anim</a></li>
             
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=attribute href="/5.0/api/modules/attribute.html">attribute</a></li>
+            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=base href="/5.0/api/modules/base.html">base</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=button href="/5.0/api/modules/button.html">button</a></li>
@@ -416,6 +422,10 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=event href="/5.0/api/modules/event.html">event</a></li>
             
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=event/custom href="/5.0/api/modules/event_custom.html">event/custom</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=event/dom href="/5.0/api/modules/event_dom.html">event/dom</a></li>
+            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=feature href="/5.0/api/modules/feature.html">feature</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=filter-menu href="/5.0/api/modules/filter-menu.html">filter-menu</a></li>
@@ -504,7 +514,7 @@
                 <div class="apidocs">
                     <div id="docs-main">
                         <div class="content">
-                            <h1>Base.Attribute Class</h1>
+                            <h1>CustomEvent.Target Class</h1>
 <div class="box meta">
     
 
@@ -512,7 +522,7 @@
 
     
         
-            Module: <a href="../modules/base.html">base</a>
+            Module: <a href="../modules/event_custom.html">event/custom</a>
         
     
 
@@ -522,61 +532,30 @@
 
 
 <div class="box intro">
-    <p>包含一些属性操作的方法，仅用于 <a href="/5.0/api/classes/Util.html#method_augment">augment()</a>]</p>
+    <p>通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件。此外，如果要自定义事件也可以直接拓展 Base。</p>
+<p><strong>Note</strong></p>
+<p>注意 CustomEvent.Target 仅用于 mix/augment ，不可以直接使用。使用示例：</p>
+<pre class="code prettyprint"><code>KISSY.use(&#39;util,event/custom&#39;, function(S, Util, CustomEvent){
+    function Dog(name){
+        this.name = name;
+    }
+    Util.augment(Dog, CustomEvent.Target, {
+        shout : function(){
+            this.fire(&#39;shout&#39;,{
+                content : &#39;I am hungry...&#39;
+            });
+        }
+    });
+    var myDog = new Dog(&#39;cuteDog&#39;);
+    myDog.on(&#39;shout&#39;, function(ev){
+        alert(this.name + &#39;say that &#39; + ev.conent);
+    });
+
+    myDog.shout();
+})</code></pre>
 
 </div>
 
-
-    <div class="constructor">
-        <h2>Constructor</h2>
-        <div id="method_Base.Attribute" class="method item">
-    <h3 class="name"><code>Base.Attribute</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-    </div>
 
 
 <div id="classdocs" class="ks-tabs ks-tabs-top">
@@ -588,8 +567,6 @@
         
         
         
-        
-            <li class="ks-tabs-tab ks-button events">Events</li>
         
     </ul>
 
@@ -604,63 +581,42 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_addAttr">addAttr</a>
+                                <a href="#method_addTarget">addTarget</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_addAttrs">addAttrs</a>
+                                <a href="#method_detach">detach</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_get">get</a>
+                                <a href="#method_fire">fire</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_getAttrVals">getAttrVals</a>
+                                <a href="#method_on">on</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_hasAttr">hasAttr</a>
+                                <a href="#method_publish">publish</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_removeAttr">removeAttr</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_reset">reset</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_reset">reset</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_set">set</a>
+                                <a href="#method_removeTarget">removeTarget</a>
 
                                 
                                 
@@ -674,35 +630,6 @@
 
             
 
-            
-                <div class="index-section events">
-                    <h3>Events</h3>
-
-                    <ul class="index-list events">
-                        
-                            <li class="index-item event" inwhichtab="events">
-                                <a href="#event_*change">*change</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item event" inwhichtab="events">
-                                <a href="#event_afterAttrNameChange">afterAttrNameChange</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item event" inwhichtab="events">
-                                <a href="#event_beforeAttrNameChange">beforeAttrNameChange</a>
-
-                                
-                                
-                            </li>
-                        
-                    </ul>
-                </div>
             
         </div>
 
@@ -711,8 +638,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_addAttr" class="method item">
-    <h3 class="name"><code>addAttr</code></h3>
+                    <div id="method_addTarget" class="method item">
+    <h3 class="name"><code>addTarget</code></h3>
 
     
         <div class="args">
@@ -720,13 +647,7 @@
             
                 <li class="arg">
                     
-                        <code>name</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>attrConfig</code>
+                        <code>target</code>
                     
                 </li>
             
@@ -764,7 +685,7 @@
     </div>
 
     <div class="description">
-        <p>给宿主对象增加一个属性</p>
+        <p>添加冒泡事件源对象</p>
 
     </div>
 
@@ -776,209 +697,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">name</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>属性名</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">attrConfig</code>
+                        <code class="param-name">target</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>属性配置信息, 支持下面的配置项:</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">value</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>属性默认值。注意默认值请不要设置为复杂对象（通过自定义构造器 new 出来的），复杂对象可设置 valueFn 返回.如果配置项中没有设置 value, 会调用 valueFn 函数获取默认值并赋给 value</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">valueFn</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>提供属性默认值的函数，传入对象内部对应的属性值和属性名，取该函数的返回值作为最终值给用户</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">setter</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>写属性时的处理函数，传入从 set() 参数得到的属性值和属性名，如果返回非 undefined 则作为新的属性设置值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">getter</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>读属性时的处理函数</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">validator</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>写属性时的验证函数，传入从 set() 参数得到的属性值和属性名，返回 false 则不改变该属性值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_addAttrs" class="method item">
-    <h3 class="name"><code>addAttrs</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>attrConfigs</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>values</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>批量添加属性</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">attrConfigs</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>属性名/配置信息对</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">values</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>属性名/值对, 批量设置当前对象的属性值</p>
+                        <p>事件往上冒泡的事件源</p>
 
                     </div>
 
@@ -992,161 +718,41 @@
     
 
     
-</div>
+        <div class="example">
+            <h4>Example:</h4>
 
-                
-                    <div id="method_get" class="method item">
-    <h3 class="name"><code>get</code></h3>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use(&quot;util,event/custom&quot;, function(S, Util, CustomEvent) {
+    function Custom(id){
+        this.id = id;
+        this.publish(&quot;run&quot;,{
+            bubbles:1
+        });
+    }
 
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>name</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
+    Util.augment(Custom, CustomEvent.Target);
 
-    
+    var c1 = new Custom(&quot;c1&quot;);
 
-    
+    var c2 = new Custom(&quot;c1&quot;);
 
-    
+    c1.addTarget(c2);
 
-    
+    c2.on(&quot;run&quot;,function(e){
+        S.log(e.target.id +&quot; fires event run&quot;); // =&gt; c1 fires event run
+    });
 
-    
+    c1.fire(&quot;run&quot;);
+});</code></pre>
 
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>获取属性 name 的值</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">name</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>属性名.也可以为 “x.y” 形式. 此时要求 x 属性为包含 y 属性的普通 Object.当没有设置属性值时, 会取该属性的默认值</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_getAttrVals" class="method item">
-    <h3 class="name"><code>getAttrVals</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>获取目前实例的所有属性键值对集合</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
-                    
-                    <p>属性键值对集合</p>
-
-                
             </div>
         </div>
     
-
-    
 </div>
 
                 
-                    <div id="method_hasAttr" class="method item">
-    <h3 class="name"><code>hasAttr</code></h3>
+                    <div id="method_detach" class="method item">
+    <h3 class="name"><code>detach</code></h3>
 
     
         <div class="args">
@@ -1154,7 +760,140 @@
             
                 <li class="arg">
                     
-                        <code>name</code>
+                        <code>eventType</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>fn</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[scope]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>解除绑定的事件处理器</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">eventType</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">fn</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>当事件触发时的回调函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[scope]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>回调函数的 this 值. 如果不指定默认为绑定事件的当前元素</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_fire" class="method item">
+    <h3 class="name"><code>fire</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>type</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>eventData</code>
                     
                 </li>
             
@@ -1196,7 +935,7 @@
     </div>
 
     <div class="description">
-        <p>判断是否有名为 name 的属性</p>
+        <p>触发绑定 type 类型的事件处理器, 并给触发的事件处理器的事件对象参数中混入数据 eventData</p>
 
     </div>
 
@@ -1208,14 +947,30 @@
             
                 <li class="param">
                     
-                        <code class="param-name">name</code>
+                        <code class="param-name">type</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>属性名</p>
+                        <p>要触发的自定义事件名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">eventData</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要混入触发事件对象的数据对象</p>
 
                     </div>
 
@@ -1235,6 +990,8 @@
                     
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
                     
+                    <p>如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值</p>
+
                 
             </div>
         </div>
@@ -1244,8 +1001,8 @@
 </div>
 
                 
-                    <div id="method_removeAttr" class="method item">
-    <h3 class="name"><code>removeAttr</code></h3>
+                    <div id="method_on" class="method item">
+    <h3 class="name"><code>on</code></h3>
 
     
         <div class="args">
@@ -1253,7 +1010,19 @@
             
                 <li class="arg">
                     
-                        <code>name</code>
+                        <code>eventType</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>fn</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[scope]</code>
                     
                 </li>
             
@@ -1291,7 +1060,7 @@
     </div>
 
     <div class="description">
-        <p>删除名为 name 的属性</p>
+        <p>为相应事件添加事件处理器</p>
 
     </div>
 
@@ -1303,14 +1072,59 @@
             
                 <li class="param">
                     
-                        <code class="param-name">name</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <code class="param-name">eventType</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>属性名</p>
+                        <ul>
+<li>当为String时 包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 &quot;click.one&quot; , &quot;click.two&quot;</li>
+<li>当为Object时，类似这样：<pre><code>{
+  &#39;click&#39;:{
+      fn:function(){
+      },
+      filter: &#39;&#39; // delegate,
+      once:true // 绑定一次
+  },
+  &#39;mouseenter&#39;:function(){}
+}</code></pre>
+</li>
+</ul>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">fn</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>当事件触发时的回调函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[scope]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>回调函数的 this 值. 如果不指定默认为绑定事件的当前元素</p>
 
                     </div>
 
@@ -1327,8 +1141,8 @@
 </div>
 
                 
-                    <div id="method_reset" class="method item">
-    <h3 class="name"><code>reset</code></h3>
+                    <div id="method_publish" class="method item">
+    <h3 class="name"><code>publish</code></h3>
 
     
         <div class="args">
@@ -1336,13 +1150,13 @@
             
                 <li class="arg">
                     
-                        <code>name</code>
+                        <code>type</code>
                     
                 </li>
             
                 <li class="arg">
                     
-                        <code>opts</code>
+                        <code>cfg</code>
                     
                 </li>
             
@@ -1380,7 +1194,7 @@
     </div>
 
     <div class="description">
-        <p>重置属性 name 为初始值. (调用一次 set() )</p>
+        <p>配置自定义事件的一些特有信息</p>
 
     </div>
 
@@ -1392,14 +1206,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">name</code>
+                        <code class="param-name">type</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>属性</p>
+                        <p>要触发的自定义事件名称</p>
 
                     </div>
 
@@ -1408,14 +1222,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">opts</code>
+                        <code class="param-name">cfg</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>控制对象，包括以下控制选项</p>
+                        <p>事件的具体配置对象</p>
 
                     </div>
 
@@ -1424,262 +1238,13 @@
                             
                             <li class="param">
                                 
-                                    <code class="param-name">silent=false</code>
+                                    <code class="param-name optional">[bubbles=true]</code>
                                     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
                                 
 
                                 <div class="param-description">
-                                    <p>默认 false , 是否触发 change 系列事件</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_reset" class="method item">
-    <h3 class="name"><code>reset</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>opts</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>将所有属性全部重置为初始值. (调用一次 set() )</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">opts</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>控制对象，包括以下控制选项</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">silent=false</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 false , 是否触发 change 系列事件</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_set" class="method item">
-    <h3 class="name"><code>set</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>name</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>value</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>opts</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>设置属性 name 的值为 value</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">name</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>属性名.也可以为 “x.y” 形式，此时要求 x 属性为包含 y 属性的普通 Object，这时会设置 x 属性值的 y 属性.但只会触发 x 的相关 change 事件</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">value</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>属性的值</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">opts</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>控制对象，包括以下控制选项</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">silent=false</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>默认 false , 是否触发 change 系列事件</p>
+                                    <p>类型 boolean. 是否支持冒泡。 默认 true</p>
 
                                 </div>
 
@@ -1688,27 +1253,13 @@
                             
                             <li class="param">
                                 
-                                    <code class="param-name">error</code>
+                                    <code class="param-name optional">[defaultFn]</code>
                                     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
                                 
 
                                 <div class="param-description">
-                                    <p>验证失败的回调，包括失败原因</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">force</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>是否强制触发 change 事件，默认值为 false，当值发生变化时才触发</p>
-
+                                    
                                 </div>
 
                                 
@@ -1723,40 +1274,33 @@
     
 
     
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
-                    
-                    <p>该次属性设置是否生效（是否通过了 validator 验证）</p>
-
-                
-            </div>
-        </div>
-    
 
     
 </div>
 
                 
-            </div>
-        
+                    <div id="method_removeTarget" class="method item">
+    <h3 class="name"><code>removeTarget</code></h3>
 
-        
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>target</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
 
-        
+    
 
-        
-            <div id="events" class="ks-tabs-panel">
-                <h2 class="off-left">Events</h2>
+    
 
-                
-                    <div id="event_*change" class="events item">
-    <h3 class="name"><code>*change</code></h3>
-    <span class="type"></span>
+    
 
     
 
@@ -1775,127 +1319,6 @@
         
         </p>
 
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>每调用 <a href="/5.0/api/classes/Attribute.html#method_set">set()</a> 一次后就触发一次该事件</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Event Payload:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">e</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>回调函数传入的对象</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">newVal</code>
-                                    <span class="type"></span>
-                                
-
-                                <div class="param-description">
-                                    <p>本次 set 导致的属性当前值集合</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">prevVal</code>
-                                    <span class="type"></span>
-                                
-
-                                <div class="param-description">
-                                    <p>本次 set 导致的属性在 set 前的值集合</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">attrName</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>本次 set 导致改变的属性名集合</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">subAttrName</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>本次 set 导致的属性全名集合</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-
-    
-</div>
-
-                
-                    <div id="event_afterAttrNameChange" class="events item">
-    <h3 class="name"><code>afterAttrNameChange</code></h3>
-    <span class="type"></span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
 
         
 
@@ -1903,89 +1326,29 @@
     </div>
 
     <div class="description">
-        <p>名为 “attrName” 的属性, 在改变它的值之后触发该事件</p>
+        <p>删除冒泡事件源对象</p>
 
     </div>
 
     
         <div class="params">
-            <h4>Event Payload:</h4>
+            <h4>Parameters:</h4>
 
             <ul class="params-list">
             
                 <li class="param">
                     
-                        <code class="param-name">e</code>
+                        <code class="param-name">target</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>回调函数传入的对象</p>
+                        <p>事件往上冒泡的事件源</p>
 
                     </div>
 
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">newVal</code>
-                                    <span class="type"></span>
-                                
-
-                                <div class="param-description">
-                                    <p>当前的属性值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">prevVal</code>
-                                    <span class="type"></span>
-                                
-
-                                <div class="param-description">
-                                    <p>当前改变前的属性值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">attrName</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>当前的属性名，例如 “x”</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">subAttrName</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>当前的完整属性名，例如 “x.y”</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -1993,134 +1356,19 @@
         </div>
     
 
-
     
-</div>
-
-                
-                    <div id="event_beforeAttrNameChange" class="events item">
-    <h3 class="name"><code>beforeAttrNameChange</code></h3>
-    <span class="type"></span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>名为 “attrName” 的属性, 在改变它的值之前触发该事件</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Event Payload:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">e</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>回调函数传入的对象</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">newVal</code>
-                                    <span class="type"></span>
-                                
-
-                                <div class="param-description">
-                                    <p>将要改变到的属性值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">prevVal</code>
-                                    <span class="type"></span>
-                                
-
-                                <div class="param-description">
-                                    <p>当前的属性值</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">attrName</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>当前的属性名，例如 “x”</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name">subAttrName</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>当前的完整属性名，例如 “x.y”</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
 
     
 </div>
 
                 
             </div>
+        
+
+        
+
+        
+
         
     </div>
 </div>
