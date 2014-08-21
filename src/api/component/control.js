@@ -152,18 +152,6 @@ z-index 值
 */
 
 
-
-/**
-从当前组件类上扩展出一个子类组件
-@method extend
-@param [extensions] {Function[]} 扩展类数组
-@param methodDesc {Object} 方法集合键值对
-@param staticAttributes {Object} 放到新产生组件类上的静态属性集合键值对，其中 ATTRS 属性特殊对待.
-@param desc {Object} 组件元信息
-@param desc.xclass {String} 组件的 xclass
-@param desc.name {String} 组件的名称，不写则等于 xclass
-*/
-
 /**
 创建当前组件的DOM结构，control将会代理给render
 @method create

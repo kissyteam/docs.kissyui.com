@@ -74,8 +74,6 @@ YUI.add("yuidoc-meta", function(Y) {
         "Editor.Plugin.UnorderedList",
         "Editor.Plugin.Video",
         "Editor.Plugin.XiaMiMusic",
-        "Event",
-        "Event.Target",
         "Feature",
         "FilterMenu",
         "IO",
@@ -183,7 +181,6 @@ YUI.add("yuidoc-meta", function(Y) {
         "editor_plugin_unordered-list",
         "editor_plugin_video",
         "editor_plugin_xiami-music",
-        "event",
         "event_custom",
         "event_dom",
         "feature",
@@ -478,11 +475,6 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "editor/plugin/xiami-music",
             "name": "editor_plugin_xiami-music"
-        },
-        {
-            "displayName": "event",
-            "name": "event",
-            "description": "提供类Event"
         },
         {
             "displayName": "event/custom",

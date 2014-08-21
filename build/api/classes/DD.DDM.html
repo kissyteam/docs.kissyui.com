@@ -202,10 +202,6 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Editor.Plugin.XiaMiMusic href="/5.0/api/classes/Editor.Plugin.XiaMiMusic.html">Editor.Plugin.XiaMiMusic</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Event href="/5.0/api/classes/Event.html">Event</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Event.Target href="/5.0/api/classes/Event.Target.html">Event.Target</a></li>
-            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Feature href="/5.0/api/classes/Feature.html">Feature</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=FilterMenu href="/5.0/api/classes/FilterMenu.html">FilterMenu</a></li>
@@ -420,8 +416,6 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=editor/plugin/xiami-music href="/5.0/api/modules/editor_plugin_xiami-music.html">editor/plugin/xiami-music</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=event href="/5.0/api/modules/event.html">event</a></li>
-            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=event/custom href="/5.0/api/modules/event_custom.html">event/custom</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=event/dom href="/5.0/api/modules/event_dom.html">event/dom</a></li>
@@ -621,6 +615,13 @@
                             </li>
                         
                             <li class="index-item method inherited" inwhichtab="methods">
+                                <a href="#method_extend">extend</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited" inwhichtab="methods">
                                 <a href="#method_fire">fire</a>
 
                                 
@@ -722,18 +723,6 @@
                     <h3>Attributes</h3>
 
                     <ul class="index-list attrs extends">
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_bufferTime=1000">bufferTime=1000</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_clickPixelThresh">clickPixelThresh</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_dragCursor">dragCursor</a>
-                            </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_listeners">listeners</a>
@@ -1508,6 +1497,174 @@
 
                     </div>
 
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_extend" class="method item inherited">
+    <h3 class="name"><code>extend</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code class="optional">[extensions]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>methodDesc</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>staticAttributes</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>desc</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Base.html#method_extend">Base</a>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>从当前类上扩展出一个子类</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[extensions]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function[]</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>扩展类数组</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">methodDesc</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>方法集合键值对</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">staticAttributes</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>放到新产生组件类上的静态属性集合键值对，其中 ATTRS 属性特殊对待</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">desc</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>类元信息</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">name</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>类名</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
                     
                 </li>
             
@@ -3002,144 +3159,6 @@
         
             <div id="attrs" class="ks-tabs-panel">
                 <h2 class="off-left">Attributes</h2>
-
-                
-                    <div id="attr_bufferTime=1000" class="attr item">
-    <a name="config_bufferTime=1000"></a> 
-    <h3 class="name"><code>bufferTime=1000</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>默认 1000, 表示鼠标按下多长时间后触发 dragstart 事件. 可通过 DDM.set(“bufferTime”,xx) 设置.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_clickPixelThresh" class="attr item">
-    <a name="config_clickPixelThresh"></a> 
-    <h3 class="name"><code>clickPixelThresh</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>默认 3, 表示鼠标按下后移动多少像素后触发 dragstart 事件.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_dragCursor" class="attr item">
-    <a name="config_dragCursor"></a> 
-    <h3 class="name"><code>dragCursor</code></h3>
-    <span class="type"></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>默认 ‘move’, 表示拖放过程中鼠标的样式.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
 
                 
                     <div id="attr_listeners" class="attr item inherited">

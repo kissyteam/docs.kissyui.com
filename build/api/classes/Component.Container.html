@@ -202,10 +202,6 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Editor.Plugin.XiaMiMusic href="/5.0/api/classes/Editor.Plugin.XiaMiMusic.html">Editor.Plugin.XiaMiMusic</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Event href="/5.0/api/classes/Event.html">Event</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Event.Target href="/5.0/api/classes/Event.Target.html">Event.Target</a></li>
-            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Feature href="/5.0/api/classes/Feature.html">Feature</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=FilterMenu href="/5.0/api/classes/FilterMenu.html">FilterMenu</a></li>
@@ -419,8 +415,6 @@
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=editor/plugin/video href="/5.0/api/modules/editor_plugin_video.html">editor/plugin/video</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=editor/plugin/xiami-music href="/5.0/api/modules/editor_plugin_xiami-music.html">editor/plugin/xiami-music</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=event href="/5.0/api/modules/event.html">event</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=event/custom href="/5.0/api/modules/event_custom.html">event/custom</a></li>
             
@@ -2043,7 +2037,7 @@
         
             
                 <p>Inherited from
-                <a href="../classes/Component.Control.html#method_extend">Component.Control</a>
+                <a href="../classes/Base.html#method_extend">Base</a>
             
         
         </p>
@@ -2055,7 +2049,7 @@
     </div>
 
     <div class="description">
-        <p>从当前组件类上扩展出一个子类组件</p>
+        <p>从当前类上扩展出一个子类</p>
 
     </div>
 
@@ -2107,7 +2101,7 @@
                     
 
                     <div class="param-description">
-                        <p>放到新产生组件类上的静态属性集合键值对，其中 ATTRS 属性特殊对待.</p>
+                        <p>放到新产生组件类上的静态属性集合键值对，其中 ATTRS 属性特殊对待</p>
 
                     </div>
 
@@ -2123,7 +2117,7 @@
                     
 
                     <div class="param-description">
-                        <p>组件元信息</p>
+                        <p>类元信息</p>
 
                     </div>
 
@@ -2132,26 +2126,12 @@
                             
                             <li class="param">
                                 
-                                    <code class="param-name">xclass</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                                
-
-                                <div class="param-description">
-                                    <p>组件的 xclass</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
                                     <code class="param-name">name</code>
                                     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                                 
 
                                 <div class="param-description">
-                                    <p>组件的名称，不写则等于 xclass</p>
+                                    <p>类名</p>
 
                                 </div>
 

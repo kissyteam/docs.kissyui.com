@@ -102,7 +102,6 @@ or
 /**
 从当前类上扩展出一个子类
 @method extend
-@static
 @param [extensions] {Function[]} 扩展类数组
 @param methodDesc {Object} 方法集合键值对
 @param staticAttributes {Object} 放到新产生组件类上的静态属性集合键值对，其中 ATTRS 属性特殊对待

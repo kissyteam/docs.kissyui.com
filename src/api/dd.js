@@ -252,21 +252,6 @@ new Draggable({
 */
 
 /**
-默认 1000, 表示鼠标按下多长时间后触发 dragstart 事件. 可通过 DDM.set(“bufferTime”,xx) 设置.
-@attribute bufferTime=1000 {Number}
-*/
-
-/**
-默认 3, 表示鼠标按下后移动多少像素后触发 dragstart 事件.
-@attribute clickPixelThresh {Number}
-*/
-
-/**
-默认 ‘move’, 表示拖放过程中鼠标的样式.
-@attribute dragCursor
-*/
-
-/**
 从Draggable的dragstart事件冒泡过来，在 DDM 上触发
 @event dragstart
 @param ev {Object} 
