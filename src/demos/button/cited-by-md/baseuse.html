@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>简单使用Button</title>
+	<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
+	<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css">
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
+</head>
+<body>
+	<div class="wrap" style="margin-left:50px;">
+		<h1>简单使用Button</h1>
+		<h3>* 首先引入KISSY提供的 base样式 和 button样式 : </h3>
+		<p><code>http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css</code>></p>
+		<p><code>http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css</code>></p>
+		<h3>* 直接在html里加上相应的class来使用button:</h3>
+		<div id="use-html">
+			<div class="ks-button">Default</div>
+			<div class="ks-button ks-button-primary">Primary</div>
+			<div class="ks-button ks-button-success">Success</div>
+		</div>
+		<h3>* 通过KISSY Button来渲染产生:</h3>
+		<div id="use-kissy-button-container"></div>
+		<h3>* 在html基础上用KISSY Button来渲染产生：</h3>
+		<div id="container3">
+			<div id="from-me" class="ks-button">FromMe</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	KISSY.use('button', function(S, Button){
+		var button1 = new Button({
+			content : 'Info',
+			elCls : 'ks-button-info',
+			render : '#use-kissy-button-container'
+		});
+		button1.render();
+
+		var button2 = new Button({
+			srcNode : '#from-me'
+		});
+		button2.render();
+	});
+	</script>
+</body>
+</html>
