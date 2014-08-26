@@ -3684,6 +3684,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\t//首先引入KISSY提供的base样式和button样式 http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css 和 http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css\n\t\n\tKISSY.use('button', function(S, Button){\n\t\tvar button1 = new Button({\n\t\t\tcontent : 'ButtonContent',\n\t\t\trender : '#container',\n\t\t\twidth : '150px',\n\t\t\telCls : 'ks-button-success'\n\t\t});\n\t\tbutton1.render();\n\t})\t"
             ]
         },
         "Color": {
@@ -9156,7 +9159,7 @@
         },
         {
             "file": "src/api/button.js",
-            "line": 13,
+            "line": 25,
             "description": "按钮是否 toggle button",
             "itemtype": "attribute",
             "name": "checkable",
@@ -9166,7 +9169,7 @@
         },
         {
             "file": "src/api/button.js",
-            "line": 18,
+            "line": 30,
             "description": "可选，按钮节点的 aria-describedby 属性值",
             "itemtype": "attribute",
             "name": "describedby",
@@ -9177,7 +9180,7 @@
         },
         {
             "file": "src/api/button.js",
-            "line": 25,
+            "line": 37,
             "description": "按钮的显示内容",
             "itemtype": "attribute",
             "name": "content",
@@ -9187,7 +9190,7 @@
         },
         {
             "file": "src/api/button.js",
-            "line": 30,
+            "line": 42,
             "description": "按钮是否是 checked 状态",
             "itemtype": "attribute",
             "name": "checked",
@@ -9197,7 +9200,7 @@
         },
         {
             "file": "src/api/button.js",
-            "line": 35,
+            "line": 47,
             "description": "按钮值",
             "itemtype": "attribute",
             "name": "value",
@@ -9207,7 +9210,7 @@
         },
         {
             "file": "src/api/button.js",
-            "line": 40,
+            "line": 52,
             "description": "按钮节点的 title 属性值",
             "itemtype": "attribute",
             "name": "tooltip",
@@ -9217,7 +9220,7 @@
         },
         {
             "file": "src/api/button.js",
-            "line": 45,
+            "line": 57,
             "description": "当按钮被点击或被获得焦点后按键 enter|space 触发",
             "itemtype": "event",
             "name": "click",
