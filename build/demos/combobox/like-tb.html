@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>仿淘宝搜索框 - KISSY v5.0 Documentation</title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/github.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+	<script type="text/javascript" src="/5.0/assets/js/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute',
+						listeners : {
+							click : function(){
+								window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
+							}
+						}
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								},
+								{
+									content : 'Gallery',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://gallery.kissyui.com/';
+										}
+									}
+								},
+								{
+									content : 'Kissy Blog',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://blog.kissyui.com/';
+										}
+									}
+								},
+								{
+									content : 'KMC',
+									listeners : {
+										click : function(){
+											window.location.href = 'https://github.com/daxingplay/grunt-kmc/blob/master/README.md';
+										}
+									}
+								},
+								{
+									content : 'ABC',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://abc.f2e.taobao.net/';
+										}
+									}
+								},
+								{
+									content : 'Clam',
+									listeners : {
+										click : function(){
+											window.location.href = 'https://github.com/jayli/generator-clam/blob/master/README.md';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-9"  id="main-content">
+				<p></p>
+<h1 id="仿淘宝搜索框">仿淘宝搜索框</h1><p><div class="ks-tabs ks-tabs-top" style="height:500px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+        <div class="ks-tabs-tab ks-button">QRCode</div>
+    </div>
+    <div class="ks-tabs-body" style="overflow:hidden;">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta charset=&#x27;utf-8&#x27;&gt;
+	&lt;title&gt;仿淘宝搜索框&lt;&#x2F;title&gt;
+	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;combobox&#x2F;assets&#x2F;dpl-debug.css&quot;&gt;
+	&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+	&lt;style type=&quot;text&#x2F;css&quot;&gt;
+		body {
+		    font: 12px&#x2F;1.5 tahoma, arial;
+		}
+		.search-panel button{
+		    background: url(http:&#x2F;&#x2F;gtms04.alicdn.com&#x2F;tps&#x2F;i4&#x2F;TB1FEpXGXXXXXa4XXXXyTkXLpXX-500-444.png) no-repeat;
+		}
+
+		.search {
+		    width: 666px;
+		    float: left;
+		    height: 113px
+		}
+		.search-panel {
+		    position: relative;
+		    zoom: 1;
+		    float: left;
+		    width: 603px
+		}
+		.search-panel-fields {
+		    width: 470px;
+		    height: 40px;
+		    float: left;
+		    position: relative;
+		    zoom: 1;
+		    background: #f50;
+		    border-radius: 0 0 0 3px
+		}
+		.search-panel-fields input {
+		    font-size: 14px;
+		    position: absolute;
+		    left: 3px;
+		    top: 3px;
+		    width: 457px;
+		    height: 24px;
+		    line-height: 18px;
+		    padding: 5px;
+		    background: #fff;
+		    vertical-align: middle;
+		    border: 0;
+		    border-radius: 3px 0 0 0
+		}
+		.search-panel button {
+		    float: left;
+		    width: 100px;
+		    height: 40px;
+		    cursor: pointer;
+		    border: 0;
+		    font-size: 18px;
+		    color: #fff;
+		    background-color: #f50;
+		    background-position: -250px 0;
+		    text-indent: -999em
+		}
+		.search-panel button:hover {
+		    background-position: -400px 0;
+		}
+		.search-menu {
+		    background: #fff;
+		    border-color: #999;
+		    border-style: solid;
+		    border-width: 1px;
+		    cursor: default;
+		    margin: 0;
+		    outline: none;
+		    position: absolute;
+		    z-index: 99999;
+		    left: -9999px;
+		    top: -9999px;
+		}
+		.search-popupmenu-hidden {
+		    visibility: hidden;
+		}
+		.search-menuitem {
+		    color: #333;
+		    list-style: none;
+		    margin: 0;
+		    font-size: 12px;
+		    line-height: 22px;
+		    white-space: nowrap;
+		    height: 24px;
+		}
+		.search-menuitem-disabled .search-menuitem-content {
+		    color: #ccc !important;
+		}
+		.search-combobox {
+		    font-size: 12px;
+		}
+		.search-combobox-input-wrap {
+		    vertical-align: middle;
+		    position: relative;
+		    overflow: hidden;
+		    height: 40px;
+		}
+
+		.search-combobox-input {
+		    font-size: 12px;
+		    line-height: 18px;
+		    width: 100%;
+		    line-height: 18px;
+		    vertical-align: middle;
+		    overflow-y: visible;
+		    background-color: #fff;
+		    border: 0;
+		    color: #000;
+		    outline: 0;
+		}
+		.search-menuitem-disabled {
+		    color: #808080;
+		}
+		.search-menuitem .item-text {
+		    float: left;
+		    padding-left: 5px;
+		    color: #000;
+			font-weight: bold;
+			font-size: 13px;
+		}
+		.search-menuitem-active,
+		.search-menuitem-hover {
+		    background-color: #eee;
+		    color: #333;
+		    cursor: pointer;
+		}
+		.search-combobox .search-combobox-placeholder {
+		    font-size: 14px;
+		    font-weight: normal;
+		    line-height: 40px;
+		    padding-left: 10px;
+		    height: 40px;
+		    position: absolute;
+		    z-index: 1;
+		    width: 100%;
+		    color: #bbb
+		}
+	&lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+	&lt;div class=&quot;wrap&quot; style=&quot;width:90%;margin:0 auto;&quot;&gt;
+		&lt;h1&gt;仿淘宝搜索框&lt;&#x2F;h1&gt;
+		&lt;p&gt;利用ComboBox.RemoteDataSource获取远程数据来自动补全&lt;&#x2F;p&gt;
+		&lt;div class=&quot;search&quot; id=&quot;J_Search&quot; role=&quot;search&quot;&gt;
+			&lt;div class=&quot;search-panel ks-switchable-content&quot;&gt;
+		        &lt;form target=&quot;_top&quot; action=&quot;http:&#x2F;&#x2F;s.taobao.com&#x2F;search&quot; name=&quot;search&quot; id=&quot;J_TSearchForm&quot;&gt;
+		            &lt;div class=&quot;search-panel-fields&quot;&gt;
+		                &lt;div class=&quot;search-combobox&quot; id=&quot;combobox&quot;&gt;
+		                    &lt;div class=&quot;search-combobox-input-wrap&quot;&gt;
+		                        &lt;input id=&quot;q&quot; name=&quot;q&quot; accesskey=&quot;s&quot;
+		                               class=&quot;search-combobox-input&quot;
+		                               autofocus=&quot;true&quot; autocomplete=&quot;off&quot;
+		                               x-webkit-speech=&quot;&quot;
+		                               x-webkit-grammar=&quot;builtin:translate&quot;&gt;
+		                        &lt;label for=&quot;q&quot;
+		                               class=&quot;search-combobox-placeholder&quot;&gt;
+		                            输入喜欢的宝贝来搜索吧
+		                        &lt;&#x2F;label&gt;
+		                    &lt;&#x2F;div&gt;
+		                &lt;&#x2F;div&gt;
+		            &lt;&#x2F;div&gt;
+		            &lt;button type=&quot;submit&quot; id=&quot;search&quot;&gt;搜 索&lt;&#x2F;button&gt;
+		            &lt;input type=&quot;hidden&quot; name=&quot;commend&quot; value=&quot;all&quot;&gt;
+		            &lt;input type=&quot;hidden&quot; name=&quot;ssid&quot; value=&quot;s5-e&quot; autocomplete=&quot;off&quot;&gt;
+		            &lt;input type=&quot;hidden&quot; name=&quot;search_type&quot; value=&quot;mall&quot; autocomplete=&quot;off&quot;&gt;
+		            &lt;input type=&quot;hidden&quot; name=&quot;sourceId&quot; value=&quot;tb.index&quot;&gt;
+		            &lt;input type=&quot;hidden&quot; name=&quot;spm&quot; value=&quot;1.1000386.5803581.d4908513&quot;&gt;
+		        &lt;&#x2F;form&gt;
+		    &lt;&#x2F;div&gt;
+		&lt;&#x2F;div&gt;
+	&lt;&#x2F;div&gt;
+	&lt;script type=&quot;text&#x2F;javascript&quot;&gt;
+	KISSY.use(&#x27;combobox&#x27;, function(S, ComboBox){
+		var combobox = new ComboBox({
+			srcNode : &#x27;#combobox&#x27;,
+			placeholder : &#x27;input..&#x27;,
+			prefixCls : &#x27;search-&#x27;,
+			dataSource : new ComboBox.RemoteDataSource({  &#x2F;&#x2F;从淘宝获取数据
+				xhrCfg: {
+                    url: &#x27;http:&#x2F;&#x2F;suggest.taobao.com&#x2F;sug&#x27;,
+                    dataType: &#x27;jsonp&#x27;,
+                    data: {
+                        k: 1,
+                        code: &quot;utf-8&quot;
+                    }
+                },
+                paramName: &quot;q&quot;,
+                parse: function (query, results) {
+                    &#x2F;&#x2F; 返回结果对象数组
+                    return results.result;
+                },
+                cache: true
+			}),
+			format : function(query, data){  &#x2F;&#x2F;自定义下拉菜单属性
+				var ret = [];
+				for(var i = 0; i &lt; data.length; i++){
+					ret[i] = {
+						content : data[i][0].replace(query, &#x27;&lt;span class=&quot;item-text&quot;&gt;&#x27; + query + &#x27;&lt;&#x2F;span&gt;&#x27;),
+						textContent : data[i][0]
+					};
+				}
+				return ret;
+			}
+		});
+		combobox.render();
+	})
+	&lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+        <div class="ks-tabs-panel">
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/combobox/cited-by-md/like-tb.html" ="text">示例地址：docs.kissyui.com/5.0/demos/combobox/cited-by-md/like-tb.html</p>
+            <div class="qrcode"></div>
+        </div>
+    </div>
+</div></p>
+
+	   			<div id="disqus_thread"></div>
+	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+	   			<a id="apilink" href="../../api/classes/ComboBox.html" style="display:none;"></a>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/ComboBox.html">API Docs</a>
+				<div class="panel panel-primary ajax-load hide">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load ">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../demos/combobox/index.html">简单使用ComboBox</a></p><p><a href="../../demos/combobox/like-tb.html">仿淘宝搜索框</a></p><p><a href="../../demos/combobox/local.html">使用本地数据自动补全</a></p>
+					</div>
+				</div>
+			</div>
+			<div id="disqus_thread"></div>
+<script>
+    if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+     //var disqus_identifier = '/anim';
+     //var disqus_url = window.location;
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    }
+</script>
+<script>
+    window.onload = function(){
+        (function() {
+        var cx = '003618533255763067140:5nkycw1pbey';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    }
+</script>
+		</div>
+	</div>
+</body>
+</html>
