@@ -2101,7 +2101,7 @@
             },
             "tag": "module",
             "file": "src/api/combobox.js",
-            "line": 278
+            "line": 297
         },
         "cookie": {
             "name": "cookie",
@@ -3732,7 +3732,7 @@
                 }
             ],
             "example": [
-                "\n#### 从已有元素实例 ComboBox 对象时：\n- 元素节点标明类名 {prefixCls}combobox .\n- html 符合一定规范，例如：\n```\n<div class=\"ks-combobox\" id=\"combobox\">\n    <div class=\"ks-combobox-input-wrap\">\n        <input style=\"width:100%;height:100%;\" aria-haspopup=\"true\"\n               aria-combobox=\"list\" role=\"combobox\" combobox=\"off\"\n               class=\"ks-combobox-input\" tabindex=\"0\"\n               id=\"inp\"\n                />\n    </div>\n</div>\n```\n#### 使用前请加上初始样式\n```\n<style>\n    .ks-popupmenu {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n</style>\n```"
+                "\n```\nKISSY.use('combobox', function(S, ComboBox){\n    var basicComboBox = new ComboBox({\n        render : '#container',\n        dataSource : new ComboBox.LocalDataSource({\n            data : ['a1234', 'b2345', 'c3456', 'd4567']\n        }),\n        maxItemCount : 4,\n        format : function(query, data){  //自定义下拉菜单属性\n            var ret = [];\n            for(var i = 0; i < data.length; i++){\n                ret[i] = {\n                    content:(data[i] + \"\")\n                        .replace(query, '<strong>' + query + '</strong>'),\n                    disabled:(i % 2 ? true : false)\n                }\n            }\n            return ret;\n        }\n    })\n})\n```"
             ]
         },
         "ComboBox.MultiValueComboBox": {
@@ -3746,7 +3746,7 @@
             "module": "combobox",
             "namespace": "ComboBox",
             "file": "src/api/combobox.js",
-            "line": 174,
+            "line": 169,
             "is_constructor": 1,
             "extends": "ComboBox",
             "params": [
@@ -3768,7 +3768,7 @@
             "module": "combobox",
             "namespace": "ComboBox",
             "file": "src/api/combobox.js",
-            "line": 216,
+            "line": 211,
             "description": "限定范围的输入框.",
             "is_constructor": 1,
             "extends": "ComboBox",
@@ -3794,7 +3794,7 @@
             "module": "combobox",
             "namespace": "ComboBox",
             "file": "src/api/combobox.js",
-            "line": 239,
+            "line": 234,
             "description": "本地数据源，配合[ComboBox](/5.0/api/classes/ComboBox.html)使用",
             "is_constructor": 1,
             "params": [
@@ -3803,6 +3803,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n    \n```\nKISSY.use('combobox', function(S, ComboBox){\n    var basicComboBox = new ComboBox({\n        render : '#container',\n        dataSource : new ComboBox.LocalDataSource({\n            data : ['a1234', 'b2345', 'c3456', 'd4567']\n        }),\n        maxItemCount : 4,\n        format : function(query, data){  //自定义下拉菜单属性\n            var ret = [];\n            for(var i = 0; i < data.length; i++){\n                ret[i] = {\n                    content:(data[i] + \"\")\n                        .replace(query, '<strong>' + query + '</strong>'),\n                    disabled:(i % 2 ? true : false)\n                }\n            }\n            return ret;\n        }\n    })\n})\n```"
             ]
         },
         "ComboBox.RemoteDataSource": {
@@ -3816,7 +3819,7 @@
             "module": "combobox",
             "namespace": "ComboBox",
             "file": "src/api/combobox.js",
-            "line": 278,
+            "line": 297,
             "description": "数据源，配合[ComboBox](/5.0/api/classes/ComboBox.html)使用",
             "is_constructor": 1,
             "params": [
@@ -3825,6 +3828,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n    KISSY.use('combobox', function(S, ComboBox){\n        var combobox = new ComboBox({\n            srcNode : '#combobox',\n            placeholder : 'input..',\n            prefixCls : 'search-',\n            dataSource : new ComboBox.RemoteDataSource({  //从淘宝获取数据\n                xhrCfg: {\n                    url: 'http://suggest.taobao.com/sug',\n                    dataType: 'jsonp',\n                    data: {\n                        k: 1,\n                        code: \"utf-8\"\n                    }\n                },\n                paramName: \"q\",\n                parse: function (query, results) {\n                    // 返回结果对象数组\n                    return results.result;\n                },\n                cache: true\n            }),\n            format : function(query, data){  //自定义下拉菜单属性\n                var ret = [];\n                for(var i = 0; i < data.length; i++){\n                    ret[i] = {\n                        content : data[i][0].replace(query, '<span class=\"item-text\">' + query + '</span>'),\n                        textContent : data[i][0]\n                    };\n                }\n                return ret;\n            }\n        });\n        combobox.render();\n    })"
             ]
         },
         "Cookie": {
@@ -9448,7 +9454,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 43,
+            "line": 38,
             "description": "默认 true. 是否显示下拉按钮",
             "itemtype": "attribute",
             "name": "hasTrigger",
@@ -9458,7 +9464,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 49,
+            "line": 44,
             "description": "默认无. 输入框的提示信息",
             "itemtype": "attribute",
             "name": "placeholder",
@@ -9468,7 +9474,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 54,
+            "line": 49,
             "description": "数据源配置\n例如静态数据源的配置:\n```\n{\n    dataSource : new ComboBox.LocalDataSource({\n                    data:[\"abc\",\"123\"]\n                })\n} \n```",
             "itemtype": "attribute",
             "name": "dataSource",
@@ -9478,7 +9484,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 67,
+            "line": 62,
             "description": "最多可显示的下拉菜单个数",
             "itemtype": "attribute",
             "name": "maxItemCount",
@@ -9488,7 +9494,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 72,
+            "line": 67,
             "description": "是否下拉菜单和自动补全框宽度一致。默认 true.",
             "itemtype": "attribute",
             "name": "matchWidth",
@@ -9499,7 +9505,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 78,
+            "line": 73,
             "description": "可选。自定义下拉菜单属性的函数，传入参数 query(自动补全框当前值) , data(匹配数据数组)。 返回对象数组，其中对象的 content 属性表示菜单项显示内容，textContent 表示放入到自动补全框的内容，disabled 表示当前项是否被禁用.\n例如高亮的处理:\n```\n{\n    format:function(query, data){\n        var ret = [];\n        for (var i = 0; i < data.length; i++) {\n            ret[i] = {\n                content:(data[i] + \"\")\n                        .replace(new RegExp(S.escapeRegExp(query), \"g\"),\n                        \"<b>$&</b>\")\n            };\n        }\n        return ret;\n    }\n}\n```",
             "itemtype": "attribute",
             "name": "format",
@@ -9509,7 +9515,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 99,
+            "line": 94,
             "description": "默认 true. 上下键是否导致高亮项填充入自动补全框",
             "itemtype": "attribute",
             "name": "updateInputOnDownUp",
@@ -9520,7 +9526,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 105,
+            "line": 100,
             "description": "默认 false. 是否当自动补全菜单出现时高亮第一项",
             "example": [
                 "\n```\nKISSY.use(\"node,combobox\", function (S, Node, ComboBox) {\n    var $ = Node.all;\n    var data = [\"a123456\", \"b12345\", \"c3464356\", \"d23434\"];\n\n    var basicComboBox = new ComboBox({\n        width:100,\n        srcNode:$(\"#combobox\"),\n        // 初始就聚焦\n        focused:true,\n        hasTrigger:false,\n        dataSource:new ComboBox.LocalDataSource({\n            data:data\n        })\n    });\n    basicComboBox.render();\n\n    // 得到焦点时展示全部\n    basicComboBox.get(\"input\").on(\"focus\", function () {\n        basicComboBox.sendRequest('');\n    });\n}\n```"
@@ -9533,7 +9539,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 135,
+            "line": 130,
             "description": "关联的复合输入框",
             "itemtype": "attribute",
             "name": "input",
@@ -9543,7 +9549,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 140,
+            "line": 135,
             "description": "自动补全菜单的配置（在显示后转换为实例）或实例",
             "itemtype": "attribute",
             "name": "menu",
@@ -9553,7 +9559,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 145,
+            "line": 140,
             "description": "自动补全菜单是否已经收起",
             "itemtype": "attribute",
             "name": "collapsed",
@@ -9563,7 +9569,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 150,
+            "line": 145,
             "description": "根据 value 自动补全并显示下拉菜单",
             "itemtype": "method",
             "name": "sendRequest",
@@ -9579,7 +9585,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 156,
+            "line": 151,
             "description": "当用户选择自动补全下拉框内的项时触发",
             "itemtype": "event",
             "name": "click",
@@ -9595,7 +9601,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 162,
+            "line": 157,
             "description": "当下拉菜单显示或收起时触发",
             "itemtype": "event",
             "name": "afterCollapsedChange",
@@ -9611,7 +9617,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 183,
+            "line": 178,
             "description": "默认 false. 是否允许多个值的输入",
             "itemtype": "attribute",
             "name": "multiple",
@@ -9623,7 +9629,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 189,
+            "line": 184,
             "description": "当允许多个值输入时，分割多个值的分隔符",
             "itemtype": "attribute",
             "name": "separator",
@@ -9635,7 +9641,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 195,
+            "line": 190,
             "description": "默认 “suffix”. 可取枚举值（”prefix”,”suffix”）. 表示分隔符在最前面( @xx 模式)还是在最后面(gmail 模式).",
             "itemtype": "attribute",
             "name": "separatorType",
@@ -9646,7 +9652,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 200,
+            "line": 195,
             "description": "默认 false. 自动补全菜单是否和光标对齐.",
             "itemtype": "attribute",
             "name": "alignWithCursor",
@@ -9658,7 +9664,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 206,
+            "line": 201,
             "description": "默认 \" 在该字符内的所有字符（包括分隔符）都算作普通字符.",
             "itemtype": "attribute",
             "name": "literal",
@@ -9670,7 +9676,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 231,
+            "line": 226,
             "description": "当用户的输入不匹配下拉提示的内容时的出错信息",
             "itemtype": "attribute",
             "name": "invalidMessage",
@@ -9681,7 +9687,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 247,
+            "line": 266,
             "description": "静态数据数组",
             "itemtype": "attribute",
             "name": "data",
@@ -9692,7 +9698,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 252,
+            "line": 271,
             "description": "可选. 如何根据用户输入对数据进行过滤。默认为\n```\nfunction parser(inputVal, data) {\n    var ret = [],\n        count = 0;\n\n    if (!inputVal) {\n        return data;\n    }\n\n    S.each(data, function (d) {\n        if (d.indexOf(inputVal) != -1) {\n            ret.push(d);\n        }\n        count++;\n    });\n\n    return ret;\n}\n\n```",
             "itemtype": "attribute",
             "name": "parse",
@@ -9703,7 +9709,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 286,
+            "line": 340,
             "description": "用户输入发送到后端的参数名，默认 ‘q’",
             "itemtype": "attribute",
             "name": "paramName",
@@ -9715,7 +9721,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 292,
+            "line": 346,
             "description": "可选. 如何根据用户输入对后台返回数据进行过滤。默认\n```\nfunction parser(\n    // 用户输入\n    inputVal,\n    // 服务器返回数据\n    data) {\n    return data;\n}\n```",
             "itemtype": "attribute",
             "name": "parse",
@@ -9726,7 +9732,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 306,
+            "line": 360,
             "description": "默认 false. 用户输入为空时是否发请求",
             "itemtype": "attribute",
             "name": "allowEmpty",
@@ -9738,7 +9744,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 312,
+            "line": 366,
             "description": "默认 false. 是否缓存服务器端数据",
             "itemtype": "attribute",
             "name": "cache",
@@ -9750,7 +9756,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 318,
+            "line": 372,
             "description": "传递给 IO 的其他参数",
             "itemtype": "attribute",
             "name": "xhrCfg",

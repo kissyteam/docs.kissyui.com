@@ -611,6 +611,48 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use(&#39;combobox&#39;, function(S, ComboBox){
+    var combobox = new ComboBox({
+        srcNode : &#39;#combobox&#39;,
+        placeholder : &#39;input..&#39;,
+        prefixCls : &#39;search-&#39;,
+        dataSource : new ComboBox.RemoteDataSource({  //从淘宝获取数据
+            xhrCfg: {
+                url: &#39;http://suggest.taobao.com/sug&#39;,
+                dataType: &#39;jsonp&#39;,
+                data: {
+                    k: 1,
+                    code: &quot;utf-8&quot;
+                }
+            },
+            paramName: &quot;q&quot;,
+            parse: function (query, results) {
+                // 返回结果对象数组
+                return results.result;
+            },
+            cache: true
+        }),
+        format : function(query, data){  //自定义下拉菜单属性
+            var ret = [];
+            for(var i = 0; i &lt; data.length; i++){
+                ret[i] = {
+                    content : data[i][0].replace(query, &#39;&lt;span class=&quot;item-text&quot;&gt;&#39; + query + &#39;&lt;/span&gt;&#39;),
+                    textContent : data[i][0]
+                };
+            }
+            return ret;
+        }
+    });
+    combobox.render();
+})</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
     </div>

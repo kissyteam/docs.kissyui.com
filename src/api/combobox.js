@@ -10,33 +10,28 @@
 @extends Component.Control
 @param config {Object}
 @example
-#### 从已有元素实例 ComboBox 对象时：
 
-- 元素节点标明类名 {prefixCls}combobox .
-- html 符合一定规范，例如：
 ```
-<div class="ks-combobox" id="combobox">
-    <div class="ks-combobox-input-wrap">
-        <input style="width:100%;height:100%;" aria-haspopup="true"
-               aria-combobox="list" role="combobox" combobox="off"
-               class="ks-combobox-input" tabindex="0"
-               id="inp"
-                />
-    </div>
-</div>
-```
-
-
-
-#### 使用前请加上初始样式
-```
-<style>
-    .ks-popupmenu {
-        position:absolute;
-        left:-9999px;
-        top:-9999px;
-    }
-</style>
+KISSY.use('combobox', function(S, ComboBox){
+    var basicComboBox = new ComboBox({
+        render : '#container',
+        dataSource : new ComboBox.LocalDataSource({
+            data : ['a1234', 'b2345', 'c3456', 'd4567']
+        }),
+        maxItemCount : 4,
+        format : function(query, data){  //自定义下拉菜单属性
+            var ret = [];
+            for(var i = 0; i < data.length; i++){
+                ret[i] = {
+                    content:(data[i] + "")
+                        .replace(query, '<strong>' + query + '</strong>'),
+                    disabled:(i % 2 ? true : false)
+                }
+            }
+            return ret;
+        }
+    })
+})
 ```
 */
 
@@ -242,6 +237,30 @@ KISSY.use('combobox',function(S,ComboBox){
 @constructor
 @namespace ComboBox
 @param config {Object}
+@example
+    
+```
+KISSY.use('combobox', function(S, ComboBox){
+    var basicComboBox = new ComboBox({
+        render : '#container',
+        dataSource : new ComboBox.LocalDataSource({
+            data : ['a1234', 'b2345', 'c3456', 'd4567']
+        }),
+        maxItemCount : 4,
+        format : function(query, data){  //自定义下拉菜单属性
+            var ret = [];
+            for(var i = 0; i < data.length; i++){
+                ret[i] = {
+                    content:(data[i] + "")
+                        .replace(query, '<strong>' + query + '</strong>'),
+                    disabled:(i % 2 ? true : false)
+                }
+            }
+            return ret;
+        }
+    })
+})
+```
 */
 
 /**
@@ -281,6 +300,41 @@ function parser(inputVal, data) {
 @constructor
 @namespace ComboBox
 @param config {Object}
+@example
+    KISSY.use('combobox', function(S, ComboBox){
+        var combobox = new ComboBox({
+            srcNode : '#combobox',
+            placeholder : 'input..',
+            prefixCls : 'search-',
+            dataSource : new ComboBox.RemoteDataSource({  //从淘宝获取数据
+                xhrCfg: {
+                    url: 'http://suggest.taobao.com/sug',
+                    dataType: 'jsonp',
+                    data: {
+                        k: 1,
+                        code: "utf-8"
+                    }
+                },
+                paramName: "q",
+                parse: function (query, results) {
+                    // 返回结果对象数组
+                    return results.result;
+                },
+                cache: true
+            }),
+            format : function(query, data){  //自定义下拉菜单属性
+                var ret = [];
+                for(var i = 0; i < data.length; i++){
+                    ret[i] = {
+                        content : data[i][0].replace(query, '<span class="item-text">' + query + '</span>'),
+                        textContent : data[i][0]
+                    };
+                }
+                return ret;
+            }
+        });
+        combobox.render();
+    })
 */
 
 /**

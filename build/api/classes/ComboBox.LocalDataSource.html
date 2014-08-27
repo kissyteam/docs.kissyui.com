@@ -611,6 +611,34 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use(&#39;combobox&#39;, function(S, ComboBox){
+    var basicComboBox = new ComboBox({
+        render : &#39;#container&#39;,
+        dataSource : new ComboBox.LocalDataSource({
+            data : [&#39;a1234&#39;, &#39;b2345&#39;, &#39;c3456&#39;, &#39;d4567&#39;]
+        }),
+        maxItemCount : 4,
+        format : function(query, data){  //自定义下拉菜单属性
+            var ret = [];
+            for(var i = 0; i &lt; data.length; i++){
+                ret[i] = {
+                    content:(data[i] + &quot;&quot;)
+                        .replace(query, &#39;&lt;strong&gt;&#39; + query + &#39;&lt;/strong&gt;&#39;),
+                    disabled:(i % 2 ? true : false)
+                }
+            }
+            return ret;
+        }
+    })
+})</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
     </div>
