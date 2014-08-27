@@ -8,6 +8,57 @@
 @constructor
 @extends Menu
 @param config {Object}
+@example
+	//从已存在html节点生成
+	KISSY.use('filter-menu', function(S, FilterMenu){
+        var filterMenu = new FilterMenu({
+            srcNode: '#filterMenuExist',
+            width: 200,
+           	allowMultiple : true
+        });
+
+        filterMenu.render();
+	})
+
+	//全新节点生成
+	KISSY.use('menu,filter-menu', function(S, Menu, FilterMenu){
+		var m1 = new Menu.Item({
+            selectable: true,
+            content: "女鞋",
+            pinyin: "nx"
+        });
+        var m4 = new Menu.Item({
+
+            selectable: true,
+            content: "女装女服",
+            pinyin: "nznf"
+        });
+        var m2 = new Menu.Item({
+
+            selectable: true, content: "家居服务",
+            elCls: "hasChildren",
+            pinyin: "jjfw"
+        });
+        var m3 = new Menu.Item({
+
+            selectable: true,
+            content: "手机",
+            elCls: "hasChildren",
+            pinyin: "sj"
+        });
+
+        var filterMenu = new FilterMenu({
+            render: "#container",
+            width: 500,
+            placeholder: "请输入中文或简拼"
+        });
+        filterMenu.addChild(m1);
+        filterMenu.addChild(m2);
+        filterMenu.addChild(m3);
+        filterMenu.addChild(m4);
+        
+        filterMenu.render();
+	})
 */
 
 /**

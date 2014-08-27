@@ -4039,6 +4039,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\t//从已存在html节点生成\n\tKISSY.use('filter-menu', function(S, FilterMenu){\n        var filterMenu = new FilterMenu({\n            srcNode: '#filterMenuExist',\n            width: 200,\n           \tallowMultiple : true\n        });\n\n        filterMenu.render();\n\t})\n\n\t//全新节点生成\n\tKISSY.use('menu,filter-menu', function(S, Menu, FilterMenu){\n\t\tvar m1 = new Menu.Item({\n            selectable: true,\n            content: \"女鞋\",\n            pinyin: \"nx\"\n        });\n        var m4 = new Menu.Item({\n\n            selectable: true,\n            content: \"女装女服\",\n            pinyin: \"nznf\"\n        });\n        var m2 = new Menu.Item({\n\n            selectable: true, content: \"家居服务\",\n            elCls: \"hasChildren\",\n            pinyin: \"jjfw\"\n        });\n        var m3 = new Menu.Item({\n\n            selectable: true,\n            content: \"手机\",\n            elCls: \"hasChildren\",\n            pinyin: \"sj\"\n        });\n\n        var filterMenu = new FilterMenu({\n            render: \"#container\",\n            width: 500,\n            placeholder: \"请输入中文或简拼\"\n        });\n        filterMenu.addChild(m1);\n        filterMenu.addChild(m2);\n        filterMenu.addChild(m3);\n        filterMenu.addChild(m4);\n        \n        filterMenu.render();\n\t})"
             ]
         },
         "IO": {
@@ -13494,7 +13497,7 @@
         },
         {
             "file": "src/api/filter-menu.js",
-            "line": 13,
+            "line": 64,
             "description": "是否允许输入多个， 默认为false",
             "itemtype": "attribute",
             "name": "allowMultiple",
@@ -13505,7 +13508,7 @@
         },
         {
             "file": "src/api/filter-menu.js",
-            "line": 19,
+            "line": 70,
             "description": "placeholder 内容",
             "itemtype": "attribute",
             "name": "placeholder",
@@ -13515,7 +13518,7 @@
         },
         {
             "file": "src/api/filter-menu.js",
-            "line": 24,
+            "line": 75,
             "description": "过滤的字符串",
             "itemtype": "attribute",
             "name": "filterStr",
@@ -13525,7 +13528,7 @@
         },
         {
             "file": "src/api/filter-menu.js",
-            "line": 29,
+            "line": 80,
             "description": "根据所给字符串，过滤出响应的项\n\n可以重写此方法，进行自定义，不自定义则是简单的内容 indexOf 查找",
             "itemtype": "method",
             "name": "filterItems",
@@ -13542,7 +13545,7 @@
         },
         {
             "file": "src/api/filter-menu.js",
-            "line": 38,
+            "line": 89,
             "description": "重置用户的输入以及过滤结果",
             "itemtype": "method",
             "name": "reset",

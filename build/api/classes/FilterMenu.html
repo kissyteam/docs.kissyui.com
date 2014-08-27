@@ -615,6 +615,64 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>//从已存在html节点生成
+KISSY.use(&#39;filter-menu&#39;, function(S, FilterMenu){
+    var filterMenu = new FilterMenu({
+        srcNode: &#39;#filterMenuExist&#39;,
+        width: 200,
+           allowMultiple : true
+    });
+
+    filterMenu.render();
+})
+
+//全新节点生成
+KISSY.use(&#39;menu,filter-menu&#39;, function(S, Menu, FilterMenu){
+    var m1 = new Menu.Item({
+        selectable: true,
+        content: &quot;女鞋&quot;,
+        pinyin: &quot;nx&quot;
+    });
+    var m4 = new Menu.Item({
+
+        selectable: true,
+        content: &quot;女装女服&quot;,
+        pinyin: &quot;nznf&quot;
+    });
+    var m2 = new Menu.Item({
+
+        selectable: true, content: &quot;家居服务&quot;,
+        elCls: &quot;hasChildren&quot;,
+        pinyin: &quot;jjfw&quot;
+    });
+    var m3 = new Menu.Item({
+
+        selectable: true,
+        content: &quot;手机&quot;,
+        elCls: &quot;hasChildren&quot;,
+        pinyin: &quot;sj&quot;
+    });
+
+    var filterMenu = new FilterMenu({
+        render: &quot;#container&quot;,
+        width: 500,
+        placeholder: &quot;请输入中文或简拼&quot;
+    });
+    filterMenu.addChild(m1);
+    filterMenu.addChild(m2);
+    filterMenu.addChild(m3);
+    filterMenu.addChild(m4);
+
+    filterMenu.render();
+})</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
     </div>
