@@ -99,3 +99,6 @@
     right: 0;
     text-align: right;
 }
+.ks-menuitem-hidden{
+    display: none;
+}
