@@ -196,6 +196,8 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Tree.CheckTree href="/5.0/api/classes/Tree.CheckTree.html">Tree.CheckTree</a></li>
             
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Tree.Manager href="/5.0/api/classes/Tree.Manager.html">Tree.Manager</a></li>
+            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Tree.Node href="/5.0/api/classes/Tree.Node.html">Tree.Node</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=UA href="/5.0/api/classes/UA.html">UA</a></li>
@@ -358,6 +360,15 @@
                         <div class="content">
                             <h1>Tree.CheckTree Class</h1>
 <div class="box meta">
+    
+        <div class="uses">
+            Uses
+            <ul class="inline commas">
+                
+                    <li><a href="Tree.Manager.html">Tree.Manager</a></li>
+                
+            </ul>
+        </div>
     
 
     
@@ -755,6 +766,10 @@
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
+                                <a href="#attr_allowTextSelection">allowTextSelection</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_checkState">checkState</a>
                             </li>
                         
@@ -807,7 +822,15 @@
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
+                                <a href="#attr_focusable">focusable</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_focused">focused</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited" inwhichtab="attrs">
+                                <a href="#attr_handleGestureEvents">handleGestureEvents</a>
                             </li>
                         
                             <li class="index-item attr inherited inherited" inwhichtab="attrs">
@@ -860,6 +883,14 @@
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_selected">selected</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited" inwhichtab="attrs">
+                                <a href="#attr_selectedItem">selectedItem</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited" inwhichtab="attrs">
+                                <a href="#attr_showRootNode">showRootNode</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -4460,6 +4491,54 @@
 </div>
 
                 
+                    <div id="attr_allowTextSelection" class="attr item inherited">
+    <a name="config_allowTextSelection"></a> 
+    <h3 class="name"><code>allowTextSelection</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Tree.Manager.html#attr_allowTextSelection">Tree.Manager</a>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否允许文本选择</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_checkState" class="attr item inherited">
     <a name="config_checkState"></a> 
     <h3 class="name"><code>checkState</code></h3>
@@ -5068,6 +5147,54 @@
 </div>
 
                 
+                    <div id="attr_focusable" class="attr item inherited">
+    <a name="config_focusable"></a> 
+    <h3 class="name"><code>focusable</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Tree.Manager.html#attr_focusable">Tree.Manager</a>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否能聚焦</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_focused" class="attr item inherited">
     <a name="config_focused"></a> 
     <h3 class="name"><code>focused</code></h3>
@@ -5106,6 +5233,54 @@
 
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_handleGestureEvents" class="attr item inherited">
+    <a name="config_handleGestureEvents"></a> 
+    <h3 class="name"><code>handleGestureEvents</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Tree.Manager.html#attr_handleGestureEvents">Tree.Manager</a>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否支持手势事件</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
     
 
     
@@ -5737,6 +5912,100 @@ or
 
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_selectedItem" class="attr item inherited">
+    <a name="config_selectedItem"></a> 
+    <h3 class="name"><code>selectedItem</code></h3>
+    <span class="type"><a href="../classes/Tree.Node.html" class="crosslink">Tree.Node</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Tree.Manager.html#attr_selectedItem">Tree.Manager</a>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>当前被选择的树节点</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_showRootNode" class="attr item inherited">
+    <a name="config_showRootNode"></a> 
+    <h3 class="name"><code>showRootNode</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Tree.Manager.html#attr_showRootNode">Tree.Manager</a>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否显示树根节点</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
     
 
     

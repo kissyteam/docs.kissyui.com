@@ -627,7 +627,8 @@
                 "Tree": 1,
                 "Tree.Node": 1,
                 "Tree.CheckNode": 1,
-                "Tree.CheckTree": 1
+                "Tree.CheckTree": 1,
+                "Tree.Manager": 1
             },
             "fors": {},
             "namespaces": {
@@ -1371,7 +1372,8 @@
                 "Tree": 1,
                 "Tree.Node": 1,
                 "Tree.CheckNode": 1,
-                "Tree.CheckTree": 1
+                "Tree.CheckTree": 1,
+                "Tree.Manager": 1
             },
             "fors": {},
             "namespaces": {
@@ -1379,7 +1381,7 @@
             },
             "tag": "module",
             "file": "src/api/tree.js",
-            "line": 149
+            "line": 190
         },
         "ua": {
             "name": "ua",
@@ -2984,6 +2986,9 @@
             "description": "树（根节点）",
             "is_constructor": 1,
             "extends": "Tree.Node",
+            "uses": [
+                "Tree.Manager"
+            ],
             "params": [
                 {
                     "name": "config",
@@ -3003,7 +3008,7 @@
             "module": "tree",
             "namespace": "Tree",
             "file": "src/api/tree.js",
-            "line": 54,
+            "line": 55,
             "is_constructor": 1,
             "extends": "Component.Container",
             "params": [
@@ -3025,7 +3030,7 @@
             "module": "tree",
             "namespace": "Tree",
             "file": "src/api/tree.js",
-            "line": 129,
+            "line": 130,
             "description": "可多选树节点",
             "is_constructor": 1,
             "extends": "Tree.Node",
@@ -3048,9 +3053,37 @@
             "module": "tree",
             "namespace": "Tree",
             "file": "src/api/tree.js",
-            "line": 149,
+            "line": 150,
             "is_constructor": 1,
             "extends": "Tree.CheckNode",
+            "uses": [
+                "Tree.Manager"
+            ],
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Tree.Manager": {
+            "name": "Tree.Manager",
+            "shortname": "Tree.Manager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [
+                "Tree",
+                "Tree.CheckTree"
+            ],
+            "module": "tree",
+            "namespace": "Tree",
+            "file": "src/api/tree.js",
+            "line": 190,
+            "description": "管理树节点(Manage tree node for tree root)",
+            "is_constructor": 1,
             "params": [
                 {
                     "name": "config",
@@ -15241,7 +15274,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 15,
+            "line": 16,
             "description": "默认 true. 是否显示树的根节点",
             "itemtype": "attribute",
             "name": "showRootNode",
@@ -15252,7 +15285,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 21,
+            "line": 22,
             "description": "当树节点被点击后触发",
             "itemtype": "event",
             "name": "click",
@@ -15271,7 +15304,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 38,
+            "line": 39,
             "description": "当树节点扩展后触发",
             "itemtype": "event",
             "name": "expand",
@@ -15287,7 +15320,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 44,
+            "line": 45,
             "description": "当树节点收缩后触发",
             "itemtype": "event",
             "name": "collapse",
@@ -15303,7 +15336,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 62,
+            "line": 63,
             "description": "节点内容",
             "itemtype": "attribute",
             "name": "content",
@@ -15314,7 +15347,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 67,
+            "line": 68,
             "description": "可选，是否固定采用叶子节点或目录节点样式类，不设置的话会动态根据是否具有儿子节点而变化",
             "itemtype": "attribute",
             "name": "isLeaf",
@@ -15325,7 +15358,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 72,
+            "line": 73,
             "description": "该节点的儿子节点是否显示，设置后可相应展开收缩儿子节点",
             "itemtype": "attribute",
             "name": "expanded",
@@ -15336,7 +15369,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 77,
+            "line": 78,
             "description": "节点提示内容",
             "itemtype": "attribute",
             "name": "tooltip",
@@ -15347,7 +15380,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 82,
+            "line": 83,
             "description": "扩展图标 dom 节点",
             "itemtype": "attribute",
             "name": "expandIconEl",
@@ -15358,7 +15391,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 87,
+            "line": 88,
             "description": "树节点图标 dom 节点",
             "itemtype": "attribute",
             "name": "iconEl",
@@ -15369,7 +15402,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 92,
+            "line": 93,
             "description": "该节点是否被选中",
             "itemtype": "attribute",
             "name": "selected",
@@ -15380,7 +15413,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 97,
+            "line": 98,
             "description": "该节点所属的树对象",
             "itemtype": "attribute",
             "name": "tree",
@@ -15391,7 +15424,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 102,
+            "line": 103,
             "description": "该节点所处所在树的深度，只读。",
             "itemtype": "attribute",
             "name": "depth",
@@ -15403,7 +15436,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 108,
+            "line": 109,
             "description": "把当前节点的子孙节点全部显示出来",
             "itemtype": "method",
             "name": "expandAll",
@@ -15413,7 +15446,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 113,
+            "line": 114,
             "description": "把当前节点的子孙节点全部收缩起来",
             "itemtype": "method",
             "name": "collapseAll",
@@ -15423,7 +15456,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 118,
+            "line": 119,
             "description": "把当前节点设置为当前树的选中节点",
             "itemtype": "method",
             "name": "select",
@@ -15433,7 +15466,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 138,
+            "line": 139,
             "description": "当前节点的多选状态，可取：\n- PARTIAL_CHECK 代表节点的部分选中状态（部分子孙节点选中）\n- CHECK 代表节点的全部选中状态（子孙节点和自身节点全部选中）\n- EMPTY 代表节点的空状态（子孙节点和自身节点全部不选中）",
             "itemtype": "attribute",
             "name": "checkState",
@@ -15444,7 +15477,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 157,
+            "line": 159,
             "description": "当树节点扩展后触发",
             "itemtype": "event",
             "name": "expand",
@@ -15461,7 +15494,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 163,
+            "line": 165,
             "description": "当树节点收缩后触发",
             "itemtype": "event",
             "name": "collapse",
@@ -15478,7 +15511,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 169,
+            "line": 171,
             "description": "当树节点被点击后触发",
             "itemtype": "event",
             "name": "click",
@@ -15493,6 +15526,65 @@
                 "\n```\n//默认情况下，双击树节点的文字部分或单击扩展图标才会展开收缩其子节点， 如果你需要改变为：单击树节点的文字部分也展开收缩其子节点，可以监控 click() 事件\n\ntree.on(\"click\",function(e){\n    var node = e.target;\n    if(node.get(\"children\").length){\n        node.set(\"expanded\",!node.get(\"expanded\"));\n    }\n});\n```"
             ],
             "class": "Tree.CheckTree",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src/api/tree.js",
+            "line": 198,
+            "description": "是否允许文本选择",
+            "itemtype": "attribute",
+            "name": "allowTextSelection",
+            "type": "Boolean",
+            "default": "true",
+            "class": "Tree.Manager",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src/api/tree.js",
+            "line": 204,
+            "description": "是否能聚焦",
+            "itemtype": "attribute",
+            "name": "focusable",
+            "type": "Boolean",
+            "default": "true",
+            "class": "Tree.Manager",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src/api/tree.js",
+            "line": 210,
+            "description": "是否支持手势事件",
+            "itemtype": "attribute",
+            "name": "handleGestureEvents",
+            "type": "Boolean",
+            "default": "true",
+            "class": "Tree.Manager",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src/api/tree.js",
+            "line": 216,
+            "description": "是否显示树根节点",
+            "itemtype": "attribute",
+            "name": "showRootNode",
+            "type": "Boolean",
+            "default": "true",
+            "class": "Tree.Manager",
+            "module": "tree",
+            "namespace": "Tree"
+        },
+        {
+            "file": "src/api/tree.js",
+            "line": 222,
+            "description": "当前被选择的树节点",
+            "itemtype": "attribute",
+            "name": "selectedItem",
+            "type": "Tree.Node",
+            "class": "Tree.Manager",
             "module": "tree",
             "namespace": "Tree"
         },

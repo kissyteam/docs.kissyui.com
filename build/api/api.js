@@ -71,6 +71,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Tree",
         "Tree.CheckNode",
         "Tree.CheckTree",
+        "Tree.Manager",
         "Tree.Node",
         "UA",
         "Uri",

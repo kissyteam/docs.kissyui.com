@@ -9,6 +9,7 @@
 @class Tree
 @constructor
 @extends Tree.Node
+@uses Tree.Manager
 @param config {Object}
 */
 
@@ -151,6 +152,7 @@ tree.on("click",function(e){
 @namespace Tree
 @constructor
 @extends Tree.CheckNode
+@uses Tree.Manager
 @param config {Object}
 */
 
@@ -182,3 +184,43 @@ tree.on("click",function(e){
 });
 ```
 */
+
+
+
+/**
+管理树节点(Manage tree node for tree root)
+@class Manager
+@namespace Tree
+@constructor
+@param config {Object}
+*/
+
+/**
+是否允许文本选择
+@attribute allowTextSelection {Boolean}
+@default true
+*/
+
+/**
+是否能聚焦
+@attribute focusable {Boolean}
+@default true
+*/
+
+/**
+是否支持手势事件
+@attribute handleGestureEvents {Boolean}
+@default true
+*/
+
+/**
+是否显示树根节点
+@attribute showRootNode {Boolean}
+@default true
+*/
+
+/**
+当前被选择的树节点
+@attribute selectedItem {Tree.Node}
+*/
+

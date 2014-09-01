@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Component.Extension.DelegateChildren - API Documentation — KISSY v5.0 Documentation</title>
+    <title>Tree.Manager - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
     <link rel="stylesheet" href="/5.0/assets/css/custom.css">
@@ -358,7 +358,7 @@
                 <div class="apidocs">
                     <div id="docs-main">
                         <div class="content">
-                            <h1>Component.Extension.DelegateChildren Class</h1>
+                            <h1>Tree.Manager Class</h1>
 <div class="box meta">
     
 
@@ -366,7 +366,7 @@
 
     
         
-            Module: <a href="../modules/component_extension_delegate-children.html">component/extension/delegate-children</a>
+            Module: <a href="../modules/tree.html">tree</a>
         
     
 
@@ -376,10 +376,94 @@
 
 
 <div class="box intro">
-    <p>为组件的子组件代理事件，用来 mixin</p>
+    <p>管理树节点(Manage tree node for tree root)</p>
 
 </div>
 
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+        <div id="method_Tree.Manager" class="method item">
+    <h3 class="name"><code>Tree.Manager</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>config</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">config</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+    </div>
 
 
 <div id="classdocs" class="ks-tabs ks-tabs-top">
@@ -388,6 +472,8 @@
 
         
         
+        
+            <li class="ks-tabs-tab ks-button attrs">Attributes</li>
         
         
     </ul>
@@ -401,6 +487,34 @@
             
 
             
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs">
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_allowTextSelection">allowTextSelection</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_focusable">focusable</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_handleGestureEvents">handleGestureEvents</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_selectedItem">selectedItem</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_showRootNode">showRootNode</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
 
             
         </div>
@@ -409,6 +523,250 @@
 
         
 
+        
+            <div id="attrs" class="ks-tabs-panel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr_allowTextSelection" class="attr item">
+    <a name="config_allowTextSelection"></a> 
+    <h3 class="name"><code>allowTextSelection</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否允许文本选择</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_focusable" class="attr item">
+    <a name="config_focusable"></a> 
+    <h3 class="name"><code>focusable</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否能聚焦</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_handleGestureEvents" class="attr item">
+    <a name="config_handleGestureEvents"></a> 
+    <h3 class="name"><code>handleGestureEvents</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否支持手势事件</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_selectedItem" class="attr item">
+    <a name="config_selectedItem"></a> 
+    <h3 class="name"><code>selectedItem</code></h3>
+    <span class="type"><a href="../classes/Tree.Node.html" class="crosslink">Tree.Node</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>当前被选择的树节点</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_showRootNode" class="attr item">
+    <a name="config_showRootNode"></a> 
+    <h3 class="name"><code>showRootNode</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否显示树根节点</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         
