@@ -1,9 +1,10 @@
 (((apilink class="Editor")))
 # Editor基本介绍
 
-Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事件。拥有多种插件适合在不同场景下使用，如 editor/plugin/font-size,editor/plugin/image 等。
+Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事件。在[gallery](http://gallery.kissyui.com/)上拥有多种插件适合在不同场景下使用，如 kg/editor-plugins/1.1.0/font-size,kg/editor-plugins/1.1.0/image 等。更多插件及用法请看 [editor-plugins文档](http://gallery.kissyui.com/editor-plugins/doc/guide/index.html).
 
-注：KISSY提供了参考样式`http://g.tbcdn.cn/kissy/edge/2014.07.16/editor/theme/cool/editor.css`，在使用editor前引入，用户也可以根据需要自定义样式。
+注：KISSY提供了参考样式：基础样式： `http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css`，
+插件样式：`http://gallery.kissyui.com/editor-plugins/doc/build/assets/editor.css`。在使用editor前引入，用户也可以根据需要自定义样式。
 
 ## 引用方法
 
@@ -13,7 +14,16 @@ Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事�
 
 ## 一个简单的调用
 
-	KISSY.use('editor,editor/plugin/font-size', function(S, Editor, FontSize){
+	//先配置editor-plugins的包地址
+	KISSY.config({
+        packages: [
+            {
+                name: 'kg/editor-plugins/1.1.0',  //1.1.0是editor-plugins当前版本号，请选择相应的版本号使用
+                base : 'http://g.tbcdn.cn/kg/editor-plugins/1.1.0'
+            }
+        ]
+    })
+	KISSY.use('editor,kg/editor-plugins/1.1.0/font-size', function(S, Editor, FontSize){
 		var myEditor = new Editor({
 			width : '80%',
 			height : '500px',

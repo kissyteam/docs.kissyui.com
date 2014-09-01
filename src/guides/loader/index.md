@@ -108,10 +108,9 @@ KISSY 添加模块/逻辑片段的函数，config为配置对象，包括`config
 
 - name，字符串, 表示包名
 - group，字符串, 表示包所属的组名。
-- debug， Boolean, 包内的脚本请求是是否加 -min 后缀，默认和 `KISSY.config(“debug”)` 相同.
+- filter， Boolean, 默认加载的模块与引入的seed.js或seed-debug.js形式相同，即如果加载的是seed-debug.js那么加载的模块默认也是*-debug.js。配置 filter : debug，则表示这个包加载的模块用*-debug.js
 - tag，字符串, 最好为时间戳, 用于刷新客户端本包的模块文件缓存
 - combine，Boolean, 如果总和 combine 设置为 true，但是单个包 combine 设置为 false，则该包内文件不进行自动 combo
-- ignorePackageNameInUri，Boolean, 默认 false. 是否在请求的模块路径中省去包名. 例如 `use('xx/a')` 配置 `xx` package 的 base 为 `http://test.com/` 则设置 `ignorePackageNameInUri` 后请求地址为： `http://test.com/a.js`。
 - base，字符串, 表示包所在的 url 路径, 相对路径表示相对于当前页面路径, 如果需要相对于当前执行脚本路径, 则需要自己处理：<br />`var scripts=document.getElementsByTagName("script");`<br />`alert(scripts[scripts.length-1].src);`
 - charset，字符串, 表示宝贝所有模块定义文件的编码格式, 默认 utf-8
 

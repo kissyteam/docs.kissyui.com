@@ -1,0 +1,87 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>编写Editor插件</title>
+<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://gallery.kissyui.com/editor-plugins/doc/build/assets/editor.css"> <!--引入editor的插件样式-->
+<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:false}"></script>
+</head>
+<body>
+<h1>编写Editor插件</h1>
+<div id="container">
+    
+</div>
+<script type="text/javascript">
+    KISSY.config({
+        packages : [
+            {
+                name : 'kg/editor-plugins/1.1.0',   //1.1.0是当前editor-plugins的版本号，使用时请选择对应的版本号
+                base : 'http://g.tbcdn.cn/kg/editor-plugins/1.1.0'
+            }
+        ]
+    });
+
+    KISSY.add('my/plugins', ['kg/editor-plugins/1.1.0/button'], function (S,require,exports,module) {
+        var Button = require('kg/editor-plugins/1.1.0/button');
+        // 自定义插件
+        function Plugin1(cfg) {
+            this.config = cfg || {};
+        }
+
+        Plugin1.prototype.pluginRenderUI = function (editor) {
+            var cfg = this.config;
+            editor.addButton("plugin1", {
+                content: '<div style="margin: 2px;border: 1px solid red;padding: 1px;">p1</div>',
+                listeners: {
+                    click: function () {
+                        editor.insertHtml(cfg.content);
+                    }
+                }
+            });
+        };
+
+
+        function Plugin2() {
+        }
+
+        Plugin2.prototype.pluginRenderUI = function (editor) {
+            editor.addButton("plugin2", {
+                content: '<div style="margin: 2px;border: 1px solid red;padding: 1px;">p2</div>',
+                listeners: {
+                    click: function () {
+                        alert('Plugin2 is running')
+                    }
+                }
+            });
+        };
+
+        module.exports = {
+            Plugin1: Plugin1,
+            Plugin2: Plugin2
+        };
+
+    });
+
+    KISSY.use('editor,my/plugins', function(S, Editor, MyPlugins){
+        var myEditor = new Editor({
+            render : '#container',
+            focused : true,
+            textareaAttrs : {
+                name : 'my-textarea'
+            },
+            plugins : [
+                new MyPlugins.Plugin1({
+                    content : 'content of Plugin1'
+                }),
+                MyPlugins.Plugin2
+            ]
+        });
+
+        myEditor.render();
+    })
+</script>
+</body>
+</html> 

@@ -3,21 +3,43 @@
 */
 
 /**
-编辑器
+富文本编辑器
 
 ### Note1
+editor拥有各种常用的编辑器插件 —— editor-plugins ，KISSY@5.0+将 KISSY Editor 核心代码和 KISSY 代码放在一起，而 editor-plugins 则放在 [gallery](http://gallery.kissyui.com/) 上。插件的相关资料请查看 [editor-plugins教程](http://gallery.kissyui.com/editor-plugins/doc/guide/index.html)
 
-##### kissy提供参考的初始样式，但用户也可以自己自定义样式。参考样式地址为
-`http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css`
-`http://g.tbcdn.cn/kissy/edge/2014.07.16/editor/theme/cool/editor.css?1`
-
-### Note2
-editor提供如下插件：
-[back-color](/5.0/api/classes/Editor.Plugin.BackColor.html),[bold](/5.0/api/classes/Editor.Plugin.Bold.html),[checkbox-source-area](/5.0/api/classes/Editor.Plugin.CheckboxSourceArea.html),[code](/5.0/api/classes/Editor.Plugin.Code.html),[draft](/5.0/api/classes/Editor.Plugin.Draft.html),[drag-upload](/5.0/api/classes/Editor.Plugin.DragUpload.html),[element-path](/5.0/api/classes/Editor.Plugin.ElementPath.html),[flash](/5.0/api/classes/Editor.Plugin.Flash.html),[font-color](/5.0/api/classes/Editor.Plugin.FontColor.html),[font-family](/5.0/api/classes/Editor.Plugin.FontFamily.html),[font-size](/5.0/api/classes/Editor.Plugin.FontSize.html),[heading](/5.0/api/classes/Editor.Plugin.Heading.html),[image](/5.0/api/classes/Editor.Plugin.Image.html),[indent](/5.0/api/classes/Editor.Plugin.Indent.html),[italic](/5.0/api/classes/Editor.Plugin.Italic.html),[justify-left](/5.0/api/classes/Editor.Plugin.JustifyLeft.html),[justify-center](/5.0/api/classes/Editor.Plugin.JustifyCenter.html),[justify-right](/5.0/api/classes/Editor.Plugin.JustifyRight.html),[link](/5.0/api/classes/Editor.Plugin.Link.html),[maximize](/5.0/api/classes/Editor.Plugin.Maximize.html),[multiple-upload](/5.0/api/classes/Editor.Plugin.MultipleUpload.html),[ordered-list](/5.0/api/classes/Editor.Plugin.OrderedList.html),[outdent](/5.0/api/classes/Editor.Plugin.Outdent.html),[page-break](/5.0/api/classes/Editor.Plugin.PageBreak.html),[preview](/5.0/api/classes/Editor.Plugin.Preview.html),[remove-format](/5.0/api/classes/Editor.Plugin.RemoveFormat.html),[resize](/5.0/api/classes/Editor.Plugin.EditorResize.html),[separator](/5.0/api/classes/Editor.Plugin.Separator.html),[smiley](/5.0/api/classes/Editor.Plugin.Smiley.html),[source-area](/5.0/api/classes/Editor.Plugin.SourceArea.html),[strike-through](/5.0/api/classes/Editor.Plugin.StrikeThrough.html),[table](/5.0/api/classes/Editor.Plugin.Table.html),[underline](/5.0/api/classes/Editor.Plugin.Underline.html),[undo](/5.0/api/classes/Editor.Plugin.Undo.html),[unordered-list](/5.0/api/classes/Editor.Plugin.UnOrderedList.html),[video](/5.0/api/classes/Editor.Plugin.Video.html),[xiami-music](/5.0/api/classes/Editor.Plugin.XiaMiMusic.html)
 @class Editor
 @constructor
 @extends Component.Control
 @param config {Object}
+@example
+    KISSY.use('node,editor,kg/editor-plugins/1.1.0/font-size,kg/editor-plugins/1.1.0/source-area,kg/editor-plugins/1.1.0/image', function(S, Node, Editor, FontSize, SourceArea, Image){
+        var myEditor = new Editor({
+            focused : true,
+            attachForm : true,
+            render : '#editorContainer',
+            width : '500px',
+            height : '500px',
+            plugins : [
+                FontSize,
+                SourceArea,
+                new Image({
+                    upload : {
+                        serverUrl: 'http://youurl.php',
+                        serverParams: {
+                            waterMark: function () {
+                                return Node.one("#ke_img_up_watermark_1")[0].checked;
+                            }
+                        },
+                        suffix: "png,jpg,jpeg,gif",
+                        fileInput: "Filedata",
+                        sizeLimit: 1000, //k
+                        extraHTML: "<p style='margin-top:10px;'><input type='checkbox' id='ke_img_up_watermark_1' checked='checked'> 图片加水印，防止别人盗用</p>"
+                    }
+                })
+            ]
+        });
+    })
 */
 
 /**

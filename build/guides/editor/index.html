@@ -153,12 +153,22 @@
 		<div class="row">
 			<div class="col-md-9" id="main-content">
 				<p></p>
-<h1 id="Editor基本介绍">Editor基本介绍</h1><p>Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事件。拥有多种插件适合在不同场景下使用，如 editor/plugin/font-size,editor/plugin/image 等。</p>
-<p>注：KISSY提供了参考样式<code>http://g.tbcdn.cn/kissy/edge/2014.07.16/editor/theme/cool/editor.css</code>，在使用editor前引入，用户也可以根据需要自定义样式。</p>
+<h1 id="Editor基本介绍">Editor基本介绍</h1><p>Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事件。在<a href="http://gallery.kissyui.com/">gallery</a>上拥有多种插件适合在不同场景下使用，如 kg/editor-plugins/1.1.0/font-size,kg/editor-plugins/1.1.0/image 等。更多插件及用法请看 <a href="http://gallery.kissyui.com/editor-plugins/doc/guide/index.html">editor-plugins文档</a>.</p>
+<p>注：KISSY提供了参考样式：基础样式： <code>http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css</code>，
+插件样式：<code>http://gallery.kissyui.com/editor-plugins/doc/build/assets/editor.css</code>。在使用editor前引入，用户也可以根据需要自定义样式。</p>
 <h2 id="引用方法">引用方法</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'editor'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Editor)</span></span>{
     <span class="hljs-comment">//use editor</span>
 })
-</code></pre><h2 id="一个简单的调用">一个简单的调用</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'editor,editor/plugin/font-size'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Editor, FontSize)</span></span>{
+</code></pre><h2 id="一个简单的调用">一个简单的调用</h2><pre><code><span class="hljs-comment">//先配置editor-plugins的包地址</span>
+KISSY.config({
+    packages: [
+        {
+            name: <span class="hljs-string">'kg/editor-plugins/1.1.0'</span>,  <span class="hljs-comment">//1.1.0是editor-plugins当前版本号，请选择相应的版本号使用</span>
+            base : <span class="hljs-string">'http://g.tbcdn.cn/kg/editor-plugins/1.1.0'</span>
+        }
+    ]
+})
+KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'editor,kg/editor-plugins/1.1.0/font-size'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Editor, FontSize)</span></span>{
     <span class="hljs-keyword">var</span> myEditor = <span class="hljs-keyword">new</span> Editor({
         width : <span class="hljs-string">'80%'</span>,
         height : <span class="hljs-string">'500px'</span>,
@@ -238,12 +248,12 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
 						<p><a href="../../guides/editor/index.html">Editor基本介绍</a></p>
 					</div>
 				</div>
-				<div class="panel panel-primary ajax-load hide">
+				<div class="panel panel-primary ajax-load ">
 					<div class="panel-heading">
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						
+						<p><a href="../../demos/editor/from-textarea.html">从已有的textarea创建editor</a></p><p><a href="../../demos/editor/index.html">简单使用Editor</a></p><p><a href="../../demos/editor/write-plugin.html">编写Editor插件</a></p>
 					</div>
 				</div>
 			</div>

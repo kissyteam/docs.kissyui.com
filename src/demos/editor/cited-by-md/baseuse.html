@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>简单使用Editor</title>
+<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://gallery.kissyui.com/editor-plugins/doc/build/assets/editor.css"> <!--引入editor的插件样式-->
+<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:false}"></script>
+</head>
+<body>
+<h1>简单使用Editor</h1>
+<div id="container">
+    
+</div>
+<script type="text/javascript">
+    KISSY.config({
+        packages : [
+            {
+                name : 'kg/editor-plugins/1.1.0',   //1.1.0是当前editor-plugins的版本号，使用时请选择对应的版本号
+                base : 'http://g.tbcdn.cn/kg/editor-plugins/1.1.0'
+            }
+        ]
+    });
+    KISSY.use('editor,kg/editor-plugins/1.1.0/source-area,kg/editor-plugins/1.1.0/font-size,kg/editor-plugins/1.1.0/code', function(S, Editor, SourceArea, FontSize, Code){
+        var myEditor = new Editor({
+            render : '#container',
+            focused : true,
+            textareaAttrs : {
+                name : 'my-textarea'
+            },
+            attachForm: true,
+            plugins : [
+                SourceArea, FontSize, Code
+            ]
+        });
+
+        myEditor.render();
+    })
+</script>
+</body>
+</html> 
