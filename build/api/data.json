@@ -11081,6 +11081,31 @@
         {
             "file": "src/api/editor.js",
             "line": 258,
+            "description": "从已有的textarea元素生成editor",
+            "itemtype": "method",
+            "name": "decorate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "textarea",
+                    "description": "已有的textarea元素",
+                    "type": "String|HTMLElement"
+                },
+                {
+                    "name": "cfg",
+                    "description": "编辑器的配置对象，配置键值意义和Editor构造器的一样",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    KISSY.use(['editor'], function(S, Editor){\n        var myEditorFromTextarea = Editor.decorate('#my-textarea',{\n            focused : true,\n            attachForm: true\n        })\n    })"
+            ],
+            "class": "Editor",
+            "module": "editor"
+        },
+        {
+            "file": "src/api/editor.js",
+            "line": 274,
             "description": "获取选中的html字符串",
             "itemtype": "method",
             "name": "getSelectedHtml",
@@ -11093,7 +11118,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 264,
+            "line": 280,
             "description": "获得编辑器里面的内容",
             "itemtype": "method",
             "name": "getData",
@@ -11118,7 +11143,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 272,
+            "line": 288,
             "description": "设置编辑器里的内容",
             "itemtype": "method",
             "name": "setData",
@@ -11134,7 +11159,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 278,
+            "line": 294,
             "description": "当用户黏贴文本触发，可返回值用来修改用户的黏贴内容",
             "itemtype": "event",
             "name": "paste",
@@ -11150,7 +11175,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 284,
+            "line": 300,
             "description": "当编辑区域获得焦点时触发",
             "itemtype": "event",
             "name": "focus",
@@ -11159,7 +11184,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 289,
+            "line": 305,
             "description": "当编辑区域失去焦点时触发",
             "itemtype": "event",
             "name": "blur",
@@ -11168,7 +11193,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 294,
+            "line": 310,
             "description": "当切换到可视化模式后触发",
             "itemtype": "event",
             "name": "wysiwygMode",
@@ -11177,7 +11202,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 299,
+            "line": 315,
             "description": "当切换到源码模式后触发",
             "itemtype": "event",
             "name": "sourceMode",
@@ -11186,7 +11211,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 304,
+            "line": 320,
             "description": "当用户光标路径变化后触发",
             "itemtype": "event",
             "name": "selectionChange",
@@ -11212,7 +11237,7 @@
         },
         {
             "file": "src/api/editor.js",
-            "line": 312,
+            "line": 328,
             "description": "当弹出插件窗口事触发",
             "itemtype": "event",
             "name": "dialogShow",

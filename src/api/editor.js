@@ -256,6 +256,22 @@ editor.addSelect("plugin2", {
 */
 
 /**
+从已有的textarea元素生成editor
+@method decorate
+@static
+@param textarea {String|HTMLElement} 已有的textarea元素
+@param cfg {Object} 编辑器的配置对象，配置键值意义和Editor构造器的一样
+@example
+    KISSY.use(['editor'], function(S, Editor){
+        var myEditorFromTextarea = Editor.decorate('#my-textarea',{
+            focused : true,
+            attachForm: true
+        })
+    })
+*/
+
+
+/**
 获取选中的html字符串
 @method getSelectedHtml
 @return {String} 要获取的html
