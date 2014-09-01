@@ -13,7 +13,7 @@ editor拥有各种常用的编辑器插件 —— editor-plugins ，KISSY@5.0+�
 @extends Component.Control
 @param config {Object}
 @example
-    KISSY.use('node,editor,kg/editor-plugins/1.1.0/font-size,kg/editor-plugins/1.1.0/source-area,kg/editor-plugins/1.1.0/image', function(S, Node, Editor, FontSize, SourceArea, Image){
+    KISSY.use('node,editor,kg/editor-plugins/1.1.2/font-size,kg/editor-plugins/1.1.2/source-area,kg/editor-plugins/1.1.2/image', function(S, Node, Editor, FontSize, SourceArea, Image){
         var myEditor = new Editor({
             focused : true,
             attachForm : true,
