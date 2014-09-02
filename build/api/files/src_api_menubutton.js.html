@@ -369,14 +369,41 @@
 */
 
 /**
+菜单按钮。xclass : menu-button
 @class MenuButton
 @constructor
 @extends Button
 @param config {Object}
+@example
+	KISSY.use([&#x27;menu&#x27;, &#x27;menubutton&#x27;], function(S, Menu, MenuButton){
+        var myMenuButton1 = new MenuButton({  //全新生成节点
+            content : &#x27;我的淘宝&#x27;,
+            render : &#x27;#container&#x27;,
+            matchElWidth : false,
+            menu : {
+                xclass : &#x27;popupmenu&#x27;,
+                children : [
+                    {
+                        xclass : &#x27;menuitem&#x27;,   //通过xclass来生成menuitem
+                        content : &#x27;已买到的宝贝&#x27;
+                    },
+                    new Menu.Item({            //通过构造器来生成menuitem
+                        content : &#x27;已卖出的宝贝&#x27;
+                    })
+                ],
+                listeners : {
+                    click : function(ev){
+                        S.log(ev.target.get(&#x27;content&#x27;));
+                    }
+                }
+            }
+        });
+        myMenuButton1.render();
+    });
 */
 
 /**
-可选，下拉框菜单配置/实例，具体参考 [Menu](/5.0/api/classes/Menu.html) ，默认值:
+可选，关联的下拉菜单实例/配置项，具体参考 [Menu](/5.0/api/classes/Menu.html) ，默认值:
 &#x60;&#x60;&#x60;
 {
     xclass:&#x27;popupmenu&#x27;
@@ -388,14 +415,9 @@
 */
 
 /**
-是否下拉菜单和按钮宽度一致。默认 true
+下拉菜单是否和按钮宽度一致。默认 true
 @attribute matchElWidth {Boolean}
 @default true
-*/
-
-/**
-关联的下拉菜单实例/配置项
-@attribute menu {Menu}
 */
 
 /**
@@ -441,11 +463,61 @@
 
 
 /**
+管理 select &gt; option 列表(manage a list of single-select options)，xclass : select。用于模拟selectbox
 @class Select
 @extends MenuButton
 @namespace MenuButton
 @constructor
 @param config {Object}
+@example
+	KISSY.use([&#x27;menu&#x27;, &#x27;menubutton&#x27;], function(S, Menu, MenuButton){
+		// 调用 MenuButton.Select.decorate 接口替换已有的 select 元素
+        var select = MenuButton.Select.decorate(&#x27;#decorateSelect&#x27;, {
+            width:80,
+            prefixCls:&quot;c2c-&quot;,  //自定义的c2c主题样式
+            // 设置对齐方式, 与普通的 Align 大体一致
+            // 该配置同菜单配置项
+            menu:{
+                align:{
+                    points : [&#x27;bl&#x27;, &#x27;tl&#x27;],  //默认就是这个配置，可写可不写，或根据需要进行自定义定位
+                    offset:[0, -1]
+                },
+                height:150,
+                elStyle:{
+                    overflow:&quot;auto&quot;,
+                    overflowX:&quot;hidden&quot;
+                }
+            }
+        });
+        select.on(&quot;click&quot;, function (e) {
+            alert(&#x27;当前值为: &#x27; + select.get(&quot;value&quot;));
+        });
+
+
+        //全新生成
+        var select2 = new MenuButton.Select({
+        	render : &#x27;#container&#x27;,
+			prefixCls : &#x27;c2c&#x27;,
+			width : 100,
+			menu : {
+				xclass : &#x27;popupmenu&#x27;,
+				align : {
+					offset : [0, -1]
+				},
+				children : [
+					{
+						xclass : &#x27;option&#x27;,
+						content : &#x27;杭州&#x27;
+					},
+					{
+						xclass : &#x27;option&#x27;,
+						content : &#x27;广州&#x27;
+					}
+				]
+			}
+        });
+        select2.render();
+	});
 */
 
 /**
@@ -478,11 +550,45 @@
 
 
 /**
+模拟select &gt; option，与 MenuButton.Select 配合使用。xclass : option
 @class Option
 @constructor
 @extends Menu.Item
 @namespace MenuButton
 @param config {Object}
+@example
+	KISSY.use([&#x27;menu&#x27;, &#x27;menubutton&#x27;], function(S, Menu, MenuButton){
+        //全新生成
+        var select2 = new MenuButton.Select({
+        	render : &#x27;#container&#x27;,
+			prefixCls : &#x27;c2c&#x27;,
+			width : 100,
+			menu : {
+				xclass : &#x27;popupmenu&#x27;,
+				align : {
+					offset : [0, -1]
+				},
+				children : [
+					new MenuButton.Option({   //构造器生成
+						value : &#x27;customValue&#x27;,
+						content : &#x27;北京&#x27;,
+						prefixCls:&quot;c2c-&quot;
+					}),
+					{
+						xclass : &#x27;option&#x27;,  //xclass生成
+						content : &#x27;杭州&#x27;,
+						prefixCls:&quot;c2c-&quot;
+					},
+					{
+						xclass : &#x27;option&#x27;,
+						content : &#x27;广州&#x27;,
+						prefixCls:&quot;c2c-&quot;
+					}
+				]
+			}
+        });
+        select2.render();
+	});
 */
 /**
 是否可以被选择，可以的话，单击会添加指定 class 到根节点

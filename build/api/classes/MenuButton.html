@@ -382,7 +382,8 @@
 
 
 <div class="box intro">
-    
+    <p>菜单按钮。xclass : menu-button</p>
+
 </div>
 
 
@@ -465,6 +466,39 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;menu&#39;, &#39;menubutton&#39;], function(S, Menu, MenuButton){
+    var myMenuButton1 = new MenuButton({  //全新生成节点
+        content : &#39;我的淘宝&#39;,
+        render : &#39;#container&#39;,
+        matchElWidth : false,
+        menu : {
+            xclass : &#39;popupmenu&#39;,
+            children : [
+                {
+                    xclass : &#39;menuitem&#39;,   //通过xclass来生成menuitem
+                    content : &#39;已买到的宝贝&#39;
+                },
+                new Menu.Item({            //通过构造器来生成menuitem
+                    content : &#39;已卖出的宝贝&#39;
+                })
+            ],
+            listeners : {
+                click : function(ev){
+                    S.log(ev.target.get(&#39;content&#39;));
+                }
+            }
+        }
+    });
+    myMenuButton1.render();
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 
@@ -807,10 +841,6 @@
                         
                             <li class="index-item attr" inwhichtab="attrs">
                                 <a href="#attr_matchElWidth">matchElWidth</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_menu">menu</a>
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
@@ -5102,58 +5132,12 @@ or
     </div>
 
     <div class="description">
-        <p>是否下拉菜单和按钮宽度一致。默认 true</p>
+        <p>下拉菜单是否和按钮宽度一致。默认 true</p>
 
     </div>
 
     
         <p><strong>Default:</strong> true</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_menu" class="attr item">
-    <a name="config_menu"></a> 
-    <h3 class="name"><code>menu</code></h3>
-    <span class="type"><a href="../classes/Menu.html" class="crosslink">Menu</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>关联的下拉菜单实例/配置项</p>
-
-    </div>
-
     
 
     
@@ -5198,7 +5182,7 @@ or
     </div>
 
     <div class="description">
-        <p>可选，下拉框菜单配置/实例，具体参考 <a href="/5.0/api/classes/Menu.html">Menu</a> ，默认值:</p>
+        <p>可选，关联的下拉菜单实例/配置项，具体参考 <a href="/5.0/api/classes/Menu.html">Menu</a> ，默认值:</p>
 <pre class="code prettyprint"><code>{
     xclass:&#39;popupmenu&#39;
 }</code></pre>

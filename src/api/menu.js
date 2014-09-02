@@ -73,6 +73,7 @@ menu.set("highlightedItem",null);
 
 
 /**
+菜单项。xclass : menuitem
 @class Item
 @constructor
 @extends Component.Control
@@ -205,7 +206,7 @@ menu.set("highlightedItem",null);
 
 
 /**
-弹出菜单。
+弹出菜单。xclass : popmenu
 @class PopupMenu
 @constructor
 @extends Menu

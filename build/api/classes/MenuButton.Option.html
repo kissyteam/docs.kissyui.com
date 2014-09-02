@@ -382,7 +382,8 @@
 
 
 <div class="box intro">
-    
+    <p>模拟select &gt; option，与 MenuButton.Select 配合使用。xclass : option</p>
+
 </div>
 
 
@@ -465,6 +466,46 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;menu&#39;, &#39;menubutton&#39;], function(S, Menu, MenuButton){
+    //全新生成
+    var select2 = new MenuButton.Select({
+        render : &#39;#container&#39;,
+        prefixCls : &#39;c2c&#39;,
+        width : 100,
+        menu : {
+            xclass : &#39;popupmenu&#39;,
+            align : {
+                offset : [0, -1]
+            },
+            children : [
+                new MenuButton.Option({   //构造器生成
+                    value : &#39;customValue&#39;,
+                    content : &#39;北京&#39;,
+                    prefixCls:&quot;c2c-&quot;
+                }),
+                {
+                    xclass : &#39;option&#39;,  //xclass生成
+                    content : &#39;杭州&#39;,
+                    prefixCls:&quot;c2c-&quot;
+                },
+                {
+                    xclass : &#39;option&#39;,
+                    content : &#39;广州&#39;,
+                    prefixCls:&quot;c2c-&quot;
+                }
+            ]
+        }
+    });
+    select2.render();
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 

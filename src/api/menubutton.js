@@ -3,14 +3,41 @@
 */
 
 /**
+菜单按钮。xclass : menu-button
 @class MenuButton
 @constructor
 @extends Button
 @param config {Object}
+@example
+	KISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){
+        var myMenuButton1 = new MenuButton({  //全新生成节点
+            content : '我的淘宝',
+            render : '#container',
+            matchElWidth : false,
+            menu : {
+                xclass : 'popupmenu',
+                children : [
+                    {
+                        xclass : 'menuitem',   //通过xclass来生成menuitem
+                        content : '已买到的宝贝'
+                    },
+                    new Menu.Item({            //通过构造器来生成menuitem
+                        content : '已卖出的宝贝'
+                    })
+                ],
+                listeners : {
+                    click : function(ev){
+                        S.log(ev.target.get('content'));
+                    }
+                }
+            }
+        });
+        myMenuButton1.render();
+    });
 */
 
 /**
-可选，下拉框菜单配置/实例，具体参考 [Menu](/5.0/api/classes/Menu.html) ，默认值:
+可选，关联的下拉菜单实例/配置项，具体参考 [Menu](/5.0/api/classes/Menu.html) ，默认值:
 ```
 {
     xclass:'popupmenu'
@@ -22,14 +49,9 @@
 */
 
 /**
-是否下拉菜单和按钮宽度一致。默认 true
+下拉菜单是否和按钮宽度一致。默认 true
 @attribute matchElWidth {Boolean}
 @default true
-*/
-
-/**
-关联的下拉菜单实例/配置项
-@attribute menu {Menu}
 */
 
 /**
@@ -75,11 +97,61 @@
 
 
 /**
+管理 select > option 列表(manage a list of single-select options)，xclass : select。用于模拟selectbox
 @class Select
 @extends MenuButton
 @namespace MenuButton
 @constructor
 @param config {Object}
+@example
+	KISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){
+		// 调用 MenuButton.Select.decorate 接口替换已有的 select 元素
+        var select = MenuButton.Select.decorate('#decorateSelect', {
+            width:80,
+            prefixCls:"c2c-",  //自定义的c2c主题样式
+            // 设置对齐方式, 与普通的 Align 大体一致
+            // 该配置同菜单配置项
+            menu:{
+                align:{
+                    points : ['bl', 'tl'],  //默认就是这个配置，可写可不写，或根据需要进行自定义定位
+                    offset:[0, -1]
+                },
+                height:150,
+                elStyle:{
+                    overflow:"auto",
+                    overflowX:"hidden"
+                }
+            }
+        });
+        select.on("click", function (e) {
+            alert('当前值为: ' + select.get("value"));
+        });
+
+
+        //全新生成
+        var select2 = new MenuButton.Select({
+        	render : '#container',
+			prefixCls : 'c2c',
+			width : 100,
+			menu : {
+				xclass : 'popupmenu',
+				align : {
+					offset : [0, -1]
+				},
+				children : [
+					{
+						xclass : 'option',
+						content : '杭州'
+					},
+					{
+						xclass : 'option',
+						content : '广州'
+					}
+				]
+			}
+        });
+        select2.render();
+	});
 */
 
 /**
@@ -112,11 +184,45 @@
 
 
 /**
+模拟select > option，与 MenuButton.Select 配合使用。xclass : option
 @class Option
 @constructor
 @extends Menu.Item
 @namespace MenuButton
 @param config {Object}
+@example
+	KISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){
+        //全新生成
+        var select2 = new MenuButton.Select({
+        	render : '#container',
+			prefixCls : 'c2c',
+			width : 100,
+			menu : {
+				xclass : 'popupmenu',
+				align : {
+					offset : [0, -1]
+				},
+				children : [
+					new MenuButton.Option({   //构造器生成
+						value : 'customValue',
+						content : '北京',
+						prefixCls:"c2c-"
+					}),
+					{
+						xclass : 'option',  //xclass生成
+						content : '杭州',
+						prefixCls:"c2c-"
+					},
+					{
+						xclass : 'option',
+						content : '广州',
+						prefixCls:"c2c-"
+					}
+				]
+			}
+        });
+        select2.render();
+	});
 */
 /**
 是否可以被选择，可以的话，单击会添加指定 class 到根节点

@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>简单菜单按钮/从已有元素生成 - KISSY v5.0 Documentation</title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/github.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+	<script type="text/javascript" src="/5.0/assets/js/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute',
+						listeners : {
+							click : function(){
+								window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
+							}
+						}
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								},
+								{
+									content : 'Gallery',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://gallery.kissyui.com/';
+										}
+									}
+								},
+								{
+									content : 'Kissy Blog',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://blog.kissyui.com/';
+										}
+									}
+								},
+								{
+									content : 'KMC',
+									listeners : {
+										click : function(){
+											window.location.href = 'https://github.com/daxingplay/grunt-kmc/blob/master/README.md';
+										}
+									}
+								},
+								{
+									content : 'ABC',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://abc.f2e.taobao.net/';
+										}
+									}
+								},
+								{
+									content : 'Clam',
+									listeners : {
+										click : function(){
+											window.location.href = 'https://github.com/jayli/generator-clam/blob/master/README.md';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-9"  id="main-content">
+				<p></p>
+<h1 id="简单菜单按钮/从已有元素生成">简单菜单按钮/从已有元素生成</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+        <div class="ks-tabs-tab ks-button">QRCode</div>
+    </div>
+    <div class="ks-tabs-body" style="overflow:hidden;">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;简单菜单按钮&#x2F;从已有元素生成&lt;&#x2F;title&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;menubutton&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;menu&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;style type=&quot;text&#x2F;css&quot;&gt;
+    .ks-button-focused{
+        border-color:orange;
+    }
+&lt;&#x2F;style&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;h1&gt;简单菜单按钮&#x2F;从已有元素生成&lt;&#x2F;h1&gt;
+&lt;div style=&quot;margin : 0 auto; width : 80%; border:1px solid red; overflow : auto; height:400px;&quot;&gt;
+    &lt;div&gt;
+        &lt;h1&gt;菜单按钮说明&lt;&#x2F;h1&gt;
+        &lt;h2&gt;设计说明&lt;&#x2F;h2&gt;
+        &lt;ol&gt;
+            &lt;li&gt;支持键盘，鼠标互操作&lt;&#x2F;li&gt;
+            &lt;li&gt;符合 wai-aria 规范&lt;&#x2F;li&gt;
+            &lt;li&gt;构建组件层次&lt;&#x2F;li&gt;
+        &lt;&#x2F;ol&gt;
+
+        &lt;h2&gt;使用说明&lt;&#x2F;h2&gt;
+        &lt;ol&gt;
+            &lt;li&gt;
+                tab 移动焦点到按钮：按钮周边粉框
+            &lt;&#x2F;li&gt;
+            &lt;li&gt;
+                按钮获得焦点时点击上或下键，弹出菜单
+                &lt;ol&gt;
+                    &lt;li&gt;或点击按钮弹出菜单&lt;&#x2F;li&gt;
+                &lt;&#x2F;ol&gt;
+            &lt;&#x2F;li&gt;
+
+
+            &lt;li&gt;
+                菜单弹出后，上下键选择菜单项
+                &lt;ol&gt;
+                    &lt;li&gt;或通过鼠标掠过&lt;&#x2F;li&gt;
+                &lt;&#x2F;ol&gt;
+            &lt;&#x2F;li&gt;
+
+            &lt;li&gt;
+                带有子菜单的菜单项通过右键激活子菜单，左键收缩子菜单
+                &lt;ol&gt;
+                    &lt;li&gt;或通过鼠标掠过，自动弹出子菜单&lt;&#x2F;li&gt;
+                &lt;&#x2F;ol&gt;
+            &lt;&#x2F;li&gt;
+
+            &lt;li&gt;
+                菜单项弹出后，按下 enter 或 space 则选中当前高亮菜单项
+                &lt;ol&gt;
+                    &lt;li&gt;或通过鼠标点击选中任意菜单项&lt;&#x2F;li&gt;
+                &lt;&#x2F;ol&gt;
+            &lt;&#x2F;li&gt;
+
+            &lt;li&gt;
+                esc 隐藏下拉菜单（焦点仍然在按钮上）
+                &lt;ol&gt;
+                    &lt;li&gt;或通过鼠标点击文档空白区域（按钮失去焦点）&lt;&#x2F;li&gt;
+                &lt;&#x2F;ol&gt;
+            &lt;&#x2F;li&gt;
+        &lt;&#x2F;ol&gt;
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;h1  style=&quot;margin : 0 auto; width : 80%;&quot;&gt;示例：&lt;&#x2F;h1&gt;
+&lt;div id=&quot;container&quot;  style=&quot;margin : 0 auto; width : 80%;&quot;&gt;
+    &lt;p&gt;全新生成节点:&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div id=&quot;container2&quot;  style=&quot;margin : 0 auto; width : 80%;&quot;&gt;
+    &lt;p&gt;从已有元素生成（html结构必须符合规范和相应的class）:&lt;&#x2F;p&gt;
+    &lt;div class=&quot;ks-menu-button ks-button&quot; id=&quot;exist&quot; tabindex=&quot;0&quot;&gt;
+        &lt;div class=&quot;ks-menu-button-content&quot;&gt;我的淘宝&lt;&#x2F;div&gt;
+        &lt;div class=&quot;ks-menu-button-dropdown ks-button-dropdown&quot;&gt;
+            &lt;div class=&quot;ks-menu-button-dropdown-inner ks-button-dropdown-inner&quot;&gt;
+            &lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+        &lt;div class=&quot;ks-menu ks-popupmenu&quot;&gt;
+            &lt;div class=&quot;ks-popupmenu-content&quot;&gt;
+                &lt;div class=&quot;ks-menuitem ks-menuitem-checkable&quot;&gt;已买到的宝贝&lt;&#x2F;div&gt;
+                &lt;div class=&quot;ks-menuitem ks-menuitem-checkable&quot;&gt;已卖出的宝贝&lt;&#x2F;div&gt;
+            &lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;script type=&quot;text&#x2F;javascript&quot;&gt;
+    KISSY.use([&#x27;menu&#x27;, &#x27;menubutton&#x27;], function(S, Menu, MenuButton){
+        var myMenuButton1 = new MenuButton({  &#x2F;&#x2F;全新生成节点
+            content : &#x27;我的淘宝&#x27;,
+            render : &#x27;#container&#x27;,
+            matchElWidth : false,
+            menu : {
+                xclass : &#x27;popupmenu&#x27;,
+                children : [
+                    {
+                        xclass : &#x27;menuitem&#x27;,   &#x2F;&#x2F;通过xclass来生成menuitem
+                        content : &#x27;已买到的宝贝&#x27;
+                    },
+                    new Menu.Item({            &#x2F;&#x2F;通过构造器来生成menuitem
+                        content : &#x27;已卖出的宝贝&#x27;
+                    })
+                ],
+                listeners : {
+                    click : function(ev){
+                        S.log(ev.target.get(&#x27;content&#x27;));
+                    }
+                }
+            }
+        });
+        myMenuButton1.render();
+
+        var myMenuButton2 = new MenuButton({  &#x2F;&#x2F;从已有元素生成
+            srcNode : &#x27;#exist&#x27;,
+            matchElWidth : false,
+            listeners : {
+                click : function(ev){
+                    S.log(ev.target.get(&#x27;content&#x27;));
+                }
+            }
+        });
+        myMenuButton2.render();
+    });
+&lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt; 
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+        <div class="ks-tabs-panel">
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/menubutton/cited-by-md/baseuse.html" ="text">示例地址：docs.kissyui.com/5.0/demos/menubutton/cited-by-md/baseuse.html</p>
+            <div class="qrcode"></div>
+        </div>
+    </div>
+</div></p>
+
+	   			<div id="disqus_thread"></div>
+	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+	   			<a id="apilink" href="../../api/modules/menubutton.html" style="display:none;"></a>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="../../api/modules/menubutton.html">API Docs</a>
+				<div class="panel panel-primary ajax-load hide">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load ">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../demos/menubutton/cascaded-select.html">级联菜单</a></p><p><a href="../../demos/menubutton/emulate-selectbox.html">模拟 selectbox</a></p><p><a href="../../demos/menubutton/index.html">简单菜单按钮/从已有元素生成</a></p><p><a href="../../demos/menubutton/multi-select.html">多选菜单using menubutton</a></p>
+					</div>
+				</div>
+			</div>
+			<div id="disqus_thread"></div>
+<script>
+    if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+     //var disqus_identifier = '/anim';
+     //var disqus_url = window.location;
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    }
+</script>
+<script>
+    window.onload = function(){
+        (function() {
+        var cx = '003618533255763067140:5nkycw1pbey';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    }
+</script>
+		</div>
+	</div>
+</body>
+</html>

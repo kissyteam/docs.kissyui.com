@@ -382,7 +382,8 @@
 
 
 <div class="box intro">
-    
+    <p>管理 select &gt; option 列表(manage a list of single-select options)，xclass : select。用于模拟selectbox</p>
+
 </div>
 
 
@@ -465,6 +466,62 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;menu&#39;, &#39;menubutton&#39;], function(S, Menu, MenuButton){
+    // 调用 MenuButton.Select.decorate 接口替换已有的 select 元素
+    var select = MenuButton.Select.decorate(&#39;#decorateSelect&#39;, {
+        width:80,
+        prefixCls:&quot;c2c-&quot;,  //自定义的c2c主题样式
+        // 设置对齐方式, 与普通的 Align 大体一致
+        // 该配置同菜单配置项
+        menu:{
+            align:{
+                points : [&#39;bl&#39;, &#39;tl&#39;],  //默认就是这个配置，可写可不写，或根据需要进行自定义定位
+                offset:[0, -1]
+            },
+            height:150,
+            elStyle:{
+                overflow:&quot;auto&quot;,
+                overflowX:&quot;hidden&quot;
+            }
+        }
+    });
+    select.on(&quot;click&quot;, function (e) {
+        alert(&#39;当前值为: &#39; + select.get(&quot;value&quot;));
+    });
+
+
+    //全新生成
+    var select2 = new MenuButton.Select({
+        render : &#39;#container&#39;,
+        prefixCls : &#39;c2c&#39;,
+        width : 100,
+        menu : {
+            xclass : &#39;popupmenu&#39;,
+            align : {
+                offset : [0, -1]
+            },
+            children : [
+                {
+                    xclass : &#39;option&#39;,
+                    content : &#39;杭州&#39;
+                },
+                {
+                    xclass : &#39;option&#39;,
+                    content : &#39;广州&#39;
+                }
+            ]
+        }
+    });
+    select2.render();
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 
@@ -824,7 +881,7 @@
                                 <a href="#attr_matchElWidth">matchElWidth</a>
                             </li>
                         
-                            <li class="index-item attr inherited inherited" inwhichtab="attrs">
+                            <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_menu">menu</a>
                             </li>
                         
@@ -5346,7 +5403,7 @@ or
     </div>
 
     <div class="description">
-        <p>是否下拉菜单和按钮宽度一致。默认 true</p>
+        <p>下拉菜单是否和按钮宽度一致。默认 true</p>
 
     </div>
 
@@ -5383,12 +5440,9 @@ or
 
     <div class="meta">
         
-            <p>Inherited from
-            <a href="../classes/MenuButton.html#attr_menu">
-                MenuButton
-            </a>
             
-            but overwritten by this Class
+                <p>Inherited from
+                <a href="../classes/MenuButton.html#attr_menu">MenuButton</a>
             
         
         </p>
@@ -5399,7 +5453,7 @@ or
     </div>
 
     <div class="description">
-        <p><p>可选，下拉框菜单配置/实例，具体参考 <a href="/5.0/api/classes/Menu.html">Menu</a> ，默认值:</p></p>
+        <p><p>可选，关联的下拉菜单实例/配置项，具体参考 <a href="/5.0/api/classes/Menu.html">Menu</a> ，默认值:</p></p>
 <pre class="code prettyprint"><code>{
     xclass:&#39;popupmenu&#39;
 }</code></pre>
