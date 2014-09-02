@@ -138,11 +138,13 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu href="/5.0/api/classes/Menu.html">Menu</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckMenuItem href="/5.0/api/classes/Menu.CheckMenuItem.html">Menu.CheckMenuItem</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckItem href="/5.0/api/classes/Menu.CheckItem.html">Menu.CheckItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.Item href="/5.0/api/classes/Menu.Item.html">Menu.Item</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.PopupMenu href="/5.0/api/classes/Menu.PopupMenu.html">Menu.PopupMenu</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.RadioItem href="/5.0/api/classes/Menu.RadioItem.html">Menu.RadioItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.SubMenu href="/5.0/api/classes/Menu.SubMenu.html">Menu.SubMenu</a></li>
             
@@ -367,10 +369,53 @@
 */
 
 /**
+菜单。xclass : menu
 @class Menu
 @constructor
 @extends Component.Container
 @param config {Object}
+@example
+	//先引入样式文件：
+	//http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css
+	//http://g.tbcdn.cn/kissy/edge/2014.07.16/menu/assets/dpl.css
+	KISSY.use([&#x27;menu&#x27;, &#x27;separator&#x27;], function(S, Menu, Separator){
+        var myMenu = new Menu({
+            render : &#x27;#container&#x27;,
+            width : 150,
+            children : [
+                new Menu.Item({  //通过构造器来生成 Menu.Item 节点
+                    content : &#x27;item1&#x27;
+                }),
+                {
+                    xclass : &#x27;menuitem&#x27;,  //通过xclass来生成 Menu.Item 节点
+                    content : &#x27;item2&#x27;
+                },
+                {
+                    xclass:&#x27;separator&#x27;    //分隔符
+                },
+                {
+                    xclass : &#x27;submenu&#x27;,
+                    content : &#x27;submenu&#x27;,
+                    menu : new Menu.PopupMenu({
+                        autoHideOnMouseLeave:true,
+                        width : 150,
+                        children : [
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                content : &#x27;item1InSubMenu&#x27;
+                            },
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                content : &#x27;item2InSubMenu&#x27;
+                            }
+                        ]
+                    })
+                }
+            ]
+        });
+
+        myMenu.render();
+    });
 */
 
 /**
@@ -381,6 +426,7 @@
 //Hint
 //隐藏当前菜单的子菜单只需要将该属性置 null 即可
 menu.set(&quot;highlightedItem&quot;,null);
+&#x60;&#x60;&#x60;
 */
 
 /**
@@ -398,6 +444,24 @@ menu.set(&quot;highlightedItem&quot;,null);
 @extends Component.Control
 @namespace Menu
 @param config {Object}
+@example
+    KISSY.use([&#x27;menu&#x27;], function(S, Menu){
+        var myMenu = new Menu({
+            render : &#x27;#container&#x27;,
+            width : 150,
+            children : [
+                new Menu.Item({  //通过构造器来生成 Menu.Item 节点
+                    content : &#x27;item1&#x27;
+                }),
+                {
+                    xclass : &#x27;menuitem&#x27;,  //通过xclass来生成 Menu.Item 节点
+                    content : &#x27;item2&#x27;
+                }
+            ]
+        });
+
+        myMenu.render();
+    });
 */
 
 /**
@@ -430,11 +494,6 @@ menu.set(&quot;highlightedItem&quot;,null);
 */
 
 /**
-当前菜单项的值
-@attribute value {Any}
-*/
-
-/**
 当前菜单项的显示内容
 @attribute content {String}
 */
@@ -442,11 +501,51 @@ menu.set(&quot;highlightedItem&quot;,null);
 
 
 /**
+子菜单，用来拓展子菜单。
 @class SubMenu
 @constructor
 @extends Menu.Item
 @namespace Menu
 @param config {Object}
+@example
+    KISSY.use([&#x27;menu&#x27;, &#x27;separator&#x27;], function(S, Menu, Separator){
+        var myMenu = new Menu({
+            render : &#x27;#container&#x27;,
+            width : 150,
+            children : [
+                new Menu.Item({  //通过构造器来生成 Menu.Item 节点
+                    content : &#x27;item1&#x27;
+                }),
+                {
+                    xclass : &#x27;menuitem&#x27;,  //通过xclass来生成 Menu.Item 节点
+                    content : &#x27;item2&#x27;
+                },
+                {
+                    xclass:&#x27;separator&#x27;    //分隔符
+                },
+                {
+                    xclass : &#x27;submenu&#x27;,  //通过 xclass 来生产 Menu.SubMenu
+                    content : &#x27;submenu&#x27;,
+                    menu : new Menu.PopupMenu({
+                        autoHideOnMouseLeave:true,
+                        width : 150,
+                        children : [
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                content : &#x27;item1InSubMenu&#x27;
+                            },
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                content : &#x27;item2InSubMenu&#x27;
+                            }
+                        ]
+                    })
+                }
+            ]
+        });
+
+        myMenu.render();
+    });
 */
 
 /**
@@ -468,29 +567,57 @@ menu.set(&quot;highlightedItem&quot;,null);
 @default false
 */
 
-/**
-鼠标掠过后多长时间显示子菜单.
-@attribute menuDelay {Number}
-*/
-
-/**
-子菜单实例
-@attribute menu {Menu}
-*/
-
-/**
-销毁该菜单项是否顺带销毁子菜单
-@attribute externalSubMenu {Boolean}
-*/
 
 
 
 /**
+弹出菜单。
 @class PopupMenu
 @constructor
 @extends Menu
-@uses Align
+@uses Component.Extension.Align
+@uses Component.Extension.Shim
+@uses Component.Extension.ContentBox
 @param config {Object}
+@example    
+    KISSY.use([&#x27;menu&#x27;, &#x27;separator&#x27;], function(S, Menu, Separator){
+        var myMenu = new Menu({
+            render : &#x27;#container&#x27;,
+            width : 150,
+            children : [
+                new Menu.Item({  //通过构造器来生成 Menu.Item 节点
+                    content : &#x27;item1&#x27;
+                }),
+                {
+                    xclass : &#x27;menuitem&#x27;,  //通过xclass来生成 Menu.Item 节点
+                    content : &#x27;item2&#x27;
+                },
+                {
+                    xclass:&#x27;separator&#x27;    //分隔符
+                },
+                {
+                    xclass : &#x27;submenu&#x27;,
+                    content : &#x27;submenu&#x27;,
+                    menu : new Menu.PopupMenu({
+                        autoHideOnMouseLeave:true,
+                        width : 150,
+                        children : [
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                content : &#x27;item1InSubMenu&#x27;
+                            },
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                content : &#x27;item2InSubMenu&#x27;
+                            }
+                        ]
+                    })
+                }
+            ]
+        });
+
+        myMenu.render();
+    });
 */
 
 /**
@@ -513,11 +640,46 @@ menu.set(&quot;highlightedItem&quot;,null);
 */
 
 /**
-checkable 菜单项
-@class CheckMenuItem
+多选菜单项。xclass : check-menuitem。所有class为CheckItem的多选菜单项，可以选中多个，区别于RadioItem
+@class CheckItem
+@namespace Menu
 @constructor
 @extends Menu.Item
 @param config {Object}
+@example
+	KISSY.use([&#x27;menu&#x27;, &#x27;separator&#x27;], function(S, Menu, Separator){
+        new Menu({
+            render:&quot;#container&quot;,
+            width : 150,
+            children:[
+                {
+                    xclass:&#x27;check-menuitem&#x27;,
+                    content:&quot;checkable menuitem&quot;
+                },
+                {
+                    xclass:&#x27;separator&#x27;
+                },
+                {
+                    xclass:&#x27;submenu&#x27;,
+                    content:&#x27;submenu&#x27;,
+                    menu : new Menu.PopupMenu({
+                        autoHideOnMouseLeave:true,
+                        width : 150,
+                        children:[
+                            {
+                                xclass:&#x27;check-menuitem&#x27;,
+                                content:&quot;checkable menuitem1&quot;
+                            },
+                            {
+                                xclass:&#x27;check-menuitem&#x27;,
+                                content:&quot;checkable menuitem2&quot;
+                            }
+                        ]
+                    })
+                }
+            ]
+        }).render();
+    });
 */
 
 /**
@@ -526,6 +688,55 @@ checkable 菜单项
 @default true
 */ 
 
+
+
+/**
+单选菜单项。xclass : radio-menuitem。所有class为RadioItem的单选菜单项，只能选中一个，区别于CheckItem
+@class RadioItem
+@namespace Menu
+@constructor
+@param config {Object}
+@extends Menu.Item
+@example
+    KISSY.use([&#x27;menu&#x27;, &#x27;separator&#x27;], function(S, Menu, Separator){
+        var myMenu = new Menu({
+            render : &#x27;#container&#x27;,
+            width : 150,
+            children : [
+                new Menu.RadioItem({  //通过构造器来生成 Menu.RadioItem 单选节点
+                    content : &#x27;item1&#x27;
+                }),
+                {
+                    xclass : &#x27;radio-menuitem&#x27;,  //通过xclass来生成 Menu.RadioItem 单选节点
+                    content : &#x27;item2&#x27;
+                },
+                {
+                    xclass:&#x27;separator&#x27;    //分隔符
+                },
+                {
+                    xclass : &#x27;submenu&#x27;,
+                    content : &#x27;submenu&#x27;,
+                    menu : new Menu.PopupMenu({
+                        autoHideOnMouseLeave:true,
+                        width : 150,
+                        children : [
+                            {
+                                xclass : &#x27;radio-menuitem&#x27;,
+                                content : &#x27;item1InSubMenu&#x27;
+                            },
+                            {
+                                xclass : &#x27;radio-menuitem&#x27;,
+                                content : &#x27;item2InSubMenu&#x27;
+                            }
+                        ]
+                    })
+                }
+            ]
+        });
+
+        myMenu.render();
+    });
+*/
     </pre>
 </div>
 

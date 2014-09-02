@@ -138,11 +138,13 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu href="/5.0/api/classes/Menu.html">Menu</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckMenuItem href="/5.0/api/classes/Menu.CheckMenuItem.html">Menu.CheckMenuItem</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckItem href="/5.0/api/classes/Menu.CheckItem.html">Menu.CheckItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.Item href="/5.0/api/classes/Menu.Item.html">Menu.Item</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.PopupMenu href="/5.0/api/classes/Menu.PopupMenu.html">Menu.PopupMenu</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.RadioItem href="/5.0/api/classes/Menu.RadioItem.html">Menu.RadioItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.SubMenu href="/5.0/api/classes/Menu.SubMenu.html">Menu.SubMenu</a></li>
             
@@ -380,7 +382,8 @@
 
 
 <div class="box intro">
-    
+    <p>子菜单，用来拓展子菜单。</p>
+
 </div>
 
 
@@ -463,6 +466,52 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;menu&#39;, &#39;separator&#39;], function(S, Menu, Separator){
+    var myMenu = new Menu({
+        render : &#39;#container&#39;,
+        width : 150,
+        children : [
+            new Menu.Item({  //通过构造器来生成 Menu.Item 节点
+                content : &#39;item1&#39;
+            }),
+            {
+                xclass : &#39;menuitem&#39;,  //通过xclass来生成 Menu.Item 节点
+                content : &#39;item2&#39;
+            },
+            {
+                xclass:&#39;separator&#39;    //分隔符
+            },
+            {
+                xclass : &#39;submenu&#39;,  //通过 xclass 来生产 Menu.SubMenu
+                content : &#39;submenu&#39;,
+                menu : new Menu.PopupMenu({
+                    autoHideOnMouseLeave:true,
+                    width : 150,
+                    children : [
+                        {
+                            xclass : &#39;menuitem&#39;,
+                            content : &#39;item1InSubMenu&#39;
+                        },
+                        {
+                            xclass : &#39;menuitem&#39;,
+                            content : &#39;item2InSubMenu&#39;
+                        }
+                    ]
+                })
+            }
+        ]
+    });
+
+    myMenu.render();
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 
@@ -751,10 +800,6 @@
                                 <a href="#attr_externalSubMenu">externalSubMenu</a>
                             </li>
                         
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_externalSubMenu">externalSubMenu</a>
-                            </li>
-                        
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_focused">focused</a>
                             </li>
@@ -777,14 +822,6 @@
                         
                             <li class="index-item attr" inwhichtab="attrs">
                                 <a href="#attr_menu">menu</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_menu">menu</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_menuDelay">menuDelay</a>
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
@@ -827,7 +864,7 @@
                                 <a href="#attr_srcNode">srcNode</a>
                             </li>
                         
-                            <li class="index-item attr inherited inherited" inwhichtab="attrs">
+                            <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_value">value</a>
                             </li>
                         
@@ -4328,52 +4365,6 @@
     
 
     
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>销毁该菜单项是否顺带销毁子菜单</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_externalSubMenu" class="attr item">
-    <a name="config_externalSubMenu"></a> 
-    <h3 class="name"><code>externalSubMenu</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
         <span class="flag optional">optional</span>
     
 
@@ -4699,98 +4690,6 @@ or
 
     <div class="description">
         <p>子菜单实例</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_menu" class="attr item">
-    <a name="config_menu"></a> 
-    <h3 class="name"><code>menu</code></h3>
-    <span class="type"><a href="../classes/Menu.html" class="crosslink">Menu</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>子菜单实例</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_menuDelay" class="attr item">
-    <a name="config_menuDelay"></a> 
-    <h3 class="name"><code>menuDelay</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>鼠标掠过后多长时间显示子菜单.</p>
 
     </div>
 
@@ -5298,12 +5197,9 @@ or
 
     <div class="meta">
         
-            <p>Inherited from
-            <a href="../classes/Menu.Item.html#attr_value">
-                Menu.Item
-            </a>
             
-            but overwritten by this Class
+                <p>Inherited from
+                <a href="../classes/Menu.Item.html#attr_value">Menu.Item</a>
             
         
         </p>

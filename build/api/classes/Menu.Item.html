@@ -138,11 +138,13 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu href="/5.0/api/classes/Menu.html">Menu</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckMenuItem href="/5.0/api/classes/Menu.CheckMenuItem.html">Menu.CheckMenuItem</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckItem href="/5.0/api/classes/Menu.CheckItem.html">Menu.CheckItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.Item href="/5.0/api/classes/Menu.Item.html">Menu.Item</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.PopupMenu href="/5.0/api/classes/Menu.PopupMenu.html">Menu.PopupMenu</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.RadioItem href="/5.0/api/classes/Menu.RadioItem.html">Menu.RadioItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.SubMenu href="/5.0/api/classes/Menu.SubMenu.html">Menu.SubMenu</a></li>
             
@@ -463,6 +465,31 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;menu&#39;], function(S, Menu){
+    var myMenu = new Menu({
+        render : &#39;#container&#39;,
+        width : 150,
+        children : [
+            new Menu.Item({  //通过构造器来生成 Menu.Item 节点
+                content : &#39;item1&#39;
+            }),
+            {
+                xclass : &#39;menuitem&#39;,  //通过xclass来生成 Menu.Item 节点
+                content : &#39;item2&#39;
+            }
+        ]
+    });
+
+    myMenu.render();
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 
@@ -805,10 +832,6 @@
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_srcNode">srcNode</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_value">value</a>
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
@@ -5010,52 +5033,6 @@ or
 
     <div class="description">
         <p>可选，组件从页面中已存在的该节点中渲染而来.srcNode 时设置其他属性不起作用，属性通通在 html 标签中指定，并且 html 标签必须包含完整结构，例如 content 节点必须存在</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_value" class="attr item">
-    <a name="config_value"></a> 
-    <h3 class="name"><code>value</code></h3>
-    <span class="type">Any</span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>当前菜单项的值</p>
 
     </div>
 

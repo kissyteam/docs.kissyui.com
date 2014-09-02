@@ -475,7 +475,8 @@
                 "Menu.Item": 1,
                 "Menu.SubMenu": 1,
                 "Menu.PopupMenu": 1,
-                "Menu.CheckMenuItem": 1
+                "Menu.CheckItem": 1,
+                "Menu.RadioItem": 1
             },
             "fors": {},
             "namespaces": {
@@ -1206,7 +1207,8 @@
                 "Menu.Item": 1,
                 "Menu.SubMenu": 1,
                 "Menu.PopupMenu": 1,
-                "Menu.CheckMenuItem": 1
+                "Menu.CheckItem": 1,
+                "Menu.RadioItem": 1
             },
             "fors": {},
             "namespaces": {
@@ -1214,7 +1216,7 @@
             },
             "tag": "module",
             "file": "src/api/menu.js",
-            "line": 151
+            "line": 327
         },
         "menubutton": {
             "name": "menubutton",
@@ -1448,6 +1450,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [
+                "Menu.PopupMenu",
                 "Overlay"
             ],
             "module": "component/extension/align",
@@ -1470,7 +1473,9 @@
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": [],
+            "extension_for": [
+                "Menu.PopupMenu"
+            ],
             "module": "component/extension/content-box",
             "namespace": "Component.Extension",
             "file": "src/api/component/extension/content-box.js",
@@ -1506,6 +1511,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [
+                "Menu.PopupMenu",
                 "Overlay"
             ],
             "module": "component/extension/shim",
@@ -1802,7 +1808,7 @@
             "namespace": "",
             "file": "src/api/event/dom.js",
             "line": 6,
-            "description": "处理 DOM 事件\n```\nKISSY.use('event/dom', function(S, DomEvent){\n    DomEvent.on(document.body,{\n        'click':{\n            fn:function(){\n                alert('hello,kissy..');\n            },\n            // filter: '', // delegate,\n            once:true // 绑定一次\n        },\n        'mouseenter':function(){}\n    });\n\n    //写法相当于\n    DomEvent.on(document.body, 'click', function(){\n\t\talert('hello,kissy..');\n    })\n})\n```",
+            "description": "处理 DOM 事件。DomEvent处理标准的event事件，除此之外还拓展了下面介绍的 Events \n```\nKISSY.use('event/dom', function(S, DomEvent){\n    DomEvent.on(document.body,{\n        'click':{\n            fn:function(){\n                alert('hello,kissy..');\n            },\n            // filter: '', // delegate,\n            once:true // 绑定一次\n        },\n        'mouseenter':function(){}\n    });\n\n    //写法相当于\n    DomEvent.on(document.body, 'click', function(){\n\t\talert('hello,kissy..');\n    })\n})\n```",
             "static": 1
         },
         "Resizable.Plugin.Proxy": {
@@ -2458,6 +2464,7 @@
             "namespace": "",
             "file": "src/api/menu.js",
             "line": 5,
+            "description": "菜单。xclass : menu",
             "is_constructor": 1,
             "extends": "Component.Container",
             "params": [
@@ -2466,6 +2473,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\t//先引入样式文件：\n\t//http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css\n\t//http://g.tbcdn.cn/kissy/edge/2014.07.16/menu/assets/dpl.css\n\tKISSY.use(['menu', 'separator'], function(S, Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
             ]
         },
         "Menu.Item": {
@@ -2479,7 +2489,7 @@
             "module": "menu",
             "namespace": "Menu",
             "file": "src/api/menu.js",
-            "line": 31,
+            "line": 75,
             "is_constructor": 1,
             "extends": "Component.Control",
             "params": [
@@ -2488,6 +2498,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n    KISSY.use(['menu'], function(S, Menu){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
             ]
         },
         "Menu.SubMenu": {
@@ -2501,7 +2514,8 @@
             "module": "menu",
             "namespace": "Menu",
             "file": "src/api/menu.js",
-            "line": 80,
+            "line": 137,
+            "description": "子菜单，用来拓展子菜单。",
             "is_constructor": 1,
             "extends": "Menu.Item",
             "params": [
@@ -2510,6 +2524,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n    KISSY.use(['menu', 'separator'], function(S, Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',  //通过 xclass 来生产 Menu.SubMenu\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
             ]
         },
         "Menu.PopupMenu": {
@@ -2523,11 +2540,14 @@
             "module": "menu",
             "namespace": "Menu",
             "file": "src/api/menu.js",
-            "line": 124,
+            "line": 207,
+            "description": "弹出菜单。",
             "is_constructor": 1,
             "extends": "Menu",
             "uses": [
-                "Align"
+                "Component.Extension.Align",
+                "Component.Extension.Shim",
+                "Component.Extension.ContentBox"
             ],
             "params": [
                 {
@@ -2535,11 +2555,14 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "    \n    KISSY.use(['menu', 'separator'], function(S, Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
             ]
         },
-        "Menu.CheckMenuItem": {
-            "name": "Menu.CheckMenuItem",
-            "shortname": "CheckMenuItem",
+        "Menu.CheckItem": {
+            "name": "Menu.CheckItem",
+            "shortname": "Menu.CheckItem",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -2548,8 +2571,8 @@
             "module": "menu",
             "namespace": "Menu",
             "file": "src/api/menu.js",
-            "line": 151,
-            "description": "checkable 菜单项",
+            "line": 276,
+            "description": "多选菜单项。xclass : check-menuitem。所有class为CheckItem的多选菜单项，可以选中多个，区别于RadioItem",
             "is_constructor": 1,
             "extends": "Menu.Item",
             "params": [
@@ -2558,6 +2581,35 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\tKISSY.use(['menu', 'separator'], function(S, Menu, Separator){\n        new Menu({\n            render:\"#container\",\n            width : 150,\n            children:[\n                {\n                    xclass:'check-menuitem',\n                    content:\"checkable menuitem\"\n                },\n                {\n                    xclass:'separator'\n                },\n                {\n                    xclass:'submenu',\n                    content:'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children:[\n                            {\n                                xclass:'check-menuitem',\n                                content:\"checkable menuitem1\"\n                            },\n                            {\n                                xclass:'check-menuitem',\n                                content:\"checkable menuitem2\"\n                            }\n                        ]\n                    })\n                }\n            ]\n        }).render();\n    });"
+            ]
+        },
+        "Menu.RadioItem": {
+            "name": "Menu.RadioItem",
+            "shortname": "Menu.RadioItem",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "menu",
+            "namespace": "Menu",
+            "file": "src/api/menu.js",
+            "line": 327,
+            "description": "单选菜单项。xclass : radio-menuitem。所有class为RadioItem的单选菜单项，只能选中一个，区别于CheckItem",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "extends": "Menu.Item",
+            "example": [
+                "\n    KISSY.use(['menu', 'separator'], function(S, Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.RadioItem({  //通过构造器来生成 Menu.RadioItem 单选节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'radio-menuitem',  //通过xclass来生成 Menu.RadioItem 单选节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'radio-menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'radio-menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
             ]
         },
         "MenuButton": {
@@ -3240,7 +3292,7 @@
         {
             "file": "src/api/component/extension/align.js",
             "line": 28,
-            "description": "可选, 组件节点对齐的相关配置, 例如：\n```\n{\n    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域\n    points: ['tr','tl'], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐\n    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,\n                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.\n    overflow:{\n        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标\n        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标\n    }\n}\n```\npoints 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围\n第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示\n\n![alt text](/5.0/api/assets/img/project-img/align.png)",
+            "description": "可选, 组件节点对齐的相关配置, 例如：\n```\n{\n    node: null,         // 类型选择器字符串, 对齐参考元素;falsy值则为可视区域;若在子组件里使用，不设置node则默认是父组件\n    points: ['tr','tl'], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐\n    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,\n                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.\n    overflow:{\n        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标\n        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标\n    }\n}\n```\npoints 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围\n第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示\n\n![alt text](/5.0/api/assets/img/project-img/align.png)",
             "itemtype": "attribute",
             "name": "align",
             "type": "Object",
@@ -12420,20 +12472,20 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 12,
+            "line": 55,
             "description": "当前高亮的儿子菜单项.",
             "itemtype": "attribute",
             "name": "highlightedItem",
             "type": "Menu.Item",
             "example": [
-                "\n```\n//Hint\n//隐藏当前菜单的子菜单只需要将该属性置 null 即可\nmenu.set(\"highlightedItem\",null);"
+                "\n```\n//Hint\n//隐藏当前菜单的子菜单只需要将该属性置 null 即可\nmenu.set(\"highlightedItem\",null);\n```"
             ],
             "class": "Menu",
             "module": "menu"
         },
         {
             "file": "src/api/menu.js",
-            "line": 22,
+            "line": 66,
             "description": "当子菜单项被点击后触发",
             "itemtype": "event",
             "name": "click",
@@ -12456,7 +12508,7 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 39,
+            "line": 101,
             "description": "是否可以被选择，可以的话，单击会添加指定 class 到根节点.",
             "itemtype": "attribute",
             "name": "selectable",
@@ -12467,7 +12519,7 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 44,
+            "line": 106,
             "description": "是否可以被多选，可以的话，单击会添加或删除根节点的指定 class",
             "itemtype": "attribute",
             "name": "checkable",
@@ -12478,7 +12530,7 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 48,
+            "line": 110,
             "description": "可选，该菜单项的值",
             "itemtype": "attribute",
             "name": "value",
@@ -12490,7 +12542,7 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 53,
+            "line": 115,
             "description": "该菜单项的显示内容",
             "itemtype": "attribute",
             "name": "content",
@@ -12501,7 +12553,7 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 58,
+            "line": 120,
             "description": "当前菜单项是否被选中",
             "itemtype": "attribute",
             "name": "selected",
@@ -12512,7 +12564,7 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 63,
+            "line": 125,
             "description": "当前菜单选是否被多选了",
             "itemtype": "attribute",
             "name": "checked",
@@ -12523,18 +12575,7 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 68,
-            "description": "当前菜单项的值",
-            "itemtype": "attribute",
-            "name": "value",
-            "type": "Any",
-            "class": "Menu.Item",
-            "module": "menu",
-            "namespace": "Menu"
-        },
-        {
-            "file": "src/api/menu.js",
-            "line": 73,
+            "line": 130,
             "description": "当前菜单项的显示内容",
             "itemtype": "attribute",
             "name": "content",
@@ -12545,7 +12586,7 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 88,
+            "line": 185,
             "description": "可选，默认 0.15，单位秒。鼠标掠过后多长时间显示子菜单.",
             "itemtype": "attribute",
             "name": "menuDelay",
@@ -12558,7 +12599,7 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 95,
+            "line": 192,
             "description": "子菜单实例",
             "itemtype": "attribute",
             "name": "menu",
@@ -12569,7 +12610,7 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 100,
+            "line": 197,
             "description": "可选，默认 false . 销毁该菜单项是否顺带销毁子菜单",
             "itemtype": "attribute",
             "name": "externalSubMenu",
@@ -12582,40 +12623,7 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 107,
-            "description": "鼠标掠过后多长时间显示子菜单.",
-            "itemtype": "attribute",
-            "name": "menuDelay",
-            "type": "Number",
-            "class": "Menu.SubMenu",
-            "module": "menu",
-            "namespace": "Menu"
-        },
-        {
-            "file": "src/api/menu.js",
-            "line": 112,
-            "description": "子菜单实例",
-            "itemtype": "attribute",
-            "name": "menu",
-            "type": "Menu",
-            "class": "Menu.SubMenu",
-            "module": "menu",
-            "namespace": "Menu"
-        },
-        {
-            "file": "src/api/menu.js",
-            "line": 117,
-            "description": "销毁该菜单项是否顺带销毁子菜单",
-            "itemtype": "attribute",
-            "name": "externalSubMenu",
-            "type": "Boolean",
-            "class": "Menu.SubMenu",
-            "module": "menu",
-            "namespace": "Menu"
-        },
-        {
-            "file": "src/api/menu.js",
-            "line": 132,
+            "line": 257,
             "description": "鼠标移出子菜单时子菜单是否自动隐藏\n\n#### 从已有元素实例 PopupMenu 对象时 , 元素节点标明类名 {prefixCls}popupmenu . prefixCls 为配置的类名前缀，默认为 ks- .\n\n若使用默认的类名前缀，使用前请加上初始样式\n```\n<style>\n    .ks-popupmenu {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n</style>\n```",
             "itemtype": "attribute",
             "name": "autoHideOnMouseLeave",
@@ -12627,13 +12635,13 @@
         },
         {
             "file": "src/api/menu.js",
-            "line": 159,
+            "line": 319,
             "description": "菜单项是否 checked，默认 true",
             "itemtype": "attribute",
             "name": "checked",
             "type": "Boolean",
             "default": "true",
-            "class": "Menu.CheckMenuItem",
+            "class": "Menu.CheckItem",
             "module": "menu",
             "namespace": "Menu"
         },

@@ -138,11 +138,13 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu href="/5.0/api/classes/Menu.html">Menu</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckMenuItem href="/5.0/api/classes/Menu.CheckMenuItem.html">Menu.CheckMenuItem</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckItem href="/5.0/api/classes/Menu.CheckItem.html">Menu.CheckItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.Item href="/5.0/api/classes/Menu.Item.html">Menu.Item</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.PopupMenu href="/5.0/api/classes/Menu.PopupMenu.html">Menu.PopupMenu</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.RadioItem href="/5.0/api/classes/Menu.RadioItem.html">Menu.RadioItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.SubMenu href="/5.0/api/classes/Menu.SubMenu.html">Menu.SubMenu</a></li>
             
@@ -365,7 +367,11 @@
             Uses
             <ul class="inline commas">
                 
-                    <li><a href="Align.html">Align</a></li>
+                    <li><a href="Component.Extension.Align.html">Component.Extension.Align</a></li>
+                
+                    <li><a href="Component.Extension.Shim.html">Component.Extension.Shim</a></li>
+                
+                    <li><a href="Component.Extension.ContentBox.html">Component.Extension.ContentBox</a></li>
                 
             </ul>
         </div>
@@ -389,7 +395,8 @@
 
 
 <div class="box intro">
-    
+    <p>弹出菜单。</p>
+
 </div>
 
 
@@ -473,6 +480,52 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;menu&#39;, &#39;separator&#39;], function(S, Menu, Separator){
+    var myMenu = new Menu({
+        render : &#39;#container&#39;,
+        width : 150,
+        children : [
+            new Menu.Item({  //通过构造器来生成 Menu.Item 节点
+                content : &#39;item1&#39;
+            }),
+            {
+                xclass : &#39;menuitem&#39;,  //通过xclass来生成 Menu.Item 节点
+                content : &#39;item2&#39;
+            },
+            {
+                xclass:&#39;separator&#39;    //分隔符
+            },
+            {
+                xclass : &#39;submenu&#39;,
+                content : &#39;submenu&#39;,
+                menu : new Menu.PopupMenu({
+                    autoHideOnMouseLeave:true,
+                    width : 150,
+                    children : [
+                        {
+                            xclass : &#39;menuitem&#39;,
+                            content : &#39;item1InSubMenu&#39;
+                        },
+                        {
+                            xclass : &#39;menuitem&#39;,
+                            content : &#39;item2InSubMenu&#39;
+                        }
+                    ]
+                })
+            }
+        ]
+    });
+
+    myMenu.render();
+});</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
     </div>
@@ -533,6 +586,13 @@
                             </li>
                         
                             <li class="index-item method inherited" inwhichtab="methods">
+                                <a href="#method_align">align</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited" inwhichtab="methods">
                                 <a href="#method_blur">blur</a>
 
                                 
@@ -541,6 +601,13 @@
                         
                             <li class="index-item method inherited" inwhichtab="methods">
                                 <a href="#method_callSuper">callSuper</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited" inwhichtab="methods">
+                                <a href="#method_center">center</a>
 
                                 
                                 
@@ -744,6 +811,10 @@
                                 <a href="#attr_active">active</a>
                             </li>
                         
+                            <li class="index-item attr inherited" inwhichtab="attrs">
+                                <a href="#attr_align">align</a>
+                            </li>
+                        
                             <li class="index-item attr" inwhichtab="attrs">
                                 <a href="#attr_autoHideOnMouseLeave">autoHideOnMouseLeave</a>
                             </li>
@@ -754,6 +825,10 @@
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_content">content</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited" inwhichtab="attrs">
+                                <a href="#attr_contentEl">contentEl</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -830,6 +905,10 @@
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_rendered">rendered</a>
+                            </li>
+                        
+                            <li class="index-item attr inherited" inwhichtab="attrs">
+                                <a href="#attr_shim">shim</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -1488,6 +1567,155 @@
 </div>
 
                 
+                    <div id="method_align" class="method item inherited">
+    <h3 class="name"><code>align</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>node</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>points</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>offset</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>overflow</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Component.Extension.Align.html#method_align">Component.Extension.Align</a>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>设置组件根节点对齐</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">node</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | KISSY.Node | HTMLDOMNode</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>对齐的参考元素</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">points</code>
+                        <span class="type">Array<String></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>对齐的参考位置</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">offset</code>
+                        <span class="type">Array<Number></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>相对对齐元素的偏移</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">overflow</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>超出可视区域后如何处理</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="method_blur" class="method item inherited">
     <h3 class="name"><code>blur</code></h3>
 
@@ -1613,6 +1841,55 @@
 
             </div>
         </div>
+    
+</div>
+
+                
+                    <div id="method_center" class="method item inherited">
+    <h3 class="name"><code>center</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Component.Extension.Align.html#method_center">Component.Extension.Align</a>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>将组件根节点放在当前视窗中央</p>
+
+    </div>
+
+    
+
+    
+
     
 </div>
 
@@ -4261,6 +4538,65 @@
 </div>
 
                 
+                    <div id="attr_align" class="attr item inherited">
+    <a name="config_align"></a> 
+    <h3 class="name"><code>align</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Component.Extension.Align.html#attr_align">Component.Extension.Align</a>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>可选, 组件节点对齐的相关配置, 例如：</p>
+<pre class="code prettyprint"><code>{
+    node: null,         // 类型选择器字符串, 对齐参考元素;falsy值则为可视区域;若在子组件里使用，不设置node则默认是父组件
+    points: [&#39;tr&#39;,&#39;tl&#39;], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐
+    offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,
+                        // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.
+    overflow:{
+        adjustX:1, // 当对象不能处于可显示区域时，自动调整横坐标
+        adjustY:1 // 当对象不能处于可显示区域时，自动调整纵坐标
+    }
+}</code></pre>
+<p>points 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围
+第一个字符取值 t,b,c , 第二个字符取值 l,r,c. 如下图所示</p>
+<p><img src="/5.0/api/assets/img/project-img/align.png" alt="alt text"></p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_autoHideOnMouseLeave" class="attr item">
     <a name="config_autoHideOnMouseLeave"></a> 
     <h3 class="name"><code>autoHideOnMouseLeave</code></h3>
@@ -4399,6 +4735,52 @@
 
     <div class="description">
         <p>设置的 content 属性</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_contentEl" class="attr item inherited">
+    <a name="config_contentEl"></a> 
+    <h3 class="name"><code>contentEl</code></h3>
+    <span class="type">KISSY.Node</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Component.Extension.ContentBox.html#attr_contentEl">Component.Extension.ContentBox</a>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>组件的内层节点</p>
 
     </div>
 
@@ -4920,10 +5302,9 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <p><code>&#x60;</code>
-//Hint
+                <pre class="code prettyprint"><code>//Hint
 //隐藏当前菜单的子菜单只需要将该属性置 null 即可
-menu.set(&quot;highlightedItem&quot;,null);</p>
+menu.set(&quot;highlightedItem&quot;,null);</code></pre>
 
             </div>
         </div>
@@ -5318,6 +5699,52 @@ or
 
     <div class="description">
         <p>只读属性，组件是否已经渲染</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_shim" class="attr item inherited">
+    <a name="config_shim"></a> 
+    <h3 class="name"><code>shim</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/Component.Extension.Shim.html#attr_shim">Component.Extension.Shim</a>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>在IE6下默认为 true，其他默认为 false</p>
 
     </div>
 

@@ -138,11 +138,13 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu href="/5.0/api/classes/Menu.html">Menu</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckMenuItem href="/5.0/api/classes/Menu.CheckMenuItem.html">Menu.CheckMenuItem</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckItem href="/5.0/api/classes/Menu.CheckItem.html">Menu.CheckItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.Item href="/5.0/api/classes/Menu.Item.html">Menu.Item</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.PopupMenu href="/5.0/api/classes/Menu.PopupMenu.html">Menu.PopupMenu</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.RadioItem href="/5.0/api/classes/Menu.RadioItem.html">Menu.RadioItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.SubMenu href="/5.0/api/classes/Menu.SubMenu.html">Menu.SubMenu</a></li>
             
@@ -376,7 +378,7 @@
 
 
 <div class="box intro">
-    <p>处理 DOM 事件</p>
+    <p>处理 DOM 事件。DomEvent处理标准的event事件，除此之外还拓展了下面介绍的 Events </p>
 <pre class="code prettyprint"><code>KISSY.use(&#39;event/dom&#39;, function(S, DomEvent){
     DomEvent.on(document.body,{
         &#39;click&#39;:{

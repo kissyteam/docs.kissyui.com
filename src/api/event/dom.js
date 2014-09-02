@@ -4,7 +4,7 @@
 */
 
 /**
-处理 DOM 事件
+处理 DOM 事件。DomEvent处理标准的event事件，除此之外还拓展了下面介绍的 Events 
 ```
 KISSY.use('event/dom', function(S, DomEvent){
     DomEvent.on(document.body,{

@@ -138,11 +138,13 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu href="/5.0/api/classes/Menu.html">Menu</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckMenuItem href="/5.0/api/classes/Menu.CheckMenuItem.html">Menu.CheckMenuItem</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckItem href="/5.0/api/classes/Menu.CheckItem.html">Menu.CheckItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.Item href="/5.0/api/classes/Menu.Item.html">Menu.Item</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.PopupMenu href="/5.0/api/classes/Menu.PopupMenu.html">Menu.PopupMenu</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.RadioItem href="/5.0/api/classes/Menu.RadioItem.html">Menu.RadioItem</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.SubMenu href="/5.0/api/classes/Menu.SubMenu.html">Menu.SubMenu</a></li>
             
@@ -2081,7 +2083,7 @@
                     
 
                     <div class="param-description">
-                        
+                         
                     </div>
 
                     
@@ -4667,7 +4669,7 @@
     <div class="description">
         <p>可选, 组件节点对齐的相关配置, 例如：</p>
 <pre class="code prettyprint"><code>{
-    node: null,         // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域
+    node: null,         // 类型选择器字符串, 对齐参考元素;falsy值则为可视区域;若在子组件里使用，不设置node则默认是父组件
     points: [&#39;tr&#39;,&#39;tl&#39;], // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐
     offset: [0, 0],      // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,
                         // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.
