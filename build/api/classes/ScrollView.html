@@ -467,6 +467,27 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;scroll-view&#39;], function(S, ScrollView){
+    var content = &#39;&#39;;
+    for (var i = 0; i &lt; 10; i++) {
+        content += &#39;&lt;p&gt;This is &#39; + i + &#39; block&lt;/p&gt;&#39;;
+    }
+    var myScrollView = new ScrollView({
+        width : 318,
+        height : 300,
+        render : &#39;#scroll-view-contaienr&#39;,
+        content : content
+    });
+    myScrollView.render();
+})</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
     </div>

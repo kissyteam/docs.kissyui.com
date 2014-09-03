@@ -10,6 +10,20 @@
 @constructor
 @extends Component.Container
 @param config {Object} 配置对象，详情参考其Attribute
+@example
+	KISSY.use(['scroll-view'], function(S, ScrollView){
+        var content = '';
+        for (var i = 0; i < 10; i++) {
+            content += '<p>This is ' + i + ' block</p>';
+        }
+        var myScrollView = new ScrollView({
+            width : 318,
+            height : 300,
+            render : '#scroll-view-contaienr',
+            content : content
+        });
+        myScrollView.render();
+    })
 */
 
 /**
