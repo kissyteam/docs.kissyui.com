@@ -3,37 +3,26 @@
 */
 
 /**
-悬浮层，如果配置里面不修改"prefixCls"默认值"ks-"的话，使用前要加上如下样式：
-```
-<style>
-    .ks-overlay {
-        position:absolute;
-        left:-9999px;
-        top:-9999px;
-    }
-    .ks-overlay-hidden {
-        visibility: hidden;
-    }
-
-    .ks-overlay-mask-hidden {
-        display: none;
-    }
-
-    .ks-overlay-shown {
-        visibility: visible;
-    }
-
-    .ks-overlay-mask-shown{
-        display: block;
-    }
-</style>
-```
+悬浮层。使用前先引入overlay样式`http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css`或利用prefixCls自定义样式。
 @class Overlay
 @constructor
 @extends Component.Container
 @uses Component.Extension.Shim
 @uses Component.Extension.Align
 @param config {Object}
+@example
+    KISSY.use(['overlay', 'button'], function(S, Overlay, Button){
+        var modalDialog = new Overlay.Dialog({
+            headerContent : '我是头部',
+            width : 500,
+            mask : true,
+            bodyContent : '<div>我是主体</div>',
+            align : {  //定位对话框
+                points : ['cc', 'cc']  //在可视区域正中央
+            }
+        });
+        modalDialog.show();
+    });
 */
 
 /**
@@ -77,13 +66,7 @@ mask的相关配置：
 可选, 动画持续时间, 以秒为单位.
 @attribute duration {Number} 
 @optional
-*/
-
-/**
-设置后显示或隐藏关闭按钮
-@attribute closable
-@type {Boolean}
-*/
+*/ 
 
 /**
 遮罩层节点
@@ -107,50 +90,31 @@ mask的相关配置：
 
 
 /**
-对话框
+模态对话框
 @class Dialog
 @constructor
 @namespace Overlay
 @extends Overlay
 @param config {Object}
 @example
-
-对话框的 DOM 结构为：
-```
-<div class='dialog'> <!-- 对话框根节点 -->
-    <div class='content'> <!-- 对话框内容节点 -->
-        <div class='header'> <!-- 对话框标题节点 -->
-        </div>
-
-        <div class='body'> <!-- 对话框体节点 -->
-        </div>
-
-        <div class='footer'> <!-- 对话框底部节点 -->
-        </div>
-    </div>
-</div>
-```
-*/
-
-/**
-组件的标题 html
-@attribute headerContent {String}
+    KISSY.use(['overlay', 'button'], function(S, Overlay, Button){
+        var modalDialog = new Overlay.Dialog({
+            headerContent : '我是头部',
+            width : 500,
+            mask : true,
+            bodyContent : '<div>我是主体</div>',
+            align : {  //定位对话框
+                points : ['cc', 'cc']  //在可视区域正中央
+            }
+        });
+        modalDialog.show();
+    });
 */
 
 /**
 默认 true. escape 键是否触发 close 动作
 @attribute escapeToClose {Boolean}
 @default true
-*/
-
-/**
-组件的体 html
-@attribute bodyContent {String} 
-*/
-
-/**
-组件的底部 html
-@attribute footerContent {String} 
 */
 
 /**
@@ -205,16 +169,44 @@ mask的相关配置：
 
 
 /**
-弹出框
+内容提示框
 @class Popup
 @constructor
 @namespace Overlay
 @extends Overlay
 @param config {Object} 
+@example
+    <script type="x-template" id="popupTpl">
+        <div class="ks-popup-arrow"></div>
+        <div class="ks-popup-inner"> <!-- 已定义好的内容提示框的样式-->
+            <h3 class="ks-popup-title">This is Title</h3>
+
+            <div class="ks-popup-inner-content">
+                <p>This is content...</p>
+            </div>
+        </div>
+    </script>
+    KISSY.use(['overlay', 'button', 'node'], function(S, Overlay, Button, $){
+        var myPopup = new Overlay.Popup({
+            width : 200,
+            trigger : '#popup',
+            triggerType : 'mouse',
+            content : $('#popupTpl').html(),
+            elCls: "ks-popup-right",  //添加内容提示框在右侧时的箭头图标样式
+            effect : {
+                effect : 'fade',
+                duration : 0.3
+            },
+            align: {
+                node: '#popup',  //相对按钮#popup定位
+                points: ['cr', 'cl']
+            }
+        });
+    });
 */
 
 /**
-触点集合
+触点集合，即当鼠标点击或hover在这些元素时则会出发弹出框显示。
 @attribute trigger {String|HTMLElement[]|KISSY.NodeList} 
 */
 

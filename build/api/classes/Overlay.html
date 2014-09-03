@@ -393,29 +393,7 @@
 
 
 <div class="box intro">
-    <p>悬浮层，如果配置里面不修改&quot;prefixCls&quot;默认值&quot;ks-&quot;的话，使用前要加上如下样式：</p>
-<pre class="code prettyprint"><code>&lt;style&gt;
-    .ks-overlay {
-        position:absolute;
-        left:-9999px;
-        top:-9999px;
-    }
-    .ks-overlay-hidden {
-        visibility: hidden;
-    }
-
-    .ks-overlay-mask-hidden {
-        display: none;
-    }
-
-    .ks-overlay-shown {
-        visibility: visible;
-    }
-
-    .ks-overlay-mask-shown{
-        display: block;
-    }
-&lt;/style&gt;</code></pre>
+    <p>悬浮层。使用前先引入overlay样式<code>http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css</code>或利用prefixCls自定义样式。</p>
 
 </div>
 
@@ -499,6 +477,26 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;overlay&#39;, &#39;button&#39;], function(S, Overlay, Button){
+    var modalDialog = new Overlay.Dialog({
+        headerContent : &#39;我是头部&#39;,
+        width : 500,
+        mask : true,
+        bodyContent : &#39;&lt;div&gt;我是主体&lt;/div&gt;&#39;,
+        align : {  //定位对话框
+            points : [&#39;cc&#39;, &#39;cc&#39;]  //在可视区域正中央
+        }
+    });
+    modalDialog.show();
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 
@@ -805,10 +803,6 @@
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_children">children</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_closable">closable</a>
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
@@ -4727,52 +4721,6 @@
 
     <div class="description">
         <p>可选，当前组件的子组件数组</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_closable" class="attr item">
-    <a name="config_closable"></a> 
-    <h3 class="name"><code>closable</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>设置后显示或隐藏关闭按钮</p>
 
     </div>
 

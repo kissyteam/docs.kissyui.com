@@ -3,64 +3,40 @@
 
 > 悬浮的对话框是KISSY核心组件中完整的利用了KISSY的面向对象的组件，是典型的组件拼装模式，继承和派生的用法非常值得学习和借鉴。
 
-Overlay 由三个内部组件派生出来，Control、Align、Position，Controller又包含另外两个基础组件UIBase和Box。因此Overlay的实例方法大都是组装来的。`Overlay`对象下挂接两个由他派生出的类：`Dialog`和`Popup`，这两个实现是最常用的。
+Overlay 继承 Component.Container，拓展 Component.Extension.Shim 和 Component.Extension.Align。Overlay的实例方法大都是组装来的。`Overlay`对象下挂接两个由他派生出的类：`Dialog`和`Popup`，这两个实现是最常用的。
 
 引用方法：
 
+	//先引入overlay的样式`http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css`或利用prefixCls来自定义样式。
 	KISSY.use('overlay',function(S,Overlay){
 		// use Overlay
 	});
 
 ## 一个简单的调用
 
-	KISSY.use('overlay',function(S,Overlay){
-		//通过dom元素新建立popup
-		var popup = new Overlay.Popup({
-			srcNode:'#dpop',
-			trigger : '#img-download',//配置Popup的触发器
-			triggerType : 'mouse',    //触发类型，鼠标触碰时触发
-			align : {
-				node : '#img-download',
-				points : ['tc', 'bc'],
-				offset : [0, 50]
-			}
-		});
-	});
+	KISSY.use(['overlay', 'button'], function(S, Overlay, Button){
+        var modalDialog = new Overlay.Dialog({
+            headerContent : '我是头部',
+            width : 500,
+            mask : true,
+            bodyContent : '<div>我是主体</div>',
+            align : {  //定位对话框
+                points : ['cc', 'cc']  //在可视区域正中央
+            }
+        });
 
-初始化OVerlay之前应当先加上初始样式
-
-	<style>
-		.ks-overlay {
-			position:absolute;
-			left:-9999px;
-			top:-9999px;
-		}
-		.ks-overlay-hidden {
-			visibility: hidden;
-		}
-
-		.ks-overlay-mask-hidden {
-			display: none;
-		}
-
-		.ks-overlay-shown {
-			visibility: visible;
-		}
-
-		.ks-overlay-mask-shown{
-			display: block;
-		}
-	</style>
+        modalDialog.show();
+    });
 
 其中Dialog的DOM结构为经典的三段式
 
 	<div class='dialog'> <!-- 对话框根节点 -->
-		<div class='content'> <!-- 对话框内容节点 -->
-			<div class='header'> <!-- 对话框标题节点 -->
+		<div class='ks-dialog-content ks-overlay-content'> <!-- 对话框内容节点 -->
+			<div class='ks-dialog-header ks-overlay-header'> <!-- 对话框标题节点 -->
 			</div>
-			<div class='body'> <!-- 对话框体节点 -->
+			<div class='ks-dialog-body ks-overlay-body'> <!-- 对话框体节点 -->
 			</div>
-			<div class='footer'> <!-- 对话框底部节点 -->
+			<div class='ks-dialog-footer ks-overlay-footer'> <!-- 对话框底部节点 -->
 			</div>
 		</div>
 	</div>

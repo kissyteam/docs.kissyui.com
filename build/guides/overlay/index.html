@@ -156,55 +156,33 @@
 <h1 id="Overlay基本介绍">Overlay基本介绍</h1><blockquote>
 <p>悬浮的对话框是KISSY核心组件中完整的利用了KISSY的面向对象的组件，是典型的组件拼装模式，继承和派生的用法非常值得学习和借鉴。</p>
 </blockquote>
-<p>Overlay 由三个内部组件派生出来，Control、Align、Position，Controller又包含另外两个基础组件UIBase和Box。因此Overlay的实例方法大都是组装来的。<code>Overlay</code>对象下挂接两个由他派生出的类：<code>Dialog</code>和<code>Popup</code>，这两个实现是最常用的。</p>
+<p>Overlay 继承 Component.Container，拓展 Component.Extension.Shim 和 Component.Extension.Align。Overlay的实例方法大都是组装来的。<code>Overlay</code>对象下挂接两个由他派生出的类：<code>Dialog</code>和<code>Popup</code>，这两个实现是最常用的。</p>
 <p>引用方法：</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'overlay'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Overlay)</span></span>{
+<pre><code><span class="hljs-comment">//先引入overlay的样式`http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css`或利用prefixCls来自定义样式。</span>
+KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'overlay'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Overlay)</span></span>{
     <span class="hljs-comment">// use Overlay</span>
 });
-</code></pre><h2 id="一个简单的调用">一个简单的调用</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'overlay'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Overlay)</span></span>{
-    <span class="hljs-comment">//通过dom元素新建立popup</span>
-    <span class="hljs-keyword">var</span> popup = <span class="hljs-keyword">new</span> Overlay.Popup({
-        srcNode:<span class="hljs-string">'#dpop'</span>,
-        trigger : <span class="hljs-string">'#img-download'</span>,<span class="hljs-comment">//配置Popup的触发器</span>
-        triggerType : <span class="hljs-string">'mouse'</span>,    <span class="hljs-comment">//触发类型，鼠标触碰时触发</span>
-        align : {
-            node : <span class="hljs-string">'#img-download'</span>,
-            points : [<span class="hljs-string">'tc'</span>, <span class="hljs-string">'bc'</span>],
-            offset : [<span class="hljs-number">0</span>, <span class="hljs-number">50</span>]
+</code></pre><h2 id="一个简单的调用">一个简单的调用</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>([<span class="hljs-string">'overlay'</span>, <span class="hljs-string">'button'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Overlay, Button)</span></span>{
+    <span class="hljs-keyword">var</span> modalDialog = <span class="hljs-keyword">new</span> Overlay.Dialog({
+        headerContent : <span class="hljs-string">'我是头部'</span>,
+        width : <span class="hljs-number">500</span>,
+        mask : <span class="hljs-keyword">true</span>,
+        bodyContent : <span class="hljs-string">'&lt;div&gt;我是主体&lt;/div&gt;'</span>,
+        align : {  <span class="hljs-comment">//定位对话框</span>
+            points : [<span class="hljs-string">'cc'</span>, <span class="hljs-string">'cc'</span>]  <span class="hljs-comment">//在可视区域正中央</span>
         }
     });
+
+    modalDialog.show();
 });
-</code></pre><p>初始化OVerlay之前应当先加上初始样式</p>
-<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
-    <span class="hljs-class">.ks-overlay</span> <span class="hljs-rules">{
-        <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value">absolute</span></span>;
-        <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value">-<span class="hljs-number">9999px</span></span></span>;
-        <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value">-<span class="hljs-number">9999px</span></span></span>;
-    <span class="hljs-rule">}</span></span>
-    <span class="hljs-class">.ks-overlay-hidden</span> <span class="hljs-rules">{
-        <span class="hljs-rule"><span class="hljs-attribute">visibility</span>:<span class="hljs-value"> hidden</span></span>;
-    <span class="hljs-rule">}</span></span>
-
-    <span class="hljs-class">.ks-overlay-mask-hidden</span> <span class="hljs-rules">{
-        <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> none</span></span>;
-    <span class="hljs-rule">}</span></span>
-
-    <span class="hljs-class">.ks-overlay-shown</span> <span class="hljs-rules">{
-        <span class="hljs-rule"><span class="hljs-attribute">visibility</span>:<span class="hljs-value"> visible</span></span>;
-    <span class="hljs-rule">}</span></span>
-
-    <span class="hljs-class">.ks-overlay-mask-shown</span><span class="hljs-rules">{
-        <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> block</span></span>;
-    <span class="hljs-rule">}</span></span>
-</span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
 </code></pre><p>其中Dialog的DOM结构为经典的三段式</p>
 <pre><code><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'dialog'</span>&gt;</span> <span class="hljs-comment">&lt;!-- 对话框根节点 --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'content'</span>&gt;</span> <span class="hljs-comment">&lt;!-- 对话框内容节点 --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'header'</span>&gt;</span> <span class="hljs-comment">&lt;!-- 对话框标题节点 --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'ks-dialog-content ks-overlay-content'</span>&gt;</span> <span class="hljs-comment">&lt;!-- 对话框内容节点 --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'ks-dialog-header ks-overlay-header'</span>&gt;</span> <span class="hljs-comment">&lt;!-- 对话框标题节点 --&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'body'</span>&gt;</span> <span class="hljs-comment">&lt;!-- 对话框体节点 --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'ks-dialog-body ks-overlay-body'</span>&gt;</span> <span class="hljs-comment">&lt;!-- 对话框体节点 --&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'footer'</span>&gt;</span> <span class="hljs-comment">&lt;!-- 对话框底部节点 --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'ks-dialog-footer ks-overlay-footer'</span>&gt;</span> <span class="hljs-comment">&lt;!-- 对话框底部节点 --&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
@@ -332,12 +310,12 @@
 						<p><a href="../../guides/overlay/index.html">Overlay基本介绍</a></p>
 					</div>
 				</div>
-				<div class="panel panel-primary ajax-load hide">
+				<div class="panel panel-primary ajax-load ">
 					<div class="panel-heading">
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						
+						<p><a href="../../demos/overlay/animate-mask.html">mask动画示例</a></p><p><a href="../../demos/overlay/animate-target.html">target动画示例</a></p><p><a href="../../demos/overlay/common-overlay.html">多个触发元素公用一个弹出框</a></p><p><a href="../../demos/overlay/index.html">带遮罩的模态对话框</a></p><p><a href="../../demos/overlay/plugins-overlay.html">对话框-拖动、伸缩、限制</a></p><p><a href="../../demos/overlay/popup.html">内容提示框popup</a></p><p><a href="../../demos/overlay/tooltip.html">更小的内容提示tooltip</a></p>
 					</div>
 				</div>
 			</div>

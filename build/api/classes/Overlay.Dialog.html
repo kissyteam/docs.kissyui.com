@@ -382,7 +382,7 @@
 
 
 <div class="box intro">
-    <p>对话框</p>
+    <p>模态对话框</p>
 
 </div>
 
@@ -471,19 +471,18 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <p>对话框的 DOM 结构为：</p>
-<pre class="code prettyprint"><code>&lt;div class=&#39;dialog&#39;&gt; &lt;!-- 对话框根节点 --&gt;
-    &lt;div class=&#39;content&#39;&gt; &lt;!-- 对话框内容节点 --&gt;
-        &lt;div class=&#39;header&#39;&gt; &lt;!-- 对话框标题节点 --&gt;
-        &lt;/div&gt;
-
-        &lt;div class=&#39;body&#39;&gt; &lt;!-- 对话框体节点 --&gt;
-        &lt;/div&gt;
-
-        &lt;div class=&#39;footer&#39;&gt; &lt;!-- 对话框底部节点 --&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+                <pre class="code prettyprint"><code>KISSY.use([&#39;overlay&#39;, &#39;button&#39;], function(S, Overlay, Button){
+    var modalDialog = new Overlay.Dialog({
+        headerContent : &#39;我是头部&#39;,
+        width : 500,
+        mask : true,
+        bodyContent : &#39;&lt;div&gt;我是主体&lt;/div&gt;&#39;,
+        align : {  //定位对话框
+            points : [&#39;cc&#39;, &#39;cc&#39;]  //在可视区域正中央
+        }
+    });
+    modalDialog.show();
+});</code></pre>
 
             </div>
         </div>
@@ -800,10 +799,6 @@
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_bodyContent">bodyContent</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
                                 <a href="#attr_bodyStyle">bodyStyle</a>
                             </li>
                         
@@ -811,7 +806,7 @@
                                 <a href="#attr_children">children</a>
                             </li>
                         
-                            <li class="index-item attr inherited inherited" inwhichtab="attrs">
+                            <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_closable">closable</a>
                             </li>
                         
@@ -876,19 +871,11 @@
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_footerContent">footerContent</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
                                 <a href="#attr_footerStyle">footerStyle</a>
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
                                 <a href="#attr_header">header</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_headerContent">headerContent</a>
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
@@ -4810,52 +4797,6 @@
     </div>
 
     <div class="description">
-        <p>组件的体 html</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_bodyContent" class="attr item">
-    <a name="config_bodyContent"></a> 
-    <h3 class="name"><code>bodyContent</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
         <p>可读写. 组件的体html.</p>
 
     </div>
@@ -4981,12 +4922,9 @@
 
     <div class="meta">
         
-            <p>Inherited from
-            <a href="../classes/Overlay.html#attr_closable">
-                Overlay
-            </a>
             
-            but overwritten by this Class
+                <p>Inherited from
+                <a href="../classes/Overlay.html#attr_closable">Overlay</a>
             
         
         </p>
@@ -5717,52 +5655,6 @@
 </div>
 
                 
-                    <div id="attr_footerContent" class="attr item">
-    <a name="config_footerContent"></a> 
-    <h3 class="name"><code>footerContent</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>组件的底部 html</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="attr_footerStyle" class="attr item">
     <a name="config_footerStyle"></a> 
     <h3 class="name"><code>footerStyle</code></h3>
@@ -5892,52 +5784,6 @@
 
     <div class="description">
         <p>可读写. 组件的标题 html.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_headerContent" class="attr item">
-    <a name="config_headerContent"></a> 
-    <h3 class="name"><code>headerContent</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>组件的标题 html</p>
 
     </div>
 

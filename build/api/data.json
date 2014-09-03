@@ -1261,7 +1261,7 @@
             },
             "tag": "module",
             "file": "src/api/overlay.js",
-            "line": 207
+            "line": 171
         },
         "path": {
             "name": "path",
@@ -2741,7 +2741,7 @@
             "namespace": "",
             "file": "src/api/overlay.js",
             "line": 5,
-            "description": "悬浮层，如果配置里面不修改\"prefixCls\"默认值\"ks-\"的话，使用前要加上如下样式：\n```\n<style>\n    .ks-overlay {\n        position:absolute;\n        left:-9999px;\n        top:-9999px;\n    }\n    .ks-overlay-hidden {\n        visibility: hidden;\n    }\n\n    .ks-overlay-mask-hidden {\n        display: none;\n    }\n\n    .ks-overlay-shown {\n        visibility: visible;\n    }\n\n    .ks-overlay-mask-shown{\n        display: block;\n    }\n</style>\n```",
+            "description": "悬浮层。使用前先引入overlay样式`http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css`或利用prefixCls自定义样式。",
             "is_constructor": 1,
             "extends": "Component.Container",
             "uses": [
@@ -2754,6 +2754,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n    KISSY.use(['overlay', 'button'], function(S, Overlay, Button){\n        var modalDialog = new Overlay.Dialog({\n            headerContent : '我是头部',\n            width : 500,\n            mask : true,\n            bodyContent : '<div>我是主体</div>',\n            align : {  //定位对话框\n                points : ['cc', 'cc']  //在可视区域正中央\n            }\n        });\n        modalDialog.show();\n    });"
             ]
         },
         "Overlay.Dialog": {
@@ -2767,8 +2770,8 @@
             "module": "overlay",
             "namespace": "Overlay",
             "file": "src/api/overlay.js",
-            "line": 109,
-            "description": "对话框",
+            "line": 92,
+            "description": "模态对话框",
             "is_constructor": 1,
             "extends": "Overlay",
             "params": [
@@ -2779,7 +2782,7 @@
                 }
             ],
             "example": [
-                "\n\n对话框的 DOM 结构为：\n```\n<div class='dialog'> <!-- 对话框根节点 -->\n    <div class='content'> <!-- 对话框内容节点 -->\n        <div class='header'> <!-- 对话框标题节点 -->\n        </div>\n\n        <div class='body'> <!-- 对话框体节点 -->\n        </div>\n\n        <div class='footer'> <!-- 对话框底部节点 -->\n        </div>\n    </div>\n</div>\n```"
+                "\n    KISSY.use(['overlay', 'button'], function(S, Overlay, Button){\n        var modalDialog = new Overlay.Dialog({\n            headerContent : '我是头部',\n            width : 500,\n            mask : true,\n            bodyContent : '<div>我是主体</div>',\n            align : {  //定位对话框\n                points : ['cc', 'cc']  //在可视区域正中央\n            }\n        });\n        modalDialog.show();\n    });"
             ]
         },
         "Overlay.Popup": {
@@ -2793,8 +2796,8 @@
             "module": "overlay",
             "namespace": "Overlay",
             "file": "src/api/overlay.js",
-            "line": 207,
-            "description": "弹出框",
+            "line": 171,
+            "description": "内容提示框",
             "is_constructor": 1,
             "extends": "Overlay",
             "params": [
@@ -2803,6 +2806,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n    <script type=\"x-template\" id=\"popupTpl\">\n        <div class=\"ks-popup-arrow\"></div>\n        <div class=\"ks-popup-inner\"> <!-- 已定义好的内容提示框的样式-->\n            <h3 class=\"ks-popup-title\">This is Title</h3>\n\n            <div class=\"ks-popup-inner-content\">\n                <p>This is content...</p>\n            </div>\n        </div>\n    </script>\n    KISSY.use(['overlay', 'button', 'node'], function(S, Overlay, Button, $){\n        var myPopup = new Overlay.Popup({\n            width : 200,\n            trigger : '#popup',\n            triggerType : 'mouse',\n            content : $('#popupTpl').html(),\n            elCls: \"ks-popup-right\",  //添加内容提示框在右侧时的箭头图标样式\n            effect : {\n                effect : 'fade',\n                duration : 0.3\n            },\n            align: {\n                node: '#popup',  //相对按钮#popup定位\n                points: ['cr', 'cl']\n            }\n        });\n    });"
             ]
         },
         "Path": {
@@ -13734,7 +13740,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 39,
+            "line": 28,
             "description": "可选, 显示或隐藏时的特效支持, 对象包含以下配置:\n- effect.target {String|KISSY.Node} 可选,动画的参考元素\n- effect.effect {String} 可取值 ‘fade’(渐隐显示), ‘slide’(滑动显示)\n- effect.easing {String}  同 [Anim](/5.0/api/classes/Anim.html) 的 easing 参数配置\n- effect.duration {Number} 可选, 动画持续时间, 以秒为单位.例如：\n```\n{\n    target:'',        // {String|KISSY.Node} - 可选，动画的参考元素\n    effect:'none',    // {String} - 可选, 默认为'none', 'none'(无特效), 'fade'(渐隐显示), 'slide'(滑动显示).\n    easing:'',        // {String} - 可选, 同 KISSY.Anim 的 easing 参数配置.\n    duration:3        // {Number} - 可选, 动画持续时间, 以秒为单位.\n}\n```",
             "itemtype": "attribute",
             "name": "effect",
@@ -13743,7 +13749,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 56,
+            "line": 45,
             "description": "对话框右上角是否包括关闭按钮",
             "itemtype": "attribute",
             "name": "closable",
@@ -13753,7 +13759,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 61,
+            "line": 50,
             "description": "点击关闭按钮的动作。默认 “hide” 隐藏，也可设置 “destroy” 销毁该组件",
             "itemtype": "attribute",
             "name": "closeAction",
@@ -13763,7 +13769,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 66,
+            "line": 55,
             "description": "mask的相关配置：\n- 当为Boolean时，表示组件显示时是否使用遮罩层盖住页面其他元素\n- 当为Object时，有如下配置：\n    - mask.closeOnClick {Boolean} 可选. 点击遮罩层是否关闭 overlay. (具体隐藏或销毁依赖 closeAction)\n    - mask.effect {String} 可选. 遮罩层显示隐藏效果. (取值 ‘fade’,’slide’)\n    - mask.duration {Number} 可选. 效果持续时间. 单位秒",
             "itemtype": "attribute",
             "name": "mask",
@@ -13773,7 +13779,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 76,
+            "line": 65,
             "description": "可选, 动画持续时间, 以秒为单位.",
             "itemtype": "attribute",
             "name": "duration",
@@ -13784,17 +13790,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 82,
-            "description": "设置后显示或隐藏关闭按钮",
-            "itemtype": "attribute",
-            "name": "closable",
-            "type": "{Boolean}",
-            "class": "Overlay",
-            "module": "overlay"
-        },
-        {
-            "file": "src/api/overlay.js",
-            "line": 88,
+            "line": 71,
             "description": "遮罩层节点",
             "itemtype": "attribute",
             "name": "maskNode",
@@ -13804,7 +13800,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 94,
+            "line": 77,
             "description": "生成一个加载盖住当前组件内容",
             "itemtype": "method",
             "name": "loading",
@@ -13813,7 +13809,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 99,
+            "line": 82,
             "description": "隐藏生成的加载层",
             "itemtype": "method",
             "name": "unloading",
@@ -13822,18 +13818,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 135,
-            "description": "组件的标题 html",
-            "itemtype": "attribute",
-            "name": "headerContent",
-            "type": "String",
-            "class": "Overlay.Dialog",
-            "module": "overlay",
-            "namespace": "Overlay"
-        },
-        {
-            "file": "src/api/overlay.js",
-            "line": 140,
+            "line": 114,
             "description": "默认 true. escape 键是否触发 close 动作",
             "itemtype": "attribute",
             "name": "escapeToClose",
@@ -13845,29 +13830,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 146,
-            "description": "组件的体 html",
-            "itemtype": "attribute",
-            "name": "bodyContent",
-            "type": "String",
-            "class": "Overlay.Dialog",
-            "module": "overlay",
-            "namespace": "Overlay"
-        },
-        {
-            "file": "src/api/overlay.js",
-            "line": 151,
-            "description": "组件的底部 html",
-            "itemtype": "attribute",
-            "name": "footerContent",
-            "type": "String",
-            "class": "Overlay.Dialog",
-            "module": "overlay",
-            "namespace": "Overlay"
-        },
-        {
-            "file": "src/api/overlay.js",
-            "line": 156,
+            "line": 120,
             "description": "组件的标题内联样式",
             "itemtype": "attribute",
             "name": "headerStyle",
@@ -13878,7 +13841,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 161,
+            "line": 125,
             "description": "组件体的内联样式.",
             "itemtype": "attribute",
             "name": "bodyStyle",
@@ -13889,7 +13852,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 166,
+            "line": 130,
             "description": "组件的底部内联样式",
             "itemtype": "attribute",
             "name": "footerStyle",
@@ -13900,7 +13863,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 171,
+            "line": 135,
             "description": "只读, 组件的头部节点",
             "itemtype": "attribute",
             "name": "header",
@@ -13912,7 +13875,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 177,
+            "line": 141,
             "description": "只读, 组件的体部节点",
             "itemtype": "attribute",
             "name": "body",
@@ -13924,7 +13887,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 183,
+            "line": 147,
             "description": "只读, 组件的底部节点",
             "itemtype": "attribute",
             "name": "footer",
@@ -13936,7 +13899,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 189,
+            "line": 153,
             "description": "可读写. 组件的标题 html.",
             "itemtype": "attribute",
             "name": "headerContent",
@@ -13947,7 +13910,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 194,
+            "line": 158,
             "description": "可读写. 组件的体html.",
             "itemtype": "attribute",
             "name": "bodyContent",
@@ -13958,7 +13921,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 199,
+            "line": 163,
             "description": "可读写. 组件的底部 html.",
             "itemtype": "attribute",
             "name": "footerContent",
@@ -13969,8 +13932,8 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 216,
-            "description": "触点集合",
+            "line": 208,
+            "description": "触点集合，即当鼠标点击或hover在这些元素时则会出发弹出框显示。",
             "itemtype": "attribute",
             "name": "trigger",
             "type": "String|HTMLElement[]|KISSY.NodeList",
@@ -13980,7 +13943,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 221,
+            "line": 213,
             "description": "可选, 默认为 ‘click’, 触发类型, 可选 ‘click’, ‘mouse’.",
             "itemtype": "attribute",
             "name": "triggerType",
@@ -13992,7 +13955,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 227,
+            "line": 219,
             "description": "单位秒. 可选, triggerType 为 mouse 时, Popup 显示的延迟时间, 默认为 0.1.",
             "itemtype": "attribute",
             "name": "mouseDelay",
@@ -14004,7 +13967,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 233,
+            "line": 225,
             "description": "可选, triggerType 为 click 时, Popup 是否有toggle功能，默认为false，不开启",
             "itemtype": "attribute",
             "name": "toggle",
@@ -14016,7 +13979,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 239,
+            "line": 231,
             "description": "当前的 trigger 节点",
             "itemtype": "attribute",
             "name": "currentTrigger",
@@ -14027,7 +13990,7 @@
         },
         {
             "file": "src/api/overlay.js",
-            "line": 244,
+            "line": 236,
             "description": "当 currentTrigger 改变后触发",
             "itemtype": "event",
             "name": "afterCurrentTriggerChange",

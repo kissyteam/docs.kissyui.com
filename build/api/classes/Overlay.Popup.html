@@ -382,7 +382,7 @@
 
 
 <div class="box intro">
-    <p>弹出框</p>
+    <p>内容提示框</p>
 
 </div>
 
@@ -466,6 +466,41 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>&lt;script type=&quot;x-template&quot; id=&quot;popupTpl&quot;&gt;
+    &lt;div class=&quot;ks-popup-arrow&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;ks-popup-inner&quot;&gt; &lt;!-- 已定义好的内容提示框的样式--&gt;
+        &lt;h3 class=&quot;ks-popup-title&quot;&gt;This is Title&lt;/h3&gt;
+
+        &lt;div class=&quot;ks-popup-inner-content&quot;&gt;
+            &lt;p&gt;This is content...&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/script&gt;
+KISSY.use([&#39;overlay&#39;, &#39;button&#39;, &#39;node&#39;], function(S, Overlay, Button, $){
+    var myPopup = new Overlay.Popup({
+        width : 200,
+        trigger : &#39;#popup&#39;,
+        triggerType : &#39;mouse&#39;,
+        content : $(&#39;#popupTpl&#39;).html(),
+        elCls: &quot;ks-popup-right&quot;,  //添加内容提示框在右侧时的箭头图标样式
+        effect : {
+            effect : &#39;fade&#39;,
+            duration : 0.3
+        },
+        align: {
+            node: &#39;#popup&#39;,  //相对按钮#popup定位
+            points: [&#39;cr&#39;, &#39;cl&#39;]
+        }
+    });
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 
@@ -774,7 +809,7 @@
                                 <a href="#attr_children">children</a>
                             </li>
                         
-                            <li class="index-item attr inherited inherited" inwhichtab="attrs">
+                            <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_closable">closable</a>
                             </li>
                         
@@ -4749,12 +4784,9 @@
 
     <div class="meta">
         
-            <p>Inherited from
-            <a href="../classes/Overlay.html#attr_closable">
-                Overlay
-            </a>
             
-            but overwritten by this Class
+                <p>Inherited from
+                <a href="../classes/Overlay.html#attr_closable">Overlay</a>
             
         
         </p>
@@ -6205,7 +6237,7 @@ or
     </div>
 
     <div class="description">
-        <p>触点集合</p>
+        <p>触点集合，即当鼠标点击或hover在这些元素时则会出发弹出框显示。</p>
 
     </div>
 
