@@ -1861,7 +1861,7 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use('scroll-view, scroll-view/plugin/pull-to-refresh', function (S, ScrollView, PullToRefresh) {\n    window.scrollView = new ScrollView({\n        srcNode: '#wrapper',\n        plugins: [\n            new PullToRefresh({\n                loadFn: function (callback) {\n                    setTimeout(function () {\n                        scrollView.get('contentEl').prepend('<p>line ' + i++ + '</p>');\n                        scrollView.sync();\n                        callback();\n                    }, 500);\n                }\n            })\n        ]\n    }).render();\n}\n```"
+                "\n```\nKISSY.use(['node', 'scroll-view', 'scroll-view/plugin/scrollbar', 'scroll-view/plugin/pull-to-refresh'], function (S, $, ScrollView, ScrollbarPlugin, PullToRefresh) {\n    var str = '',\n        num = 1;\n    for (; num < 40; num++) {\n        str += '<p>line ' + num + '</p>'\n    }\n    $('#thelist').html(str);\n\n    var scrollView = new ScrollView({\n        srcNode: '#wrapper',\n        plugins: [ ScrollbarPlugin,\n            new PullToRefresh({\n                pullUpLoadFn: function (callback) {  //滚动到低端后继续上拉将进入这个函数\n                    setTimeout(function () {\n                        scrollView.get('contentEl')\n                                .append('<p>line ' + num++ + '</p>');\n                        scrollView.sync();\n                        callback();\n                    }, 500);\n                },\n                pullingUpHtml : '上拉刷新',\n                releasingUpHtml : '松手加载',\n                loadingUpHtml : '正在努力加载...',\n                pullDownLoadFn : function(callback){  //滚动到顶端后继续下拉将进入这个函数\n                    setTimeout(function () {\n                        scrollView.get('contentEl')\n                                .prepend('<p>line ' + num++ + '</p>');\n                        scrollView.sync();\n                        callback();\n                    }, 500);\n                }\n            })\n        ]\n    }).render();\n});\n```"
             ]
         },
         "ScrollView.Plugin.ScrollBar": {
@@ -6069,10 +6069,10 @@
         },
         {
             "file": "src/api/scroll-view/plugin/pull-to-refresh.js",
-            "line": 34,
+            "line": 53,
             "description": "下拉时提示内容",
             "itemtype": "attribute",
-            "name": "pullingHtml",
+            "name": "pullingDownHtml",
             "type": "String",
             "default": "\"Pull down to refresh...\"",
             "class": "ScrollView.Plugin.PullToRefresh",
@@ -6081,10 +6081,10 @@
         },
         {
             "file": "src/api/scroll-view/plugin/pull-to-refresh.js",
-            "line": 40,
-            "description": "释放操作的提示内容",
+            "line": 59,
+            "description": "下拉释放操作的提示内容",
             "itemtype": "attribute",
-            "name": "releasingHtml",
+            "name": "releasingDownHtml",
             "type": "String",
             "default": "\"release to refresh...\"",
             "class": "ScrollView.Plugin.PullToRefresh",
@@ -6093,10 +6093,10 @@
         },
         {
             "file": "src/api/scroll-view/plugin/pull-to-refresh.js",
-            "line": 47,
-            "description": "加载内容时的提示内容",
+            "line": 65,
+            "description": "下拉加载内容时的提示内容",
             "itemtype": "attribute",
-            "name": "loadingHtml",
+            "name": "loadingDownHtml",
             "type": "String",
             "default": "\"loading...\"",
             "class": "ScrollView.Plugin.PullToRefresh",
@@ -6105,10 +6105,57 @@
         },
         {
             "file": "src/api/scroll-view/plugin/pull-to-refresh.js",
-            "line": 53,
-            "description": "加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。\n组件内部会给loadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可",
+            "line": 71,
+            "description": "下拉加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。\n组件内部会给pullDownLoadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可",
             "itemtype": "attribute",
-            "name": "loadFn",
+            "name": "pullDownLoadFn",
+            "type": "Function",
+            "class": "ScrollView.Plugin.PullToRefresh",
+            "module": "scroll-view/plugin/pull-to-refresh",
+            "namespace": "ScrollView.Plugin"
+        },
+        {
+            "file": "src/api/scroll-view/plugin/pull-to-refresh.js",
+            "line": 77,
+            "description": "下拉时提示内容",
+            "itemtype": "attribute",
+            "name": "pullingUpHtml",
+            "type": "String",
+            "default": "\"Pull down to refresh...\"",
+            "class": "ScrollView.Plugin.PullToRefresh",
+            "module": "scroll-view/plugin/pull-to-refresh",
+            "namespace": "ScrollView.Plugin"
+        },
+        {
+            "file": "src/api/scroll-view/plugin/pull-to-refresh.js",
+            "line": 83,
+            "description": "下拉释放操作的提示内容",
+            "itemtype": "attribute",
+            "name": "releasingUpHtml",
+            "type": "String",
+            "default": "\"release to refresh...\"",
+            "class": "ScrollView.Plugin.PullToRefresh",
+            "module": "scroll-view/plugin/pull-to-refresh",
+            "namespace": "ScrollView.Plugin"
+        },
+        {
+            "file": "src/api/scroll-view/plugin/pull-to-refresh.js",
+            "line": 89,
+            "description": "下拉加载内容时的提示内容",
+            "itemtype": "attribute",
+            "name": "loadingUpHtml",
+            "type": "String",
+            "default": "\"loading...\"",
+            "class": "ScrollView.Plugin.PullToRefresh",
+            "module": "scroll-view/plugin/pull-to-refresh",
+            "namespace": "ScrollView.Plugin"
+        },
+        {
+            "file": "src/api/scroll-view/plugin/pull-to-refresh.js",
+            "line": 95,
+            "description": "下拉加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。\n组件内部会给pullUpLoadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可",
+            "itemtype": "attribute",
+            "name": "pullUpLoadFn",
             "type": "Function",
             "class": "ScrollView.Plugin.PullToRefresh",
             "module": "scroll-view/plugin/pull-to-refresh",

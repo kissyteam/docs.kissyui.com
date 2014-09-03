@@ -378,14 +378,33 @@ ScrollView的下拉刷新插件
 @param config {Object}
 @example
 &#x60;&#x60;&#x60;
-KISSY.use(&#x27;scroll-view, scroll-view/plugin/pull-to-refresh&#x27;, function (S, ScrollView, PullToRefresh) {
-    window.scrollView = new ScrollView({
+KISSY.use([&#x27;node&#x27;, &#x27;scroll-view&#x27;, &#x27;scroll-view/plugin/scrollbar&#x27;, &#x27;scroll-view/plugin/pull-to-refresh&#x27;], function (S, $, ScrollView, ScrollbarPlugin, PullToRefresh) {
+    var str = &#x27;&#x27;,
+        num = 1;
+    for (; num &lt; 40; num++) {
+        str += &#x27;&lt;p&gt;line &#x27; + num + &#x27;&lt;/p&gt;&#x27;
+    }
+    $(&#x27;#thelist&#x27;).html(str);
+
+    var scrollView = new ScrollView({
         srcNode: &#x27;#wrapper&#x27;,
-        plugins: [
+        plugins: [ ScrollbarPlugin,
             new PullToRefresh({
-                loadFn: function (callback) {
+                pullUpLoadFn: function (callback) {  //滚动到低端后继续上拉将进入这个函数
                     setTimeout(function () {
-                        scrollView.get(&#x27;contentEl&#x27;).prepend(&#x27;&lt;p&gt;line &#x27; + i++ + &#x27;&lt;/p&gt;&#x27;);
+                        scrollView.get(&#x27;contentEl&#x27;)
+                                .append(&#x27;&lt;p&gt;line &#x27; + num++ + &#x27;&lt;/p&gt;&#x27;);
+                        scrollView.sync();
+                        callback();
+                    }, 500);
+                },
+                pullingUpHtml : &#x27;上拉刷新&#x27;,
+                releasingUpHtml : &#x27;松手加载&#x27;,
+                loadingUpHtml : &#x27;正在努力加载...&#x27;,
+                pullDownLoadFn : function(callback){  //滚动到顶端后继续下拉将进入这个函数
+                    setTimeout(function () {
+                        scrollView.get(&#x27;contentEl&#x27;)
+                                .prepend(&#x27;&lt;p&gt;line &#x27; + num++ + &#x27;&lt;/p&gt;&#x27;);
                         scrollView.sync();
                         callback();
                     }, 500);
@@ -393,33 +412,56 @@ KISSY.use(&#x27;scroll-view, scroll-view/plugin/pull-to-refresh&#x27;, function 
             })
         ]
     }).render();
-}
+});
 &#x60;&#x60;&#x60;
 */
 
 /**
 下拉时提示内容
-@attribute pullingHtml {String} 
+@attribute pullingDownHtml {String} 
 @default &quot;Pull down to refresh...&quot;
 */
 
 /**
-释放操作的提示内容
-@attribute releasingHtml {String} 
+下拉释放操作的提示内容
+@attribute releasingDownHtml {String} 
 @default &quot;release to refresh...&quot;
 */
 
-
 /**
-加载内容时的提示内容
-@attribute loadingHtml {String} 
+下拉加载内容时的提示内容
+@attribute loadingDownHtml {String} 
 @default &quot;loading...&quot;
 */
 
 /**
-加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。
-组件内部会给loadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可
-@attribute loadFn {function}
+下拉加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。
+组件内部会给pullDownLoadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可
+@attribute pullDownLoadFn {function}
+*/
+
+/**
+下拉时提示内容
+@attribute pullingUpHtml {String} 
+@default &quot;Pull down to refresh...&quot;
+*/
+
+/**
+下拉释放操作的提示内容
+@attribute releasingUpHtml {String} 
+@default &quot;release to refresh...&quot;
+*/
+
+/**
+下拉加载内容时的提示内容
+@attribute loadingUpHtml {String} 
+@default &quot;loading...&quot;
+*/
+
+/**
+下拉加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。
+组件内部会给pullUpLoadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可
+@attribute pullUpLoadFn {function}
 */
     </pre>
 </div>

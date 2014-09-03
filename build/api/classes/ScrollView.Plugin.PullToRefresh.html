@@ -471,14 +471,33 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;scroll-view, scroll-view/plugin/pull-to-refresh&#39;, function (S, ScrollView, PullToRefresh) {
-    window.scrollView = new ScrollView({
+                <pre class="code prettyprint"><code>KISSY.use([&#39;node&#39;, &#39;scroll-view&#39;, &#39;scroll-view/plugin/scrollbar&#39;, &#39;scroll-view/plugin/pull-to-refresh&#39;], function (S, $, ScrollView, ScrollbarPlugin, PullToRefresh) {
+    var str = &#39;&#39;,
+        num = 1;
+    for (; num &lt; 40; num++) {
+        str += &#39;&lt;p&gt;line &#39; + num + &#39;&lt;/p&gt;&#39;
+    }
+    $(&#39;#thelist&#39;).html(str);
+
+    var scrollView = new ScrollView({
         srcNode: &#39;#wrapper&#39;,
-        plugins: [
+        plugins: [ ScrollbarPlugin,
             new PullToRefresh({
-                loadFn: function (callback) {
+                pullUpLoadFn: function (callback) {  //滚动到低端后继续上拉将进入这个函数
                     setTimeout(function () {
-                        scrollView.get(&#39;contentEl&#39;).prepend(&#39;&lt;p&gt;line &#39; + i++ + &#39;&lt;/p&gt;&#39;);
+                        scrollView.get(&#39;contentEl&#39;)
+                                .append(&#39;&lt;p&gt;line &#39; + num++ + &#39;&lt;/p&gt;&#39;);
+                        scrollView.sync();
+                        callback();
+                    }, 500);
+                },
+                pullingUpHtml : &#39;上拉刷新&#39;,
+                releasingUpHtml : &#39;松手加载&#39;,
+                loadingUpHtml : &#39;正在努力加载...&#39;,
+                pullDownLoadFn : function(callback){  //滚动到顶端后继续下拉将进入这个函数
+                    setTimeout(function () {
+                        scrollView.get(&#39;contentEl&#39;)
+                                .prepend(&#39;&lt;p&gt;line &#39; + num++ + &#39;&lt;/p&gt;&#39;);
                         scrollView.sync();
                         callback();
                     }, 500);
@@ -486,7 +505,7 @@
             })
         ]
     }).render();
-}</code></pre>
+});</code></pre>
 
             </div>
         </div>
@@ -679,11 +698,11 @@
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_loadFn">loadFn</a>
+                                <a href="#attr_loadingDownHtml">loadingDownHtml</a>
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_loadingHtml">loadingHtml</a>
+                                <a href="#attr_loadingUpHtml">loadingUpHtml</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -691,11 +710,27 @@
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_pullingHtml">pullingHtml</a>
+                                <a href="#attr_pullDownLoadFn">pullDownLoadFn</a>
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_releasingHtml">releasingHtml</a>
+                                <a href="#attr_pullingDownHtml">pullingDownHtml</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_pullingUpHtml">pullingUpHtml</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_pullUpLoadFn">pullUpLoadFn</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_releasingDownHtml">releasingDownHtml</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_releasingUpHtml">releasingUpHtml</a>
                             </li>
                         
                     </ul>
@@ -3110,56 +3145,9 @@ or
 </div>
 
                 
-                    <div id="attr_loadFn" class="attr item">
-    <a name="config_loadFn"></a> 
-    <h3 class="name"><code>loadFn</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。
-组件内部会给loadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_loadingHtml" class="attr item">
-    <a name="config_loadingHtml"></a> 
-    <h3 class="name"><code>loadingHtml</code></h3>
+                    <div id="attr_loadingDownHtml" class="attr item">
+    <a name="config_loadingDownHtml"></a> 
+    <h3 class="name"><code>loadingDownHtml</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
     
@@ -3191,7 +3179,55 @@ or
     </div>
 
     <div class="description">
-        <p>加载内容时的提示内容</p>
+        <p>下拉加载内容时的提示内容</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &quot;loading...&quot;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_loadingUpHtml" class="attr item">
+    <a name="config_loadingUpHtml"></a> 
+    <h3 class="name"><code>loadingUpHtml</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>下拉加载内容时的提示内容</p>
 
     </div>
 
@@ -3260,9 +3296,56 @@ or
 </div>
 
                 
-                    <div id="attr_pullingHtml" class="attr item">
-    <a name="config_pullingHtml"></a> 
-    <h3 class="name"><code>pullingHtml</code></h3>
+                    <div id="attr_pullDownLoadFn" class="attr item">
+    <a name="config_pullDownLoadFn"></a> 
+    <h3 class="name"><code>pullDownLoadFn</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>下拉加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。
+组件内部会给pullDownLoadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_pullingDownHtml" class="attr item">
+    <a name="config_pullingDownHtml"></a> 
+    <h3 class="name"><code>pullingDownHtml</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
     
@@ -3308,9 +3391,9 @@ or
 </div>
 
                 
-                    <div id="attr_releasingHtml" class="attr item">
-    <a name="config_releasingHtml"></a> 
-    <h3 class="name"><code>releasingHtml</code></h3>
+                    <div id="attr_pullingUpHtml" class="attr item">
+    <a name="config_pullingUpHtml"></a> 
+    <h3 class="name"><code>pullingUpHtml</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
     
@@ -3342,7 +3425,150 @@ or
     </div>
 
     <div class="description">
-        <p>释放操作的提示内容</p>
+        <p>下拉时提示内容</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &quot;Pull down to refresh...&quot;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_pullUpLoadFn" class="attr item">
+    <a name="config_pullUpLoadFn"></a> 
+    <h3 class="name"><code>pullUpLoadFn</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>下拉加载内容的具体函数实现，自行实现，如果不给出，则无操作，只完成动画。
+组件内部会给pullUpLoadFn函数传入参数callback,callback参数在是组件内部传进来的，在加载完事之后执行这个callback即可</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_releasingDownHtml" class="attr item">
+    <a name="config_releasingDownHtml"></a> 
+    <h3 class="name"><code>releasingDownHtml</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>下拉释放操作的提示内容</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &quot;release to refresh...&quot;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_releasingUpHtml" class="attr item">
+    <a name="config_releasingUpHtml"></a> 
+    <h3 class="name"><code>releasingUpHtml</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>下拉释放操作的提示内容</p>
 
     </div>
 
