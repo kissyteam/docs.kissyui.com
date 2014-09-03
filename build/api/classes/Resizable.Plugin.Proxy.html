@@ -382,7 +382,7 @@
 
 
 <div class="box intro">
-    <p><a href="/5.0/api/classes/Resizable.html">Resizable</a> 插件， 可代理缩放对象</p>
+    <p><a href="/5.0/api/classes/Resizable.html">Resizable</a> 插件，可代理缩放对象用于展示缩放状态。proxy的样式需要自行编写，或参考下面这个里面的样式。</p>
 
 </div>
 
@@ -466,6 +466,39 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>//css
+.ks-resizable-proxy {
+    border: 1px dashed #426FD9;
+    position: absolute;
+}
+
+//js
+KISSY.use([&#39;node&#39;, &#39;resizable&#39;, &#39;resizable/plugin/proxy&#39;], function(S, $, Resizable, ResizableProxy) {
+    var r = new Resizable({
+        node:&quot;#something-can-resize&quot;,
+        // 指定可拖动的位置
+        handlers:[&quot;b&quot;,&quot;t&quot;,&quot;r&quot;,&quot;l&quot;,&quot;tr&quot;,&quot;tl&quot;,&quot;br&quot;,&quot;bl&quot;],
+        // 可选, 设置最小/最大 宽高
+        minHeight:100,
+        minWidth:100,
+        maxHeight:300,
+        maxWidth:400,
+        plugins : [
+            new ResizableProxy({
+                destroyOnEnd:true,
+                hideNodeOnResize:false
+            })
+        ]
+    });
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 

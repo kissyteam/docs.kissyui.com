@@ -5,11 +5,98 @@
 /**
 缩放功能
 
-### 拖放 handler 的样式需要调用者自己编写.
+拖放 handler 的样式需要调用者自己编写,如下面这个例子的样式。
 @class Resizable
 @constructor
 @extends Base
 @param config {Object}
+@example
+	//css
+	.ks-resizable-handler {
+	position: absolute;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	z-index: 1;
+	}
+	.ks-resizable-handler-t,.ks-resizable-handler-b,  .ks-resizable-handler-r, .ks-resizable-handler-l {
+	    opacity: 0.6;
+	    filter: alpha(opacity = 60);
+	    background-color: #F19EC2;
+	}
+	.ks-resizable-handler-t,.ks-resizable-handler-b {
+	    left: 0;
+	    height: 5px;
+	    width: 100%;
+	    cursor: n-resize;
+	}
+	.ks-resizable-handler-b {
+	    bottom: 0;
+	}
+
+	.ks-resizable-handler-t {
+	    top: 0;
+	}
+	.ks-resizable-handler-r, .ks-resizable-handler-l {
+	    top: 0;
+	    height: 100%;
+	    -height: expression(this.parentNode.offsetHeight);
+	    width: 5px;
+	    cursor: e-resize;
+	}
+	.ks-resizable-handler-l {
+	    left: 0;
+	}
+
+	.ks-resizable-handler-r {
+	    right: 0;
+	}
+
+	.ks-resizable-handler-bl, .ks-resizable-handler-br, .ks-resizable-handler-tl, .ks-resizable-handler-tr {
+	    position: absolute;
+	    width: 5px;
+	    height: 5px;
+	    border: 1px solid #535353;
+	    background-color: #E4007F;
+	    z-index: 2;
+	}
+	.ks-resizable-handler-bl {
+	    left: -3px;
+	    bottom: -3px;
+	    cursor: sw-resize;
+	}
+
+	.ks-resizable-handler-br {
+	    right: -3px;
+	    bottom: -3px;
+	    cursor: nw-resize;
+	}
+
+	.ks-resizable-handler-tl {
+	    left: -3px;
+	    top: -3px;
+	    cursor: nw-resize;
+	}
+
+	.ks-resizable-handler-tr {
+	    right: -3px;
+	    top: -3px;
+	    cursor: sw-resize;
+	}
+
+	//javascript
+	KISSY.use(['node', 'resizable'], function(S, $, Resizable) {
+	    var r = new Resizable({
+	        node:"#something-can-resize",
+	        // 指定可拖动的位置
+	        handlers:["b","t","r","l","tr","tl","br","bl"],
+	        // 可选, 设置最小/最大 宽高
+	        minHeight:100,
+	        minWidth:100,
+	        maxHeight:300,
+	        maxWidth:400
+	    });
+	});
 */
 
 /**

@@ -3,12 +3,38 @@
 */
 
 /**
-[Resizable](/5.0/api/classes/Resizable.html) 插件， 可代理缩放对象
+[Resizable](/5.0/api/classes/Resizable.html) 插件，可代理缩放对象用于展示缩放状态。proxy的样式需要自行编写，或参考下面这个里面的样式。
 @class Proxy
 @namespace Resizable.Plugin
 @constructor
 @extends Base
 @param config {Object}
+@example
+	//css
+	.ks-resizable-proxy {
+	    border: 1px dashed #426FD9;
+	    position: absolute;
+	}
+
+	//js
+	KISSY.use(['node', 'resizable', 'resizable/plugin/proxy'], function(S, $, Resizable, ResizableProxy) {
+	    var r = new Resizable({
+	        node:"#something-can-resize",
+	        // 指定可拖动的位置
+	        handlers:["b","t","r","l","tr","tl","br","bl"],
+	        // 可选, 设置最小/最大 宽高
+	        minHeight:100,
+	        minWidth:100,
+	        maxHeight:300,
+	        maxWidth:400,
+            plugins : [
+                new ResizableProxy({
+                    destroyOnEnd:true,
+                    hideNodeOnResize:false
+                })
+            ]
+	    });
+	});
 */
 
 /**

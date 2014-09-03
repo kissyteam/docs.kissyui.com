@@ -1,9 +1,9 @@
-	<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>resizable基本使用 - KISSY v5.0 Documentation</title>
+	<title>保持比例缩放 - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -13,7 +13,6 @@
 	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
 	<script src="/5.0/assets/js/ajax-load.js"></script>
 	<script type="text/javascript" src="/5.0/assets/js/qrcodejs/qrcode.min.js"></script>
-	
 </head>
 <body>
 	<div class="container" id="container">
@@ -151,59 +150,162 @@
 		});
 </script>
 		<div class="row">
-			<div class="col-md-9" id="main-content">
+			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1 id="resizable基本使用">resizable基本使用</h1><p>缩放功能组件，<a href="/5.0/demos/resizable/index.html">Demo</a></p>
-<p>调用：</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'resizable'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Resizable)</span></span>{
-    <span class="hljs-comment">// use Resizable</span>
-});
-</code></pre><p>初始化示例：</p>
-<pre><code><span class="hljs-keyword">var</span> r = <span class="hljs-keyword">new</span> Resizable({
-    node:<span class="hljs-string">"#something-can-resize"</span>,
-    <span class="hljs-comment">// 指定可拖动的位置</span>
-    handlers:[<span class="hljs-string">"b"</span>,<span class="hljs-string">"t"</span>,<span class="hljs-string">"r"</span>,<span class="hljs-string">"l"</span>,<span class="hljs-string">"tr"</span>,<span class="hljs-string">"tl"</span>,<span class="hljs-string">"br"</span>,<span class="hljs-string">"bl"</span>],
+<h1 id="保持比例缩放">保持比例缩放</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+        <div class="ks-tabs-tab ks-button">QRCode</div>
+    </div>
+    <div class="ks-tabs-body" style="overflow:hidden;">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+&lt;title&gt;保持比例缩放&lt;&#x2F;title&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;  data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;style type=&quot;text&#x2F;css&quot;&gt;
+&#x2F;** 钩子handlers的样式*&#x2F;
+.ks-resizable-handler {
+position: absolute;
+overflow: hidden;
+font-size: 0;
+line-height: 0;
+z-index: 1;
+}
+.ks-resizable-handler-t,.ks-resizable-handler-b,  .ks-resizable-handler-r, .ks-resizable-handler-l {
+    opacity: 0.6;
+    filter: alpha(opacity = 60);
+    background-color: #F19EC2;
+}
+.ks-resizable-handler-t,.ks-resizable-handler-b {
+    left: 0;
+    height: 5px;
+    width: 100%;
+    cursor: n-resize;
+}
+.ks-resizable-handler-b {
+    bottom: 0;
+}
 
-    <span class="hljs-comment">// 可选, 设置最小/最大 宽高</span>
-    minHeight:<span class="hljs-number">50</span>,
-    minWidth:<span class="hljs-number">50</span>,
-    maxHeight:<span class="hljs-number">445</span>,
-    maxWidth:<span class="hljs-number">700</span>
-});
-</code></pre><h2 id="API">API</h2><h3 id="配置参数">配置参数</h3><ul>
-<li>node:被缩放的节点</li>
-<li>minWidth：默认为0, 表示拖动缩放的最小宽度.</li>
-<li>minHeight：默认为0, 表示拖动缩放的最小高度.</li>
-<li>maxWidth：默认为 Number.MAX_VALUE, 表示拖动缩放的最大宽度.</li>
-<li>maxHeight：默认为 Number.MAX_VALUE, 表示拖动缩放的最大高度.</li>
-<li>handlers：数组，默认为 [], 表示可拖动元素的哪些位置来进行缩放.可取下列值: “b”,”t”,”r”,”l”,”tr”,”tl”,”br”,”bl”． 其中, t,b,l,r 分别表示 top,bottom,left,right, 加上组合共八种取值, 可在上, 下, 左, 右以及左上, 左下, 右上, 右下进行拖动.</li>
-<li>preserveRatio: Boolean ，是否在 resize 的过程中保持 width/height 比例，默认为 false</li>
-</ul>
-<h3 id="实例方法">实例方法</h3><ul>
-<li>destroy() 销毁实例</li>
-</ul>
-<h3 id="实例提供的事件">实例提供的事件</h3><ul>
-<li>resizeStart：开始拖放后触发</li>
-<li>resize：拖放中触发</li>
-<li>resizeEnd：拖放结束后触发</li>
-</ul>
+.ks-resizable-handler-t {
+    top: 0;
+}
+.ks-resizable-handler-r, .ks-resizable-handler-l {
+    top: 0;
+    height: 100%;
+    -height: expression(this.parentNode.offsetHeight);
+    width: 5px;
+    cursor: e-resize;
+}
+.ks-resizable-handler-l {
+    left: 0;
+}
 
-				<div id="disqus_thread"></div>
-				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
-				<a id="apilink" href="../../api/classes/Resizable.html" style="display:none;"></a>
+.ks-resizable-handler-r {
+    right: 0;
+}
+
+.ks-resizable-handler-bl, .ks-resizable-handler-br, .ks-resizable-handler-tl, .ks-resizable-handler-tr {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border: 1px solid #535353;
+    background-color: #E4007F;
+    z-index: 2;
+}
+.ks-resizable-handler-bl {
+    left: -3px;
+    bottom: -3px;
+    cursor: sw-resize;
+}
+
+.ks-resizable-handler-br {
+    right: -3px;
+    bottom: -3px;
+    cursor: nw-resize;
+}
+
+.ks-resizable-handler-tl {
+    left: -3px;
+    top: -3px;
+    cursor: nw-resize;
+}
+
+.ks-resizable-handler-tr {
+    right: -3px;
+    top: -3px;
+    cursor: sw-resize;
+}
+
+.select-box {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    margin-top: 20px;
+    background: white;
+    cursor: auto;
+}
+
+.select-box .content {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    filter: alpha(opacity = 80);
+}
+&lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;h1&gt;保持比例缩放&lt;&#x2F;h1&gt;
+    &lt;p&gt;缩放过程中会保持长宽比例不变&lt;&#x2F;p&gt;
+    &lt;div id=&quot;something-can-resize&quot; class=&quot;select-box&quot;&gt;
+        &lt;div class=&quot;content&quot;&gt;
+            &lt;img src=&quot;http:&#x2F;&#x2F;gtms04.alicdn.com&#x2F;tps&#x2F;i4&#x2F;TB15qqXGXXXXXXxXpXXZJ9V4FXX-1190-396.png&quot; &#x2F;&gt;
+        &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+
+&lt;script type=&quot;text&#x2F;javascript&quot;&gt;
+	KISSY.use([&#x27;node&#x27;, &#x27;resizable&#x27;], function(S, $, Resizable) {
+	    var r = new Resizable({
+	        node:&quot;#something-can-resize&quot;,
+	        &#x2F;&#x2F; 指定可拖动的位置
+	        handlers:[&quot;b&quot;,&quot;t&quot;,&quot;r&quot;,&quot;l&quot;],
+            preserveRatio : true  &#x2F;&#x2F;是否保持比例缩放
+	    });
+	});
+
+&lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+        <div class="ks-tabs-panel">
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/resizable/cited-by-md/preserve-ratio.html" ="text">示例地址：docs.kissyui.com/5.0/demos/resizable/cited-by-md/preserve-ratio.html</p>
+            <div class="qrcode"></div>
+        </div>
+    </div>
+</div></p>
+
+	   			<div id="disqus_thread"></div>
+	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+	   			<a id="apilink" href="../../api/classes/Resizable.html" style="display:none;"></a>
 			</div>
 			<div class="col-md-3" id="sidebar">
 				<a class="link-apidocs btn btn-primary" href="../../api/classes/Resizable.html">API Docs</a>
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="panel-title">Outline</h3>
-					</div>
-					<div class="panel-body">
-						<ul class="outline">
-							<li class="level2"><a href="#API">API</a></li><li class="level3"><a href="#配置参数">配置参数</a></li><li class="level3"><a href="#实例方法">实例方法</a></li><li class="level3"><a href="#实例提供的事件">实例提供的事件</a></li>
-						</ul>
-					</div>
-				</div>
 				<div class="panel panel-primary ajax-load ">
 					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>

@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>简单使用Resizable</title>
+<title>保持比例缩放</title>
 <link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
 <link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css">
 <script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"  data-config="{combine:true}"></script>
@@ -101,12 +101,11 @@ z-index: 1;
 </head>
 <body>
 <div class="container">
-    <h1>简单使用Resizable</h1>
-    <p>点击“销毁”按钮将销毁resizable功能，元素不能再伸缩。钩子handlers的样式根据需要自行编写，可仿造这个例子的样式改造。</p>
-    <div id="destroy" class="ks-button ks-button-default">销毁</div>
+    <h1>保持比例缩放</h1>
+    <p>缩放过程中会保持长宽比例不变</p>
     <div id="something-can-resize" class="select-box">
         <div class="content">
-            <img src="http://gju3.alicdn.com/bao/uploaded/i2/10000050991219761/TB2F_MZaXXXXXX_XpXXXXXXXXXX_!!0-0-juitemmedia.jpg_460x460Q90.jpg" />
+            <img src="http://gtms04.alicdn.com/tps/i4/TB15qqXGXXXXXXxXpXXZJ9V4FXX-1190-396.png" />
         </div>
     </div>
 </div>
@@ -116,16 +115,8 @@ z-index: 1;
 	    var r = new Resizable({
 	        node:"#something-can-resize",
 	        // 指定可拖动的位置
-	        handlers:["b","t","r","l","tr","tl","br","bl"],
-
-	        // 可选, 设置最小/最大 宽高
-	        minHeight:100,
-	        minWidth:100,
-	        maxHeight:300,
-	        maxWidth:400
-	    });
-	    $("#destroy").on("click", function() {
-	        r.destroy();
+	        handlers:["b","t","r","l"],
+            preserveRatio : true  //是否保持比例缩放
 	    });
 	});
 

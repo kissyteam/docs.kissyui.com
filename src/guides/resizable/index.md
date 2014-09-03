@@ -33,6 +33,7 @@
 - maxWidth：默认为 Number.MAX_VALUE, 表示拖动缩放的最大宽度.
 - maxHeight：默认为 Number.MAX_VALUE, 表示拖动缩放的最大高度.
 - handlers：数组，默认为 [], 表示可拖动元素的哪些位置来进行缩放.可取下列值: “b”,”t”,”r”,”l”,”tr”,”tl”,”br”,”bl”． 其中, t,b,l,r 分别表示 top,bottom,left,right, 加上组合共八种取值, 可在上, 下, 左, 右以及左上, 左下, 右上, 右下进行拖动.
+- preserveRatio: Boolean ，是否在 resize 的过程中保持 width/height 比例，默认为 false
 
 ### 实例方法
 

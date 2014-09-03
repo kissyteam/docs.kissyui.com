@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Resizable的基本使用 - KISSY v5.0 Documentation</title>
+	<title>简单使用Resizable - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -152,7 +152,7 @@
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1 id="Resizable的基本使用">Resizable的基本使用</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+<h1 id="简单使用Resizable">简单使用Resizable</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -166,9 +166,12 @@
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
-&lt;title&gt;Demo - Resizable 的基本使用&lt;&#x2F;title&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;title&gt;简单使用Resizable&lt;&#x2F;title&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;  data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;style type=&quot;text&#x2F;css&quot;&gt;
+&#x2F;** 钩子handlers的样式*&#x2F;
 .ks-resizable-handler {
 position: absolute;
 overflow: hidden;
@@ -245,7 +248,7 @@ z-index: 1;
     position: relative;
     width: 300px;
     height: 150px;
-    border: 1px solid gray;
+    margin-top: 20px;
     background: white;
     cursor: auto;
 }
@@ -257,112 +260,34 @@ z-index: 1;
     opacity: 0.8;
     filter: alpha(opacity = 80);
 }
-
-
-&#x2F;* 涓嶅悓鐨勯鑹� *&#x2F;
-
-.color9 {
-    border-color: #E4007F;
-
-    background: #E4007F;
-    background: -moz-linear-gradient(top, #fc46ab 0%, #E4007F 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fc46ab), color-stop(100%, #E4007F));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = &#x27;#fc46ab&#x27;, endColorstr = &#x27;#E4007F&#x27;, GradientType = 0);
-}
-.color8 {
-    border-color: #B7AA00;
-
-    background: #B7AA00;
-    background: -moz-linear-gradient(top, #e5d727 0%, #B7AA00 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5d727), color-stop(100%, #B7AA00));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = &#x27;#e5d727&#x27;, endColorstr = &#x27;#B7AA00&#x27;, GradientType = 0);
-}
-.color0 {
-    border-color: #22AC38;
-
-    background: #22AC38;
-    background: -moz-linear-gradient(top, #4dd463 0%, #22AC38 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4dd463), color-stop(100%, #22AC38));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = &#x27;#4dd463&#x27;, endColorstr = &#x27;#22AC38&#x27;, GradientType = 0);
-}
-.color3 {
-    border-color: #00A0E9;
-
-    background: #00A0E9;
-    background: -moz-linear-gradient(top, #3bc2ff 0%, #00A0E9 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bc2ff), color-stop(100%, #00A0E9));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = &#x27;#3bc2ff&#x27;, endColorstr = &#x27;#00A0E9&#x27;, GradientType = 0);
-}
-.color1 {
-    border-color: #601986;
-
-    background: #601986;
-    background: -moz-linear-gradient(top, #8e44b6 0%, #601986 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8e44b6), color-stop(100%, #601986));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = &#x27;#8e44b6&#x27;, endColorstr = &#x27;#601986&#x27;, GradientType = 0);
-}
-.color7 {
-    border-color: #F19EC2;
-
-    background: #F19EC2;
-    background: -moz-linear-gradient(top, #ffcbe2 0%, #F19EC2 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffcbe2), color-stop(100%, #F19EC2));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = &#x27;#ffcbe2&#x27;, endColorstr = &#x27;#F19EC2&#x27;, GradientType = 0);
-}
-.color2 {
-    border-color: #F2E600;
-
-    background: #F2E600;
-    background: -moz-linear-gradient(top, #fff650 0%, #F2E600 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff650), color-stop(100%, #F2E600));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = &#x27;#fff650&#x27;, endColorstr = &#x27;#F2E600&#x27;, GradientType = 0);
-}
-.color4 {
-    border-color: #B3D465;
-
-    background: #B3D465;
-    background: -moz-linear-gradient(top, #d8f19d 0%, #B3D465 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d8f19d), color-stop(100%, #B3D465));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = &#x27;#d8f19d&#x27;, endColorstr = &#x27;#B3D465&#x27;, GradientType = 0);
-}
-.color5 {
-    border-color: #7ECEF4;
-
-    background: #7ECEF4;
-    background: -moz-linear-gradient(top, #c1ebff 0%, #7ECEF4 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c1ebff), color-stop(100%, #7ECEF4));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = &#x27;#c1ebff&#x27;, endColorstr = &#x27;#7ECEF4&#x27;, GradientType = 0);
-}
-.color6 {
-    border-color: #AA89BD;
-
-    background: #AA89BD;
-    background: -moz-linear-gradient(top, #e7d4f3 0%, #AA89BD 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e7d4f3), color-stop(100%, #AA89BD));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = &#x27;#e7d4f3&#x27;, endColorstr = &#x27;#AA89BD&#x27;, GradientType = 0);
-}
-
 &lt;&#x2F;style&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
-&lt;div id=&quot;something-can-resize&quot; class=&quot;select-box&quot;&gt;
-    &lt;div class=&quot;content&quot;&gt;&lt;img src=&quot;http:&#x2F;&#x2F;img02.taobaocdn.com&#x2F;tps&#x2F;i2&#x2F;T1yY5BXcNrXXXXXXXX-700-445.jpg&quot; &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;h1&gt;简单使用Resizable&lt;&#x2F;h1&gt;
+    &lt;p&gt;点击“销毁”按钮将销毁resizable功能，元素不能再伸缩。钩子handlers的样式根据需要自行编写，可仿造这个例子的样式改造。&lt;&#x2F;p&gt;
+    &lt;div id=&quot;destroy&quot; class=&quot;ks-button ks-button-default&quot;&gt;销毁&lt;&#x2F;div&gt;
+    &lt;div id=&quot;something-can-resize&quot; class=&quot;select-box&quot;&gt;
+        &lt;div class=&quot;content&quot;&gt;
+            &lt;img src=&quot;http:&#x2F;&#x2F;gju3.alicdn.com&#x2F;bao&#x2F;uploaded&#x2F;i2&#x2F;10000050991219761&#x2F;TB2F_MZaXXXXXX_XpXXXXXXXXXX_!!0-0-juitemmedia.jpg_460x460Q90.jpg&quot; &#x2F;&gt;
+        &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
 &lt;&#x2F;div&gt;
-&lt;button id=&quot;destroy&quot;&gt;销毁&lt;&#x2F;button&gt;
+
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-	KISSY.use(&quot;node, resizable&quot;, function(S, Node, Resizable) {
+	KISSY.use([&#x27;node&#x27;, &#x27;resizable&#x27;], function(S, $, Resizable) {
 	    var r = new Resizable({
 	        node:&quot;#something-can-resize&quot;,
 	        &#x2F;&#x2F; 指定可拖动的位置
 	        handlers:[&quot;b&quot;,&quot;t&quot;,&quot;r&quot;,&quot;l&quot;,&quot;tr&quot;,&quot;tl&quot;,&quot;br&quot;,&quot;bl&quot;],
 
 	        &#x2F;&#x2F; 可选, 设置最小&#x2F;最大 宽高
-	        minHeight:50,
-	        minWidth:50,
-	        maxHeight:445,
-	        maxWidth:700
+	        minHeight:100,
+	        minWidth:100,
+	        maxHeight:300,
+	        maxWidth:400
 	    });
-	    Node.one(&quot;#destroy&quot;).on(&quot;click&quot;, function() {
+	    $(&quot;#destroy&quot;).on(&quot;click&quot;, function() {
 	        r.destroy();
 	    });
 	});
@@ -403,7 +328,7 @@ z-index: 1;
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="../../demos/resizable/index.html">Resizable的基本使用</a></p>
+						<p><a href="../../demos/resizable/index.html">简单使用Resizable</a></p><p><a href="../../demos/resizable/preserve-ratio.html">保持比例缩放</a></p><p><a href="../../demos/resizable/resizable-proxy.html">使用代理展示缩放区域</a></p>
 					</div>
 				</div>
 			</div>

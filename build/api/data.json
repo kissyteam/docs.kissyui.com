@@ -1551,10 +1551,11 @@
             "namespace": "Component.Plugin",
             "file": "src/api/component/plugin/resize.js",
             "line": 6,
+            "description": "组件伸缩插件。钩子handlers的样式根据需要自行编写，例如下面例子的样式。",
             "is_constructor": 1,
             "extends": "Resizable",
             "example": [
-                "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    new Overlay({\n        plugins:[\n            new Resize({\n                minWidth:100,\n                maxWidth:200,\n                handlers:['l','r']\n            })\n        ]\n    });\n});\n```"
+                "\n\n\t//component/plugin/resize 插件需要应用的样式\n\t.ks-overlay .ks-resizable-handler {\n\t    overflow: hidden;\n\t    font-size: 0;\n\t    line-height: 0;\n\t    position: absolute;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-b {\n\t    height: 6px;\n\t    width: 100%; \n\t    bottom: 0;\n\t    left: 0;\n\t    cursor: n-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-t {\n\t    height: 6px;\n\t    width: 100%;\n\t    top: 0;\n\t    left: 0;\n\t    cursor: n-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-l {\n\t    height: 100%;\n\t    -height: expression(this.parentNode.offsetHeight);\n\t    width: 6px; \n\t    top: 0;\n\t    left: 0;\n\t    cursor: e-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-r {\n\t    height: 100%;\n\t    -height: expression(this.parentNode.offsetHeight); \n\t    width: 6px;\n\t    position: absolute;\n\t    top: 0;\n\t    right: 0;\n\t    cursor: e-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-bl {\n\t    height: 6px;\n\t    width: 6px; \n\t    z-index: 1;\n\t    bottom: 0;\n\t    left: 0;\n\t    cursor: sw-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-br {\n\t    height: 6px;\n\t    width: 6px;\n\t    z-index: 1; \n\t    bottom: 0;\n\t    right: 0;\n\t    cursor: se-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-tl {\n\t    height: 6px;\n\t    width: 6px;\n\t    z-index: 1; \n\t    top: 0;\n\t    left: 0;\n\t    cursor: nw-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-tr {\n\t    height: 6px;\n\t    width: 6px;\n\t    z-index: 1; \n\t    top: 0;\n\t    right: 0;\n\t    cursor: ne-resize;\n\t}\n\n\n\tKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n\t    new Overlay({\n\t        plugins:[\n\t            new Resize({\n\t                minWidth:100,\n\t                maxWidth:200,\n\t                handlers:['l','r']\n\t            })\n\t        ]\n\t    });\n\t});"
             ]
         },
         "Component.Container": {
@@ -1823,7 +1824,7 @@
             "namespace": "Resizable.Plugin",
             "file": "src/api/resizable/plugin/proxy.js",
             "line": 5,
-            "description": "[Resizable](/5.0/api/classes/Resizable.html) 插件， 可代理缩放对象",
+            "description": "[Resizable](/5.0/api/classes/Resizable.html) 插件，可代理缩放对象用于展示缩放状态。proxy的样式需要自行编写，或参考下面这个里面的样式。",
             "is_constructor": 1,
             "extends": "Base",
             "params": [
@@ -1832,6 +1833,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\t//css\n\t.ks-resizable-proxy {\n\t    border: 1px dashed #426FD9;\n\t    position: absolute;\n\t}\n\n\t//js\n\tKISSY.use(['node', 'resizable', 'resizable/plugin/proxy'], function(S, $, Resizable, ResizableProxy) {\n\t    var r = new Resizable({\n\t        node:\"#something-can-resize\",\n\t        // 指定可拖动的位置\n\t        handlers:[\"b\",\"t\",\"r\",\"l\",\"tr\",\"tl\",\"br\",\"bl\"],\n\t        // 可选, 设置最小/最大 宽高\n\t        minHeight:100,\n\t        minWidth:100,\n\t        maxHeight:300,\n\t        maxWidth:400,\n            plugins : [\n                new ResizableProxy({\n                    destroyOnEnd:true,\n                    hideNodeOnResize:false\n                })\n            ]\n\t    });\n\t});"
             ]
         },
         "ScrollView.Plugin.PullToRefresh": {
@@ -2873,7 +2877,7 @@
             "namespace": "",
             "file": "src/api/resizable.js",
             "line": 5,
-            "description": "缩放功能\n\n### 拖放 handler 的样式需要调用者自己编写.",
+            "description": "缩放功能\n\n拖放 handler 的样式需要调用者自己编写,如下面这个例子的样式。",
             "is_constructor": 1,
             "extends": "Base",
             "params": [
@@ -2882,6 +2886,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\t//css\n\t.ks-resizable-handler {\n\tposition: absolute;\n\toverflow: hidden;\n\tfont-size: 0;\n\tline-height: 0;\n\tz-index: 1;\n\t}\n\t.ks-resizable-handler-t,.ks-resizable-handler-b,  .ks-resizable-handler-r, .ks-resizable-handler-l {\n\t    opacity: 0.6;\n\t    filter: alpha(opacity = 60);\n\t    background-color: #F19EC2;\n\t}\n\t.ks-resizable-handler-t,.ks-resizable-handler-b {\n\t    left: 0;\n\t    height: 5px;\n\t    width: 100%;\n\t    cursor: n-resize;\n\t}\n\t.ks-resizable-handler-b {\n\t    bottom: 0;\n\t}\n\n\t.ks-resizable-handler-t {\n\t    top: 0;\n\t}\n\t.ks-resizable-handler-r, .ks-resizable-handler-l {\n\t    top: 0;\n\t    height: 100%;\n\t    -height: expression(this.parentNode.offsetHeight);\n\t    width: 5px;\n\t    cursor: e-resize;\n\t}\n\t.ks-resizable-handler-l {\n\t    left: 0;\n\t}\n\n\t.ks-resizable-handler-r {\n\t    right: 0;\n\t}\n\n\t.ks-resizable-handler-bl, .ks-resizable-handler-br, .ks-resizable-handler-tl, .ks-resizable-handler-tr {\n\t    position: absolute;\n\t    width: 5px;\n\t    height: 5px;\n\t    border: 1px solid #535353;\n\t    background-color: #E4007F;\n\t    z-index: 2;\n\t}\n\t.ks-resizable-handler-bl {\n\t    left: -3px;\n\t    bottom: -3px;\n\t    cursor: sw-resize;\n\t}\n\n\t.ks-resizable-handler-br {\n\t    right: -3px;\n\t    bottom: -3px;\n\t    cursor: nw-resize;\n\t}\n\n\t.ks-resizable-handler-tl {\n\t    left: -3px;\n\t    top: -3px;\n\t    cursor: nw-resize;\n\t}\n\n\t.ks-resizable-handler-tr {\n\t    right: -3px;\n\t    top: -3px;\n\t    cursor: sw-resize;\n\t}\n\n\t//javascript\n\tKISSY.use(['node', 'resizable'], function(S, $, Resizable) {\n\t    var r = new Resizable({\n\t        node:\"#something-can-resize\",\n\t        // 指定可拖动的位置\n\t        handlers:[\"b\",\"t\",\"r\",\"l\",\"tr\",\"tl\",\"br\",\"bl\"],\n\t        // 可选, 设置最小/最大 宽高\n\t        minHeight:100,\n\t        minWidth:100,\n\t        maxHeight:300,\n\t        maxWidth:400\n\t    });\n\t});"
             ]
         },
         "SplitButton": {
@@ -6027,7 +6034,7 @@
         },
         {
             "file": "src/api/resizable/plugin/proxy.js",
-            "line": 14,
+            "line": 40,
             "description": "当 Resizable 对象需要代理节点时通过调用该函数产生代理节点, 函数的参数为当前 Resizable 对象, 返回值类型为 KISSY.Node . 该属性有默认值:\n```\nfunction(resizable) {\n    return new Node(resizable.get(\"node\")[0].cloneNode(true));\n}\n```\n\n即代理节点和当前节点保持一致.",
             "itemtype": "attribute",
             "name": "node",
@@ -6038,7 +6045,7 @@
         },
         {
             "file": "src/api/resizable/plugin/proxy.js",
-            "line": 26,
+            "line": 52,
             "description": "默认 false. 指明在 resize 之后是否销毁代理节点",
             "itemtype": "attribute",
             "name": "destroyOnEnd",
@@ -6050,7 +6057,7 @@
         },
         {
             "file": "src/api/resizable/plugin/proxy.js",
-            "line": 32,
+            "line": 58,
             "description": "默认 false. 是否在用代理节点 resize 时隐藏原节点",
             "itemtype": "attribute",
             "name": "hideNodeOnResize",
@@ -14422,7 +14429,7 @@
         },
         {
             "file": "src/api/resizable.js",
-            "line": 15,
+            "line": 102,
             "description": "是否在 resize 的过程中保持 width/height 比例",
             "itemtype": "attribute",
             "name": "preserveRatio",
@@ -14432,7 +14439,7 @@
         },
         {
             "file": "src/api/resizable.js",
-            "line": 20,
+            "line": 107,
             "description": "默认为 [], 表示可拖动元素的哪些位置来进行缩放.\n可取下列值: “b”,”t”,”r”,”l”,”tr”,”tl”,”br”,”bl”． 其中, t,b,l,r 分别表示 top,bottom,left,right, 加上组合共八种取值, 可在上, 下, 左, 右以及左上, 左下, 右上, 右下进行拖动.",
             "itemtype": "attribute",
             "name": "handlers",
@@ -14443,7 +14450,7 @@
         },
         {
             "file": "src/api/resizable.js",
-            "line": 27,
+            "line": 114,
             "description": "默认为0, 表示拖动缩放的最大高度",
             "itemtype": "attribute",
             "name": "maxHeight",
@@ -14454,7 +14461,7 @@
         },
         {
             "file": "src/api/resizable.js",
-            "line": 33,
+            "line": 120,
             "description": "默认为0, 表示拖动缩放的最大宽度",
             "itemtype": "attribute",
             "name": "maxWidth",
@@ -14465,7 +14472,7 @@
         },
         {
             "file": "src/api/resizable.js",
-            "line": 39,
+            "line": 126,
             "description": "默认为0, 表示拖动缩放的最小高度",
             "itemtype": "attribute",
             "name": "minHeight",
@@ -14476,7 +14483,7 @@
         },
         {
             "file": "src/api/resizable.js",
-            "line": 45,
+            "line": 132,
             "description": "默认为0, 表示拖动缩放的最小宽度",
             "itemtype": "attribute",
             "name": "minWidth",
@@ -14487,7 +14494,7 @@
         },
         {
             "file": "src/api/resizable.js",
-            "line": 51,
+            "line": 138,
             "description": "将要进行缩放的节点",
             "itemtype": "attribute",
             "name": "node",
@@ -14497,7 +14504,7 @@
         },
         {
             "file": "src/api/resizable.js",
-            "line": 57,
+            "line": 144,
             "description": "销毁该组件, 取消元素上的缩放功能.",
             "itemtype": "method",
             "name": "destroy",
@@ -14506,7 +14513,7 @@
         },
         {
             "file": "src/api/resizable.js",
-            "line": 62,
+            "line": 149,
             "description": "开始拖放后触发",
             "itemtype": "event",
             "name": "resizeStart",
@@ -14515,7 +14522,7 @@
         },
         {
             "file": "src/api/resizable.js",
-            "line": 67,
+            "line": 154,
             "description": "拖放中触发",
             "itemtype": "event",
             "name": "resize",
@@ -14524,7 +14531,7 @@
         },
         {
             "file": "src/api/resizable.js",
-            "line": 72,
+            "line": 159,
             "description": "结束拖放后触发",
             "itemtype": "event",
             "name": "resizeEnd",

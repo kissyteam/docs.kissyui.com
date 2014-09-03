@@ -1,4 +1,4 @@
 (((apilink class="Resizable")))
-# Resizable的基本使用
+# 简单使用Resizable
 
 [[[include file="./cited-by-md/baseuse.html"]]]
