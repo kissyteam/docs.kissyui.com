@@ -70,13 +70,16 @@
         </ol>
     </div>
 </div>
-<h1  style="margin : 0 auto; width : 80%;">示例：</h1>
+<div style="margin : 0 auto; width : 80%;">
+    <h1>示例：</h1>
+    <p>应用button相应的class可以使用button定义好的样式，更多样式请看button示例</p>
+</div>
 <div id="container"  style="margin : 0 auto; width : 80%;">
     <p>全新生成节点:</p>
 </div>
 <div id="container2"  style="margin : 0 auto; width : 80%;">
     <p>从已有元素生成（html结构必须符合规范和相应的class）:</p>
-    <div class="ks-menu-button ks-button" id="exist" tabindex="0">
+    <div class="ks-menu-button ks-button ks-button-success" id="exist" tabindex="0">
         <div class="ks-menu-button-content">我的淘宝</div>
         <div class="ks-menu-button-dropdown ks-button-dropdown">
             <div class="ks-menu-button-dropdown-inner ks-button-dropdown-inner">
@@ -96,6 +99,7 @@
             content : '我的淘宝',
             render : '#container',
             matchElWidth : false,
+            elCls : 'ks-button-info ks-button-large',   //可以加上button相应的class来应用button样式，更多样式请看button的示例
             menu : {
                 xclass : 'popupmenu',
                 children : [

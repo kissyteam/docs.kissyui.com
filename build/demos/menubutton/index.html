@@ -233,13 +233,16 @@
         &lt;&#x2F;ol&gt;
     &lt;&#x2F;div&gt;
 &lt;&#x2F;div&gt;
-&lt;h1  style=&quot;margin : 0 auto; width : 80%;&quot;&gt;示例：&lt;&#x2F;h1&gt;
+&lt;div style=&quot;margin : 0 auto; width : 80%;&quot;&gt;
+    &lt;h1&gt;示例：&lt;&#x2F;h1&gt;
+    &lt;p&gt;应用button相应的class可以使用button定义好的样式，更多样式请看button示例&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
 &lt;div id=&quot;container&quot;  style=&quot;margin : 0 auto; width : 80%;&quot;&gt;
     &lt;p&gt;全新生成节点:&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;
 &lt;div id=&quot;container2&quot;  style=&quot;margin : 0 auto; width : 80%;&quot;&gt;
     &lt;p&gt;从已有元素生成（html结构必须符合规范和相应的class）:&lt;&#x2F;p&gt;
-    &lt;div class=&quot;ks-menu-button ks-button&quot; id=&quot;exist&quot; tabindex=&quot;0&quot;&gt;
+    &lt;div class=&quot;ks-menu-button ks-button ks-button-success&quot; id=&quot;exist&quot; tabindex=&quot;0&quot;&gt;
         &lt;div class=&quot;ks-menu-button-content&quot;&gt;我的淘宝&lt;&#x2F;div&gt;
         &lt;div class=&quot;ks-menu-button-dropdown ks-button-dropdown&quot;&gt;
             &lt;div class=&quot;ks-menu-button-dropdown-inner ks-button-dropdown-inner&quot;&gt;
@@ -259,6 +262,7 @@
             content : &#x27;我的淘宝&#x27;,
             render : &#x27;#container&#x27;,
             matchElWidth : false,
+            elCls : &#x27;ks-button-info ks-button-large&#x27;,   &#x2F;&#x2F;可以加上button相应的class来应用button样式，更多样式请看button的示例
             menu : {
                 xclass : &#x27;popupmenu&#x27;,
                 children : [
