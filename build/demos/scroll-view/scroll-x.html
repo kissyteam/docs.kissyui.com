@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>简单使用ScrollView - KISSY v5.0 Documentation</title>
+	<title>横向滚动-图片Gallery - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -152,7 +152,7 @@
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1 id="简单使用ScrollView">简单使用ScrollView</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+<h1 id="横向滚动-图片Gallery">横向滚动-图片Gallery</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -161,68 +161,65 @@
     <div class="ks-tabs-body" style="overflow:hidden;">
         <div class="ks-tabs-panel">
             <div class="editor">
-				
-&lt;!doctype html&gt;
+				&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
-&lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
- &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&gt;
-&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
-&lt;meta name=&quot;apple-touch-fullscreen&quot; content=&quot;yes&quot;&gt;
-&lt;title&gt;简单使用ScrollView&lt;&#x2F;title&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;scroll-view&#x2F;assets&#x2F;dpl.css&quot;&gt;
-&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;  data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
-&lt;style type=&quot;text&#x2F;css&quot;&gt;
-    body{
-        margin: 0;
-        padding: 0;
-    }
-    #wrap{
-        width: 100%;
-    }
-    .ks-scroll-view {
-        border: 1px solid red;
-        margin: 0 auto;
-    }
-    .ks-scroll-view p {
-        height: 90px;
-        border: 1px solid green;
-        margin: 0;
-        text-align: center;
-        line-height: 90px;
-    }
-    h1 {
-        text-align: center;
-    }
-&lt;&#x2F;style&gt;
+    &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&gt;
+    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
+    &lt;meta name=&quot;apple-touch-fullscreen&quot; content=&quot;yes&quot;&gt;
+    &lt;title&gt;横向滚动-图片Gallery&lt;&#x2F;title&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;scroll-view&#x2F;assets&#x2F;dpl.css&quot;&gt;
+    &lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;  data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;style&gt;
+        body, ul, li {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+        #header{
+            width: 100%;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+            background: #00A0E9;
+            font-size: 20px;
+            color: #eee;
+        }
+        .pic-viewer {
+            position: absolute;
+            width: 320px;
+            height: 568px;
+        }
+        #pic img{
+            width: 320px;
+            height: 460px;
+            margin: 0;
+            float: left;
+        }
+    &lt;&#x2F;style&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
-&lt;div id=&quot;wrap&quot;&gt;
-    &lt;h1&gt;简单使用ScrollView&lt;&#x2F;h1&gt;
-    &lt;p&gt;用移动浏览器打开查看demo或用PC上的chrome开发人员工具Emulation来模拟查看&lt;&#x2F;p&gt;
-    &lt;div id=&quot;scroll-view-contaienr&quot;&gt;
-        
-    &lt;&#x2F;div&gt;
-&lt;&#x2F;div&gt;
+&lt;div id=&quot;header&quot;&gt;横向滚动-图片Gallery&lt;&#x2F;div&gt;
+&lt;script&gt;
+    KISSY.use([&#x27;scroll-view&#x27;], function(S, ScrollView){
 
-&lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-	KISSY.use([&#x27;scroll-view&#x27;], function(S, ScrollView){
-        var content = &#x27;&#x27;;
-        for (var i = 0; i &lt; 10; i++) {
-            content += &#x27;&lt;p&gt;This is &#x27; + i + &#x27; block&lt;&#x2F;p&gt;&#x27;;
-        }
-        var myScrollView = new ScrollView({
-            width : 318,
-            height : 300,
-            render : &#x27;#scroll-view-contaienr&#x27;,
-            content : content
-        });
-        myScrollView.render();
+        var str = &#x27;&lt;div id=&quot;pic&quot; style=&quot;width:1280px;height:550px;&quot;&gt;&#x27;
+                + &#x27;&lt;img src=&quot;http:&#x2F;&#x2F;gd2.alicdn.com&#x2F;bao&#x2F;uploaded&#x2F;i2&#x2F;TB15MxhGXXXXXa_XpXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg_.webp&quot;&gt;&#x27;
+                + &#x27;&lt;img src=&quot;http:&#x2F;&#x2F;img02.taobaocdn.com&#x2F;bao&#x2F;uploaded&#x2F;i2&#x2F;101208715&#x2F;TB2bLc4aXXXXXbZXXXXXXXXXXXX_!!101208715.jpg_400x400.jpg&quot;&gt;&#x27;
+                + &#x27;&lt;img src=&quot;http:&#x2F;&#x2F;img01.taobaocdn.com&#x2F;bao&#x2F;uploaded&#x2F;i1&#x2F;101208715&#x2F;TB2O2UVXVXXXXX.XXXXXXXXXXXX_!!101208715.jpg_400x400.jpg&quot;&gt;&#x27;
+                + &#x27;&lt;img src=&quot;http:&#x2F;&#x2F;img03.taobaocdn.com&#x2F;bao&#x2F;uploaded&#x2F;i3&#x2F;101208715&#x2F;TB2lEXjapXXXXbAXXXXXXXXXXXX_!!101208715.jpg_400x400.jpg&quot;&gt;&#x27;
+                + &#x27;&lt;&#x2F;div&gt;&#x27;;
+
+        var picGalleryScrollView = new ScrollView({
+            content : str,
+            snap : &#x27;img&#x27;,
+            elCls : &#x27;pic-viewer&#x27;
+        }).render();
     })
-
 &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
-&lt;&#x2F;html&gt;
+
 			</div>
         </div>
         <div class="ks-tabs-panel ks-tabs-panel-selected">
@@ -231,7 +228,7 @@
             </iframe>
         </div>
         <div class="ks-tabs-panel">
-            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/scroll-view/cited-by-md/baseuse.html" ="text">示例地址：docs.kissyui.com/5.0/demos/scroll-view/cited-by-md/baseuse.html</p>
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/scroll-view/cited-by-md/scroll-x.html" ="text">示例地址：docs.kissyui.com/5.0/demos/scroll-view/cited-by-md/scroll-x.html</p>
             <div class="qrcode"></div>
         </div>
     </div>
