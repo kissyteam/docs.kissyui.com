@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>多选菜单 - KISSY v5.0 Documentation</title>
+	<title>仿淘宝首页顶部导航菜单 - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -152,7 +152,7 @@
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1 id="多选菜单">多选菜单</h1><p><div class="ks-tabs ks-tabs-top" style="height:500px;">
+<h1 id="仿淘宝首页顶部导航菜单">仿淘宝首页顶部导航菜单</h1><p><div class="ks-tabs ks-tabs-top" style="height:500px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -166,51 +166,194 @@
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
-&lt;title&gt;多选菜单项&lt;&#x2F;title&gt;
+&lt;title&gt;仿淘宝首页顶部导航菜单&lt;&#x2F;title&gt;
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;menu&#x2F;assets&#x2F;dpl.css&quot;&gt;
 &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;style type=&quot;text&#x2F;css&quot;&gt;
+    #container{
+        height: 35px;
+        padding: 0 30px;
+        background: #f5f5f5;
+    }
+    a{
+        font-size: 12px;
+        color: #6c6c6c;
+    }
+    .tb-nav-menu{
+        width: 260px;
+        background: #f5f5f5;
+        color: #3c3c3c;
+    }
+    .tb-nav-menuitem{
+        width : 80px;
+        height: 35px;
+        padding-left: 5px;
+        line-height: 35px;
+        text-align: left;
+        float: left;
+    }
+    .tb-nav-menuitem-hover{
+        background: #fff;
+        cursor: pointer;;
+    }
+    .tb-nav-menuitem-hover a{
+        color: #f40;
+    }
+    .tb-nav-submenu{
+        position: relative;
+        z-index: 9999;
+    }
+    .tb-nav-menu .tb-nav-submenu .tb-nav-submenu-arrow {
+        position: absolute;
+        top: 46%;
+        top: 40%\9;
+        width: 0;
+        height: 0;
+        border-width: 4px 4px 0 4px;
+        border-style: solid dashed dashed dashed;
+        border-color: #666 transparent transparent transparent;
+        font-size: 0;
+        line-height: 0;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transition: -webkit-transform 0.2s ease-in;
+        -moz-transition: -moz-transform 0.2s ease-in;
+        -o-transition: -o-transform 0.2s ease-in;
+        transition: transform 0.2s ease-in;
+    }
+    .tb-nav-menu .tb-nav-submenu-hover .tb-nav-submenu-arrow {
+        -moz-transform: rotate(180deg);
+        -moz-transform-origin: 50% 30%;
+        -webkit-transform: rotate(180deg);
+        -webkit-transform-origin: 50% 30%;
+        -o-transform: rotate(180deg);
+        -o-transform-origin: 50% 50%;
+        transform: rotate(180deg);
+        transform-origin: 50% 30%;
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation = 2);
+    }
+    .tb-nav-submenu.mytb .tb-nav-submenu-arrow{
+        right: 17px;
+    }
+    .tb-nav-submenu.favorite .tb-nav-submenu-arrow{
+        right: 29px;
+    }
+    .tb-nav-popupmenu{
+        width: 85px;
+        padding: 5px 0;
+        position: absolute;
+        background: #fff;
+        border: 1px solid #f5f5f5;
+        border-top: 0;
+        font-size: 12px;
+    }
+    .tb-nav-popupmenu .tb-nav-menuitem-hover{
+        background: #f5f5f5;
+    }
+    .tb-nav-popupmenu-hidden{
+        visibility: hidden;
+    }
+    .tb-nav-popupmenu .tb-nav-menuitem{
+        height: 28px;
+        line-height: 28px;
+    }
+    .tb-nav-popupmenu a{
+        color: #6c6c6c;
+    }
+&lt;&#x2F;style&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
-&lt;h1&gt;多选菜单项&lt;&#x2F;h1&gt;
-&lt;p&gt;所有class为CheckItem的多选菜单项，可以选中多个，区别于RadioItem&lt;&#x2F;p&gt;
+&lt;h1&gt;仿淘宝首页顶部导航菜单&lt;&#x2F;h1&gt;
 &lt;div id=&quot;container&quot; style=&quot;margin-left:50px;&quot;&gt;
     
 &lt;&#x2F;div&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-    KISSY.use([&#x27;menu&#x27;, &#x27;separator&#x27;], function(S, Menu, Separator){
-        new Menu({
-            render:&quot;#container&quot;,
-            width : 150,
-            children:[
+    KISSY.use([&#x27;menu&#x27;], function(S, Menu){
+        var tbNavMenu = new Menu({
+            prefixCls : &#x27;tb-nav-&#x27;,
+            render : &#x27;#container&#x27;,
+            children : [
                 {
-                    xclass:&#x27;check-menuitem&#x27;,
-                    content:&quot;checkable menuitem&quot;
-                },
-                {
-                    xclass:&#x27;separator&#x27;
-                },
-                {
-                    xclass:&#x27;submenu&#x27;,
-                    content:&#x27;submenu&#x27;,
-                    menu : new Menu.PopupMenu({
-                        autoHideOnMouseLeave:true,
-                        width : 150,
-                        children:[
+                    xclass : &#x27;submenu&#x27;,
+                    prefixCls : &#x27;tb-nav-&#x27;,
+                    elCls : &#x27;mytb&#x27;,
+                    content : &#x27;&lt;a href=&quot;#&quot;&gt;我的淘宝&lt;&#x2F;a&gt;&#x27;,
+                    menu : {
+                        xclass : &#x27;popupmenu&#x27;,
+                        autoHideOnMouseLeave : true,
+                        align : {
+                            points : [&#x27;bl&#x27;,&#x27;tl&#x27;]
+                        },
+                        prefixCls : &#x27;tb-nav-&#x27;,
+                        children : [
                             {
-                                xclass:&#x27;check-menuitem&#x27;,
-                                content:&quot;checkable menuitem1&quot;
+                                xclass : &#x27;menuitem&#x27;,
+                                prefixCls : &#x27;tb-nav-&#x27;,
+                                content : &#x27;&lt;a href=&quot;#&quot;&gt;已买到的宝贝&lt;&#x2F;a&gt;&#x27;
                             },
                             {
-                                xclass:&#x27;check-menuitem&#x27;,
-                                content:&quot;checkable menuitem2&quot;
-                            }
+                                xclass : &#x27;menuitem&#x27;,
+                                prefixCls : &#x27;tb-nav-&#x27;,
+                                content : &#x27;&lt;a href=&quot;#&quot;&gt;我的足迹&lt;&#x2F;a&gt;&#x27;
+                            },
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                prefixCls : &#x27;tb-nav-&#x27;,
+                                content : &#x27;&lt;a href=&quot;#&quot;&gt;我的上新&lt;&#x2F;a&gt;&#x27;
+                            },
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                prefixCls : &#x27;tb-nav-&#x27;,
+                                content : &#x27;&lt;a href=&quot;#&quot;&gt;爱逛街&lt;&#x2F;a&gt;&#x27;
+                            },
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                prefixCls : &#x27;tb-nav-&#x27;,
+                                content : &#x27;&lt;a href=&quot;#&quot;&gt;淘宝达人&lt;&#x2F;a&gt;&#x27;
+                            },
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                prefixCls : &#x27;tb-nav-&#x27;,
+                                content : &#x27;&lt;a href=&quot;#&quot;&gt;新欢&lt;&#x2F;a&gt;&#x27;
+                            },
                         ]
-                    })
+                    }
+                },
+                {
+                    xclass : &#x27;submenu&#x27;,
+                    prefixCls : &#x27;tb-nav-&#x27;,
+                    elCls : &#x27;favorite&#x27;,
+                    content : &#x27;&lt;a href=&quot;#&quot;&gt;收藏夹&lt;&#x2F;a&gt;&#x27;,
+                    menu : {
+                        xclass : &#x27;popupmenu&#x27;,
+                        autoHideOnMouseLeave : true,
+                        align : {
+                            points : [&#x27;bl&#x27;,&#x27;tl&#x27;]
+                        },
+                        prefixCls : &#x27;tb-nav-&#x27;,
+                        children : [
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                prefixCls : &#x27;tb-nav-&#x27;,
+                                content : &#x27;&lt;a href=&quot;#&quot;&gt;收藏的宝贝&lt;&#x2F;a&gt;&#x27;
+                            },
+                            {
+                                xclass : &#x27;menuitem&#x27;,
+                                prefixCls : &#x27;tb-nav-&#x27;,
+                                content : &#x27;&lt;a href=&quot;#&quot;&gt;收藏的店铺&lt;&#x2F;a&gt;&#x27;
+                            },
+                        ]
+                    }
+                },
+                {
+                    xclass : &#x27;menuitem&#x27;,
+                    prefixCls : &#x27;tb-nav-&#x27;,
+                    content : &#x27;&lt;a href=&quot;#&quot;&gt;商品分类&lt;&#x2F;a&gt;&#x27;
                 }
             ]
-        }).render();
-    });
+        });
+
+        tbNavMenu.render();
+    })
 &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 &lt;&#x2F;html&gt; 
@@ -222,7 +365,7 @@
             </iframe>
         </div>
         <div class="ks-tabs-panel">
-            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/menu/cited-by-md/check-item.html" ="text">示例地址：docs.kissyui.com/5.0/demos/menu/cited-by-md/check-item.html</p>
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/menu/cited-by-md/tb-nav.html" ="text">示例地址：docs.kissyui.com/5.0/demos/menu/cited-by-md/tb-nav.html</p>
             <div class="qrcode"></div>
         </div>
     </div>
