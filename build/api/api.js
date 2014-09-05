@@ -68,7 +68,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Tabs",
         "Tabs.Panel",
         "Tabs.Tab",
-        "ToolBar",
+        "Toolbar",
         "Tree",
         "Tree.CheckNode",
         "Tree.CheckTree",
