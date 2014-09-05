@@ -171,6 +171,7 @@
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kg&#x2F;editor-plugins&#x2F;1.1.2&#x2F;assets&#x2F;editor.css&quot;&gt; &lt;!--引入editor的插件样式--&gt;
 &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:false}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kg&#x2F;editor-plugins&#x2F;1.1.2&#x2F;mods.js&quot;&gt;&lt;&#x2F;script&gt;  &lt;!-- 引入插件模块依赖表避免模块串行加载，优化性能--&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;h1&gt;编写Editor插件&lt;&#x2F;h1&gt;
@@ -181,8 +182,8 @@
     KISSY.config({
         packages : [
             {
-                name : &#x27;kg&#x2F;editor-plugins&#x2F;1.1.2&#x27;,   &#x2F;&#x2F;1.1.2是当前editor-plugins的版本号，使用时请选择对应的版本号
-                base : &#x27;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kg&#x2F;editor-plugins&#x2F;1.1.2&#x27;
+                name : &#x27;kg&#x27;,   &#x2F;&#x2F;1.1.2是当前editor-plugins的版本号，使用时请选择对应的版本号
+                base : &#x27;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kg&#x2F;&#x27;
             }
         ]
     });

@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
 <link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kg/editor-plugins/1.1.2/assets/editor.css"> <!--引入editor的插件样式-->
 <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:false}"></script>
+<script type="text/javascript" src="http://g.tbcdn.cn/kg/editor-plugins/1.1.2/mods.js"></script>  <!-- 引入插件模块依赖表避免模块串行加载，优化性能-->
 </head>
 <body>
 <h1>从已有的textarea创建editor</h1>
@@ -20,8 +21,8 @@
     KISSY.config({
         packages : [
             {
-                name : 'kg/editor-plugins/1.1.2',   //1.1.2是当前editor-plugins的版本号，使用时请选择对应的版本号
-                base : 'http://g.tbcdn.cn/kg/editor-plugins/1.1.2'
+                name : 'kg',   //1.1.2是当前editor-plugins的版本号，使用时请选择对应的版本号
+                base : 'http://g.tbcdn.cn/kg/'
             }
         ]
     });
