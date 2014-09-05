@@ -1232,7 +1232,7 @@
             },
             "tag": "module",
             "file": "src/api/menubutton.js",
-            "line": 186
+            "line": 192
         },
         "node": {
             "name": "node",
@@ -2657,7 +2657,7 @@
             "module": "menubutton",
             "namespace": "MenuButton",
             "file": "src/api/menubutton.js",
-            "line": 99,
+            "line": 105,
             "description": "管理 select > option 列表(manage a list of single-select options)，xclass : select。用于模拟selectbox",
             "extends": "MenuButton",
             "is_constructor": 1,
@@ -2683,7 +2683,7 @@
             "module": "menubutton",
             "namespace": "MenuButton",
             "file": "src/api/menubutton.js",
-            "line": 186,
+            "line": 192,
             "description": "模拟select > option，与 MenuButton.Select 配合使用。xclass : option",
             "is_constructor": 1,
             "extends": "Menu.Item",
@@ -2906,7 +2906,7 @@
             "namespace": "",
             "file": "src/api/split-button.js",
             "line": 5,
-            "description": "按钮和菜单按钮的组合,构建支持下拉菜单的按钮组",
+            "description": "按钮和菜单按钮的组合,构建支持下拉菜单的按钮组。\n\nsplit-button 内部实现其实是利用 button 和 menubutton 两个组件组合使用而成，split-button左边是button组件内容，右边是设置content为空的menubutton。\n\nsplit-button的html结构规范如下：\n\n\t<div id=\"split-button2\" class=\"ks-split-button\">\n        <div class=\"ks-button ks-split-button-left\"\n             tabindex=\"0\">Action\n        </div>\n        <div class=\"ks-menu-button ks-button ks-split-button-right\"\n             tabindex=\"0\">\n            <div class=\"ks-menu-button-content\"></div>\n            <div class=\"ks-menu-button-dropdown\">\n                <div class=\"ks-menu-button-dropdown-inner\"></div>\n            </div>\n            <div class=\"ks-popupmenu ks-menu\">\n                <div class=\"ks-popupmenu-content\">\n                    <div class=\"ks-menuitem\">Action</div>\n                    <div class=\"ks-menuitem\">Another</div>\n                    <div class=\"ks-menuitem\">else</div>\n                </div>\n            </div>\n        </div>\n    </div>",
             "is_constructor": 1,
             "extends": "Component.Container",
             "params": [
@@ -2915,6 +2915,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\t//全新节点生成\n\tvar splitButton1 = new SplitButton({\n        render : '#button-container1',\n        button : {  //设置splitButton 的内容\n            xclass : 'button',\n            elCls : 'ks-button-info',  //使用 button 组件提供的按钮样式\n            content : 'Button'\n        },\n        menuButton : {  //设置 splitButton 的下拉内容\n            xclass : 'menu-button',\n            elCls : 'ks-button-info',\n            matchElWidth: false,\n            collapseOnClick: true,\n            menu : {\n                xclass : 'popupmenu',\n                children : [\n                    {\n                        xclass : 'menuitem',\n                        content : 'content1'\n                    },\n                    {\n                        xclass : 'menuitem',\n                        content : 'content2'\n                    }\n                ]\n            }\n        }\n    });\n    splitButton1.render();\n\n    //从已有元素生成（html结构和class需符合规范）\n    var splitButton2 = new SplitButton({\n        srcNode : '#split-button2'\n    }).render();"
             ]
         },
         "StyleSheet": {
@@ -8852,7 +8855,7 @@
                 }
             ],
             "return": {
-                "description": "符合选择器的第一个元素\n\n__Note__\nDOM.get有个快捷调用方式，可以直接通过KISSY.get调用",
+                "description": "符合选择器的第一个元素",
                 "type": "Object"
             },
             "class": "Dom",
@@ -8860,7 +8863,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 33,
+            "line": 30,
             "description": "获取符合选择器以及过滤参数的所有元素",
             "itemtype": "method",
             "name": "filter",
@@ -8893,7 +8896,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 45,
+            "line": 42,
             "description": "判断根据选择器获取的所有元素是否都符合过滤条件",
             "itemtype": "method",
             "name": "test",
@@ -8926,7 +8929,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 55,
+            "line": 52,
             "description": "获取符合选择器的第一个元素的克隆元素",
             "itemtype": "method",
             "name": "clone",
@@ -8968,7 +8971,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 68,
+            "line": 65,
             "description": "判断符合选择器的所有元素中是否有某个元素含有特定 class",
             "itemtype": "method",
             "name": "hasClass",
@@ -8994,7 +8997,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 77,
+            "line": 74,
             "description": "给符合选择器的所有元素添加指定 class",
             "itemtype": "method",
             "name": "addClass",
@@ -9016,7 +9019,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 85,
+            "line": 82,
             "description": "给符合选择器的所有元素添加指定 class",
             "itemtype": "method",
             "name": "removeClass",
@@ -9038,7 +9041,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 93,
+            "line": 90,
             "description": "将符合选择器的所有元素的老 class 替换为新 class",
             "itemtype": "method",
             "name": "replaceClass",
@@ -9065,7 +9068,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 102,
+            "line": 99,
             "description": "操作符合选择器的所有元素, 如果存在值为 classNames 的 class, 则移除掉, 反之添加",
             "itemtype": "method",
             "name": "toggleClass",
@@ -9087,7 +9090,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 110,
+            "line": 107,
             "description": "移除符合选择器的所有元素的指定属性",
             "itemtype": "method",
             "name": "removeAttr",
@@ -9109,7 +9112,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 118,
+            "line": 115,
             "description": "获取符合选择器的第一个元素的属性值",
             "itemtype": "method",
             "name": "attr",
@@ -9134,7 +9137,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 127,
+            "line": 124,
             "description": "给符合选择器的所有元素设置属性值",
             "itemtype": "method",
             "name": "attr",
@@ -9160,7 +9163,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 136,
+            "line": 133,
             "description": "给符合选择器的所有元素设置属性值",
             "itemtype": "method",
             "name": "attr",
@@ -9182,7 +9185,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 144,
+            "line": 141,
             "description": "判断符合选择器的所有元素中是否有某个元素含有特定属性",
             "itemtype": "method",
             "name": "hasAttr",
@@ -9208,7 +9211,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 153,
+            "line": 150,
             "description": "获取符合选择器的第一个元素的对应 property 值",
             "itemtype": "method",
             "name": "prop",
@@ -9236,7 +9239,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 179,
+            "line": 176,
             "description": "给符合选择器的所有元素设置 property 值",
             "itemtype": "method",
             "name": "prop",
@@ -9262,7 +9265,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 188,
+            "line": 185,
             "description": "给符合选择器的所有元素设置 property 值",
             "itemtype": "method",
             "name": "prop",
@@ -9287,7 +9290,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 200,
+            "line": 197,
             "description": "判断符合选择器的第一个元素是否含有特定 property 属性",
             "itemtype": "method",
             "name": "hasProp",
@@ -9312,7 +9315,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 208,
+            "line": 205,
             "description": "获取符合选择器的第一个元素所的 value 值",
             "itemtype": "method",
             "name": "val",
@@ -9335,7 +9338,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 223,
+            "line": 220,
             "description": "给符合选择器的所有元素设置 value 值",
             "itemtype": "method",
             "name": "val",
@@ -9360,7 +9363,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 238,
+            "line": 235,
             "description": "获取符合选择器的第一个元素所包含的文本值",
             "itemtype": "method",
             "name": "text",
@@ -9380,7 +9383,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 246,
+            "line": 243,
             "description": "给符合选择器的所有元素设置文本值.",
             "itemtype": "method",
             "name": "text",
@@ -9402,7 +9405,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 256,
+            "line": 253,
             "description": "获取符合选择器的第一个元素的样式值",
             "itemtype": "method",
             "name": "css",
@@ -9428,7 +9431,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 265,
+            "line": 262,
             "description": "给符合选择器的所有元素设置样式值",
             "itemtype": "method",
             "name": "css",
@@ -9455,7 +9458,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 274,
+            "line": 271,
             "description": "给符合选择器的所有元素设置样式值",
             "itemtype": "method",
             "name": "css",
@@ -9477,7 +9480,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 282,
+            "line": 279,
             "description": "获取符合选择器的第一个元素 style 属性中 name 的值",
             "itemtype": "method",
             "name": "style",
@@ -9506,7 +9509,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 311,
+            "line": 308,
             "description": "给符合选择器的所有元素, 给其 style 属性中名为 name 的样式设置值为 value.",
             "itemtype": "method",
             "name": "style",
@@ -9533,7 +9536,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 320,
+            "line": 317,
             "description": "给符合选择器的所有元素, 给其 style 属性中名为 name 的样式设置值为 value.",
             "itemtype": "method",
             "name": "style",
@@ -9555,7 +9558,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 328,
+            "line": 325,
             "description": "获取符合选择器的第一个元素的宽度值",
             "itemtype": "method",
             "name": "width",
@@ -9579,7 +9582,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 356,
+            "line": 353,
             "description": "获取符合选择器的第一个元素的宽度值",
             "itemtype": "method",
             "name": "width",
@@ -9601,7 +9604,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 364,
+            "line": 361,
             "description": "获取符合选择器的第一个元素的宽度值",
             "itemtype": "method",
             "name": "height",
@@ -9622,7 +9625,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 372,
+            "line": 369,
             "description": "获取符合选择器的第一个元素的高度值",
             "itemtype": "method",
             "name": "height",
@@ -9644,7 +9647,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 380,
+            "line": 377,
             "description": "获取符合选择器的第一个元素的宽度值, 注意: 该值包含 padding",
             "itemtype": "method",
             "name": "innerWidth",
@@ -9665,7 +9668,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 388,
+            "line": 385,
             "description": "获取符合选择器的第一个元素的高度值, 注意: 该值包含 padding",
             "itemtype": "method",
             "name": "innerHeight",
@@ -9686,7 +9689,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 396,
+            "line": 393,
             "description": "获取符合选择器的第一个元素的宽度值, 注意: 值除了包含元素本身宽度和 padding 外, 还包含 border或margin",
             "itemtype": "method",
             "name": "outerWidth",
@@ -9712,7 +9715,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 405,
+            "line": 402,
             "description": "获取符合选择器的第一个元素的高度值, 注意: 值除了包含元素本身宽度和 padding 外, 还包含 border或margin",
             "itemtype": "method",
             "name": "outerHeight",
@@ -9738,7 +9741,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 414,
+            "line": 411,
             "description": "将 cssText 字符串作为内联样式表内容添加到文档中",
             "itemtype": "method",
             "name": "addStyleSheet",
@@ -9761,7 +9764,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 422,
+            "line": 419,
             "description": "显示符合选择器的所有元素",
             "itemtype": "method",
             "name": "show",
@@ -9778,7 +9781,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 429,
+            "line": 426,
             "description": "隐藏符合选择器的所有元素",
             "itemtype": "method",
             "name": "hide",
@@ -9795,7 +9798,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 436,
+            "line": 433,
             "description": "将符合选择器的所有元素切换显示/隐藏两个状态",
             "itemtype": "method",
             "name": "toggle",
@@ -9812,7 +9815,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 443,
+            "line": 440,
             "description": "获取符合选择器的第一个元素相对页面文档左上角的偏移值",
             "itemtype": "method",
             "name": "offset",
@@ -9833,7 +9836,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 453,
+            "line": 450,
             "description": "设置符合选择器的第一个元素相对页面文档左上角的偏移值",
             "itemtype": "method",
             "name": "offset",
@@ -9855,7 +9858,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 461,
+            "line": 458,
             "description": "获取窗口或元素的 scrollTop 值",
             "itemtype": "method",
             "name": "scrollTop",
@@ -9876,7 +9879,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 469,
+            "line": 466,
             "description": "设置窗口 scrollTop 值",
             "itemtype": "method",
             "name": "scrollTop",
@@ -9897,7 +9900,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 477,
+            "line": 474,
             "description": "设置窗口或元素的 scrollTop 值",
             "itemtype": "method",
             "name": "scrollTop",
@@ -9923,7 +9926,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 486,
+            "line": 483,
             "description": "获取窗口或元素的 scrollLeft 值",
             "itemtype": "method",
             "name": "scrollLeft",
@@ -9944,7 +9947,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 494,
+            "line": 491,
             "description": "设置窗口 scrollLeft 值",
             "itemtype": "method",
             "name": "scrollLeft",
@@ -9965,7 +9968,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 502,
+            "line": 499,
             "description": "设置窗口或元素的 scrollLeft 值",
             "itemtype": "method",
             "name": "scrollLeft",
@@ -9991,7 +9994,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 511,
+            "line": 508,
             "description": "获取页面文档 document 的总高度",
             "itemtype": "method",
             "name": "docHeight",
@@ -10005,7 +10008,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 518,
+            "line": 515,
             "description": "获取页面文档 document 的总宽度",
             "itemtype": "method",
             "name": "docWidth",
@@ -10019,7 +10022,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 525,
+            "line": 522,
             "description": "获取当前可视区域(viewport)的高度值",
             "itemtype": "method",
             "name": "viewpointHeight",
@@ -10033,7 +10036,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 532,
+            "line": 529,
             "description": "获取当前可视区域(viewport)的宽度值",
             "itemtype": "method",
             "name": "viewpointWidth",
@@ -10047,7 +10050,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 539,
+            "line": 536,
             "description": "使当前选择器匹配的第一个元素出现在指定容器可视区域内",
             "itemtype": "method",
             "name": "scrollIntoView",
@@ -10085,7 +10088,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 549,
+            "line": 546,
             "description": "获取元素在另一批元素的位置信息",
             "itemtype": "method",
             "name": "index",
@@ -10112,7 +10115,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 562,
+            "line": 559,
             "description": "获取符合选择器的第一个元素的祖先元素",
             "itemtype": "method",
             "name": "parent",
@@ -10141,7 +10144,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 596,
+            "line": 593,
             "description": "获取符合选择器的第一个元素的下一个同级节点",
             "itemtype": "method",
             "name": "next",
@@ -10167,7 +10170,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 605,
+            "line": 602,
             "description": "获取符合选择器的第一个元素的上一个同级节点",
             "itemtype": "method",
             "name": "prev",
@@ -10193,7 +10196,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 614,
+            "line": 611,
             "description": "获取符合选择器的第一个元素的第一个子节点",
             "itemtype": "method",
             "name": "first",
@@ -10219,7 +10222,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 623,
+            "line": 620,
             "description": "获取符合选择器的第一个元素的最后一个子节点",
             "itemtype": "method",
             "name": "last",
@@ -10245,7 +10248,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 632,
+            "line": 629,
             "description": "获取符合选择器的第一个元素的相应同级节点",
             "itemtype": "method",
             "name": "siblings",
@@ -10271,7 +10274,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 641,
+            "line": 638,
             "description": "获取符合选择器的所有非文字节点的子节点",
             "itemtype": "method",
             "name": "children",
@@ -10297,7 +10300,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 650,
+            "line": 647,
             "description": "判断某一容器(container)是否包含另一(contained)节点.",
             "itemtype": "method",
             "name": "contains",
@@ -10323,7 +10326,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 663,
+            "line": 660,
             "description": "创建 dom 节点",
             "itemtype": "method",
             "name": "create",
@@ -10357,7 +10360,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 699,
+            "line": 696,
             "description": "获取符合选择器的第一个元素的 innerHTML",
             "itemtype": "method",
             "name": "html",
@@ -10378,7 +10381,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 707,
+            "line": 704,
             "description": "给符合选择器的所有元素设置 innerHTML 值",
             "itemtype": "method",
             "name": "html",
@@ -10406,7 +10409,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 718,
+            "line": 715,
             "description": "将符合选择器的所有元素从 DOM 中移除",
             "itemtype": "method",
             "name": "remove",
@@ -10423,7 +10426,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 728,
+            "line": 725,
             "description": "清除节点的所有子孙节点以及子孙节点上的事件和 data() 信息",
             "itemtype": "method",
             "name": "empty",
@@ -10440,7 +10443,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 735,
+            "line": 732,
             "description": "将 newNode 插入到 refNode 之前",
             "itemtype": "method",
             "name": "insertBefore",
@@ -10462,7 +10465,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 743,
+            "line": 740,
             "description": "将 newNode 插入到 refNode 之后",
             "itemtype": "method",
             "name": "insertAfter",
@@ -10484,7 +10487,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 751,
+            "line": 748,
             "description": "将 node 追加到 parent 子节点最后",
             "itemtype": "method",
             "name": "append",
@@ -10506,7 +10509,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 759,
+            "line": 756,
             "description": "将 node 追加到 parent 子节点最前",
             "itemtype": "method",
             "name": "prepend",
@@ -10528,7 +10531,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 767,
+            "line": 764,
             "description": "将 node 节点（数组）替换为新的节点（数组） newNode",
             "itemtype": "method",
             "name": "replaceWith",
@@ -10550,7 +10553,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 775,
+            "line": 772,
             "description": "获取符合选择器的第一个元素的扩展属性(expando)",
             "itemtype": "method",
             "name": "data",
@@ -10576,7 +10579,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 786,
+            "line": 783,
             "description": "给符合选择器的所有元素的扩展属性(expando).设置扩展属性 name 为 value",
             "itemtype": "method",
             "name": "data",
@@ -10602,7 +10605,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 795,
+            "line": 792,
             "description": "给符合选择器的所有元素的扩展属性(expando).设置扩展属性 name 为 value",
             "itemtype": "method",
             "name": "data",
@@ -10627,7 +10630,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 836,
+            "line": 833,
             "description": "将符合选择器的所有元素的对应扩展属性( expando )删除",
             "itemtype": "method",
             "name": "removeData",
@@ -10652,7 +10655,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 854,
+            "line": 851,
             "description": "判断是否符合选择器的所有元素中的一个存在对应的扩展属性( expando )值",
             "itemtype": "method",
             "name": "hasData",
@@ -10681,7 +10684,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 882,
+            "line": 879,
             "description": "使符合选择器的所有元素都不可以作为选择区域的开始",
             "itemtype": "method",
             "name": "unselectable",
@@ -10698,7 +10701,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 892,
+            "line": 889,
             "description": "获取符合选择器的所有子节点（包括文字节点）",
             "itemtype": "method",
             "name": "contents",
@@ -10724,7 +10727,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 901,
+            "line": 898,
             "description": "用 wrapperNode 分别包装符合 selector 的节点",
             "itemtype": "method",
             "name": "wrap",
@@ -10749,7 +10752,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 931,
+            "line": 928,
             "description": "用 wrapperNode 包装所有符合 selector 的节点",
             "itemtype": "method",
             "name": "wrapAll",
@@ -10774,7 +10777,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 959,
+            "line": 956,
             "description": "移除符合 selector 的节点的父节点",
             "itemtype": "method",
             "name": "unwrap",
@@ -10794,7 +10797,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 988,
+            "line": 985,
             "description": "用 wrapperNode 分别包装符合 selector 的节点的子节点",
             "itemtype": "method",
             "name": "wrapInner",
@@ -10819,7 +10822,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 1018,
+            "line": 1015,
             "description": "获取符合选择器的第一个元素的小写 nodeName 值",
             "itemtype": "method",
             "name": "nodeName",
@@ -10840,7 +10843,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 1026,
+            "line": 1023,
             "description": "获取符合选择器的第一个元素的 outerHTML",
             "itemtype": "method",
             "name": "outerHTML",
@@ -12746,6 +12749,17 @@
         {
             "file": "src/api/menubutton.js",
             "line": 57,
+            "description": "点击下拉项是否自动收起下拉菜单",
+            "itemtype": "attribute",
+            "name": "collapseOnClick",
+            "type": "Boolean",
+            "default": "false",
+            "class": "MenuButton",
+            "module": "menubutton"
+        },
+        {
+            "file": "src/api/menubutton.js",
+            "line": 63,
             "description": "下拉菜单是否弹出，设置值可控制下拉菜单弹出与否.",
             "itemtype": "attribute",
             "name": "collapsed",
@@ -12755,7 +12769,7 @@
         },
         {
             "file": "src/api/menubutton.js",
-            "line": 62,
+            "line": 68,
             "description": "添加下拉菜单项",
             "itemtype": "method",
             "name": "addItem",
@@ -12776,7 +12790,7 @@
         },
         {
             "file": "src/api/menubutton.js",
-            "line": 69,
+            "line": 75,
             "description": "删除指定下拉菜单项",
             "itemtype": "method",
             "name": "removeItem",
@@ -12797,7 +12811,7 @@
         },
         {
             "file": "src/api/menubutton.js",
-            "line": 76,
+            "line": 82,
             "description": "删除所有下拉菜单项",
             "itemtype": "method",
             "name": "removeItems",
@@ -12814,7 +12828,7 @@
         },
         {
             "file": "src/api/menubutton.js",
-            "line": 82,
+            "line": 88,
             "description": "取得指定位置下拉菜单项",
             "itemtype": "method",
             "name": "getItemAt",
@@ -12830,7 +12844,7 @@
         },
         {
             "file": "src/api/menubutton.js",
-            "line": 88,
+            "line": 94,
             "description": "当子菜单项被点击后触发",
             "itemtype": "event",
             "name": "click",
@@ -12846,7 +12860,7 @@
         },
         {
             "file": "src/api/menubutton.js",
-            "line": 157,
+            "line": 163,
             "description": "可选，下拉框没有可选项时的默认显示内容.",
             "itemtype": "attribute",
             "name": "defaultCaption",
@@ -12858,7 +12872,7 @@
         },
         {
             "file": "src/api/menubutton.js",
-            "line": 163,
+            "line": 169,
             "description": "下拉框的当前值",
             "itemtype": "attribute",
             "name": "value",
@@ -12869,7 +12883,7 @@
         },
         {
             "file": "src/api/menubutton.js",
-            "line": 168,
+            "line": 174,
             "description": "下拉框没有可选项时的默认显示内容",
             "itemtype": "attribute",
             "name": "defaultCaption",
@@ -12880,7 +12894,7 @@
         },
         {
             "file": "src/api/menubutton.js",
-            "line": 173,
+            "line": 179,
             "description": "直接把原生 select 元素替换成 Select",
             "itemtype": "method",
             "name": "decorate",
@@ -12913,7 +12927,7 @@
         },
         {
             "file": "src/api/menubutton.js",
-            "line": 227,
+            "line": 233,
             "description": "是否可以被选择，可以的话，单击会添加指定 class 到根节点",
             "itemtype": "attribute",
             "name": "selectable",
@@ -14590,7 +14604,7 @@
         },
         {
             "file": "src/api/split-button.js",
-            "line": 14,
+            "line": 74,
             "description": "是否将菜单按钮和按钮对齐，默认 true",
             "itemtype": "attribute",
             "name": "alignWithEl",
@@ -14601,7 +14615,7 @@
         },
         {
             "file": "src/api/split-button.js",
-            "line": 20,
+            "line": 80,
             "description": "菜单按钮组件",
             "itemtype": "attribute",
             "name": "menuButton",
@@ -14611,7 +14625,7 @@
         },
         {
             "file": "src/api/split-button.js",
-            "line": 25,
+            "line": 85,
             "description": "按钮组件",
             "itemtype": "attribute",
             "name": "button",

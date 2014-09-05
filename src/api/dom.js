@@ -25,9 +25,6 @@
 @param selector {string|HTMLCollection|Array<HTMLElement>} 字符串表示[css3选择器](http://www.w3.org/TR/css3-selectors/)
 @param [context=document] {string|HTMLCollection|Array<HTMLElement>} 选择器参考上下文 
 @return {Object} 符合选择器的第一个元素
-
-__Note__
-DOM.get有个快捷调用方式，可以直接通过KISSY.get调用
 */
 
 /**

@@ -369,11 +369,71 @@
 */
 
 /**
-按钮和菜单按钮的组合,构建支持下拉菜单的按钮组
+按钮和菜单按钮的组合,构建支持下拉菜单的按钮组。
+
+split-button 内部实现其实是利用 button 和 menubutton 两个组件组合使用而成，split-button左边是button组件内容，右边是设置content为空的menubutton。
+
+split-button的html结构规范如下：
+
+	&lt;div id=&quot;split-button2&quot; class=&quot;ks-split-button&quot;&gt;
+        &lt;div class=&quot;ks-button ks-split-button-left&quot;
+             tabindex=&quot;0&quot;&gt;Action
+        &lt;/div&gt;
+        &lt;div class=&quot;ks-menu-button ks-button ks-split-button-right&quot;
+             tabindex=&quot;0&quot;&gt;
+            &lt;div class=&quot;ks-menu-button-content&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;ks-menu-button-dropdown&quot;&gt;
+                &lt;div class=&quot;ks-menu-button-dropdown-inner&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;ks-popupmenu ks-menu&quot;&gt;
+                &lt;div class=&quot;ks-popupmenu-content&quot;&gt;
+                    &lt;div class=&quot;ks-menuitem&quot;&gt;Action&lt;/div&gt;
+                    &lt;div class=&quot;ks-menuitem&quot;&gt;Another&lt;/div&gt;
+                    &lt;div class=&quot;ks-menuitem&quot;&gt;else&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+	
 @class SplitButton
 @constructor
 @extends Component.Container
 @param config {Object}
+@example
+	//全新节点生成
+	var splitButton1 = new SplitButton({
+        render : &#x27;#button-container1&#x27;,
+        button : {  //设置splitButton 的内容
+            xclass : &#x27;button&#x27;,
+            elCls : &#x27;ks-button-info&#x27;,  //使用 button 组件提供的按钮样式
+            content : &#x27;Button&#x27;
+        },
+        menuButton : {  //设置 splitButton 的下拉内容
+            xclass : &#x27;menu-button&#x27;,
+            elCls : &#x27;ks-button-info&#x27;,
+            matchElWidth: false,
+            collapseOnClick: true,
+            menu : {
+                xclass : &#x27;popupmenu&#x27;,
+                children : [
+                    {
+                        xclass : &#x27;menuitem&#x27;,
+                        content : &#x27;content1&#x27;
+                    },
+                    {
+                        xclass : &#x27;menuitem&#x27;,
+                        content : &#x27;content2&#x27;
+                    }
+                ]
+            }
+        }
+    });
+    splitButton1.render();
+
+    //从已有元素生成（html结构和class需符合规范）
+    var splitButton2 = new SplitButton({
+        srcNode : &#x27;#split-button2&#x27;
+    }).render();
 */
 
 

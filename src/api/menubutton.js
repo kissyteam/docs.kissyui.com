@@ -55,6 +55,12 @@
 */
 
 /**
+点击下拉项是否自动收起下拉菜单
+@attribute collapseOnClick {Boolean}
+@default false
+*/
+
+/**
 下拉菜单是否弹出，设置值可控制下拉菜单弹出与否.
 @attribute collapsed {Boolean}
 */

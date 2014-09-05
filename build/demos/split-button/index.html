@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>横向滚动-图片Gallery - KISSY v5.0 Documentation</title>
+	<title>简单分离式下拉按钮/从已有元素生成 - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -152,8 +152,7 @@
 		<div class="row">
 			<div class="col-md-9"  id="main-content">
 				<p></p>
-<h1 id="横向滚动-图片Gallery">横向滚动-图片Gallery</h1><p>用移动浏览器打开查看demo或用PC上的chrome开发人员工具Emulation来模拟查看。滚动到底端/顶端时，继续上拉/下拉会自动动态加载内容</p>
-<p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+<h1 id="简单分离式下拉按钮/从已有元素生成">简单分离式下拉按钮/从已有元素生成</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -165,62 +164,87 @@
 				&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&gt;
-    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
-    &lt;meta name=&quot;apple-touch-fullscreen&quot; content=&quot;yes&quot;&gt;
-    &lt;title&gt;横向滚动-图片Gallery&lt;&#x2F;title&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;scroll-view&#x2F;assets&#x2F;dpl.css&quot;&gt;
-    &lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;  data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
-    &lt;style&gt;
-        body, ul, li {
-            padding: 0;
-            margin: 0;
-            border: 0;
-        }
-        #header{
-            width: 100%;
-            height: 45px;
-            text-align: center;
-            line-height: 45px;
-            background: #00A0E9;
-            font-size: 20px;
-            color: #eee;
-        }
-        .pic-viewer {
-            position: absolute;
-            width: 320px;
-            height: 568px;
-        }
-        #pic img{
-            width: 320px;
-            height: 460px;
-            margin: 0;
-            float: left;
-        }
-    &lt;&#x2F;style&gt;
+&lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
+ &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&gt;
+&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
+&lt;meta name=&quot;apple-touch-fullscreen&quot; content=&quot;yes&quot;&gt;
+&lt;title&gt;简单分离式下拉按钮&#x2F;从已有元素生成&lt;&#x2F;title&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;menubutton&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;split-button&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;menu&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;  data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
-&lt;div id=&quot;header&quot;&gt;横向滚动-图片Gallery&lt;&#x2F;div&gt;
-&lt;script&gt;
-    KISSY.use([&#x27;scroll-view&#x27;], function(S, ScrollView){
+&lt;div style=&quot;width:90%;margin:0 auto;&quot;&gt;
+    &lt;h1&gt;简单分离式下拉按钮&#x2F;从已有元素生成&lt;&#x2F;h1&gt;
+    &lt;h3&gt;split-button 内部实现其实是利用 button 和 menubutton 两个组件组合使用而成，split-button左边是button组件内容，右边是设置content为空的menubutton。&lt;&#x2F;h3&gt;
+    &lt;p&gt;全新节点生成，并使用button组件提供的样式：&lt;&#x2F;p&gt;
+    &lt;div id=&quot;button-container1&quot;&gt;
+        
+    &lt;&#x2F;div&gt;
+    &lt;p&gt;从已有元素生成（html结构和class需符合示例规范）：&lt;&#x2F;p&gt;
+    &lt;div id=&quot;button-container2&quot;&gt;
+        &lt;div id=&quot;split-button2&quot; class=&quot;ks-split-button&quot;&gt;
+            &lt;div class=&quot;ks-button ks-split-button-left&quot;
+                 tabindex=&quot;0&quot;&gt;Action
+            &lt;&#x2F;div&gt;
+            &lt;div class=&quot;ks-menu-button ks-button ks-split-button-right&quot;
+                 tabindex=&quot;0&quot;&gt;
+                &lt;div class=&quot;ks-menu-button-content&quot;&gt;&lt;&#x2F;div&gt;
+                &lt;div class=&quot;ks-menu-button-dropdown&quot;&gt;
+                    &lt;div class=&quot;ks-menu-button-dropdown-inner&quot;&gt;&lt;&#x2F;div&gt;
+                &lt;&#x2F;div&gt;
+                &lt;div class=&quot;ks-popupmenu ks-menu&quot;&gt;
+                    &lt;div class=&quot;ks-popupmenu-content&quot;&gt;
+                        &lt;div class=&quot;ks-menuitem&quot;&gt;Action&lt;&#x2F;div&gt;
+                        &lt;div class=&quot;ks-menuitem&quot;&gt;Another&lt;&#x2F;div&gt;
+                        &lt;div class=&quot;ks-menuitem&quot;&gt;else&lt;&#x2F;div&gt;
+                    &lt;&#x2F;div&gt;
+                &lt;&#x2F;div&gt;
+            &lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
 
-        var str = &#x27;&lt;div id=&quot;pic&quot; style=&quot;width:1280px;height:550px;&quot;&gt;&#x27;
-                + &#x27;&lt;img src=&quot;http:&#x2F;&#x2F;gd2.alicdn.com&#x2F;bao&#x2F;uploaded&#x2F;i2&#x2F;TB15MxhGXXXXXa_XpXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg_.webp&quot;&gt;&#x27;
-                + &#x27;&lt;img src=&quot;http:&#x2F;&#x2F;img02.taobaocdn.com&#x2F;bao&#x2F;uploaded&#x2F;i2&#x2F;101208715&#x2F;TB2bLc4aXXXXXbZXXXXXXXXXXXX_!!101208715.jpg_400x400.jpg&quot;&gt;&#x27;
-                + &#x27;&lt;img src=&quot;http:&#x2F;&#x2F;img01.taobaocdn.com&#x2F;bao&#x2F;uploaded&#x2F;i1&#x2F;101208715&#x2F;TB2O2UVXVXXXXX.XXXXXXXXXXXX_!!101208715.jpg_400x400.jpg&quot;&gt;&#x27;
-                + &#x27;&lt;img src=&quot;http:&#x2F;&#x2F;img03.taobaocdn.com&#x2F;bao&#x2F;uploaded&#x2F;i3&#x2F;101208715&#x2F;TB2lEXjapXXXXbAXXXXXXXXXXXX_!!101208715.jpg_400x400.jpg&quot;&gt;&#x27;
-                + &#x27;&lt;&#x2F;div&gt;&#x27;;
+&lt;script type=&quot;text&#x2F;javascript&quot;&gt;
+	KISSY.use([&#x27;split-button&#x27;], function(S, SplitButton){
+        var splitButton1 = new SplitButton({
+            render : &#x27;#button-container1&#x27;,
+            button : {  &#x2F;&#x2F;设置splitButton 的内容
+                xclass : &#x27;button&#x27;,
+                elCls : &#x27;ks-button-info ks-button-large&#x27;,  &#x2F;&#x2F;使用 button 组件提供的按钮样式
+                content : &#x27;Button&#x27;
+            },
+            menuButton : {  &#x2F;&#x2F;设置 splitButton 的下拉内容
+                xclass : &#x27;menu-button&#x27;,
+                elCls : &#x27;ks-button-info ks-button-large&#x27;,  &#x2F;&#x2F;menubutton的样式设置和button的样式需一直，否则样式会不一致
+                menu : {
+                    xclass : &#x27;popupmenu&#x27;,
+                    children : [
+                        {
+                            xclass : &#x27;menuitem&#x27;,
+                            content : &#x27;content1&#x27;
+                        },
+                        {
+                            xclass : &#x27;menuitem&#x27;,
+                            content : &#x27;content2&#x27;
+                        }
+                    ]
+                }
+            }
+        });
+        splitButton1.render();
 
-        var picGalleryScrollView = new ScrollView({
-            content : str,
-            snap : &#x27;img&#x27;,
-            elCls : &#x27;pic-viewer&#x27;
+        var splitButton2 = new SplitButton({
+            srcNode : &#x27;#split-button2&#x27;
         }).render();
-    })
+    });
+
 &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
-
+&lt;&#x2F;html&gt;
 			</div>
         </div>
         <div class="ks-tabs-panel ks-tabs-panel-selected">
@@ -229,7 +253,7 @@
             </iframe>
         </div>
         <div class="ks-tabs-panel">
-            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/scroll-view/cited-by-md/scroll-x.html" ="text">示例地址：docs.kissyui.com/5.0/demos/scroll-view/cited-by-md/scroll-x.html</p>
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/split-button/cited-by-md/baseuse.html" ="text">示例地址：docs.kissyui.com/5.0/demos/split-button/cited-by-md/baseuse.html</p>
             <div class="qrcode"></div>
         </div>
     </div>
@@ -237,10 +261,10 @@
 
 	   			<div id="disqus_thread"></div>
 	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
-	   			<a id="apilink" href="../../api/modules/scroll-view.html" style="display:none;"></a>
+	   			<a id="apilink" href="../../api/classes/SplitButton.html" style="display:none;"></a>
 			</div>
 			<div class="col-md-3" id="sidebar">
-				<a class="link-apidocs btn btn-primary" href="../../api/modules/scroll-view.html">API Docs</a>
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/SplitButton.html">API Docs</a>
 				<div class="panel panel-primary ajax-load hide">
 					<div class="panel-heading">
 						<h3 class="panel-title">Features</h3>
@@ -254,7 +278,7 @@
 						<h3 class="panel-title">Demos</h3>
 					</div>
 					<div class="panel-body">
-						<p><a href="../../demos/scroll-view/index.html">简单使用ScrollView</a></p><p><a href="../../demos/scroll-view/pull-to-refresh.html">上拉/下拉动态加载</a></p><p><a href="../../demos/scroll-view/scroll-x.html">横向滚动-图片Gallery</a></p><p><a href="../../demos/scroll-view/scrollbar.html">滚动容器边栏显示滚动条</a></p><p><a href="../../demos/scroll-view/snap.html">自动滚到到下一元素</a></p>
+						<p><a href="../../demos/split-button/index.html">简单分离式下拉按钮/从已有元素生成</a></p><p><a href="../../demos/split-button/update-onclick.html">点击更新按钮内容/改变菜单默认位置</a></p>
 					</div>
 				</div>
 			</div>
