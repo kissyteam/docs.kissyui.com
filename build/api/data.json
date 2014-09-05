@@ -2968,7 +2968,7 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use('swf',function(S,SWF){\n    // use SWF\n    var swf=new SWF({\n        src:'xx.swf',\n        attrs:{\n            width:100\n        },\n        params:{\n            flashVars:{\n                x:1\n            }\n        },\n        render:'#container'\n    });\n\n    swf.get('el') // => 对应 swf dom 节点\n\n    swf.callSWF('save',[key,value]);\n});\n```"
+                "\n```\nKISSY.use('swf',function(S,SWF){\n    // use SWF\n    var swf=new SWF({\n        src:'xx.swf',\n        attrs:{\n            width:100\n        },\n        params:{\n            flashVars:{\n                x:1\n            }\n        },\n        render:'#container'\n    });\n\n    swf.get('el') // => 对应 swf dom 节点\n\n    swf.callSWF('save',[key,value]);  //调用swf的方法\n});\n```"
             ]
         },
         "Tabs": {
@@ -14745,7 +14745,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 45,
+            "line": 35,
             "description": "将要加到 flash 节点的属性键值对",
             "itemtype": "attribute",
             "name": "attrs",
@@ -14755,7 +14755,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 50,
+            "line": 40,
             "description": "可选。插入 swf 所属的文档，默认当前文档",
             "itemtype": "attribute",
             "name": "document",
@@ -14766,7 +14766,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 56,
+            "line": 46,
             "description": "可选。 在此元素前插入 swf",
             "itemtype": "attribute",
             "name": "elBefore",
@@ -14777,7 +14777,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 62,
+            "line": 52,
             "description": "可选。版本低时显示的快速安装 swf ，默认为 kissy 自带地址.",
             "itemtype": "attribute",
             "name": "expressInstall",
@@ -14788,7 +14788,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 68,
+            "line": 58,
             "description": "将要加到 flash 节点的 param 键值对. 注意其中属性 flashVars 的大小写",
             "itemtype": "attribute",
             "name": "params",
@@ -14799,7 +14799,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 74,
+            "line": 64,
             "description": "可选。在此元素内添加 swf。 若 render 与 swf 都不设置则插入到 body 节点中",
             "itemtype": "attribute",
             "name": "render",
@@ -14810,7 +14810,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 80,
+            "line": 70,
             "description": "必选。 swf 元素的地址。",
             "itemtype": "attribute",
             "name": "src",
@@ -14821,7 +14821,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 86,
+            "line": 76,
             "description": "可选。最低 flash 版本要求，达不到要求显示 expressInstall。例如 9.1.234，默认 9.0",
             "itemtype": "attribute",
             "name": "version",
@@ -14832,7 +14832,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 92,
+            "line": 82,
             "description": "swf 元素节点",
             "itemtype": "attribute",
             "name": "el",
@@ -14842,7 +14842,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 97,
+            "line": 87,
             "description": "swf 元素 html",
             "itemtype": "attribute",
             "name": "html",
@@ -14852,7 +14852,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 102,
+            "line": 92,
             "description": "取值枚举自SWF实例的property status",
             "itemtype": "attribute",
             "name": "status",
@@ -14862,7 +14862,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 107,
+            "line": 97,
             "description": "状态，有三种取值：\n- NOT_INSTALLED 表示没有安装 flash 插件\n- SUCCESS 表示已成功插入 swf 元素\n- TOO_LOW 表示当前版本号低于配置的版本号",
             "itemtype": "property",
             "name": "status",
@@ -14872,7 +14872,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 116,
+            "line": 106,
             "description": "调用 swf 的方法",
             "itemtype": "method",
             "name": "callSWF",
@@ -14897,7 +14897,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 124,
+            "line": 114,
             "description": "销毁 swf 元素",
             "itemtype": "method",
             "name": "destroy",
@@ -14906,7 +14906,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 129,
+            "line": 119,
             "description": "获取 flash 版本数组",
             "itemtype": "method",
             "name": "fpv",
@@ -14927,7 +14927,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 137,
+            "line": 127,
             "description": "检查当前版本是否比提供的参数版本高",
             "itemtype": "method",
             "name": "fpvGTE",
@@ -14951,7 +14951,7 @@
         },
         {
             "file": "src/api/swf.js",
-            "line": 145,
+            "line": 135,
             "description": "swf 元素的地址",
             "itemtype": "method",
             "name": "getSrc",

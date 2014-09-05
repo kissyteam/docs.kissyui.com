@@ -27,20 +27,10 @@ KISSY.use('swf',function(S,SWF){
 
     swf.get('el') // => 对应 swf dom 节点
 
-    swf.callSWF('save',[key,value]);
+    swf.callSWF('save',[key,value]);  //调用swf的方法
 });
 ```
 */
-
-@param config.attrs {Object} 
-@param [config.
-@param [config.
-@param [config.
-@param config.
-@param config.
-@param config.
-@param config.
-
 
 /**
 将要加到 flash 节点的属性键值对
