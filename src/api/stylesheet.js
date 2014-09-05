@@ -7,6 +7,25 @@
 @class StyleSheet
 @constructor
 @param config {Object}
+@example
+    KISSY.use(['node', 'stylesheet'], function(S, $, StyleSheet){
+        var linkStyleSheet = new StyleSheet('#linkcss');
+        $('#change-link-css').on('click', function(ev){
+            linkStyleSheet.set('.link',{
+                color : 'red'
+            });
+        });
+
+        var innerStyleSheet = new StyleSheet('#my-style');
+        $('#change-style-css').on('click', function(ev){
+            innerStyleSheet.set('.style p',{
+                color : 'red'
+            });
+        });
+        $('#get-p-styletext').on('click', function(ev){
+            alert(innerStyleSheet.get('.style'));
+        });
+    });
 */
 
 /**

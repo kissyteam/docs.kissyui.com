@@ -463,6 +463,32 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;node&#39;, &#39;stylesheet&#39;], function(S, $, StyleSheet){
+    var linkStyleSheet = new StyleSheet(&#39;#linkcss&#39;);
+    $(&#39;#change-link-css&#39;).on(&#39;click&#39;, function(ev){
+        linkStyleSheet.set(&#39;.link&#39;,{
+            color : &#39;red&#39;
+        });
+    });
+
+    var innerStyleSheet = new StyleSheet(&#39;#my-style&#39;);
+    $(&#39;#change-style-css&#39;).on(&#39;click&#39;, function(ev){
+        innerStyleSheet.set(&#39;.style p&#39;,{
+            color : &#39;red&#39;
+        });
+    });
+    $(&#39;#get-p-styletext&#39;).on(&#39;click&#39;, function(ev){
+        alert(innerStyleSheet.get(&#39;.style&#39;));
+    });
+});</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
     </div>

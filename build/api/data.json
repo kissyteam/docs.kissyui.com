@@ -2940,6 +2940,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n    KISSY.use(['node', 'stylesheet'], function(S, $, StyleSheet){\n        var linkStyleSheet = new StyleSheet('#linkcss');\n        $('#change-link-css').on('click', function(ev){\n            linkStyleSheet.set('.link',{\n                color : 'red'\n            });\n        });\n\n        var innerStyleSheet = new StyleSheet('#my-style');\n        $('#change-style-css').on('click', function(ev){\n            innerStyleSheet.set('.style p',{\n                color : 'red'\n            });\n        });\n        $('#get-p-styletext').on('click', function(ev){\n            alert(innerStyleSheet.get('.style'));\n        });\n    });"
             ]
         },
         "SWF": {
@@ -14635,7 +14638,7 @@
         },
         {
             "file": "src/api/stylesheet.js",
-            "line": 12,
+            "line": 31,
             "description": "link 节点或选择器",
             "itemtype": "attribute",
             "name": "el",
@@ -14645,7 +14648,7 @@
         },
         {
             "file": "src/api/stylesheet.js",
-            "line": 17,
+            "line": 36,
             "description": "link 元素节点",
             "itemtype": "property",
             "name": "el",
@@ -14655,7 +14658,7 @@
         },
         {
             "file": "src/api/stylesheet.js",
-            "line": 22,
+            "line": 41,
             "description": "禁用当前 stylesheet 所在样式表的所有样式",
             "itemtype": "method",
             "name": "disable",
@@ -14667,7 +14670,7 @@
         },
         {
             "file": "src/api/stylesheet.js",
-            "line": 28,
+            "line": 47,
             "description": "启用当前 stylesheet 所在样式表的所有样式",
             "itemtype": "method",
             "name": "enable",
@@ -14679,7 +14682,7 @@
         },
         {
             "file": "src/api/stylesheet.js",
-            "line": 34,
+            "line": 53,
             "description": "当前样式表是否已经被启用",
             "itemtype": "method",
             "name": "isEnabled",
@@ -14692,7 +14695,7 @@
         },
         {
             "file": "src/api/stylesheet.js",
-            "line": 40,
+            "line": 59,
             "description": "获取对应 selectorText 的样式定义文本.",
             "itemtype": "method",
             "name": "get",
@@ -14715,7 +14718,7 @@
         },
         {
             "file": "src/api/stylesheet.js",
-            "line": 63,
+            "line": 82,
             "description": "设置对应 selectorText 的样式定义",
             "itemtype": "method",
             "name": "set",

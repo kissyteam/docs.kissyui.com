@@ -373,6 +373,25 @@
 @class StyleSheet
 @constructor
 @param config {Object}
+@example
+    KISSY.use([&#x27;node&#x27;, &#x27;stylesheet&#x27;], function(S, $, StyleSheet){
+        var linkStyleSheet = new StyleSheet(&#x27;#linkcss&#x27;);
+        $(&#x27;#change-link-css&#x27;).on(&#x27;click&#x27;, function(ev){
+            linkStyleSheet.set(&#x27;.link&#x27;,{
+                color : &#x27;red&#x27;
+            });
+        });
+
+        var innerStyleSheet = new StyleSheet(&#x27;#my-style&#x27;);
+        $(&#x27;#change-style-css&#x27;).on(&#x27;click&#x27;, function(ev){
+            innerStyleSheet.set(&#x27;.style p&#x27;,{
+                color : &#x27;red&#x27;
+            });
+        });
+        $(&#x27;#get-p-styletext&#x27;).on(&#x27;click&#x27;, function(ev){
+            alert(innerStyleSheet.get(&#x27;.style&#x27;));
+        });
+    });
 */
 
 /**
