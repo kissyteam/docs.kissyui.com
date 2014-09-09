@@ -66,8 +66,6 @@ YUI.add("yuidoc-meta", function(Y) {
         "SplitButton",
         "StyleSheet",
         "Tabs",
-        "Tabs.Panel",
-        "Tabs.Tab",
         "Toolbar",
         "Tree",
         "Tree.CheckNode",

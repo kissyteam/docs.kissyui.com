@@ -599,14 +599,10 @@
                 "tabs": 1
             },
             "classes": {
-                "Tabs": 1,
-                "Tabs.Tab": 1,
-                "Tabs.Panel": 1
+                "Tabs": 1
             },
             "fors": {},
-            "namespaces": {
-                "Tabs": 1
-            }
+            "namespaces": {}
         },
         "src/api/toolbar.js": {
             "name": "src/api/toolbar.js",
@@ -1342,17 +1338,13 @@
             "name": "tabs",
             "submodules": {},
             "classes": {
-                "Tabs": 1,
-                "Tabs.Tab": 1,
-                "Tabs.Panel": 1
-            },
-            "fors": {},
-            "namespaces": {
                 "Tabs": 1
             },
+            "fors": {},
+            "namespaces": {},
             "tag": "module",
             "file": "src/api/tabs.js",
-            "line": 139
+            "line": 5
         },
         "toolbar": {
             "name": "toolbar",
@@ -2983,49 +2975,6 @@
             "namespace": "",
             "file": "src/api/tabs.js",
             "line": 5,
-            "is_constructor": 1,
-            "extends": "Component.Container",
-            "params": [
-                {
-                    "name": "config",
-                    "description": "",
-                    "type": "Object"
-                }
-            ]
-        },
-        "Tabs.Tab": {
-            "name": "Tabs.Tab",
-            "shortname": "Tabs.Tab",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "tabs",
-            "namespace": "Tabs",
-            "file": "src/api/tabs.js",
-            "line": 117,
-            "is_constructor": 1,
-            "extends": "Button",
-            "params": [
-                {
-                    "name": "config",
-                    "description": ""
-                }
-            ]
-        },
-        "Tabs.Panel": {
-            "name": "Tabs.Panel",
-            "shortname": "Tabs.Panel",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "tabs",
-            "namespace": "Tabs",
-            "file": "src/api/tabs.js",
-            "line": 139,
             "is_constructor": 1,
             "extends": "Component.Container",
             "params": [
@@ -14994,8 +14943,23 @@
                             "name": "content",
                             "description": "panel 内容",
                             "type": "String"
+                        },
+                        {
+                            "name": "selected",
+                            "description": "是否选中",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "closable",
+                            "description": "是否出现关闭按钮用于删除tab项",
+                            "type": "Boolean"
                         }
                     ]
+                },
+                {
+                    "name": "index",
+                    "description": "要在什么位置添加tab 和 panel",
+                    "type": "Number"
                 }
             ],
             "class": "Tabs",
@@ -15003,7 +14967,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 20,
+            "line": 23,
             "description": "移除指定位置的 item",
             "itemtype": "method",
             "name": "removeItemAt",
@@ -15024,7 +14988,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 27,
+            "line": 30,
             "description": "移除 tab 所在位置的 item",
             "itemtype": "method",
             "name": "removeItemByTab",
@@ -15045,7 +15009,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 34,
+            "line": 37,
             "description": "移除 panel 所在位置的 item",
             "itemtype": "method",
             "name": "removeItemByPanel",
@@ -15066,7 +15030,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 41,
+            "line": 44,
             "description": "得到选中的 tab 实例",
             "itemtype": "method",
             "name": "getSelectedTab",
@@ -15079,7 +15043,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 47,
+            "line": 50,
             "description": "得到选中的 panel 实例",
             "itemtype": "method",
             "name": "getSelectedPanel",
@@ -15092,7 +15056,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 53,
+            "line": 56,
             "description": "得到所有 tab 实例数组",
             "itemtype": "method",
             "name": "getTabs",
@@ -15105,7 +15069,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 59,
+            "line": 62,
             "description": "得到所有 panel 实例数组",
             "itemtype": "method",
             "name": "getPanels",
@@ -15118,7 +15082,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 65,
+            "line": 68,
             "description": "设置某个 tab 实例为选中",
             "itemtype": "method",
             "name": "setSelectedTab",
@@ -15134,7 +15098,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 71,
+            "line": 74,
             "description": "设置某个 panel 实例为选中",
             "itemtype": "method",
             "name": "setSelectedPanel",
@@ -15150,7 +15114,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 77,
+            "line": 80,
             "description": "选中 tab 改变前触发",
             "itemtype": "event",
             "name": "beforeSelectedTabChange",
@@ -15173,7 +15137,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 84,
+            "line": 87,
             "description": "选中 tab 改变后触发",
             "itemtype": "event",
             "name": "afterSelectedTabChange",
@@ -15196,17 +15160,20 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 91,
-            "description": "对象数组，可用于快速构建 tabs，单个对象包括 title 与 content 两个属性",
+            "line": 94,
+            "description": "tab对象数组，可用于快速构建 tabs。单个对象包括 title:'', content:'', selected:false, closable:false",
             "itemtype": "attribute",
             "name": "items",
             "type": "Array",
+            "example": [
+                "\n\titems : [\n\t\t{\n\t\t\ttitle : 'title of test',\n\t\t\tcontent : 'test',\n\t\t\tselected : true,  //初始是否被选中\n\t\t\tclosable : true   //是否出现关闭按钮用于删除tab\n\t\t}\n\t]"
+            ],
             "class": "Tabs",
             "module": "tabs"
         },
         {
             "file": "src/api/tabs.js",
-            "line": 96,
+            "line": 108,
             "description": "可取值'mouse'和'click'，表示怎样触发Tabs的切换",
             "itemtype": "attribute",
             "name": "changeType",
@@ -15216,7 +15183,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 101,
+            "line": 113,
             "description": "表示Tabs菜单相对Tabs内容的位置，可取值'top'/'right'/'bottom'/'left'，默认为'top'",
             "itemtype": "attribute",
             "name": "barOrientation",
@@ -15227,7 +15194,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 107,
+            "line": 119,
             "description": "是否延时渲染",
             "itemtype": "attribute",
             "name": "lazyRender",
@@ -15237,36 +15204,43 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 125,
-            "description": "是否选中",
+            "line": 124,
+            "description": "枚举值\"bottom\".表示Tabs菜单相对Tabs内容的位置",
             "itemtype": "attribute",
-            "name": "selected",
-            "type": "Boolean",
-            "class": "Tabs.Tab",
-            "module": "tabs",
-            "namespace": "Tabs"
+            "name": "Orientation.BOTTOM",
+            "static": 1,
+            "class": "Tabs",
+            "module": "tabs"
         },
         {
             "file": "src/api/tabs.js",
             "line": 130,
-            "description": "是否启用懒加载机制，默认 false",
+            "description": "枚举值\"top\".表示Tabs菜单相对Tabs内容的位置",
             "itemtype": "attribute",
-            "name": "lazyRender=false",
-            "type": "Boolean",
-            "class": "Tabs.Tab",
-            "module": "tabs",
-            "namespace": "Tabs"
+            "name": "Orientation.TOP",
+            "static": 1,
+            "class": "Tabs",
+            "module": "tabs"
         },
         {
             "file": "src/api/tabs.js",
-            "line": 147,
-            "description": "是否选中",
+            "line": 136,
+            "description": "枚举值\"left\".表示Tabs菜单相对Tabs内容的位置",
             "itemtype": "attribute",
-            "name": "selected",
-            "type": "Boolean",
-            "class": "Tabs.Panel",
-            "module": "tabs",
-            "namespace": "Tabs"
+            "name": "Orientation.LEFT",
+            "static": 1,
+            "class": "Tabs",
+            "module": "tabs"
+        },
+        {
+            "file": "src/api/tabs.js",
+            "line": 142,
+            "description": "枚举值\"right\".表示Tabs菜单相对Tabs内容的位置",
+            "itemtype": "attribute",
+            "name": "Orientation.RIGHT",
+            "static": 1,
+            "class": "Tabs",
+            "module": "tabs"
         },
         {
             "file": "src/api/toolbar.js",

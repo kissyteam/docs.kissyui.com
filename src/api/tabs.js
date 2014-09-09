@@ -15,6 +15,9 @@
 @param item {Object}
 @param item.title {String} tab 标题
 @param item.content {String} panel 内容
+@param item.selected {Boolean} 是否选中
+@param item.closable {Boolean} 是否出现关闭按钮用于删除tab项
+@param index {Number} 要在什么位置添加tab 和 panel
 */
 
 /**
@@ -89,8 +92,17 @@
 */
 
 /**
-对象数组，可用于快速构建 tabs，单个对象包括 title 与 content 两个属性
+tab对象数组，可用于快速构建 tabs。单个对象包括 title:'', content:'', selected:false, closable:false
 @attribute items {Array} 
+@example
+	items : [
+		{
+			title : 'title of test',
+			content : 'test',
+			selected : true,  //初始是否被选中
+			closable : true   //是否出现关闭按钮用于删除tab
+		}
+	]
 */
 
 /**
@@ -109,42 +121,29 @@
 @attribute lazyRender {Boolean}
 */
 
-
-
-
-
-
 /**
-@class Tab
-@constructor
-@extends Button
-@namespace Tabs
-@param config
+枚举值"bottom".表示Tabs菜单相对Tabs内容的位置
+@attribute Orientation.BOTTOM
+@static
 */
 
 /**
-是否选中
-@attribute selected {Boolean}
+枚举值"top".表示Tabs菜单相对Tabs内容的位置
+@attribute Orientation.TOP
+@static
 */
 
 /**
-是否启用懒加载机制，默认 false
-@attribute lazyRender=false {Boolean}
-*/
-
-
-
-
-
-/**
-@class Panel
-@constructor
-@extends Component.Container
-@namespace Tabs
-@param config {Object}
+枚举值"left".表示Tabs菜单相对Tabs内容的位置
+@attribute Orientation.LEFT
+@static
 */
 
 /**
-是否选中
-@attribute selected {Boolean}
+枚举值"right".表示Tabs菜单相对Tabs内容的位置
+@attribute Orientation.RIGHT
+@static
 */
+
+
+

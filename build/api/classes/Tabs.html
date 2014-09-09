@@ -186,10 +186,6 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Tabs href="/5.0/api/classes/Tabs.html">Tabs</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Tabs.Panel href="/5.0/api/classes/Tabs.Panel.html">Tabs.Panel</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Tabs.Tab href="/5.0/api/classes/Tabs.Tab.html">Tabs.Tab</a></li>
-            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Toolbar href="/5.0/api/classes/Toolbar.html">Toolbar</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Tree href="/5.0/api/classes/Tree.html">Tree</a></li>
@@ -879,6 +875,22 @@
                                 <a href="#attr_listeners">listeners</a>
                             </li>
                         
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_Orientation.BOTTOM">Orientation.BOTTOM</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_Orientation.LEFT">Orientation.LEFT</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_Orientation.RIGHT">Orientation.RIGHT</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_Orientation.TOP">Orientation.TOP</a>
+                            </li>
+                        
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_parent">parent</a>
                             </li>
@@ -1466,6 +1478,12 @@
                     
                 </li>
             
+                <li class="arg">
+                    
+                        <code>index</code>
+                    
+                </li>
+            
             </ul><span class="paren">)</span>
         </div>
     
@@ -1553,7 +1571,51 @@
                                 
                             </li>
                             
+                            <li class="param">
+                                
+                                    <code class="param-name">selected</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>是否选中</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">closable</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>是否出现关闭按钮用于删除tab项</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
                         </ul>
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">index</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要在什么位置添加tab 和 panel</p>
+
+                    </div>
+
                     
                 </li>
             
@@ -2825,7 +2887,7 @@
 
     
         <span class="returns-inline">
-            <span class="type"><a href="../classes/Tabs.Panel.html" class="crosslink">Tabs.Panel</a></span>
+            <span class="type">Tabs.Panel</span>
         </span>
     
 
@@ -2870,7 +2932,7 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="../classes/Tabs.Panel.html" class="crosslink">Tabs.Panel</a></span>:
+                        <span class="type">Tabs.Panel</span>:
                     
                 
             </div>
@@ -2890,7 +2952,7 @@
 
     
         <span class="returns-inline">
-            <span class="type"><a href="../classes/Tabs.Tab.html" class="crosslink">Tabs.Tab</a></span>
+            <span class="type">Tabs.Tab</span>
         </span>
     
 
@@ -2935,7 +2997,7 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="../classes/Tabs.Tab.html" class="crosslink">Tabs.Tab</a></span>:
+                        <span class="type">Tabs.Tab</span>:
                     
                 
             </div>
@@ -4886,7 +4948,7 @@
                 <li class="param">
                     
                         <code class="param-name">tab</code>
-                        <span class="type"><a href="../classes/Tabs.Tab.html" class="crosslink">Tabs.Tab</a></span>
+                        <span class="type">Tabs.Tab</span>
                     
 
                     
@@ -5923,7 +5985,7 @@
     </div>
 
     <div class="description">
-        <p>对象数组，可用于快速构建 tabs，单个对象包括 title 与 content 两个属性</p>
+        <p>tab对象数组，可用于快速构建 tabs。单个对象包括 title:&#39;&#39;, content:&#39;&#39;, selected:false, closable:false</p>
 
     </div>
 
@@ -5931,6 +5993,22 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>items : [
+    {
+        title : &#39;title of test&#39;,
+        content : &#39;test&#39;,
+        selected : true,  //初始是否被选中
+        closable : true   //是否出现关闭按钮用于删除tab
+    }
+]</code></pre>
+
+            </div>
+        </div>
     
 </div>
 
@@ -6037,6 +6115,198 @@ or
         }
     }
 }</code></pre>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_Orientation.BOTTOM" class="attr item">
+    <a name="config_Orientation.BOTTOM"></a> 
+    <h3 class="name"><code>Orientation.BOTTOM</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>枚举值&quot;bottom&quot;.表示Tabs菜单相对Tabs内容的位置</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_Orientation.LEFT" class="attr item">
+    <a name="config_Orientation.LEFT"></a> 
+    <h3 class="name"><code>Orientation.LEFT</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>枚举值&quot;left&quot;.表示Tabs菜单相对Tabs内容的位置</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_Orientation.RIGHT" class="attr item">
+    <a name="config_Orientation.RIGHT"></a> 
+    <h3 class="name"><code>Orientation.RIGHT</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>枚举值&quot;right&quot;.表示Tabs菜单相对Tabs内容的位置</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_Orientation.TOP" class="attr item">
+    <a name="config_Orientation.TOP"></a> 
+    <h3 class="name"><code>Orientation.TOP</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>枚举值&quot;top&quot;.表示Tabs菜单相对Tabs内容的位置</p>
 
     </div>
 
@@ -7150,7 +7420,7 @@ or
                             <li class="param">
                                 
                                     <code class="param-name">newVal</code>
-                                    <span class="type"><a href="../classes/Tabs.Tab.html" class="crosslink">Tabs.Tab</a></span>
+                                    <span class="type">Tabs.Tab</span>
                                 
 
                                 <div class="param-description">
@@ -7599,7 +7869,7 @@ or
                             <li class="param">
                                 
                                     <code class="param-name">newVal</code>
-                                    <span class="type"><a href="../classes/Tabs.Tab.html" class="crosslink">Tabs.Tab</a></span>
+                                    <span class="type">Tabs.Tab</span>
                                 
 
                                 <div class="param-description">
