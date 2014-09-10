@@ -3,10 +3,34 @@
 */
 
 /**
+选项卡组件
 @class Tabs
 @constructor
 @extends Component.Container
 @param config {Object}
+@example
+	KISSY.use(['tabs'], function(S, Tabs){
+        var myTabs = new Tabs({
+            render : '#container',
+            width : '60%',
+            items : [
+                {
+                    title : 'title of tab-1',
+                    content : 'tab-1 content'
+                },
+                {
+                    title : 'title of tab-2',
+                    content : 'tab-2 content',
+                    selected : true   //默认选中这个tab
+                },
+                {
+                    title : 'title of tab-3',
+                    content : 'tab-3 content',
+                    closable : true    //显示关闭按钮，点击删除tab
+                }
+            ]
+        }).render();
+    });
 */
 
 /**

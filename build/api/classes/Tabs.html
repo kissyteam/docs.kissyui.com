@@ -378,7 +378,8 @@
 
 
 <div class="box intro">
-    
+    <p>选项卡组件</p>
+
 </div>
 
 
@@ -461,6 +462,36 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;tabs&#39;], function(S, Tabs){
+    var myTabs = new Tabs({
+        render : &#39;#container&#39;,
+        width : &#39;60%&#39;,
+        items : [
+            {
+                title : &#39;title of tab-1&#39;,
+                content : &#39;tab-1 content&#39;
+            },
+            {
+                title : &#39;title of tab-2&#39;,
+                content : &#39;tab-2 content&#39;,
+                selected : true   //默认选中这个tab
+            },
+            {
+                title : &#39;title of tab-3&#39;,
+                content : &#39;tab-3 content&#39;,
+                closable : true    //显示关闭按钮，点击删除tab
+            }
+        ]
+    }).render();
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 

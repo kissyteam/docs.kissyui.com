@@ -365,10 +365,34 @@
 */
 
 /**
+选项卡组件
 @class Tabs
 @constructor
 @extends Component.Container
 @param config {Object}
+@example
+	KISSY.use([&#x27;tabs&#x27;], function(S, Tabs){
+        var myTabs = new Tabs({
+            render : &#x27;#container&#x27;,
+            width : &#x27;60%&#x27;,
+            items : [
+                {
+                    title : &#x27;title of tab-1&#x27;,
+                    content : &#x27;tab-1 content&#x27;
+                },
+                {
+                    title : &#x27;title of tab-2&#x27;,
+                    content : &#x27;tab-2 content&#x27;,
+                    selected : true   //默认选中这个tab
+                },
+                {
+                    title : &#x27;title of tab-3&#x27;,
+                    content : &#x27;tab-3 content&#x27;,
+                    closable : true    //显示关闭按钮，点击删除tab
+                }
+            ]
+        }).render();
+    });
 */
 
 /**

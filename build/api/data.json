@@ -2975,6 +2975,7 @@
             "namespace": "",
             "file": "src/api/tabs.js",
             "line": 5,
+            "description": "选项卡组件",
             "is_constructor": 1,
             "extends": "Component.Container",
             "params": [
@@ -2983,6 +2984,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\tKISSY.use(['tabs'], function(S, Tabs){\n        var myTabs = new Tabs({\n            render : '#container',\n            width : '60%',\n            items : [\n                {\n                    title : 'title of tab-1',\n                    content : 'tab-1 content'\n                },\n                {\n                    title : 'title of tab-2',\n                    content : 'tab-2 content',\n                    selected : true   //默认选中这个tab\n                },\n                {\n                    title : 'title of tab-3',\n                    content : 'tab-3 content',\n                    closable : true    //显示关闭按钮，点击删除tab\n                }\n            ]\n        }).render();\n    });"
             ]
         },
         "Toolbar": {
@@ -14924,7 +14928,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 12,
+            "line": 36,
             "description": "添加一个 tab 和 panel",
             "itemtype": "method",
             "name": "addItem",
@@ -14967,7 +14971,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 23,
+            "line": 47,
             "description": "移除指定位置的 item",
             "itemtype": "method",
             "name": "removeItemAt",
@@ -14988,7 +14992,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 30,
+            "line": 54,
             "description": "移除 tab 所在位置的 item",
             "itemtype": "method",
             "name": "removeItemByTab",
@@ -15009,7 +15013,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 37,
+            "line": 61,
             "description": "移除 panel 所在位置的 item",
             "itemtype": "method",
             "name": "removeItemByPanel",
@@ -15030,7 +15034,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 44,
+            "line": 68,
             "description": "得到选中的 tab 实例",
             "itemtype": "method",
             "name": "getSelectedTab",
@@ -15043,7 +15047,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 50,
+            "line": 74,
             "description": "得到选中的 panel 实例",
             "itemtype": "method",
             "name": "getSelectedPanel",
@@ -15056,7 +15060,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 56,
+            "line": 80,
             "description": "得到所有 tab 实例数组",
             "itemtype": "method",
             "name": "getTabs",
@@ -15069,7 +15073,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 62,
+            "line": 86,
             "description": "得到所有 panel 实例数组",
             "itemtype": "method",
             "name": "getPanels",
@@ -15082,7 +15086,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 68,
+            "line": 92,
             "description": "设置某个 tab 实例为选中",
             "itemtype": "method",
             "name": "setSelectedTab",
@@ -15098,7 +15102,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 74,
+            "line": 98,
             "description": "设置某个 panel 实例为选中",
             "itemtype": "method",
             "name": "setSelectedPanel",
@@ -15114,7 +15118,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 80,
+            "line": 104,
             "description": "选中 tab 改变前触发",
             "itemtype": "event",
             "name": "beforeSelectedTabChange",
@@ -15137,7 +15141,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 87,
+            "line": 111,
             "description": "选中 tab 改变后触发",
             "itemtype": "event",
             "name": "afterSelectedTabChange",
@@ -15160,7 +15164,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 94,
+            "line": 118,
             "description": "tab对象数组，可用于快速构建 tabs。单个对象包括 title:'', content:'', selected:false, closable:false",
             "itemtype": "attribute",
             "name": "items",
@@ -15173,7 +15177,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 108,
+            "line": 132,
             "description": "可取值'mouse'和'click'，表示怎样触发Tabs的切换",
             "itemtype": "attribute",
             "name": "changeType",
@@ -15183,7 +15187,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 113,
+            "line": 137,
             "description": "表示Tabs菜单相对Tabs内容的位置，可取值'top'/'right'/'bottom'/'left'，默认为'top'",
             "itemtype": "attribute",
             "name": "barOrientation",
@@ -15194,7 +15198,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 119,
+            "line": 143,
             "description": "是否延时渲染",
             "itemtype": "attribute",
             "name": "lazyRender",
@@ -15204,7 +15208,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 124,
+            "line": 148,
             "description": "枚举值\"bottom\".表示Tabs菜单相对Tabs内容的位置",
             "itemtype": "attribute",
             "name": "Orientation.BOTTOM",
@@ -15214,7 +15218,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 130,
+            "line": 154,
             "description": "枚举值\"top\".表示Tabs菜单相对Tabs内容的位置",
             "itemtype": "attribute",
             "name": "Orientation.TOP",
@@ -15224,7 +15228,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 136,
+            "line": 160,
             "description": "枚举值\"left\".表示Tabs菜单相对Tabs内容的位置",
             "itemtype": "attribute",
             "name": "Orientation.LEFT",
@@ -15234,7 +15238,7 @@
         },
         {
             "file": "src/api/tabs.js",
-            "line": 142,
+            "line": 166,
             "description": "枚举值\"right\".表示Tabs菜单相对Tabs内容的位置",
             "itemtype": "attribute",
             "name": "Orientation.RIGHT",
