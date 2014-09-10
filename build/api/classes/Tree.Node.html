@@ -378,7 +378,8 @@
 
 
 <div class="box intro">
-    
+    <p>普通树节点。xclass : tree-node</p>
+
 </div>
 
 
@@ -461,6 +462,36 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>//通过addChild添加子节点
+KISSY.use([&#39;tree&#39;, &#39;node&#39;], function(S, Tree, $){
+    var tree = new Tree({
+        content: &quot;淘宝网&quot;,
+        expanded: true,
+        // showRootNode:false,  //是否显示根节点
+        render: &quot;#treeContainer&quot;
+    });
+    var favorates = new Tree.Node({
+        content: &quot;收藏夹&quot;,
+        tree: tree
+    });
+    favorates.addChild(new Tree.Node({
+        content: &quot;收藏的宝贝&quot;
+    }));
+    favorates.addChild(new Tree.Node({
+        // 即使没有儿子也强制指定为 folder 样式
+        isLeaf: false,
+        content: &quot;收藏的店铺&quot;
+    }));
+    tree.addChild(favorates);
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 

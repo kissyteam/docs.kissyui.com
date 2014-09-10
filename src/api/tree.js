@@ -5,12 +5,86 @@
 
 
 /**
-树（根节点）
+普通树结构。xclass:tree
 @class Tree
 @constructor
 @extends Tree.Node
 @uses Tree.Manager
 @param config {Object}
+@example
+	//通过addChild添加子节点
+	KISSY.use(['tree', 'node'], function(S, Tree, $){
+	    var tree = new Tree({
+	        content: "淘宝网",
+	        expanded: true,
+	        // showRootNode:false,  //是否显示根节点
+	        render: "#treeContainer"
+	    });
+	    var favorates = new Tree.Node({
+	        content: "收藏夹",
+	        tree: tree
+	    });
+	    favorates.addChild(new Tree.Node({
+	        content: "收藏的宝贝"
+	    }));
+	    favorates.addChild(new Tree.Node({
+	        // 即使没有儿子也强制指定为 folder 样式
+	        isLeaf: false,
+	        content: "收藏的店铺"
+	    }));
+	    tree.addChild(favorates);
+	  });
+
+  	//通过xclass生成节点(json)
+  	KISSY.use(['tree', 'node'], function(S, Tree, $){
+        var tree = new Tree({
+            content: "淘宝网",
+            expanded: true,
+            children: [
+                {
+                    xclass : 'check-tree-node',
+                    content: "收藏夹",
+                    children: [
+                        {
+                            content: "收藏的宝贝"
+                        },
+                        {
+                            content: "收藏的店铺"
+                        }
+                    ]
+                },
+                {
+                    content: '我要买'
+                },
+                {
+                    xclass : 'tree-node',
+                    content: '我的淘宝',
+                    children: [
+                        {
+                            content: "已买到的宝贝"
+                        },
+                        {
+                            content: "已买到的宝贝"
+                        }
+                    ]
+                }
+            ],
+            // showRootNode:false,
+            render: "#treeContainer"
+        });
+
+        tree.render();
+        tree.on("expand", function (e) {
+            S.log("expand : " + e.target.get("content"));
+            S.log("expandIconEl");
+            S.log(e.target.get("expandIconEl"));
+            S.log("iconEl");
+            S.log(e.target.get("iconEl"));
+        });
+        tree.on("collapse", function (e) {
+            S.log("collapse : " + e.target.get("content"));
+        });
+    });
 */
 
 /**
@@ -53,11 +127,35 @@ tree.on("click",function(e){
 
 
 /**
+普通树节点。xclass : tree-node
 @class Node
 @constructor
 @extends Component.Container
 @namespace Tree
 @param config {Object}
+@example
+	//通过addChild添加子节点
+	KISSY.use(['tree', 'node'], function(S, Tree, $){
+	    var tree = new Tree({
+	        content: "淘宝网",
+	        expanded: true,
+	        // showRootNode:false,  //是否显示根节点
+	        render: "#treeContainer"
+	    });
+	    var favorates = new Tree.Node({
+	        content: "收藏夹",
+	        tree: tree
+	    });
+	    favorates.addChild(new Tree.Node({
+	        content: "收藏的宝贝"
+	    }));
+	    favorates.addChild(new Tree.Node({
+	        // 即使没有儿子也强制指定为 folder 样式
+	        isLeaf: false,
+	        content: "收藏的店铺"
+	    }));
+	    tree.addChild(favorates);
+	});
 */
 
 /**
@@ -128,12 +226,35 @@ tree.on("click",function(e){
 
 
 /**
-可多选树节点
+可多选树节点。xclass:check-tree-node
 @class CheckNode
 @constructor 
 @extends Tree.Node
 @namespace Tree
 @param config {Object}
+@example
+	KISSY.use(['tree', 'node'], function(S, Tree, $){
+	    var tree = new Tree.CheckTree({
+	        content: "淘宝网",
+	        expanded: true,
+	        // showRootNode:false,
+	        render: "#treeContainer"
+	    });
+	    var favorates = new Tree.CheckNode({
+
+	        content: "收藏夹",
+	        tree: tree
+	    });
+	    favorates.addChild(new Tree.CheckNode({
+
+	        content: "收藏的宝贝"
+	    }));
+	    favorates.addChild(new Tree.CheckNode({
+	        content: "收藏的店铺"
+	    }));
+
+	    tree.addChild(favorates);
+	});
 */
 
 /**
@@ -148,12 +269,36 @@ tree.on("click",function(e){
 
 
 /**
+多选树结构。xclass : check-tree
 @class CheckTree
 @namespace Tree
 @constructor
 @extends Tree.CheckNode
 @uses Tree.Manager
 @param config {Object}
+@example
+	KISSY.use(['tree', 'node'], function(S, Tree, $){
+	    var tree = new Tree.CheckTree({
+	        content: "淘宝网",
+	        expanded: true,
+	        // showRootNode:false,
+	        render: "#treeContainer"
+	    });
+	    var favorates = new Tree.CheckNode({
+
+	        content: "收藏夹",
+	        tree: tree
+	    });
+	    favorates.addChild(new Tree.CheckNode({
+
+	        content: "收藏的宝贝"
+	    }));
+	    favorates.addChild(new Tree.CheckNode({
+	        content: "收藏的店铺"
+	    }));
+
+	    tree.addChild(favorates);
+	});
 */
 
 /**

@@ -387,7 +387,7 @@
 
 
 <div class="box intro">
-    <p>树（根节点）</p>
+    <p>普通树结构。xclass:tree</p>
 
 </div>
 
@@ -471,6 +471,87 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>//通过addChild添加子节点
+KISSY.use([&#39;tree&#39;, &#39;node&#39;], function(S, Tree, $){
+    var tree = new Tree({
+        content: &quot;淘宝网&quot;,
+        expanded: true,
+        // showRootNode:false,  //是否显示根节点
+        render: &quot;#treeContainer&quot;
+    });
+    var favorates = new Tree.Node({
+        content: &quot;收藏夹&quot;,
+        tree: tree
+    });
+    favorates.addChild(new Tree.Node({
+        content: &quot;收藏的宝贝&quot;
+    }));
+    favorates.addChild(new Tree.Node({
+        // 即使没有儿子也强制指定为 folder 样式
+        isLeaf: false,
+        content: &quot;收藏的店铺&quot;
+    }));
+    tree.addChild(favorates);
+  });
+
+  //通过xclass生成节点(json)
+  KISSY.use([&#39;tree&#39;, &#39;node&#39;], function(S, Tree, $){
+    var tree = new Tree({
+        content: &quot;淘宝网&quot;,
+        expanded: true,
+        children: [
+            {
+                xclass : &#39;check-tree-node&#39;,
+                content: &quot;收藏夹&quot;,
+                children: [
+                    {
+                        content: &quot;收藏的宝贝&quot;
+                    },
+                    {
+                        content: &quot;收藏的店铺&quot;
+                    }
+                ]
+            },
+            {
+                content: &#39;我要买&#39;
+            },
+            {
+                xclass : &#39;tree-node&#39;,
+                content: &#39;我的淘宝&#39;,
+                children: [
+                    {
+                        content: &quot;已买到的宝贝&quot;
+                    },
+                    {
+                        content: &quot;已买到的宝贝&quot;
+                    }
+                ]
+            }
+        ],
+        // showRootNode:false,
+        render: &quot;#treeContainer&quot;
+    });
+
+    tree.render();
+    tree.on(&quot;expand&quot;, function (e) {
+        S.log(&quot;expand : &quot; + e.target.get(&quot;content&quot;));
+        S.log(&quot;expandIconEl&quot;);
+        S.log(e.target.get(&quot;expandIconEl&quot;));
+        S.log(&quot;iconEl&quot;);
+        S.log(e.target.get(&quot;iconEl&quot;));
+    });
+    tree.on(&quot;collapse&quot;, function (e) {
+        S.log(&quot;collapse : &quot; + e.target.get(&quot;content&quot;));
+    });
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 

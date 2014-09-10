@@ -378,7 +378,7 @@
 
 
 <div class="box intro">
-    <p>可多选树节点</p>
+    <p>可多选树节点。xclass:check-tree-node</p>
 
 </div>
 
@@ -462,6 +462,36 @@
 
     
 
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;tree&#39;, &#39;node&#39;], function(S, Tree, $){
+    var tree = new Tree.CheckTree({
+        content: &quot;淘宝网&quot;,
+        expanded: true,
+        // showRootNode:false,
+        render: &quot;#treeContainer&quot;
+    });
+    var favorates = new Tree.CheckNode({
+
+        content: &quot;收藏夹&quot;,
+        tree: tree
+    });
+    favorates.addChild(new Tree.CheckNode({
+
+        content: &quot;收藏的宝贝&quot;
+    }));
+    favorates.addChild(new Tree.CheckNode({
+        content: &quot;收藏的店铺&quot;
+    }));
+
+    tree.addChild(favorates);
+});</code></pre>
+
+            </div>
+        </div>
     
 </div>
 

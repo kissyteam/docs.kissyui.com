@@ -1375,7 +1375,7 @@
             },
             "tag": "module",
             "file": "src/api/tree.js",
-            "line": 190
+            "line": 335
         },
         "ua": {
             "name": "ua",
@@ -3027,7 +3027,7 @@
             "namespace": "",
             "file": "src/api/tree.js",
             "line": 7,
-            "description": "树（根节点）",
+            "description": "普通树结构。xclass:tree",
             "is_constructor": 1,
             "extends": "Tree.Node",
             "uses": [
@@ -3039,6 +3039,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\t//通过addChild添加子节点\n\tKISSY.use(['tree', 'node'], function(S, Tree, $){\n\t    var tree = new Tree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,  //是否显示根节点\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.Node({\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.Node({\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.Node({\n\t        // 即使没有儿子也强制指定为 folder 样式\n\t        isLeaf: false,\n\t        content: \"收藏的店铺\"\n\t    }));\n\t    tree.addChild(favorates);\n\t  });\n\n  \t//通过xclass生成节点(json)\n  \tKISSY.use(['tree', 'node'], function(S, Tree, $){\n        var tree = new Tree({\n            content: \"淘宝网\",\n            expanded: true,\n            children: [\n                {\n                    xclass : 'check-tree-node',\n                    content: \"收藏夹\",\n                    children: [\n                        {\n                            content: \"收藏的宝贝\"\n                        },\n                        {\n                            content: \"收藏的店铺\"\n                        }\n                    ]\n                },\n                {\n                    content: '我要买'\n                },\n                {\n                    xclass : 'tree-node',\n                    content: '我的淘宝',\n                    children: [\n                        {\n                            content: \"已买到的宝贝\"\n                        },\n                        {\n                            content: \"已买到的宝贝\"\n                        }\n                    ]\n                }\n            ],\n            // showRootNode:false,\n            render: \"#treeContainer\"\n        });\n\n        tree.render();\n        tree.on(\"expand\", function (e) {\n            S.log(\"expand : \" + e.target.get(\"content\"));\n            S.log(\"expandIconEl\");\n            S.log(e.target.get(\"expandIconEl\"));\n            S.log(\"iconEl\");\n            S.log(e.target.get(\"iconEl\"));\n        });\n        tree.on(\"collapse\", function (e) {\n            S.log(\"collapse : \" + e.target.get(\"content\"));\n        });\n    });"
             ]
         },
         "Tree.Node": {
@@ -3052,7 +3055,8 @@
             "module": "tree",
             "namespace": "Tree",
             "file": "src/api/tree.js",
-            "line": 55,
+            "line": 129,
+            "description": "普通树节点。xclass : tree-node",
             "is_constructor": 1,
             "extends": "Component.Container",
             "params": [
@@ -3061,6 +3065,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\t//通过addChild添加子节点\n\tKISSY.use(['tree', 'node'], function(S, Tree, $){\n\t    var tree = new Tree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,  //是否显示根节点\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.Node({\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.Node({\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.Node({\n\t        // 即使没有儿子也强制指定为 folder 样式\n\t        isLeaf: false,\n\t        content: \"收藏的店铺\"\n\t    }));\n\t    tree.addChild(favorates);\n\t});"
             ]
         },
         "Tree.CheckNode": {
@@ -3074,8 +3081,8 @@
             "module": "tree",
             "namespace": "Tree",
             "file": "src/api/tree.js",
-            "line": 130,
-            "description": "可多选树节点",
+            "line": 228,
+            "description": "可多选树节点。xclass:check-tree-node",
             "is_constructor": 1,
             "extends": "Tree.Node",
             "params": [
@@ -3084,6 +3091,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\tKISSY.use(['tree', 'node'], function(S, Tree, $){\n\t    var tree = new Tree.CheckTree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.CheckNode({\n\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.CheckNode({\n\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.CheckNode({\n\t        content: \"收藏的店铺\"\n\t    }));\n\n\t    tree.addChild(favorates);\n\t});"
             ]
         },
         "Tree.CheckTree": {
@@ -3097,7 +3107,8 @@
             "module": "tree",
             "namespace": "Tree",
             "file": "src/api/tree.js",
-            "line": 150,
+            "line": 271,
+            "description": "多选树结构。xclass : check-tree",
             "is_constructor": 1,
             "extends": "Tree.CheckNode",
             "uses": [
@@ -3109,6 +3120,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\tKISSY.use(['tree', 'node'], function(S, Tree, $){\n\t    var tree = new Tree.CheckTree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.CheckNode({\n\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.CheckNode({\n\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.CheckNode({\n\t        content: \"收藏的店铺\"\n\t    }));\n\n\t    tree.addChild(favorates);\n\t});"
             ]
         },
         "Tree.Manager": {
@@ -3125,7 +3139,7 @@
             "module": "tree",
             "namespace": "Tree",
             "file": "src/api/tree.js",
-            "line": 190,
+            "line": 335,
             "description": "管理树节点(Manage tree node for tree root)",
             "is_constructor": 1,
             "params": [
@@ -15291,7 +15305,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 16,
+            "line": 90,
             "description": "默认 true. 是否显示树的根节点",
             "itemtype": "attribute",
             "name": "showRootNode",
@@ -15302,7 +15316,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 22,
+            "line": 96,
             "description": "当树节点被点击后触发",
             "itemtype": "event",
             "name": "click",
@@ -15321,7 +15335,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 39,
+            "line": 113,
             "description": "当树节点扩展后触发",
             "itemtype": "event",
             "name": "expand",
@@ -15337,7 +15351,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 45,
+            "line": 119,
             "description": "当树节点收缩后触发",
             "itemtype": "event",
             "name": "collapse",
@@ -15353,7 +15367,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 63,
+            "line": 161,
             "description": "节点内容",
             "itemtype": "attribute",
             "name": "content",
@@ -15364,7 +15378,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 68,
+            "line": 166,
             "description": "可选，是否固定采用叶子节点或目录节点样式类，不设置的话会动态根据是否具有儿子节点而变化",
             "itemtype": "attribute",
             "name": "isLeaf",
@@ -15375,7 +15389,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 73,
+            "line": 171,
             "description": "该节点的儿子节点是否显示，设置后可相应展开收缩儿子节点",
             "itemtype": "attribute",
             "name": "expanded",
@@ -15386,7 +15400,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 78,
+            "line": 176,
             "description": "节点提示内容",
             "itemtype": "attribute",
             "name": "tooltip",
@@ -15397,7 +15411,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 83,
+            "line": 181,
             "description": "扩展图标 dom 节点",
             "itemtype": "attribute",
             "name": "expandIconEl",
@@ -15408,7 +15422,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 88,
+            "line": 186,
             "description": "树节点图标 dom 节点",
             "itemtype": "attribute",
             "name": "iconEl",
@@ -15419,7 +15433,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 93,
+            "line": 191,
             "description": "该节点是否被选中",
             "itemtype": "attribute",
             "name": "selected",
@@ -15430,7 +15444,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 98,
+            "line": 196,
             "description": "该节点所属的树对象",
             "itemtype": "attribute",
             "name": "tree",
@@ -15441,7 +15455,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 103,
+            "line": 201,
             "description": "该节点所处所在树的深度，只读。",
             "itemtype": "attribute",
             "name": "depth",
@@ -15453,7 +15467,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 109,
+            "line": 207,
             "description": "把当前节点的子孙节点全部显示出来",
             "itemtype": "method",
             "name": "expandAll",
@@ -15463,7 +15477,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 114,
+            "line": 212,
             "description": "把当前节点的子孙节点全部收缩起来",
             "itemtype": "method",
             "name": "collapseAll",
@@ -15473,7 +15487,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 119,
+            "line": 217,
             "description": "把当前节点设置为当前树的选中节点",
             "itemtype": "method",
             "name": "select",
@@ -15483,7 +15497,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 139,
+            "line": 260,
             "description": "当前节点的多选状态，可取：\n- PARTIAL_CHECK 代表节点的部分选中状态（部分子孙节点选中）\n- CHECK 代表节点的全部选中状态（子孙节点和自身节点全部选中）\n- EMPTY 代表节点的空状态（子孙节点和自身节点全部不选中）",
             "itemtype": "attribute",
             "name": "checkState",
@@ -15494,7 +15508,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 159,
+            "line": 304,
             "description": "当树节点扩展后触发",
             "itemtype": "event",
             "name": "expand",
@@ -15511,7 +15525,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 165,
+            "line": 310,
             "description": "当树节点收缩后触发",
             "itemtype": "event",
             "name": "collapse",
@@ -15528,7 +15542,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 171,
+            "line": 316,
             "description": "当树节点被点击后触发",
             "itemtype": "event",
             "name": "click",
@@ -15548,7 +15562,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 198,
+            "line": 343,
             "description": "是否允许文本选择",
             "itemtype": "attribute",
             "name": "allowTextSelection",
@@ -15560,7 +15574,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 204,
+            "line": 349,
             "description": "是否能聚焦",
             "itemtype": "attribute",
             "name": "focusable",
@@ -15572,7 +15586,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 210,
+            "line": 355,
             "description": "是否支持手势事件",
             "itemtype": "attribute",
             "name": "handleGestureEvents",
@@ -15584,7 +15598,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 216,
+            "line": 361,
             "description": "是否显示树根节点",
             "itemtype": "attribute",
             "name": "showRootNode",
@@ -15596,7 +15610,7 @@
         },
         {
             "file": "src/api/tree.js",
-            "line": 222,
+            "line": 367,
             "description": "当前被选择的树节点",
             "itemtype": "attribute",
             "name": "selectedItem",
