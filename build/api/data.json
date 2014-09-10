@@ -643,19 +643,16 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/api/uri.js": {
-            "name": "src/api/uri.js",
+        "src/api/url.js": {
+            "name": "src/api/url.js",
             "modules": {
-                "uri": 1
+                "url": 1
             },
             "classes": {
-                "Uri": 1,
-                "Uri.Query": 1
+                "Url": 1
             },
             "fors": {},
-            "namespaces": {
-                "Uri": 1
-            }
+            "namespaces": {}
         },
         "src/api/util.js": {
             "name": "src/api/util.js",
@@ -1390,21 +1387,18 @@
             "line": 6,
             "description": "UA模块将UA挂在在全局对象KISSY上，通过 KISSY.UA 的属性，你可以获取浏览器等用户代理的信息。"
         },
-        "uri": {
-            "name": "uri",
+        "url": {
+            "name": "url",
             "submodules": {},
             "classes": {
-                "Uri": 1,
-                "Uri.Query": 1
+                "Url": 1
             },
             "fors": {},
-            "namespaces": {
-                "Uri": 1
-            },
+            "namespaces": {},
             "tag": "module",
-            "file": "src/api/uri.js",
-            "line": 206,
-            "description": "uri解析模块"
+            "file": "src/api/url.js",
+            "line": 6,
+            "description": "操作url"
         },
         "util": {
             "name": "util",
@@ -3165,47 +3159,20 @@
             "description": "通过 UA 的属性，你可以获取浏览器等用户代理的信息。可以首先使用 UA.shell 返回的标识符判断当前浏览器类型，若需浏览器具体版本信息，可以再通过 UA[UA.shell] 取出版本号。属性值遵循以下规则：\n  \n   - 表示当前引擎或浏览器的版本。版本号 1.2.3.4 会转换为数值 1.234\n   - 如果不是当前引擎或浏览器，返回 0 或者 undefined\n   - 如果当前浏览器版本号无法准确判定，均返回 0.1",
             "static": 1
         },
-        "Uri": {
-            "name": "Uri",
-            "shortname": "Uri",
+        "Url": {
+            "name": "Url",
+            "shortname": "Url",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "uri",
+            "module": "url",
             "namespace": "",
-            "file": "src/api/uri.js",
+            "file": "src/api/url.js",
             "line": 6,
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "uriStr",
-                    "description": "uri 字符串",
-                    "type": "String"
-                }
-            ]
-        },
-        "Uri.Query": {
-            "name": "Uri.Query",
-            "shortname": "Uri.Query",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "uri",
-            "namespace": "Uri",
-            "file": "src/api/uri.js",
-            "line": 206,
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "queryStr",
-                    "description": "查询字符串",
-                    "type": "String"
-                }
-            ]
+            "description": "操作url\n使用示例：\n\t\n\tKISSY.use(['url'], function(S, Url){\n\t\tvar websiteUrl = 'http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10#method_resolve';\n\t\tvar urlDataObj = Url.parse(websiteUrl); \n\t\t// 得到的urlDataObj如下：\n\t\t// {\n\t\t//  auth: undefined\n\t\t// \thash: \"#method_resolve\"\n\t\t// \thost: \"docs.kissyui.com\"\n\t\t// \thostname: \"docs.kissyui.com\"\n\t\t// \thref: \"http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10#method_resolve\"\n\t\t// \tpath: \"/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10\"\n\t\t// \tpathname: \"/5.0/api/classes/Path.html\"\n\t\t// \tport: undefined\n\t\t// \tprotocol: \"http:\"\n\t\t// \tquery: \"test=iamtestcontent&date=2014.09.10\"\n\t\t// \tsearch: \"?test=iamtestcontent&date=2014.09.10\"\n\t\t// \tslashes: true\n\t\t// }\n\n\t\turlDataObj.search = undefined;\n\t\turlDataObj.query = {\n\t\t\tname : 'weekeight',\n\t\t\tlove : 'kissy'\n\t\t};\n\n\t\tvar newUrl = Url.format(urlDataObj);  //得到的newUrl是 http://docs.kissyui.com/5.0/api/classes/Path.html?name=weekeight&love=kissy#method_resolve\n\n\t})",
+            "static": 1
         },
         "Util": {
             "name": "Util",
@@ -15818,523 +15785,61 @@
             "module": "ua"
         },
         {
-            "file": "src/api/uri.js",
-            "line": 12,
-            "description": "返回一个当前 uri 实例的克隆对象",
+            "file": "src/api/url.js",
+            "line": 43,
+            "description": "解析url字符串为url对象。url对象包括键值：auth,hash,host,hostname,href,path,pathname,port,protocol,query,search,slashes",
             "itemtype": "method",
-            "name": "clone",
-            "return": {
-                "description": "",
-                "type": "Object"
-            },
-            "class": "Uri",
-            "module": "uri"
+            "name": "parse",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "url字符串",
+                    "type": "String"
+                },
+                {
+                    "name": "parseQueryString",
+                    "description": "是否将querystring转化为对象形式。默认为false",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "Url",
+            "module": "url"
         },
         {
-            "file": "src/api/uri.js",
-            "line": 18,
-            "description": "以当前 uri 实例为基准路径解析 other uri 并返回新的实例",
+            "file": "src/api/url.js",
+            "line": 50,
+            "description": "将url对象转为url字符串",
+            "itemtype": "method",
+            "name": "format",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "从Url.parse得到的url对象",
+                    "type": "String"
+                },
+                {
+                    "name": "serializeArray",
+                    "description": "如果url.search === undefined 且 url.query含数组的话，转化成的url字符串是否需要在数组key后加上 [] 标识。默认为true",
+                    "type": "Boolean"
+                }
+            ],
+            "example": [
+                "\n\tKISSY.use(['url'], function(S, Url){\n\t\tvar websiteUrl = 'http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10#method_resolve';\n\t\tvar urlDataObj = Url.parse(websiteUrl); \n\t\turlDataObj.search = undefined;\n\t\turlDataObj.query = {\n\t\t\tname : 'weekeight',\n\t\t\tlove : 'kissy',\n\t\t\tarr : [1,2,3]\n\t\t};\n\n\t\tvar newUrl = Url.format(urlDataObj);  //得到的newUrl是 http://docs.kissyui.com/5.0/api/classes/Path.html?name=weekeight&love=kissy&arr%5B%5D=1&arr%5B%5D=2&arr%5B%5D=3#method_resolve\n\t})"
+            ],
+            "class": "Url",
+            "module": "url"
+        },
+        {
+            "file": "src/api/url.js",
+            "line": 70,
+            "description": "得到绝对地址的url，算法逻辑参考[nodeJs](http://nodejs.org/api/path.html#path_path_resolve_from_to)",
             "itemtype": "method",
             "name": "resolve",
-            "params": [
-                {
-                    "name": "other",
-                    "description": "other带解析uri",
-                    "type": "Uri|String"
-                }
-            ],
-            "return": {
-                "description": "新的 uri 实例",
-                "type": "Uri"
-            },
             "example": [
-                "\n```\nvar one = new Uri('http://www.g.cn/x');\none.resolve('foo').toString() // => http://www.g.cn/foo\none.resolve(new Uri('?foo')).toString() // => http://www.g.cn/x?foo\n```"
+                "\n\tKISSY.use(['url'],function(S, Url){\n\t\tUrl.resolve('docs.kissyui.com/guides/','overlay/index.html'); //docs.kissyui.com/guides/overlay/index.html\n\t})"
             ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 31,
-            "description": "得到 uri 实例的 scheme 部分",
-            "itemtype": "method",
-            "name": "getScheme",
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "example": [
-                "\n```\nnew Uri('http://www.g.cn/x').getScheme() // => http\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 41,
-            "description": "设置 uri 实例的 scheme 部分",
-            "itemtype": "method",
-            "name": "setScheme",
-            "params": [
-                {
-                    "name": "scheme",
-                    "description": "",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "当前 uri 实例"
-            },
-            "example": [
-                "\n```\nnew Uri('http://www.g.cn/x').setScheme('ftp').getScheme() // => ftp\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 52,
-            "description": "得到当前 uri 实例的 hostname",
-            "itemtype": "method",
-            "name": "getHostname",
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "example": [
-                "\n```\nnew Uri('http://www.g.cn:8888/x').getHostname() // => www.g.cn\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 62,
-            "description": "获取当前 uri 实例的 user info",
-            "itemtype": "method",
-            "name": "getUserInfo",
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "example": [
-                "\n```\nnew Uri('http://my:pass@www.g.cn:8888/x').getUserInfo() // => 'my:pass'\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 72,
-            "description": "设置当前 uri 实例的 user info",
-            "itemtype": "method",
-            "name": "getPort",
-            "params": [
-                {
-                    "name": "userInfo",
-                    "description": "",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "example": [
-                "\n```\nnew Uri('http://my:pass@www.g.cn:8888/x').setUserInfo('m:p').getUserInfo()\n// => 'm:p'\n```\n\n/**\n获取当前 uri 实例的端口值",
-                "\n```\nnew Uri('http://my:pass@www.g.cn:8888/x').getPort()\n// => '8888'\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 94,
-            "description": "设置当前 uri 实例的端口值",
-            "itemtype": "method",
-            "name": "setPort",
-            "params": [
-                {
-                    "name": "port",
-                    "description": "",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "当前Uri实例",
-                "type": "Uri"
-            },
-            "example": [
-                "\n```\nnew Uri('http://my:pass@www.g.cn:8888/x').setPort('88').toString()\n// => http://my:pass@www.g.cn:88/x\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 106,
-            "description": "获取当前 uri 实例的路径",
-            "itemtype": "method",
-            "name": "getPath",
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "example": [
-                "\n```\nnew Uri('http://www.g.cn/x').getPath()\n// => /x\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 117,
-            "description": "设置当前 uri 实例的路径",
-            "itemtype": "method",
-            "name": "setPath",
-            "params": [
-                {
-                    "name": "path",
-                    "description": "",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "当前Uri实例",
-                "type": "Uri"
-            },
-            "example": [
-                "\n```\nnew Uri('http://www.g.cn/x').setPath('/y').toString()\n// => http://www.g.cn/y\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 129,
-            "description": "获取当前 uri 实例的查询参数实例",
-            "itemtype": "method",
-            "name": "getQuery",
-            "return": {
-                "description": "",
-                "type": "Uri.Query"
-            },
-            "example": [
-                "\n```\nnew Uri('http://www.g.cn/x?x=1').getQuery().get('x')\n// => 1\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 140,
-            "description": "设置当前 uri 实例的查询参数",
-            "itemtype": "method",
-            "name": "setQuery",
-            "params": [
-                {
-                    "name": "query",
-                    "description": "",
-                    "type": "String|Uri.Query"
-                }
-            ],
-            "return": {
-                "description": "",
-                "type": "Uri.Query"
-            },
-            "example": [
-                "\n```\nnew Uri('http://www.g.cn/x?x=1').setQuery('y=1').toString();\n// => http://www.g.cn/x?y=1\n\nnew Uri('http://www.g.cn/x?x=1').setQuery(new Uri.Query('y=1')).toString();\n// => http://www.g.cn/x?y=1\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 155,
-            "description": "获取当前 uri 实例的 hash",
-            "itemtype": "method",
-            "name": "getFragment",
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "example": [
-                "\n```\nnew Uri('http://www.g.cn/x?x=1#y=2').getFragment() // => y=2\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 165,
-            "description": "设置当前 uri 实例的 hash",
-            "itemtype": "method",
-            "name": "setFragment",
-            "params": [
-                {
-                    "name": "hash",
-                    "description": "",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "example": [
-                "\n```\nnew Uri('http://www.g.cn/x?x=1#y=2').setFragment('x=3').toString()\n// => http://www.g.cn/x?x=1#x=3\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 177,
-            "description": "验证当前 uri 实例和 other 是否是同源关系(hostname port scheme 相同)",
-            "itemtype": "method",
-            "name": "isSameOriginAs",
-            "return": {
-                "description": "",
-                "type": "Boolean"
-            },
-            "example": [
-                "\n```\nnew Uri('http://www.g.cn/x?x=1#y=2')\n.isSameOriginAs(new Uri('http://www.g.cn:88/x?x=1#y=2')) // => false\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 188,
-            "description": "序列化当前 uri 实例的 hash",
-            "itemtype": "method",
-            "name": "toString",
-            "params": [
-                {
-                    "name": "arr",
-                    "description": "同 param() 同名参数",
-                    "type": "Boolean"
-                }
-            ],
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "example": [
-                "\n```\nnew Uri('http://www.g.cn/x?x=1&x=2').toString(false)\n// => 'http://www.g.cn/x?x=1&x=2'\n\nnew Uri('http://www.g.cn/x?x=1&x=2').toString(true)\n// => 'http://www.g.cn/x?x%5b%5d=1&x%5b%5d=2'\n```"
-            ],
-            "class": "Uri",
-            "module": "uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 213,
-            "description": "返回新的查询对象",
-            "itemtype": "method",
-            "name": "clone",
-            "return": {
-                "description": "",
-                "type": "Uri.Query"
-            },
-            "class": "Uri.Query",
-            "module": "uri",
-            "namespace": "Uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 219,
-            "description": "重置查询字符串",
-            "itemtype": "method",
-            "name": "reset",
-            "return": {
-                "description": "",
-                "type": "Uri.Query"
-            },
-            "class": "Uri.Query",
-            "module": "uri",
-            "namespace": "Uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 225,
-            "description": "返回参数个数",
-            "itemtype": "method",
-            "name": "count",
-            "return": {
-                "description": "",
-                "type": "Number"
-            },
-            "example": [
-                "\n```\nnew Query('x=2&y=3').count() // => 2\n```"
-            ],
-            "class": "Uri.Query",
-            "module": "uri",
-            "namespace": "Uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 235,
-            "description": "返回是否包含指定查询参数键名或是否有查询参数",
-            "itemtype": "method",
-            "name": "has",
-            "params": [
-                {
-                    "name": "key",
-                    "description": "",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "",
-                "type": "Boolean"
-            },
-            "example": [
-                "\n```\nnew Query('x=2&y').has('y') // =>true\nnew Query('x=2&y').has('z') // =>false\nnew Query('').has() // => false\nnew Query('z').has() // => true\n```"
-            ],
-            "class": "Uri.Query",
-            "module": "uri",
-            "namespace": "Uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 249,
-            "description": "返回指定的查询参数对应的值或查询参数键值对象",
-            "itemtype": "method",
-            "name": "get",
-            "params": [
-                {
-                    "name": "key",
-                    "description": "",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "指定 key 时返回对应值，不指定 key 时返回全部键值对"
-            },
-            "example": [
-                "\n```\nnew Query('x=2&y=3').get('x') // => 2\nnew Query('x=2&y=3').get() // => {x:'2',y:'3'}\n```"
-            ],
-            "class": "Uri.Query",
-            "module": "uri",
-            "namespace": "Uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 261,
-            "description": "设置对应键值",
-            "itemtype": "method",
-            "name": "set",
-            "params": [
-                {
-                    "name": "key",
-                    "description": "键名或query实例",
-                    "type": "String|Query"
-                },
-                {
-                    "name": "value",
-                    "description": "键值"
-                }
-            ],
-            "return": {
-                "description": "当前实例"
-            },
-            "example": [
-                "\n```\nnew Query('x=2&y=3').set('y',4).toString() => x=2&y=4\nnew Query('x=2&y=3').set(new Query('z=4')).toString() => x=2&y=3&z=4\n```"
-            ],
-            "class": "Uri.Query",
-            "module": "uri",
-            "namespace": "Uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 274,
-            "description": "增加对应键值",
-            "itemtype": "method",
-            "name": "add",
-            "params": [
-                {
-                    "name": "key",
-                    "description": "键名或query实例",
-                    "type": "String|Query"
-                },
-                {
-                    "name": "value",
-                    "description": "键值"
-                }
-            ],
-            "return": {
-                "description": "当前实例"
-            },
-            "example": [
-                "\n```\nnew Query('x=2&y=3').add('y',4).toString(false) => x=2&y=4&y=3\nnew Query('x=2&y=3').add(new Query('y=4')).toString(false) => x=2&y=3&y=4\n```"
-            ],
-            "class": "Uri.Query",
-            "module": "uri",
-            "namespace": "Uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 287,
-            "description": "删除指定键名或全部查询参数",
-            "itemtype": "method",
-            "name": "remove",
-            "params": [
-                {
-                    "name": "key",
-                    "description": "键名或query实例",
-                    "type": "String|Query"
-                }
-            ],
-            "return": {
-                "description": "当前实例"
-            },
-            "example": [
-                "\n```\nnew Query('x=2&y=3').remove('y').toString() => x=2\nnew Query('x=2&y=3').remove().toString() => ''\n```"
-            ],
-            "class": "Uri.Query",
-            "module": "uri",
-            "namespace": "Uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 299,
-            "description": "返回参数名数组",
-            "itemtype": "method",
-            "name": "keys",
-            "return": {
-                "description": "",
-                "type": "Array"
-            },
-            "example": [
-                "\n```\nnew Query('x=2&y=3').keys() // => ['x','y']\n```"
-            ],
-            "class": "Uri.Query",
-            "module": "uri",
-            "namespace": "Uri"
-        },
-        {
-            "file": "src/api/uri.js",
-            "line": 309,
-            "description": "序列化查询参数",
-            "itemtype": "method",
-            "name": "toString",
-            "params": [
-                {
-                    "name": "arr",
-                    "description": "同 param() 同名参数",
-                    "type": "Boolean"
-                }
-            ],
-            "return": {
-                "description": "",
-                "type": "String"
-            },
-            "example": [
-                "\n```\nnew Query('x=2&y=3&y=4').toString(false)// => 'x=2&y=3&y=4'\nnew Query('x=2&y=3&y=4').toString(true)// => 'x=2&y%5b%5d=3&y%5b%5d=4'\n```"
-            ],
-            "class": "Uri.Query",
-            "module": "uri",
-            "namespace": "Uri"
+            "class": "Url",
+            "module": "url"
         },
         {
             "file": "src/api/util.js",

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>uri - API Documentation — KISSY v5.0 Documentation</title>
+    <title>Url - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
     <link rel="stylesheet" href="/5.0/assets/css/custom.css">
@@ -200,9 +200,7 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=UA href="/5.0/api/classes/UA.html">UA</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Uri href="/5.0/api/classes/Uri.html">Uri</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Uri.Query href="/5.0/api/classes/Uri.Query.html">Uri.Query</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Url href="/5.0/api/classes/Url.html">Url</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Util href="/5.0/api/classes/Util.html">Util</a></li>
             
@@ -314,7 +312,7 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=ua href="/5.0/api/modules/ua.html">ua</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=uri href="/5.0/api/modules/uri.html">uri</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=url href="/5.0/api/modules/url.html">url</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=util href="/5.0/api/modules/util.html">util</a></li>
             
@@ -356,12 +354,17 @@
                 <div class="apidocs">
                     <div id="docs-main">
                         <div class="content">
-                            <h1 id="uri">uri Module</h1>
-<div class="box clearfix meta">
+                            <h1>Url Class</h1>
+<div class="box meta">
     
 
     
 
+    
+        
+            Module: <a href="../modules/url.html">url</a>
+        
+    
 
     
 </div>
@@ -369,36 +372,397 @@
 
 
 <div class="box intro">
-    <p>uri解析模块</p>
+    <p>操作url
+使用示例：</p>
+<pre class="code prettyprint"><code>KISSY.use([&#39;url&#39;], function(S, Url){
+    var websiteUrl = &#39;http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&amp;date=2014.09.10#method_resolve&#39;;
+    var urlDataObj = Url.parse(websiteUrl); 
+    // 得到的urlDataObj如下：
+    // {
+    //  auth: undefined
+    //     hash: &quot;#method_resolve&quot;
+    //     host: &quot;docs.kissyui.com&quot;
+    //     hostname: &quot;docs.kissyui.com&quot;
+    //     href: &quot;http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&amp;date=2014.09.10#method_resolve&quot;
+    //     path: &quot;/5.0/api/classes/Path.html?test=iamtestcontent&amp;date=2014.09.10&quot;
+    //     pathname: &quot;/5.0/api/classes/Path.html&quot;
+    //     port: undefined
+    //     protocol: &quot;http:&quot;
+    //     query: &quot;test=iamtestcontent&amp;date=2014.09.10&quot;
+    //     search: &quot;?test=iamtestcontent&amp;date=2014.09.10&quot;
+    //     slashes: true
+    // }
+
+    urlDataObj.search = undefined;
+    urlDataObj.query = {
+        name : &#39;weekeight&#39;,
+        love : &#39;kissy&#39;
+    };
+
+    var newUrl = Url.format(urlDataObj);  //得到的newUrl是 http://docs.kissyui.com/5.0/api/classes/Path.html?name=weekeight&amp;love=kissy#method_resolve
+
+})</code></pre>
 
 </div>
 
 
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
+<div id="classdocs" class="ks-tabs ks-tabs-top">
+    <ul class="ks-tabs-bar showmsgdetail">
+        <li class="ks-tabs-tab ks-button ks-tabs-tab-selected index">Index</li>
 
-            <ul class="module-classes">
+        
+            <li class="ks-tabs-tab ks-button methods">Methods</li>
+        
+        
+        
+        
+    </ul>
+
+    <div class="ks-tabs-body">
+        <div id="index" class="ks-tabs-panel ks-tabs-panel-selected index">
+            <h2 class="off-left">Item Index</h2>
+
             
-                <li class="module-class">
-                    <a href="../classes/Uri.html">
-                        Uri
-                    </a>
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_format">format</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_parse">parse</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_resolve">resolve</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="ks-tabs-panel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method_format" class="method item">
+    <h3 class="name"><code>format</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>url</code>
+                    
                 </li>
             
-                <li class="module-class">
-                    <a href="../classes/Uri.Query.html">
-                        Uri.Query
-                    </a>
+                <li class="arg">
+                    
+                        <code>serializeArray</code>
+                    
                 </li>
             
-            </ul>
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
         
     </div>
 
-    <div class="yui3-u-1-2">
+    <div class="description">
+        <p>将url对象转为url字符串</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">url</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>从Url.parse得到的url对象</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">serializeArray</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>如果url.search === undefined 且 url.query含数组的话，转化成的url字符串是否需要在数组key后加上 [] 标识。默认为true</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;url&#39;], function(S, Url){
+    var websiteUrl = &#39;http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&amp;date=2014.09.10#method_resolve&#39;;
+    var urlDataObj = Url.parse(websiteUrl); 
+    urlDataObj.search = undefined;
+    urlDataObj.query = {
+        name : &#39;weekeight&#39;,
+        love : &#39;kissy&#39;,
+        arr : [1,2,3]
+    };
+
+    var newUrl = Url.format(urlDataObj);  //得到的newUrl是 http://docs.kissyui.com/5.0/api/classes/Path.html?name=weekeight&amp;love=kissy&amp;arr%5B%5D=1&amp;arr%5B%5D=2&amp;arr%5B%5D=3#method_resolve
+})</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_parse" class="method item">
+    <h3 class="name"><code>parse</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>url</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>parseQueryString</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>解析url字符串为url对象。url对象包括键值：auth,hash,host,hostname,href,path,pathname,port,protocol,query,search,slashes</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">url</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>url字符串</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">parseQueryString</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>是否将querystring转化为对象形式。默认为false</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_resolve" class="method item">
+    <h3 class="name"><code>resolve</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>得到绝对地址的url，算法逻辑参考<a href="http://nodejs.org/api/path.html#path_path_resolve_from_to">nodeJs</a></p>
+
+    </div>
+
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>KISSY.use([&#39;url&#39;],function(S, Url){
+    Url.resolve(&#39;docs.kissyui.com/guides/&#39;,&#39;overlay/index.html&#39;); //docs.kissyui.com/guides/overlay/index.html
+})</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+
         
     </div>
 </div>
