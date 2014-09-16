@@ -68,13 +68,11 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBox href="/5.0/api/classes/ComboBox.html">ComboBox</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBox.FilterSelect href="/5.0/api/classes/ComboBox.FilterSelect.html">ComboBox.FilterSelect</a></li>
-            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBox.LocalDataSource href="/5.0/api/classes/ComboBox.LocalDataSource.html">ComboBox.LocalDataSource</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBox.MultiValueComboBox href="/5.0/api/classes/ComboBox.MultiValueComboBox.html">ComboBox.MultiValueComboBox</a></li>
-            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBox.RemoteDataSource href="/5.0/api/classes/ComboBox.RemoteDataSource.html">ComboBox.RemoteDataSource</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBoxMultiWord href="/5.0/api/classes/ComboBoxMultiWord.html">ComboBoxMultiWord</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Component.Container href="/5.0/api/classes/Component.Container.html">Component.Container</a></li>
             
@@ -223,6 +221,8 @@
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=color href="/5.0/api/modules/color.html">color</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=combobox href="/5.0/api/modules/combobox.html">combobox</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=combobox/multi-word href="/5.0/api/modules/combobox_multi-word.html">combobox/multi-word</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=component/container href="/5.0/api/modules/component_container.html">component/container</a></li>
             
@@ -461,7 +461,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;combobox&#39;, function(S, ComboBox){
+                <pre class="code prettyprint"><code>modulex.use([&#39;combobox&#39;], function(ComboBox){
     var combobox = new ComboBox({
         srcNode : &#39;#combobox&#39;,
         placeholder : &#39;input..&#39;,

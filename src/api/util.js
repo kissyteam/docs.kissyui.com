@@ -216,16 +216,6 @@ Util.log(ret); // => [2, 4]
 */
 
 /**
-* 将 str 中 unicode 转义的字符替换成真实字符. 主要用于 taobao 用户名 cookie 读取.
-* @method fromUnicode
-* @static
-* @param str {String} 包含 unicode 转义的字符串
-* @return {String} unicode 转义后的字符串
-* @example
-* `KISSY.fromUnicode("\\u627F\\u7389") // => "承玉"`
-*/
-
-/**
 * 在全局作用域下执行代码字符串, 避免 eval 的作用域链
 * @method globalEval
 * @static
@@ -299,14 +289,6 @@ Util.log(ret); // => [2, 4]
 */
 
 /**
-* 判断是否 null
-* @method isNull
-* @static
-* @param o {Any} 判断参数
-* @return {Boolean}
-*/
-
-/**
 * 判断是否有效数值
 * @method isNumber
 * @static
@@ -341,14 +323,6 @@ Util.log(ret); // => [2, 4]
 /**
 * 判断是否字符串
 * @method isString
-* @static
-* @param o {Any} 判断参数
-* @return {Boolean}
-*/
-
-/**
-* 判断是否 undefined
-* @method isUndefined
 * @static
 * @param o {Any} 判断参数
 * @return {Boolean}

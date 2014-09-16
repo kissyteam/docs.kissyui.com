@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>tabs - API Documentation — KISSY v5.0 Documentation</title>
+    <title>src/api/combobox/multi-word.js - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
     <link rel="stylesheet" href="/5.0/assets/css/custom.css">
@@ -354,44 +354,73 @@
                 <div class="apidocs">
                     <div id="docs-main">
                         <div class="content">
-                            <h1 id="tabs">tabs Module</h1>
-<div class="box clearfix meta">
-    
+                            <h1 class="file-heading">File: src/api/combobox/multi-word.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+@module combobox/multi-word
+*/
+
+/**
+自动补全组件。拓展自 ComboBox ，它可输入多个值。
+@class ComboBoxMultiWord
+@constructor
+@extends ComboBox
+@param config {Object}
+@example
+	modulex.use([&#x27;combobox&#x27;, &#x27;combobox/multiword&#x27;], function(ComboBox, ComboBoxMultiWord){
+		var myComboBoxMultiWord = new ComboBoxMultiWord({
+	        render : &#x27;#container&#x27;,
+	        dataSource : new ComboBox.LocalDataSource({
+	            data : [&#x27;a1234&#x27;, &#x27;b2345&#x27;, &#x27;c3456&#x27;, &#x27;d4567&#x27;]
+	        }),
+	        maxItemCount : 4,
+	        format : function(query, data){  //自定义下拉菜单属性
+	            var ret = [];
+	            for(var i = 0; i &lt; data.length; i++){
+	                ret[i] = {
+	                    content:(data[i] + &quot;&quot;)
+	                        .replace(query, &#x27;&lt;strong&gt;&#x27; + query + &#x27;&lt;/strong&gt;&#x27;),
+	                    disabled:(i % 2 ? true : false)
+	                }
+	            }
+	            return ret;
+	        }
+	    })
+	})
+*/
 
 
-    
-</div>
+/**
+默认 false. 是否允许多个值的输入
+@attribute multiple {Boolean}
+@default false
+*/
 
+/**
+当允许多个值输入时，分割多个值的分隔符
+@attribute separator {String}
+@default &quot;,;&quot;
+*/
 
+/**
+默认 “suffix”. 可取枚举值（”prefix”,”suffix”）. 表示分隔符在最前面( @xx 模式)还是在最后面(gmail 模式).
+@attribute separatorType {String}
+*/
 
-<div class="box intro">
-    
-</div>
+/**
+默认 false. 自动补全菜单是否和光标对齐.
+@attribute alignWithCursor {Boolean}
+@default false
+*/
 
-
-
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/Tabs.html">
-                        Tabs
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+/**
+默认 &quot; 在该字符内的所有字符（包括分隔符）都算作普通字符.
+@attribute literal {String}
+@default &#x27;&quot;&#x27;
+*/
+    </pre>
 </div>
 
                         </div>

@@ -7,10 +7,9 @@ YUI.add("yuidoc-meta", function(Y) {
         "Button",
         "Color",
         "ComboBox",
-        "ComboBox.FilterSelect",
         "ComboBox.LocalDataSource",
-        "ComboBox.MultiValueComboBox",
         "ComboBox.RemoteDataSource",
+        "ComboBoxMultiWord",
         "Component.Container",
         "Component.Control",
         "Component.Extension.Align",
@@ -85,6 +84,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "button",
         "color",
         "combobox",
+        "combobox_multi-word",
         "component_container",
         "component_control",
         "component_extension_align",
@@ -161,6 +161,10 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "combobox",
             "name": "combobox"
+        },
+        {
+            "displayName": "combobox/multi-word",
+            "name": "combobox_multi-word"
         },
         {
             "displayName": "component/container",

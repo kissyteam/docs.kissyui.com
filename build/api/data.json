@@ -6,6 +6,17 @@
         "url": "docs.kissyui.com"
     },
     "files": {
+        "src/api/combobox/multi-word.js": {
+            "name": "src/api/combobox/multi-word.js",
+            "modules": {
+                "combobox/multi-word": 1
+            },
+            "classes": {
+                "ComboBoxMultiWord": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/api/component/extension/align.js": {
             "name": "src/api/component/extension/align.js",
             "modules": {
@@ -350,8 +361,6 @@
             },
             "classes": {
                 "ComboBox": 1,
-                "ComboBox.MultiValueComboBox": 1,
-                "ComboBox.FilterSelect": 1,
                 "ComboBox.LocalDataSource": 1,
                 "ComboBox.RemoteDataSource": 1
             },
@@ -678,6 +687,18 @@
         }
     },
     "modules": {
+        "combobox/multi-word": {
+            "name": "combobox/multi-word",
+            "submodules": {},
+            "classes": {
+                "ComboBoxMultiWord": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/combobox/multi-word.js",
+            "line": 5
+        },
         "component/extension/align": {
             "name": "component/extension/align",
             "submodules": {},
@@ -1059,8 +1080,6 @@
             "submodules": {},
             "classes": {
                 "ComboBox": 1,
-                "ComboBox.MultiValueComboBox": 1,
-                "ComboBox.FilterSelect": 1,
                 "ComboBox.LocalDataSource": 1,
                 "ComboBox.RemoteDataSource": 1
             },
@@ -1070,7 +1089,7 @@
             },
             "tag": "module",
             "file": "src/api/combobox.js",
-            "line": 297
+            "line": 229
         },
         "cookie": {
             "name": "cookie",
@@ -1428,6 +1447,32 @@
         }
     },
     "classes": {
+        "ComboBoxMultiWord": {
+            "name": "ComboBoxMultiWord",
+            "shortname": "ComboBoxMultiWord",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "combobox/multi-word",
+            "namespace": "",
+            "file": "src/api/combobox/multi-word.js",
+            "line": 5,
+            "description": "自动补全组件。拓展自 ComboBox ，它可输入多个值。",
+            "is_constructor": 1,
+            "extends": "ComboBox",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n\tmodulex.use(['combobox', 'combobox/multiword'], function(ComboBox, ComboBoxMultiWord){\n\t\tvar myComboBoxMultiWord = new ComboBoxMultiWord({\n\t        render : '#container',\n\t        dataSource : new ComboBox.LocalDataSource({\n\t            data : ['a1234', 'b2345', 'c3456', 'd4567']\n\t        }),\n\t        maxItemCount : 4,\n\t        format : function(query, data){  //自定义下拉菜单属性\n\t            var ret = [];\n\t            for(var i = 0; i < data.length; i++){\n\t                ret[i] = {\n\t                    content:(data[i] + \"\")\n\t                        .replace(query, '<strong>' + query + '</strong>'),\n\t                    disabled:(i % 2 ? true : false)\n\t                }\n\t            }\n\t            return ret;\n\t        }\n\t    })\n\t})"
+            ]
+        },
         "Component.Extension.Align": {
             "name": "Component.Extension.Align",
             "shortname": "Component.Extension.Align",
@@ -2075,55 +2120,7 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use('combobox', function(S, ComboBox){\n    var basicComboBox = new ComboBox({\n        render : '#container',\n        dataSource : new ComboBox.LocalDataSource({\n            data : ['a1234', 'b2345', 'c3456', 'd4567']\n        }),\n        maxItemCount : 4,\n        format : function(query, data){  //自定义下拉菜单属性\n            var ret = [];\n            for(var i = 0; i < data.length; i++){\n                ret[i] = {\n                    content:(data[i] + \"\")\n                        .replace(query, '<strong>' + query + '</strong>'),\n                    disabled:(i % 2 ? true : false)\n                }\n            }\n            return ret;\n        }\n    })\n})\n```"
-            ]
-        },
-        "ComboBox.MultiValueComboBox": {
-            "name": "ComboBox.MultiValueComboBox",
-            "shortname": "ComboBox.MultiValueComboBox",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "combobox",
-            "namespace": "ComboBox",
-            "file": "src/api/combobox.js",
-            "line": 169,
-            "is_constructor": 1,
-            "extends": "ComboBox",
-            "params": [
-                {
-                    "name": "config",
-                    "description": "",
-                    "type": "Object"
-                }
-            ]
-        },
-        "ComboBox.FilterSelect": {
-            "name": "ComboBox.FilterSelect",
-            "shortname": "ComboBox.FilterSelect",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "combobox",
-            "namespace": "ComboBox",
-            "file": "src/api/combobox.js",
-            "line": 211,
-            "description": "限定范围的输入框.",
-            "is_constructor": 1,
-            "extends": "ComboBox",
-            "params": [
-                {
-                    "name": "config",
-                    "description": "",
-                    "type": "Object"
-                }
-            ],
-            "example": [
-                "\n```\nKISSY.use('combobox',function(S,ComboBox){\n    // use ComboBox.FilterSelect\n});\n```"
+                "\n```\nmodulex.use(['combobox'], function(ComboBox){\n    var basicComboBox = new ComboBox({\n        render : '#container',\n        dataSource : new ComboBox.LocalDataSource({\n            data : ['a1234', 'b2345', 'c3456', 'd4567']\n        }),\n        maxItemCount : 4,\n        format : function(query, data){  //自定义下拉菜单属性\n            var ret = [];\n            for(var i = 0; i < data.length; i++){\n                ret[i] = {\n                    content:(data[i] + \"\")\n                        .replace(query, '<strong>' + query + '</strong>'),\n                    disabled:(i % 2 ? true : false)\n                }\n            }\n            return ret;\n        }\n    })\n})\n```"
             ]
         },
         "ComboBox.LocalDataSource": {
@@ -2137,7 +2134,7 @@
             "module": "combobox",
             "namespace": "ComboBox",
             "file": "src/api/combobox.js",
-            "line": 234,
+            "line": 166,
             "description": "本地数据源，配合[ComboBox](/5.0/api/classes/ComboBox.html)使用",
             "is_constructor": 1,
             "params": [
@@ -2148,7 +2145,7 @@
                 }
             ],
             "example": [
-                "\n    \n```\nKISSY.use('combobox', function(S, ComboBox){\n    var basicComboBox = new ComboBox({\n        render : '#container',\n        dataSource : new ComboBox.LocalDataSource({\n            data : ['a1234', 'b2345', 'c3456', 'd4567']\n        }),\n        maxItemCount : 4,\n        format : function(query, data){  //自定义下拉菜单属性\n            var ret = [];\n            for(var i = 0; i < data.length; i++){\n                ret[i] = {\n                    content:(data[i] + \"\")\n                        .replace(query, '<strong>' + query + '</strong>'),\n                    disabled:(i % 2 ? true : false)\n                }\n            }\n            return ret;\n        }\n    })\n})\n```"
+                "\n    \n```\nmodulex.use(['combobox'], function(ComboBox){\n    var basicComboBox = new ComboBox({\n        render : '#container',\n        dataSource : new ComboBox.LocalDataSource({\n            data : ['a1234', 'b2345', 'c3456', 'd4567']\n        }),\n        maxItemCount : 4,\n        format : function(query, data){  //自定义下拉菜单属性\n            var ret = [];\n            for(var i = 0; i < data.length; i++){\n                ret[i] = {\n                    content:(data[i] + \"\")\n                        .replace(query, '<strong>' + query + '</strong>'),\n                    disabled:(i % 2 ? true : false)\n                }\n            }\n            return ret;\n        }\n    })\n})\n```"
             ]
         },
         "ComboBox.RemoteDataSource": {
@@ -2162,7 +2159,7 @@
             "module": "combobox",
             "namespace": "ComboBox",
             "file": "src/api/combobox.js",
-            "line": 297,
+            "line": 229,
             "description": "数据源，配合[ComboBox](/5.0/api/classes/ComboBox.html)使用",
             "is_constructor": 1,
             "params": [
@@ -2173,7 +2170,7 @@
                 }
             ],
             "example": [
-                "\n    KISSY.use('combobox', function(S, ComboBox){\n        var combobox = new ComboBox({\n            srcNode : '#combobox',\n            placeholder : 'input..',\n            prefixCls : 'search-',\n            dataSource : new ComboBox.RemoteDataSource({  //从淘宝获取数据\n                xhrCfg: {\n                    url: 'http://suggest.taobao.com/sug',\n                    dataType: 'jsonp',\n                    data: {\n                        k: 1,\n                        code: \"utf-8\"\n                    }\n                },\n                paramName: \"q\",\n                parse: function (query, results) {\n                    // 返回结果对象数组\n                    return results.result;\n                },\n                cache: true\n            }),\n            format : function(query, data){  //自定义下拉菜单属性\n                var ret = [];\n                for(var i = 0; i < data.length; i++){\n                    ret[i] = {\n                        content : data[i][0].replace(query, '<span class=\"item-text\">' + query + '</span>'),\n                        textContent : data[i][0]\n                    };\n                }\n                return ret;\n            }\n        });\n        combobox.render();\n    })"
+                "\n    modulex.use(['combobox'], function(ComboBox){\n        var combobox = new ComboBox({\n            srcNode : '#combobox',\n            placeholder : 'input..',\n            prefixCls : 'search-',\n            dataSource : new ComboBox.RemoteDataSource({  //从淘宝获取数据\n                xhrCfg: {\n                    url: 'http://suggest.taobao.com/sug',\n                    dataType: 'jsonp',\n                    data: {\n                        k: 1,\n                        code: \"utf-8\"\n                    }\n                },\n                paramName: \"q\",\n                parse: function (query, results) {\n                    // 返回结果对象数组\n                    return results.result;\n                },\n                cache: true\n            }),\n            format : function(query, data){  //自定义下拉菜单属性\n                var ret = [];\n                for(var i = 0; i < data.length; i++){\n                    ret[i] = {\n                        content : data[i][0].replace(query, '<span class=\"item-text\">' + query + '</span>'),\n                        textContent : data[i][0]\n                    };\n                }\n                return ret;\n            }\n        });\n        combobox.render();\n    })"
             ]
         },
         "Cookie": {
@@ -3220,6 +3217,60 @@
         }
     },
     "classitems": [
+        {
+            "file": "src/api/combobox/multi-word.js",
+            "line": 35,
+            "description": "默认 false. 是否允许多个值的输入",
+            "itemtype": "attribute",
+            "name": "multiple",
+            "type": "Boolean",
+            "default": "false",
+            "class": "ComboBoxMultiWord",
+            "module": "combobox/multi-word"
+        },
+        {
+            "file": "src/api/combobox/multi-word.js",
+            "line": 41,
+            "description": "当允许多个值输入时，分割多个值的分隔符",
+            "itemtype": "attribute",
+            "name": "separator",
+            "type": "String",
+            "default": "\",;\"",
+            "class": "ComboBoxMultiWord",
+            "module": "combobox/multi-word"
+        },
+        {
+            "file": "src/api/combobox/multi-word.js",
+            "line": 47,
+            "description": "默认 “suffix”. 可取枚举值（”prefix”,”suffix”）. 表示分隔符在最前面( @xx 模式)还是在最后面(gmail 模式).",
+            "itemtype": "attribute",
+            "name": "separatorType",
+            "type": "String",
+            "class": "ComboBoxMultiWord",
+            "module": "combobox/multi-word"
+        },
+        {
+            "file": "src/api/combobox/multi-word.js",
+            "line": 52,
+            "description": "默认 false. 自动补全菜单是否和光标对齐.",
+            "itemtype": "attribute",
+            "name": "alignWithCursor",
+            "type": "Boolean",
+            "default": "false",
+            "class": "ComboBoxMultiWord",
+            "module": "combobox/multi-word"
+        },
+        {
+            "file": "src/api/combobox/multi-word.js",
+            "line": 58,
+            "description": "默认 \" 在该字符内的所有字符（包括分隔符）都算作普通字符.",
+            "itemtype": "attribute",
+            "name": "literal",
+            "type": "String",
+            "default": "'\"'",
+            "class": "ComboBoxMultiWord",
+            "module": "combobox/multi-word"
+        },
         {
             "file": "src/api/component/extension/align.js",
             "line": 14,
@@ -7513,7 +7564,7 @@
             "line": 100,
             "description": "默认 false. 是否当自动补全菜单出现时高亮第一项",
             "example": [
-                "\n```\nKISSY.use(\"node,combobox\", function (S, Node, ComboBox) {\n    var $ = Node.all;\n    var data = [\"a123456\", \"b12345\", \"c3464356\", \"d23434\"];\n\n    var basicComboBox = new ComboBox({\n        width:100,\n        srcNode:$(\"#combobox\"),\n        // 初始就聚焦\n        focused:true,\n        hasTrigger:false,\n        dataSource:new ComboBox.LocalDataSource({\n            data:data\n        })\n    });\n    basicComboBox.render();\n\n    // 得到焦点时展示全部\n    basicComboBox.get(\"input\").on(\"focus\", function () {\n        basicComboBox.sendRequest('');\n    });\n}\n```"
+                "\n```\nmodulex.use(['node', 'combobox'], function ($, ComboBox) {\n    var data = [\"a123456\", \"b12345\", \"c3464356\", \"d23434\"];\n\n    var basicComboBox = new ComboBox({\n        width:100,\n        srcNode:$(\"#combobox\"),\n        // 初始就聚焦\n        focused:true,\n        hasTrigger:false,\n        dataSource:new ComboBox.LocalDataSource({\n            data:data\n        })\n    });\n    basicComboBox.render();\n\n    // 得到焦点时展示全部\n    basicComboBox.get(\"input\").on(\"focus\", function () {\n        basicComboBox.sendRequest('');\n    });\n}\n```"
             ],
             "itemtype": "attribute",
             "name": "autoHighlightFirst",
@@ -7523,7 +7574,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 130,
+            "line": 129,
             "description": "关联的复合输入框",
             "itemtype": "attribute",
             "name": "input",
@@ -7533,7 +7584,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 135,
+            "line": 134,
             "description": "自动补全菜单的配置（在显示后转换为实例）或实例",
             "itemtype": "attribute",
             "name": "menu",
@@ -7543,7 +7594,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 140,
+            "line": 139,
             "description": "自动补全菜单是否已经收起",
             "itemtype": "attribute",
             "name": "collapsed",
@@ -7553,7 +7604,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 145,
+            "line": 144,
             "description": "根据 value 自动补全并显示下拉菜单",
             "itemtype": "method",
             "name": "sendRequest",
@@ -7569,7 +7620,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 151,
+            "line": 150,
             "description": "当用户选择自动补全下拉框内的项时触发",
             "itemtype": "event",
             "name": "click",
@@ -7585,7 +7636,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 157,
+            "line": 156,
             "description": "当下拉菜单显示或收起时触发",
             "itemtype": "event",
             "name": "afterCollapsedChange",
@@ -7601,77 +7652,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 178,
-            "description": "默认 false. 是否允许多个值的输入",
-            "itemtype": "attribute",
-            "name": "multiple",
-            "type": "Boolean",
-            "default": "false",
-            "class": "ComboBox.MultiValueComboBox",
-            "module": "combobox",
-            "namespace": "ComboBox"
-        },
-        {
-            "file": "src/api/combobox.js",
-            "line": 184,
-            "description": "当允许多个值输入时，分割多个值的分隔符",
-            "itemtype": "attribute",
-            "name": "separator",
-            "type": "String",
-            "default": "\",;\"",
-            "class": "ComboBox.MultiValueComboBox",
-            "module": "combobox",
-            "namespace": "ComboBox"
-        },
-        {
-            "file": "src/api/combobox.js",
-            "line": 190,
-            "description": "默认 “suffix”. 可取枚举值（”prefix”,”suffix”）. 表示分隔符在最前面( @xx 模式)还是在最后面(gmail 模式).",
-            "itemtype": "attribute",
-            "name": "separatorType",
-            "type": "String",
-            "class": "ComboBox.MultiValueComboBox",
-            "module": "combobox",
-            "namespace": "ComboBox"
-        },
-        {
-            "file": "src/api/combobox.js",
-            "line": 195,
-            "description": "默认 false. 自动补全菜单是否和光标对齐.",
-            "itemtype": "attribute",
-            "name": "alignWithCursor",
-            "type": "Boolean",
-            "default": "false",
-            "class": "ComboBox.MultiValueComboBox",
-            "module": "combobox",
-            "namespace": "ComboBox"
-        },
-        {
-            "file": "src/api/combobox.js",
-            "line": 201,
-            "description": "默认 \" 在该字符内的所有字符（包括分隔符）都算作普通字符.",
-            "itemtype": "attribute",
-            "name": "literal",
-            "type": "String",
-            "default": "'\"'",
-            "class": "ComboBox.MultiValueComboBox",
-            "module": "combobox",
-            "namespace": "ComboBox"
-        },
-        {
-            "file": "src/api/combobox.js",
-            "line": 226,
-            "description": "当用户的输入不匹配下拉提示的内容时的出错信息",
-            "itemtype": "attribute",
-            "name": "invalidMessage",
-            "type": "String",
-            "class": "ComboBox.FilterSelect",
-            "module": "combobox",
-            "namespace": "ComboBox"
-        },
-        {
-            "file": "src/api/combobox.js",
-            "line": 266,
+            "line": 198,
             "description": "静态数据数组",
             "itemtype": "attribute",
             "name": "data",
@@ -7682,7 +7663,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 271,
+            "line": 203,
             "description": "可选. 如何根据用户输入对数据进行过滤。默认为\n```\nfunction parser(inputVal, data) {\n    var ret = [],\n        count = 0;\n\n    if (!inputVal) {\n        return data;\n    }\n\n    S.each(data, function (d) {\n        if (d.indexOf(inputVal) != -1) {\n            ret.push(d);\n        }\n        count++;\n    });\n\n    return ret;\n}\n\n```",
             "itemtype": "attribute",
             "name": "parse",
@@ -7693,7 +7674,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 340,
+            "line": 272,
             "description": "用户输入发送到后端的参数名，默认 ‘q’",
             "itemtype": "attribute",
             "name": "paramName",
@@ -7705,7 +7686,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 346,
+            "line": 278,
             "description": "可选. 如何根据用户输入对后台返回数据进行过滤。默认\n```\nfunction parser(\n    // 用户输入\n    inputVal,\n    // 服务器返回数据\n    data) {\n    return data;\n}\n```",
             "itemtype": "attribute",
             "name": "parse",
@@ -7716,7 +7697,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 360,
+            "line": 292,
             "description": "默认 false. 用户输入为空时是否发请求",
             "itemtype": "attribute",
             "name": "allowEmpty",
@@ -7728,7 +7709,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 366,
+            "line": 298,
             "description": "默认 false. 是否缓存服务器端数据",
             "itemtype": "attribute",
             "name": "cache",
@@ -7740,7 +7721,7 @@
         },
         {
             "file": "src/api/combobox.js",
-            "line": 372,
+            "line": 304,
             "description": "传递给 IO 的其他参数",
             "itemtype": "attribute",
             "name": "xhrCfg",
@@ -16175,30 +16156,6 @@
         {
             "file": "src/api/util.js",
             "line": 218,
-            "description": "将 str 中 unicode 转义的字符替换成真实字符. 主要用于 taobao 用户名 cookie 读取.",
-            "itemtype": "method",
-            "name": "fromUnicode",
-            "static": 1,
-            "params": [
-                {
-                    "name": "str",
-                    "description": "包含 unicode 转义的字符串",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "unicode 转义后的字符串",
-                "type": "String"
-            },
-            "example": [
-                "\n`KISSY.fromUnicode(\"\\\\u627F\\\\u7389\") // => \"承玉\"`"
-            ],
-            "class": "Util",
-            "module": "util"
-        },
-        {
-            "file": "src/api/util.js",
-            "line": 228,
             "description": "在全局作用域下执行代码字符串, 避免 eval 的作用域链",
             "itemtype": "method",
             "name": "globalEval",
@@ -16215,7 +16172,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 235,
+            "line": 225,
             "description": "返回全局唯一 id",
             "itemtype": "method",
             "name": "guid",
@@ -16236,7 +16193,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 243,
+            "line": 233,
             "description": "判断元素 elem 是否在数组 arr 中",
             "itemtype": "method",
             "name": "inArray",
@@ -16262,7 +16219,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 252,
+            "line": 242,
             "description": "返回元素 elem 在数组 arr 中的序号",
             "itemtype": "method",
             "name": "indexOf",
@@ -16288,7 +16245,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 261,
+            "line": 251,
             "description": "判断是否数组",
             "itemtype": "method",
             "name": "isArray",
@@ -16309,7 +16266,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 269,
+            "line": 259,
             "description": "判断是否布尔值",
             "itemtype": "method",
             "name": "isBoolean",
@@ -16330,7 +16287,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 277,
+            "line": 267,
             "description": "判断是否日期",
             "itemtype": "method",
             "name": "isDate",
@@ -16351,7 +16308,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 285,
+            "line": 275,
             "description": "判断是否空对象(没有任何可遍历的属性)",
             "itemtype": "method",
             "name": "isEmptyObject",
@@ -16372,7 +16329,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 293,
+            "line": 283,
             "description": "判断是否函数",
             "itemtype": "method",
             "name": "isFunction",
@@ -16393,28 +16350,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 301,
-            "description": "判断是否 null",
-            "itemtype": "method",
-            "name": "isNull",
-            "static": 1,
-            "params": [
-                {
-                    "name": "o",
-                    "description": "判断参数",
-                    "type": "Any"
-                }
-            ],
-            "return": {
-                "description": "",
-                "type": "Boolean"
-            },
-            "class": "Util",
-            "module": "util"
-        },
-        {
-            "file": "src/api/util.js",
-            "line": 309,
+            "line": 291,
             "description": "判断是否有效数值",
             "itemtype": "method",
             "name": "isNumber",
@@ -16435,7 +16371,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 317,
+            "line": 299,
             "description": "判断是否为对象",
             "itemtype": "method",
             "name": "isObject",
@@ -16456,7 +16392,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 325,
+            "line": 307,
             "description": "判断是否是普通对象, 通过 {} 或 new FunctionClass/Object() 创建的, 不包括内置对象以及宿主对象.",
             "itemtype": "method",
             "name": "isPlainObject",
@@ -16477,7 +16413,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 333,
+            "line": 315,
             "description": "判断是否正则表达式",
             "itemtype": "method",
             "name": "isRegExp",
@@ -16498,7 +16434,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 341,
+            "line": 323,
             "description": "判断是否字符串",
             "itemtype": "method",
             "name": "isString",
@@ -16519,28 +16455,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 349,
-            "description": "判断是否 undefined",
-            "itemtype": "method",
-            "name": "isUndefined",
-            "static": 1,
-            "params": [
-                {
-                    "name": "o",
-                    "description": "判断参数",
-                    "type": "Any"
-                }
-            ],
-            "return": {
-                "description": "",
-                "type": "Boolean"
-            },
-            "class": "Util",
-            "module": "util"
-        },
-        {
-            "file": "src/api/util.js",
-            "line": 357,
+            "line": 331,
             "description": "判断参数是否为浏览器 window",
             "itemtype": "method",
             "name": "isWindow",
@@ -16561,7 +16476,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 365,
+            "line": 339,
             "description": "将对象的所有属性名作为数组返回",
             "itemtype": "method",
             "name": "keys",
@@ -16582,7 +16497,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 373,
+            "line": 347,
             "description": "返回元素 elem 在数组 arr 中最后出现的序号",
             "itemtype": "method",
             "name": "lastIndexOf",
@@ -16608,7 +16523,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 382,
+            "line": 356,
             "description": "延迟执行指定函数 fn",
             "itemtype": "method",
             "name": "later",
@@ -16656,7 +16571,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 403,
+            "line": 377,
             "description": "输出调试信息",
             "itemtype": "method",
             "name": "log",
@@ -16683,7 +16598,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 414,
+            "line": 388,
             "description": "将对象 o 转换为数组.",
             "itemtype": "method",
             "name": "makeArray",
@@ -16704,7 +16619,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 422,
+            "line": 396,
             "description": "创建一个新数组, 数组结果是在对每个原数组元素调用指定函数的返回值.",
             "itemtype": "method",
             "name": "map",
@@ -16736,7 +16651,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 432,
+            "line": 406,
             "description": "将多个对象的成员合并到一个新对象上. 参数中, 后面的对象成员会覆盖前面的.",
             "itemtype": "method",
             "name": "merge",
@@ -16765,7 +16680,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 452,
+            "line": 426,
             "description": "将 supplier 对象的成员复制到 receiver 对象上.",
             "itemtype": "method",
             "name": "mix",
@@ -16810,7 +16725,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 530,
+            "line": 504,
             "description": "根据参数创建命名空间对象",
             "itemtype": "method",
             "name": "namespace",
@@ -16837,7 +16752,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 539,
+            "line": 513,
             "description": "返回 new Date().getTime()",
             "itemtype": "method",
             "name": "date",
@@ -16851,7 +16766,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 546,
+            "line": 520,
             "description": "将对象 o 转换为参数字符串, 用于发送 http 请求",
             "itemtype": "method",
             "name": "param",
@@ -16892,7 +16807,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 566,
+            "line": 540,
             "description": "将字符串转化为 xml 文档",
             "itemtype": "method",
             "name": "parseXML",
@@ -16912,7 +16827,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 580,
+            "line": 554,
             "description": "在 DOM 加载完毕时执行回调函数fn",
             "itemtype": "method",
             "name": "ready",
@@ -16929,7 +16844,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 587,
+            "line": 561,
             "description": "从左向右对每个数组元素调用给定函数，并把返回值累积起来",
             "itemtype": "method",
             "name": "reduce",
@@ -16962,7 +16877,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 661,
+            "line": 635,
             "description": "判断 str 是否以 prefix 开头",
             "itemtype": "method",
             "name": "startsWith",
@@ -16988,7 +16903,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 670,
+            "line": 644,
             "description": "将字符串中的占位符替换为对应的键值",
             "itemtype": "method",
             "name": "substitute",
@@ -17017,7 +16932,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 686,
+            "line": 660,
             "description": "ms 时间内只执行 fn 一次, 即使这段时间内 fn 被调用多次.",
             "itemtype": "method",
             "name": "throttle",
@@ -17051,7 +16966,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 710,
+            "line": 684,
             "description": "去除字符串两端的空白字符",
             "itemtype": "method",
             "name": "trim",
@@ -17072,7 +16987,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 718,
+            "line": 692,
             "description": "将字符串中的 html 实体字符替换成对应字符",
             "itemtype": "method",
             "name": "unEscapeHTML",
@@ -17096,7 +17011,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 731,
+            "line": 705,
             "description": "返回一个新数组, 仅包含 arr 去重后的值",
             "itemtype": "method",
             "name": "unique",
@@ -17122,7 +17037,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 740,
+            "line": 714,
             "description": "将参数字符串 str 还原为对象",
             "itemtype": "method",
             "name": "unparam",

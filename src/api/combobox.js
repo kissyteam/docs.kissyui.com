@@ -12,7 +12,7 @@
 @example
 
 ```
-KISSY.use('combobox', function(S, ComboBox){
+modulex.use(['combobox'], function(ComboBox){
     var basicComboBox = new ComboBox({
         render : '#container',
         dataSource : new ComboBox.LocalDataSource({
@@ -101,8 +101,7 @@ KISSY.use('combobox', function(S, ComboBox){
 默认 false. 是否当自动补全菜单出现时高亮第一项
 @example
 ```
-KISSY.use("node,combobox", function (S, Node, ComboBox) {
-    var $ = Node.all;
+modulex.use(['node', 'combobox'], function ($, ComboBox) {
     var data = ["a123456", "b12345", "c3464356", "d23434"];
 
     var basicComboBox = new ComboBox({
@@ -164,73 +163,6 @@ KISSY.use("node,combobox", function (S, Node, ComboBox) {
 
 
 
-
-
-/**
-@class MultiValueComboBox
-@constructor
-@extends ComboBox
-@namespace ComboBox
-@param config {Object}
-*/
-
-
-/**
-默认 false. 是否允许多个值的输入
-@attribute multiple {Boolean}
-@default false
-*/
-
-/**
-当允许多个值输入时，分割多个值的分隔符
-@attribute separator {String}
-@default ",;"
-*/
-
-/**
-默认 “suffix”. 可取枚举值（”prefix”,”suffix”）. 表示分隔符在最前面( @xx 模式)还是在最后面(gmail 模式).
-@attribute separatorType {String}
-*/
-
-/**
-默认 false. 自动补全菜单是否和光标对齐.
-@attribute alignWithCursor {Boolean}
-@default false
-*/
-
-/**
-默认 " 在该字符内的所有字符（包括分隔符）都算作普通字符.
-@attribute literal {String}
-@default '"'
-*/
-
-
-
-
-
-/**
-限定范围的输入框.
-@class FilterSelect
-@constructor
-@extends ComboBox
-@namespace ComboBox
-@param config {Object}
-@example
-```
-KISSY.use('combobox',function(S,ComboBox){
-    // use ComboBox.FilterSelect
-});
-```
-*/
-
-/**
-当用户的输入不匹配下拉提示的内容时的出错信息
-@attribute invalidMessage {String}
-*/
-
-
-
-
 /**
 本地数据源，配合[ComboBox](/5.0/api/classes/ComboBox.html)使用
 @class LocalDataSource
@@ -240,7 +172,7 @@ KISSY.use('combobox',function(S,ComboBox){
 @example
     
 ```
-KISSY.use('combobox', function(S, ComboBox){
+modulex.use(['combobox'], function(ComboBox){
     var basicComboBox = new ComboBox({
         render : '#container',
         dataSource : new ComboBox.LocalDataSource({
@@ -301,7 +233,7 @@ function parser(inputVal, data) {
 @namespace ComboBox
 @param config {Object}
 @example
-    KISSY.use('combobox', function(S, ComboBox){
+    modulex.use(['combobox'], function(ComboBox){
         var combobox = new ComboBox({
             srcNode : '#combobox',
             placeholder : 'input..',

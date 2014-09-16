@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>ComboBox.FilterSelect - API Documentation — KISSY v5.0 Documentation</title>
+    <title>ComboBoxMultiWord - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
     <link rel="stylesheet" href="/5.0/assets/css/custom.css">
@@ -68,13 +68,11 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBox href="/5.0/api/classes/ComboBox.html">ComboBox</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBox.FilterSelect href="/5.0/api/classes/ComboBox.FilterSelect.html">ComboBox.FilterSelect</a></li>
-            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBox.LocalDataSource href="/5.0/api/classes/ComboBox.LocalDataSource.html">ComboBox.LocalDataSource</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBox.MultiValueComboBox href="/5.0/api/classes/ComboBox.MultiValueComboBox.html">ComboBox.MultiValueComboBox</a></li>
-            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBox.RemoteDataSource href="/5.0/api/classes/ComboBox.RemoteDataSource.html">ComboBox.RemoteDataSource</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=ComboBoxMultiWord href="/5.0/api/classes/ComboBoxMultiWord.html">ComboBoxMultiWord</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Component.Container href="/5.0/api/classes/Component.Container.html">Component.Container</a></li>
             
@@ -224,6 +222,8 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=combobox href="/5.0/api/modules/combobox.html">combobox</a></li>
             
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=combobox/multi-word href="/5.0/api/modules/combobox_multi-word.html">combobox/multi-word</a></li>
+            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=component/container href="/5.0/api/modules/component_container.html">component/container</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=component/control href="/5.0/api/modules/component_control.html">component/control</a></li>
@@ -354,7 +354,7 @@
                 <div class="apidocs">
                     <div id="docs-main">
                         <div class="content">
-                            <h1>ComboBox.FilterSelect Class</h1>
+                            <h1>ComboBoxMultiWord Class</h1>
 <div class="box meta">
     
 
@@ -366,7 +366,7 @@
 
     
         
-            Module: <a href="../modules/combobox.html">combobox</a>
+            Module: <a href="../modules/combobox_multi-word.html">combobox/multi-word</a>
         
     
 
@@ -376,15 +376,15 @@
 
 
 <div class="box intro">
-    <p>限定范围的输入框.</p>
+    <p>自动补全组件。拓展自 ComboBox ，它可输入多个值。</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_ComboBox.FilterSelect" class="method item">
-    <h3 class="name"><code>ComboBox.FilterSelect</code></h3>
+        <div id="method_ComboBoxMultiWord" class="method item">
+    <h3 class="name"><code>ComboBoxMultiWord</code></h3>
 
     
         <div class="args">
@@ -465,9 +465,26 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;combobox&#39;,function(S,ComboBox){
-    // use ComboBox.FilterSelect
-});</code></pre>
+                <pre class="code prettyprint"><code>modulex.use([&#39;combobox&#39;, &#39;combobox/multiword&#39;], function(ComboBox, ComboBoxMultiWord){
+    var myComboBoxMultiWord = new ComboBoxMultiWord({
+        render : &#39;#container&#39;,
+        dataSource : new ComboBox.LocalDataSource({
+            data : [&#39;a1234&#39;, &#39;b2345&#39;, &#39;c3456&#39;, &#39;d4567&#39;]
+        }),
+        maxItemCount : 4,
+        format : function(query, data){  //自定义下拉菜单属性
+            var ret = [];
+            for(var i = 0; i &lt; data.length; i++){
+                ret[i] = {
+                    content:(data[i] + &quot;&quot;)
+                        .replace(query, &#39;&lt;strong&gt;&#39; + query + &#39;&lt;/strong&gt;&#39;),
+                    disabled:(i % 2 ? true : false)
+                }
+            }
+            return ret;
+        }
+    })
+})</code></pre>
 
             </div>
         </div>
@@ -722,6 +739,10 @@
                                 <a href="#attr_active">active</a>
                             </li>
                         
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_alignWithCursor">alignWithCursor</a>
+                            </li>
+                        
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_autoHighlightFirst">autoHighlightFirst</a>
                             </li>
@@ -790,16 +811,16 @@
                                 <a href="#attr_input">input</a>
                             </li>
                         
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_invalidMessage">invalidMessage</a>
-                            </li>
-                        
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_isControl">isControl</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_listeners">listeners</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_literal">literal</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -812,6 +833,10 @@
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_menu">menu</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_multiple">multiple</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -840,6 +865,14 @@
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_rendered">rendered</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_separator">separator</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_separatorType">separatorType</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -1724,7 +1757,7 @@
                     
 
                     <div class="param-description">
-                        
+                         
                     </div>
 
                     
@@ -3967,6 +4000,54 @@
 </div>
 
                 
+                    <div id="attr_alignWithCursor" class="attr item">
+    <a name="config_alignWithCursor"></a> 
+    <h3 class="name"><code>alignWithCursor</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 false. 自动补全菜单是否和光标对齐.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_autoHighlightFirst" class="attr item inherited">
     <a name="config_autoHighlightFirst"></a> 
     <h3 class="name"><code>autoHighlightFirst</code></h3>
@@ -4016,8 +4097,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&quot;node,combobox&quot;, function (S, Node, ComboBox) {
-    var $ = Node.all;
+                <pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;combobox&#39;], function ($, ComboBox) {
     var data = [&quot;a123456&quot;, &quot;b12345&quot;, &quot;c3464356&quot;, &quot;d23434&quot;];
 
     var basicComboBox = new ComboBox({
@@ -4216,8 +4296,8 @@
     </div>
 
     <div class="description">
-        <p><p>数据源配置
-例如静态数据源的配置:</p></p>
+        <p>数据源配置
+例如静态数据源的配置:</p>
 <pre class="code prettyprint"><code>{
     dataSource : new ComboBox.LocalDataSource({
                     data:[&quot;abc&quot;,&quot;123&quot;]
@@ -4590,8 +4670,8 @@
     </div>
 
     <div class="description">
-        <p><p>可选。自定义下拉菜单属性的函数，传入参数 query(自动补全框当前值) , data(匹配数据数组)。 返回对象数组，其中对象的 content 属性表示菜单项显示内容，textContent 表示放入到自动补全框的内容，disabled 表示当前项是否被禁用.
-例如高亮的处理:</p></p>
+        <p>可选。自定义下拉菜单属性的函数，传入参数 query(自动补全框当前值) , data(匹配数据数组)。 返回对象数组，其中对象的 content 属性表示菜单项显示内容，textContent 表示放入到自动补全框的内容，disabled 表示当前项是否被禁用.
+例如高亮的处理:</p>
 <pre class="code prettyprint"><code>{
     format:function(query, data){
         var ret = [];
@@ -4805,52 +4885,6 @@
 </div>
 
                 
-                    <div id="attr_invalidMessage" class="attr item">
-    <a name="config_invalidMessage"></a> 
-    <h3 class="name"><code>invalidMessage</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>当用户的输入不匹配下拉提示的内容时的出错信息</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="attr_isControl" class="attr item inherited">
     <a name="config_isControl"></a> 
     <h3 class="name"><code>isControl</code></h3>
@@ -4931,7 +4965,7 @@
     </div>
 
     <div class="description">
-        <p><p>配置组件的事件绑定,例如:</p></p>
+        <p>配置组件的事件绑定,例如:</p>
 <pre class="code prettyprint"><code>{
     listeners:{
         customEvent:function(e){
@@ -4956,6 +4990,54 @@ or
 
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_literal" class="attr item">
+    <a name="config_literal"></a> 
+    <h3 class="name"><code>literal</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 &quot; 在该字符内的所有字符（包括分隔符）都算作普通字符.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;&quot;&#x27;</p>
     
 
     
@@ -5104,6 +5186,54 @@ or
 </div>
 
                 
+                    <div id="attr_multiple" class="attr item">
+    <a name="config_multiple"></a> 
+    <h3 class="name"><code>multiple</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 false. 是否允许多个值的输入</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_parent" class="attr item inherited">
     <a name="config_parent"></a> 
     <h3 class="name"><code>parent</code></h3>
@@ -5230,7 +5360,7 @@ or
     </div>
 
     <div class="description">
-        <p><p>插件构造器数组或插件对象数组. 例如</p></p>
+        <p>插件构造器数组或插件对象数组. 例如</p>
 <pre class="code prettyprint"><code>{
     plugins: [ Plugin1,Plugin2 ]
 }
@@ -5424,6 +5554,100 @@ or
 
     <div class="description">
         <p>只读属性，组件是否已经渲染</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_separator" class="attr item">
+    <a name="config_separator"></a> 
+    <h3 class="name"><code>separator</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>当允许多个值输入时，分割多个值的分隔符</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &quot;,;&quot;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_separatorType" class="attr item">
+    <a name="config_separatorType"></a> 
+    <h3 class="name"><code>separatorType</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>默认 “suffix”. 可取枚举值（”prefix”,”suffix”）. 表示分隔符在最前面( @xx 模式)还是在最后面(gmail 模式).</p>
 
     </div>
 
