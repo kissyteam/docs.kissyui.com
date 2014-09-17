@@ -507,6 +507,17 @@
                 "MenuButton": 1
             }
         },
+        "src/api/navigation-view.js": {
+            "name": "src/api/navigation-view.js",
+            "modules": {
+                "navigation-view": 1
+            },
+            "classes": {
+                "NavigationView": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/api/node.js": {
             "name": "src/api/node.js",
             "modules": {
@@ -1246,6 +1257,18 @@
             "file": "src/api/menubutton.js",
             "line": 192
         },
+        "navigation-view": {
+            "name": "navigation-view",
+            "submodules": {},
+            "classes": {
+                "NavigationView": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/navigation-view.js",
+            "line": 5
+        },
         "node": {
             "name": "node",
             "submodules": {},
@@ -1505,7 +1528,8 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [
-                "Menu.PopupMenu"
+                "Menu.PopupMenu",
+                "NavigationView"
             ],
             "module": "component/extension/content-box",
             "namespace": "Component.Extension",
@@ -2679,6 +2703,31 @@
             ],
             "example": [
                 "\n\tKISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){\n        //全新生成\n        var select2 = new MenuButton.Select({\n        \trender : '#container',\n\t\t\tprefixCls : 'c2c',\n\t\t\twidth : 100,\n\t\t\tmenu : {\n\t\t\t\txclass : 'popupmenu',\n\t\t\t\talign : {\n\t\t\t\t\toffset : [0, -1]\n\t\t\t\t},\n\t\t\t\tchildren : [\n\t\t\t\t\tnew MenuButton.Option({   //构造器生成\n\t\t\t\t\t\tvalue : 'customValue',\n\t\t\t\t\t\tcontent : '北京',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t}),\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',  //xclass生成\n\t\t\t\t\t\tcontent : '杭州',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',\n\t\t\t\t\t\tcontent : '广州',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n        });\n        select2.render();\n\t});"
+            ]
+        },
+        "NavigationView": {
+            "name": "NavigationView",
+            "shortname": "NavigationView",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "navigation-view",
+            "namespace": "",
+            "file": "src/api/navigation-view.js",
+            "line": 5,
+            "description": "能适应多种视图的导航视图。xclass : navigation-view",
+            "extends": "Component.Container",
+            "uses": [
+                "Component.Extension.ContentBox"
+            ],
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": ""
+                }
             ]
         },
         "Node": {
@@ -12858,6 +12907,101 @@
             "class": "MenuButton.Option",
             "module": "menubutton",
             "namespace": "MenuButton"
+        },
+        {
+            "file": "src/api/navigation-view.js",
+            "line": 14,
+            "description": "进入/离开视图的动画效果。如果是数组则是相对应的两个值，left -> right, top -> bottom，如果是字符串则是单个值，如'fade'可选择的动画效果有：none/slide-top/fade/dissolve/pop/flip-left/swap-left/cube-left/flow-left/turn",
+            "itemtype": "attribute",
+            "name": "animation",
+            "type": "Array|String",
+            "default": "['slide-right', 'slide-left']",
+            "class": "NavigationView",
+            "module": "navigation-view"
+        },
+        {
+            "file": "src/api/navigation-view.js",
+            "line": 20,
+            "description": "正在加载时的内容",
+            "itemtype": "attribute",
+            "name": "loadingHtml",
+            "type": "String",
+            "class": "NavigationView",
+            "module": "navigation-view"
+        },
+        {
+            "file": "src/api/navigation-view.js",
+            "line": 25,
+            "description": "缓存的视图的最大数量，超过最大值则需要重新加载/渲染",
+            "itemtype": "attribute",
+            "name": "viewCacheSize",
+            "type": "Number",
+            "default": "10",
+            "class": "NavigationView",
+            "module": "navigation-view"
+        },
+        {
+            "file": "src/api/navigation-view.js",
+            "line": 31,
+            "description": "是否能聚焦。聚焦时会在组件根节点添加class : {prefixCls}navigation-view-focused",
+            "itemtype": "attribute",
+            "name": "focusable",
+            "type": "Boolean",
+            "default": "false",
+            "class": "NavigationView",
+            "module": "navigation-view"
+        },
+        {
+            "file": "src/api/navigation-view.js",
+            "line": 37,
+            "description": "是否允许在视图内选取文本",
+            "itemtype": "attribute",
+            "name": "allowTextSelection",
+            "type": "Boolean",
+            "default": "true",
+            "class": "NavigationView",
+            "module": "navigation-view"
+        },
+        {
+            "file": "src/api/navigation-view.js",
+            "line": 43,
+            "description": "添加一个子视图",
+            "itemtype": "method",
+            "name": "push",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项。子视图或子视图的描述，如 { xclass : 'tb-index-view' }",
+                    "type": "Object"
+                }
+            ],
+            "class": "NavigationView",
+            "module": "navigation-view"
+        },
+        {
+            "file": "src/api/navigation-view.js",
+            "line": 49,
+            "description": "替换当前视图的配置",
+            "itemtype": "method",
+            "name": "replace",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置项，如 { animation : 'turn' }",
+                    "type": "Object"
+                }
+            ],
+            "class": "NavigationView",
+            "module": "navigation-view"
+        },
+        {
+            "file": "src/api/navigation-view.js",
+            "line": 55,
+            "description": "弹出当前视图，进入下一个视图",
+            "itemtype": "method",
+            "name": "pop",
+            "class": "NavigationView",
+            "module": "navigation-view"
         },
         {
             "file": "src/api/node.js",
