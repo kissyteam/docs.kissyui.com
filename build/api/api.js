@@ -50,6 +50,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "MenuButton.Option",
         "MenuButton.Select",
         "NavigationView",
+        "NavigationViewBar",
         "Node",
         "Overlay",
         "Overlay.Dialog",
@@ -115,6 +116,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "menu",
         "menubutton",
         "navigation-view",
+        "navigation-view_bar",
         "node",
         "overlay",
         "path",
@@ -297,6 +299,11 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "navigation-view",
             "name": "navigation-view"
+        },
+        {
+            "displayName": "navigation-view/bar",
+            "name": "navigation-view_bar",
+            "description": "视图工具栏模块"
         },
         {
             "displayName": "node",

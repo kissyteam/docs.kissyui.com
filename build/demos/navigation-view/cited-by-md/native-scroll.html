@@ -334,7 +334,8 @@ KISSY.use('util,' +
 
         bar.on('backward', function (e) {
             e.preventDefault();
-            history.back();
+            // history.back();
+            bar.backward('test');
         });
 
         router.on('dispatch', function (e) {

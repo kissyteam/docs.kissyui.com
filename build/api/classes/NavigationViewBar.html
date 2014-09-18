@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Tree.CheckNode - API Documentation — KISSY v5.0 Documentation</title>
+    <title>NavigationViewBar - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
     <link rel="stylesheet" href="/5.0/assets/css/custom.css">
@@ -362,19 +362,19 @@
                 <div class="apidocs">
                     <div id="docs-main">
                         <div class="content">
-                            <h1>Tree.CheckNode Class</h1>
+                            <h1>NavigationViewBar Class</h1>
 <div class="box meta">
     
 
     
         <div class="extends">
-            Extends <a href="../classes/Tree.Node.html" class="crosslink">Tree.Node</a>
+            Extends <a href="../classes/Component.Control.html" class="crosslink">Component.Control</a>
         </div>
     
 
     
         
-            Module: <a href="../modules/tree.html">tree</a>
+            Module: <a href="../modules/navigation-view_bar.html">navigation-view/bar</a>
         
     
 
@@ -384,15 +384,15 @@
 
 
 <div class="box intro">
-    <p>可多选树节点。xclass:check-tree-node</p>
+    <p>视图工具栏。 xclass : navigation-bar</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Tree.CheckNode" class="method item">
-    <h3 class="name"><code>Tree.CheckNode</code></h3>
+        <div id="method_NavigationViewBar" class="method item">
+    <h3 class="name"><code>NavigationViewBar</code></h3>
 
     
         <div class="args">
@@ -469,36 +469,6 @@
     
 
     
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use([&#39;tree&#39;, &#39;node&#39;], function(S, Tree, $){
-    var tree = new Tree.CheckTree({
-        content: &quot;淘宝网&quot;,
-        expanded: true,
-        // showRootNode:false,
-        render: &quot;#treeContainer&quot;
-    });
-    var favorates = new Tree.CheckNode({
-
-        content: &quot;收藏夹&quot;,
-        tree: tree
-    });
-    favorates.addChild(new Tree.CheckNode({
-
-        content: &quot;收藏的宝贝&quot;
-    }));
-    favorates.addChild(new Tree.CheckNode({
-        content: &quot;收藏的店铺&quot;
-    }));
-
-    tree.addChild(favorates);
-});</code></pre>
-
-            </div>
-        </div>
-    
 </div>
 
     </div>
@@ -545,13 +515,6 @@
                             </li>
                         
                             <li class="index-item method inherited" inwhichtab="methods">
-                                <a href="#method_addChild">addChild</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited" inwhichtab="methods">
                                 <a href="#method_addTarget">addTarget</a>
 
                                 
@@ -573,13 +536,6 @@
                             </li>
                         
                             <li class="index-item method inherited" inwhichtab="methods">
-                                <a href="#method_collapseAll">collapseAll</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited" inwhichtab="methods">
                                 <a href="#method_create">create</a>
 
                                 
@@ -595,13 +551,6 @@
                         
                             <li class="index-item method inherited" inwhichtab="methods">
                                 <a href="#method_detach">detach</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited" inwhichtab="methods">
-                                <a href="#method_expandAll">expandAll</a>
 
                                 
                                 
@@ -637,13 +586,6 @@
                         
                             <li class="index-item method inherited" inwhichtab="methods">
                                 <a href="#method_getAttrVals">getAttrVals</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited" inwhichtab="methods">
-                                <a href="#method_getChildAt">getChildAt</a>
 
                                 
                                 
@@ -706,20 +648,6 @@
                             </li>
                         
                             <li class="index-item method inherited" inwhichtab="methods">
-                                <a href="#method_removeChild">removeChild</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited" inwhichtab="methods">
-                                <a href="#method_removeChildren">removeChildren</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited" inwhichtab="methods">
                                 <a href="#method_removeTarget">removeTarget</a>
 
                                 
@@ -735,13 +663,6 @@
                         
                             <li class="index-item method inherited inherited" inwhichtab="methods">
                                 <a href="#method_reset">reset</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method inherited" inwhichtab="methods">
-                                <a href="#method_select">select</a>
 
                                 
                                 
@@ -792,23 +713,19 @@
                             </li>
                         
                             <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_checkState">checkState</a>
+                                <a href="#attr_allowTextSelection">allowTextSelection</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_backText">backText</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_children">children</a>
-                            </li>
-                        
-                            <li class="index-item attr inherited inherited" inwhichtab="attrs">
                                 <a href="#attr_content">content</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_created">created</a>
-                            </li>
-                        
-                            <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_depth">depth</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -835,12 +752,8 @@
                                 <a href="#attr_elStyle">elStyle</a>
                             </li>
                         
-                            <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_expanded">expanded</a>
-                            </li>
-                        
-                            <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_expandIconEl">expandIconEl</a>
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_focusable">focusable</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -856,19 +769,15 @@
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_iconEl">iconEl</a>
-                            </li>
-                        
-                            <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_isControl">isControl</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_isLeaf">isLeaf</a>
+                                <a href="#attr_listeners">listeners</a>
                             </li>
                         
-                            <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_listeners">listeners</a>
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_navigationView">navigationView</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -896,19 +805,7 @@
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_selected">selected</a>
-                            </li>
-                        
-                            <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_srcNode">srcNode</a>
-                            </li>
-                        
-                            <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_tooltip">tooltip</a>
-                            </li>
-                        
-                            <li class="index-item attr inherited" inwhichtab="attrs">
-                                <a href="#attr_tree">tree</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -917,6 +814,14 @@
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_width">width</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_withBackButton">withBackButton</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_withTitle">withTitle</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -982,6 +887,13 @@
                         
                             <li class="index-item event inherited" inwhichtab="events">
                                 <a href="#event_afterSyncUI">afterSyncUI</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event" inwhichtab="events">
+                                <a href="#event_backward">backward</a>
 
                                 
                                 
@@ -1337,112 +1249,6 @@
 </div>
 
                 
-                    <div id="method_addChild" class="method item inherited">
-    <h3 class="name"><code>addChild</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>c</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code class="optional">[index]</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Component.Container.html#method_addChild">Component.Container</a>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>添加一个指定的组件作为当前组件的子组件</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">c</code>
-                        <span class="type">Control | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>要添加的子组件实例或者子组件的对象描述</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[index]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>子组件的索引，可选。从 0 开始，新子组件被插入时的索引。如果未指定，新组件将会被插入在最后</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="method_addTarget" class="method item inherited">
     <h3 class="name"><code>addTarget</code></h3>
 
@@ -1685,55 +1491,6 @@
 </div>
 
                 
-                    <div id="method_collapseAll" class="method item inherited">
-    <h3 class="name"><code>collapseAll</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Tree.Node.html#method_collapseAll">Tree.Node</a>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>把当前节点的子孙节点全部收缩起来</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="method_create" class="method item inherited">
     <h3 class="name"><code>create</code></h3>
 
@@ -1926,7 +1683,7 @@
                     
 
                     <div class="param-description">
-                         
+                        
                     </div>
 
                     
@@ -1967,55 +1724,6 @@
             
             </ul>
         </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_expandAll" class="method item inherited">
-    <h3 class="name"><code>expandAll</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Tree.Node.html#method_expandAll">Tree.Node</a>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>把当前节点的子孙节点全部显示出来</p>
-
-    </div>
-
     
 
     
@@ -2504,107 +2212,6 @@
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
                     
                     <p>属性键值对集合</p>
-
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_getChildAt" class="method item inherited">
-    <h3 class="name"><code>getChildAt</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>index</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type">Control</span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Component.Container.html#method_getChildAt">Component.Container</a>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>返回所给索引对应的子组件，如果索引超出返回，则返回 null</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">index</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>从 0 开始的索引</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type">Control</span>:
-                    
-                    <p>所给索引对应的子组件对象。如果不存在则返回 null</p>
 
                 
             </div>
@@ -3485,197 +3092,6 @@
 </div>
 
                 
-                    <div id="method_removeChild" class="method item inherited">
-    <h3 class="name"><code>removeChild</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>c</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code class="optional">[destroy=true]</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Component.Container.html#method_removeChild">Component.Container</a>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>从当前组件中移除所给子组件，并返回这个子组件对象。
-如果 destroy 是 true，调用要移除的组件的 destroy() 方法，随后从 DOM 文档中移除子组件的 DOM。否则，清除子组件 DOM 的工作就要由调用者做。</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">c</code>
-                        <span class="type">Control | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>要添加的子组件实例或者子组件的对象描述</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[destroy=true]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>默认为 true, 在移除的子组件上调用 destroy()方法</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_removeChildren" class="method item inherited">
-    <h3 class="name"><code>removeChildren</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code class="optional">[destroy=true]</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Component.Container.html#method_removeChildren">Component.Container</a>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>移除所有包含的子组件</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[destroy=true]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>默认为 true, 在移除的子组件上调用 destroy()方法</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="method_removeTarget" class="method item inherited">
     <h3 class="name"><code>removeTarget</code></h3>
 
@@ -3942,55 +3358,6 @@
             
             </ul>
         </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_select" class="method item inherited">
-    <h3 class="name"><code>select</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Tree.Node.html#method_select">Tree.Node</a>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>把当前节点设置为当前树的选中节点</p>
-
-    </div>
-
     
 
     
@@ -4476,9 +3843,57 @@
 </div>
 
                 
-                    <div id="attr_checkState" class="attr item">
-    <a name="config_checkState"></a> 
-    <h3 class="name"><code>checkState</code></h3>
+                    <div id="attr_allowTextSelection" class="attr item">
+    <a name="config_allowTextSelection"></a> 
+    <h3 class="name"><code>allowTextSelection</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否允许在视图内选取文本</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_backText" class="attr item">
+    <a name="config_backText"></a> 
+    <h3 class="name"><code>backText</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
     
@@ -4510,15 +3925,12 @@
     </div>
 
     <div class="description">
-        <p>当前节点的多选状态，可取：</p>
-<ul>
-<li>PARTIAL_CHECK 代表节点的部分选中状态（部分子孙节点选中）</li>
-<li>CHECK 代表节点的全部选中状态（子孙节点和自身节点全部选中）</li>
-<li>EMPTY 代表节点的空状态（子孙节点和自身节点全部不选中）</li>
-</ul>
+        <p>返回按钮的文本内容</p>
 
     </div>
 
+    
+        <p><strong>Default:</strong> &#x27;Back&#x27;</p>
     
 
     
@@ -4527,10 +3939,10 @@
 </div>
 
                 
-                    <div id="attr_children" class="attr item inherited">
-    <a name="config_children"></a> 
-    <h3 class="name"><code>children</code></h3>
-    <span class="type">Control</span>
+                    <div id="attr_content" class="attr item inherited">
+    <a name="config_content"></a> 
+    <h3 class="name"><code>content</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | KISSY.Node</span>
 
     
 
@@ -4550,7 +3962,7 @@
         
             
                 <p>Inherited from
-                <a href="../classes/Component.Container.html#attr_children">Component.Container</a>
+                <a href="../classes/Component.Control.html#attr_content">Component.Control</a>
             
         
         </p>
@@ -4561,56 +3973,7 @@
     </div>
 
     <div class="description">
-        <p>可选，当前组件的子组件数组</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_content" class="attr item inherited">
-    <a name="config_content"></a> 
-    <h3 class="name"><code>content</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            <p>Inherited from
-            <a href="../classes/Component.Control.html#attr_content">
-                Component.Control
-            </a>
-            
-            but overwritten by this Class
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>节点内容</p>
+        <p>设置的 content 属性</p>
 
     </div>
 
@@ -4657,54 +4020,6 @@
 
     <div class="description">
         <p>只读属性，组件结构是否已经创建</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_depth" class="attr item inherited">
-    <a name="config_depth"></a> 
-    <h3 class="name"><code>depth</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag readonly">readonly</span>
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Tree.Node.html#attr_depth">Tree.Node</a>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>该节点所处所在树的深度，只读。</p>
 
     </div>
 
@@ -4992,9 +4307,9 @@
 </div>
 
                 
-                    <div id="attr_expanded" class="attr item inherited">
-    <a name="config_expanded"></a> 
-    <h3 class="name"><code>expanded</code></h3>
+                    <div id="attr_focusable" class="attr item">
+    <a name="config_focusable"></a> 
+    <h3 class="name"><code>focusable</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
 
     
@@ -5014,54 +4329,8 @@
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="../classes/Tree.Node.html#attr_expanded">Tree.Node</a>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>该节点的儿子节点是否显示，设置后可相应展开收缩儿子节点</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
                 
-                    <div id="attr_expandIconEl" class="attr item inherited">
-    <a name="config_expandIconEl"></a> 
-    <h3 class="name"><code>expandIconEl</code></h3>
-    <span class="type">KISSY.Node</span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Tree.Node.html#attr_expandIconEl">Tree.Node</a>
+                <p>
             
         
         </p>
@@ -5072,10 +4341,12 @@
     </div>
 
     <div class="description">
-        <p>扩展图标 dom 节点</p>
+        <p>是否能聚焦。聚焦时会在组件根节点添加class : {prefixCls}navigation-bar-focused</p>
 
     </div>
 
+    
+        <p><strong>Default:</strong> false</p>
     
 
     
@@ -5225,52 +4496,6 @@
 </div>
 
                 
-                    <div id="attr_iconEl" class="attr item inherited">
-    <a name="config_iconEl"></a> 
-    <h3 class="name"><code>iconEl</code></h3>
-    <span class="type">KISSY.Node</span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Tree.Node.html#attr_iconEl">Tree.Node</a>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>树节点图标 dom 节点</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="attr_isControl" class="attr item inherited">
     <a name="config_isControl"></a> 
     <h3 class="name"><code>isControl</code></h3>
@@ -5317,52 +4542,6 @@
 </div>
 
                 
-                    <div id="attr_isLeaf" class="attr item inherited">
-    <a name="config_isLeaf"></a> 
-    <h3 class="name"><code>isLeaf</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Tree.Node.html#attr_isLeaf">Tree.Node</a>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>可选，是否固定采用叶子节点或目录节点样式类，不设置的话会动态根据是否具有儿子节点而变化</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="attr_listeners" class="attr item inherited">
     <a name="config_listeners"></a> 
     <h3 class="name"><code>listeners</code></h3>
@@ -5397,7 +4576,7 @@
     </div>
 
     <div class="description">
-        <p><p>配置组件的事件绑定,例如:</p></p>
+        <p>配置组件的事件绑定,例如:</p>
 <pre class="code prettyprint"><code>{
     listeners:{
         customEvent:function(e){
@@ -5419,6 +4598,52 @@ or
         }
     }
 }</code></pre>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_navigationView" class="attr item">
+    <a name="config_navigationView"></a> 
+    <h3 class="name"><code>navigationView</code></h3>
+    <span class="type"><a href="../classes/NavigationView.html" class="crosslink">NavigationView</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>对应的 navigationView</p>
 
     </div>
 
@@ -5510,7 +4735,7 @@ or
     </div>
 
     <div class="description">
-        <p><p>插件构造器数组或插件对象数组. 例如</p></p>
+        <p>插件构造器数组或插件对象数组. 例如</p>
 <pre class="code prettyprint"><code>{
     plugins: [ Plugin1,Plugin2 ]
 }
@@ -5715,52 +4940,6 @@ or
 </div>
 
                 
-                    <div id="attr_selected" class="attr item inherited">
-    <a name="config_selected"></a> 
-    <h3 class="name"><code>selected</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Tree.Node.html#attr_selected">Tree.Node</a>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>该节点是否被选中</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="attr_srcNode" class="attr item inherited">
     <a name="config_srcNode"></a> 
     <h3 class="name"><code>srcNode</code></h3>
@@ -5796,98 +4975,6 @@ or
 
     <div class="description">
         <p>可选，组件从页面中已存在的该节点中渲染而来.srcNode 时设置其他属性不起作用，属性通通在 html 标签中指定，并且 html 标签必须包含完整结构，例如 content 节点必须存在</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_tooltip" class="attr item inherited">
-    <a name="config_tooltip"></a> 
-    <h3 class="name"><code>tooltip</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Tree.Node.html#attr_tooltip">Tree.Node</a>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>节点提示内容</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_tree" class="attr item inherited">
-    <a name="config_tree"></a> 
-    <h3 class="name"><code>tree</code></h3>
-    <span class="type">KISSY.Tree</span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Tree.Node.html#attr_tree">Tree.Node</a>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>该节点所属的树对象</p>
 
     </div>
 
@@ -5985,6 +5072,102 @@ or
 
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_withBackButton" class="attr item">
+    <a name="config_withBackButton"></a> 
+    <h3 class="name"><code>withBackButton</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否带有返回按钮</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_withTitle" class="attr item">
+    <a name="config_withTitle"></a> 
+    <h3 class="name"><code>withTitle</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>是否显示标题</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
     
 
     
@@ -6670,6 +5853,44 @@ or
             
             </ul>
         </div>
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_backward" class="events item">
+    <h3 class="name"><code>backward</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>当返回上一个视图时触发返回事件。例如点击了返回按钮，浏览器后退等</p>
+
+    </div>
+
     
 
 

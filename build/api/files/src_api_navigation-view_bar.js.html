@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>component/plugin/drag - API Documentation — KISSY v5.0 Documentation</title>
+    <title>src/api/navigation-view/bar.js - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
     <link rel="stylesheet" href="/5.0/assets/css/custom.css">
@@ -362,45 +362,64 @@
                 <div class="apidocs">
                     <div id="docs-main">
                         <div class="content">
-                            <h1 id="component_plugin_drag">component/plugin/drag Module</h1>
-<div class="box clearfix meta">
-    
+                            <h1 class="file-heading">File: src/api/navigation-view/bar.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+视图工具栏模块
+@module navigation-view/bar
+*/
 
+/**
+视图工具栏。 xclass : navigation-bar
+@class NavigationViewBar
+@constructor
+@extends Component.Control
+@param config {Object}
+*/
 
-    
-</div>
+/**
+对应的 navigationView
+@attribute navigationView {NavigationView}
+*/
 
+/**
+是否带有返回按钮
+@attribute withBackButton {Boolean}
+@default true
+*/
 
+/**
+返回按钮的文本内容
+@attribute backText {String}
+@default &#x27;Back&#x27;
+*/
 
-<div class="box intro">
-    <p>组件拖拽插件</p>
+/**
+是否能聚焦。聚焦时会在组件根节点添加class : {prefixCls}navigation-bar-focused
+@attribute focusable {Boolean}
+@default false
+*/
 
-</div>
+/**
+是否允许在视图内选取文本
+@attribute allowTextSelection {Boolean}
+@default true
+*/
 
+/**
+是否显示标题
+@attribute withTitle {Boolean}
+@default true
+*/
 
+/**
+当返回上一个视图时触发返回事件。例如点击了返回按钮，浏览器后退等
+@event backward
+*/
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/Component.Plugin.Drag.html">
-                        Component.Plugin.Drag
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+    </pre>
 </div>
 
                         </div>

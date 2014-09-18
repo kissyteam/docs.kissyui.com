@@ -154,6 +154,8 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=NavigationView href="/5.0/api/classes/NavigationView.html">NavigationView</a></li>
             
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=NavigationViewBar href="/5.0/api/classes/NavigationViewBar.html">NavigationViewBar</a></li>
+            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Node href="/5.0/api/classes/Node.html">Node</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Overlay href="/5.0/api/classes/Overlay.html">Overlay</a></li>
@@ -284,6 +286,8 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=navigation-view href="/5.0/api/modules/navigation-view.html">navigation-view</a></li>
             
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=navigation-view/bar href="/5.0/api/modules/navigation-view_bar.html">navigation-view/bar</a></li>
+            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=node href="/5.0/api/modules/node.html">node</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=overlay href="/5.0/api/modules/overlay.html">overlay</a></li>
@@ -367,12 +371,14 @@
 */
 
 /**
-能适应多种视图的导航视图。xclass : navigation-view
+可管理多个视图之间显示/隐藏/切换的导航视图，同一时间只能显示一个视图，并针对没有提供“返回键”的终端系统，如IOS，提供了一个模块 navigation-view/bar 实现返回按钮，可配合使用。xclass : navigation-view
 @class NavigationView
 @extends Component.Container
 @uses Component.Extension.ContentBox
 @constructor
 @param config
+@example
+
 */
 
 /**
@@ -405,9 +411,13 @@
 */
 
 /**
-添加一个子视图
+往视图堆栈添加一个视图。
 @method push
-@param config {Object} 配置项。子视图或子视图的描述，如 { xclass : &#x27;tb-index-view&#x27; }
+@param config {Object} 配置项。
+@param config.xclass {String} 必选，视图类的xclass。将会顺序执行它的内部方法： createDom -&gt; bindUI -&gt; enter。
+@param config.animation {Array|String} 可选，进入/离开视图的动画效果。意义同初始化 NavigationView 的 animation 配置。
+@param config.title {String} 视图标题。可选，如果使用 navigation-view/bar 插件的话将出现在上面。
+@param config.viewId {String} 可选，视图的唯一id。
 */
 
 /**
@@ -417,7 +427,7 @@
 */
 
 /**
-弹出当前视图，进入下一个视图
+从视图堆栈里弹出当前视图，返回上一个视图。并自动调用当前视图类的内部方法leave，若手动调用了视图的destroy方法，则会随后进入其内部方法destructor。
 @method pop
 */
 

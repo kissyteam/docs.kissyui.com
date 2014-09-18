@@ -236,6 +236,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/api/navigation-view/bar.js": {
+            "name": "src/api/navigation-view/bar.js",
+            "modules": {
+                "navigation-view/bar": 1
+            },
+            "classes": {
+                "NavigationViewBar": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/api/resizable/plugin/proxy.js": {
             "name": "src/api/resizable/plugin/proxy.js",
             "modules": {
@@ -953,6 +964,19 @@
             "file": "src/api/event/dom.js",
             "line": 6,
             "description": "根据设备环境加载响应的子模块来处理 DOM 的事件模块"
+        },
+        "navigation-view/bar": {
+            "name": "navigation-view/bar",
+            "submodules": {},
+            "classes": {
+                "NavigationViewBar": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/navigation-view/bar.js",
+            "line": 6,
+            "description": "视图工具栏模块"
         },
         "resizable/plugin/proxy": {
             "name": "resizable/plugin/proxy",
@@ -1867,6 +1891,29 @@
             "description": "处理 DOM 事件。DomEvent处理标准的event事件，除此之外还拓展了下面介绍的 Events \n```\nKISSY.use('event/dom', function(S, DomEvent){\n    DomEvent.on(document.body,{\n        'click':{\n            fn:function(){\n                alert('hello,kissy..');\n            },\n            // filter: '', // delegate,\n            once:true // 绑定一次\n        },\n        'mouseenter':function(){}\n    });\n\n    //写法相当于\n    DomEvent.on(document.body, 'click', function(){\n\t\talert('hello,kissy..');\n    })\n})\n```",
             "static": 1
         },
+        "NavigationViewBar": {
+            "name": "NavigationViewBar",
+            "shortname": "NavigationViewBar",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "navigation-view/bar",
+            "namespace": "",
+            "file": "src/api/navigation-view/bar.js",
+            "line": 6,
+            "description": "视图工具栏。 xclass : navigation-bar",
+            "is_constructor": 1,
+            "extends": "Component.Control",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "",
+                    "type": "Object"
+                }
+            ]
+        },
         "Resizable.Plugin.Proxy": {
             "name": "Resizable.Plugin.Proxy",
             "shortname": "Resizable.Plugin.Proxy",
@@ -2717,7 +2764,7 @@
             "namespace": "",
             "file": "src/api/navigation-view.js",
             "line": 5,
-            "description": "能适应多种视图的导航视图。xclass : navigation-view",
+            "description": "可管理多个视图之间显示/隐藏/切换的导航视图，同一时间只能显示一个视图，并针对没有提供“返回键”的终端系统，如IOS，提供了一个模块 navigation-view/bar 实现返回按钮，可配合使用。xclass : navigation-view",
             "extends": "Component.Container",
             "uses": [
                 "Component.Extension.ContentBox"
@@ -2728,6 +2775,9 @@
                     "name": "config",
                     "description": ""
                 }
+            ],
+            "example": [
+                "\n"
             ]
         },
         "Node": {
@@ -6078,6 +6128,80 @@
             "name": "end",
             "class": "DomEvent",
             "module": "event/dom"
+        },
+        {
+            "file": "src/api/navigation-view/bar.js",
+            "line": 14,
+            "description": "对应的 navigationView",
+            "itemtype": "attribute",
+            "name": "navigationView",
+            "type": "NavigationView",
+            "class": "NavigationViewBar",
+            "module": "navigation-view/bar"
+        },
+        {
+            "file": "src/api/navigation-view/bar.js",
+            "line": 19,
+            "description": "是否带有返回按钮",
+            "itemtype": "attribute",
+            "name": "withBackButton",
+            "type": "Boolean",
+            "default": "true",
+            "class": "NavigationViewBar",
+            "module": "navigation-view/bar"
+        },
+        {
+            "file": "src/api/navigation-view/bar.js",
+            "line": 25,
+            "description": "返回按钮的文本内容",
+            "itemtype": "attribute",
+            "name": "backText",
+            "type": "String",
+            "default": "'Back'",
+            "class": "NavigationViewBar",
+            "module": "navigation-view/bar"
+        },
+        {
+            "file": "src/api/navigation-view/bar.js",
+            "line": 31,
+            "description": "是否能聚焦。聚焦时会在组件根节点添加class : {prefixCls}navigation-bar-focused",
+            "itemtype": "attribute",
+            "name": "focusable",
+            "type": "Boolean",
+            "default": "false",
+            "class": "NavigationViewBar",
+            "module": "navigation-view/bar"
+        },
+        {
+            "file": "src/api/navigation-view/bar.js",
+            "line": 37,
+            "description": "是否允许在视图内选取文本",
+            "itemtype": "attribute",
+            "name": "allowTextSelection",
+            "type": "Boolean",
+            "default": "true",
+            "class": "NavigationViewBar",
+            "module": "navigation-view/bar"
+        },
+        {
+            "file": "src/api/navigation-view/bar.js",
+            "line": 43,
+            "description": "是否显示标题",
+            "itemtype": "attribute",
+            "name": "withTitle",
+            "type": "Boolean",
+            "default": "true",
+            "class": "NavigationViewBar",
+            "module": "navigation-view/bar"
+        },
+        {
+            "file": "src/api/navigation-view/bar.js",
+            "line": 49,
+            "description": "当返回上一个视图时触发返回事件。例如点击了返回按钮，浏览器后退等",
+            "itemtype": "event",
+            "name": "backward",
+            "class": "NavigationViewBar",
+            "module": "navigation-view/bar"
         },
         {
             "file": "src/api/resizable/plugin/proxy.js",
@@ -12910,7 +13034,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 14,
+            "line": 16,
             "description": "进入/离开视图的动画效果。如果是数组则是相对应的两个值，left -> right, top -> bottom，如果是字符串则是单个值，如'fade'可选择的动画效果有：none/slide-top/fade/dissolve/pop/flip-left/swap-left/cube-left/flow-left/turn",
             "itemtype": "attribute",
             "name": "animation",
@@ -12921,7 +13045,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 20,
+            "line": 22,
             "description": "正在加载时的内容",
             "itemtype": "attribute",
             "name": "loadingHtml",
@@ -12931,7 +13055,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 25,
+            "line": 27,
             "description": "缓存的视图的最大数量，超过最大值则需要重新加载/渲染",
             "itemtype": "attribute",
             "name": "viewCacheSize",
@@ -12942,7 +13066,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 31,
+            "line": 33,
             "description": "是否能聚焦。聚焦时会在组件根节点添加class : {prefixCls}navigation-view-focused",
             "itemtype": "attribute",
             "name": "focusable",
@@ -12953,7 +13077,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 37,
+            "line": 39,
             "description": "是否允许在视图内选取文本",
             "itemtype": "attribute",
             "name": "allowTextSelection",
@@ -12964,15 +13088,37 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 43,
-            "description": "添加一个子视图",
+            "line": 45,
+            "description": "往视图堆栈添加一个视图。",
             "itemtype": "method",
             "name": "push",
             "params": [
                 {
                     "name": "config",
-                    "description": "配置项。子视图或子视图的描述，如 { xclass : 'tb-index-view' }",
-                    "type": "Object"
+                    "description": "配置项。",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "xclass",
+                            "description": "必选，视图类的xclass。将会顺序执行它的内部方法： createDom -> bindUI -> enter。",
+                            "type": "String"
+                        },
+                        {
+                            "name": "animation",
+                            "description": "可选，进入/离开视图的动画效果。意义同初始化 NavigationView 的 animation 配置。",
+                            "type": "Array|String"
+                        },
+                        {
+                            "name": "title",
+                            "description": "视图标题。可选，如果使用 navigation-view/bar 插件的话将出现在上面。",
+                            "type": "String"
+                        },
+                        {
+                            "name": "viewId",
+                            "description": "可选，视图的唯一id。",
+                            "type": "String"
+                        }
+                    ]
                 }
             ],
             "class": "NavigationView",
@@ -12980,7 +13126,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 49,
+            "line": 55,
             "description": "替换当前视图的配置",
             "itemtype": "method",
             "name": "replace",
@@ -12996,8 +13142,8 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 55,
-            "description": "弹出当前视图，进入下一个视图",
+            "line": 61,
+            "description": "从视图堆栈里弹出当前视图，返回上一个视图。并自动调用当前视图类的内部方法leave，若手动调用了视图的destroy方法，则会随后进入其内部方法destructor。",
             "itemtype": "method",
             "name": "pop",
             "class": "NavigationView",
