@@ -482,7 +482,35 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                
+                <pre class="code prettyprint"><code>modulex.use([&#39;navigation-view&#39;, &#39;component/control&#39;], function(NavigationView, Control){
+    var navigationView = new NavigationView({
+        loadingHtml: &#39;&lt;div class=&quot;ks-navigation-view-loading-outer&quot;&gt;&#39; +
+            &#39;&lt;div class=&quot;ks-navigation-view-loading-inner&quot;&gt;&lt;/div&gt;&#39; +
+            &#39;&lt;/div&gt;&#39;,
+        render: &#39;body&#39;
+    }).render();
+
+    var PageView = Control.extend({
+        createDom : function(){
+            //your code
+        },
+        bindUI : function(){
+
+        },
+        enter : function(){
+
+        }
+        //....more function
+    },{
+        xclass : &#39;page-view&#39;
+    });
+
+    navigationView.push({
+        xclass : &#39;page-view&#39;,
+        title : &#39;PageView Title&#39;
+    });
+})</code></pre>
+
             </div>
         </div>
     
@@ -3451,6 +3479,20 @@
 
                                 <div class="param-description">
                                     <p>可选，视图的唯一id。</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">content</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>视图内容</p>
 
                                 </div>
 

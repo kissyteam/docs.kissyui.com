@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>无尽的视图示例 - KISSY v5.0 Documentation</title>
+	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
+	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
+	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/github.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+	<script type="text/javascript" src="/5.0/assets/js/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+	<div class="container" id="container">
+		<header class="header clearfix">
+	<div class="logo">
+		<a href="/5.0">
+			<img src="/5.0/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="search">
+		<gcse:search></gcse:search>
+	</div>
+	<div id="header-toolbar"></div>
+</header>
+<script type="text/javascript">
+	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
+			new Toolbar({
+				render : '#header-toolbar',
+				children : [
+					{
+						content : 'Home',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0';
+							}
+						}
+					},
+					{
+						content : 'Quick Start',
+						listeners : {
+							click : function(){
+								window.location.href ='/5.0/quick-start.html';
+							}
+						}
+					},
+					{
+						content : 'Docs',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'Guides',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/guides';
+										}
+									}
+								},
+								{
+									content : 'API Docs',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/api';
+										}
+									}
+								},{
+									content : 'Demos',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/demos';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					},
+					{
+						content : 'Contribute',
+						listeners : {
+							click : function(){
+								window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
+							}
+						}
+					},
+					{
+						content : 'More',
+						xclass : 'menu-button',
+						menu : {
+							children : [
+								{
+									content : 'FAQ',
+									listeners : {
+										click : function(){
+											window.location.href ='/5.0/more/faq.html';
+										}
+									}
+								},
+								{
+									content : 'Gallery',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://gallery.kissyui.com/';
+										}
+									}
+								},
+								{
+									content : 'Kissy Blog',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://blog.kissyui.com/';
+										}
+									}
+								},
+								{
+									content : 'KMC',
+									listeners : {
+										click : function(){
+											window.location.href = 'https://github.com/daxingplay/grunt-kmc/blob/master/README.md';
+										}
+									}
+								},
+								{
+									content : 'ABC',
+									listeners : {
+										click : function(){
+											window.location.href = 'http://abc.f2e.taobao.net/';
+										}
+									}
+								},
+								{
+									content : 'Clam',
+									listeners : {
+										click : function(){
+											window.location.href = 'https://github.com/jayli/generator-clam/blob/master/README.md';
+										}
+									}
+								}
+							]
+						},
+						matchElWidth : false
+					}
+				]
+			}).render();
+		});
+</script>
+		<div class="row">
+			<div class="col-md-9"  id="main-content">
+				<p></p>
+<h1 id="无尽的视图示例">无尽的视图示例</h1><p>请在移动浏览器或打开chrome开发人员工具模拟移动浏览器查看demo。
+<div class="ks-tabs ks-tabs-top" style="height:800px;">
+    <div class="ks-tabs-bar">
+        <div class="ks-tabs-tab ks-button">Source</div>
+        <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
+        <div class="ks-tabs-tab ks-button">QRCode</div>
+    </div>
+    <div class="ks-tabs-body" style="overflow:hidden;">
+        <div class="ks-tabs-panel">
+            <div class="editor">
+				&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no&quot;&gt;
+    &lt;link href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.08.26&#x2F;css&#x2F;dpl&#x2F;base.css&quot; rel=&quot;stylesheet&quot;&#x2F;&gt;
+    &lt;link href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.08.26&#x2F;navigation-view&#x2F;assets&#x2F;dpl.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.08.26&#x2F;scroll-view&#x2F;assets&#x2F;dpl.css&quot; rel=&quot;stylesheet&quot;&#x2F;&gt;
+    &lt;style&gt;
+        html, body {
+            height: 100%;
+        }
+        .wrap {
+            display: -webkit-box;
+            height: 100%;
+        }
+        .sidebar {
+            width: 200px;
+            position: relative;
+            border: 1px solid red;
+        }
+        .content {
+            -webkit-box-flex: 2;
+            border: 1px solid green;
+        }
+        .list-item {
+            padding: 10px;
+            border: 1px solid #000000;
+        }
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+&lt;div class=&quot;wrap&quot;&gt;
+    &lt;div class=&quot;sidebar&quot;&gt;&lt;&#x2F;div&gt;
+    &lt;div class=&quot;content&quot;&gt;
+        hit hit hit hit hit hithit hit hithit hit hithit hit hit
+        hit hit hithit hit hithit hit hithit hit hithit hit hit
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.08.26&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+    modulex.use([&#x27;navigation-view&#x27;,&#x27;navigation-view&#x2F;bar&#x27;,&#x27;node&#x27;,&#x27;scroll-view&#x27;,&#x27;scroll-view&#x2F;plugin&#x2F;scrollbar&#x27;],function (NavigationView, Bar, $, ScrollView, ScrollBar) {
+            var win = $(window);
+
+            var navigationView = new NavigationView({
+                viewCacheSize: 5,
+                render: &#x27;.sidebar&#x27;
+            }).render();
+
+            var bar = new Bar({
+                navigationView: navigationView,
+                elBefore: navigationView.get(&#x27;contentEl&#x27;)
+            }).render();
+
+            var IndexView = ScrollView.extend({
+                bindUI: function () {
+                    this.get(&#x27;contentEl&#x27;).delegate(&#x27;click&#x27;, &#x27;.list-item&#x27;, this.onSelect, this);
+                },
+                onSelect: function (e) {
+                    var content = e.currentTarget.innerHTML;
+                    navigationView.push({
+                        xclass: &#x27;index-view&#x27;,
+                        viewId: &#x27;level-&#x27; + (this.get(&#x27;level&#x27;) + 1),
+                        level: (this.get(&#x27;level&#x27;) + 1)
+                    });
+                },
+                enter: function () {
+                    this.sync();
+                    win.on(&#x27;resize&#x27;, this.sync, this);
+                },
+                leave: function () {
+                    win.detach(&#x27;resize&#x27;, this.sync, this);
+                },
+                createDom: function () {
+                    var ret = [];
+                    var viewId = this.get(&#x27;viewId&#x27;);
+                    for (var i = 0; i &lt; 20; i++) {
+                        ret.push(&#x27;&lt;div class=&quot;list-item&quot;&gt;&#x27; + viewId + &#x27;-&#x27; + i + &#x27;&lt;&#x2F;div&gt;&#x27;);
+                    }
+                    this.get(&#x27;contentEl&#x27;).html(ret.join(&#x27;&#x27;));
+                }
+            }, {
+                xclass: &#x27;index-view&#x27;,
+                ATTRS: {
+                    plugins: {
+                        valueFn: function () {
+                            return [ScrollBar];
+                        }
+                    }
+                }
+            });
+
+            navigationView.push({
+                xclass: &#x27;index-view&#x27;,
+                viewId: &#x27;level-0&#x27;,
+                level: 0
+            });
+        });
+&lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+			</div>
+        </div>
+        <div class="ks-tabs-panel ks-tabs-panel-selected">
+            <iframe class="output" frameborder="1">
+            	
+            </iframe>
+        </div>
+        <div class="ks-tabs-panel">
+            <p class="qrcode-addr" qrcodeaddr="docs.kissyui.com/5.0/demos/navigation-view/cited-by-md/infinite.html" ="text">示例地址：docs.kissyui.com/5.0/demos/navigation-view/cited-by-md/infinite.html</p>
+            <div class="qrcode"></div>
+        </div>
+    </div>
+</div>)))</p>
+
+	   			<div id="disqus_thread"></div>
+	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+	   			<a id="apilink" href="../../api/classes/NavigationView.html" style="display:none;"></a>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/NavigationView.html">API Docs</a>
+				<div class="panel panel-primary ajax-load hide">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load ">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../demos/navigation-view/animation-router.html">结合使用 Router 展示视图动画效果</a></p><p><a href="../../demos/navigation-view/index.html">简单使用 NavigationView</a></p><p><a href="../../demos/navigation-view/infinite.html">无尽的视图示例</a></p><p><a href="../../demos/navigation-view/on-left-side.html">左边栏视图</a></p><p><a href="../../demos/navigation-view/view-with-loading.html">带loading中间态的视图</a></p>
+					</div>
+				</div>
+			</div>
+			<div id="disqus_thread"></div>
+<script>
+    if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'kissy-docs'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+     //var disqus_identifier = '/anim';
+     //var disqus_url = window.location;
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    }
+</script>
+<script>
+    window.onload = function(){
+        (function() {
+        var cx = '003618533255763067140:5nkycw1pbey';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    }
+</script>
+		</div>
+	</div>
+</body>
+</html>

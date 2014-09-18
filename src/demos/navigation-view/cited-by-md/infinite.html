@@ -10,23 +10,19 @@
         html, body {
             height: 100%;
         }
-
         .wrap {
             display: -webkit-box;
             height: 100%;
         }
-
         .sidebar {
             width: 200px;
             position: relative;
             border: 1px solid red;
         }
-
         .content {
             -webkit-box-flex: 2;
             border: 1px solid green;
         }
-
         .list-item {
             padding: 10px;
             border: 1px solid #000000;
@@ -47,7 +43,6 @@
             var win = $(window);
 
             var navigationView = new NavigationView({
-                // defaults to 20
                 viewCacheSize: 5,
                 render: '.sidebar'
             }).render();

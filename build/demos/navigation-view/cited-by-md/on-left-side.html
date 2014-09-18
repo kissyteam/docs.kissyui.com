@@ -14,18 +14,15 @@
             display: -webkit-box;
             height: 100%;
         }
-
         .sidebar {
             width: 200px;
             position: relative;
             border: 1px solid red;
         }
-
         .content {
             -webkit-box-flex: 2;
             border: 1px solid green;
         }
-
         .list-item {
             padding: 10px;
             border: 1px solid #000000;
@@ -58,11 +55,7 @@
             var TbDetailView = ScrollView.extend({}, {
                 xclass: 'tb-detail-view',
                 ATTRS: {
-                    plugins: {
-                        valueFn: function () {
-                            return [ScrollBar];
-                        }
-                    }
+                    plugins: [ScrollBar]
                 }
             });
 
@@ -94,11 +87,7 @@
             }, {
                 xclass: 'tb-index-view',
                 ATTRS: {
-                    plugins: {
-                        valueFn: function () {
-                            return [ScrollBar];
-                        }
-                    }
+                    plugins: [ScrollBar]
                 }
             });
 

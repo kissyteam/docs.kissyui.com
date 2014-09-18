@@ -6,13 +6,11 @@
     <link href="http://g.tbcdn.cn/kissy/edge/2014.08.26/css/dpl/base.css" rel="stylesheet"/>
     <link href="http://g.tbcdn.cn/kissy/edge/2014.08.26/navigation-view/assets/dpl.css" rel="stylesheet">
     <link href="http://g.tbcdn.cn/kissy/edge/2014.08.26/scroll-view/assets/dpl.css" rel="stylesheet">
-    <link href="assets/native-scroll.css" rel="stylesheet"/>
     <script src="http://g.tbcdn.cn/kissy/edge/2014.08.26/seed-debug.js"></script>
     <style>
         body,html {
             height: 100%;
         }
-
         .ks-navigation-bar {
             position: fixed;
             height: 47px;
@@ -20,23 +18,19 @@
             box-sizing: border-box;
             z-index: 10;
         }
-
         .ks-navigation-view-content {
             margin-top: 47px;
         }
-
         ul, li {
             margin: 0;
             padding: 0;
         }
-
         .nav {
             color: #000;
             background: white;
             border: 1px solid #aaa;
             padding-left: 0;
         }
-
         .nav > li {
             text-indent: 0;
             font-size: 1.5em;
@@ -56,11 +50,9 @@
             border-radius: 0;
             border-top: 1px solid rgba(180, 180, 180, 0.5);
         }
-
         .nav > li:first-child {
             border-top: 0;
         }
-
         .nav a {
             line-height: inherit;
             text-decoration: none;
@@ -77,7 +69,6 @@
             box-sizing: border-box;
             padding: .5em .7em;
         }
-
         .nav a:after {
             -webkit-text-fill-color: #fff;
             -webkit-transform: rotate(45deg);
@@ -98,15 +89,12 @@
             -webkit-box-shadow: inset -0.2rem .2rem 0 #999ea9;
             box-shadow: inset -0.2rem .2rem 0;
         }
-
         .nav .list-item-active a {
             background: #d9d9d9;
         }
-
         .ks-navigation-view-content {
             background: #eeeeee;
         }
-
         .anim-title {
             text-align: center;
             font-size: 18px;
@@ -117,7 +105,6 @@
             width: 75%;
             margin: 0 auto;
         }
-
         .anim-content {
             text-align: center;
             font-size: 18px;
@@ -128,6 +115,11 @@
             width: 75%;
             margin: 0 auto;
         }
+
+        /**加上下面代码定义相关类隐藏后的样式*/
+        .ks-navigation-view-content > .ks-navigation-view-loading.ks-navigation-view-loading-hidden, .ks-navigation-view-content > div.ks-page-view-hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -136,106 +128,38 @@ if (location.href.indexOf('useHashChange') !== -1) {
     history.pushState = null;
 }
 
-KISSY.add('demo/loading',['util','logger-manager'],function(S, require, exports, module){
-    var util = require('util');
-    var LoggerManager = require('logger-manager');
-    var tpl = '<h2 class="anim-title">{title}</h2>' +
-        '<p class="anim-content">Sed ut perspiciatis unde omnis iste natus error ' +
-        'sit voluptatem accusantium doloremque laudantium, ' +
-        'totam rem aperiam, eaque ipsa quae ab illo inventore ' +
-        'veritatis et quasi architecto beatae vitae dicta sunt ' +
-        'explicabo. Nemo enim ipsam voluptatem quia voluptas sit ' +
-        'aspernatur aut odit aut fugit, sed quia consequuntur magni ' +
-        'dolores eos qui ratione voluptatem sequi nesciunt. Neque porro ' +
-        'quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ' +
-        'adipisci velit, sed quia non numquam eius modi tempora incidunt ut ' +
-        'labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima ' +
-        'veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, ' +
-        'nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum ' +
-        'iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae ' +
-        'consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>';
-
-    tpl += tpl;
-    tpl += tpl;
-    tpl += tpl;
-
-    function Loading(page) {
-        this.page = page;
-        page.on('leave', this.leave, this);
-        page.on('destroy', this.destroy, this);
-    }
-
-    Loading.prototype = {
-        enter: function () {
-            var page = this.page;
-            setTimeout(function () {
-                page.getContentEl().html(util.substitute(tpl, {
-                    title: page.get('viewId')
-                }));
-                page.sync();
-                page.defer.resolve();
-            }, 1400);
-        },
-        leave: function () {
-            LoggerManager.log('leave loading');
-        },
-        destroy: function () {
-            LoggerManager.log('destroy loading');
-        }
-    };
-
-    module.exports = Loading;
-})
-
-KISSY.add('page-view', ['component/control', 'node'], function(S,require,exports,module){
-    var Control = require('component/control');
-    var $ = require('node');
-    var win = $(window);
-    module.exports = function () {
-        return Control.extend({
+modulex.add('page-view', ['scroll-view', 'scroll-view/plugin/scrollbar'], function(require,exports,module){
+    var ScrollView = require('scroll-view');
+    var ScrollBar = require('scroll-view/plugin/scrollbar');
+    module.exports = ScrollView.extend({
             onScroll: function (fn) {
-                var self = this;
-                var parent = self.get('parent');
-                this.__fn = function () {
-                    if (parent.get('activeView') === self) {
-                        fn(win.scrollTop());
-                    }
+                this.__fn = function (e) {
+                    fn(e.newVal);
                 };
-                win.on('scroll', this.__fn, this);
+                this.on('afterScrollTopChange', this.__fn);
             },
             getContentEl: function () {
-                return this.get('el');
+                return this.get('contentEl');
             },
             unScroll: function () {
-                win.detach('scroll', this.__fn, this);
-            },
-            sync: function () {
-            },
-            destructor: function () {
-                win.detach('scroll', this.__fn, this);
+                this.detach('afterScrollTopChange', this.__fn);
             }
-        },{
-            xclass:'page-view'
+        }, {
+            ATTRS: {
+                plugins: {
+                    valueFn: function () {
+                        return [ScrollBar];
+                    }
+                }
+            }
         });
-    };
-})
-KISSY.use('util,' +
-        'navigation-view,' +
-        'navigation-view/bar,' +
-        'node,' +
-        'event/gesture/tap,' +
-        'event/gesture/basic,' +
-        'router,' +
-        'promise,' +
-        'page-view',
-    function (S, util,NavigationView, Bar, Node,TapGesture, BasicGesture,router, Promise, pageViewFactory) {
-        var PageView = pageViewFactory();
+});
+
+modulex.use(['util', 'navigation-view', 'navigation-view/bar', 'node', 'event/gesture/tap', 'event/gesture/basic', 'router', 'promise', 'page-view'], function (util,NavigationView, Bar, $, TapGesture, BasicGesture, router, Promise, PageView) {
+    var S = modulex;
         var tap = TapGesture.TAP;
-        var win = Node.all(window);
+        var win = $(window);
         var anims = [
-            {
-                content: 'loading'
-            },
             {
                 content: 'default-anim'
             },
@@ -320,27 +244,45 @@ KISSY.use('util,' +
             return null;
         };
 
-        var navigationView = new NavigationView({
-            loadingHtml: '<div class="ks-navigation-view-loading-outer">' +
-                '<div class="ks-navigation-view-loading-inner"></div>' +
-                '</div>',
-            render: 'body'
-        }).render();
+       var TBIndexView = PageView.extend({
+            enter: function (cfg) {
+                // modulex.log('enter index ' + (cfg.fromCache ? 'from cache!' : ''));
+                win.on('resize', this.sync, this);
+                this.sync();
+            },
 
-        var bar = new Bar({
-            navigationView: navigationView,
-            elBefore: navigationView.get('contentEl')
-        }).render();
+            leave: function () {
+                modulex.log('leave index');
+                win.detach('resize', this.sync, this);
+            },
 
-        bar.on('backward', function (e) {
-            e.preventDefault();
-            // history.back();
-            bar.backward('test');
-        });
+            bindUI: function () {
+                this.$el.delegate(tap, '.list-item', this.onMenuItemClick, this);
+                this.$el.delegate(BasicGesture.START, '.list-item', function (e) {
+                    e.currentTarget.classList.add('list-item-active');
+                });
+                this.$el.delegate(BasicGesture.END, '.list-item', function (e) {
+                    e.currentTarget.classList.remove('list-item-active');
+                });
 
-        router.on('dispatch', function (e) {
-            if (e.request.backward) {
-                navigationView.pop();
+                this.onScroll(function (top) {
+                    // modulex.log(top);
+                });
+            },
+
+            onMenuItemClick: function (e) {
+                router.navigate('/' + util.trim(e.currentTarget.innerText));
+
+            }
+        }, {
+            xclass: 'tb-index-view',
+            ATTRS: {
+                content: {
+                    value: menuContent
+                },
+                title: {
+                    value: 'navigation-view'
+                }
             }
         });
 
@@ -364,15 +306,15 @@ KISSY.use('util,' +
         tpl += tpl;
         tpl += tpl;
 
-        PageView.extend({
+        var TBAnimView = PageView.extend({
             enter: function (cfg) {
-                S.log('enter detail ' + (cfg.fromCache ? 'from cache!' : ''));
+                modulex.log('enter detail ' + (cfg.fromCache ? 'from cache!' : ''));
                 win.on('resize', this.sync, this);
                 this.sync();
             },
 
             leave: function () {
-                S.log('leave detail');
+                modulex.log('leave detail');
                 win.detach('resize', this.sync, this);
             },
 
@@ -393,43 +335,22 @@ KISSY.use('util,' +
             xclass: 'tb-anim-view'
         });
 
-        PageView.extend({
-            enter: function (cfg) {
-                S.log('enter loading ' + (cfg.fromCache ? 'from cache!' : ''));
-                var self = this;
-                self.defer = new Promise.Defer();
-                self.promise = self.defer.promise;
-                win.on('resize', self.sync, self);
-                if (self.logic) {
-                    self.logic.enter(cfg);
-                } else {
-                    S.use('demo/loading', function (S, Loading) {
-                        /*jshint nonew:false*/
-                        self.logic = self.logic || new Loading(self);
-                        self.logic.enter(cfg);
-                    });
-                }
-            },
-            leave: function () {
-                var self = this;
-                win.detach('resize', self.sync, self);
-            },
-            destructor: function () {
-                var self = this;
-                win.detach('resize', self.sync, self);
-            }
-        }, {
-            xclass: 'tb-loading-view'
-        });
+        var navigationView = new NavigationView({
+            loadingHtml: '<div class="ks-navigation-view-loading-outer">' +
+                '<div class="ks-navigation-view-loading-inner"></div>' +
+                '</div>',
+            render: 'body'
+        }).render();
 
-        router.get('/loading', function (request) {
+        var bar = new Bar({
+            navigationView: navigationView,
+            elBefore: navigationView.get('contentEl')
+        }).render();
+
+        router.get('/', function (request) {
             if (!request.backward) {
-                navigationView.replace({
-                    animation: [ 'slide-right', 'slide-left']
-                });
                 navigationView.push({
-                    xclass: 'tb-loading-view',
-                    title: 'loading'
+                    xclass: 'tb-index-view'
                 });
             }
         });
@@ -447,56 +368,6 @@ KISSY.use('util,' +
                     title: request.params.anim,
                     viewId: request.params.anim,
                     animation: animation
-                });
-            }
-        });
-
-        PageView.extend({
-            enter: function (cfg) {
-                // S.log('enter index ' + (cfg.fromCache ? 'from cache!' : ''));
-                win.on('resize', this.sync, this);
-                this.sync();
-            },
-
-            leave: function () {
-                S.log('leave index');
-                win.detach('resize', this.sync, this);
-            },
-
-            bindUI: function () {
-                this.$el.delegate(tap, '.list-item', this.onMenuItemClick, this);
-                this.$el.delegate(BasicGesture.START, '.list-item', function (e) {
-                    e.currentTarget.classList.add('list-item-active');
-                });
-                this.$el.delegate(BasicGesture.END, '.list-item', function (e) {
-                    e.currentTarget.classList.remove('list-item-active');
-                });
-
-                this.onScroll(function (top) {
-                    // S.log(top);
-                });
-            },
-
-            onMenuItemClick: function (e) {
-                router.navigate('/' + util.trim(e.currentTarget.innerText));
-
-            }
-        }, {
-            xclass: 'tb-index-view',
-            ATTRS: {
-                content: {
-                    value: menuContent
-                },
-                title: {
-                    value: 'navigation-view'
-                }
-            }
-        });
-
-        router.get('/', function (request) {
-            if (!request.backward) {
-                navigationView.push({
-                    xclass: 'tb-index-view'
                 });
             }
         });

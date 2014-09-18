@@ -33,8 +33,9 @@
 <div class="wrap">
     <div class="sidebar"></div>
     <div class="content">
-        hit hit hit hit hit hithit hit hithit hit hithit hit hit
-        hit hit hithit hit hithit hit hithit hit hithit hit hit
+        right content here
+        right content here
+        right content here
     </div>
 </div>
 <script src="http://g.tbcdn.cn/kissy/edge/2014.08.26/seed-debug.js"></script>
@@ -43,7 +44,6 @@
             var win = $(window);
 
             var navigationView = new NavigationView({
-                viewCacheSize: 5,
                 render: '.sidebar'
             }).render();
 
@@ -52,6 +52,13 @@
                 elBefore: navigationView.get('contentEl')
             }).render();
 
+            var TbDetailView = ScrollView.extend({}, {
+                xclass: 'tb-detail-view',
+                ATTRS: {
+                    plugins: [ScrollBar]
+                }
+            });
+
             var IndexView = ScrollView.extend({
                 bindUI: function () {
                     this.get('contentEl').delegate('click', '.list-item', this.onSelect, this);
@@ -59,9 +66,8 @@
                 onSelect: function (e) {
                     var content = e.currentTarget.innerHTML;
                     navigationView.push({
-                        xclass: 'index-view',
-                        viewId: 'level-' + (this.get('level') + 1),
-                        level: (this.get('level') + 1)
+                        xclass: 'tb-detail-view',
+                        content: content + ' detail!'
                     });
                 },
                 enter: function () {
@@ -73,27 +79,20 @@
                 },
                 createDom: function () {
                     var ret = [];
-                    var viewId = this.get('viewId');
                     for (var i = 0; i < 20; i++) {
-                        ret.push('<div class="list-item">' + viewId + '-' + i + '</div>');
+                        ret.push('<div class="list-item">' + i + '</div>');
                     }
                     this.get('contentEl').html(ret.join(''));
                 }
             }, {
-                xclass: 'index-view',
+                xclass: 'tb-index-view',
                 ATTRS: {
-                    plugins: {
-                        valueFn: function () {
-                            return [ScrollBar];
-                        }
-                    }
+                    plugins: [ScrollBar]
                 }
             });
 
             navigationView.push({
-                xclass: 'index-view',
-                viewId: 'level-0',
-                level: 0
+                xclass: 'tb-index-view'
             });
         });
 </script>

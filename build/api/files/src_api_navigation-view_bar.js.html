@@ -377,6 +377,40 @@
 @constructor
 @extends Component.Control
 @param config {Object}
+@example
+	modulex.use([&#x27;navigation-view&#x27;, &#x27;component/control&#x27;], function(NavigationView, Control){
+		var navigationView = new NavigationView({
+            loadingHtml: &#x27;&lt;div class=&quot;ks-navigation-view-loading-outer&quot;&gt;&#x27; +
+                &#x27;&lt;div class=&quot;ks-navigation-view-loading-inner&quot;&gt;&lt;/div&gt;&#x27; +
+                &#x27;&lt;/div&gt;&#x27;,
+            render: &#x27;body&#x27;
+        }).render();
+
+		var bar = new Bar({
+            navigationView: navigationView,
+            elBefore: navigationView.get(&#x27;contentEl&#x27;)
+        }).render();
+
+        var PageView = Control.extend({
+			createDom : function(){
+				//your code
+			},
+			bindUI : function(){
+		
+			},
+			enter : function(){
+	
+			}
+			//....more function
+        },{
+			xclass : &#x27;page-view&#x27;
+        });
+
+        navigationView.push({
+			xclass : &#x27;page-view&#x27;,
+			title : &#x27;PageView Title&#x27;
+        });
+	})
 */
 
 /**
@@ -417,6 +451,26 @@
 /**
 当返回上一个视图时触发返回事件。例如点击了返回按钮，浏览器后退等
 @event backward
+*/
+
+/**
+标题节点
+@attribute titleEl {Node}
+*/
+
+/**
+内容节点
+@attribute contentEl {Node}
+*/
+
+/**
+工具栏居中的节点
+@attribute centerEl {Node}
+*/
+
+/**
+标题内容
+@attribute title {String}
 */
 
     </pre>

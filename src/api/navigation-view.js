@@ -10,7 +10,34 @@
 @constructor
 @param config
 @example
+	modulex.use(['navigation-view', 'component/control'], function(NavigationView, Control){
+		var navigationView = new NavigationView({
+            loadingHtml: '<div class="ks-navigation-view-loading-outer">' +
+                '<div class="ks-navigation-view-loading-inner"></div>' +
+                '</div>',
+            render: 'body'
+        }).render();
 
+        var PageView = Control.extend({
+			createDom : function(){
+				//your code
+			},
+			bindUI : function(){
+		
+			},
+			enter : function(){
+	
+			}
+			//....more function
+        },{
+			xclass : 'page-view'
+        });
+
+        navigationView.push({
+			xclass : 'page-view',
+			title : 'PageView Title'
+        });
+	})
 */
 
 /**
@@ -50,6 +77,7 @@
 @param config.animation {Array|String} 可选，进入/离开视图的动画效果。意义同初始化 NavigationView 的 animation 配置。
 @param config.title {String} 视图标题。可选，如果使用 navigation-view/bar 插件的话将出现在上面。
 @param config.viewId {String} 可选，视图的唯一id。
+@param config.content {String} 视图内容
 */
 
 /**

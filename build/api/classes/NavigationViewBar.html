@@ -469,6 +469,47 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>modulex.use([&#39;navigation-view&#39;, &#39;component/control&#39;], function(NavigationView, Control){
+    var navigationView = new NavigationView({
+        loadingHtml: &#39;&lt;div class=&quot;ks-navigation-view-loading-outer&quot;&gt;&#39; +
+            &#39;&lt;div class=&quot;ks-navigation-view-loading-inner&quot;&gt;&lt;/div&gt;&#39; +
+            &#39;&lt;/div&gt;&#39;,
+        render: &#39;body&#39;
+    }).render();
+
+    var bar = new Bar({
+        navigationView: navigationView,
+        elBefore: navigationView.get(&#39;contentEl&#39;)
+    }).render();
+
+    var PageView = Control.extend({
+        createDom : function(){
+            //your code
+        },
+        bindUI : function(){
+
+        },
+        enter : function(){
+
+        }
+        //....more function
+    },{
+        xclass : &#39;page-view&#39;
+    });
+
+    navigationView.push({
+        xclass : &#39;page-view&#39;,
+        title : &#39;PageView Title&#39;
+    });
+})</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
     </div>
@@ -720,8 +761,16 @@
                                 <a href="#attr_backText">backText</a>
                             </li>
                         
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_centerEl">centerEl</a>
+                            </li>
+                        
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_content">content</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_contentEl">contentEl</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -806,6 +855,14 @@
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
                                 <a href="#attr_srcNode">srcNode</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_title">title</a>
+                            </li>
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_titleEl">titleEl</a>
                             </li>
                         
                             <li class="index-item attr inherited" inwhichtab="attrs">
@@ -3939,6 +3996,52 @@
 </div>
 
                 
+                    <div id="attr_centerEl" class="attr item">
+    <a name="config_centerEl"></a> 
+    <h3 class="name"><code>centerEl</code></h3>
+    <span class="type"><a href="../classes/Node.html" class="crosslink">Node</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>工具栏居中的节点</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="attr_content" class="attr item inherited">
     <a name="config_content"></a> 
     <h3 class="name"><code>content</code></h3>
@@ -3974,6 +4077,52 @@
 
     <div class="description">
         <p>设置的 content 属性</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_contentEl" class="attr item">
+    <a name="config_contentEl"></a> 
+    <h3 class="name"><code>contentEl</code></h3>
+    <span class="type"><a href="../classes/Node.html" class="crosslink">Node</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>内容节点</p>
 
     </div>
 
@@ -4975,6 +5124,98 @@ or
 
     <div class="description">
         <p>可选，组件从页面中已存在的该节点中渲染而来.srcNode 时设置其他属性不起作用，属性通通在 html 标签中指定，并且 html 标签必须包含完整结构，例如 content 节点必须存在</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_title" class="attr item">
+    <a name="config_title"></a> 
+    <h3 class="name"><code>title</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>标题内容</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_titleEl" class="attr item">
+    <a name="config_titleEl"></a> 
+    <h3 class="name"><code>titleEl</code></h3>
+    <span class="type"><a href="../classes/Node.html" class="crosslink">Node</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>标题节点</p>
 
     </div>
 

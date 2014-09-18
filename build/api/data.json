@@ -1912,6 +1912,9 @@
                     "description": "",
                     "type": "Object"
                 }
+            ],
+            "example": [
+                "\n\tmodulex.use(['navigation-view', 'component/control'], function(NavigationView, Control){\n\t\tvar navigationView = new NavigationView({\n            loadingHtml: '<div class=\"ks-navigation-view-loading-outer\">' +\n                '<div class=\"ks-navigation-view-loading-inner\"></div>' +\n                '</div>',\n            render: 'body'\n        }).render();\n\n\t\tvar bar = new Bar({\n            navigationView: navigationView,\n            elBefore: navigationView.get('contentEl')\n        }).render();\n\n        var PageView = Control.extend({\n\t\t\tcreateDom : function(){\n\t\t\t\t//your code\n\t\t\t},\n\t\t\tbindUI : function(){\n\t\t\n\t\t\t},\n\t\t\tenter : function(){\n\t\n\t\t\t}\n\t\t\t//....more function\n        },{\n\t\t\txclass : 'page-view'\n        });\n\n        navigationView.push({\n\t\t\txclass : 'page-view',\n\t\t\ttitle : 'PageView Title'\n        });\n\t})"
             ]
         },
         "Resizable.Plugin.Proxy": {
@@ -2777,7 +2780,7 @@
                 }
             ],
             "example": [
-                "\n"
+                "\n\tmodulex.use(['navigation-view', 'component/control'], function(NavigationView, Control){\n\t\tvar navigationView = new NavigationView({\n            loadingHtml: '<div class=\"ks-navigation-view-loading-outer\">' +\n                '<div class=\"ks-navigation-view-loading-inner\"></div>' +\n                '</div>',\n            render: 'body'\n        }).render();\n\n        var PageView = Control.extend({\n\t\t\tcreateDom : function(){\n\t\t\t\t//your code\n\t\t\t},\n\t\t\tbindUI : function(){\n\t\t\n\t\t\t},\n\t\t\tenter : function(){\n\t\n\t\t\t}\n\t\t\t//....more function\n        },{\n\t\t\txclass : 'page-view'\n        });\n\n        navigationView.push({\n\t\t\txclass : 'page-view',\n\t\t\ttitle : 'PageView Title'\n        });\n\t})"
             ]
         },
         "Node": {
@@ -6131,7 +6134,7 @@
         },
         {
             "file": "src/api/navigation-view/bar.js",
-            "line": 14,
+            "line": 48,
             "description": "对应的 navigationView",
             "itemtype": "attribute",
             "name": "navigationView",
@@ -6141,7 +6144,7 @@
         },
         {
             "file": "src/api/navigation-view/bar.js",
-            "line": 19,
+            "line": 53,
             "description": "是否带有返回按钮",
             "itemtype": "attribute",
             "name": "withBackButton",
@@ -6152,7 +6155,7 @@
         },
         {
             "file": "src/api/navigation-view/bar.js",
-            "line": 25,
+            "line": 59,
             "description": "返回按钮的文本内容",
             "itemtype": "attribute",
             "name": "backText",
@@ -6163,7 +6166,7 @@
         },
         {
             "file": "src/api/navigation-view/bar.js",
-            "line": 31,
+            "line": 65,
             "description": "是否能聚焦。聚焦时会在组件根节点添加class : {prefixCls}navigation-bar-focused",
             "itemtype": "attribute",
             "name": "focusable",
@@ -6174,7 +6177,7 @@
         },
         {
             "file": "src/api/navigation-view/bar.js",
-            "line": 37,
+            "line": 71,
             "description": "是否允许在视图内选取文本",
             "itemtype": "attribute",
             "name": "allowTextSelection",
@@ -6185,7 +6188,7 @@
         },
         {
             "file": "src/api/navigation-view/bar.js",
-            "line": 43,
+            "line": 77,
             "description": "是否显示标题",
             "itemtype": "attribute",
             "name": "withTitle",
@@ -6196,10 +6199,50 @@
         },
         {
             "file": "src/api/navigation-view/bar.js",
-            "line": 49,
+            "line": 83,
             "description": "当返回上一个视图时触发返回事件。例如点击了返回按钮，浏览器后退等",
             "itemtype": "event",
             "name": "backward",
+            "class": "NavigationViewBar",
+            "module": "navigation-view/bar"
+        },
+        {
+            "file": "src/api/navigation-view/bar.js",
+            "line": 88,
+            "description": "标题节点",
+            "itemtype": "attribute",
+            "name": "titleEl",
+            "type": "Node",
+            "class": "NavigationViewBar",
+            "module": "navigation-view/bar"
+        },
+        {
+            "file": "src/api/navigation-view/bar.js",
+            "line": 93,
+            "description": "内容节点",
+            "itemtype": "attribute",
+            "name": "contentEl",
+            "type": "Node",
+            "class": "NavigationViewBar",
+            "module": "navigation-view/bar"
+        },
+        {
+            "file": "src/api/navigation-view/bar.js",
+            "line": 98,
+            "description": "工具栏居中的节点",
+            "itemtype": "attribute",
+            "name": "centerEl",
+            "type": "Node",
+            "class": "NavigationViewBar",
+            "module": "navigation-view/bar"
+        },
+        {
+            "file": "src/api/navigation-view/bar.js",
+            "line": 103,
+            "description": "标题内容",
+            "itemtype": "attribute",
+            "name": "title",
+            "type": "String",
             "class": "NavigationViewBar",
             "module": "navigation-view/bar"
         },
@@ -13034,7 +13077,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 16,
+            "line": 43,
             "description": "进入/离开视图的动画效果。如果是数组则是相对应的两个值，left -> right, top -> bottom，如果是字符串则是单个值，如'fade'可选择的动画效果有：none/slide-top/fade/dissolve/pop/flip-left/swap-left/cube-left/flow-left/turn",
             "itemtype": "attribute",
             "name": "animation",
@@ -13045,7 +13088,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 22,
+            "line": 49,
             "description": "正在加载时的内容",
             "itemtype": "attribute",
             "name": "loadingHtml",
@@ -13055,7 +13098,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 27,
+            "line": 54,
             "description": "缓存的视图的最大数量，超过最大值则需要重新加载/渲染",
             "itemtype": "attribute",
             "name": "viewCacheSize",
@@ -13066,7 +13109,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 33,
+            "line": 60,
             "description": "是否能聚焦。聚焦时会在组件根节点添加class : {prefixCls}navigation-view-focused",
             "itemtype": "attribute",
             "name": "focusable",
@@ -13077,7 +13120,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 39,
+            "line": 66,
             "description": "是否允许在视图内选取文本",
             "itemtype": "attribute",
             "name": "allowTextSelection",
@@ -13088,7 +13131,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 45,
+            "line": 72,
             "description": "往视图堆栈添加一个视图。",
             "itemtype": "method",
             "name": "push",
@@ -13117,6 +13160,11 @@
                             "name": "viewId",
                             "description": "可选，视图的唯一id。",
                             "type": "String"
+                        },
+                        {
+                            "name": "content",
+                            "description": "视图内容",
+                            "type": "String"
                         }
                     ]
                 }
@@ -13126,7 +13174,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 55,
+            "line": 83,
             "description": "替换当前视图的配置",
             "itemtype": "method",
             "name": "replace",
@@ -13142,7 +13190,7 @@
         },
         {
             "file": "src/api/navigation-view.js",
-            "line": 61,
+            "line": 89,
             "description": "从视图堆栈里弹出当前视图，返回上一个视图。并自动调用当前视图类的内部方法leave，若手动调用了视图的destroy方法，则会随后进入其内部方法destructor。",
             "itemtype": "method",
             "name": "pop",
