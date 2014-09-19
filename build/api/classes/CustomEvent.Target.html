@@ -268,9 +268,9 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=editor href="/5.0/api/modules/editor.html">editor</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=event/custom href="/5.0/api/modules/event_custom.html">event/custom</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=event-custom href="/5.0/api/modules/event-custom.html">event-custom</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=event/dom href="/5.0/api/modules/event_dom.html">event/dom</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=event-dom href="/5.0/api/modules/event-dom.html">event-dom</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=feature href="/5.0/api/modules/feature.html">feature</a></li>
             
@@ -374,7 +374,7 @@
 
     
         
-            Module: <a href="../modules/event_custom.html">event/custom</a>
+            Module: <a href="../modules/event-custom.html">event-custom</a>
         
     
 
@@ -387,7 +387,7 @@
     <p>通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件。此外，如果要自定义事件也可以直接拓展 Base。</p>
 <p><strong>Note</strong></p>
 <p>注意 CustomEvent.Target 仅用于 mix/augment ，不可以直接使用。使用示例：</p>
-<pre class="code prettyprint"><code>KISSY.use(&#39;util,event/custom&#39;, function(S, Util, CustomEvent){
+<pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event-custom&#39;], function(Util, CustomEvent){
     function Dog(name){
         this.name = name;
     }
@@ -574,7 +574,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&quot;util,event/custom&quot;, function(S, Util, CustomEvent) {
+                <pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
     function Custom(id){
         this.id = id;
         this.publish(&quot;run&quot;,{
@@ -681,7 +681,7 @@
                     
 
                     <div class="param-description">
-                         
+                        
                     </div>
 
                     

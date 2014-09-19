@@ -107,8 +107,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "dd_plugin_scroll",
         "dom",
         "editor",
-        "event_custom",
-        "event_dom",
+        "event-custom",
+        "event-dom",
         "feature",
         "filter-menu",
         "io",
@@ -258,13 +258,13 @@ YUI.add("yuidoc-meta", function(Y) {
             "name": "editor"
         },
         {
-            "displayName": "event/custom",
-            "name": "event_custom",
+            "displayName": "event-custom",
+            "name": "event-custom",
             "description": "自定义事件模块"
         },
         {
-            "displayName": "event/dom",
-            "name": "event_dom",
+            "displayName": "event-dom",
+            "name": "event-dom",
             "description": "根据设备环境加载响应的子模块来处理 DOM 的事件模块"
         },
         {

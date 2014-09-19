@@ -268,9 +268,9 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=editor href="/5.0/api/modules/editor.html">editor</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=event/custom href="/5.0/api/modules/event_custom.html">event/custom</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=event-custom href="/5.0/api/modules/event-custom.html">event-custom</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=event/dom href="/5.0/api/modules/event_dom.html">event/dom</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=event-dom href="/5.0/api/modules/event-dom.html">event-dom</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=feature href="/5.0/api/modules/feature.html">feature</a></li>
             
@@ -1628,7 +1628,7 @@ KISSY.use([&#39;tree&#39;, &#39;node&#39;], function(S, Tree, $){
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&quot;util,event/custom&quot;, function(S, Util, CustomEvent) {
+                <pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
     function Custom(id){
         this.id = id;
         this.publish(&quot;run&quot;,{

@@ -1,12 +1,12 @@
 /**
 根据设备环境加载响应的子模块来处理 DOM 的事件模块
-@module event/dom
+@module event-dom
 */
 
 /**
 处理 DOM 事件。DomEvent处理标准的event事件，除此之外还拓展了下面介绍的 Events 
 ```
-KISSY.use('event/dom', function(S, DomEvent){
+modulex.use('event-dom', function(DomEvent){
     DomEvent.on(document.body,{
         'click':{
             fn:function(){
@@ -217,6 +217,7 @@ fireHandler 和 fire 的区别在于:
 - fireHandler 只会执行当前节点的处理函数
 */
 
+
 /**
 原生只有 ie 支持 focusin 事件，而 kissy 对这一事件进行了 [兼容性处理](http://yiminghe.iteye.com/blog/813255)
 但一个元素获得焦点或者其子孙元素获得焦点时， focusin 会在该元素上触发（没被子孙元素阻止）。这就是和 focus 事件的区别之处 : 你可以在父元素上监控子元素的 focus 事件，即 focusin 事件支持冒泡.
@@ -245,127 +246,16 @@ fireHandler 和 fire 的区别在于:
 
 @example
 ```
-KISSY.use('node,event/dom', function(S, Node, DomEvent){
-	var $ = Node.all;
-	$(window).on("hashchange",function(){
-	    // location.hash -> 当前 hash 值
-	});
+modulex.use(['node', 'event/dom'], function($, DomEvent){
+    $(window).on("hashchange",function(){
+        // location.hash -> 当前 hash 值
+    });
 })
 
 ```
 */
 
-
 /**
-模拟 ie 有但是其他浏览器却没的最有用的事件[mouseenter](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-mouseenter)
-
-__mouseenter 不会冒泡，想要代理这个事件的话用 delegate() 方法__
-@event mouseenter
-*/
-
-/**
-模拟 ie 有但是其他浏览器却没的最有用的事件[mouseleave](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-mouseleave)
-
-__mouseleave 不会冒泡，想要代理这个事件的话用 delegate() 方法__
-@event mouseleave
-*/
-
-/**
-对 mousewheel 事件做了浏览器兼容性处理
-滚轮事件有两个属性:
-- e.deltaY (Number) – 纵向滚动幅度，一般是正数表示向上滚动，负数表示向下滚动
-- e.deltaX (Number) – 横向滚动幅度，一般是正数表示向左滚动，负数表示向右滚动
-@event mousewheel
-*/
-
-/**
-触屏上的双击事件
-@event doubleTap
-*/
-
-/**
-触屏上的单击事件,和双击互斥
-
-当快速点击某个 dom 节点一次（短时间没有再次点击）后触发
-@event singleTap
-*/
-
-/**
-触屏上的单击事件,可用 preventDefault 防止链接点击跳转
-
-当点击某个 dom 节点后触发， 和 singleTap 的不同支持载入： 触发 doubleTap 就不会触发 singleTap， 而触发 doubleTap 前会触发 tap
-@event tap
-*/
-
-/**
-当长按某个 dom 节点超过 1s 后触发
-@event tapHold
-*/
-
-/**
-触屏上开始用双指旋转某个 dom 元素时触发
-包括格外下面的属性：
-- angle {Number} 开始时双指的角度值
-- rotation {Number} 固定为 0
-@event rotateStart
-*/
-
-/**
-触屏上用双指旋转某个 dom 元素时出现
-包括格外下面的属性：
-- angle {Number} 开始时双指的角度值
-- rotation {Number} 双指和开始相比改变的角度值
-@event rotate
-*/
-
-/**
-触屏上用双指旋转某个 dom 元素结束时触发
-@event rotateEnd
-*/
-
-/**
-触屏上开始用双指调整某个 dom 元素大小时触发
-包括格外下面的属性：
-- distance {Number} 开始时双指的绝对距离
-- scale {Number} 固定为 1
-@event pinchStart
-*/
-
-/**
-触屏上开始用双指调整某个 dom 元素大小时出现
-包括格外下面的属性：
-- distance {Number} 开始时双指的绝对距离
-- scale {Number} 固定为 1
-@event pinch
-*/
-
-/**
-触屏上用双指调整某个 dom 元素大小后触发
-@event pinchEnd
-*/
-
-/**
-当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备
-@event shake
-*/
-
-/**
-为了兼容移动与pc， kissy event 提供了手势事件.
-
-__手势开始事件__
-@event start
-*/
-
-/**
-为了兼容移动与pc， kissy event 提供了手势事件.
-
-__手势进行事件__
-@event move
-*/
-
-/**
-为了兼容移动与pc， kissy event 提供了手势事件.
-
-__手势结束事件__
-@event end
+当input元素的值改变时触发
+@event input
 */

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/api/event/custom.js - API Documentation — KISSY v5.0 Documentation</title>
+    <title>event-dom - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
     <link rel="stylesheet" href="/5.0/assets/css/custom.css">
@@ -268,9 +268,9 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=editor href="/5.0/api/modules/editor.html">editor</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=event/custom href="/5.0/api/modules/event_custom.html">event/custom</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=event-custom href="/5.0/api/modules/event-custom.html">event-custom</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=event/dom href="/5.0/api/modules/event_dom.html">event/dom</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=event-dom href="/5.0/api/modules/event-dom.html">event-dom</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=feature href="/5.0/api/modules/feature.html">feature</a></li>
             
@@ -366,130 +366,45 @@
                 <div class="apidocs">
                     <div id="docs-main">
                         <div class="content">
-                            <h1 class="file-heading">File: src/api/event/custom.js</h1>
+                            <h1 id="event-dom">event-dom Module</h1>
+<div class="box clearfix meta">
+    
 
-<div class="file">
-    <pre class="code prettyprint linenums">
-/**
-自定义事件模块
-@module event/custom
-*/
+    
 
 
-/**
-通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件。此外，如果要自定义事件也可以直接拓展 Base。
+    
+</div>
 
-__Note__
 
-注意 CustomEvent.Target 仅用于 mix/augment ，不可以直接使用。使用示例：
-&#x60;&#x60;&#x60;
-KISSY.use(&#x27;util,event/custom&#x27;, function(S, Util, CustomEvent){
-	function Dog(name){
-		this.name = name;
-	}
-	Util.augment(Dog, CustomEvent.Target, {
-		shout : function(){
-			this.fire(&#x27;shout&#x27;,{
-				content : &#x27;I am hungry...&#x27;
-			});
-		}
-	});
-	var myDog = new Dog(&#x27;cuteDog&#x27;);
-	myDog.on(&#x27;shout&#x27;, function(ev){
-		alert(this.name + &#x27;say that &#x27; + ev.conent);
-	});
 
-	myDog.shout();
-})
+<div class="box intro">
+    <p>根据设备环境加载响应的子模块来处理 DOM 的事件模块</p>
 
-&#x60;&#x60;&#x60;
-@class Target
-@namespace CustomEvent
-*/
+</div>
 
-/**
-触发绑定 type 类型的事件处理器, 并给触发的事件处理器的事件对象参数中混入数据 eventData
-@method fire
-@param type {String} 要触发的自定义事件名称
-@param eventData {Object} 要混入触发事件对象的数据对象
-@return {Boolean} 如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值
-*/
 
-/**
-配置自定义事件的一些特有信息
-@method publish
-@param type {String} 要触发的自定义事件名称
-@param cfg {Object} 事件的具体配置对象
-@param [cfg.bubbles=true] {Boolean} 类型 boolean. 是否支持冒泡。 默认 true
-@param [cfg.defaultFn] {Function}
-*/
 
-/**
-添加冒泡事件源对象
-@method addTarget
-@param target {Object} 事件往上冒泡的事件源
-@example
-&#x60;&#x60;&#x60;
-KISSY.use(&quot;util,event/custom&quot;, function(S, Util, CustomEvent) {
-    function Custom(id){
-        this.id = id;
-        this.publish(&quot;run&quot;,{
-            bubbles:1
-        });
-    }
+<div class="yui3-g">
+    <div class="yui3-u-1-2">
+        
+            <p>This module provides the following classes:</p>
 
-    Util.augment(Custom, CustomEvent.Target);
+            <ul class="module-classes">
+            
+                <li class="module-class">
+                    <a href="../classes/DomEvent.html">
+                        DomEvent
+                    </a>
+                </li>
+            
+            </ul>
+        
+    </div>
 
-    var c1 = new Custom(&quot;c1&quot;);
-
-    var c2 = new Custom(&quot;c1&quot;);
-
-    c1.addTarget(c2);
-
-    c2.on(&quot;run&quot;,function(e){
-        S.log(e.target.id +&quot; fires event run&quot;); // =&gt; c1 fires event run
-    });
-
-    c1.fire(&quot;run&quot;);
-});
-&#x60;&#x60;&#x60;
-*/
-
-/**
-删除冒泡事件源对象
-@method removeTarget
-@param target {Object} 事件往上冒泡的事件源
-*/
-
-/**
-为相应事件添加事件处理器
-@method on
-@param eventType {String|Object} 
-- 当为String时 包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 &quot;click.one&quot; , &quot;click.two&quot;
-- 当为Object时，类似这样：
-&#x60;&#x60;&#x60;
-{
-    &#x27;click&#x27;:{
-        fn:function(){
-        },
-        filter: &#x27;&#x27; // delegate,
-        once:true // 绑定一次
-    },
-    &#x27;mouseenter&#x27;:function(){}
-}
-&#x60;&#x60;&#x60;
-@param fn {Function} 当事件触发时的回调函数
-@param [scope] {Object} 回调函数的 this 值. 如果不指定默认为绑定事件的当前元素
-*/
-
-/**
-解除绑定的事件处理器
-@method detach
-@param eventType {String|Object} 
-@param fn {Function} 当事件触发时的回调函数
-@param [scope] {Object} 回调函数的 this 值. 如果不指定默认为绑定事件的当前元素
-*/
-    </pre>
+    <div class="yui3-u-1-2">
+        
+    </div>
 </div>
 
                         </div>
