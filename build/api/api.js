@@ -58,6 +58,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Path",
         "Promise",
         "Promise.Defer",
+        "Querystring",
         "Resizable",
         "Resizable.Plugin.Proxy",
         "SWF",
@@ -121,6 +122,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "overlay",
         "path",
         "promise",
+        "querystring",
         "resizable",
         "resizable_plugin_proxy",
         "scroll-view",
@@ -321,6 +323,11 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "promise",
             "name": "promise"
+        },
+        {
+            "displayName": "querystring",
+            "name": "querystring",
+            "description": "提供JSON对象与querystring相互转换的方法"
         },
         {
             "displayName": "resizable",

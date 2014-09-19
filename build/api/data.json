@@ -580,6 +580,17 @@
                 "Promise": 1
             }
         },
+        "src/api/querystring.js": {
+            "name": "src/api/querystring.js",
+            "modules": {
+                "querystring": 1
+            },
+            "classes": {
+                "Querystring": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/api/resizable.js": {
             "name": "src/api/resizable.js",
             "modules": {
@@ -1348,6 +1359,19 @@
             "tag": "module",
             "file": "src/api/promise.js",
             "line": 111
+        },
+        "querystring": {
+            "name": "querystring",
+            "submodules": {},
+            "classes": {
+                "Querystring": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/querystring.js",
+            "line": 6,
+            "description": "提供JSON对象与querystring相互转换的方法"
         },
         "resizable": {
             "name": "resizable",
@@ -2952,6 +2976,21 @@
             "return": {
                 "description": "Defer 实例，用于逻辑内部控制成功或失败，返回 promise 供外部监听"
             }
+        },
+        "Querystring": {
+            "name": "Querystring",
+            "shortname": "Querystring",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "querystring",
+            "namespace": "",
+            "file": "src/api/querystring.js",
+            "line": 6,
+            "description": "提供JSON对象与querystring相互转换的方法\n\n使用示例：\n\n\tmodulex.use(['querystring'], function(Querystring){\n\t    var obj = {\n\t\t\tfoo : 1,\n\t\t\tbar : [2, 3]\t\n\t    };\n\t    Querystring.stringify(obj); // foo=1&bar%5B%5D=2&bar%5B%5D=3 \n\n\t    var str = 'section=blog&tag=js&tag=doc';\n\t    Querystring.parse(str);  // {section: 'blog', tag: ['js', 'doc']}\n\t});",
+            "static": 1
         },
         "Resizable": {
             "name": "Resizable",
@@ -14750,6 +14789,81 @@
             "class": "Promise.Defer",
             "module": "promise",
             "namespace": "Promise"
+        },
+        {
+            "file": "src/api/querystring.js",
+            "line": 26,
+            "description": "将一个JSON对象/数组转为querystring",
+            "itemtype": "method",
+            "name": "stringify",
+            "params": [
+                {
+                    "name": "o",
+                    "description": "JSON对象或数组",
+                    "type": "Object|Array"
+                },
+                {
+                    "name": "sep",
+                    "description": "每一对键值之间的分隔符。默认为 '$'",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "'&'"
+                },
+                {
+                    "name": "eq",
+                    "description": "key 与 value 之间的分隔符。默认为 '='",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "'"
+                },
+                {
+                    "name": "serializeArray",
+                    "description": "如果含有数组，是否需要在数组key后加上 [] 标识。默认为true",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Querystring",
+            "module": "querystring"
+        },
+        {
+            "file": "src/api/querystring.js",
+            "line": 36,
+            "description": "将querystring转为JSON对象/数组",
+            "itemtype": "method",
+            "name": "parse",
+            "params": [
+                {
+                    "name": "str",
+                    "description": "querystring",
+                    "type": "String"
+                },
+                {
+                    "name": "sep",
+                    "description": "每一对键值之间的分隔符。默认为 '$'",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "'&'"
+                },
+                {
+                    "name": "eq",
+                    "description": "key 与 value 之间的分隔符。默认为 '='",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "'"
+                }
+            ],
+            "return": {
+                "description": "JSON对象或数组",
+                "type": "Object|Array"
+            },
+            "class": "Querystring",
+            "module": "querystring"
         },
         {
             "file": "src/api/resizable.js",

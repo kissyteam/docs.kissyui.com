@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>overlay - API Documentation — KISSY v5.0 Documentation</title>
+    <title>src/api/querystring.js - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
     <link rel="stylesheet" href="/5.0/assets/css/custom.css">
@@ -366,56 +366,54 @@
                 <div class="apidocs">
                     <div id="docs-main">
                         <div class="content">
-                            <h1 id="overlay">overlay Module</h1>
-<div class="box clearfix meta">
-    
+                            <h1 class="file-heading">File: src/api/querystring.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+提供JSON对象与querystring相互转换的方法
+@module querystring
+*/
 
+/**
+提供JSON对象与querystring相互转换的方法
 
-    
-</div>
+使用示例：
 
+	modulex.use([&#x27;querystring&#x27;], function(Querystring){
+	    var obj = {
+			foo : 1,
+			bar : [2, 3]	
+	    };
+	    Querystring.stringify(obj); // foo=1&amp;bar%5B%5D=2&amp;bar%5B%5D=3 
 
+	    var str = &#x27;section=blog&amp;tag=js&amp;tag=doc&#x27;;
+	    Querystring.parse(str);  // {section: &#x27;blog&#x27;, tag: [&#x27;js&#x27;, &#x27;doc&#x27;]}
+	});
+	
+@class Querystring
+@static
+*/
 
-<div class="box intro">
-    
-</div>
+/**
+将一个JSON对象/数组转为querystring
+@method stringify
+@param o {Object|Array} JSON对象或数组
+@param [sep=&#x27;&amp;&#x27;] {String} 每一对键值之间的分隔符。默认为 &#x27;$&#x27;
+@param [eq=&#x27;=&#x27;] {String} key 与 value 之间的分隔符。默认为 &#x27;=&#x27;
+@param [serializeArray=true] {Boolean} 如果含有数组，是否需要在数组key后加上 [] 标识。默认为true
+@return {String}
+*/
 
-
-
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/Overlay.html">
-                        Overlay
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Overlay.Dialog.html">
-                        Overlay.Dialog
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Overlay.Popup.html">
-                        Overlay.Popup
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+/**
+将querystring转为JSON对象/数组
+@method parse
+@param str {String} querystring
+@param [sep=&#x27;&amp;&#x27;] {String} 每一对键值之间的分隔符。默认为 &#x27;$&#x27;
+@param [eq=&#x27;=&#x27;] {String} key 与 value 之间的分隔符。默认为 &#x27;=&#x27;
+@return {Object|Array} JSON对象或数组
+*/
+    </pre>
 </div>
 
                         </div>
