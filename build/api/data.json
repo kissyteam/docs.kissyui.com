@@ -212,6 +212,83 @@
                 "DD.Plugin": 1
             }
         },
+        "src/api/event-dom/gesture/basic.js": {
+            "name": "src/api/event-dom/gesture/basic.js",
+            "modules": {
+                "event-dom/gesture/basic": 1
+            },
+            "classes": {
+                "GestureBasic": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/api/event-dom/gesture/pan.js": {
+            "name": "src/api/event-dom/gesture/pan.js",
+            "modules": {
+                "event-dom/gesture/pan": 1
+            },
+            "classes": {
+                "GesturePan": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/api/event-dom/gesture/pinch.js": {
+            "name": "src/api/event-dom/gesture/pinch.js",
+            "modules": {
+                "event-dom/gesture/pinch": 1
+            },
+            "classes": {
+                "GesturePinch": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/api/event-dom/gesture/rotate.js": {
+            "name": "src/api/event-dom/gesture/rotate.js",
+            "modules": {
+                "event-dom/gesture/rotate": 1
+            },
+            "classes": {
+                "GestureRotate": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/api/event-dom/gesture/shake.js": {
+            "name": "src/api/event-dom/gesture/shake.js",
+            "modules": {
+                "event-dom/gesture/shake": 1
+            },
+            "classes": {
+                "GestureShake": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/api/event-dom/gesture/swipe.js": {
+            "name": "src/api/event-dom/gesture/swipe.js",
+            "modules": {
+                "event-dom/gesture/swipe": 1
+            },
+            "classes": {
+                "GestureSwipe": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/api/event-dom/gesture/tap.js": {
+            "name": "src/api/event-dom/gesture/tap.js",
+            "modules": {
+                "event-dom/gesture/tap": 1
+            },
+            "classes": {
+                "GestureTap": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/api/navigation-view/bar.js": {
             "name": "src/api/navigation-view/bar.js",
             "modules": {
@@ -947,6 +1024,97 @@
             "tag": "module",
             "file": "src/api/dd/plugin/scroll.js",
             "line": 5
+        },
+        "event-dom/gesture/basic": {
+            "name": "event-dom/gesture/basic",
+            "submodules": {},
+            "classes": {
+                "GestureBasic": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/event-dom/gesture/basic.js",
+            "line": 6,
+            "description": "基本手势事件"
+        },
+        "event-dom/gesture/pan": {
+            "name": "event-dom/gesture/pan",
+            "submodules": {},
+            "classes": {
+                "GesturePan": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/event-dom/gesture/pan.js",
+            "line": 6,
+            "description": "拖动手势事件"
+        },
+        "event-dom/gesture/pinch": {
+            "name": "event-dom/gesture/pinch",
+            "submodules": {},
+            "classes": {
+                "GesturePinch": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/event-dom/gesture/pinch.js",
+            "line": 6,
+            "description": "pinch手势事件"
+        },
+        "event-dom/gesture/rotate": {
+            "name": "event-dom/gesture/rotate",
+            "submodules": {},
+            "classes": {
+                "GestureRotate": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/event-dom/gesture/rotate.js",
+            "line": 6,
+            "description": "旋转手势事件"
+        },
+        "event-dom/gesture/shake": {
+            "name": "event-dom/gesture/shake",
+            "submodules": {},
+            "classes": {
+                "GestureShake": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/event-dom/gesture/shake.js",
+            "line": 6,
+            "description": "摇动手势事件"
+        },
+        "event-dom/gesture/swipe": {
+            "name": "event-dom/gesture/swipe",
+            "submodules": {},
+            "classes": {
+                "GestureSwipe": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/event-dom/gesture/swipe.js",
+            "line": 6,
+            "description": "滑动手势事件"
+        },
+        "event-dom/gesture/tap": {
+            "name": "event-dom/gesture/tap",
+            "submodules": {},
+            "classes": {
+                "GestureTap": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/event-dom/gesture/tap.js",
+            "line": 6,
+            "description": "点击手势事件"
         },
         "navigation-view/bar": {
             "name": "navigation-view/bar",
@@ -1883,6 +2051,111 @@
                     "type": "Object"
                 }
             ]
+        },
+        "GestureBasic": {
+            "name": "GestureBasic",
+            "shortname": "GestureBasic",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "event-dom/gesture/basic",
+            "namespace": "",
+            "file": "src/api/event-dom/gesture/basic.js",
+            "line": 6,
+            "description": "基本手势事件。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/basic'], function($, GestureBasic){\n\t\t$(window).on(GestureBasic.START, function(ev){\n\t\t\t//touch start...\n\t\t});\n\t\t$(window).on(GestureBasic.MOVE, function(ev){\n\t\t\t//touch move...\n\t\t});\n\t\t$(window).on(GestureBasic.END, function(ev){\n\t\t\t//touch end...\n\t\t});\n\t});",
+            "static": 1
+        },
+        "GesturePan": {
+            "name": "GesturePan",
+            "shortname": "GesturePan",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "event-dom/gesture/pan",
+            "namespace": "",
+            "file": "src/api/event-dom/gesture/pan.js",
+            "line": 6,
+            "description": "拖动手势事件。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/pan'], function($, GesturePan){\n\t\t$(#test).on(GesturePan.PAN_START, function(ev){\n\t\t\t//pan start...\n\t\t});\n\t\t$(#test).on(GesturePan.PAN, function(ev){\n\t\t\t//paning...\n\t\t});\n\t\t$(#test).on(GesturePan.PAN_END, function(ev){\n\t\t\t//pan end...\n\t\t});\n\t});",
+            "static": 1
+        },
+        "GesturePinch": {
+            "name": "GesturePinch",
+            "shortname": "GesturePinch",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "event-dom/gesture/pinch",
+            "namespace": "",
+            "file": "src/api/event-dom/gesture/pinch.js",
+            "line": 6,
+            "description": "pinch手势事件，触屏上开始用双指调整某个 dom 元素大小时触发。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/pinch'], function($, GesturePinch){\n\t\t$(#test).on(GesturePinch.PINCH_START, function(ev){\n\t\t\t//pinch start...\n\t\t});\n\t\t$(#test).on(GesturePinch.PINCH, function(ev){\n\t\t\t//pinching...\n\t\t});\n\t\t$(#test).on(GesturePinch.PINCH_END, function(ev){\n\t\t\t//pinch end...\n\t\t});\n\t});",
+            "static": 1
+        },
+        "GestureRotate": {
+            "name": "GestureRotate",
+            "shortname": "GestureRotate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "event-dom/gesture/rotate",
+            "namespace": "",
+            "file": "src/api/event-dom/gesture/rotate.js",
+            "line": 6,
+            "description": "旋转手势事件，触屏上开始用双指旋转某个 dom 元素大小时触发。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/rotate'], function($, GestureRotate){\n\t\t$(#test).on(GestureRotate.ROTATE_START, function(ev){\n\t\t\t//rotate start...\n\t\t});\n\t\t$(#test).on(GestureRotate.ROTATE, function(ev){\n\t\t\t//rotating...\n\t\t});\n\t\t$(#test).on(GestureRotate.ROTATE_END, function(ev){\n\t\t\t//rotate end...\n\t\t});\n\t});",
+            "static": 1
+        },
+        "GestureShake": {
+            "name": "GestureShake",
+            "shortname": "GestureShake",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "event-dom/gesture/shake",
+            "namespace": "",
+            "file": "src/api/event-dom/gesture/shake.js",
+            "line": 6,
+            "description": "摇动手势事件。当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/shake'], function($, GestureShake){\n\t\t$(window).on(GestureShake.SHAKE, function(ev){\n\t\t\t//device is shaked...\n\t});",
+            "static": 1
+        },
+        "GestureSwipe": {
+            "name": "GestureSwipe",
+            "shortname": "GestureSwipe",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "event-dom/gesture/swipe",
+            "namespace": "",
+            "file": "src/api/event-dom/gesture/swipe.js",
+            "line": 6,
+            "description": "滑动手势事件。当用户在屏幕上“有效”滑动时触发（足够短的时间内滑动足够的距离）。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/swipe'], function($, GestureSwipe){\n\t\t$(window).on(GestureSwipe.SWIPE, function(ev){\n\t\t\t//swiped\n\t});",
+            "static": 1
+        },
+        "GestureTap": {
+            "name": "GestureTap",
+            "shortname": "GestureTap",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "event-dom/gesture/tap",
+            "namespace": "",
+            "file": "src/api/event-dom/gesture/tap.js",
+            "line": 6,
+            "description": "点击手势事件\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/tap'], function($, GestureTap){\n\t\t$('#test').on(GestureTap.TAP, function(ev){\n\t\t\t//taped...\n\t\t})\n\t})",
+            "static": 1
         },
         "NavigationViewBar": {
             "name": "NavigationViewBar",
@@ -5620,6 +5893,168 @@
             "class": "DD.Plugin.Scroll",
             "module": "dd/plugin/scroll",
             "namespace": "DD.Plugin"
+        },
+        {
+            "file": "src/api/event-dom/gesture/basic.js",
+            "line": 27,
+            "description": "手势开始事件",
+            "itemtype": "event",
+            "name": "START",
+            "class": "GestureBasic",
+            "module": "event-dom/gesture/basic"
+        },
+        {
+            "file": "src/api/event-dom/gesture/basic.js",
+            "line": 32,
+            "description": "手势进行事件",
+            "itemtype": "event",
+            "name": "MOVE",
+            "class": "GestureBasic",
+            "module": "event-dom/gesture/basic"
+        },
+        {
+            "file": "src/api/event-dom/gesture/basic.js",
+            "line": 37,
+            "description": "手势结束事件",
+            "itemtype": "event",
+            "name": "END",
+            "class": "GestureBasic",
+            "module": "event-dom/gesture/basic"
+        },
+        {
+            "file": "src/api/event-dom/gesture/pan.js",
+            "line": 27,
+            "description": "开始拖动某个 dom 元素时触发\n返回的事件对象包括格外下面的属性：\n- deltaX {Number} 当前触点位置与开始拖动时的位置的横坐标差值\n- deltaX {Number} 当前触点位置与开始拖动时的位置的纵坐标差值\n- startTime {Number} 拖动开始时间\n- gestureType {String} 'mouse'或'touch'\n- direction {String} 方向 ： left/right/up/down",
+            "itemtype": "event",
+            "name": "PAN_START",
+            "class": "GesturePan",
+            "module": "event-dom/gesture/pan"
+        },
+        {
+            "file": "src/api/event-dom/gesture/pan.js",
+            "line": 38,
+            "description": "拖动某个 dom 元素进行时触发\n返回的事件对象包括格外下面的属性：\n- pageX {Number} 触点横坐标\n- pageY {Number} 触点纵坐标\n- deltaX {Number} 当前触点位置与开始拖动时的位置的横坐标差值\n- deltaX {Number} 当前触点位置与开始拖动时的位置的纵坐标差值\n- startTime {Number} 拖动开始时间\n- gestureType {String} 'mouse'或'touch'\n- direction {String} 方向 ： left/right/up/down",
+            "itemtype": "event",
+            "name": "PAN",
+            "class": "GesturePan",
+            "module": "event-dom/gesture/pan"
+        },
+        {
+            "file": "src/api/event-dom/gesture/pan.js",
+            "line": 51,
+            "description": "拖动某个 dom 元素结束后触发\n返回的事件对象包括格外下面的属性：\n- pageX {Number} 触点横坐标\n- pageY {Number} 触点纵坐标\n- deltaX {Number} 当前触点位置与开始拖动时的位置的横坐标差值\n- deltaX {Number} 当前触点位置与开始拖动时的位置的纵坐标差值\n- startTime {Number} 拖动开始时间\n- gestureType {String} 'mouse'或'touch'\n- direction {String} 方向 ： left/right/up/down",
+            "itemtype": "event",
+            "name": "PAN_END",
+            "class": "GesturePan",
+            "module": "event-dom/gesture/pan"
+        },
+        {
+            "file": "src/api/event-dom/gesture/pinch.js",
+            "line": 27,
+            "description": "触屏上开始用双指调整某个 dom 元素大小时触发\n返回的事件对象包括格外下面的属性：\n- distance {Number} 开始时双指的绝对距离\n- scale {Number} 固定为 1",
+            "itemtype": "event",
+            "name": "PINCH_START",
+            "class": "GesturePinch",
+            "module": "event-dom/gesture/pinch"
+        },
+        {
+            "file": "src/api/event-dom/gesture/pinch.js",
+            "line": 35,
+            "description": "触屏上用双指调整某个 dom 元素大小进行时触发\n返回的事件对象包括格外下面的属性：\n- distance {Number} 开始时双指的绝对距离\n- scale {Number} 固定为 1",
+            "itemtype": "event",
+            "name": "PINCH",
+            "class": "GesturePinch",
+            "module": "event-dom/gesture/pinch"
+        },
+        {
+            "file": "src/api/event-dom/gesture/pinch.js",
+            "line": 43,
+            "description": "触屏上用双指调整某个 dom 元素大小结束后触发",
+            "itemtype": "event",
+            "name": "PINCH_END",
+            "class": "GesturePinch",
+            "module": "event-dom/gesture/pinch"
+        },
+        {
+            "file": "src/api/event-dom/gesture/rotate.js",
+            "line": 27,
+            "description": "触屏上开始用双指旋转某个 dom 元素大小时触发\n返回的事件对象包括格外下面的属性：\n- angle {Number} 开始时双指的角度值\n- rotation {Number} 双指和开始相比改变的角度值",
+            "itemtype": "event",
+            "name": "ROTATE_START",
+            "class": "GestureRotate",
+            "module": "event-dom/gesture/rotate"
+        },
+        {
+            "file": "src/api/event-dom/gesture/rotate.js",
+            "line": 35,
+            "description": "触屏上用双指旋转某个 dom 元素大小进行时触发\n返回的事件对象包括格外下面的属性：\n- angle {Number} 开始时双指的角度值\n- rotation {Number} 双指和开始相比改变的角度值",
+            "itemtype": "event",
+            "name": "ROTATE",
+            "class": "GestureRotate",
+            "module": "event-dom/gesture/rotate"
+        },
+        {
+            "file": "src/api/event-dom/gesture/rotate.js",
+            "line": 43,
+            "description": "触屏上用双指旋转某个 dom 元素大小结束后触发",
+            "itemtype": "event",
+            "name": "ROTATE_END",
+            "class": "GestureRotate",
+            "module": "event-dom/gesture/rotate"
+        },
+        {
+            "file": "src/api/event-dom/gesture/shake.js",
+            "line": 20,
+            "description": "当用户摇动设备后触发",
+            "itemtype": "event",
+            "name": "SHAKE",
+            "class": "GestureShake",
+            "module": "event-dom/gesture/shake"
+        },
+        {
+            "file": "src/api/event-dom/gesture/swipe.js",
+            "line": 20,
+            "description": "当用户在屏幕上“有效”滑动时触发（足够短的时间内滑动足够的距离）\n返回的事件对象包含格外属性：\n- pageX {Number} 触点横坐标\n- pageY {Number} 触点纵坐标\n- direction {String} : 滑动方向 ： left/right/up/down\n- distance {Number} : 滑动距离\n- duration {Number} : 滑动时间，单位 ： 秒",
+            "itemtype": "event",
+            "name": "SWIPE",
+            "class": "GestureSwipe",
+            "module": "event-dom/gesture/swipe"
+        },
+        {
+            "file": "src/api/event-dom/gesture/tap.js",
+            "line": 20,
+            "description": "当点击某个 dom 节点后触发， 和 SINGLE_TAP 的不同的是： 触发 DOUBLE_TAP 就不会触发 SINGLE_TAP， 而触发 DOUBLE_TAP 前会触发 TAP",
+            "itemtype": "event",
+            "name": "TAP",
+            "class": "GestureTap",
+            "module": "event-dom/gesture/tap"
+        },
+        {
+            "file": "src/api/event-dom/gesture/tap.js",
+            "line": 25,
+            "description": "当快速点击某个 dom 节点一次（短时间没有再次点击）后触发",
+            "itemtype": "event",
+            "name": "SINGLE_TAP",
+            "class": "GestureTap",
+            "module": "event-dom/gesture/tap"
+        },
+        {
+            "file": "src/api/event-dom/gesture/tap.js",
+            "line": 30,
+            "description": "当快速点击某个 dom 节点两次后触发",
+            "itemtype": "event",
+            "name": "DOUBLE_TAP",
+            "class": "GestureTap",
+            "module": "event-dom/gesture/tap"
+        },
+        {
+            "file": "src/api/event-dom/gesture/tap.js",
+            "line": 35,
+            "description": "当长按某个 dom 节点超过 1s 后触发",
+            "itemtype": "event",
+            "name": "HOLD",
+            "class": "GestureTap",
+            "module": "event-dom/gesture/tap"
         },
         {
             "file": "src/api/navigation-view/bar.js",

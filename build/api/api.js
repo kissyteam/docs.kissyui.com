@@ -37,6 +37,13 @@ YUI.add("yuidoc-meta", function(Y) {
         "Editor",
         "Feature",
         "FilterMenu",
+        "GestureBasic",
+        "GesturePan",
+        "GesturePinch",
+        "GestureRotate",
+        "GestureShake",
+        "GestureSwipe",
+        "GestureTap",
         "IO",
         "Json",
         "Loader",
@@ -109,6 +116,13 @@ YUI.add("yuidoc-meta", function(Y) {
         "editor",
         "event-custom",
         "event-dom",
+        "event-dom_gesture_basic",
+        "event-dom_gesture_pan",
+        "event-dom_gesture_pinch",
+        "event-dom_gesture_rotate",
+        "event-dom_gesture_shake",
+        "event-dom_gesture_swipe",
+        "event-dom_gesture_tap",
         "feature",
         "filter-menu",
         "io",
@@ -266,6 +280,41 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "event-dom",
             "name": "event-dom",
             "description": "根据设备环境加载响应的子模块来处理 DOM 的事件模块"
+        },
+        {
+            "displayName": "event-dom/gesture/basic",
+            "name": "event-dom_gesture_basic",
+            "description": "基本手势事件"
+        },
+        {
+            "displayName": "event-dom/gesture/pan",
+            "name": "event-dom_gesture_pan",
+            "description": "拖动手势事件"
+        },
+        {
+            "displayName": "event-dom/gesture/pinch",
+            "name": "event-dom_gesture_pinch",
+            "description": "pinch手势事件"
+        },
+        {
+            "displayName": "event-dom/gesture/rotate",
+            "name": "event-dom_gesture_rotate",
+            "description": "旋转手势事件"
+        },
+        {
+            "displayName": "event-dom/gesture/shake",
+            "name": "event-dom_gesture_shake",
+            "description": "摇动手势事件"
+        },
+        {
+            "displayName": "event-dom/gesture/swipe",
+            "name": "event-dom_gesture_swipe",
+            "description": "滑动手势事件"
+        },
+        {
+            "displayName": "event-dom/gesture/tap",
+            "name": "event-dom_gesture_tap",
+            "description": "点击手势事件"
         },
         {
             "displayName": "feature",
