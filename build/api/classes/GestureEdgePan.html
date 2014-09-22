@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>button - API Documentation — KISSY v5.0 Documentation</title>
+    <title>GestureEdgePan - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
     <link rel="stylesheet" href="/5.0/assets/css/custom.css">
@@ -398,12 +398,17 @@
                 <div class="apidocs">
                     <div id="docs-main">
                         <div class="content">
-                            <h1 id="button">button Module</h1>
-<div class="box clearfix meta">
+                            <h1>GestureEdgePan Class</h1>
+<div class="box meta">
     
 
     
 
+    
+        
+            Module: <a href="../modules/event-dom_gesture_edge-pan.html">event-dom/gesture/edge-pan</a>
+        
+    
 
     
 </div>
@@ -411,29 +416,240 @@
 
 
 <div class="box intro">
-    
+    <p>在窗口边缘区域往窗口中心区域拖进的拖动手势事件。当将元素在窗口边缘区域往窗口中心区域拖进时触发，默认边缘区域为窗口上下左右四个方向顶端往窗口中心靠近的 &#39;60px&#39; 的区域。例如，窗口宽度为320，那么横坐标 0~60 和 260~320 这段区域就是边缘区域的一部分，当某元素在这个区域往窗口中心区域拖进时触发事件。
+引入模块则可以使用相应事件。</p>
+<p>使用示例：</p>
+<pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;event-dom/gesture/edge-pan&#39;, &#39;dd&#39;], function($, GestureEdgePan, DD){
+    new DD.Draggable({   //使得 #test 元素能被拖动
+        node : &#39;#test&#39;,
+        move:true
+    });
+
+    $(&#39;#test&#39;).on(GestureEdgePan.EDGE_PAN_START, function(ev){ //在边缘区域往窗口中心区域开始拖进时触发
+        //edge pan start...
+    });
+    $(&#39;#test&#39;).on(GestureEdgePan.EDGE_PAN, function(ev){  //在边缘区域往窗口中心区域拖进中时触发，如果已经超过边缘区域也会一直触发直到放开鼠标
+        //edge paning...
+    });
+    $(&#39;#test&#39;).on(GestureEdgePan.EDGE_PAN_END, function(ev){  //在边缘区域往窗口中心区域拖进，放开鼠标时触发，如果已经超过边缘区域也会一直触发直到放开鼠标
+        //edge pan end...
+    });
+});</code></pre>
+
 </div>
 
 
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
+<div id="classdocs" class="ks-tabs ks-tabs-top">
+    <ul class="ks-tabs-bar showmsgdetail">
+        <li class="ks-tabs-tab ks-button ks-tabs-tab-selected index">Index</li>
 
-            <ul class="module-classes">
+        
+        
+        
+        
+            <li class="ks-tabs-tab ks-button events">Events</li>
+        
+    </ul>
+
+    <div class="ks-tabs-body">
+        <div id="index" class="ks-tabs-panel ks-tabs-panel-selected index">
+            <h2 class="off-left">Item Index</h2>
+
             
-                <li class="module-class">
-                    <a href="../classes/Button.html">
-                        Button
-                    </a>
-                </li>
+
             
-            </ul>
+
+            
+
+            
+                <div class="index-section events">
+                    <h3>Events</h3>
+
+                    <ul class="index-list events">
+                        
+                            <li class="index-item event" inwhichtab="events">
+                                <a href="#event_EDGE_PAN">EDGE_PAN</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event" inwhichtab="events">
+                                <a href="#event_EDGE_PAN_END">EDGE_PAN_END</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event" inwhichtab="events">
+                                <a href="#event_EDGE_PAN_START">EDGE_PAN_START</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+        </div>
+
+        
+
+        
+
+        
+
+        
+            <div id="events" class="ks-tabs-panel">
+                <h2 class="off-left">Events</h2>
+
+                
+                    <div id="event_EDGE_PAN" class="events item">
+    <h3 class="name"><code>EDGE_PAN</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
         
     </div>
 
-    <div class="yui3-u-1-2">
+    <div class="description">
+        <p>在边缘区域往窗口中心区域拖进中时触发，如果已经超过边缘区域也会一直触发直到放开鼠标
+返回的事件对象包括格外下面的属性：</p>
+<ul>
+<li>pageX {Number} 鼠标横坐标位置</li>
+<li>pageY {Number} 鼠标纵坐标位置</li>
+<li>distance {Number} 当前鼠标位置与开始事件时位置的距离</li>
+<li>duration {Number} 从开始事件到目前的时间</li>
+<li>velocityX {Number} 横坐标速率</li>
+<li>velocityY {Number} 纵坐标速率</li>
+<li>direction {String} 方向 ： left/right/up/down</li>
+</ul>
+
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_EDGE_PAN_END" class="events item">
+    <h3 class="name"><code>EDGE_PAN_END</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>在边缘区域往窗口中心区域拖进，放开鼠标时触发，如果已经超过边缘区域也会一直触发直到放开鼠标
+返回的事件对象包括格外下面的属性：</p>
+<ul>
+<li>pageX {Number} 鼠标横坐标位置</li>
+<li>pageY {Number} 鼠标纵坐标位置</li>
+<li>distance {Number} 当前鼠标位置与开始事件时位置的距离</li>
+<li>duration {Number} 从开始事件到目前的时间</li>
+<li>velocityX {Number} 横坐标速率</li>
+<li>velocityY {Number} 纵坐标速率</li>
+<li>direction {String} 方向 ： left/right/up/down</li>
+</ul>
+
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_EDGE_PAN_START" class="events item">
+    <h3 class="name"><code>EDGE_PAN_START</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>在边缘区域往窗口中心区域开始拖进时触发
+返回的事件对象包括格外下面的属性：</p>
+<ul>
+<li>pageX {Number} 鼠标横坐标位置</li>
+<li>pageY {Number} 鼠标纵坐标位置</li>
+<li>distance {Number} 当前鼠标位置与开始事件时位置的距离</li>
+<li>duration {Number} 从开始事件到目前的时间</li>
+<li>velocityX {Number} 横坐标速率</li>
+<li>velocityY {Number} 纵坐标速率</li>
+<li>direction {String} 方向 ： left/right/up/down</li>
+</ul>
+
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+            </div>
         
     </div>
 </div>

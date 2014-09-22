@@ -130,6 +130,8 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=GestureBasic href="/5.0/api/classes/GestureBasic.html">GestureBasic</a></li>
             
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=GestureEdgePan href="/5.0/api/classes/GestureEdgePan.html">GestureEdgePan</a></li>
+            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=GesturePan href="/5.0/api/classes/GesturePan.html">GesturePan</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=GesturePinch href="/5.0/api/classes/GesturePinch.html">GesturePinch</a></li>
@@ -288,6 +290,8 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=event-dom/gesture/basic href="/5.0/api/modules/event-dom_gesture_basic.html">event-dom/gesture/basic</a></li>
             
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=event-dom/gesture/edge-pan href="/5.0/api/modules/event-dom_gesture_edge-pan.html">event-dom/gesture/edge-pan</a></li>
+            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=event-dom/gesture/pan href="/5.0/api/modules/event-dom_gesture_pan.html">event-dom/gesture/pan</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=event-dom/gesture/pinch href="/5.0/api/modules/event-dom_gesture_pinch.html">event-dom/gesture/pinch</a></li>
@@ -415,13 +419,13 @@
     <p>拖动手势事件。引入模块则可以使用相应事件</p>
 <p>使用示例：</p>
 <pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;event-dom/gesture/pan&#39;], function($, GesturePan){
-    $(#test).on(GesturePan.PAN_START, function(ev){
+    $(&#39;#test&#39;).on(GesturePan.PAN_START, function(ev){
         //pan start...
     });
-    $(#test).on(GesturePan.PAN, function(ev){
+    $(&#39;#test&#39;).on(GesturePan.PAN, function(ev){
         //paning...
     });
-    $(#test).on(GesturePan.PAN_END, function(ev){
+    $(&#39;#test&#39;).on(GesturePan.PAN_END, function(ev){
         //pan end...
     });
 });</code></pre>

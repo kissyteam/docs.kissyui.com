@@ -38,6 +38,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Feature",
         "FilterMenu",
         "GestureBasic",
+        "GestureEdgePan",
         "GesturePan",
         "GesturePinch",
         "GestureRotate",
@@ -117,6 +118,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "event-custom",
         "event-dom",
         "event-dom_gesture_basic",
+        "event-dom_gesture_edge-pan",
         "event-dom_gesture_pan",
         "event-dom_gesture_pinch",
         "event-dom_gesture_rotate",
@@ -285,6 +287,11 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "event-dom/gesture/basic",
             "name": "event-dom_gesture_basic",
             "description": "基本手势事件"
+        },
+        {
+            "displayName": "event-dom/gesture/edge-pan",
+            "name": "event-dom_gesture_edge-pan",
+            "description": "在窗口边缘区域往窗口中心区域拖进的拖动手势事件"
         },
         {
             "displayName": "event-dom/gesture/pan",

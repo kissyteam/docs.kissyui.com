@@ -223,6 +223,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/api/event-dom/gesture/edge-pan.js": {
+            "name": "src/api/event-dom/gesture/edge-pan.js",
+            "modules": {
+                "event-dom/gesture/edge-pan": 1
+            },
+            "classes": {
+                "GestureEdgePan": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/api/event-dom/gesture/pan.js": {
             "name": "src/api/event-dom/gesture/pan.js",
             "modules": {
@@ -1037,6 +1048,19 @@
             "file": "src/api/event-dom/gesture/basic.js",
             "line": 6,
             "description": "基本手势事件"
+        },
+        "event-dom/gesture/edge-pan": {
+            "name": "event-dom/gesture/edge-pan",
+            "submodules": {},
+            "classes": {
+                "GestureEdgePan": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/event-dom/gesture/edge-pan.js",
+            "line": 6,
+            "description": "在窗口边缘区域往窗口中心区域拖进的拖动手势事件"
         },
         "event-dom/gesture/pan": {
             "name": "event-dom/gesture/pan",
@@ -2067,6 +2091,21 @@
             "description": "基本手势事件。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/basic'], function($, GestureBasic){\n\t\t$(window).on(GestureBasic.START, function(ev){\n\t\t\t//touch start...\n\t\t});\n\t\t$(window).on(GestureBasic.MOVE, function(ev){\n\t\t\t//touch move...\n\t\t});\n\t\t$(window).on(GestureBasic.END, function(ev){\n\t\t\t//touch end...\n\t\t});\n\t});",
             "static": 1
         },
+        "GestureEdgePan": {
+            "name": "GestureEdgePan",
+            "shortname": "GestureEdgePan",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "event-dom/gesture/edge-pan",
+            "namespace": "",
+            "file": "src/api/event-dom/gesture/edge-pan.js",
+            "line": 6,
+            "description": "在窗口边缘区域往窗口中心区域拖进的拖动手势事件。当将元素在窗口边缘区域往窗口中心区域拖进时触发，默认边缘区域为窗口上下左右四个方向顶端往窗口中心靠近的 '60px' 的区域。例如，窗口宽度为320，那么横坐标 0~60 和 260~320 这段区域就是边缘区域的一部分，当某元素在这个区域往窗口中心区域拖进时触发事件。\n引入模块则可以使用相应事件。\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/edge-pan', 'dd'], function($, GestureEdgePan, DD){\n\t\tnew DD.Draggable({   //使得 #test 元素能被拖动\n\t\t\tnode : '#test',\n\t\t\tmove:true\n\t\t});\n\n\t\t$('#test').on(GestureEdgePan.EDGE_PAN_START, function(ev){ //在边缘区域往窗口中心区域开始拖进时触发\n\t\t\t//edge pan start...\n\t\t});\n\t\t$('#test').on(GestureEdgePan.EDGE_PAN, function(ev){  //在边缘区域往窗口中心区域拖进中时触发，如果已经超过边缘区域也会一直触发直到放开鼠标\n\t\t\t//edge paning...\n\t\t});\n\t\t$('#test').on(GestureEdgePan.EDGE_PAN_END, function(ev){  //在边缘区域往窗口中心区域拖进，放开鼠标时触发，如果已经超过边缘区域也会一直触发直到放开鼠标\n\t\t\t//edge pan end...\n\t\t});\n\t});",
+            "static": 1
+        },
         "GesturePan": {
             "name": "GesturePan",
             "shortname": "GesturePan",
@@ -2079,7 +2118,7 @@
             "namespace": "",
             "file": "src/api/event-dom/gesture/pan.js",
             "line": 6,
-            "description": "拖动手势事件。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/pan'], function($, GesturePan){\n\t\t$(#test).on(GesturePan.PAN_START, function(ev){\n\t\t\t//pan start...\n\t\t});\n\t\t$(#test).on(GesturePan.PAN, function(ev){\n\t\t\t//paning...\n\t\t});\n\t\t$(#test).on(GesturePan.PAN_END, function(ev){\n\t\t\t//pan end...\n\t\t});\n\t});",
+            "description": "拖动手势事件。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/pan'], function($, GesturePan){\n\t\t$('#test').on(GesturePan.PAN_START, function(ev){\n\t\t\t//pan start...\n\t\t});\n\t\t$('#test').on(GesturePan.PAN, function(ev){\n\t\t\t//paning...\n\t\t});\n\t\t$('#test').on(GesturePan.PAN_END, function(ev){\n\t\t\t//pan end...\n\t\t});\n\t});",
             "static": 1
         },
         "GesturePinch": {
@@ -5920,6 +5959,33 @@
             "name": "END",
             "class": "GestureBasic",
             "module": "event-dom/gesture/basic"
+        },
+        {
+            "file": "src/api/event-dom/gesture/edge-pan.js",
+            "line": 33,
+            "description": "在边缘区域往窗口中心区域开始拖进时触发\n返回的事件对象包括格外下面的属性：\n- pageX {Number} 鼠标横坐标位置\n- pageY {Number} 鼠标纵坐标位置\n- distance {Number} 当前鼠标位置与开始事件时位置的距离\n- duration {Number} 从开始事件到目前的时间\n- velocityX {Number} 横坐标速率\n- velocityY {Number} 纵坐标速率\n- direction {String} 方向 ： left/right/up/down",
+            "itemtype": "event",
+            "name": "EDGE_PAN_START",
+            "class": "GestureEdgePan",
+            "module": "event-dom/gesture/edge-pan"
+        },
+        {
+            "file": "src/api/event-dom/gesture/edge-pan.js",
+            "line": 46,
+            "description": "在边缘区域往窗口中心区域拖进中时触发，如果已经超过边缘区域也会一直触发直到放开鼠标\n返回的事件对象包括格外下面的属性：\n- pageX {Number} 鼠标横坐标位置\n- pageY {Number} 鼠标纵坐标位置\n- distance {Number} 当前鼠标位置与开始事件时位置的距离\n- duration {Number} 从开始事件到目前的时间\n- velocityX {Number} 横坐标速率\n- velocityY {Number} 纵坐标速率\n- direction {String} 方向 ： left/right/up/down",
+            "itemtype": "event",
+            "name": "EDGE_PAN",
+            "class": "GestureEdgePan",
+            "module": "event-dom/gesture/edge-pan"
+        },
+        {
+            "file": "src/api/event-dom/gesture/edge-pan.js",
+            "line": 59,
+            "description": "在边缘区域往窗口中心区域拖进，放开鼠标时触发，如果已经超过边缘区域也会一直触发直到放开鼠标\n返回的事件对象包括格外下面的属性：\n- pageX {Number} 鼠标横坐标位置\n- pageY {Number} 鼠标纵坐标位置\n- distance {Number} 当前鼠标位置与开始事件时位置的距离\n- duration {Number} 从开始事件到目前的时间\n- velocityX {Number} 横坐标速率\n- velocityY {Number} 纵坐标速率\n- direction {String} 方向 ： left/right/up/down",
+            "itemtype": "event",
+            "name": "EDGE_PAN_END",
+            "class": "GestureEdgePan",
+            "module": "event-dom/gesture/edge-pan"
         },
         {
             "file": "src/api/event-dom/gesture/pan.js",

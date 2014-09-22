@@ -9,13 +9,13 @@
 使用示例：
 
 	modulex.use(['node', 'event-dom/gesture/pan'], function($, GesturePan){
-		$(#test).on(GesturePan.PAN_START, function(ev){
+		$('#test').on(GesturePan.PAN_START, function(ev){
 			//pan start...
 		});
-		$(#test).on(GesturePan.PAN, function(ev){
+		$('#test').on(GesturePan.PAN, function(ev){
 			//paning...
 		});
-		$(#test).on(GesturePan.PAN_END, function(ev){
+		$('#test').on(GesturePan.PAN_END, function(ev){
 			//pan end...
 		});
 	});
