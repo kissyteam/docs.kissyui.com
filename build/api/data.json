@@ -3367,7 +3367,7 @@
             "namespace": "",
             "file": "src/api/router.js",
             "line": 6,
-            "description": "一个类似express的路由管理器",
+            "description": "一个类似express的路由管理器\n\n使用示例：\n\n\tmodulex.use(['node', 'router'], function($, Router){\n\t\tRouter.config({  //路由全局配置\n\t        triggerRoute: true,  // 触发当前地址对应的 route 操作\n\t        urlRoot: location.pathname\n\t\t});\n\n\t\tRouter.get('/', function(req, res, nextCallback){\n\t\t\t//显示根目录内容\n\t\t});\n\n\t\tRouter.get('/:path*', function(req){\n\t\t\t//req.params.path => 'test'\n\t\t\t//req.params[0] => '/test1/test2'\n\t\t\t//req.parmas[1] => 'test1/test2'\n\t\t});\n\n\t\tRouter.get('/detail/:id', function(req){\n\t\t\t//req.params.id => 88\n\t\t\t//req.query => { pa : 1, pe : 2 }\n\t\t})\n\n\t\tRouter.navigate(\"/test/test1/test2\");\n\t\tRouter.navigate('/detail/88?pa=1&pe=2');\n\n\t\tRouter.start(function(){\n\t        $('#loading').hide();\n\t\t});\n\t});",
             "static": 1,
             "uses": [
                 "CustomEvent.Target"
@@ -15378,7 +15378,7 @@
         },
         {
             "file": "src/api/router.js",
-            "line": 13,
+            "line": 45,
             "description": "添加一个路由中间件",
             "itemtype": "method",
             "name": "use",
@@ -15399,7 +15399,7 @@
         },
         {
             "file": "src/api/router.js",
-            "line": 29,
+            "line": 61,
             "description": "导航到具体路径",
             "itemtype": "method",
             "name": "navigate",
@@ -15432,7 +15432,7 @@
         },
         {
             "file": "src/api/router.js",
-            "line": 38,
+            "line": 70,
             "description": "添加路由和对应的回调处理响应",
             "itemtype": "method",
             "name": "get",
@@ -15464,7 +15464,7 @@
         },
         {
             "file": "src/api/router.js",
-            "line": 47,
+            "line": 79,
             "description": "判断一个url路径是否匹配已添加路由规则里面的任一规则",
             "itemtype": "method",
             "name": "matchRoute",
@@ -15484,7 +15484,7 @@
         },
         {
             "file": "src/api/router.js",
-            "line": 54,
+            "line": 86,
             "description": "去除给定路由规则的回调函数或整个路由规则",
             "itemtype": "method",
             "name": "removeRoute",
@@ -15506,7 +15506,7 @@
         },
         {
             "file": "src/api/router.js",
-            "line": 61,
+            "line": 93,
             "description": "清空所有路由规则及路由中间件",
             "itemtype": "method",
             "name": "clearRoutes",
@@ -15515,7 +15515,7 @@
         },
         {
             "file": "src/api/router.js",
-            "line": 66,
+            "line": 98,
             "description": "判断路由规则是否存在已添加的路由规则中",
             "itemtype": "method",
             "name": "hasRoute",
@@ -15535,7 +15535,7 @@
         },
         {
             "file": "src/api/router.js",
-            "line": 73,
+            "line": 105,
             "description": "全局路由配置",
             "itemtype": "method",
             "name": "config",
@@ -15565,6 +15565,11 @@
                             "name": "useHash",
                             "description": "是否强制使用hash来处理路由即使在支持html5 histroy的浏览器下",
                             "optional": true
+                        },
+                        {
+                            "name": "triggerRoute",
+                            "description": "如果目标路径与页面当前路径一致时，是否仍然触发相应的动作（如利用get函数指定的回调），若为真则replace也自动设为真",
+                            "type": "Boolean"
                         }
                     ]
                 }
@@ -15574,7 +15579,7 @@
         },
         {
             "file": "src/api/router.js",
-            "line": 83,
+            "line": 116,
             "description": "开启路由监听",
             "itemtype": "method",
             "name": "start",
@@ -15590,7 +15595,7 @@
         },
         {
             "file": "src/api/router.js",
-            "line": 89,
+            "line": 122,
             "description": "停止路由监听",
             "itemtype": "method",
             "name": "stop",

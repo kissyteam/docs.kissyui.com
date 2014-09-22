@@ -5,6 +5,38 @@
 
 /**
 一个类似express的路由管理器
+
+使用示例：
+
+	modulex.use(['node', 'router'], function($, Router){
+		Router.config({  //路由全局配置
+	        triggerRoute: true,  // 触发当前地址对应的 route 操作
+	        urlRoot: location.pathname
+		});
+
+		Router.get('/', function(req, res, nextCallback){
+			//显示根目录内容
+		});
+
+		Router.get('/:path*', function(req){
+			//req.params.path => 'test'
+			//req.params[0] => '/test1/test2'
+			//req.parmas[1] => 'test1/test2'
+		});
+
+		Router.get('/detail/:id', function(req){
+			//req.params.id => 88
+			//req.query => { pa : 1, pe : 2 }
+		})
+
+		Router.navigate("/test/test1/test2");
+		Router.navigate('/detail/88?pa=1&pe=2');
+
+		Router.start(function(){
+	        $('#loading').hide();
+		});
+	});
+	
 @class Router
 @static
 @uses CustomEvent.Target
@@ -78,6 +110,7 @@
 @param [options.strict] 是否严格要求路径末尾的反斜杠匹配
 @param [options.urlRoot] 配置针对支持html5 history的浏览器的根路径
 @param [options.useHash] 是否强制使用hash来处理路由即使在支持html5 histroy的浏览器下
+@param options.triggerRoute {Boolean} 如果目标路径与页面当前路径一致时，是否仍然触发相应的动作（如利用get函数指定的回调），若为真则replace也自动设为真
 */
 
 /**

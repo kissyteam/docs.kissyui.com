@@ -430,6 +430,35 @@
 
 <div class="box intro">
     <p>一个类似express的路由管理器</p>
+<p>使用示例：</p>
+<pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;router&#39;], function($, Router){
+    Router.config({  //路由全局配置
+        triggerRoute: true,  // 触发当前地址对应的 route 操作
+        urlRoot: location.pathname
+    });
+
+    Router.get(&#39;/&#39;, function(req, res, nextCallback){
+        //显示根目录内容
+    });
+
+    Router.get(&#39;/:path*&#39;, function(req){
+        //req.params.path =&gt; &#39;test&#39;
+        //req.params[0] =&gt; &#39;/test1/test2&#39;
+        //req.parmas[1] =&gt; &#39;test1/test2&#39;
+    });
+
+    Router.get(&#39;/detail/:id&#39;, function(req){
+        //req.params.id =&gt; 88
+        //req.query =&gt; { pa : 1, pe : 2 }
+    })
+
+    Router.navigate(&quot;/test/test1/test2&quot;);
+    Router.navigate(&#39;/detail/88?pa=1&amp;pe=2&#39;);
+
+    Router.start(function(){
+        $(&#39;#loading&#39;).hide();
+    });
+});</code></pre>
 
 </div>
 
@@ -874,6 +903,20 @@
 
                                 <div class="param-description">
                                     <p>是否强制使用hash来处理路由即使在支持html5 histroy的浏览器下</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">triggerRoute</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>如果目标路径与页面当前路径一致时，是否仍然触发相应的动作（如利用get函数指定的回调），若为真则replace也自动设为真</p>
 
                                 </div>
 

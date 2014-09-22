@@ -413,6 +413,38 @@
 
 /**
 一个类似express的路由管理器
+
+使用示例：
+
+	modulex.use([&#x27;node&#x27;, &#x27;router&#x27;], function($, Router){
+		Router.config({  //路由全局配置
+	        triggerRoute: true,  // 触发当前地址对应的 route 操作
+	        urlRoot: location.pathname
+		});
+
+		Router.get(&#x27;/&#x27;, function(req, res, nextCallback){
+			//显示根目录内容
+		});
+
+		Router.get(&#x27;/:path*&#x27;, function(req){
+			//req.params.path =&gt; &#x27;test&#x27;
+			//req.params[0] =&gt; &#x27;/test1/test2&#x27;
+			//req.parmas[1] =&gt; &#x27;test1/test2&#x27;
+		});
+
+		Router.get(&#x27;/detail/:id&#x27;, function(req){
+			//req.params.id =&gt; 88
+			//req.query =&gt; { pa : 1, pe : 2 }
+		})
+
+		Router.navigate(&quot;/test/test1/test2&quot;);
+		Router.navigate(&#x27;/detail/88?pa=1&amp;pe=2&#x27;);
+
+		Router.start(function(){
+	        $(&#x27;#loading&#x27;).hide();
+		});
+	});
+	
 @class Router
 @static
 @uses CustomEvent.Target
@@ -486,6 +518,7 @@
 @param [options.strict] 是否严格要求路径末尾的反斜杠匹配
 @param [options.urlRoot] 配置针对支持html5 history的浏览器的根路径
 @param [options.useHash] 是否强制使用hash来处理路由即使在支持html5 histroy的浏览器下
+@param options.triggerRoute {Boolean} 如果目标路径与页面当前路径一致时，是否仍然触发相应的动作（如利用get函数指定的回调），若为真则replace也自动设为真
 */
 
 /**

@@ -1,14 +1,19 @@
-<!doctype html>
+	<!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Guides - KISSY v5.0 Documentation</title>
+	<title>Router的基本介绍 - KISSY v5.0 Documentation</title>
 	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
 	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/5.0/assets/css/component.css">
 	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
+	<link rel="stylesheet" href="/5.0/assets/css/github.css"/>
 	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
+	<script src="/5.0/assets/js/ajax-load.js"></script>
+	<script type="text/javascript" src="/5.0/assets/js/qrcodejs/qrcode.min.js"></script>
+	
 </head>
 <body>
 	<div class="container" id="container">
@@ -145,85 +150,77 @@
 			}).render();
 		});
 </script>
-		<h1>KISSY User Guides</h1>
-		<div id="guides-lists">
-			<ul class="row list-unstyled">
-				
-				<li class="col-md-3">
-					<a href="anim/index.html">anim</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="base/index.html">base</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="editor/index.html">editor</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="event/index.html">event</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="feature/index.html">feature</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="io/index.html">io</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="kissy-in-nodejs/index.html">kissy-in-nodejs</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="loader/index.html">loader</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="navigation-view/index.html">navigation-view</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="node/index.html">node</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="overlay/index.html">overlay</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="path/index.html">path</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="promise/index.html">promise</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="resizable/index.html">resizable</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="router/index.html">router</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="ua/index.html">ua</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="util/index.html">util</a>
-				</li>
-				
-				<li class="col-md-3">
-					<a href="xtemplate/index.html">xtemplate</a>
-				</li>
-				
-			</ul>
-		</div>
-		<div id="disqus_thread"></div>
+		<div class="row">
+			<div class="col-md-9" id="main-content">
+				<p></p>
+<h1 id="Router的基本介绍">Router的基本介绍</h1><p>Router 是一个类似 express 的路由管理器，大部分函数接口意义和用法类似 express。如果你本来就对 express 非常熟悉，那么 KISSY Router 你用起来也会感觉非常自然。</p>
+<h2 id="载入模块">载入模块</h2><pre><code>modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'router'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Router)</span></span>{
+    <span class="hljs-comment">//use Router</span>
+});
+</code></pre><h2 id="简单使用">简单使用</h2><pre><code>modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'node'</span>, <span class="hljs-string">'router'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($, Router)</span></span>{
+    Router.config({  <span class="hljs-comment">//路由全局配置</span>
+        triggerRoute: <span class="hljs-literal">true</span>,  <span class="hljs-comment">// 触发当前地址对应的 route 操作</span>
+        urlRoot: location.pathname
+    });
+
+    Router.<span class="hljs-keyword">get</span>(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res, nextCallback)</span></span>{
+        <span class="hljs-comment">//显示根目录内容</span>
+    });
+
+    Router.<span class="hljs-keyword">get</span>(<span class="hljs-string">'/:path*'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span></span>{
+        <span class="hljs-comment">//req.params.path =&gt; 'test'</span>
+        <span class="hljs-comment">//req.params[0] =&gt; '/test1/test2'</span>
+        <span class="hljs-comment">//req.parmas[1] =&gt; 'test1/test2'</span>
+    });
+
+    Router.<span class="hljs-keyword">get</span>(<span class="hljs-string">'/detail/:id'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req)</span></span>{
+        <span class="hljs-comment">//req.params.id =&gt; 88</span>
+        <span class="hljs-comment">//req.query =&gt; { pa : 1, pe : 2 }</span>
+    })
+
+    Router.navigate(<span class="hljs-string">"/test/test1/test2"</span>);
+    Router.navigate(<span class="hljs-string">'/detail/88?pa=1&amp;pe=2'</span>);
+
+    Router.start(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+        $(<span class="hljs-string">'#loading'</span>).hide();
+    });
+});
+</code></pre><h2 id="更多信息">更多信息</h2><p>router 模块提供的接口及其具体用法请查看 <a href="http://docs.kissyui.com/5.0/api/classes/Router.html">router api文档</a></p>
+
+				<div id="disqus_thread"></div>
+				<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
+				<a id="apilink" href="../../api/classes/Router.html" style="display:none;"></a>
+			</div>
+			<div class="col-md-3" id="sidebar">
+				<a class="link-apidocs btn btn-primary" href="../../api/classes/Router.html">API Docs</a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Outline</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="outline">
+							<li class="level2"><a href="#载入模块">载入模块</a></li><li class="level2"><a href="#简单使用">简单使用</a></li><li class="level2"><a href="#更多信息">更多信息</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load ">
+					<div class="panel-heading">
+						<h3 class="panel-title">Features</h3>
+					</div>
+					<div class="panel-body">
+						<p><a href="../../guides/router/index.html">Router的基本介绍</a></p>
+					</div>
+				</div>
+				<div class="panel panel-primary ajax-load hide">
+					<div class="panel-heading">
+						<h3 class="panel-title">Demos</h3>
+					</div>
+					<div class="panel-body">
+						
+					</div>
+				</div>
+			</div>
+			<div id="disqus_thread"></div>
 <script>
     if((window.location.hostname.indexOf("kissyui.com")!=-1 )&& window.localStorage.getItem("kissy-commment")!="0"){
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -255,6 +252,7 @@
       })();
     }
 </script>
+		</div>
 	</div>
 </body>
 </html>
