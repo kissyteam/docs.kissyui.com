@@ -69,6 +69,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Querystring",
         "Resizable",
         "Resizable.Plugin.Proxy",
+        "Router",
         "SWF",
         "ScrollView",
         "ScrollView.Plugin.PullToRefresh",
@@ -141,6 +142,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "querystring",
         "resizable",
         "resizable_plugin_proxy",
+        "router",
         "scroll-view",
         "scroll-view_plugin_pull-to-refresh",
         "scroll-view_plugin_scrollbar",
@@ -392,6 +394,11 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "resizable/plugin/proxy",
             "name": "resizable_plugin_proxy"
+        },
+        {
+            "displayName": "router",
+            "name": "router",
+            "description": "一个类似express的路由模块"
         },
         {
             "displayName": "scroll-view",

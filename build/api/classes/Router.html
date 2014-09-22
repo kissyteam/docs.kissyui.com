@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Anim - API Documentation — KISSY v5.0 Documentation</title>
+    <title>Router - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
     <link rel="stylesheet" href="/5.0/assets/css/custom.css">
@@ -402,15 +402,24 @@
                 <div class="apidocs">
                     <div id="docs-main">
                         <div class="content">
-                            <h1>Anim Class</h1>
+                            <h1>Router Class</h1>
 <div class="box meta">
+    
+        <div class="uses">
+            Uses
+            <ul class="inline commas">
+                
+                    <li><a href="CustomEvent.Target.html">CustomEvent.Target</a></li>
+                
+            </ul>
+        </div>
     
 
     
 
     
         
-            Module: <a href="../modules/anim.html">anim</a>
+            Module: <a href="../modules/router.html">router</a>
         
     
 
@@ -420,15 +429,164 @@
 
 
 <div class="box intro">
-    <p>动画支持</p>
+    <p>一个类似express的路由管理器</p>
 
 </div>
 
 
-    <div class="constructor">
-        <h2>Constructor</h2>
-        <div id="method_Anim" class="method item">
-    <h3 class="name"><code>Anim</code></h3>
+
+<div id="classdocs" class="ks-tabs ks-tabs-top">
+    <ul class="ks-tabs-bar showmsgdetail">
+        <li class="ks-tabs-tab ks-button ks-tabs-tab-selected index">Index</li>
+
+        
+            <li class="ks-tabs-tab ks-button methods">Methods</li>
+        
+        
+        
+        
+    </ul>
+
+    <div class="ks-tabs-body">
+        <div id="index" class="ks-tabs-panel ks-tabs-panel-selected index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method inherited" inwhichtab="methods">
+                                <a href="#method_addTarget">addTarget</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_clearRoutes">clearRoutes</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_config">config</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited" inwhichtab="methods">
+                                <a href="#method_detach">detach</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited" inwhichtab="methods">
+                                <a href="#method_fire">fire</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_get">get</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_hasRoute">hasRoute</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_matchRoute">matchRoute</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_navigate">navigate</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited" inwhichtab="methods">
+                                <a href="#method_on">on</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited" inwhichtab="methods">
+                                <a href="#method_publish">publish</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_removeRoute">removeRoute</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited" inwhichtab="methods">
+                                <a href="#method_removeTarget">removeTarget</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_start">start</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_stop">stop</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_use">use</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="ks-tabs-panel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method_addTarget" class="method item inherited">
+    <h3 class="name"><code>addTarget</code></h3>
 
     
         <div class="args">
@@ -436,19 +594,169 @@
             
                 <li class="arg">
                     
-                        <code>elem</code>
+                        <code>target</code>
                     
                 </li>
             
-                <li class="arg">
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/CustomEvent.Target.html#method_addTarget">CustomEvent.Target</a>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>添加冒泡事件源对象</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
                     
-                        <code>props</code>
+                        <code class="param-name">target</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>事件往上冒泡的事件源</p>
+
+                    </div>
+
                     
                 </li>
             
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
+    function Custom(id){
+        this.id = id;
+        this.publish(&quot;run&quot;,{
+            bubbles:1
+        });
+    }
+
+    Util.augment(Custom, CustomEvent.Target);
+
+    var c1 = new Custom(&quot;c1&quot;);
+
+    var c2 = new Custom(&quot;c1&quot;);
+
+    c1.addTarget(c2);
+
+    c2.on(&quot;run&quot;,function(e){
+        S.log(e.target.id +&quot; fires event run&quot;); // =&gt; c1 fires event run
+    });
+
+    c1.fire(&quot;run&quot;);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_clearRoutes" class="method item">
+    <h3 class="name"><code>clearRoutes</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>清空所有路由规则及路由中间件</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_config" class="method item">
+    <h3 class="name"><code>config</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
                 <li class="arg">
                     
-                        <code class="optional">[config]</code>
+                        <code>options</code>
                     
                 </li>
             
@@ -486,7 +794,8 @@
     </div>
 
     <div class="description">
-        
+        <p>全局路由配置</p>
+
     </div>
 
     
@@ -497,30 +806,188 @@
             
                 <li class="param">
                     
-                        <code class="param-name">elem</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a> | KISSY.Node | Window | 普通的Object</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>作用动画的元素节点或窗口（窗口时仅支持 scrollTop/Left）</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">props</code>
+                        <code class="param-name">options</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>动画结束的 dom 样式值</p>
+                        <p>配置对象</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[caseSensitive]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>是否大小写敏感</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[strict]</code>
+                                    <span class="type"></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>是否严格要求路径末尾的反斜杠匹配</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[urlRoot]</code>
+                                    <span class="type"></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>配置针对支持html5 history的浏览器的根路径</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[useHash]</code>
+                                    <span class="type"></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>是否强制使用hash来处理路由即使在支持html5 histroy的浏览器下</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_detach" class="method item inherited">
+    <h3 class="name"><code>detach</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>eventType</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>fn</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[scope]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/CustomEvent.Target.html#method_detach">CustomEvent.Target</a>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>解除绑定的事件处理器</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">eventType</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">fn</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>当事件触发时的回调函数</p>
 
                     </div>
 
@@ -529,9 +996,282 @@
             
                 <li class="param">
                     
-                        <code class="param-name optional">[config]</code>
+                        <code class="param-name optional">[scope]</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                         <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>回调函数的 this 值. 如果不指定默认为绑定事件的当前元素</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_fire" class="method item inherited">
+    <h3 class="name"><code>fire</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>type</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>eventData</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/CustomEvent.Target.html#method_fire">CustomEvent.Target</a>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>触发绑定 type 类型的事件处理器, 并给触发的事件处理器的事件对象参数中混入数据 eventData</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">type</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要触发的自定义事件名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">eventData</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要混入触发事件对象的数据对象</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    
+                    <p>如果其中一个事件处理器返回 false , 则返回 false, 否则返回最后一个事件处理器的返回值</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_get" class="method item">
+    <h3 class="name"><code>get</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>routePath</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback1</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[callback2]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>...</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>添加路由和对应的回调处理响应</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">routePath</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp" class="crosslink external" target="_blank">RegExp</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>路由规则</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback1</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>第一个回调函数，接受三个参数 request,response,nextCallback ，如果调用 nextCallback 则进入传入的第二个回调函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[callback2]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>第二个回调函数，可选，是否执行决定于第一个回调函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">...</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
                     
 
                     
@@ -552,183 +1292,9 @@
     
 </div>
 
-    </div>
-
-
-<div id="classdocs" class="ks-tabs ks-tabs-top">
-    <ul class="ks-tabs-bar showmsgdetail">
-        <li class="ks-tabs-tab ks-button ks-tabs-tab-selected index">Index</li>
-
-        
-            <li class="ks-tabs-tab ks-button methods">Methods</li>
-        
-        
-        
-            <li class="ks-tabs-tab ks-button attrs">Attributes</li>
-        
-        
-            <li class="ks-tabs-tab ks-button events">Events</li>
-        
-    </ul>
-
-    <div class="ks-tabs-body">
-        <div id="index" class="ks-tabs-panel ks-tabs-panel-selected index">
-            <h2 class="off-left">Item Index</h2>
-
-            
-                <div class="index-section methods">
-                    <h3>Methods</h3>
-
-                    <ul class="index-list methods">
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_isPaused">isPaused</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_isPaused">isPaused</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_isRunning">isRunning</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_isRunning">isRunning</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_pause">pause</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_pause">pause</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_resume">resume</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_resume">resume</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_run">run</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_stop">stop</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_stop">stop</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                    </ul>
-                </div>
-            
-
-            
-
-            
-                <div class="index-section attrs">
-                    <h3>Attributes</h3>
-
-                    <ul class="index-list attrs">
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_complete">complete</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_duration">duration</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_easing">easing</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_queue">queue</a>
-                            </li>
-                        
-                            <li class="index-item attr" inwhichtab="attrs">
-                                <a href="#attr_useTransition">useTransition</a>
-                            </li>
-                        
-                    </ul>
-                </div>
-            
-
-            
-                <div class="index-section events">
-                    <h3>Events</h3>
-
-                    <ul class="index-list events">
-                        
-                            <li class="index-item event" inwhichtab="events">
-                                <a href="#event_complete">complete</a>
-
-                                
-                                
-                            </li>
-                        
-                    </ul>
-                </div>
-            
-        </div>
-
-        
-            <div id="methods" class="ks-tabs-panel">
-                <h2 class="off-left">Methods</h2>
-
                 
-                    <div id="method_isPaused" class="method item">
-    <h3 class="name"><code>isPaused</code></h3>
+                    <div id="method_hasRoute" class="method item">
+    <h3 class="name"><code>hasRoute</code></h3>
 
     
         <div class="args">
@@ -736,7 +1302,7 @@
             
                 <li class="arg">
                     
-                        <code>elem</code>
+                        <code>routePath</code>
                     
                 </li>
             
@@ -756,8 +1322,6 @@
 
     
 
-    
-        <span class="flag static">static</span>
     
 
     
@@ -780,7 +1344,7 @@
     </div>
 
     <div class="description">
-        <p>Anim 的静态方法, 用于判断 elem 上是否有动画对象在暂停</p>
+        <p>判断路由规则是否存在已添加的路由规则中</p>
 
     </div>
 
@@ -792,14 +1356,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">elem</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a> | Window</span>
+                        <code class="param-name">routePath</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp" class="crosslink external" target="_blank">RegExp</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>作用动画的元素节点</p>
+                        <p>路由规则</p>
 
                     </div>
 
@@ -828,138 +1392,8 @@
 </div>
 
                 
-                    <div id="method_isPaused" class="method item">
-    <h3 class="name"><code>isPaused</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>判断当前动画对象是否被暂停</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
-                    
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_isRunning" class="method item">
-    <h3 class="name"><code>isRunning</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>判断当前动画对象是否在执行动画过程</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
-                    
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_isRunning" class="method item">
-    <h3 class="name"><code>isRunning</code></h3>
+                    <div id="method_matchRoute" class="method item">
+    <h3 class="name"><code>matchRoute</code></h3>
 
     
         <div class="args">
@@ -967,7 +1401,7 @@
             
                 <li class="arg">
                     
-                        <code>elem</code>
+                        <code>path</code>
                     
                 </li>
             
@@ -988,8 +1422,6 @@
     
 
     
-        <span class="flag static">static</span>
-    
 
     
 
@@ -1011,7 +1443,7 @@
     </div>
 
     <div class="description">
-        <p>Anim 的静态方法, 用于判断 elem 上是否有动画对象在执行</p>
+        <p>判断一个url路径是否匹配已添加路由规则里面的任一规则</p>
 
     </div>
 
@@ -1023,138 +1455,269 @@
             
                 <li class="param">
                     
-                        <code class="param-name">elem</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a> | Window</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>作用动画的元素节点</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
-                    
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_pause" class="method item">
-    <h3 class="name"><code>pause</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>elem</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>queueName</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Anim 的静态方法, 暂停某元素上的动画（集合）</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">elem</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a> | Window</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>作用动画的元素节点</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">queueName</code>
+                        <code class="param-name">path</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>队列名字。设置 queueName 后, 表示暂停元素上指定队列中的所有动画：</p>
-<ul>
-<li>null 表示默认队列的动画</li>
-<li>false 表示不排队的动画</li>
-<li>string 类型表示指定名称的队列的动画</li>
-<li>不设置时, 表示暂停所有队列中的所有动画</li>
+                        <p>需要判断的url路径</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_navigate" class="method item">
+    <h3 class="name"><code>navigate</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>path</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>options</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>导航到具体路径</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">path</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>目标路径</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">options</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>当前导航路径的配置对象</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">replace</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>是否替换当前的历史记录</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">triggerRoute</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>如果目标路径与页面当前路径一致时，是否仍然触发相应的动作（如利用get函数指定的回调），若为真则replace也自动设为真</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_on" class="method item inherited">
+    <h3 class="name"><code>on</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>eventType</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>fn</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[scope]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/CustomEvent.Target.html#method_on">CustomEvent.Target</a>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>为相应事件添加事件处理器</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">eventType</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <ul>
+<li>当为String时 包含一个或多个事件名称的字符串, 多个事件名以空格分开。 事件可以通过加点来表示分组，例如 &quot;click.one&quot; , &quot;click.two&quot;</li>
+<li>当为Object时，类似这样：<pre><code>{
+  &#39;click&#39;:{
+      fn:function(){
+      },
+      filter: &#39;&#39; // delegate,
+      once:true // 绑定一次
+  },
+  &#39;mouseenter&#39;:function(){}
+}</code></pre>
+</li>
 </ul>
 
                     </div>
@@ -1162,140 +1725,16 @@
                     
                 </li>
             
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_pause" class="method item">
-    <h3 class="name"><code>pause</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>在动画实例上调用, 暂停当前动画实例的动画</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_resume" class="method item">
-    <h3 class="name"><code>resume</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>elem</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>queueName</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Anim 的静态方法, 继续某元素上的动画（集合）</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
                 <li class="param">
                     
-                        <code class="param-name">elem</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a> | Window</span>
+                        <code class="param-name">fn</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>作用动画的元素节点</p>
+                        <p>当事件触发时的回调函数</p>
 
                     </div>
 
@@ -1304,202 +1743,15 @@
             
                 <li class="param">
                     
-                        <code class="param-name">queueName</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>队列名字。设置 queueName 后, 表示继续元素上指定队列中的所有动画：</p>
-<ul>
-<li>null 表示默认队列的动画</li>
-<li>false 表示不排队的动画</li>
-<li>string 类型表示指定名称的队列的动画</li>
-<li>不设置时, 表示继续所有队列中的所有动画</li>
-</ul>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_resume" class="method item">
-    <h3 class="name"><code>resume</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>在动画实例上调用, 继续当前动画实例的动画</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_run" class="method item">
-    <h3 class="name"><code>run</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>在动画实例上调用, 开始当前动画实例的动画</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_stop" class="method item">
-    <h3 class="name"><code>stop</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code class="optional">[finish=false]</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>在动画实例上调用, 结束当前动画实例的动画</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[finish=false]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                        <code class="param-name optional">[scope]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                         <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>默认为false. false 时, 动画会在当前帧直接停止（不触发 complete 回调）. 为 true 时, 动画停止时会立刻跳到最后一帧（触发 complete 回调）</p>
+                        <p>回调函数的 this 值. 如果不指定默认为绑定事件的当前元素</p>
 
                     </div>
 
@@ -1516,8 +1768,8 @@
 </div>
 
                 
-                    <div id="method_stop" class="method item">
-    <h3 class="name"><code>stop</code></h3>
+                    <div id="method_publish" class="method item inherited">
+    <h3 class="name"><code>publish</code></h3>
 
     
         <div class="args">
@@ -1525,25 +1777,13 @@
             
                 <li class="arg">
                     
-                        <code>elem</code>
+                        <code>type</code>
                     
                 </li>
             
                 <li class="arg">
                     
-                        <code>end</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>clearQueue=false</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>queueName</code>
+                        <code>cfg</code>
                     
                 </li>
             
@@ -1560,7 +1800,143 @@
     
 
     
-        <span class="flag static">static</span>
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/CustomEvent.Target.html#method_publish">CustomEvent.Target</a>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>配置自定义事件的一些特有信息</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">type</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要触发的自定义事件名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">cfg</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>事件的具体配置对象</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[bubbles=true]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>类型 boolean. 是否支持冒泡。 默认 true</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[defaultFn]</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_removeRoute" class="method item">
+    <h3 class="name"><code>removeRoute</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>routePath</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[callback]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
     
 
     
@@ -1583,7 +1959,7 @@
     </div>
 
     <div class="description">
-        <p>Anim 的静态方法, 结束某元素上的动画（集合）</p>
+        <p>去除给定路由规则的回调函数或整个路由规则</p>
 
     </div>
 
@@ -1595,14 +1971,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">elem</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a> | Window</span>
+                        <code class="param-name">routePath</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp" class="crosslink external" target="_blank">RegExp</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>作用动画的元素节点</p>
+                        <p>路由规则</p>
 
                     </div>
 
@@ -1611,51 +1987,347 @@
             
                 <li class="param">
                     
-                        <code class="param-name">end</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                        <code class="param-name optional">[callback]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>此参数同实例方法 <a href="#method_stop">stop</a> 中的 finish 参数</p>
+                        <p>需要去除的回调函数，可选。如果没有指定，则整个路由规则都会被去除</p>
 
                     </div>
 
                     
                 </li>
             
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_removeTarget" class="method item inherited">
+    <h3 class="name"><code>removeTarget</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>target</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                <p>Inherited from
+                <a href="../classes/CustomEvent.Target.html#method_removeTarget">CustomEvent.Target</a>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>删除冒泡事件源对象</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
                 <li class="param">
                     
-                        <code class="param-name">clearQueue=false</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                        <code class="param-name">target</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>默认为 false, 是否清除动画队列中余下的动画</p>
+                        <p>事件往上冒泡的事件源</p>
 
                     </div>
 
                     
                 </li>
             
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_start" class="method item">
+    <h3 class="name"><code>start</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>开启路由监听</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
                 <li class="param">
                     
-                        <code class="param-name">queueName</code>
+                        <code class="param-name">callback</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>路由成功开启后的回调</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_stop" class="method item">
+    <h3 class="name"><code>stop</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>停止路由监听</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_use" class="method item">
+    <h3 class="name"><code>use</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>prefix</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>添加一个路由中间件</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">prefix</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>队列名字。设置 queueName 后, 表示结束元素上指定队列中的所有动画：</p>
+                        <p>前缀，符合该前缀的路由则进入回调。默认为 &#39;&#39; ， 即默认都会进入回调</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>回调函数，具有两个参数：</p>
 <ul>
-<li>null 表示默认队列的动画</li>
-<li>false 表示不排队的动画</li>
-<li>string 类型表示指定名称的队列的动画</li>
-<li>不设置时, 表示结束所有队列中的所有动画</li>
+<li>request {Object} 请求信息对象<ul>
+<li>query {Object} querystring对象</li>
+<li>backward {Boolean} 是否向后</li>
+<li>replace {Boolean} 是否替换历史记录</li>
+<li>forward {Boolean} 是否向后</li>
+<li>path {String} 相对prefix的路径，不包含querystring</li>
+<li>url {String} 相对prefix的路径，包含querystring</li>
+<li>originalUrl {String} 初始路径</li>
+</ul>
+</li>
+<li>next {Function} 调用这个函数则会继续去匹配子路由并执行相关回调，否则停止匹配</li>
 </ul>
 
                     </div>
@@ -1679,298 +2351,7 @@
         
 
         
-            <div id="attrs" class="ks-tabs-panel">
-                <h2 class="off-left">Attributes</h2>
 
-                
-                    <div id="attr_complete" class="attr item">
-    <a name="config_complete"></a> 
-    <h3 class="name"><code>complete</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>动画到最后一帧后的回调函数</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_duration" class="attr item">
-    <a name="config_duration"></a> 
-    <h3 class="name"><code>duration</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>单位秒。默认 1 秒.动画持续时间</p>
-
-    </div>
-
-    
-        <p><strong>Default:</strong> 1</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_easing" class="attr item">
-    <a name="config_easing"></a> 
-    <h3 class="name"><code>easing</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>默认 ‘easeNone’,动画平滑函数.
-可取值 “swing”, “easeNone”, “linear”, “easeIn”, “easeOut”, “easeBoth”,”easeInStrong”, “easeOutStrong”,”easeBothStrong”,”elasticIn”,”elasticOut”, “elasticBoth”,”backIn”,”backOut”,”backBoth”, “bounceIn”,”bounceOut”,”bounceBoth”, “cubic-bezier(p1x, p1y, p2x, p2y)（所有取值必须在[0,1]之间）”. 效果预览, 可以参考 <a href="/5.0/examples/anim/easing.html">easing可视化</a>，<a href="/5.0/examples/anim/cubic-bezier.html">cubic-bezier可视化</a></p>
-
-    </div>
-
-    
-        <p><strong>Default:</strong> &quot;easeNone&quot;</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_queue" class="attr item">
-    <a name="config_queue"></a> 
-    <h3 class="name"><code>queue</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | False | Undefined</span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>所属队列名称. 默认undefined. 属于系统内置队列, 设置 false 则表示该动画不排队立即执行</p>
-
-    </div>
-
-    
-        <p><strong>Default:</strong> undefined</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="attr_useTransition" class="attr item">
-    <a name="config_useTransition"></a> 
-    <h3 class="name"><code>useTransition</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>是否使用css3 transition提升性能。
-在 useTransition 为 true 的时候，easing 的值必须是 w3c 规定的时间函数名称。
-具体为： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(p1x, p1y, p2x, p2y)</p>
-
-    </div>
-
-    
-        <p><strong>Default:</strong> false</p>
-    
-
-    
-
-    
-</div>
-
-                
-            </div>
-        
-
-        
-            <div id="events" class="ks-tabs-panel">
-                <h2 class="off-left">Events</h2>
-
-                
-                    <div id="event_complete" class="events item">
-    <h3 class="name"><code>complete</code></h3>
-    <span class="type"></span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>动画结束后, 触发该事件</p>
-
-    </div>
-
-    
-
-
-    
-</div>
-
-                
-            </div>
         
     </div>
 </div>

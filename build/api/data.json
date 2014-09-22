@@ -690,6 +690,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/api/router.js": {
+            "name": "src/api/router.js",
+            "modules": {
+                "router": 1
+            },
+            "classes": {
+                "Router": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/api/split-button.js": {
             "name": "src/api/split-button.js",
             "modules": {
@@ -1576,6 +1587,19 @@
             "tag": "module",
             "file": "src/api/resizable.js",
             "line": 5
+        },
+        "router": {
+            "name": "router",
+            "submodules": {},
+            "classes": {
+                "Router": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/router.js",
+            "line": 6,
+            "description": "一个类似express的路由模块"
         },
         "split-button": {
             "name": "split-button",
@@ -2733,7 +2757,8 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [
-                "Attribute"
+                "Attribute",
+                "Router"
             ],
             "module": "event-custom",
             "namespace": "CustomEvent",
@@ -3328,6 +3353,24 @@
             ],
             "example": [
                 "\n\t//css\n\t.ks-resizable-handler {\n\tposition: absolute;\n\toverflow: hidden;\n\tfont-size: 0;\n\tline-height: 0;\n\tz-index: 1;\n\t}\n\t.ks-resizable-handler-t,.ks-resizable-handler-b,  .ks-resizable-handler-r, .ks-resizable-handler-l {\n\t    opacity: 0.6;\n\t    filter: alpha(opacity = 60);\n\t    background-color: #F19EC2;\n\t}\n\t.ks-resizable-handler-t,.ks-resizable-handler-b {\n\t    left: 0;\n\t    height: 5px;\n\t    width: 100%;\n\t    cursor: n-resize;\n\t}\n\t.ks-resizable-handler-b {\n\t    bottom: 0;\n\t}\n\n\t.ks-resizable-handler-t {\n\t    top: 0;\n\t}\n\t.ks-resizable-handler-r, .ks-resizable-handler-l {\n\t    top: 0;\n\t    height: 100%;\n\t    -height: expression(this.parentNode.offsetHeight);\n\t    width: 5px;\n\t    cursor: e-resize;\n\t}\n\t.ks-resizable-handler-l {\n\t    left: 0;\n\t}\n\n\t.ks-resizable-handler-r {\n\t    right: 0;\n\t}\n\n\t.ks-resizable-handler-bl, .ks-resizable-handler-br, .ks-resizable-handler-tl, .ks-resizable-handler-tr {\n\t    position: absolute;\n\t    width: 5px;\n\t    height: 5px;\n\t    border: 1px solid #535353;\n\t    background-color: #E4007F;\n\t    z-index: 2;\n\t}\n\t.ks-resizable-handler-bl {\n\t    left: -3px;\n\t    bottom: -3px;\n\t    cursor: sw-resize;\n\t}\n\n\t.ks-resizable-handler-br {\n\t    right: -3px;\n\t    bottom: -3px;\n\t    cursor: nw-resize;\n\t}\n\n\t.ks-resizable-handler-tl {\n\t    left: -3px;\n\t    top: -3px;\n\t    cursor: nw-resize;\n\t}\n\n\t.ks-resizable-handler-tr {\n\t    right: -3px;\n\t    top: -3px;\n\t    cursor: sw-resize;\n\t}\n\n\t//javascript\n\tKISSY.use(['node', 'resizable'], function(S, $, Resizable) {\n\t    var r = new Resizable({\n\t        node:\"#something-can-resize\",\n\t        // 指定可拖动的位置\n\t        handlers:[\"b\",\"t\",\"r\",\"l\",\"tr\",\"tl\",\"br\",\"bl\"],\n\t        // 可选, 设置最小/最大 宽高\n\t        minHeight:100,\n\t        minWidth:100,\n\t        maxHeight:300,\n\t        maxWidth:400\n\t    });\n\t});"
+            ]
+        },
+        "Router": {
+            "name": "Router",
+            "shortname": "Router",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "router",
+            "namespace": "",
+            "file": "src/api/router.js",
+            "line": 6,
+            "description": "一个类似express的路由管理器",
+            "static": 1,
+            "uses": [
+                "CustomEvent.Target"
             ]
         },
         "SplitButton": {
@@ -15332,6 +15375,227 @@
             "name": "resizeEnd",
             "class": "Resizable",
             "module": "resizable"
+        },
+        {
+            "file": "src/api/router.js",
+            "line": 13,
+            "description": "添加一个路由中间件",
+            "itemtype": "method",
+            "name": "use",
+            "params": [
+                {
+                    "name": "prefix",
+                    "description": "前缀，符合该前缀的路由则进入回调。默认为 '' ， 即默认都会进入回调",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "回调函数，具有两个参数：\n- request {Object} 请求信息对象\n\t- query {Object} querystring对象\n\t- backward {Boolean} 是否向后\n\t- replace {Boolean} 是否替换历史记录\n\t- forward {Boolean} 是否向后\n\t- path {String} 相对prefix的路径，不包含querystring\n\t- url {String} 相对prefix的路径，包含querystring\n\t- originalUrl {String} 初始路径\n- next {Function} 调用这个函数则会继续去匹配子路由并执行相关回调，否则停止匹配",
+                    "type": "Function"
+                }
+            ],
+            "class": "Router",
+            "module": "router"
+        },
+        {
+            "file": "src/api/router.js",
+            "line": 29,
+            "description": "导航到具体路径",
+            "itemtype": "method",
+            "name": "navigate",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "目标路径",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "当前导航路径的配置对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "replace",
+                            "description": "是否替换当前的历史记录",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "triggerRoute",
+                            "description": "如果目标路径与页面当前路径一致时，是否仍然触发相应的动作（如利用get函数指定的回调），若为真则replace也自动设为真",
+                            "type": "Boolean"
+                        }
+                    ]
+                }
+            ],
+            "class": "Router",
+            "module": "router"
+        },
+        {
+            "file": "src/api/router.js",
+            "line": 38,
+            "description": "添加路由和对应的回调处理响应",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "routePath",
+                    "description": "路由规则",
+                    "type": "String|RegExp"
+                },
+                {
+                    "name": "callback1",
+                    "description": "第一个回调函数，接受三个参数 request,response,nextCallback ，如果调用 nextCallback 则进入传入的第二个回调函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "callback2",
+                    "description": "第二个回调函数，可选，是否执行决定于第一个回调函数",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "...",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "Router",
+            "module": "router"
+        },
+        {
+            "file": "src/api/router.js",
+            "line": 47,
+            "description": "判断一个url路径是否匹配已添加路由规则里面的任一规则",
+            "itemtype": "method",
+            "name": "matchRoute",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "需要判断的url路径",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Router",
+            "module": "router"
+        },
+        {
+            "file": "src/api/router.js",
+            "line": 54,
+            "description": "去除给定路由规则的回调函数或整个路由规则",
+            "itemtype": "method",
+            "name": "removeRoute",
+            "params": [
+                {
+                    "name": "routePath",
+                    "description": "路由规则",
+                    "type": "String|RegExp"
+                },
+                {
+                    "name": "callback",
+                    "description": "需要去除的回调函数，可选。如果没有指定，则整个路由规则都会被去除",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "Router",
+            "module": "router"
+        },
+        {
+            "file": "src/api/router.js",
+            "line": 61,
+            "description": "清空所有路由规则及路由中间件",
+            "itemtype": "method",
+            "name": "clearRoutes",
+            "class": "Router",
+            "module": "router"
+        },
+        {
+            "file": "src/api/router.js",
+            "line": 66,
+            "description": "判断路由规则是否存在已添加的路由规则中",
+            "itemtype": "method",
+            "name": "hasRoute",
+            "params": [
+                {
+                    "name": "routePath",
+                    "description": "路由规则",
+                    "type": "String|RegExp"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Router",
+            "module": "router"
+        },
+        {
+            "file": "src/api/router.js",
+            "line": 73,
+            "description": "全局路由配置",
+            "itemtype": "method",
+            "name": "config",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "配置对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "caseSensitive",
+                            "description": "是否大小写敏感",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "strict",
+                            "description": "是否严格要求路径末尾的反斜杠匹配",
+                            "optional": true
+                        },
+                        {
+                            "name": "urlRoot",
+                            "description": "配置针对支持html5 history的浏览器的根路径",
+                            "optional": true
+                        },
+                        {
+                            "name": "useHash",
+                            "description": "是否强制使用hash来处理路由即使在支持html5 histroy的浏览器下",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "class": "Router",
+            "module": "router"
+        },
+        {
+            "file": "src/api/router.js",
+            "line": 83,
+            "description": "开启路由监听",
+            "itemtype": "method",
+            "name": "start",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "路由成功开启后的回调",
+                    "type": "Function"
+                }
+            ],
+            "class": "Router",
+            "module": "router"
+        },
+        {
+            "file": "src/api/router.js",
+            "line": 89,
+            "description": "停止路由监听",
+            "itemtype": "method",
+            "name": "stop",
+            "class": "Router",
+            "module": "router"
         },
         {
             "file": "src/api/split-button.js",
