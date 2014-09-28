@@ -480,8 +480,18 @@ li.docs:hover ul, li.more:hover ul{
 
 
 
-
-
+/**------------other pages - footer-------*/
+.footer .wrap-disqus{
+  width: 100%;
+  background: #1c73b2;
+}
+.footer .wrap-disqus #disqus_thread{
+  width: 80%;
+  min-width: 990px;
+  max-width: 1190px;
+  margin: 0 auto;
+  position: relative;
+}
 
 
 
