@@ -28,6 +28,16 @@
 				</div>
 			</div>
 		{{/if}}
+		{{#if( page==="faq")}}
+			<div class="faq">
+				<div class="logo-on-top clearfix">
+					<img src="/5.0/assets/img/logo-on-top.png">
+				</div> 
+				<div class="inner">
+					{{{mainContent}}}
+				</div>
+			</div>
+		{{/if}}
 		
 	</div>
 	<div class="footer">

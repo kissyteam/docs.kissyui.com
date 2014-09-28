@@ -5,6 +5,7 @@
   height: 50px;
   text-align: center;
   background: #2a2a2a;
+  position: fixed;
 }
 .header .inner{
   width: 80%;
@@ -35,7 +36,14 @@
   cursor: pointer;
 }
 .toolbar li.nav-other{
+  height: 50px;
+  padding: 0px;
+}
+.toolbar li.nav-other a{
+  text-decoration: none;
   padding: 22px 13px 10px 13px;
+  height: 18px;
+  display: inline-block;
 }
 .nav li a{
   text-decoration: none;
@@ -103,6 +111,7 @@ li.docs:hover ul, li.more:hover ul{
 /**--------------index page main content---------*/
 .main{
   width: 100%;
+  padding-top: 50px;
 }
 .main .index-page .top-wrap{
   width: 100%;
@@ -379,33 +388,33 @@ li.docs:hover ul, li.more:hover ul{
 }
 
 /**----------quick-start page-------------*/
-.main .quick-start{
+.main .quick-start, .main .faq, .main .guides-index{
   width: 100%;
   background: #1c73b2;
 }
-.main .quick-start .inner{
+.main .quick-start .inner, .main .faq .inner, .main .guides-index .inner{
   width: 80%;
   min-width: 990px;
   max-width: 1190px;
   margin: 0 auto;
   padding-bottom: 50px;
 }
-.main .quick-start h1{
+.main .quick-start h1, .main .faq h1{
   font-size: 24px;
   color: #fff;
   margin: 20px 0;
 }
-.main .quick-start h2{
+.main .quick-start h2, .main .faq h2{
   color: #afe3ff;
   font-size: 20px;
   margin: 20px 0;
 }
-.main .quick-start h3 {
+.main .quick-start h3, .main .faq h3{
   color: #afe3ff;
   font-size: 18px;
   margin: 10px 0;
 }
-.main .quick-start p {
+.main .quick-start p, .main .faq p{
   margin: 20px 0;
   font-size: 14px;
   color: #dcf1ff;
@@ -443,3 +452,62 @@ li.docs:hover ul, li.more:hover ul{
   position: absolute;
   right: 0;
 }
+
+
+
+/**----------guides-index page-----------*/
+.main .guides-index .inner h1{
+  color: #fff;
+  font-size: 20px;
+}
+.main .guides-index .inner ul{
+  padding: 20px 0 40px 0;
+  border-bottom: 1px #fff solid;
+}
+.main .guides-index .inner ul.modules li{
+  width: 200px;
+  padding-left: 50px;
+  float: left;
+}
+.main .guides-index .inner ul.modules li a{
+  text-decoration: none;
+  font-size: 14px;
+  color: #cbebff;
+}
+.main .guides-index .inner ul.modules li a:hover{
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

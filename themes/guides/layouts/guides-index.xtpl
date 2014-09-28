@@ -2,27 +2,36 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scale=no">
 	<title>Guides - KISSY v5.0 Documentation</title>
-	<link rel="shortcut icon" href="/{{{version}}}/assets/favicon.ico">
-	<link rel="stylesheet" href="/{{{version}}}/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="/{{{version}}}/assets/css/component.css">
-	<link rel="stylesheet" href="/{{{version}}}/assets/css/custom.css">
-	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+	<link rel="shortcut icon" href="/{{{version}}}/assets/img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/{{{version}}}/assets/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/{{{version}}}/assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/{{{version}}}/assets/css/github.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.09.05/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
-	<div class="container" id="container">
+	<div class="header">
 		{{{include ("../../layouts/header")}}}
-		<h1>KISSY User Guides</h1>
-		<div id="guides-lists">
-			<ul class="row list-unstyled">
-				{{#each(guidesModuleLists)}}
-				<li class="col-md-3">
-					<a href="{{src}}">{{name}}</a>
-				</li>
-				{{/each}}
-			</ul>
+	</div>
+	<div class="main">
+		<div class="guides-index">
+			<div class="logo-on-top clearfix">
+				<img src="../assets/img/logo-on-top.png">
+			</div>
+			<div class="inner">
+				<h1>KISSY User Guides</h1>
+				<ul class="modules clearfix">
+					{{#each(guidesModuleLists)}}
+					<li>
+						<a href="{{src}}">{{name}}</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
 		</div>
+	</div>
+	<div class="footer">
 		{{{include ("../../layouts/other-footer")}}}
 	</div>
 </body>

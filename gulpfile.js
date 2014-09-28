@@ -53,7 +53,7 @@ gulp.task('linkserver',function(){
 });
 
 gulp.task('watch', function(){
-	gulp.watch(['src/**/*', '!src/api/**/*'], ['copyassets', 'buildguide']);
+	gulp.watch(['src/**/*', 'themes/**/*', '!src/api/**/*'], ['copyassets', 'buildguide']);
 	gulp.watch(['src/api/**/*'], ['buildapi']);
 })
 
