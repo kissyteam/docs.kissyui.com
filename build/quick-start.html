@@ -2,153 +2,65 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scale=no">
 	<title>KISSY - A Powerful JavaScript Framework</title>
-	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
-	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="/5.0/assets/css/component.css">
-	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
-	<link rel="stylesheet" href="/5.0/assets/css/github.css"/>
-	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>	
+	<link rel="shortcut icon" href="/5.0/assets/img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/5.0/assets/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/5.0/assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/5.0/assets/css/github.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.09.05/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
-	<div class="container" id="container">
-		<header class="header clearfix">
-	<div class="logo">
+	<div class="header">
+		<div class="inner">
+	<div class="toolbar">
 		<a href="/5.0">
-			<img src="/5.0/assets/img/logo.png" alt="">
+			<img class="mini-logo" src="assets/img/mini-logo.png">
 		</a>
+		<ul class="nav clearfix">
+			<li class="docs">
+				<span>
+					Docs
+					<b class="caret"></b>
+				</span>
+				<ul>
+					<li><a href="/5.0/guides/">Guides</a></li>
+					<li><a href="/5.0/api">Api Docs</a></li>
+					<li><a href="/5.0/demos">Demos</a></li>
+				</ul>
+			</li>
+			<li class="more">
+				<span>
+					More
+					<b class="caret"></b>
+				</span>
+				<ul>
+					<li><a href="/5.0/more/faq.html">FAQ</a></li>
+					<li><a href="http://gallery.kissyui.com/">Gallery</a></li>
+					<li><a href="http://blog.kissyui.com/">KISSY Blog</a></li>
+					<li><a href="https://github.com/daxingplay/grunt-kmc/blob/master/README.md">KMC</a></li>
+				</ul>
+			</li>
+			<li class="split"></li>
+			<li class="nav-other"><a href="/5.0/quick-start.html">Quick Start</a></li>
+			<li class="nav-other"><a href="https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md">Contribute</a></li>
+			<li class="nav-other"><a href="#">KISSY UP</a></li>
+		</ul>
 	</div>
 	<div class="search">
-		<gcse:search></gcse:search>
+		
 	</div>
-	<div id="header-toolbar"></div>
-</header>
-<script type="text/javascript">
-	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
-			new Toolbar({
-				render : '#header-toolbar',
-				children : [
-					{
-						content : 'Home',
-						listeners : {
-							click : function(){
-								window.location.href ='/5.0';
-							}
-						}
-					},
-					{
-						content : 'Quick Start',
-						listeners : {
-							click : function(){
-								window.location.href ='/5.0/quick-start.html';
-							}
-						}
-					},
-					{
-						content : 'Docs',
-						xclass : 'menu-button',
-						menu : {
-							children : [
-								{
-									content : 'Guides',
-									listeners : {
-										click : function(){
-											window.location.href ='/5.0/guides';
-										}
-									}
-								},
-								{
-									content : 'API Docs',
-									listeners : {
-										click : function(){
-											window.location.href ='/5.0/api';
-										}
-									}
-								},{
-									content : 'Demos',
-									listeners : {
-										click : function(){
-											window.location.href ='/5.0/demos';
-										}
-									}
-								}
-							]
-						},
-						matchElWidth : false
-					},
-					{
-						content : 'Contribute',
-						listeners : {
-							click : function(){
-								window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
-							}
-						}
-					},
-					{
-						content : 'More',
-						xclass : 'menu-button',
-						menu : {
-							children : [
-								{
-									content : 'FAQ',
-									listeners : {
-										click : function(){
-											window.location.href ='/5.0/more/faq.html';
-										}
-									}
-								},
-								{
-									content : 'Gallery',
-									listeners : {
-										click : function(){
-											window.location.href = 'http://gallery.kissyui.com/';
-										}
-									}
-								},
-								{
-									content : 'Kissy Blog',
-									listeners : {
-										click : function(){
-											window.location.href = 'http://blog.kissyui.com/';
-										}
-									}
-								},
-								{
-									content : 'KMC',
-									listeners : {
-										click : function(){
-											window.location.href = 'https://github.com/daxingplay/grunt-kmc/blob/master/README.md';
-										}
-									}
-								},
-								{
-									content : 'ABC',
-									listeners : {
-										click : function(){
-											window.location.href = 'http://abc.f2e.taobao.net/';
-										}
-									}
-								},
-								{
-									content : 'Clam',
-									listeners : {
-										click : function(){
-											window.location.href = 'https://github.com/jayli/generator-clam/blob/master/README.md';
-										}
-									}
-								}
-							]
-						},
-						matchElWidth : false
-					}
-				]
-			}).render();
-		});
-</script>
-		<div class="row">
-			<div class="col-md-12"  id="main-content">
-				<h1 id="快速开始">快速开始</h1><h2 id="1，复制 &amp; 粘贴">1，复制 &amp; 粘贴</h2><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"</span> <span class="hljs-attribute">data-config</span>=<span class="hljs-value">"{combine:true}"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</div>
+	</div>
+	<div class="main">
+		
+		
+			<div class="quick-start">
+				<div class="logo-on-top clearfix">
+					<img src="assets/img/logo-on-top.png">
+				</div> 
+				<div class="inner">
+					<h1 id="快速开始">快速开始</h1><h2 id="1，复制 &amp; 粘贴">1，复制 &amp; 粘贴</h2><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"</span> <span class="hljs-attribute">data-config</span>=<span class="hljs-value">"{combine:true}"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre><p>种子文件是一个<strong>非常小</strong>的 JS 文件，通过他可以动态加载 KISSY 的模块文件，因为体积很小，推荐将种子文件至于<code>&lt;head&gt;</code>标签内。
 <code>data-config=&quot;{combine:true}&quot;</code> 表示启用服务器 combo 机制，可用于减少网络请求数目。</p>
 <h2 id="2，开始使用 KISSY">2，开始使用 KISSY</h2><pre><code><span class="hljs-comment">// 创建一个 KISSY 沙箱</span>
@@ -360,8 +272,21 @@ IO.get(<span class="hljs-string">'/5.0/demos/anim/cited-by-md/quickstartdata.jso
     });
 })
 </code></pre>
+				</div>
 			</div>
+		
+		
+	</div>
+	<div class="footer">
+		
+			<div class="other-page">
+	<div class="wrap">
+		<div class="content">
+			<p>@2010 - 2112 KISSY UI LIBARAY</p>
 		</div>
+	</div>
+</div>
+		
 	</div>
 </body>
 </html>

@@ -9,6 +9,9 @@
 	<link rel="stylesheet" href="/{{{version}}}/assets/css/component.css">
 	<link rel="stylesheet" href="/{{{version}}}/assets/css/custom.css">
 	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
+
+	<link rel="stylesheet" type="text/css" href="/{{{version}}}/assets/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/{{{version}}}/assets/css/main.css">
 </head>
 <body>
 	<div class="container" id="container">
@@ -23,7 +26,7 @@
 				{{/each}}
 			</ul>
 		</div>
-		{{{include ("../../layouts/footer")}}}
+		{{{include ("../../layouts/other-footer")}}}
 	</div>
 </body>
 </html>

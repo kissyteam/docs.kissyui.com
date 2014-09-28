@@ -221,7 +221,10 @@ module.exports.buildOthers = function(srcUrl,config){
 				desPath = path.normalize(fileName.replace('src','build').replace('.md','.html')),
 				fileHtml = marked(mdContent),
 				title = getTitle(fileHtml);
+			var page = fileName.indexOf('index.md') > -1 ? "index" : "quickstart";
+				console.log(page);
 			xtpl.__express(mainXtplPath,{
+				page : page,
 				mainContent : fileHtml,
 				version : version,
 				title : title,
@@ -241,6 +244,7 @@ module.exports.buildOthers = function(srcUrl,config){
 					fileHtml = marked(mdContent),
 					title = getTitle(fileHtml);
 				xtpl.__express(mainXtplPath,{
+					page : 'other',
 					mainContent : fileHtml,
 					version : version,
 					title : title,

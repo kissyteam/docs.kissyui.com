@@ -1,0 +1,445 @@
+/*-----------header-------------*/
+
+.header{
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  background: #2a2a2a;
+}
+.header .inner{
+  width: 80%;
+  height: 50px;
+  min-width: 990px;
+  max-width: 1190px;
+  margin: 0 auto;
+}
+.header .toolbar{
+  width: 580px;
+  height: 50px;
+  float: left;
+}
+.header .search{
+  float: right;
+}
+.toolbar .mini-logo, .toolbar .nav{
+  margin-top: 18px;
+  float: left;
+}
+.toolbar ul.nav{
+  margin: 0 0 0 15px;
+}
+.toolbar .nav li{
+  float: left;
+  list-style: none;
+  padding: 20px 13px 6px 13px;
+  cursor: pointer;
+}
+.toolbar li.nav-other{
+  padding: 22px 13px 10px 13px;
+}
+.nav li a{
+  text-decoration: none;
+}
+li.docs, li.more{
+  position: relative;
+  color: #f5f5f5;
+}
+li.docs ul, li.more ul{
+  width: 100px;
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+  padding-top: 5px;
+  background: #2a2a2a;
+  display: none;
+  position: absolute;
+  left: 0px;
+  top: 45px;
+}
+.toolbar .nav .docs li, .toolbar .nav .more li{
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+li.docs ul li:hover, li.more ul li:hover{
+  background: #464646;
+}
+li.docs span, li.more span{
+  font-size: 16px;
+}
+li.docs ul a, li.more ul a{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: #f5f5f5;
+  text-align: left;
+  padding: 5px 15px;
+}
+li.docs:hover ul, li.more:hover ul{
+  display: block;
+}
+
+.nav-other{
+  color: #8cc7f0;
+}
+.nav-other a{
+  color: #8cc7f0;
+}
+.nav-other:hover{
+  background: #575757;
+}
+.nav-other:hover a{
+  color: #fff;
+}
+
+.toolbar .nav .split{
+  width: 2px;
+  height: 20px;
+  background: #fff;
+  padding: 0;
+  margin: 20px 15px 0 15px;
+}
+
+/**--------------index page main content---------*/
+.main{
+  width: 100%;
+}
+.main .index-page .top-wrap{
+  width: 100%;
+  height: 359px;
+  background: #1c73b2;
+  text-align: center;
+}
+.main .index-page .top-wrap .content{
+  display: inline-block;
+  width: 1190px;
+  height: 359px;
+  background: url(../img/content-bg.png) 0px -11px no-repeat;
+}
+.main .index-page .top-wrap .content img{
+  margin-top: 117px;
+}
+.main .index-page .top-wrap .content p{
+  display: inline-block;
+  width: 608px;
+  font-size: 14px;
+  color:#fff;
+}
+
+
+.main .index-page .middle-wrap{
+  display: block;
+  width: 100%;
+  height: 813px;
+  background: #bce4ff;
+  position: relative;
+}
+.main .index-page .middle-wrap .top-repeat{
+  width: 100%;
+  height: 26px;
+  background: url(../img/triangle.png) repeat-x;
+}
+.main .index-page .middle-wrap .whatiskissy{
+  display: inline-block;
+  width: 760px;
+  height: 275px;
+  padding: 80px 0px 0px 50px;
+  background: #49a0df;
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  margin-left: -405px;
+}
+.main .index-page .middle-wrap .whatiskissy h1{
+  font-size: 42px;
+  color: #fff;
+}
+.main .index-page .middle-wrap .whatiskissy .short{
+  display: inline-block;
+  width: 615px;
+  height: 34px;
+  line-height: 34px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  color: 14px;
+  color:#000;
+  background: #c6e6f6;
+}
+.main .index-page .middle-wrap .whatiskissy .long{
+  display: inline-block;
+  width: 615px;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  color: 14px;
+  color:#fff;
+}
+
+.main .index-page .middle-wrap .use{
+  display: inline-block;
+  width: 810px;
+  height: 322px;
+  background: #ffe4db;
+  position: absolute;
+  left: 50%;
+  margin-left: -405px;
+  top: 380px;
+}
+.main .index-page .use .tip{
+  display: inline-block;
+  width: 90px;
+  height: 180px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: url(../img/use5.png);
+}
+.main .use .center{
+  display: inline-block;
+  width: 460px;
+  height: 191px;
+  padding: 11px 16px 11px 0;
+  border-right: 1px #ffbba7 solid;
+  position: absolute;
+  left: 117px;
+  top: 37px;
+}
+.main .use .center div{
+  padding-left: 35px;
+  margin-bottom: 15px;
+}
+.main .use .center h4{
+  color: #3d3d3d;
+  font-size: 14px;
+}
+.main .use .center code{
+  font-size: 14px;
+  color: #ff6d42;
+}
+.main .use .cdn{
+  background: url(../img/1.png) no-repeat;
+}
+.main .use .install{
+  background: url(../img/2.png) no-repeat;
+}
+.main .use .download{
+  background: url(../img/3.png) no-repeat;
+}
+.main .use .download a{
+  color: #3d3d3d;
+  font-size: 14px;
+}
+
+.main .use .right{
+  display: inline-block;
+  width: 190px;
+  height: 178px;
+  background: url(../img/join.png) no-repeat;
+  position: absolute;
+  right: 0px;
+  top: 40px;
+}
+.main .use .right .msg{
+  position: absolute;
+  bottom: -25px;
+}
+.main .use .msg a {
+  color: #fff;
+  background: #ff6d42;
+  width: 86px;
+  height: 34px;
+  display: inline-block;
+  line-height: 34px;
+  text-align: center;
+}
+
+
+/**------------gallery-----------------*/
+.main .gallery{
+  width: 100%;
+  height: 270px;
+  background: #2581c4;
+  text-align: center;
+}
+.main .gallery .wrap{
+  width: 810px;
+  padding-top: 55px;
+  margin: 0 auto;
+  background: url(../img/rocket.png) no-repeat 682px 0px;
+}
+.gallery .wrap .left{
+  width: 510px;
+  height: 180px;
+  float: left;
+  border-left: 5px solid #50b2f9;
+  position: relative;
+}
+.gallery .wrap .left .title{
+  width: 200px;
+  text-align: right;
+  padding-top: 26px;
+  position: absolute;
+  left: 0px;
+}
+.gallery .left .title h1{
+  font-size: 45px;
+  font-weight: bold;
+  color: #aae0ff;
+}
+.gallery .left .title p{
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 0;
+}
+.gallery .left .title input{
+  width: 150px;
+  padding: 2px 0 2px 7px;
+  outline: none;
+}
+.gallery .left .list{
+  width: 280px;
+  padding-left: 20px;
+  float: right;
+}
+.gallery .left .list li{
+  width: 140px;
+  height: 80px;
+  text-align: left;
+  float: left;
+}
+.gallery .left .list li h3{
+  font-size: 16px;
+  color: #aae0ff;
+}
+.gallery .left .list li .content{
+  font-size: 12px;
+  color: #d4e2f0;
+}
+.gallery .right{
+  width: 270px;
+  height: 180px;
+  padding-left: 15px;
+  text-align: left;
+  border-left: 5px #ea6f4f solid;
+  float: left;
+}
+.gallery .right p{
+  font-size: 14px;
+  color: #fff;
+}
+.gallery .right a{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  color: #fff;
+  text-decoration: underline;
+}
+.gallery .right h1{
+  font-size: 42px;
+  color: #fff;
+}
+
+
+/*----------首页页脚 index-page-foot-----------*/
+.footer .index-page{
+  width: 100%;
+  height: 260px;
+  background: #bce4ff;
+}
+.footer .index-page .wrap{
+  width: 810px;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+}
+.footer .index-page .content{
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+}
+.footer .index-page .content h1{
+  font-size: 42px;
+  color: #459ddc;
+  text-align: right;
+}
+.footer .index-page .content p{
+  width: 450px;
+  height: 40px;
+  border-top: 1px #595959 solid;
+  text-align: right;
+}
+
+/**--------logo on main part of quick-start page / guide page etc...--------*/
+.main .logo-on-top{
+  width: 100%;
+  height: 100px;
+}
+.main .logo-on-top img{
+  float: right;
+}
+
+/**----------quick-start page-------------*/
+.main .quick-start{
+  width: 100%;
+  background: #1c73b2;
+}
+.main .quick-start .inner{
+  width: 80%;
+  min-width: 990px;
+  max-width: 1190px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+.main .quick-start h1{
+  font-size: 24px;
+  color: #fff;
+  margin: 20px 0;
+}
+.main .quick-start h2{
+  color: #afe3ff;
+  font-size: 20px;
+  margin: 20px 0;
+}
+.main .quick-start h3 {
+  color: #afe3ff;
+  font-size: 18px;
+  margin: 10px 0;
+}
+.main .quick-start p {
+  margin: 20px 0;
+  font-size: 14px;
+  color: #dcf1ff;
+}
+.main a{
+  color: #fff;
+  text-decoration: underline;
+}
+.main pre{
+  border-radius : 4px;
+  -webkit-border-radius : 4px;
+  -moz-border-radius : 4px;
+  -o-border-radius : 4px;
+  font-size: 14px;
+}
+
+.footer .other-page{
+  width: 100%;
+  height: 90px;
+  background: #e1f3ff;
+}
+.footer .other-page .wrap{
+  width: 80%;
+  min-width: 990px;
+  max-width: 1190px;
+  margin: 0 auto;
+  position: relative;
+}
+.footer .other-page .content p {
+  width: 200px;
+  margin-top: 5px;
+  padding-top: 12px;
+  border-top: 1px #595959 solid;
+  color: #676f75;
+  position: absolute;
+  right: 0;
+}

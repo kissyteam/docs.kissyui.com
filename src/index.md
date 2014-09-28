@@ -1,313 +1,115 @@
-<div class="center-block main-wrap">
-<label style="float:left;margin-top:5px;">
-    切换文档版本：
-    <select id="versions" onchange="location.href=document.getElementById('versions').value">
-    <option value="/5.0">v5.0</option>
-    <option value="http://docs.kissyui.com/">v1.4.x</option>
-    <option value="http://docs.kissyui.com/index-1.3.html">v1.3</option>
-    <option value="http://docs.kissyui.com/index-1.2.html">v1.2</option>
-    <option value="http://docs.kissyui.com/index-1.1.6.html">v1.16</option>
-</select>
-</label>
-<h1>What is KISSY ?</h1>
-
-KISSY <a href="https://travis-ci.org/kissyteam/kissy" target="_blank">
-                        <img src="https://secure.travis-ci.org/kissyteam/kissy.png?branch=master"/>
-                    </a> 是一款跨终端、模块化、高性能、使用简单的 JavaScript 框架。除了完备的工具集合如 DOM、Event、Ajax、Anim 等，它还提供了经典的面向对象、动态加载、性能优化解决方案。作为一款全终端支持的 JavaScript 框架，KISSY 为移动终端做了大量适配和优化，让你的程序在全终端均能流畅运行。
-
-<p>KISSY is a powerful javascript framework for building cross end web application such as desktop, mobile and pad.</p>
-
-<div class="row-fluid">
-    <div class="col-md-3 text-center">
-        <h2>跨终端</h2>
-            <img src="./assets/img/icon1.png" />
-    </div>
-    <div class="col-md-3 text-center">
-        <h2>模块化</h2>
-            <img src="./assets/img/icon3.png" />
-    
-    </div>
-    <div class="col-md-3 text-center">
-        <h2>高性能</h2>
-            <img src="./assets/img/icon4.png" />
-    
-    </div>
-    <div class="col-md-3 text-center">
-        <h2>使用简单</h2>
-            <img src="./assets/img/icon2.png" />
-    
-    </div>
-</div>
-
-<p>&nbsp;</p>
-
-# 学习 KISSY，从这里开始
-
-<div class="jumbotron row-fluid text-center">
-    <div class="col-md-3 text-center"><a class="btn btn-primary btn-lg btn-block" href="#">指引手册</a></div>
-    <div class="col-md-3 text-center"><a class="btn btn-primary btn-lg btn-block" href="./guides">教程</a></div>
-    <div class="col-md-3 text-center"><a class="btn btn-info btn-lg btn-block" href="./api" style="color:white">API 参考手册</a></div>
-    <div class="col-md-3 text-center"><a class="btn btn-info btn-lg btn-block" href="./demos" style="color:white">DEMO 示例</a></div>
-</div>
-
-
-# 使用 KISSY 1.4
-
-1. 下载 [KISSY 1.4.3](https://github.com/kissyteam/kissy/archive/v1.4.3.zip)
-2. 通过 cdn 使用 `http://g.tbcdn.cn/kissy/k/1.4.3/seed-min.js` 或  `https://s.tbcdn.cn/g/kissy/k/1.4.3/seed-min.js`
-3. npm 安装 KISSY: ``npm install kissy``
-4. bower 安装 KISSY: ``bower install kissy``
-
-
-# 参与 KISSY
-
-1. 通过 [任务面板](https://waffle.io/kissyteam/kissy) 了解 KISSY 将要做或正在做的事情.
-2. 通过 [issues](https://github.com/kissyteam/kissy/issues) 来提供反馈.
-3. 通过 [github](https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md) 来给 KISSY 贡献代码.
-
-<div class="search-combobox" id="combobox">
-    <div class="search-combobox-input-wrap">
-        <input id="q" name="q" accesskey="s" placeholder="搜索 kissy gallery 组件" class="search-combobox-input" autocomplete="off">
-    </div>
-</div>
-
-<div id="J_ComsRecommend"></div>
-
-<h1 class="gallery-coms-title">
-    kissy gallery最新发布组件
-    <a href="http://gallery.kissyui.com/coms">全部组件</a>
-</h1>
-
-<style>
-    .main-wrap{
-      width: 75%;
-      max-width: 960px;
-    }
-    .main-wrap h1{
-      margin: 20px 0;
-      text-align: center;
-      font-size: 28px;
-    }
-    .img-rounded{
-        box-shadow:0 0 8px -3px black;
-    }
-
-    .com-desc{
-        height:70px;
-        line-height: 24px;
-        overflow: hidden;
-        margin-bottom: 10px;
-    }
-    .gallery-coms-title{
-        margin-top:40px;
-        position: relative;
-    }
-    .gallery-coms-title a{
-        position: absolute;
-        right: 0;   
-        top: 4px;
-        font-size:16px;
-    }
-    .com{
-        margin-top: 15px;
-        padding-right: 0;
-    }
-    .com-box{
-        text-align: center;
-        background-color: #fff;
-        padding: 20px;
-        border: 4px solid #fff;
-        -webkit-transition: border 0.3s;
-        transition: border 0.3s;
-    }
-    .com-box h2{
-        height: 20px;
-        overflow: hidden;
-    }
-    .recommend-box{
-        padding:0;
-    }
-    .recommend-box h2{
-        padding: 10px;
-        margin: 0;
-        height: 40px;
-    }
-    .recommend-box p{
-        padding: 0 10px;
-        margin-bottom: 20px;
-    }
-    #J_ComsRecommend{
-        height: 600px;
-    }
-    .recommend-box img{
-        width: 210px;
-        height: 200px;
-    }
-    .com a{
-        color: #30abd5;
-    }
-    .com a .com-box h2{
-        font-weight: bold;
-        font-size: 20px;
-    }
-    .com a .com-box p{
-        color:#666;
-    }
-    .com a:hover{
-        color:#333;
-        text-decoration: none;
-    }
-    .com-box:hover{
-        border-color: #30abd5;
-    }
-    .jumbotron{
-        height:150px;
-    }
-    .jumbotron a{
-        float: left;
-        margin-top: 5px;
-        margin-left: 10px;
-    }
-
-    .search-combobox-input-wrap {
-        vertical-align: middle;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .search-combobox-input {
-        font-size: 12px;
-        width: 100%;
-        margin: 20px 0;
-        vertical-align: middle;
-        background-color: #fff;
-        border: 0;
-        color: #000;
-        border:1px solid #ccc;
-        padding: 10px;
-    }
-
-    .search-combobox-input {
-        overflow-y: visible;
-        font-size: 100%;
-    }
-    .search-popupmenu{
-        border: 1px solid #ccc;
-        background-color: #fff;
-        height: 200px;
-        overflow-y: scroll;
-    }
-    .search-menuitem{
-        padding: 10px;
-    }
-    .search-menuitem a{
-        color: #666;
-    }
-    .search-menuitem a:hover{
-        color: #0066bb;
-    }
-    .search-popupmenu-hidden{
-        visibility: hidden;
-    }
-</style>
-
-
-<div id="J_Coms">
-
-</div>
-<div id="disqus_thread"></div>
-</div>
-<script type="text/xtemplate" class="J_ComsTpl">
-    <div class="row-fluid index-box">
-        {{#each result}}
-        <div class="col-md-4 com">
-            <a href="http://gallery.kissyui.com/{{name}}/{{version}}/guide/index.html">
-                <div class="com-box">
-                    <h2>{{name}}</h2>
-                    <p class="com-author">by {{author.name}}</p>
-                    <p class="com-desc">{{#if desc!==""}}{{desc}}{{else}}{{description}}{{/if}}</p>
-                </div>
-            </a>
+<div class="index-page">
+    <div class="top-wrap">
+        <div class="content">
+            <img src="assets/img/large-logo.png">
+            <div>
+                <p>KISSY is a powerful javascript framework for building cross end web application such as desktop, mobile and pad.</p>
+            </div>
+            <div class="change-version">
+                
+            </div>
         </div>
-        {{/each}}
     </div>
-</script>
-<script type="text/xtemplate" class="J_ComsRecommendTpl">
-    <div class="row-fluid index-box">
-        {{#each data}}
-        <div class="col-md-4 com">
-            <a href="{{url}}" title="{{title}}">
-                <div class="com-box recommend-box">
-                    <img src="{{image}}" />
-                    <h2>{{title}}</h2>
-                    <p>{{desc}}</p>
-                </div>
-            </a>
+    <div class="middle-wrap">
+        <div class="top-repeat">
+            
         </div>
-        {{/each}}
+        <div class="whatiskissy">
+            <h1>WHAT IS KISSY</h1>
+            <p class="short">KISSY 是一款跨终端、模块化、高性能、使用简单的 JavaScript 框架。</p>
+            <p class="long">
+                除了完备的工具集合如 DOM、Event、Ajax、Anim 等<br/>
+                它还提供了经典的面向对象、动态加载、性能优化解决方案<br/>
+                作为一款全终端支持的 JavaScript 框架 <br/>
+                KISSY 为移动终端做了大量适配和优化，让你的程序在全终端均能流畅运行
+            </p>
+        </div>
+        <div class="use">
+            <div class="tip">
+                <!--use 5.0 -->
+            </div>
+            <div class="center">
+                <div class="cdn">
+                    <h4>通过 cdn 使用</h4>
+                    <p>
+                        <code>
+                            http://g.alicdn.com/kissy/edge/2014.09.05/seed.js
+                        </code>
+                        <code>
+                            https://s.tbcdn.cn/g/kissy/edge/2014.09.05/seed.js
+                        </code>
+                    </p>
+                </div>
+                <div class="install">
+                    <h4>安装</h4>
+                    <p>
+                        npm 安装 KISSY :
+                        <code>
+                            npm install kissy@5.0.0-alpha.10
+                        </code>
+                    </p>
+                    <p>
+                        bower 安装 KISSY :
+                        <code>
+                            bower install kissy#5.0
+                        </code>
+                    </p>
+                </div>
+                <div class="download">
+                    <a href="#">下载 KISSY 5.0</a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="msg">
+                    <a class="issue" href="https://github.com/kissyteam/kissy/issues/new">issues</a>
+                    <a class="github" href="https://github.com/kissyteam/kissy">github</a>
+                </div>
+            </div>
+        </div>
     </div>
-</script>
- 
-<p>&nbsp;</p>
-
-<script>
-    //gallery组件列表
-    (function(){
-        KISSY.use('node,io,xtemplate,combobox',function(S,Node,io,XTemplate,ComboBox){
-            var $ = Node.all;
-            io.jsonp('http://gallery.kissyui.com/api/coms?len=12',function(data){
-                var tpl = Node.all('.J_ComsTpl').html();
-                var html = new XTemplate(tpl).render(data);
-                $('#J_Coms').html(html);
-            })
-
-            io.jsonp('http://gallery.kissyui.com/api/index-ad?len=6',function(data){
-                var tpl = Node.all('.J_ComsRecommendTpl').html();
-                var html = new XTemplate(tpl).render(data);
-                $('#J_ComsRecommend').html(html);
-            })
-
-            var tmpl = "<a href='http://gallery.kissyui.com/{name}/{version}/guide/index.html'><div class='item-wrapper'>" +
-                    "{name}" +
-                    "<span> by {userName}</span>" +
-                    "</div></a>";
-
-            var comboBox = new ComboBox({
-                prefixCls: 'search-',
-                placeholder: '点我搜索',
-                srcNode: S.one("#combobox"),
-                dataSource: new ComboBox.RemoteDataSource({
-                    xhrCfg: {
-                        url: 'http://gallery.kissyui.com/api/search',
-                        dataType: 'jsonp',
-                        data: {
-                            k: 1,
-                            code: "utf-8"
-                        }
-                    },
-                    paramName: "name",
-                    parse: function (query, results) {
-                        // 返回结果对象数组
-                        return results.result;
-                    },
-                    cache: true
-                }),
-                format: function (query, results) {
-                    var ret = [];
-                    S.each(results, function (r) {
-                        r.userName = r.author.name;
-                        var item = {
-                            // 点击菜单项后要放入 input 中的内容
-                            textContent: r.name,
-                            // 菜单项的
-                            content: S.substitute(tmpl, r)
-                        };
-                        ret.push(item);
-                    });
-                    return ret;
-                }
-            });
-            comboBox.render();
-        })
-    })();
-</script>
+    <div class="gallery">
+        <div class="wrap clearfix">
+            <div class="left">
+                <div class="title">
+                    <h1>Gallery</h1>
+                    <p>KISSY 组件社区</p>
+                    <input id="search-coms" type="text" placeholder="搜索组件">
+                </div>
+                <div class="list">
+                    <ul>
+                        <li>
+                            <h3>组件名称</h3>
+                            <p class="content">
+                                组件描述组件描述
+                            </p>
+                        </li>
+                        <li>
+                            <h3>组件名称</h3>
+                            <p class="content">
+                                组件描述组件描述
+                            </p>
+                        </li>
+                        <li>
+                            <h3>组件名称</h3>
+                            <p class="content">
+                                组件描述组件描述
+                            </p>
+                        </li>
+                        <li>
+                            <h3>组件名称</h3>
+                            <p class="content">
+                                组件描述组件描述
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <p>KISSY愉悦升级</p>
+                <p>为你带来非一般的体验</p>
+                <a href="#">帮我了解更多</a>
+                <h1>KISSY UP</h1>
+            </div>
+        </div>
+    </div>
+</div>

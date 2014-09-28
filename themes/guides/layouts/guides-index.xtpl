@@ -23,7 +23,7 @@
 				{{/each}}
 			</ul>
 		</div>
-		{{{include ("../../layouts/footer")}}}
+		{{{include ("../../layouts/other-footer")}}}
 	</div>
 </body>
 </html>

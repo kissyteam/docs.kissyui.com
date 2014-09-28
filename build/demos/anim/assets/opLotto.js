@@ -53,7 +53,7 @@ KISSY.add(function(S, Node, IO){
 			});
 		},
 		_print: function(index){
-			IO.get('/5.0/demos/anim/cited-by-md/quickstartdata.json', {'index': index}, function(data){
+			IO.get('/5.0/demos/anim/cited-by-md/assets/quickstartdata.json', {'index': index}, function(data){
 					var url = data[index].url;
 					$('.detail').html('<img src="' + url + '" />').fadeIn(0.5);
 				}, 'json');

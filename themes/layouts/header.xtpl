@@ -1,133 +1,39 @@
-<header class="header clearfix">
-	<div class="logo">
-		<a href="/{{{version}}}">
-			<img src="/{{{version}}}/assets/img/logo.png" alt="">
+<div class="inner">
+	<div class="toolbar">
+		<a href="/5.0">
+			<img class="mini-logo" src="assets/img/mini-logo.png">
 		</a>
+		<ul class="nav clearfix">
+			<li class="docs">
+				<span>
+					Docs
+					<b class="caret"></b>
+				</span>
+				<ul>
+					<li><a href="/5.0/guides/">Guides</a></li>
+					<li><a href="/5.0/api">Api Docs</a></li>
+					<li><a href="/5.0/demos">Demos</a></li>
+				</ul>
+			</li>
+			<li class="more">
+				<span>
+					More
+					<b class="caret"></b>
+				</span>
+				<ul>
+					<li><a href="/5.0/more/faq.html">FAQ</a></li>
+					<li><a href="http://gallery.kissyui.com/">Gallery</a></li>
+					<li><a href="http://blog.kissyui.com/">KISSY Blog</a></li>
+					<li><a href="https://github.com/daxingplay/grunt-kmc/blob/master/README.md">KMC</a></li>
+				</ul>
+			</li>
+			<li class="split"></li>
+			<li class="nav-other"><a href="/5.0/quick-start.html">Quick Start</a></li>
+			<li class="nav-other"><a href="https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md">Contribute</a></li>
+			<li class="nav-other"><a href="#">KISSY UP</a></li>
+		</ul>
 	</div>
 	<div class="search">
-		<gcse:search></gcse:search>
+		
 	</div>
-	<div id="header-toolbar"></div>
-</header>
-<script type="text/javascript">
-	KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
-			new Toolbar({
-				render : '#header-toolbar',
-				children : [
-					{
-						content : 'Home',
-						listeners : {
-							click : function(){
-								window.location.href ='/{{{version}}}';
-							}
-						}
-					},
-					{
-						content : 'Quick Start',
-						listeners : {
-							click : function(){
-								window.location.href ='/{{{version}}}/quick-start.html';
-							}
-						}
-					},
-					{
-						content : 'Docs',
-						xclass : 'menu-button',
-						menu : {
-							children : [
-								{
-									content : 'Guides',
-									listeners : {
-										click : function(){
-											window.location.href ='/{{{version}}}/guides';
-										}
-									}
-								},
-								{
-									content : 'API Docs',
-									listeners : {
-										click : function(){
-											window.location.href ='/{{{version}}}/api';
-										}
-									}
-								},{
-									content : 'Demos',
-									listeners : {
-										click : function(){
-											window.location.href ='/{{{version}}}/demos';
-										}
-									}
-								}
-							]
-						},
-						matchElWidth : false
-					},
-					{
-						content : 'Contribute',
-						listeners : {
-							click : function(){
-								window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
-							}
-						}
-					},
-					{
-						content : 'More',
-						xclass : 'menu-button',
-						menu : {
-							children : [
-								{
-									content : 'FAQ',
-									listeners : {
-										click : function(){
-											window.location.href ='/{{{version}}}/more/faq.html';
-										}
-									}
-								},
-								{
-									content : 'Gallery',
-									listeners : {
-										click : function(){
-											window.location.href = 'http://gallery.kissyui.com/';
-										}
-									}
-								},
-								{
-									content : 'Kissy Blog',
-									listeners : {
-										click : function(){
-											window.location.href = 'http://blog.kissyui.com/';
-										}
-									}
-								},
-								{
-									content : 'KMC',
-									listeners : {
-										click : function(){
-											window.location.href = 'https://github.com/daxingplay/grunt-kmc/blob/master/README.md';
-										}
-									}
-								},
-								{
-									content : 'ABC',
-									listeners : {
-										click : function(){
-											window.location.href = 'http://abc.f2e.taobao.net/';
-										}
-									}
-								},
-								{
-									content : 'Clam',
-									listeners : {
-										click : function(){
-											window.location.href = 'https://github.com/jayli/generator-clam/blob/master/README.md';
-										}
-									}
-								}
-							]
-						},
-						matchElWidth : false
-					}
-				]
-			}).render();
-		});
-</script>
+</div>
