@@ -6,6 +6,7 @@
   text-align: center;
   background: #2a2a2a;
   position: fixed;
+  z-index: 9999;
 }
 .header .inner{
   width: 80%;
@@ -388,33 +389,33 @@ li.docs:hover ul, li.more:hover ul{
 }
 
 /**----------quick-start page-------------*/
-.main .quick-start, .main .faq, .main .guides-index{
+.main .quick-start, .main .faq, .main .guides-index, .main .guide{
   width: 100%;
   background: #1c73b2;
 }
-.main .quick-start .inner, .main .faq .inner, .main .guides-index .inner{
+.main .quick-start .inner, .main .faq .inner, .main .guides-index .inner, .main .guide .inner{
   width: 80%;
   min-width: 990px;
   max-width: 1190px;
   margin: 0 auto;
   padding-bottom: 50px;
 }
-.main .quick-start h1, .main .faq h1{
+.main .quick-start h1, .main .faq h1, .main .guide h1{
   font-size: 24px;
   color: #fff;
   margin: 20px 0;
 }
-.main .quick-start h2, .main .faq h2{
+.main .quick-start h2, .main .faq h2, .main .guide h2{
   color: #afe3ff;
   font-size: 20px;
   margin: 20px 0;
 }
-.main .quick-start h3, .main .faq h3{
+.main .quick-start h3, .main .faq h3, .main .guide h3{
   color: #afe3ff;
   font-size: 18px;
   margin: 10px 0;
 }
-.main .quick-start p, .main .faq p{
+.main .quick-start p, .main .faq p, .main .guide p{
   margin: 20px 0;
   font-size: 14px;
   color: #dcf1ff;
@@ -495,14 +496,84 @@ li.docs:hover ul, li.more:hover ul{
 
 
 
-
-
-
-
-
-
-
-
+/**-------guide page----------*/
+.main .guide #sidebar{
+  display: inline-block;
+  width: 25%;
+  padding-right: 20px;
+  float: left;
+}
+.main .guide #main-content{
+  display: inline-block;
+  width: 74%;
+  padding-left: 20px;
+  float: left;
+}
+.main .guide #main-content ul{
+  padding-left: 40px;
+  color: #dcf1ff;
+  list-style: inherit;
+}
+.main .guide #main-content ul ul{
+  list-style-type: circle;
+}
+.main .guide #sidebar a.link-apidocs{
+  display: inline-block;
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  padding-left: 15px;
+  background: #49a0df;
+  color: #fff;
+  font-size: 16px;
+  text-align: left;
+  text-decoration: none;
+}
+.main .guide #sidebar a:hover {
+  text-decoration: underline;
+  background: #bce4ff;
+}
+.main .guide #sidebar .panel{
+  margin-top: 15px;
+}
+.main .guide #sidebar .panel-heading{
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  padding-left: 15px;
+  background: #49a0df;
+}
+.main .guide #sidebar .panel-title{
+  color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+}
+.main .guide #sidebar .panel-body{
+  width: 100%;
+  background: #bce4ff;
+  padding: 20px 0 20px 10px;
+}
+.main .guide #sidebar .panel-body li, .main .guide #sidebar .panel-body p{
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  margin: 0;
+}
+.main .guide #sidebar .panel-body a{
+  text-decoration: none;
+  color: #3b3b3b;
+  font-size: 14px;
+}
+.main .guide #sidebar .panel-body a:hover{
+  text-decoration: underline;
+}
+.main .guide #sidebar .outline .level3{
+  padding-left:1.5em;
+}
+.main .guide #sidebar .outline .level3:before{
+  content:"> ";
+  color : #3b3b3b;
+}
 
 
 
