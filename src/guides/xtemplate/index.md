@@ -642,8 +642,3 @@ void get(name) // 获取当前作用域内数据值（包括附属数据）
         <td>range</td><td>set</td><td>with</td><td></td>
     </tr>
 </table>
-
-
-## performance
-
-[xtpl jade ejs nunjucks handlebars dust](http://dev.kissyui.com/kissy/src/xtemplate/-/benchmark/)

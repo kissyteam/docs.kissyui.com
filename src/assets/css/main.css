@@ -112,6 +112,7 @@ li.docs:hover ul, li.more:hover ul{
 /**--------------index page main content---------*/
 .main{
   width: 100%;
+  min-height: 100%;
   padding-top: 50px;
 }
 .main .index-page .top-wrap{
@@ -272,10 +273,10 @@ li.docs:hover ul, li.more:hover ul{
   text-align: center;
 }
 .main .gallery .wrap{
-  width: 810px;
+  width: 900px;
   padding-top: 55px;
   margin: 0 auto;
-  background: url(../img/rocket.png) no-repeat 682px 0px;
+  background: url(../img/rocket.png) no-repeat 770px 5px;
 }
 .gallery .wrap .left{
   width: 510px;
@@ -328,6 +329,7 @@ li.docs:hover ul, li.more:hover ul{
   width: 270px;
   height: 180px;
   padding-left: 15px;
+  margin-left: 50px;
   text-align: left;
   border-left: 5px #ea6f4f solid;
   float: left;
@@ -356,7 +358,7 @@ li.docs:hover ul, li.more:hover ul{
   background: #bce4ff;
 }
 .footer .index-page .wrap{
-  width: 810px;
+  width: 900px;
   height: 200px;
   margin: 0 auto;
   position: relative;
@@ -364,7 +366,7 @@ li.docs:hover ul, li.more:hover ul{
 .footer .index-page .content{
   position: absolute;
   bottom: 0;
-  right: 100px;
+  right: 0px;
 }
 .footer .index-page .content h1{
   font-size: 42px;
@@ -419,11 +421,17 @@ li.docs:hover ul, li.more:hover ul{
   font-size: 14px;
   color: #dcf1ff;
 }
+.main h4{
+  margin: 22px 0;
+  font-size: 14px;
+  color: #dcf1ff;
+}
 .main a{
   color: #fff;
   text-decoration: underline;
 }
 .main pre{
+  margin-top: 20px;
   border-radius : 4px;
   -webkit-border-radius : 4px;
   -moz-border-radius : 4px;

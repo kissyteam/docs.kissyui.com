@@ -60,15 +60,36 @@ fieldset,img
 }
 
 table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.table td, .table th {
+background-color: #fff !important;
+}
+.btn > .caret,
+.dropup > .btn > .caret {
+border-top-color: #000 !important;
+}
+.label {
+border: 1px solid #000;
+}
+.table {
+border-collapse: collapse !important;
+}
+.table-bordered th,
+.table-bordered td {
+border: 1px solid #ddd !important;
+}
+table {
   max-width: 100%;
-  background-color: #fff;
+  background-color: transparent;
 }
 th {
   text-align: left;
 }
 .table {
   width: 100%;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -204,15 +225,6 @@ table th[class*="col-"] {
 .table-hover > tbody > .warning:hover > th {
   background-color: #faf2cc;
 }
-.table > tbody > tr{
-	border: 0;
-}
-.table > tbody > tr > td{
-	line-height: 1.428571429;
-	vertical-align: top;
-	border-top: 1px solid #dddddd;
-}
-
 #page,#header,#content,#footer
 {
 	margin-left:auto;
@@ -285,4 +297,10 @@ h1,h2,h3,h4,h5,h6,button,input,select,textarea
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+html{
+	height:100%;
+}
+body{
+	min-height: 100%;
 }
