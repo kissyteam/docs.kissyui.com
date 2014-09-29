@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>鼠标hover切换tab - KISSY v5.0 Documentation</title>
-	<link rel="shortcut icon" href="/5.0/assets/favicon.ico">
-	<link rel="stylesheet" href="/5.0/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="/5.0/assets/css/component.css">
-	<link rel="stylesheet" href="/5.0/assets/css/custom.css">
-	<link rel="stylesheet" href="/5.0/assets/css/github.css"/>
-	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" data-config="{combine:true}"></script>
-	<script src="/5.0/assets/js/ace-editor/ace.js"></script>
-	<script src="/5.0/assets/js/ajax-load.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scale=no">
+	<title>Guides - KISSY v5.0 Documentation</title>
+	<link rel="shortcut icon" href="/5.0/assets/img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/5.0/assets/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/5.0/assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/5.0/assets/css/github.css"/>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+	<script type="text/javascript" src="/5.0/assets/js/ace-editor/ace.js"></script>
 	<script type="text/javascript" src="/5.0/assets/js/qrcodejs/qrcode.min.js"></script>
+	<script type="text/javascript" src="/5.0/assets/js/ajax-load.js"></script>
+
+	<link rel="stylesheet" href="/5.0/assets/css/component.css">
 </head>
 <body>
-	<div class="container" id="container">
+	<div class="header">
 		<div class="inner">
 	<div class="toolbar">
 		<a href="/5.0">
@@ -55,9 +56,34 @@
 		
 	</div>
 </div>
-		<div class="row">
-			<div class="col-md-9"  id="main-content">
-				<p></p>
+	</div>
+	<div class="main">
+		<div class="demo">
+			<div class="logo-on-top clearfix">
+				<img src="/5.0/assets/img/logo-on-top.png">
+			</div>
+			<div class="inner clearfix">
+				<div id="sidebar">
+					<a class="link-apidocs btn btn-primary" href="../../api/classes/Tabs.html">API Docs</a>
+					<div class="panel panel-primary ajax-load hide">
+						<div class="panel-heading">
+							<h3 class="panel-title">Features</h3>
+						</div>
+						<div class="panel-body">
+							
+						</div>
+					</div>
+					<div class="panel panel-primary ajax-load ">
+						<div class="panel-heading">
+							<h3 class="panel-title">Demos</h3>
+						</div>
+						<div class="panel-body">
+							<p><a href="../../demos/tabs/add-remove.html">增加/删除tab</a></p><p><a href="../../demos/tabs/created-by-markup.html">从已有html生成tabs</a></p><p><a href="../../demos/tabs/index.html">简单使用tabs</a></p><p><a href="../../demos/tabs/orientation.html">改变tabs-bar的位置</a></p><p><a href="../../demos/tabs/tabs-hover.html">鼠标hover切换tab</a></p>
+						</div>
+					</div>
+				</div>
+				<div id="main-content">
+					<p></p>
 <h1 id="鼠标hover切换tab">鼠标hover切换tab</h1><p><div class="ks-tabs ks-tabs-top" style="height:600px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
@@ -129,30 +155,12 @@
     </div>
 </div></p>
 
-	   			<div id="disqus_thread"></div>
-	   			<!-- 这个隐藏的a标签用于实现局部刷新时更新右侧sidebar的api链接 -->
-	   			<a id="apilink" href="../../api/classes/Tabs.html" style="display:none;"></a>
-			</div>
-			<div class="col-md-3" id="sidebar">
-				<a class="link-apidocs btn btn-primary" href="../../api/classes/Tabs.html">API Docs</a>
-				<div class="panel panel-primary ajax-load hide">
-					<div class="panel-heading">
-						<h3 class="panel-title">Features</h3>
-					</div>
-					<div class="panel-body">
-						
-					</div>
-				</div>
-				<div class="panel panel-primary ajax-load ">
-					<div class="panel-heading">
-						<h3 class="panel-title">Demos</h3>
-					</div>
-					<div class="panel-body">
-						<p><a href="../../demos/tabs/add-remove.html">增加/删除tab</a></p><p><a href="../../demos/tabs/created-by-markup.html">从已有html生成tabs</a></p><p><a href="../../demos/tabs/index.html">简单使用tabs</a></p><p><a href="../../demos/tabs/orientation.html">改变tabs-bar的位置</a></p><p><a href="../../demos/tabs/tabs-hover.html">鼠标hover切换tab</a></p>
-					</div>
 				</div>
 			</div>
-			<div class="wrap-disqus">
+		</div>
+	</div>
+	<div class="footer">
+		<div class="wrap-disqus">
 	<div id="disqus_thread"></div>
 </div>
 <script>
@@ -179,7 +187,42 @@
 		</div>
 	</div>
 </div>
-		</div>
 	</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
