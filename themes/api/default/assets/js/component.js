@@ -1,125 +1,3 @@
-//toolbar的js
-KISSY.use('toolbar,button,menubutton', function(S, Toolbar){
-            new Toolbar({
-                render : '#header-toolbar',
-                children : [
-                    {
-                        content : 'Home',
-                        listeners : {
-                            click : function(){
-                                window.location.href ='/5.0';
-                            }
-                        }
-                    },
-                    {
-                        content : 'Quick Start',
-                        listeners : {
-                            click : function(){
-                                window.location.href ='/5.0/quick-start.html';
-                            }
-                        }
-                    },
-                    {
-                        content : 'Docs',
-                        xclass : 'menu-button',
-                        menu : {
-                            children : [
-                                {
-                                    content : 'Guides',
-                                    listeners : {
-                                        click : function(){
-                                            window.location.href ='/5.0/guides';
-                                        }
-                                    }
-                                },
-                                {
-                                    content : 'API Docs',
-                                    listeners : {
-                                        click : function(){
-                                            window.location.href ='/5.0/api';
-                                        }
-                                    }
-                                },{
-                                    content : 'Demos',
-                                    listeners : {
-                                        click : function(){
-                                            window.location.href ='/5.0/demos';
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        matchElWidth : false
-                    },
-                    {
-                        content : 'Contribute',
-                        listeners : {
-                            click : function(){
-                                window.location.href = 'https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md';
-                            }
-                        }
-                    },
-                    {
-                        content : 'More',
-                        xclass : 'menu-button',
-                        menu : {
-                            children : [
-                                {
-                                    content : 'FAQ',
-                                    listeners : {
-                                        click : function(){
-                                            window.location.href ='/{{{version}}}/more/faq.html';
-                                        }
-                                    }
-                                },
-                                {
-                                    content : 'Gallery',
-                                    listeners : {
-                                        click : function(){
-                                            window.location.href = 'http://gallery.kissyui.com/';
-                                        }
-                                    }
-                                },
-                                {
-                                    content : 'Kissy Blog',
-                                    listeners : {
-                                        click : function(){
-                                            window.location.href = 'http://blog.kissyui.com/';
-                                        }
-                                    }
-                                },
-                                {
-                                    content : 'KMC',
-                                    listeners : {
-                                        click : function(){
-                                            window.location.href = 'https://github.com/daxingplay/grunt-kmc/blob/master/README.md';
-                                        }
-                                    }
-                                },
-                                {
-                                    content : 'ABC',
-                                    listeners : {
-                                        click : function(){
-                                            window.location.href = 'http://abc.f2e.taobao.net/';
-                                        }
-                                    }
-                                },
-                                {
-                                    content : 'Clam',
-                                    listeners : {
-                                        click : function(){
-                                            window.location.href = 'https://github.com/jayli/generator-clam/blob/master/README.md';
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        matchElWidth : false
-                    }
-                ]
-            }).render();
-        });
-
 //tab和autocomplete的js
 KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
     var $ = Node.all;
@@ -192,14 +70,14 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
             }
         }
         classdocsTab.setSelectedTab(shouldBeShowTab);
-        window.scrollTo(0, $(hash).offset().top);
+        window.scrollTo(0, $(hash).offset().top - 50);
     }
 
     function syncApidocsUi(href){
         Io.get(href,{
             r : Math.random()
         },function(res){
-            var reg = /(<div\sclass="apidocs">[\s\S]*)<div\sid="disqus_thread">/;
+            var reg = /(<div\sclass="apidocs">[\s\S]*)<div\stag="apidocs-end"/;
             var newApidocsHtml = res.match(reg)[1],
                 newApidocsDom$ = $(newApidocsHtml);
 
@@ -243,7 +121,7 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
     }
 
     //methods|attrs|events|properties 被点击时的跳转处理
-    $('#bd').delegate('click', '#index .index-item a', function(ev){
+    $('#api-doc').delegate('click', '#index .index-item a', function(ev){
         var target$ = $(ev.currentTarget),
             hash = target$.attr('href');
         if(window.history.pushState && window.history.replaceState){

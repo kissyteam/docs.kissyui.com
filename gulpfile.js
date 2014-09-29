@@ -53,8 +53,8 @@ gulp.task('linkserver',function(){
 });
 
 gulp.task('watch', function(){
-	gulp.watch(['src/**/*', 'themes/**/*', '!src/api/**/*'], ['copyassets', 'buildguide']);
-	gulp.watch(['src/api/**/*'], ['buildapi']);
+	gulp.watch(['src/**/*', 'themes/**/*', '!src/api/**/*', '!themes/api/**/*'], ['copyassets', 'buildguide']);
+	gulp.watch(['src/api/**/*', 'themes/api/**/*'], ['buildapi']);
 })
 
 gulp.task('default',['copyassets', 'buildapi', 'buildguide']);

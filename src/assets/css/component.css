@@ -32,7 +32,7 @@ build time: Dec 4 22:04
   font-size: 15px;
   color: #333333;
   text-align: center;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+/*  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);*/
   vertical-align: middle;
   background-color: #f5f5f5;
   background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
@@ -1580,7 +1580,6 @@ build time: Dec 4 22:18
 }
 .ks-tabs-top  > .ks-tabs-bar {
   *zoom: 1;
-  border-bottom: 1px solid #bbbbbb;
   outline: none;
 }
 .ks-tabs-top  > .ks-tabs-bar:before,

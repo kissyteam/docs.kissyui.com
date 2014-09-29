@@ -121,9 +121,7 @@ pre.code, pre.terminal, pre.cmd {
 }
 
 pre.code {
-    background: #FCFBFA;
-    border: 1px solid #EFEEED;
-    border-left-width: 5px;
+    background: #f9f9f9;
 }
 
 pre.terminal, pre.cmd {
@@ -245,7 +243,6 @@ dt { font-weight: bold; }
 
 
 #classdocs .item {
-    border-bottom: 1px solid #466899;
     margin: 1em 0;
     padding: 1.5em;
 }
@@ -444,7 +441,7 @@ h2, h3, h4, h5, h6 {
 .apidocs ul.inline li { display: inline; }
 
 /* Comma-separated list. */
-.apidocs ul.commas li:after { content: ','; }
+.apidocs ul.commas li:after { content: ','; color: #fff; }
 .apidocs ul.commas li:last-child:after { content: ''; }
 
 /* Keyboard shortcuts. */
@@ -573,7 +570,7 @@ kbd .cmd { font-family: Monaco, Helvetica; }
 .apidocs .item .type,
 .apidocs .item .type a,
 .apidocs .returns-inline {
-    color: #555;
+    color: #fff;
 }
 
 .apidocs .item .type,
@@ -596,7 +593,7 @@ kbd .cmd { font-family: Monaco, Helvetica; }
 
 .apidocs .param .type,
 .apidocs .param .type a {
-    color: #666;
+    color: #fff;
 }
 
 .apidocs .param .type {
@@ -664,13 +661,20 @@ kbd .cmd { font-family: Monaco, Helvetica; }
 }
 
 #api-tabview-filter {
+    background: #fff;
+    margin: 10px;
     border-bottom: none;
     border-top: none;
-    padding: 0.6em 10px 0 10px;
 }
 
 #api-tabview-panel { border-top: none; }
-#api-filter { width: 97%; }
+#api-filter { 
+    width: 97%;
+    border: 0;
+    padding: 5px 5px 5px 30px;
+    background: url(/5.0/assets/img/search.png) 3px 4px no-repeat;
+    outline: none;
+}
 
 /* -- Content TabView ------------------------------------------------------- */
 #classdocs .yui3-tabview-panel { border: none; }
@@ -708,28 +712,30 @@ kbd .cmd { font-family: Monaco, Helvetica; }
     line-height: 1.4;
     list-style: none;
     margin: 0;
-    padding: 0.5em 0 0.5em 0.4em;
+    padding: 0.5em 0.4em;
 }
 
 .apis a {
     border: 1px solid transparent;
     display: block;
-    margin: 0 0 0 -4px;
-    padding: 1px 4px 0;
     text-decoration: none;
     _border: none;
     _display: inline;
+    color: #333;
+    margin: 0 5px;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
 }
 
 .apis a:hover,
 .apis a:focus {
-    background: #E8EDFC;
+    background: #E8EDFC; */
     background: -moz-linear-gradient(top, #e8edfc 0%, #becef7 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E8EDFC), color-stop(100%,#BECEF7));
-    border-color: #AAC0FA;
-    border-radius: 3px;
-    color: #333;
     outline: none;
+    background: #49a0df;
+    position: relative;
+    color: #fff;
 }
 
 .api-list-item a:hover,

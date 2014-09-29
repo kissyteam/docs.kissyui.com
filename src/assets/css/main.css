@@ -151,7 +151,7 @@ li.docs:hover ul, li.more:hover ul{
 }
 .main .index-page .middle-wrap .whatiskissy{
   display: inline-block;
-  width: 760px;
+  width: 810px;
   height: 275px;
   padding: 50px 0px 30px 50px;
   background: #49a0df;
@@ -308,7 +308,6 @@ li.docs:hover ul, li.more:hover ul{
 }
 .gallery .left .list{
   width: 280px;
-  padding-left: 20px;
   float: right;
 }
 .gallery .left .list li{
@@ -597,18 +596,164 @@ li.docs:hover ul, li.more:hover ul{
 }
 
 
+/**------------------api docs--------------*/
+.main #api-doc {
+  width: 100%;
+  padding-bottom: 50px;
+  background: #1c73b2;
+}
+#api-doc .inner {
+  width: 90%;
+  max-width: 1190px;
+  min-width: 990px;
+  margin: 0 auto;
+}
+#api-doc .inner .yui3-u-3-4{
+  position: relative;
+}
+#api-doc h1{
+  font-size: 24px;
+  color: #fff;
+}
+#api-doc h2{
+  font-size: 20px;
+  color: #fff;
+}
+#api-doc h3{
+  font-size: 18px;
+  color: #dcf1ff;
+}
+#api-doc h4{
+  font-size: 16px;
+  color: #dcf1ff;
+}
+#api-doc h3.name{
+  color: #333;
+  font-weight: normal;
+  padding: 2px 3px;
+  background: #f9f9f9;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+#api-doc #docs-main .box{
+  background: #f9f9f9;
+}
+#api-doc #docs-main .box a{
+  color: #1c73b2;
+  text-decoration: none;
+}
+#api-doc #docs-main .box a:hover{
+  text-decoration: underline;
+}
+#api-options{
+  color: #dcf1ff;
+}
+#api-doc #docs-main .args{
+  color: #fff;
+}
+#api-doc #docs-main .args-list{
+  color: #333;
+}
+#api-doc #docs-main .args-list code, #api-doc #docs-main .param code{
+  color: #333;
+  border-radius : 2px;
+  -webkit-border-radius : 2px;
+  -moz-border-radius : 2px;
+  -o-border-radius : 2px;
+}
+#api-doc #docs-main .params ul{
+  color: #fff;
+}
+#api-doc #docs-main .param a{
+  color: #bce4ff;
+}
+#api-doc #docs-main #classdocs .ks-tabs-bar{
 
+}
+#api-doc #docs-main #classdocs .ks-tabs-body{
+  padding: 15px;
+  border: 10px solid #bce4ff;
+}
+#classdocs .ks-tabs-bar {
+  border: 0;
+}
+#classdocs .ks-tabs-bar li {
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 5px 20px;
+  background: #49a0df;
+  color: #fff;
+}
+#classdocs .ks-tabs-bar li.ks-tabs-tab-selected {
+  background: #bce4ff;
+  color: #000;
+}
+#classdocs .ks-tabs-body a {
+  color: #bbe4ff;
+  text-decoration: none;
+}
+#classdocs .ks-tabs-body a:hover {
+  text-decoration: underline;
+}
+.apidocs p{
+  color:#fff;
+}
+.apidocs .box.intro p{
+  color: #333;
+}
+span.paren{
+  color: #fff;
+  font-size: 18px;
+}
+ul.module-classes{
+  list-style: initial;
+  color: #fff;
+  padding-left: 30px;
+}
+ul.module-classes li a{
+  text-decoration: none;
+}
+ul.module-classes li a:hover{
+  text-decoration: underline;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*-------api docs sidebar------------*/
+#api-tabview {
+  background: #bce4ff;
+}
+#api-tabview ul{
+  outline: none;
+}
+#api-tabview ul.ks-tabs-bar li.ks-tabs-tab-selected {
+  background: #bce4ff;
+  color: #000;
+}
+#api-tabview ul.ks-tabs-bar li {
+  font-size: 14px;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 10px 15px;
+  width: 50%;
+  color: #fff;
+  background: #49a0df;
+}
+#docs-main .content ul#api-usage {
+  color: #fff;
+  list-style: initial;
+  padding-left: 30px;
+}
+#docs-main .content ul#api-usage li {
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+#api-doc #docs-main .param-description ul li code {
+  color: #fff;
+}
+#api-doc #docs-main .description ul{
+  color: #fff;
+}
