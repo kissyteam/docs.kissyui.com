@@ -20,7 +20,7 @@ Here's a quick lookup table:
 
 html {
     background: #fff;
-    color: #333;
+    color: #fff;
     overflow-y: scroll;
 }
 
@@ -132,7 +132,7 @@ pre.terminal, pre.cmd {
 
 /* Don't reduce the font size of <code>/<kbd>/<samp> elements inside <pre>
    blocks. */
-pre code, pre kbd, pre samp { font-size: 100%; }
+pre code, pre kbd, pre samp { font-size: 12px; }
 
 /* Used to denote text that shouldn't be selectable, such as line numbers or
    shell prompts. Guess which browser this doesn't work in. */

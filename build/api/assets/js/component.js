@@ -3,7 +3,7 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
     var $ = Node.all;
 
     //api sidebar tabs
-    new Tabs({
+    var sideBarTab = new Tabs({
         srcNode: '#api-tabview',
         listeners : {
             afterSelectedTabChange : function(){
@@ -12,9 +12,16 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
                     menuItem$.parent().show();
                     menuItem$.html(menuItem$.attr('content'));
                 });
+            },
+            mouseenter : function(ev){
+                debugger;
             }
         }
     }).render();
+
+    $('#api-tabview').on('mouseenter', function(ev){
+        ev.halt();
+    })
 
     var classdocsTab = null;
     if($('#classdocs').length){
@@ -27,6 +34,7 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
             updateApiTabWithHash(location.hash);
         }
     }
+
 
     //autocomplete
     var filterMenu = new FilterMenu({
