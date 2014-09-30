@@ -21,8 +21,51 @@
   float: left;
 }
 .header .search{
+  display: inline-block;
+  width: 210px;
+  height: 25px;
+  margin-top: 15px;
+  overflow: hidden;
+  border-radius: 15px;
   float: right;
 }
+/*-----google custom search input--------*/
+.gsc-search-button{
+  display: none;
+}
+.gsc-control-cse.gsc-control-cse-en{
+  padding: 0;
+  border: 0;
+}
+.gsc-search-box.gsc-search-box-tools, form table.gsc-search-box{
+  margin: 0;
+  padding: 0;
+}
+.gsib_a input{
+  background: none;
+}
+.gsc-search-box-tools .gsc-search-box td.gsc-input {
+  padding: 0;
+}
+td.gsib_a{
+  padding-left: 30px;
+  background: url(/5.0/assets/img/search.png) 5px 2px no-repeat;
+}
+.gs-title{
+  text-align: left;
+}
+div.gsc-selected-option-container{
+  padding-right: 65px;
+}
+#gs_cb50{
+  position: relative;
+  top: 3px;
+}
+div.gsc-input-box{
+  height: 30px;
+}
+/*--------google custom search end--------*/
+
 .toolbar .mini-logo, .toolbar .nav{
   margin-top: 18px;
   float: left;
