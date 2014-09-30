@@ -137,6 +137,22 @@ li.docs:hover ul, li.more:hover ul{
   color:#fff;
 }
 
+.change-version{
+  width: 140px;
+  height: 22px;
+  display: inline-block;
+  margin-top: 40px;
+  padding: 0px 5px;
+  background: #175784;
+  color: #fff;
+  font-size: 13px;
+}
+#versions{
+  background: #175784;
+  outline: none;
+  border: 0;
+  color: #fff;
+}
 
 .main .index-page .middle-wrap{
   display: block;
@@ -223,9 +239,10 @@ li.docs:hover ul, li.more:hover ul{
   color: #3d3d3d;
   font-size: 14px;
 }
-.main .use .center code{
+.main .use .center code, .main .use .center code a{
   font-size: 14px;
   color: #ff6d42;
+  text-decoration: none;
 }
 .main .use .cdn{
   background: url(../img/1.png) no-repeat;
@@ -373,11 +390,24 @@ li.docs:hover ul, li.more:hover ul{
   color: #459ddc;
   text-align: right;
 }
-.footer .index-page .content p{
-  width: 450px;
-  height: 40px;
+.footer .index-page .wrap-content{
+  padding-top: 5px;
   border-top: 1px #595959 solid;
+}
+.footer .index-page .content p{
+  display: inline-block;
+  width: 450px;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 10px;
   text-align: right;
+  position: relative;
+  top: -4px;
+}
+.footer .index-page .github-msg{
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
 }
 
 /**--------logo on main part of quick-start page / guide page etc...--------*/
@@ -390,8 +420,9 @@ li.docs:hover ul, li.more:hover ul{
 }
 
 /**----------quick-start page-------------*/
-.main .quick-start, .main .faq, .main .guides-index, .main .guide, .main .demo{
+.main .quick-start, .main .faq, .main .guides-index, .main .demos-index, .main .guide, .main .demo{
   width: 100%;
+  min-height: 400px;
   background: #1c73b2;
 }
 .main .quick-start .inner, .main .faq .inner, .main .guides-index .inner, .main .guide .inner, .main .demo .inner{
@@ -439,9 +470,11 @@ li.docs:hover ul, li.more:hover ul{
   font-size: 14px;
 }
 
+/**------------other pages - footer-------*/
 .footer .other-page{
   width: 100%;
   height: 90px;
+  padding-top: 20px;
   background: #e1f3ff;
 }
 .footer .other-page .wrap{
@@ -451,14 +484,48 @@ li.docs:hover ul, li.more:hover ul{
   margin: 0 auto;
   position: relative;
 }
+.footer .other-page .content{
+  position: absolute;
+  right: 0px;
+}
 .footer .other-page .content p {
   width: 200px;
   margin-top: 5px;
   padding-top: 12px;
-  border-top: 1px #595959 solid;
   color: #676f75;
   position: absolute;
   right: 0;
+}
+.footer .wrap-disqus{
+  width: 100%;
+  background: #e1f3ff;
+}
+.footer .wrap-disqus #disqus_thread{
+  width: 90%;
+  min-width: 990px;
+  max-width: 1190px;
+  min-height: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+.footer .other-page .wrap-content{
+  padding-top: 5px;
+  border-top: 1px #595959 solid;
+}
+.footer .other-page .content p{
+  display: inline-block;
+  width: 450px;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 10px;
+  text-align: right;
+  position: relative;
+  top: -4px;
+}
+.footer .other-page .github-msg{
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
 }
 
 
@@ -485,22 +552,6 @@ li.docs:hover ul, li.more:hover ul{
 .main .guides-index .inner ul.modules li a:hover{
   text-decoration: underline;
 }
-
-
-
-/**------------other pages - footer-------*/
-.footer .wrap-disqus{
-  width: 100%;
-  background: #1c73b2;
-}
-.footer .wrap-disqus #disqus_thread{
-  width: 90%;
-  min-width: 990px;
-  max-width: 1190px;
-  margin: 0 auto;
-  position: relative;
-}
-
 
 
 /**-------guide page----------*/
@@ -645,6 +696,10 @@ li.docs:hover ul, li.more:hover ul{
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
 }
+#api-doc .clearfix{
+  padding:0;
+  border: 0;
+}
 #api-doc #docs-main .box{
   background: #f9f9f9;
 }
@@ -691,7 +746,7 @@ li.docs:hover ul, li.more:hover ul{
   border: 0;
   margin: 0;
   border-radius: 0;
-  padding: 5px 20px;
+  padding: 10px 25px;
   background: #49a0df;
   color: #fff;
 }

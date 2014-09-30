@@ -12,9 +12,6 @@ KISSY.use("node,tabs,filter-menu,io", function (S, Node, Tabs, FilterMenu, Io) {
                     menuItem$.parent().show();
                     menuItem$.html(menuItem$.attr('content'));
                 });
-            },
-            mouseenter : function(ev){
-                debugger;
             }
         }
     }).render();
