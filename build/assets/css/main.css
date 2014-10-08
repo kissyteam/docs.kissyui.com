@@ -1,3 +1,7 @@
+body{
+  font-size: 14px;
+  color: #dcf1ff;
+}
 /*-----------header-------------*/
 
 .header{
@@ -829,7 +833,7 @@ ul.module-classes li a:hover{
 /*-------api docs sidebar------------*/
 pre code {
   color: #333;
-  font-size: 12px;
+  font-size: 14px;
   font-family: courier new,courier,monospace;
 }
 #api-tabview {

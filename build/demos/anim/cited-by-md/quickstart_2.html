@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title></title>
-	<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
+	<script src="http://g.tbcdn.cn/kissy/edge/2014.09.05/seed.js"></script>
 	<style>
 	* {
 		margin: 0;
@@ -119,26 +119,21 @@
 		</div>
 	</div>
 	<script>
-	KISSY.config({
-		debug : true,
+	modulex.config({
 	    packages: [
 	        {
 	            name: "modulePkgName",
-	            tag: "20140718",
+	            tag: "20140918",
 	            path: "./assets", 
-	            charset: "gbk",
-	            ignorePackageNameInUri : true
+	            charset: "gbk"
 	        }
 	    ]
 	});
 
-	KISSY.use(['modulePkgName/opLotto', 'node', 'event'], function(S, OP, Node, Event){
-
-			var $ = Node.all;
-
+	modulex.use(['modulePkgName/opLotto', 'node'], function(OP, $){
 			OP.init();
 
-			Event.on('button', 'click', function(ev){
+			$('.start').on('click', function(ev){
 				var self = this;
 				if($(self).hasClass('start')){
 					$(self).replaceClass('start', 'pause').html('pause');

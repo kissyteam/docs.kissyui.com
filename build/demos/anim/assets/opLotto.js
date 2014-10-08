@@ -1,6 +1,4 @@
-KISSY.add(function(S, Node, IO){
-	var $ = Node.all;
-
+modulex.add(function($, IO){
 	var opLotto = {
 		init: function(){
 			this.imgList = $('.img-list').all('li');
