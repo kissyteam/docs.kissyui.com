@@ -3,13 +3,13 @@ KISSY.use('node,tabs,io,util', function(S, Node, Tabs, Io,Util){
 
 	function editDemoOnlineInit(){
 		$('.editor').each(function(item$){
-			var demoHtml = Util.unEscapeHTML(item$.html());
+			var demoHtml = Util.unEscapeHTML(item$.html().trim());
 			var iframeWindow = item$.parent('.ks-tabs-body').all('.output')[0].contentWindow;
 			iframeWindow.document.body.innerHTML = '';
 			iframeWindow.document.write(demoHtml);
 
 			var editor = ace.edit(item$[0]);
-			editor.setTheme("ace/theme/monokai");
+			editor.setTheme("ace/theme/github");
 	    	editor.getSession().setMode("ace/mode/html");
 
 	    	iframeWindow.editor = editor;

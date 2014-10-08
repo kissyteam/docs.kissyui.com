@@ -204,7 +204,7 @@ li.docs:hover ul, li.more:hover ul{
   background: #bce4ff;
   position: relative;
 }
-.main .index-page .middle-wrap .top-repeat{
+.top-repeat{
   width: 100%;
   height: 26px;
   background: url(../img/triangle.png) repeat-x;

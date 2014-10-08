@@ -6,9 +6,7 @@
     </div>
     <div class="ks-tabs-body" style="overflow:hidden;">
         <div class="ks-tabs-panel">
-            <div class="editor">
-				{{demoCode}}
-			</div>
+            <div class="editor">{{demoCode}}</div>
         </div>
         <div class="ks-tabs-panel ks-tabs-panel-selected">
             <iframe class="output" frameborder="1">
