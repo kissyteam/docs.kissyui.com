@@ -38,7 +38,7 @@ KISSY.use('node,tabs,io,util', function(S, Node, Tabs, Io,Util){
 	function createQRCode(){
 		$('.qrcode-addr').each(function(item$){
 			var qrcodeAddr = item$.attr('qrcodeaddr'),
-				qrcodeContainer$ = item$.siblings('.qrcode');
+				qrcodeContainer$ = item$.parent('.qrcode-wrap').one('.qrcode');
             new QRCode(qrcodeContainer$[0], qrcodeAddr);   //生成二维码
 
 		})

@@ -15,7 +15,7 @@
 		//Your Code here...
 	});
 
-*注：* `modulex` 是 KISSY@5.0+ 版本的新一代模块加载器，通过它可以和cmd/amd模块规范统一起来，达到模块共享的目的，即使不是KISSY内置的模块，只要符合cmd/amd模块规范都可以通过`modulex`方便引用，实现共享。详细使用请查看[loader教程](http://docs.kissyui.com/5.0/guides/loader/index.html) 、 [loader api](http://docs.kissyui.com/5.0/api/classes/Loader.html) 、 [loader demos](http://docs.kissyui.com/5.0/demos/loader/index.html)。
+*注：* [`modulex`](https://github.com/kissyteam/modulex) 是 KISSY@5.0+ 版本的新一代模块加载器，通过它可以和cmd/amd模块规范统一起来，达到模块共享的目的，即使不是KISSY内置的模块，只要符合cmd/amd模块规范都可以通过`modulex`方便引用，实现共享。详细使用请查看[loader教程](http://docs.kissyui.com/5.0/guides/loader/index.html) 、 [loader api](http://docs.kissyui.com/5.0/api/classes/Loader.html) 、 [loader demos](http://docs.kissyui.com/5.0/demos/loader/index.html)。
 
 此外，KISSY@5.0 版本前的用法也仍然是支持的，不过不建议使用：
 

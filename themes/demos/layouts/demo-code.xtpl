@@ -13,9 +13,15 @@
             	
             </iframe>
         </div>
-        <div class="ks-tabs-panel">
-            <p class="qrcode-addr" qrcodeaddr="{{QRCodeAddr}}" ="text">示例地址：{{QRCodeAddr}}</p>
+        <div class="ks-tabs-panel qrcode-wrap">
             <div class="qrcode"></div>
+            <div class="content">
+                <p class="title">查看移动端演示</p>
+                <p class="qrcode-addr" qrcodeaddr="{{QRCodeAddr}}" ="text">
+                    示例地址：
+                    <a href="{{QRCodeAddr}}" target="_blank">{{QRCodeAddr}}</a>
+                </p>
+            </div>
         </div>
     </div>
 </div>

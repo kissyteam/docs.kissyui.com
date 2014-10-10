@@ -80,7 +80,7 @@ modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</s
     <span class="hljs-comment">//装载了 IO 模块，并处于可用状态，可以通过 IO 调用这个模块提供的api</span>
     <span class="hljs-comment">//Your Code here...</span>
 });
-</code></pre><p><em>注：</em> <code>modulex</code> 是 KISSY@5.0+ 版本的新一代模块加载器，通过它可以和cmd/amd模块规范统一起来，达到模块共享的目的，即使不是KISSY内置的模块，只要符合cmd/amd模块规范都可以通过<code>modulex</code>方便引用，实现共享。详细使用请查看<a href="http://docs.kissyui.com/5.0/guides/loader/index.html">loader教程</a> 、 <a href="http://docs.kissyui.com/5.0/api/classes/Loader.html">loader api</a> 、 <a href="http://docs.kissyui.com/5.0/demos/loader/index.html">loader demos</a>。</p>
+</code></pre><p><em>注：</em> <a href="https://github.com/kissyteam/modulex"><code>modulex</code></a> 是 KISSY@5.0+ 版本的新一代模块加载器，通过它可以和cmd/amd模块规范统一起来，达到模块共享的目的，即使不是KISSY内置的模块，只要符合cmd/amd模块规范都可以通过<code>modulex</code>方便引用，实现共享。详细使用请查看<a href="http://docs.kissyui.com/5.0/guides/loader/index.html">loader教程</a> 、 <a href="http://docs.kissyui.com/5.0/api/classes/Loader.html">loader api</a> 、 <a href="http://docs.kissyui.com/5.0/demos/loader/index.html">loader demos</a>。</p>
 <p>此外，KISSY@5.0 版本前的用法也仍然是支持的，不过不建议使用：</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, IO)</span></span>{
     <span class="hljs-comment">//装载了 IO 模块，并处于可用状态，可以通过 IO 调用这个模块提供的api</span>
