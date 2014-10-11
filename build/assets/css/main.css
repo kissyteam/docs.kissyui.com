@@ -361,10 +361,14 @@ li.docs:hover ul, li.more:hover ul{
   font-weight: bold;
   color: #aae0ff;
 }
-.gallery .left .title p{
+.gallery .left .title a.gallery-addr{
   color: #fff;
   font-size: 16px;
   padding: 10px 0;
+  text-decoration: none;
+}
+.gallery .left .title a.gallery-addr:hover{
+  text-decoration: underline;
 }
 .gallery .left .title input{
   width: 150px;
@@ -378,12 +382,19 @@ li.docs:hover ul, li.more:hover ul{
 .gallery .left .list li{
   width: 140px;
   height: 80px;
+  padding-right: 20px;
+  margin-bottom: 10px;
   text-align: left;
   float: left;
+  overflow: hidden;
 }
-.gallery .left .list li h3{
+.gallery .left .list li a.coms-title{
   font-size: 16px;
   color: #aae0ff;
+  text-decoration: none;
+}
+.gallery .left .list li a.coms-title:hover{
+  text-decoration: underline;
 }
 .gallery .left .list li .content{
   font-size: 12px;
@@ -450,6 +461,7 @@ li.docs:hover ul, li.more:hover ul{
   text-align: right;
   position: relative;
   top: -4px;
+  color: #566975;
 }
 .footer .index-page .github-msg{
   display: inline-block;

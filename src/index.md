@@ -82,36 +82,36 @@
             <div class="left">
                 <div class="title">
                     <h1>Gallery</h1>
-                    <p>KISSY 组件社区</p>
-                    <input id="search-coms" type="text" placeholder="搜索组件">
+                    <a href="http://gallery.kissyui.com" class="gallery-addr" target="_blank">KISSY 组件社区</a>
+                    <!-- <input id="search-coms" type="text" placeholder="搜索组件"> -->
                 </div>
                 <div class="list">
-                    <ul>
+                    <!-- <ul>
                         <li>
-                            <h3>组件名称</h3>
+                            <a href="#" class="coms-title">组件名称</a>
                             <p class="content">
                                 组件描述组件描述
                             </p>
                         </li>
                         <li>
-                            <h3>组件名称</h3>
+                            <a href="#" class="coms-title">组件名称</a>
                             <p class="content">
                                 组件描述组件描述
                             </p>
                         </li>
                         <li>
-                            <h3>组件名称</h3>
+                            <a href="#" class="coms-title">组件名称</a>
                             <p class="content">
                                 组件描述组件描述
                             </p>
                         </li>
                         <li>
-                            <h3>组件名称</h3>
+                            <a href="#" class="coms-title">组件名称</a>
                             <p class="content">
                                 组件描述组件描述
                             </p>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
             <div class="right">
