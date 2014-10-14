@@ -1,4 +1,4 @@
-modulex.add(function($, IO){
+define(function($, IO){
 	var opLotto = {
 		init: function(){
 			this.imgList = $('.img-list').all('li');

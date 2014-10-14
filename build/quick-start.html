@@ -44,8 +44,8 @@
 			</li>
 			<li class="split"></li>
 			<li class="nav-other"><a href="/5.0/quick-start.html">Quick Start</a></li>
-			<li class="nav-other"><a href="https://github.com/kissyteam/kissy/blob/master/CONTRIBUTING.md">Contribute</a></li>
-			<li class="nav-other"><a href="#">KISSY UP</a></li>
+			<li class="nav-other"><a href="https://github.com/kissyteam/kissy">Contribute</a></li>
+			<li class="nav-other"><a href="http://10.68.98.29/5.0">KISSY UP</a></li>
 		</ul>
 	</div>
 	<div class="search">
@@ -73,28 +73,16 @@
 					<img src="assets/img/logo-on-top.png">
 				</div> 
 				<div class="inner">
-					<h1 id="快速开始">快速开始</h1><h2 id="1，复制 &amp; 粘贴">1，复制 &amp; 粘贴</h2><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://g.alicdn.com/kissy/edge/2014.09.05/seed.js"</span> <span class="hljs-attribute">data-config</span>=<span class="hljs-value">"{combine:true}"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+					<h1 id="快速开始">快速开始</h1><h2 id="1，引入种子文件">1，引入种子文件</h2><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"</span> <span class="hljs-attribute">data-config</span>=<span class="hljs-value">"{combine:true}"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre><p>种子文件是一个<strong>非常小</strong>的 JS 文件，通过他可以动态加载 KISSY 的模块文件，因为体积很小，推荐将种子文件至于<code>&lt;head&gt;</code>标签内。
 <code>data-config=&quot;{combine:true}&quot;</code> 表示启用服务器 combo 机制，可用于减少网络请求数目。</p>
-<h2 id="2，开始使用">2，开始使用</h2><pre><code><span class="hljs-comment">// 创建一个 KISSY 沙箱</span>
-modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(IO)</span></span>{
-    <span class="hljs-comment">//装载了 IO 模块，并处于可用状态，可以通过 IO 调用这个模块提供的api</span>
+<h2 id="2，开始使用">2，开始使用</h2><pre><code><span class="hljs-comment">// 使用模块</span>
+<span class="hljs-built_in">require</span>([<span class="hljs-string">'dom'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Dom)</span></span>{
+    <span class="hljs-comment">//装载了 dom 模块，并处于可用状态，可以通过 Dom 调用这个模块提供的api</span>
     <span class="hljs-comment">//Your Code here...</span>
 });
-</code></pre><p><em>注：</em> <a href="https://github.com/kissyteam/modulex"><code>modulex</code></a> 是 KISSY@5.0+ 版本的新一代模块加载器，通过它可以和cmd/amd模块规范统一起来，达到模块共享的目的，即使不是KISSY内置的模块，只要符合cmd/amd模块规范都可以通过<code>modulex</code>方便引用，实现共享。详细使用请查看<a href="http://docs.kissyui.com/5.0/guides/loader/index.html">loader教程</a> 、 <a href="http://docs.kissyui.com/5.0/api/classes/Loader.html">loader api</a> 、 <a href="http://docs.kissyui.com/5.0/demos/loader/index.html">loader demos</a>。</p>
-<p>此外，KISSY@5.0 版本前的用法也仍然是支持的，不过不建议使用：</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, IO)</span></span>{
-    <span class="hljs-comment">//装载了 IO 模块，并处于可用状态，可以通过 IO 调用这个模块提供的api</span>
-    <span class="hljs-comment">//Your Code here...</span>
-})
-</code></pre><p>页面生命周期内始终存在全局对象<code>KISSY</code>。KISSY 采用弱沙箱的设计，多个沙箱共享同一份 KISSY 对象，即沙箱A对KISSY的修改会影响到沙箱B，因此，不通过API就对KISSY作任何修改将会非常危险。回调函数的参数是依次传回调用的模块接口对象。形如<code>modulex.use([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;],function(A, B, C){  })</code>。被依赖的模块实现会返回一个对象（或类），都可以通过这种方式带入当前沙箱中，KISSY 的沙箱之间通过这种方法相互传递信息，避免全局对象的污染。沙箱内定义的变量亦不会污染全局命名空间。</p>
-<p>创建 KISSY 沙箱时你需要指定要载入的模块，KISSY 的功能是模块化的，包括<code>node</code>，<code>io</code>等。这个例子中载入了<code>io</code>模块，在沙箱中可以通过回调参数来使用<code>io</code>的 API。</p>
-<p>KISSY 会自动计算模块依赖和模块去重，将所需模块的最小子集载入到页面中。一旦 io 模块加载完成，就会执行沙箱的回调逻辑。<strong>注意</strong>：沙箱回调为异步执行，不管是否已经预先载入了 io。所以两个并列的沙箱的执行时机是不确定的。开发者不应当去关心沙箱的先后顺序。</p>
-<blockquote>
-<p>注意，这种使用方法是<strong>错误的</strong>：<code>var IO = modulex.use(&#39;node&#39;);</code></p>
-</blockquote>
-<h2 id="3，DOM 操作：查找/操作/绑定事件">3，DOM 操作：查找/操作/绑定事件</h2><p>node 模块对 DOM 节点底层 API 做了封装和扩展，你可以方便查找、创建、删除、修改元素。node 模块的接口用法绝大部分都兼容了jQuery的用法，可直接当做jQuery使用。如下：</p>
-<pre><code>modulex.use([<span class="hljs-string">'node'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($)</span> </span>{
+</code></pre><h2 id="3，DOM 操作：查找/操作/绑定事件">3，DOM 操作：查找/操作/绑定事件</h2><p>node 模块对 dom 模块做了封装和扩展，你可以方便查找、创建、删除、修改元素，绑定事件等。node 模块依赖 dom , util, event-dom , anim 模块，并对这些模块进行了封装和拓展。模块的接口用法绝大部分都兼容了jQuery的用法，可直接当做jQuery使用，具体每个api用法请查看api文档。示例如下：</p>
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'node'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($)</span> </span>{
     <span class="hljs-comment">// 查找 DOM 节点.</span>
     <span class="hljs-keyword">var</span> oneElementById     = $(<span class="hljs-string">'#foo'</span>),
         oneElementByName   = $(<span class="hljs-string">'body'</span>),
@@ -117,7 +105,7 @@ modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</s
     });
 });
 </code></pre><h2 id="4，使用动画">4，使用动画</h2><p>KISSY 提供 anim 模块，完成 DOM 元素的动画。</p>
-<pre><code>modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">"anim"</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Anim)</span></span>{
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">"anim"</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Anim)</span></span>{
     <span class="hljs-comment">// 初始化动画实例</span>
     <span class="hljs-keyword">var</span> animIns = <span class="hljs-keyword">new</span> Anim(<span class="hljs-string">'#anim-el'</span>,
         <span class="hljs-comment">// 动画目标样式</span>
@@ -137,7 +125,7 @@ modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</s
     animIns.run();
 });
 </code></pre><h2 id="5，通过 IO 装载内容">5，通过 IO 装载内容</h2><p>使用方法：</p>
-<pre><code>modulex.use([<span class="hljs-string">'io'</span>, <span class="hljs-string">'node'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(IO, $)</span></span>{
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'io'</span>, <span class="hljs-string">'node'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(IO, $)</span></span>{
     <span class="hljs-comment">// 获取content.html的内容，替换到#content元素内</span>
     IO({
         url:<span class="hljs-string">'content.html'</span>,
@@ -150,7 +138,8 @@ modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</s
     });
 });
 </code></pre><h2 id="6，自定义模块">6，自定义模块</h2><p>创建一个新模块：</p>
-<pre><code>modulex.add(<span class="hljs-keyword">function</span>($, E, A, IO){
+<pre><code>//amd规范
+define(<span class="hljs-keyword">function</span>($, E, A, IO){
     var opLotto = {
         init: <span class="hljs-keyword">function</span>(){
             <span class="hljs-keyword">...</span>
@@ -158,7 +147,23 @@ modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</s
         <span class="hljs-keyword">...</span>
     }
     <span class="hljs-keyword">return</span> opLotto;
-}, {requires: [<span class="hljs-string">'node'</span>, <span class="hljs-string">'event'</span>, <span class="hljs-string">'anim'</span>, <span class="hljs-string">'ajax'</span>]});
+}, {requires: [<span class="hljs-string">'node'</span>, <span class="hljs-string">'event-dom'</span>, <span class="hljs-string">'anim'</span>, <span class="hljs-string">'io'</span>]});
+
+//或者用cmd规范
+define(<span class="hljs-keyword">function</span>(<span class="hljs-keyword">require</span>, exports, module){
+    var $ = <span class="hljs-keyword">require</span>(<span class="hljs-string">'node'</span>),
+        E = <span class="hljs-keyword">require</span>(<span class="hljs-string">'event-dom'</span>),
+        A = <span class="hljs-keyword">require</span>(<span class="hljs-string">'anim'</span>),
+        IO = <span class="hljs-keyword">require</span>(<span class="hljs-string">'io'</span>);
+
+    var opLotto = {
+        init: <span class="hljs-keyword">function</span>(){
+            <span class="hljs-keyword">...</span>
+        },
+        <span class="hljs-keyword">...</span>
+    }
+    <span class="hljs-keyword">return</span> opLotto;
+})
 </code></pre><p>模块其实就是一个对象，模块名可以忽略，我们会返回这个对象以便在使用模块时方便调用，最后是依赖配置。下面将介绍的Demo中我们把这个模块保存为 <code>opLotto.js</code>。同时，我们需要指定这个模块所属的包：</p>
 <pre><code><span class="hljs-tag">KISSY</span><span class="hljs-class">.config</span>(<span class="hljs-rules">{
     <span class="hljs-rule"><span class="hljs-attribute">packages</span>:<span class="hljs-value"> {
@@ -170,7 +175,7 @@ modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</s
     }
 });
 </code></pre><p>这样来调用模块逻辑：</p>
-<pre><code>modulex.use([<span class="hljs-string">'modulePkgName/opLotto'</span>, <span class="hljs-string">'node'</span>, <span class="hljs-string">'event'</span>], <span class="hljs-keyword">function</span>(OP, $, E){
+<pre><code><span class="hljs-keyword">require</span>([<span class="hljs-string">'modulePkgName/opLotto'</span>, <span class="hljs-string">'node'</span>, <span class="hljs-string">'event-dom'</span>], <span class="hljs-keyword">function</span>(OP, $, E){
     OP.init();
     //<span class="hljs-keyword">...</span>
 });
@@ -178,7 +183,7 @@ modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</s
 <p>包配置相关信息请移步<a href="/5.0/guides/loader/kmd.html">KISSY模块规范</a></p>
 </blockquote>
 <h2 id="7，调用官方组件">7，调用官方组件</h2><p>KISSY 内置了很多有用的组件比如 button，menu，date/picker 等，这些组件的用法非常简单，比如要用到 button 组件，只需要：</p>
-<pre><code>modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">"button"</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Button)</span> </span>{
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">"button"</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Button)</span> </span>{
     <span class="hljs-keyword">var</span> btn = <span class="hljs-keyword">new</span> Button({
         content: <span class="hljs-string">"我是按钮1"</span>,
         render: <span class="hljs-string">"#button_container"</span>,
@@ -188,7 +193,7 @@ modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</s
 })
 </code></pre><h2 id="8，调用 Gallery 中的组件">8，调用 Gallery 中的组件</h2><p><a href="http://gallery.kissyui.com/">gallery</a> 是社区贡献的组件集合，汇集了各种各样的功能，比如 kcharts，imgcrop，waterfallx，slide，uploader。</p>
 <p>gallery 鼓励分享，任何人都可以为 gallery 提交自己的组件。使用 gallery 组件非常方便：</p>
-<pre><code>modulex.use([<span class="hljs-string">'kg/space/2.0.0/index'</span>], <span class="hljs-keyword">function</span> (Space) {
+<pre><code><span class="hljs-keyword">require</span>([<span class="hljs-string">'kg/space/2.0.0/index'</span>], <span class="hljs-keyword">function</span> (Space) {
     var space = new Space({
         //<span class="hljs-keyword">...</span>
     });
@@ -198,7 +203,7 @@ modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'io'</s
 <li>CDN 动态合并（Combo）</li>
 <li>静态编译，本地合并，使用工具 <a href="https://github.com/daxingplay/grunt-kmc/blob/master/README.md">KISSY Module Compiler</a></li>
 </ul>
-<p>动态合并，比如<code>modulex.use([&#39;overlay&#39;], function(Overlay){  })</code>会带来26个请求。</p>
+<p>动态合并，比如<code>require([&#39;overlay&#39;], function(Overlay){  })</code>会带来26个请求。</p>
 <p>要想开启动态Combo，在全局配置中增加一项 <code>combine : true</code> 开启动态合并：</p>
 <pre><code><span class="hljs-tag">KISSY</span><span class="hljs-class">.config</span>(<span class="hljs-rules">{
     <span class="hljs-rule"><span class="hljs-attribute">combine </span>:<span class="hljs-value"> true
@@ -253,7 +258,7 @@ IO.get(<span class="hljs-string">'/5.0/demos/anim/cited-by-md/quickstartdata.jso
 </div>
 
 <p>这个 demo 的逻辑部分都和之前的相同，不同的是我们将它改造成了一个独立的模块</p>
-<h3 id="新建模块">新建模块</h3><pre><code>modulex.add(<span class="hljs-keyword">function</span>($, IO){
+<h3 id="新建模块">新建模块</h3><pre><code>define(<span class="hljs-keyword">function</span>($, IO){
     var opLotto = {
         init: <span class="hljs-keyword">function</span>(){
             <span class="hljs-keyword">...</span>
@@ -276,7 +281,7 @@ IO.get(<span class="hljs-string">'/5.0/demos/anim/cited-by-md/quickstartdata.jso
     ]
 });
 </code></pre><p>在这段代码中我们指定了包的路径，包名，时间戳和编码</p>
-<h3 id="使用模块">使用模块</h3><pre><code>modulex.<span class="hljs-keyword">use</span>(<span class="hljs-string">'modulePkgName/opLotto, node'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(OP, $)</span></span>{
+<h3 id="使用模块">使用模块</h3><pre><code><span class="hljs-built_in">require</span>(<span class="hljs-string">'modulePkgName/opLotto, node'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(OP, $)</span></span>{
     OP.init();
 })
 </code></pre>
