@@ -78,7 +78,7 @@
 						</div>
 						<div class="panel-body">
 							<ul class="outline">
-								<li class="level2"><a href="#在 Node 环境安装 KISSY">在 Node 环境安装 KISSY</a></li><li class="level2"><a href="#使用 KISSY 提供的模块">使用 KISSY 提供的模块</a></li><li class="level2"><a href="#KISSY 在 Node 环境下的模块">KISSY 在 Node 环境下的模块</a></li>
+								<li class="level2"><a href="#在 Node 环境安装 KISSY 模块 path">在 Node 环境安装 KISSY 模块 path</a></li><li class="level2"><a href="#使用 KISSY 提供的模块">使用 KISSY 提供的模块</a></li>
 							</ul>
 						</div>
 					</div>
@@ -100,22 +100,19 @@
 					</div>
 				</div>
 				<div id="main-content">
-					<h1 id="kissy in nodejs基本介绍">kissy in nodejs基本介绍</h1><p>KISSY 是一款跨终端的 Javascript 框架，不仅能在浏览器端使用，还可以运行在 NODE 环境中。</p>
-<h2 id="在 Node 环境安装 KISSY">在 Node 环境安装 KISSY</h2><pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> kissy</span>
-</code></pre><h2 id="使用 KISSY 提供的模块">使用 KISSY 提供的模块</h2><pre><code><span class="hljs-keyword">var</span> xtemplate = require('kissy/lib/xtemplate');
-<span class="hljs-keyword">var</span> xtpl = '<span class="hljs-type">Hello</span>,{{name}}',
-    data = { name : 'kissy' },
-    <span class="hljs-literal">result</span> = new xtemplate(xtpl).render(data);
-console.log(<span class="hljs-literal">result</span>);  // hello,kissy
-</code></pre><h2 id="KISSY 在 Node 环境下的模块">KISSY 在 Node 环境下的模块</h2><p>在 Node 环境下， KISSY 提供如下模块： <code>kissy/lib/date/format</code> , <code>kissy/lib/date/gregorian</code> , <code>kissy/lib/dom/selector</code> , <code>kissy/lib/event/custom</code> , <code>kissy/lib/xtemplate</code> , <code>kissy/lib/attribute</code> , <code>kissy/lib/base</code> , <code>kissy/lib/color</code> , <code>kissy/lib/html-parser</code> , <code>kissy/lib/promise</code> , <code>kissy/lib/util</code></p>
-<p>各个模块的用法和与之对应的浏览器端的模块api用法相当，只是引用方法不同。例如：</p>
+					<h1 id="kissy in nodejs基本介绍">kissy in nodejs基本介绍</h1><p>KISSY 是一款跨终端的 Javascript 框架，不仅能在浏览器端使用，还可以运行在 NODE 环境中。KISSY团队提供多个能在node使用的模块，可以参考<a href="https://github.com/kissyteam">kissyteam</a>在github上面的项目，其对应的 npm 包名称是在库名称前缀 <code>modulex-</code> 即可。如下：
+modulex-util , modulex-promise , modulex-event-custom , modulex-path , modulex-base , modulex-color , modulex-html-parser , modulex-attribute</p>
+<h2 id="在 Node 环境安装 KISSY 模块 path">在 Node 环境安装 KISSY 模块 path</h2><pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> modulex-path</span>
+</code></pre><h2 id="使用 KISSY 提供的模块">使用 KISSY 提供的模块</h2><pre><code><span class="hljs-keyword">var</span> modulexPath = <span class="hljs-built_in">require</span>(<span class="hljs-string">'modulex-path'</span>);
+<span class="hljs-comment">//use modulexPath</span>
+</code></pre><p>各个模块的用法和与之对应的浏览器端的模块api用法相当，只是引用方法不同。例如：</p>
 <pre><code><span class="hljs-comment">//在 Node 环境下使用 color</span>
-<span class="hljs-keyword">var</span> color = <span class="hljs-built_in">require</span>(<span class="hljs-string">'kissy/lib/color'</span>),
+<span class="hljs-keyword">var</span> color = <span class="hljs-built_in">require</span>(<span class="hljs-string">'modulex-color'</span>),
     mycolor = color.parse(<span class="hljs-string">'rgb(255,255,255)'</span>);
 <span class="hljs-built_in">console</span>.log(mycolor.toHex());  <span class="hljs-comment">//#ffffff</span>
 
 <span class="hljs-comment">//在浏览器下使用 color</span>
-KISSY.use(<span class="hljs-string">'color'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Color)</span></span>{
+<span class="hljs-built_in">require</span>([<span class="hljs-string">'color'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Color)</span></span>{
     <span class="hljs-keyword">var</span> mycolor = Color.parse(<span class="hljs-string">'rgb(255,255,255)'</span>);
     <span class="hljs-built_in">console</span>.log(mycolor.toHex());  <span class="hljs-comment">//#ffffff</span>
 })

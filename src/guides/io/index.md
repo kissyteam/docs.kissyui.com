@@ -1,9 +1,9 @@
 (((apilink class="IO")))
 # IO的基本介绍
 
-> Ajax 别名 io，注意，KISSY中不存在名为"ajax"的模块，必须使用名字‘io’。
+> 注意，KISSY中不存在名为"ajax"的模块，必须使用名字‘io’。
 
-	KISSY.use('io',function(S,IO){
+	require(['io'],function(IO){
 		// use IO
 	});
 
@@ -635,24 +635,3 @@ elements (string|Array`<HTMLElement>`|HTMLElement|KISSY.NodeList) – 代表表�
 ### complete `<event>`
 
 服务器返回（无论成功或失败）后触发.事件对象同 start 事件.
-
-<style>
-#photo-list img  {
-border: 1px solid grey;
-padding: 4px;
-margin: 8px;
-}
-.loading {
-background: transparent url(http://docs.kissyui.com/1.4/source/_static/loading.gif) no-repeat;
-width: 100px;
-height: 100px;
-margin: 20px;
-}
-div.demo {
-background: none repeat scroll 0 0 #F8F8F6;
-border: 1px solid #D1D1D1;
-border-radius: 2px 2px 2px 2px;
-margin: 8px 0;
-padding: 10px;
-}
-</style>

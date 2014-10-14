@@ -3,28 +3,23 @@
 
 ## 引用feature
 
-	KISSY.use('feature', function(S, Feature){
+	require(['feature'], function(Feature){
 		//use Feature
 	})
 
 硬件环境关键特性检测，这类功能通常在判断硬件环境时使用，比如在KISSY的modules定义的代码：
 
-	KISSY.config('modules',{
-		"dom/basic": {
-			"alias": [
-				'dom/base',
-				Feature.isIELessThan(9) ? 'dom/ie' : '',
-				Feature.isClassListSupported() ? '' : 'dom/class-list'
-			]
-		},
-		"dom": {
-			"alias": [
-				'dom/basic',
-				!Feature.isQuerySelectorSupported() ? 'dom/selector' : ''
-			]
-		}
+	require(['feature', 'ua'], function(Feature, UA){
+		require.config('alias', {
+		    'modulex-dom': 'dom',
+		    'dom/selector': Feature.isQuerySelectorSupported() ? '' : 'query-selector',
+		    dom: [
+		        'dom/base',
+		            UA.ieMode < 9 ? 'dom/ie' : ''
+		    ]
+		});
 	});
-
+	
 ## APIs
 
 ### isDeviceMotionSupported()  `<static>`

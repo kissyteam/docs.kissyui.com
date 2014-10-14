@@ -101,24 +101,19 @@
 				</div>
 				<div id="main-content">
 					<p></p>
-<h1 id="Feature基本介绍">Feature基本介绍</h1><h2 id="引用feature">引用feature</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'feature'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Feature)</span></span>{
+<h1 id="Feature基本介绍">Feature基本介绍</h1><h2 id="引用feature">引用feature</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'feature'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Feature)</span></span>{
     <span class="hljs-comment">//use Feature</span>
 })
 </code></pre><p>硬件环境关键特性检测，这类功能通常在判断硬件环境时使用，比如在KISSY的modules定义的代码：</p>
-<pre><code><span class="hljs-variable">KISSY</span>.<span class="hljs-function_or_atom">config</span>(<span class="hljs-string">'modules'</span>,{
-    <span class="hljs-string">"dom/basic"</span>: {
-        <span class="hljs-string">"alias"</span>: [
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'feature'</span>, <span class="hljs-string">'ua'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Feature, UA)</span></span>{
+    <span class="hljs-built_in">require</span>.config(<span class="hljs-string">'alias'</span>, {
+        <span class="hljs-string">'modulex-dom'</span>: <span class="hljs-string">'dom'</span>,
+        <span class="hljs-string">'dom/selector'</span>: Feature.isQuerySelectorSupported() ? <span class="hljs-string">''</span> : <span class="hljs-string">'query-selector'</span>,
+        dom: [
             <span class="hljs-string">'dom/base'</span>,
-            <span class="hljs-variable">Feature</span>.<span class="hljs-function_or_atom">isIELessThan</span>(<span class="hljs-number">9</span>) ? <span class="hljs-string">'dom/ie'</span> : <span class="hljs-string">''</span>,
-            <span class="hljs-variable">Feature</span>.<span class="hljs-function_or_atom">isClassListSupported</span>() ? <span class="hljs-string">''</span> : <span class="hljs-string">'dom/class-list'</span>
+                UA.ieMode &lt; <span class="hljs-number">9</span> ? <span class="hljs-string">'dom/ie'</span> : <span class="hljs-string">''</span>
         ]
-    },
-    <span class="hljs-string">"dom"</span>: {
-        <span class="hljs-string">"alias"</span>: [
-            <span class="hljs-string">'dom/basic'</span>,
-            <span class="hljs-exclamation_mark">!</span><span class="hljs-variable">Feature</span>.<span class="hljs-function_or_atom">isQuerySelectorSupported</span>() ? <span class="hljs-string">'dom/selector'</span> : <span class="hljs-string">''</span>
-        ]
-    }
+    });
 });
 </code></pre><h2 id="APIs">APIs</h2><h3 id="isDeviceMotionSupported()  <code>&lt;static&gt;</code>">isDeviceMotionSupported()  <code>&lt;static&gt;</code></h3><p>判断当前宿主环境是否支持手势事件</p>
 <h3 id="isMsPointerSupported()  <code>&lt;static&gt;</code>">isMsPointerSupported()  <code>&lt;static&gt;</code></h3><p>判断当前宿主环境是否支持ie8的Pointer事件</p>
