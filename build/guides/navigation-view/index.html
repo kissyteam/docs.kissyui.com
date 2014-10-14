@@ -110,10 +110,10 @@
 </ul>
 <p>此外，它细粒度模块化，预留扩展接口，不涉及 model，内容获取，业务架构等使得它可以灵活适用于不同的业务和使用场景。</p>
 <h2 id="引入样式资源">引入样式资源</h2><pre><code>&lt;link <span class="hljs-variable">href=</span><span class="hljs-string">"http://g.tbcdn.cn/kissy/edge/2014.08.26/navigation-view/assets/dpl.css"</span> <span class="hljs-variable">rel=</span><span class="hljs-string">"stylesheet"</span>&gt;
-</code></pre><h2 id="载入模块">载入模块</h2><pre><code>modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'navigation-view'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(NavigationView)</span></span>{
+</code></pre><h2 id="载入模块">载入模块</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'navigation-view'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(NavigationView)</span></span>{
     <span class="hljs-comment">//use NavigationView</span>
 });
-</code></pre><h2 id="简单使用">简单使用</h2><pre><code>modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'navigation-view'</span>, <span class="hljs-string">'navigation-view/bar'</span>, <span class="hljs-string">'scroll-view'</span>, <span class="hljs-string">'scroll-view/plugin/scrollbar'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(NavigationView, NavigationViewBar, ScrollView, ScrollBar)</span></span>{
+</code></pre><h2 id="简单使用">简单使用</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'navigation-view'</span>, <span class="hljs-string">'navigation-view/bar'</span>, <span class="hljs-string">'scroll-view'</span>, <span class="hljs-string">'scroll-view/plugin/scrollbar'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(NavigationView, NavigationViewBar, ScrollView, ScrollBar)</span></span>{
     <span class="hljs-keyword">var</span> navigationView = <span class="hljs-keyword">new</span> NavigationView({
         loadingHtml: <span class="hljs-string">'&lt;div class="ks-navigation-view-loading-outer"&gt;'</span> +
             <span class="hljs-string">'&lt;div class="ks-navigation-view-loading-inner"&gt;&lt;/div&gt;'</span> +
@@ -123,7 +123,7 @@
 
     <span class="hljs-keyword">var</span> bar = <span class="hljs-keyword">new</span> NavigationViewBar({  <span class="hljs-comment">//添加工具栏“返回”按钮</span>
             navigationView: navigationView,
-            elBefore: navigationView.<span class="hljs-keyword">get</span>(<span class="hljs-string">'contentEl'</span>)
+            elBefore: navigationView.get(<span class="hljs-string">'contentEl'</span>)
         });
 
     <span class="hljs-keyword">var</span> PageView = ScrollView.extend({  <span class="hljs-comment">//拓展自ScrollView，则该视图可滑动浏览</span>

@@ -102,7 +102,7 @@
 				<div id="main-content">
 					<p></p>
 <h1 id="Path的基本介绍">Path的基本介绍</h1><h2 id="用法">用法</h2><p>通过沙箱来调用</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'path'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Path)</span></span>{
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'path'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Path)</span></span>{
     Path.do_sth();<span class="hljs-comment">// 执行操作</span>
 });
 </code></pre><h2 id="basename()  <code>&lt;static&gt;</code>">basename()  <code>&lt;static&gt;</code></h2><p><code>basename(path,ext) =&gt; String</code></p>

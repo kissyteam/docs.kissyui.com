@@ -102,10 +102,10 @@
 				<div id="main-content">
 					<p></p>
 <h1 id="Router的基本介绍">Router的基本介绍</h1><p>Router 是一个类似 express 的路由管理器，大部分函数接口意义和用法类似 express。如果你本来就对 express 非常熟悉，那么 KISSY Router 你用起来也会感觉非常自然。</p>
-<h2 id="载入模块">载入模块</h2><pre><code>modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'router'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Router)</span></span>{
+<h2 id="载入模块">载入模块</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'router'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Router)</span></span>{
     <span class="hljs-comment">//use Router</span>
 });
-</code></pre><h2 id="简单使用">简单使用</h2><pre><code>modulex.<span class="hljs-keyword">use</span>([<span class="hljs-string">'node'</span>, <span class="hljs-string">'router'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($, Router)</span></span>{
+</code></pre><h2 id="简单使用">简单使用</h2><pre><code>require([<span class="hljs-string">'node'</span>, <span class="hljs-string">'router'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($, Router)</span></span>{
     Router.config({  <span class="hljs-comment">//路由全局配置</span>
         triggerRoute: <span class="hljs-literal">true</span>,  <span class="hljs-comment">// 触发当前地址对应的 route 操作</span>
         urlRoot: location.pathname

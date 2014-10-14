@@ -5,7 +5,7 @@
 
 通过沙箱来调用
 
-	KISSY.use('path',function(S,Path){
+	require(['path'],function(Path){
 		Path.do_sth();// 执行操作
 	});
 

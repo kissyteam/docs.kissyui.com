@@ -113,8 +113,8 @@
 <li>如果不是当前引擎或浏览器，返回 0 或者 undefined</li>
 <li>如果当前浏览器版本号无法准确判定，均返回 0.1</li>
 </ul>
-<h2 id="引入 ua">引入 ua</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'ua'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,UA)</span></span>{
-    alert(UA); <span class="hljs-comment">// UA可以使用了</span>
+<h2 id="引入 ua">引入 ua</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'ua'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UA)</span></span>{
+    UA <span class="hljs-comment">// UA可以使用了</span>
 });
 </code></pre><hr>
 <h2 id="Attributes">Attributes</h2><h3 id="trident  <code>&lt;static&gt;</code>">trident  <code>&lt;static&gt;</code></h3><p>{Number} - trident 的版本号。IE 浏览器 8 系列以下都无法准确探测 Trident 内核的版本号。</p>
@@ -136,7 +136,7 @@
 <h3 id="ios  <code>&lt;static&gt;</code>">ios  <code>&lt;static&gt;</code></h3><p>{Number} - ios 版本号。例如 5.0</p>
 <h3 id="android  <code>&lt;static&gt;</code>">android  <code>&lt;static&gt;</code></h3><p>{Number} - android 版本号。例如 5.0</p>
 <hr>
-<h2 id="examples">examples</h2><h3 id="判断浏览器类型">判断浏览器类型</h3><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'ua'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,UA)</span></span>{
+<h2 id="examples">examples</h2><h3 id="判断浏览器类型">判断浏览器类型</h3><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'ua'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UA)</span></span>{
     <span class="hljs-keyword">if</span>(UA.chrome &gt; <span class="hljs-number">0</span>){
         alert(<span class="hljs-string">'Your browser is chrome'</span>);
     }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.safari &gt; <span class="hljs-number">0</span>){
@@ -151,7 +151,7 @@
         alert(<span class="hljs-string">'Your browser is unknown'</span>);
     }
 });
-</code></pre><h2 id="判断操作系统类型">判断操作系统类型</h2><pre><code>KISSY.use(<span class="hljs-string">'ua'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,UA)</span></span>{
+</code></pre><h2 id="判断操作系统类型">判断操作系统类型</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'ua'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UA)</span></span>{
     <span class="hljs-keyword">if</span>(UA.<span class="hljs-built_in">os</span> == <span class="hljs-string">'windows'</span>){
         alert(<span class="hljs-string">'Your os is Windows'</span>);
     }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.<span class="hljs-built_in">os</span> == <span class="hljs-string">'Linux'</span>){
@@ -169,7 +169,7 @@
         alert(<span class="hljs-string">'Your os is Android'</span>);
     }
 });
-</code></pre><h3 id="判断mobile类型">判断mobile类型</h3><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'ua'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,UA)</span></span>{
+</code></pre><h3 id="判断mobile类型">判断mobile类型</h3><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'ua'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UA)</span></span>{
     <span class="hljs-keyword">if</span>(UA.mobile == <span class="hljs-string">'apple'</span>){
         alert(<span class="hljs-string">'Your device is Apple'</span>);
     }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.mobile == <span class="hljs-string">'nokia'</span>){
@@ -180,7 +180,7 @@
         alert(<span class="hljs-string">'Your browser is opera mobile'</span>);
     }
 }); 
-</code></pre><h3 id="判断浏览器外壳">判断浏览器外壳</h3><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'ua'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,UA)</span></span>{
+</code></pre><h3 id="判断浏览器外壳">判断浏览器外壳</h3><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'ua'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UA)</span></span>{
     <span class="hljs-keyword">if</span>(UA.shell == <span class="hljs-string">'chrome'</span>){
         alert(<span class="hljs-string">'Your browser is chrome and the version is'</span> + UA[UA.shell]);
     }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.shell == <span class="hljs-string">'se360'</span>){

@@ -5,13 +5,13 @@
 `util` 是一套`underscore`风格的工具集，提供一些常用的工具函数
 
 ## 引用util
-	KISSY.use('util',function(S, Util){
+	require(['util'],function(Util){
 		//use Util
 	})
 
 ## Example
 	
-	KISSY.use('util', function(S, Util){
+	require(['util'], function(Util){
 		var Shoutable = {
 		    shout: function() { alert('I am ' + this.name + '.'); }
 		};

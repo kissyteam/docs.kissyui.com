@@ -16,8 +16,8 @@
 - 如果当前浏览器版本号无法准确判定，均返回 0.1
 
 ## 引入 ua
-    KISSY.use('ua',function(S,UA){
-        alert(UA); // UA可以使用了
+    require(['ua'],function(UA){
+        UA // UA可以使用了
     });
 
 -------------------------------------
@@ -102,7 +102,7 @@
 
 ### 判断浏览器类型
 
-    KISSY.use('ua',function(S,UA){
+    require(['ua'],function(UA){
         if(UA.chrome > 0){
             alert('Your browser is chrome');
         }else if(UA.safari > 0){
@@ -120,7 +120,7 @@
 
 ## 判断操作系统类型
 
-    KISSY.use('ua',function(S,UA){
+    require(['ua'],function(UA){
         if(UA.os == 'windows'){
             alert('Your os is Windows');
         }else if(UA.os == 'Linux'){
@@ -141,7 +141,7 @@
 
 ### 判断mobile类型
 
-    KISSY.use('ua',function(S,UA){
+    require(['ua'],function(UA){
         if(UA.mobile == 'apple'){
             alert('Your device is Apple');
         }else if(UA.mobile == 'nokia'){
@@ -155,7 +155,7 @@
 
 ### 判断浏览器外壳
 
-    KISSY.use('ua',function(S,UA){
+    require(['ua'],function(UA){
         if(UA.shell == 'chrome'){
             alert('Your browser is chrome and the version is' + UA[UA.shell]);
         }else if(UA.shell == 'se360'){

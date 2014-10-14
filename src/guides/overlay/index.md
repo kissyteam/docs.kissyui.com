@@ -8,13 +8,13 @@ Overlay 继承 Component.Container，拓展 Component.Extension.Shim 和 Compone
 引用方法：
 
 	//先引入overlay的样式`http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css`或利用prefixCls来自定义样式。
-	KISSY.use('overlay',function(S,Overlay){
+	require(['overlay'],function(Overlay){
 		// use Overlay
 	});
 
 ## 一个简单的调用
 
-	KISSY.use(['overlay', 'button'], function(S, Overlay, Button){
+	require(['overlay', 'button'], function(Overlay, Button){
         var modalDialog = new Overlay.Dialog({
             headerContent : '我是头部',
             width : 500,

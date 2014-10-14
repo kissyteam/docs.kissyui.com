@@ -157,7 +157,7 @@ A.run();
 <span class="hljs-reserved">var</span> p1 = <span class="hljs-keyword">new</span> Promise(A);
 p1.<span class="hljs-keyword">when</span>(<span class="hljs-regexp">/*条件*/</span>).<span class="hljs-keyword">then</span>(<span class="hljs-regexp">/*行为*/</span>);
 </code></pre><h2 id="KISSY Promise 的用法">KISSY Promise 的用法</h2><p>通过沙箱来调用</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'promise'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Promise)</span></span>{
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'promise'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Promise)</span></span>{
     <span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> Promise.Defer(); <span class="hljs-comment">// 使用 Promise</span>
 });
 </code></pre><p>首先看这个<a href="/5.0/demos/promise/index.html">Demo</a>。</p>
@@ -170,8 +170,8 @@ p1.<span class="hljs-keyword">when</span>(<span class="hljs-regexp">/*条件*/</
 </ul>
 <h3 id="return">return</h3><p>一个新的 promise（Promise类型）. 当前 promise 成功时新的 promise 也成功. 当前 promise 失败时新的 promise 也失败.</p>
 <h3 id="example">example</h3><p>参照首<a href="/5.0/demos/promise/index.html">Demo</a>。 这里为链式调用写法。</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node,promise'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Node,Promise)</span></span>{
-    K.all(<span class="hljs-string">"button"</span>).on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'node'</span>, <span class="hljs-string">'promise'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Node,Promise)</span></span>{
+    Node.all(<span class="hljs-string">"button"</span>).on(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
         <span class="hljs-comment">// 生成一个Promise实例d</span>
         <span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> Promise.Defer();
         <span class="hljs-keyword">var</span> promise = d.promise;

@@ -102,10 +102,10 @@
 				<div id="main-content">
 					<p></p>
 <h1 id="Util基本介绍">Util基本介绍</h1><p><code>util</code> 是一套<code>underscore</code>风格的工具集，提供一些常用的工具函数</p>
-<h2 id="引用util">引用util</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'util'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Util)</span></span>{
+<h2 id="引用util">引用util</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'util'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Util)</span></span>{
     <span class="hljs-comment">//use Util</span>
 })
-</code></pre><h2 id="Example">Example</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'util'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Util)</span></span>{
+</code></pre><h2 id="Example">Example</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'util'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Util)</span></span>{
     <span class="hljs-keyword">var</span> Shoutable = {
         shout: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ alert(<span class="hljs-string">'I am '</span> + <span class="hljs-keyword">this</span>.name + <span class="hljs-string">'.'</span>); }
     };

@@ -78,7 +78,7 @@
 						</div>
 						<div class="panel-body">
 							<ul class="outline">
-								<li class="level2"><a href="#基本 api">基本 api</a></li><li class="level3"><a href="#Class">Class</a></li><li class="level3"><a href="#Methods">Methods</a></li><li class="level2"><a href="#浏览器端使用">浏览器端使用</a></li><li class="level3"><a href="#载入 kissy">载入 kissy</a></li><li class="level3"><a href="#未预编译">未预编译</a></li><li class="level3"><a href="#预编译">预编译</a></li><li class="level2"><a href="#node 下使用">node 下使用</a></li><li class="level2"><a href="#语法">语法</a></li><li class="level3"><a href="#基本类型">基本类型</a></li><li class="level3"><a href="#map">map</a></li><li class="level3"><a href="#array">array</a></li><li class="level3"><a href="#转义">转义</a></li><li class="level3"><a href="#注释">注释</a></li><li class="level3"><a href="#变量渲染">变量渲染</a></li><li class="level3"><a href="#根数据访问">根数据访问</a></li><li class="level3"><a href="#支持变量属性获取">支持变量属性获取</a></li><li class="level3"><a href="#调用变量方法">调用变量方法</a></li><li class="level3"><a href="#变量运算">变量运算</a></li><li class="level3"><a href="#比较操作">比较操作</a></li><li class="level3"><a href="#逻辑操作">逻辑操作</a></li><li class="level3"><a href="#循环">循环</a></li><li class="level3"><a href="#范围循环">范围循环</a></li><li class="level3"><a href="#设置操作">设置操作</a></li><li class="level3"><a href="#宏">宏</a></li><li class="level3"><a href="#包含操作">包含操作</a></li><li class="level3"><a href="#继承">继承</a></li><li class="level3"><a href="#自定义命令">自定义命令</a></li><li class="level3"><a href="#Buffer api">Buffer api</a></li><li class="level3"><a href="#Scope api">Scope api</a></li><li class="level2"><a href="#Reserved words">Reserved words</a></li>
+								<li class="level2"><a href="#基本 api">基本 api</a></li><li class="level3"><a href="#构造器参数">构造器参数</a></li><li class="level3"><a href="#Methods">Methods</a></li><li class="level2"><a href="#浏览器端通过KISSY gallery 使用">浏览器端通过KISSY gallery 使用</a></li><li class="level3"><a href="#安装xtemplate">安装xtemplate</a></li><li class="level3"><a href="#使用 gulp 来编译，gulpfile内容如下:">使用 gulp 来编译，gulpfile内容如下:</a></li><li class="level3"><a href="#引入KISSY的种子文件">引入KISSY的种子文件</a></li><li class="level3"><a href="#配置包路径并使用">配置包路径并使用</a></li><li class="level2"><a href="#语法">语法</a></li><li class="level3"><a href="#基本类型">基本类型</a></li><li class="level3"><a href="#map">map</a></li><li class="level3"><a href="#array">array</a></li><li class="level3"><a href="#转义">转义</a></li><li class="level3"><a href="#注释">注释</a></li><li class="level3"><a href="#变量渲染">变量渲染</a></li><li class="level3"><a href="#根数据访问">根数据访问</a></li><li class="level3"><a href="#支持变量属性获取">支持变量属性获取</a></li><li class="level3"><a href="#调用变量方法">调用变量方法</a></li><li class="level3"><a href="#变量运算">变量运算</a></li><li class="level3"><a href="#比较操作">比较操作</a></li><li class="level3"><a href="#逻辑操作">逻辑操作</a></li><li class="level3"><a href="#循环">循环</a></li><li class="level3"><a href="#范围循环">范围循环</a></li><li class="level3"><a href="#设置操作">设置操作</a></li><li class="level3"><a href="#宏">宏</a></li><li class="level3"><a href="#包含操作">包含操作</a></li><li class="level3"><a href="#继承">继承</a></li><li class="level3"><a href="#自定义命令">自定义命令</a></li><li class="level3"><a href="#Buffer api">Buffer api</a></li><li class="level3"><a href="#Scope api">Scope api</a></li><li class="level2"><a href="#Reserved words">Reserved words</a></li>
 							</ul>
 						</div>
 					</div>
@@ -100,9 +100,8 @@
 					</div>
 				</div>
 				<div id="main-content">
-					<h1 id="XTemplate基本介绍">XTemplate基本介绍</h1><h2 id="基本 api">基本 api</h2><h3 id="Class">Class</h3><p>XTemplate/XTemplateRuntime</p>
-<p>构造器参数</p>
-<table class="table table-bordered table-striped">
+					<h1 id="XTemplate基本介绍">XTemplate基本介绍</h1><p>xtemplate 是新一代的模板引擎，可通过 kissy gallery 使用，也可以独立使用不依赖任何KISSY其他的配置不用事先加载KISSY的种子文件，也可以在 node 环境中使用，具体的用法请看 <a href="https://github.com/kissyteam/xtemplate">xtemplate on github</a>。下面仅介绍通过kissy gallery使用xtemplate，以及它的api和模板语法。</p>
+<h2 id="基本 api">基本 api</h2><h3 id="构造器参数">构造器参数</h3><table class="table table-bordered table-striped">
     <thead>
     <tr>
         <th style="width: 100px;">name</th>
@@ -173,71 +172,33 @@
 
 
 
-<h2 id="浏览器端使用">浏览器端使用</h2><h3 id="载入 kissy">载入 kissy</h3><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js'</span> 
-
-<span class="hljs-attribute">data-config</span>=<span class="hljs-value">'{combine:true}'</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-</code></pre>
-<h3 id="未预编译">未预编译</h3><pre><code class="lang-javascript">KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'xtemplate'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,XTemplate)</span></span>{
-  <span class="hljs-keyword">new</span> XTemplate(<span class="hljs-string">'{{x}}'</span>,{name: <span class="hljs-string">'x-tpl'</span>}).render({x:<span class="hljs-number">1</span>},<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(error,z)</span></span>{
-    <span class="hljs-comment">// z=&gt;1</span>
-  });
-})
-</code></pre>
-<h3 id="预编译">预编译</h3><pre><code>npm install kissy<span class="hljs-variable">@5</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>-alpha.<span class="hljs-number">10</span> -g
-kissy-xtemplate -p x/   <span class="hljs-regexp">//</span> x/ 为模板文件目录，模板后缀为 xtpl
-</code></pre><p>命令参数列表</p>
-<table class="table table-bordered table-striped">
-    <thead>
-    <tr>
-        <th style="width: 100px;">name</th>
-        <th style="width: 50px;">type</th>
-        <th style="width: 50px;">default</th>
-        <th>description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>-p</td>
-        <td>String</td>
-        <td></td>
-        <td>directory of xtemplate files</td>
-    </tr>
-    <tr>
-        <td>-o</td>
-        <td>String</td>
-        <td></td>
-        <td>directory of generated template javascript files</td>
-    </tr>
-    <tr>
-        <td>-s</td>
-        <td>String</td>
-        <td>xtpl</td>
-        <td>file name suffix of xtemplate files</td>
-    </tr>
-    <tr>
-        <td>-w</td>
-        <td>Boolean</td>
-        <td>false</td>
-        <td>whether watch xtemplate file change</td>
-    </tr>
-    </tbody>
-</table>
-
-
-
-<pre><code class="lang-javascript">KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'xtemplate/runtime,a/b-xtpl'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,XTemplateRuntime,bXtpl)</span></span>{
-  <span class="hljs-keyword">new</span> XTemplateRuntime(bXtpl).render({x:<span class="hljs-number">1</span>},<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(error,z)</span></span>{
-    <span class="hljs-comment">// z=&gt;1</span>
-  });
-})
-</code></pre>
-<h2 id="node 下使用">node 下使用</h2><p>安装:</p>
-<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> xtpl</span>
-</code></pre><p>express 下使用:</p>
-<pre><code class="lang-javascript">app.<span class="hljs-keyword">set</span>(<span class="hljs-string">"view engine"</span>, <span class="hljs-string">"xtpl"</span>);
-</code></pre>
-<p>模板文件全部为 xtpl 后缀，目录规范和渲染同 express</p>
-<h2 id="语法">语法</h2><h3 id="基本类型">基本类型</h3><p>支持 true false null undefined number string map array</p>
+<h2 id="浏览器端通过KISSY gallery 使用">浏览器端通过KISSY gallery 使用</h2><p>注 ： KISSY@1.4.6 以上版本可这么使用xtemplate。</p>
+<h3 id="安装xtemplate">安装xtemplate</h3><pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> xtemplate</span>
+</code></pre><h3 id="使用 gulp 来编译，gulpfile内容如下:">使用 gulp 来编译，gulpfile内容如下:</h3><pre><code><span class="hljs-keyword">var</span> gulpXTemplate = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp-xtemplate'</span>);
+<span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">'gulp'</span>);
+<span class="hljs-keyword">var</span> xtemplate = <span class="hljs-built_in">require</span>(<span class="hljs-string">'xtemplate'</span>);
+gulp.task(<span class="hljs-string">'default'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    gulp.src(<span class="hljs-string">'xtpl/**/*'</span>).pipe(gulpXTemplate({
+        XTemplate: xtemplate
+    })).pipe(gulp.dest(<span class="hljs-string">'build'</span>))
+});
+</code></pre><h3 id="引入KISSY的种子文件">引入KISSY的种子文件</h3><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre><h3 id="配置包路径并使用">配置包路径并使用</h3><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-built_in">require</span>.config({
+        packages: {
+            xtpl: {
+                base: <span class="hljs-string">'./build'</span>
+            }
+        }
+    });
+    <span class="hljs-built_in">require</span>(<span class="hljs-string">'xtpl/a-render'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(S, aRender)</span> </span>{
+        <span class="hljs-built_in">console</span>.log(aRender({
+            x: <span class="hljs-number">1</span>,
+            y: <span class="hljs-number">2</span>
+        })); <span class="hljs-comment">// 12</span>
+    });
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre><h2 id="语法">语法</h2><h3 id="基本类型">基本类型</h3><p>支持 true false null undefined number string map array</p>
 <h3 id="map">map</h3><p>值为基本类型</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-begin-block">#<span class="hljs-keyword">with</span></span>({
   <span class="hljs-variable">x</span>:2
@@ -415,14 +376,14 @@ xtpl.XTemplate.addCommand(<span class="hljs-string">'xInline'</span>,<span class
 </span><span class="hljs-expression">{{<span class="hljs-end-block">/xBlock</span>}}</span><span class="xml">
 // =&gt; 21</span>
 </code></pre><h4 id="浏览器命令">浏览器命令</h4><p>全局：</p>
-<pre><code class="lang-javascript">KISSY.use(<span class="hljs-string">'xtemplate/runtime'</span>,<span class="hljs-keyword">function</span>(S,XTemplate){
+<pre><code class="lang-javascript"><span class="hljs-keyword">require</span>(<span class="hljs-string">'xtemplate/runtime'</span>,<span class="hljs-keyword">function</span>(XTemplate){
     XTemplate.addCommand(<span class="hljs-keyword">...</span>) // 同 nodejs
 });
 </code></pre>
 <p>局部：</p>
 <p>x-xtpl.html:</p>
 <pre><code><span class="xml"></span><span class="hljs-expression">{{<span class="hljs-variable">x</span>()}}</span><span class="xml"></span>
-</code></pre><pre><code class="lang-javascript">KISSY.use(<span class="hljs-string">'xtemplate/runtime, x-xtpl'</span>,<span class="hljs-keyword">function</span>(S,XTemplate,x){
+</code></pre><pre><code class="lang-javascript"><span class="hljs-keyword">require</span>(<span class="hljs-string">'xtemplate/runtime, x-xtpl'</span>,<span class="hljs-keyword">function</span>(XTemplate,x){
     new XTemplate(x, {
         commands:{
             x:<span class="hljs-keyword">function</span>(){

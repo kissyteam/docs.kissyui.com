@@ -5,7 +5,7 @@
 
 调用：
 
-	KISSY.use('resizable',function(S,Resizable){
+	require(['resizable'],function(Resizable){
 		// use Resizable
 	});
 

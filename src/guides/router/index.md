@@ -5,12 +5,12 @@
 Router 是一个类似 express 的路由管理器，大部分函数接口意义和用法类似 express。如果你本来就对 express 非常熟悉，那么 KISSY Router 你用起来也会感觉非常自然。
 
 ## 载入模块
-	modulex.use(['router'], function(Router){
+	require(['router'], function(Router){
 		//use Router
 	});
 
 ## 简单使用
-	modulex.use(['node', 'router'], function($, Router){
+	require(['node', 'router'], function($, Router){
 		Router.config({  //路由全局配置
 	        triggerRoute: true,  // 触发当前地址对应的 route 操作
 	        urlRoot: location.pathname

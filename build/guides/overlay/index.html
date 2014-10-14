@@ -107,14 +107,14 @@
 <p>Overlay 继承 Component.Container，拓展 Component.Extension.Shim 和 Component.Extension.Align。Overlay的实例方法大都是组装来的。<code>Overlay</code>对象下挂接两个由他派生出的类：<code>Dialog</code>和<code>Popup</code>，这两个实现是最常用的。</p>
 <p>引用方法：</p>
 <pre><code><span class="hljs-comment">//先引入overlay的样式`http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css`或利用prefixCls来自定义样式。</span>
-KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'overlay'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Overlay)</span></span>{
+<span class="hljs-built_in">require</span>([<span class="hljs-string">'overlay'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Overlay)</span></span>{
     <span class="hljs-comment">// use Overlay</span>
 });
-</code></pre><h2 id="一个简单的调用">一个简单的调用</h2><pre><code>KISSY.<span class="hljs-keyword">use</span>([<span class="hljs-string">'overlay'</span>, <span class="hljs-string">'button'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S, Overlay, Button)</span></span>{
+</code></pre><h2 id="一个简单的调用">一个简单的调用</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'overlay'</span>, <span class="hljs-string">'button'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Overlay, Button)</span></span>{
     <span class="hljs-keyword">var</span> modalDialog = <span class="hljs-keyword">new</span> Overlay.Dialog({
         headerContent : <span class="hljs-string">'我是头部'</span>,
         width : <span class="hljs-number">500</span>,
-        mask : <span class="hljs-keyword">true</span>,
+        mask : <span class="hljs-literal">true</span>,
         bodyContent : <span class="hljs-string">'&lt;div&gt;我是主体&lt;/div&gt;'</span>,
         align : {  <span class="hljs-comment">//定位对话框</span>
             points : [<span class="hljs-string">'cc'</span>, <span class="hljs-string">'cc'</span>]  <span class="hljs-comment">//在可视区域正中央</span>

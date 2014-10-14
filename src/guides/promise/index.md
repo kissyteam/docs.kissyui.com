@@ -81,7 +81,7 @@ Promise 适用于有异步逻辑的场景
 
 通过沙箱来调用
 
-	KISSY.use('promise',function(S,Promise){
+	require(['promise'],function(Promise){
 		var d = new Promise.Defer(); // 使用 Promise
 	});
 
@@ -110,8 +110,8 @@ Promise 适用于有异步逻辑的场景
 
 参照首[Demo](/5.0/demos/promise/index.html)。 这里为链式调用写法。
 
-	KISSY.use('node,promise',function(S,Node,Promise){
-		K.all("button").on("click", function () {
+	require(['node', 'promise'],function(Node,Promise){
+		Node.all("button").on("click", function () {
 			// 生成一个Promise实例d
 			var d = new Promise.Defer();
 			var promise = d.promise;

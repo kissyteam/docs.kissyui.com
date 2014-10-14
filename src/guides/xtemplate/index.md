@@ -1,12 +1,9 @@
 #XTemplate基本介绍
 
+xtemplate 是新一代的模板引擎，可通过 kissy gallery 使用，也可以独立使用不依赖任何KISSY其他的配置不用事先加载KISSY的种子文件，也可以在 node 环境中使用，具体的用法请看 [xtemplate on github](https://github.com/kissyteam/xtemplate)。下面仅介绍通过kissy gallery使用xtemplate，以及它的api和模板语法。
 ## 基本 api
 
-### Class
-
-XTemplate/XTemplateRuntime
-
-构造器参数
+### 构造器参数
 
 
 <table class="table table-bordered table-striped">
@@ -85,100 +82,45 @@ String render(data:Object, callback:Function) // 渲染数据，参数含义如�
 
 
 
-## 浏览器端使用
+## 浏览器端通过KISSY gallery 使用
 
-### 载入 kissy
+注 ： KISSY@1.4.6 以上版本可这么使用xtemplate。
+### 安装xtemplate
 
+    npm install xtemplate
 
-```html
-<script src='http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js' 
+### 使用 gulp 来编译，gulpfile内容如下:
 
-data-config='{combine:true}'></script>
-```
+    var gulpXTemplate = require('gulp-xtemplate');
+    var gulp = require('gulp');
+    var xtemplate = require('xtemplate');
+    gulp.task('default', function () {
+        gulp.src('xtpl/**/*').pipe(gulpXTemplate({
+            XTemplate: xtemplate
+        })).pipe(gulp.dest('build'))
+    });
 
-### 未预编译
+### 引入KISSY的种子文件
 
+    <script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js"></script>
 
-```javascript
-KISSY.use('xtemplate',function(S,XTemplate){
-  new XTemplate('{{x}}',{name: 'x-tpl'}).render({x:1},function(error,z){
-    // z=>1
-  });
-})
-```
+### 配置包路径并使用
 
-### 预编译
-
-
-```
-npm install kissy@5.0.0-alpha.10 -g
-kissy-xtemplate -p x/   // x/ 为模板文件目录，模板后缀为 xtpl
-```
-
-命令参数列表
-
-<table class="table table-bordered table-striped">
-    <thead>
-    <tr>
-        <th style="width: 100px;">name</th>
-        <th style="width: 50px;">type</th>
-        <th style="width: 50px;">default</th>
-        <th>description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>-p</td>
-        <td>String</td>
-        <td></td>
-        <td>directory of xtemplate files</td>
-    </tr>
-    <tr>
-        <td>-o</td>
-        <td>String</td>
-        <td></td>
-        <td>directory of generated template javascript files</td>
-    </tr>
-    <tr>
-        <td>-s</td>
-        <td>String</td>
-        <td>xtpl</td>
-        <td>file name suffix of xtemplate files</td>
-    </tr>
-    <tr>
-        <td>-w</td>
-        <td>Boolean</td>
-        <td>false</td>
-        <td>whether watch xtemplate file change</td>
-    </tr>
-    </tbody>
-</table>
-
-
-
-```javascript
-KISSY.use('xtemplate/runtime,a/b-xtpl',function(S,XTemplateRuntime,bXtpl){
-  new XTemplateRuntime(bXtpl).render({x:1},function(error,z){
-    // z=>1
-  });
-})
-```
-
-## node 下使用
-
-安装:
-
-```
-npm install xtpl
-```
-
-express 下使用:
-
-```javascript
-app.set("view engine", "xtpl");
-```
-
-模板文件全部为 xtpl 后缀，目录规范和渲染同 express
+    <script>
+        require.config({
+            packages: {
+                xtpl: {
+                    base: './build'
+                }
+            }
+        });
+        require('xtpl/a-render', function (S, aRender) {
+            console.log(aRender({
+                x: 1,
+                y: 2
+            })); // 12
+        });
+    </script>
 
 ## 语法
 
@@ -534,7 +476,7 @@ xtpl.XTemplate.addCommand('xInline',function(scope, option,buffer){
 全局：
 
 ```javascript
-KISSY.use('xtemplate/runtime',function(S,XTemplate){
+require('xtemplate/runtime',function(XTemplate){
     XTemplate.addCommand(...) // 同 nodejs
 });
 ```
@@ -548,7 +490,7 @@ x-xtpl.html:
 ```
 
 ```javascript
-KISSY.use('xtemplate/runtime, x-xtpl',function(S,XTemplate,x){
+require('xtemplate/runtime, x-xtpl',function(XTemplate,x){
     new XTemplate(x, {
         commands:{
             x:function(){

@@ -8,24 +8,23 @@ Node 模块提供了对DOM节点的最高层的封装，可以创建、操作、
 载入KISSY种子文件后，这样载入Node模块
 
 	// 载入 Node 模块
-	KISSY.use('node',function(S,Node){
+	require(['node'],function(Node){
 		// 装载了 Node 模块，并处于可用状态
 		// Your Code here...
+		//Node.all , Node.one ...
 	});
-
-从这里了解[use()](/5.0/guides/loader/index.html)方法。
 
 ## 使用Node
 
-Node API 是基于DOM Api 实现的，定义了一系列的语法糖，让用户更舒服的使用Node api，写的代码更加优雅。如果你对标准jQuery DOM API很了解，那么你对Node API也会非常熟悉。
+Node API 是基于DOM Api 实现的，定义了一系列的语法糖，让用户更舒服的使用Node api，写的代码更加优雅。如果你对标准jQuery DOM API很了解，那么你对Node API也会非常熟悉，因为 node 模块的接口兼容绝大部分jQuery的api用法，可直接当做jQuery使用。
 
-	KISSY.use('node',function(S,Node){
-		var $ = Node.all;  //如果你习惯Jquery的写法可以这样来使用KISSY Node提供的api
+	require(['node'],function($){
+		// $ ~= jQuery
 	});
 
 ## 查找节点
 
-	var node = Node.one('#main');
+	var node = Node.one('#main'); 
 
 	// 或者传入一个HtmlElement元素
 	var bodyNode = Node.one(document.body);

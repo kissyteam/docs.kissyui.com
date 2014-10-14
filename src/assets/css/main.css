@@ -637,6 +637,9 @@ li.docs:hover ul, li.more:hover ul{
 .main #main-content ul ul{
   list-style-type: circle;
 }
+.main #main-content table{
+  color: #3b3b3b;
+}
 .main #sidebar a.link-apidocs{
   display: inline-block;
   width: 100%;

@@ -14,12 +14,12 @@ NavigationView是在触屏环境下的一个重要组件，它可以管理多个
     <link href="http://g.tbcdn.cn/kissy/edge/2014.08.26/navigation-view/assets/dpl.css" rel="stylesheet">
 
 ## 载入模块
-	modulex.use(['navigation-view'], function(NavigationView){
+	require(['navigation-view'], function(NavigationView){
 		//use NavigationView
 	});
 
 ## 简单使用
-	modulex.use(['navigation-view', 'navigation-view/bar', 'scroll-view', 'scroll-view/plugin/scrollbar'], function(NavigationView, NavigationViewBar, ScrollView, ScrollBar){
+	require(['navigation-view', 'navigation-view/bar', 'scroll-view', 'scroll-view/plugin/scrollbar'], function(NavigationView, NavigationViewBar, ScrollView, ScrollBar){
 	    var navigationView = new NavigationView({
 	        loadingHtml: '<div class="ks-navigation-view-loading-outer">' +
 	            '<div class="ks-navigation-view-loading-inner"></div>' +
