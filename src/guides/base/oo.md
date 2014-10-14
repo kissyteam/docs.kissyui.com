@@ -24,63 +24,6 @@ JavaScript 语言没有原生类的概念，对象之间共享方法的关键渠
 - 继承 extend
 - 合并 merge
 
-对比下YUI和KISSY的这几个方法名的差别
-
-<table class="table table-condensed">
-<thead>
-	<tr>
-		<th>
-			<strong>YUI</strong>
-		</th>
-		<th>
-			<strong>KISSY</strong>
-		</th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td>
-			augmentObject
-		</td>
-		<td>
-			mix
-		</td>
-	</tr>
-	<tr>
-		<td>
-			augmentProto
-		</td>
-		<td>
-			augment
-		</td>
-	</tr>
-	<tr>
-		<td>
-			merge
-		</td>
-		<td>
-			merge
-		</td>
-	</tr>
-	<tr>
-		<td>
-			extend
-		</td>
-		<td>
-			extend
-		</td>
-	</tr>
-	<tr>
-		<td>
-			clone
-		</td>
-		<td>
-			clone
-		</td>
-	</tr>
-</tbody>
-</table>
-
 以 kissy 的 API 为例，merge 和 augment 都是基于 mix 方法，本质上利用了 JS 的动态特性，在运行时为对象增减成员；
 
 extend 方法的实现比较典型，总体思路是子构造器的原型对象指向父构造器的一个实例，具体有一些细节问题要处理。类继承体系中继承的是对象的模板（即类），JS 没有对于对象的更高一层的抽象数据结构，即使有 constructor 这种东西，它本身也只是 function 对象而已。
@@ -105,18 +48,18 @@ supplier undefined 的属性值不会被复制，不过对象从原型继承下�
 
 简单 mix
 
-	var S = KISSY,
-	r = { a: 'a', b: 'b' };
+	require(['util'], function(Util){
+		var r = { a: 'a', b: 'b' };
+		Util.mix(r, { c: 'c' });
+		console.log(r.c); // => 'c'
 
-	S.mix(r, { c: 'c' });
-	S.log(r.c); // => 'c'
+		Util.mix(r, { a: 'a2' }, false);
+		console.log(r.a); // => 'a'
 
-	S.mix(r, { a: 'a2' }, false);
-	S.log(r.a); // => 'a'
-
-	S.mix(r, { e: 'e', f: 'f' }, true, ['f']);
-	S.log(r.e); // => undefined
-	S.log(r.f); // => 'f'
+		Util.mix(r, { e: 'e', f: 'f' }, true, ['f']);
+		console.log(r.e); // => undefined
+		console.log(r.f); // => 'f'
+	})
 
 深度mix
 
@@ -131,9 +74,9 @@ supplier undefined 的属性值不会被复制，不过对象从原型继承下�
 	};
 
 	/* merge object2 into object1, recursively */
-	S.mix(object1,object2,undefined,undefined,true);
+	Util.mix(object1,object2,undefined,undefined,true);
 
-	S.log(object1); // => { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }
+	console.log(object1); // => { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }
 
 mix是最自然也是最简单的为 JS 对象添加特性的方式，具体实现就是将一个对象的（所有或指定）属性指向给另一个对象，在静态语言中是无能为力的。
 
@@ -149,19 +92,18 @@ mix是最自然也是最简单的为 JS 对象添加特性的方式，具体实�
 
 将多个对象的成员合并到一个新对象上. 参数中, 后面的对象成员会覆盖前面的。如果用mix混合对象时，receiver 会被改变，如果想要保留原始的 receiver ，可以使用 KISSY.merge()
 	
-	var object=S.merge(object1,object2);
+	var object=Util.merge(object1,object2);
 
 简单例子：
 
-	var S = KISSY,
-	a = { a: 'a' },
+	var a = { a: 'a' },
 	b = { b: 'b' },
 	c = { b: 'b2', c: 'c' };
 
-	var o = S.merge(a, b, c);
-	S.log(o.a); // => 'a'
-	S.log(o.b); // => 'b2'
-	S.log(o.c); // => 'c'
+	var o = Util.merge(a, b, c);
+	console.log(o.a); // => 'a'
+	console.log(o.b); // => 'b2'
+	console.log(o.c); // => 'c'
 
 简单情况下 merge 方法常用来合并配置信息. 推荐使用 Base 处理属性配置.
 
@@ -177,16 +119,13 @@ mix是最自然也是最简单的为 JS 对象添加特性的方式，具体实�
 - px (object) – prototype members, 需要添加/覆盖的原型成员
 - sx (object) – static members, 需要添加/覆盖的静态成员.
 
-
-	var S = KISSY;
-
 	function Bird(name) { this.name = name; }
 	Bird.prototype.fly = function() { alert(this.name + ' is flying now!'); };
 
 	function Chicken(name) {
 		Chicken.superclass.constructor.call(this, name);
 	}
-	S.extend(Chicken, Bird,{
+	Util.extend(Chicken, Bird,{
 		fly:function(){
 			Chicken.superclass.fly.call(this)
 			alert("it's my turn");
@@ -197,7 +136,7 @@ mix是最自然也是最简单的为 JS 对象添加特性的方式，具体实�
 
 extend 方法是 KISSY 里类继承的实现方式. 书写 JavaScript 代码时, 请忘记传统 OO 里的继承体系。子类方法中可通过 superclass 来访问父类函数的原型, 进而调用父类方法.
 
-S.extend 像 Node.js 里的 util.inherits，就是用于声明两个类的继承关系，与 util.inherits 相比，它更为贴心，还会维护 superclass 和 superclass.constructor。
+Util.extend 像 Node.js 里的 util.inherits，就是用于声明两个类的继承关系，与 util.inherits 相比，它更为贴心，还会维护 superclass 和 superclass.constructor。
 
 注意构造函数体内，通过 Chicken 类上的 superclass 属性，子类不再需要显式写明父类的名称， 只需要直接调 `SubClass.superclass.constructor.call(this, attrs)` 即可。
 
@@ -215,23 +154,20 @@ S.extend 像 Node.js 里的 util.inherits，就是用于声明两个类的继承
 - whitelist (Array<string>) – 属性来源对象的属性白名单, 仅在名单中的属性进行复制.
 
 
-	var S = KISSY,
-	Shoutable = {
+	var Shoutable = {
 		shout: function() { alert('I am ' + this.name + '.'); }
 	};
 
 	function Dog(name) { this.name = 'Dog ' + name; }
 	function Pig(name) { this.name = 'Pig ' + name; }
 
-	S.augment(Dog, Shoutable);
-	S.augment(Pig, Shoutable);
+	Util.augment(Dog, Utilhoutable);
+	Util.augment(Pig, Shoutable);
 
 	new Dog('Jack').shout(); // => I am Dog Jack.
 	new Pig('Mary').shout(); // => I am Pig Mary.
 
 augment 方法在 KISSY 里非常基础非常重要. 传统 OO 语言里, 可以通过继承或接口来实现共性方法. 在 JavaScript 里, 通过 mixin 特性, 一切变得更简单. augment 是动态语言 mixin 特性的体现, 灵活运用, 能让代码非常优雅简洁.
-
-YUI 中的叫法很长，augmentProto 只扩充 prototype 中的属性，因此扩充的对象必须是“类”。扩充者和被扩充者之间没有半分钱关系，降低了 extend 体系中的复杂耦合，这和“组合优于继承”的 OO 原则是一致的。
 
 ### clone
 
@@ -239,6 +175,6 @@ YUI 中的叫法很长，augmentProto 只扩充 prototype 中的属性，因此�
 
 ----------------------------------------
 
-有了 S.augment，我们可以很方便得扩展类的原型；有了 S.extend，我们可以很方便地继承；那么 KISSY 对属性 getter、setter 有什么好的解决方案么？答案自然是 Base。
+有了 Util.augment，我们可以很方便得扩展类的原型；有了 Util.extend，我们可以很方便地继承；那么 KISSY 对属性 getter、setter 有什么好的解决方案么？答案自然是 Base。
 
-顾名思义，Base 是个基础类；而这个类，也是通过 S.augment 等搞定的。在[Base](./index.html)小节讲解。
+顾名思义，Base 是个基础类；而这个类，也是通过 Util.augment 等搞定的。在[Base](./index.html)小节讲解。

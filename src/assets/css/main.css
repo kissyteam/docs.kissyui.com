@@ -678,6 +678,7 @@ li.docs:hover ul, li.more:hover ul{
   height: 25px;
   line-height: 25px;
   margin: 0;
+  overflow: hidden;
 }
 .main #sidebar .panel-body a{
   text-decoration: none;

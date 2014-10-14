@@ -8,14 +8,14 @@ Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事�
 
 ## 引用方法
 
-	KISSY.use('editor',function(S, Editor){
+	require(['editor'],function(Editor){
 		//use editor
 	})
 
 ## 一个简单的调用
 
 	//先配置editor-plugins的包地址
-	KISSY.config({
+	require.config({
         packages: [
             {
                 name: 'kg/editor-plugins/1.1.2',  //1.1.2是editor-plugins当前版本号，请选择相应的版本号使用
@@ -23,7 +23,7 @@ Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事�
             }
         ]
     })
-	KISSY.use('editor,kg/editor-plugins/1.1.2/font-size', function(S, Editor, FontSize){
+	require(['editor', 'kg/editor-plugins/1.1.2/font-size'], function(Editor, FontSize){
 		var myEditor = new Editor({
 			width : '80%',
 			height : '500px',

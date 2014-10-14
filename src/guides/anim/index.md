@@ -3,7 +3,7 @@
 
 KISSY 动画，这样来载入anim模块：
 
-	KISSY.use('anim',function(S,Anim){
+	require(['anim'],function(Anim){
 		// use Anim
 	});
 
@@ -11,21 +11,15 @@ KISSY 动画，这样来载入anim模块：
 
 由于`node`模块依赖`anim`，通常我们使用node时，使用node.animate()方法即可对某个已知节点作动画。即
 
-	Node.all(".foo").each(function(n){
-		new Anim(n,...).run();
-	});
-
-	KISSY.use('node,anim',function(S, Node, Anim){
-		Node.all(".foo").each(function(n){
+	require(['node', 'anim'],function($, Anim){
+		$(".foo").each(function(n){
 			new Anim(n,...).run();
 		})
 	})
 
-
 等价于
-	KISSY.use("node", function(S, Node){
-		var node=Node.all(".foo");
-		node.animate({
+	require(['node'], function($){
+		$(".foo").animate({
 			width:100,
 			height:300
 		}, {
@@ -43,7 +37,7 @@ KISSY 动画，这样来载入anim模块：
 刨除直接通过node.animate()创建的动画之外，通过Anim可以生成一个`动画实例`。动画实例是用来描述动画的一些基本属性，比如，从`什么状态`动画到`什么状态`，动画时间，缓动效果，暂停和继续动画等。
 通过`Anim`这样实例化一个动画实例（[参照Demo](/5.0/demos/anim/index.html)）：
 
-	KISSY.use("anim",function(S,Anim){
+	require(["anim"],function(Anim){
 		// 初始化动画实例
 		var anim = Anim('#anim-el',
 			// 动画目标样式

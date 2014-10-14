@@ -121,62 +121,6 @@
 <li>继承 extend</li>
 <li>合并 merge</li>
 </ul>
-<p>对比下YUI和KISSY的这几个方法名的差别</p>
-<table class="table table-condensed">
-<thead>
-    <tr>
-        <th>
-            <strong>YUI</strong>
-        </th>
-        <th>
-            <strong>KISSY</strong>
-        </th>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td>
-            augmentObject
-        </td>
-        <td>
-            mix
-        </td>
-    </tr>
-    <tr>
-        <td>
-            augmentProto
-        </td>
-        <td>
-            augment
-        </td>
-    </tr>
-    <tr>
-        <td>
-            merge
-        </td>
-        <td>
-            merge
-        </td>
-    </tr>
-    <tr>
-        <td>
-            extend
-        </td>
-        <td>
-            extend
-        </td>
-    </tr>
-    <tr>
-        <td>
-            clone
-        </td>
-        <td>
-            clone
-        </td>
-    </tr>
-</tbody>
-</table>
-
 <p>以 kissy 的 API 为例，merge 和 augment 都是基于 mix 方法，本质上利用了 JS 的动态特性，在运行时为对象增减成员；</p>
 <p>extend 方法的实现比较典型，总体思路是子构造器的原型对象指向父构造器的一个实例，具体有一些细节问题要处理。类继承体系中继承的是对象的模板（即类），JS 没有对于对象的更高一层的抽象数据结构，即使有 constructor 这种东西，它本身也只是 function 对象而已。</p>
 <h3 id="mix">mix</h3><p><code>mix (receiver , supplier [ , overwrite = true , whitelist , deep ]) =&gt; Object</code></p>
@@ -194,18 +138,18 @@
 <p>该方法仅适用于 javascript 对象，不要在浏览器对象上调用，例如 node.style</p>
 </blockquote>
 <p>简单 mix</p>
-<pre><code><span class="hljs-reserved">var</span> S = KISSY,
-r = { <span class="hljs-attribute">a</span>: <span class="hljs-string">'a'</span>, <span class="hljs-attribute">b</span>: <span class="hljs-string">'b'</span> };
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'util'</span>], <span class="hljs-reserved">function</span>(Util){
+    <span class="hljs-reserved">var</span> r = { <span class="hljs-attribute">a</span>: <span class="hljs-string">'a'</span>, <span class="hljs-attribute">b</span>: <span class="hljs-string">'b'</span> };
+    Util.mix(r, { <span class="hljs-attribute">c</span>: <span class="hljs-string">'c'</span> });
+    <span class="hljs-built_in">console</span>.log(r.c); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'c'</span>
 
-S.mix(r, { <span class="hljs-attribute">c</span>: <span class="hljs-string">'c'</span> });
-S.log(r.c); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'c'</span>
+    Util.mix(r, { <span class="hljs-attribute">a</span>: <span class="hljs-string">'a2'</span> }, <span class="hljs-literal">false</span>);
+    <span class="hljs-built_in">console</span>.log(r.a); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'a'</span>
 
-S.mix(r, { <span class="hljs-attribute">a</span>: <span class="hljs-string">'a2'</span> }, <span class="hljs-literal">false</span>);
-S.log(r.a); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'a'</span>
-
-S.mix(r, { <span class="hljs-attribute">e</span>: <span class="hljs-string">'e'</span>, <span class="hljs-attribute">f</span>: <span class="hljs-string">'f'</span> }, <span class="hljs-literal">true</span>, [<span class="hljs-string">'f'</span>]);
-S.log(r.e); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-literal">undefined</span>
-S.log(r.f); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'f'</span>
+    Util.mix(r, { <span class="hljs-attribute">e</span>: <span class="hljs-string">'e'</span>, <span class="hljs-attribute">f</span>: <span class="hljs-string">'f'</span> }, <span class="hljs-literal">true</span>, [<span class="hljs-string">'f'</span>]);
+    <span class="hljs-built_in">console</span>.log(r.e); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-literal">undefined</span>
+    <span class="hljs-built_in">console</span>.log(r.f); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'f'</span>
+})
 </code></pre><p>深度mix</p>
 <pre><code><span class="hljs-keyword">var</span> object1 = {
   apple: <span class="hljs-number">0</span>,
@@ -218,26 +162,25 @@ S.log(r.f); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt
 };
 
 <span class="hljs-comment">/* merge object2 into object1, recursively */</span>
-S.mix(object1,object2,<span class="hljs-literal">undefined</span>,<span class="hljs-literal">undefined</span>,<span class="hljs-literal">true</span>);
+Util.mix(object1,object2,<span class="hljs-literal">undefined</span>,<span class="hljs-literal">undefined</span>,<span class="hljs-literal">true</span>);
 
-S.log(object1); <span class="hljs-comment">// =&gt; { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }</span>
+<span class="hljs-built_in">console</span>.log(object1); <span class="hljs-comment">// =&gt; { apple: 0, banana: { weight: 52, price: 200 }, cherry: 97, durian: 100 }</span>
 </code></pre><p>mix是最自然也是最简单的为 JS 对象添加特性的方式，具体实现就是将一个对象的（所有或指定）属性指向给另一个对象，在静态语言中是无能为力的。</p>
 <p>虽然 Yahoo 将这种方式学院式地命名为“augmentObject”并且声称使用它的合适场合是在“扩充一个‘静态类’”时。所谓“静态类”这种说法，只能说是中静态类语言的遗毒太深，什么概念都要一一映射至其上。事实上，“静态类”对应 JS 中的概念是“非构造器对象”，比如字面量对象。而之所以 Yahoo 强调“静态类”，那是因为“静态类”和构造器之间间有一个显区别，前者没有 prototype 属性。</p>
 <p>补充一点，“静态类”也可以是构造器，只不过它的 prototype 没有多大意义（比如指向 {}）。</p>
 <p>事实上，这个方法是 augment 和 merge 的基础。可以看到，JS 中直接对对象进行各种操作其实非常方便，类什么的都是浮云。</p>
 <h3 id="merge">merge</h3><p><code>merge (s1,s2[,...]) =&gt; Object</code></p>
 <p>将多个对象的成员合并到一个新对象上. 参数中, 后面的对象成员会覆盖前面的。如果用mix混合对象时，receiver 会被改变，如果想要保留原始的 receiver ，可以使用 KISSY.merge()</p>
-<pre><code><span class="hljs-keyword">var</span> <span class="hljs-keyword">object</span>=S.merge(object1,object2);
+<pre><code><span class="hljs-keyword">var</span> <span class="hljs-keyword">object</span>=Util.merge(object1,object2);
 </code></pre><p>简单例子：</p>
-<pre><code><span class="hljs-built_in">var</span> S <span class="hljs-subst">=</span> KISSY,
-a <span class="hljs-subst">=</span> { a: <span class="hljs-string">'a'</span> },
-b <span class="hljs-subst">=</span> { b: <span class="hljs-string">'b'</span> },
-c <span class="hljs-subst">=</span> { b: <span class="hljs-string">'b2'</span>, c: <span class="hljs-string">'c'</span> };
+<pre><code><span class="hljs-reserved">var</span> a = { <span class="hljs-attribute">a</span>: <span class="hljs-string">'a'</span> },
+b = { <span class="hljs-attribute">b</span>: <span class="hljs-string">'b'</span> },
+c = { <span class="hljs-attribute">b</span>: <span class="hljs-string">'b2'</span>, <span class="hljs-attribute">c</span>: <span class="hljs-string">'c'</span> };
 
-<span class="hljs-built_in">var</span> o <span class="hljs-subst">=</span> S<span class="hljs-built_in">.</span>merge(a, b, c);
-S<span class="hljs-built_in">.</span><span class="hljs-keyword">log</span>(o<span class="hljs-built_in">.</span>a); <span class="hljs-comment">// =&gt; 'a'</span>
-S<span class="hljs-built_in">.</span><span class="hljs-keyword">log</span>(o<span class="hljs-built_in">.</span>b); <span class="hljs-comment">// =&gt; 'b2'</span>
-S<span class="hljs-built_in">.</span><span class="hljs-keyword">log</span>(o<span class="hljs-built_in">.</span>c); <span class="hljs-comment">// =&gt; 'c'</span>
+<span class="hljs-reserved">var</span> o = Util.merge(a, b, c);
+<span class="hljs-built_in">console</span>.log(o.a); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'a'</span>
+<span class="hljs-built_in">console</span>.log(o.b); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'b2'</span>
+<span class="hljs-built_in">console</span>.log(o.c); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'c'</span>
 </code></pre><p>简单情况下 merge 方法常用来合并配置信息. 推荐使用 Base 处理属性配置.</p>
 <h3 id="extend">extend</h3><p><code>extend (r,s[,px,sx]) =&gt; Function</code></p>
 <p>让函数对象 r 继承函数对象 s，参数</p>
@@ -245,26 +188,23 @@ S<span class="hljs-built_in">.</span><span class="hljs-keyword">log</span>(o<spa
 <li>r (function) – receiver,将要继承的子类函数</li>
 <li>s (function|object) – supplier,继承自的父类函数</li>
 <li>px (object) – prototype members, 需要添加/覆盖的原型成员</li>
-<li>sx (object) – static members, 需要添加/覆盖的静态成员.</li>
+<li><p>sx (object) – static members, 需要添加/覆盖的静态成员.</p>
+<p>  function Bird(name) { this.name = name; }
+  Bird.prototype.fly = function() { alert(this.name + &#39; is flying now!&#39;); };</p>
+<p>  function Chicken(name) {</p>
+<pre><code>  <span class="hljs-type">Chicken</span>.<span class="hljs-keyword">super</span><span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">constructor</span>.<span class="hljs-title">call</span>(<span class="hljs-title">this</span>, <span class="hljs-title">name</span>);</span>
+</code></pre><p>  }
+  Util.extend(Chicken, Bird,{</p>
+<pre><code>  fly:<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+      Chicken.superclass.fly.call(<span class="hljs-keyword">this</span>)
+      alert(<span class="hljs-string">"it's my turn"</span>);
+  }
+</code></pre><p>  });</p>
+<p>  new Chicken(&#39;kissy&#39;).fly();</p>
+</li>
 </ul>
-<pre><code><span class="hljs-keyword">var</span> S = KISSY;
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Bird</span><span class="hljs-params">(name)</span> </span>{ <span class="hljs-keyword">this</span>.name = name; }
-Bird.prototype.fly = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ alert(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">' is flying now!'</span>); };
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Chicken</span><span class="hljs-params">(name)</span> </span>{
-    Chicken.superclass.constructor.call(<span class="hljs-keyword">this</span>, name);
-}
-S.extend(Chicken, Bird,{
-    fly:<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-        Chicken.superclass.fly.call(<span class="hljs-keyword">this</span>)
-        alert(<span class="hljs-string">"it's my turn"</span>);
-    }
-});
-
-<span class="hljs-keyword">new</span> Chicken(<span class="hljs-string">'kissy'</span>).fly();
-</code></pre><p>extend 方法是 KISSY 里类继承的实现方式. 书写 JavaScript 代码时, 请忘记传统 OO 里的继承体系。子类方法中可通过 superclass 来访问父类函数的原型, 进而调用父类方法.</p>
-<p>S.extend 像 Node.js 里的 util.inherits，就是用于声明两个类的继承关系，与 util.inherits 相比，它更为贴心，还会维护 superclass 和 superclass.constructor。</p>
+<p>extend 方法是 KISSY 里类继承的实现方式. 书写 JavaScript 代码时, 请忘记传统 OO 里的继承体系。子类方法中可通过 superclass 来访问父类函数的原型, 进而调用父类方法.</p>
+<p>Util.extend 像 Node.js 里的 util.inherits，就是用于声明两个类的继承关系，与 util.inherits 相比，它更为贴心，还会维护 superclass 和 superclass.constructor。</p>
 <p>注意构造函数体内，通过 Chicken 类上的 superclass 属性，子类不再需要显式写明父类的名称， 只需要直接调 <code>SubClass.superclass.constructor.call(this, attrs)</code> 即可。</p>
 <p>而在方法内，也可以通过 SubClass.superclass 拿到父类上的方法，类似其他编程语言中的 super 之类。</p>
 <h3 id="augment">augment</h3><p><code>augment(r, s1 [, s2 , ...], ov = true, wl) =&gt; Function</code></p>
@@ -275,25 +215,23 @@ S.extend(Chicken, Bird,{
 <li>ov (boolean) – 是否覆盖 r.prototype 同名属性.</li>
 <li>whitelist (Array<string>) – 属性来源对象的属性白名单, 仅在名单中的属性进行复制.</li>
 </ul>
-<pre><code><span class="hljs-keyword">var</span> S = KISSY,
-Shoutable = {
+<pre><code><span class="hljs-keyword">var</span> Shoutable = {
     shout: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ alert(<span class="hljs-string">'I am '</span> + <span class="hljs-keyword">this</span>.name + <span class="hljs-string">'.'</span>); }
 };
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Dog</span><span class="hljs-params">(name)</span> </span>{ <span class="hljs-keyword">this</span>.name = <span class="hljs-string">'Dog '</span> + name; }
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Pig</span><span class="hljs-params">(name)</span> </span>{ <span class="hljs-keyword">this</span>.name = <span class="hljs-string">'Pig '</span> + name; }
 
-S.augment(Dog, Shoutable);
-S.augment(Pig, Shoutable);
+Util.augment(Dog, Utilhoutable);
+Util.augment(Pig, Shoutable);
 
 <span class="hljs-keyword">new</span> Dog(<span class="hljs-string">'Jack'</span>).shout(); <span class="hljs-comment">// =&gt; I am Dog Jack.</span>
 <span class="hljs-keyword">new</span> Pig(<span class="hljs-string">'Mary'</span>).shout(); <span class="hljs-comment">// =&gt; I am Pig Mary.</span>
 </code></pre><p>augment 方法在 KISSY 里非常基础非常重要. 传统 OO 语言里, 可以通过继承或接口来实现共性方法. 在 JavaScript 里, 通过 mixin 特性, 一切变得更简单. augment 是动态语言 mixin 特性的体现, 灵活运用, 能让代码非常优雅简洁.</p>
-<p>YUI 中的叫法很长，augmentProto 只扩充 prototype 中的属性，因此扩充的对象必须是“类”。扩充者和被扩充者之间没有半分钱关系，降低了 extend 体系中的复杂耦合，这和“组合优于继承”的 OO 原则是一致的。</p>
 <h3 id="clone">clone</h3><p>对象的值的拷贝，绕过引用的拷贝。</p>
 <hr>
-<p>有了 S.augment，我们可以很方便得扩展类的原型；有了 S.extend，我们可以很方便地继承；那么 KISSY 对属性 getter、setter 有什么好的解决方案么？答案自然是 Base。</p>
-<p>顾名思义，Base 是个基础类；而这个类，也是通过 S.augment 等搞定的。在<a href="./index.html">Base</a>小节讲解。</p>
+<p>有了 Util.augment，我们可以很方便得扩展类的原型；有了 Util.extend，我们可以很方便地继承；那么 KISSY 对属性 getter、setter 有什么好的解决方案么？答案自然是 Base。</p>
+<p>顾名思义，Base 是个基础类；而这个类，也是通过 Util.augment 等搞定的。在<a href="./index.html">Base</a>小节讲解。</p>
 
 				</div>
 			</div>

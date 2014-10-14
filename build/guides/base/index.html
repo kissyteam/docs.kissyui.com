@@ -111,7 +111,7 @@
 </ol>
 <p><img src="http://gtms04.alicdn.com/tps/i4/T1a55UFbtaXXbsDJoj-389-190.png" alt=""></p>
 <p>这三类功能被封装在<code>base</code>模块中，这样来载入base；</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'base'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Base)</span></span>{
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'base'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Base)</span></span>{
     <span class="hljs-comment">// Your Code...</span>
 });
 </code></pre><p>我们来分别看下Base的这几个特性</p>

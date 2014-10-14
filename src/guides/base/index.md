@@ -15,7 +15,7 @@
 
 这三类功能被封装在`base`模块中，这样来载入base；
 
-	KISSY.use('base',function(S,Base){
+	require(['base'],function(Base){
 		// Your Code...
 	});
 

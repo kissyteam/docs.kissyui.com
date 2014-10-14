@@ -102,24 +102,19 @@
 				<div id="main-content">
 					<p></p>
 <h1 id="Anim基本介绍">Anim基本介绍</h1><p>KISSY 动画，这样来载入anim模块：</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'anim'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Anim)</span></span>{
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'anim'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Anim)</span></span>{
     <span class="hljs-comment">// use Anim</span>
 });
 </code></pre><p>注：KISSY 会自动判断浏览器是否支持 <code>css3 transition</code> ，如果支持则载入的 <code>anim</code> 模块其实是 <code>anim/transition</code> 模块（KISSY在seed.js里面做了alias），否则载入 <code>anim/timer</code> 模块， node 模块依赖的 anim 也是同样道理。此外，<em>自定义动画</em>等不能用 <code>css3 transition</code> 来实现的动画需要保证使用 <code>anim/timer</code> 模块来实现。</p>
 <p>由于<code>node</code>模块依赖<code>anim</code>，通常我们使用node时，使用node.animate()方法即可对某个已知节点作动画。即</p>
-<pre><code>Node.all(<span class="hljs-string">".foo"</span>).each(<span class="hljs-keyword">function</span>(n){
-    new Anim(n,<span class="hljs-keyword">...</span>).run();
-});
-
-KISSY.use(<span class="hljs-string">'node,anim'</span>,<span class="hljs-keyword">function</span>(S, Node, Anim){
-    Node.all(<span class="hljs-string">".foo"</span>).each(<span class="hljs-keyword">function</span>(n){
+<pre><code><span class="hljs-keyword">require</span>([<span class="hljs-string">'node'</span>, <span class="hljs-string">'anim'</span>],<span class="hljs-keyword">function</span>($, Anim){
+    $(<span class="hljs-string">".foo"</span>).each(<span class="hljs-keyword">function</span>(n){
         new Anim(n,<span class="hljs-keyword">...</span>).run();
     })
 })
 </code></pre><p>等价于
-    KISSY.use(&quot;node&quot;, function(S, Node){
-        var node=Node.all(&quot;.foo&quot;);
-        node.animate({
+    require([&#39;node&#39;], function($){
+        $(&quot;.foo&quot;).animate({
             width:100,
             height:300
         }, {
@@ -131,7 +126,7 @@ KISSY.use(<span class="hljs-string">'node,anim'</span>,<span class="hljs-keyword
 <p>此外，node节点还挂载一些常用的做动画的函数，比如fadeIn、fadeOut、slideUp、slideDown等(<a href="/5.0/guides/node/index.html">具体请参照Node</a>)</p>
 <h2 id="实例化动画的传参">实例化动画的传参</h2><p>刨除直接通过node.animate()创建的动画之外，通过Anim可以生成一个<code>动画实例</code>。动画实例是用来描述动画的一些基本属性，比如，从<code>什么状态</code>动画到<code>什么状态</code>，动画时间，缓动效果，暂停和继续动画等。
 通过<code>Anim</code>这样实例化一个动画实例（<a href="/5.0/demos/anim/index.html">参照Demo</a>）：</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">"anim"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Anim)</span></span>{
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">"anim"</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Anim)</span></span>{
     <span class="hljs-comment">// 初始化动画实例</span>
     <span class="hljs-keyword">var</span> anim = Anim(<span class="hljs-string">'#anim-el'</span>,
         <span class="hljs-comment">// 动画目标样式</span>

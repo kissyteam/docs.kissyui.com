@@ -90,18 +90,19 @@
 							<p><a href="../../guides/event/index.html">event基本介绍</a></p>
 						</div>
 					</div>
-					<div class="panel panel-primary ajax-load ">
+					<div class="panel panel-primary ajax-load hide">
 						<div class="panel-heading">
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/event/delegate.html">事件委托</a></p><p><a href="../../demos/event/detach.html">事件移除</a></p><p><a href="../../demos/event/focusin_out.html">focusin/focusout</a></p><p><a href="../../demos/event/index.html">event基本示例</a></p><p><a href="../../demos/event/pinch.html">pinch</a></p><p><a href="../../demos/event/rotate.html">rotate</a></p><p><a href="../../demos/event/shake.html">shake</a></p><p><a href="../../demos/event/swipe.html">swipe</a></p><p><a href="../../demos/event/tap.html">tap</a></p>
+							
 						</div>
 					</div>
 				</div>
 				<div id="main-content">
 					<p></p>
-<h1 id="event基本介绍">event基本介绍</h1><p>Event 模块是KISSY最重要的模块之一，他包含自定义事件机制、事件对象封装、DOM事件封装、面向多终端的事件行为统一。下辖多个子模块，被Node、DOM、Base分别依赖。通常DOM事件无需直接引用event，只需use(&#39;node&#39;)即可。使用use(&#39;base&#39;)时也无需手动引入event。如果想单独使用自定义事件，则需要use(&#39;event&#39;)。</p>
+<h1 id="event基本介绍">event基本介绍</h1><p>注： 如果你曾经使用过KISSY的旧版本，例如1.4.x或1.3.x，注意在KISSY@5.0版本中，event模块被拆分成了三个部分 event-dom处理DOM事件 , event-custom处理自定义事件 , event-dom/gesture/* 处理手势事件（如 event-dom/gesture/tap）。</p>
+<p>Event 模块是KISSY最重要的模块之一，他包含自定义事件机制、事件对象封装、DOM事件封装、面向多终端的事件行为统一。下辖多个子模块，被Node、DOM、Base分别依赖。通常DOM事件无需直接引用event，只需use(&#39;node&#39;)即可。使用use(&#39;base&#39;)时也无需手动引入event。如果想单独使用自定义事件，则需要use(&#39;event&#39;)。</p>
 <pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'event'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Event)</span></span>{
     <span class="hljs-comment">// Your code..    </span>
 });
