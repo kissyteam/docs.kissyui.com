@@ -3,12 +3,15 @@
 <head>
 	<meta charset='utf-8'>
 	<title>自定义自动补全标识符</title>
-	<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
+	<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
 	<link rel="stylesheet" type="text/css" href="assets/menu.css">
 	<link rel="stylesheet" type="text/css" href="assets/menuitem.css">
 	<link rel="stylesheet" type="text/css" href="assets/submenu.css">
 	<link rel="stylesheet" type="text/css" href="assets/filtermenu.css">
 	<style>
+        body{
+            background: #fff;
+        }
         .hasChildren .ks-menuitem-content {
             background: url("http://a.tbcdn.cn/apps/sell/1.0/img/ic_bg.png") no-repeat scroll 500px 500px transparent;
             background-position: 100% -78px;
@@ -28,7 +31,7 @@
             padding-right: 10px;
         }
     </style>
-	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+	<script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
 </head>
 <body>
 	<div class="wrap" style="width:90%;margin:0 auto;">
@@ -67,7 +70,7 @@
 	</div>
 	
 	<script type="text/javascript">
-	KISSY.use('util,filter-menu', function(S, Util, FilterMenu){
+	require(['util','filter-menu'], function(Util, FilterMenu){
 		/**
          *  从 html 生成
          */

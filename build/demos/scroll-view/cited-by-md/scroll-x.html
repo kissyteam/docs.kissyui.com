@@ -6,9 +6,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <title>横向滚动-图片Gallery</title>
-    <link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/scroll-view/assets/dpl.css">
-    <script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"  data-config="{combine:true}"></script>
+    <link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/scroll-view/assets/dpl.css">
+    <script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"  data-config="{combine:true}"></script>
     <style>
+        body{
+            background: #fff;
+        }
         body, ul, li {
             padding: 0;
             margin: 0;
@@ -39,7 +42,7 @@
 <body>
 <div id="header">横向滚动-图片Gallery</div>
 <script>
-    KISSY.use(['scroll-view'], function(S, ScrollView){
+    require(['scroll-view'], function(ScrollView){
 
         var str = '<div id="pic" style="width:1280px;height:550px;">'
                 + '<img src="http://gd2.alicdn.com/bao/uploaded/i2/TB15MxhGXXXXXa_XpXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg_.webp">'

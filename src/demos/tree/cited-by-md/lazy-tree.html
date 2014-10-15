@@ -6,10 +6,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-touch-fullscreen" content="yes">
 <title>懒加载树</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/tree/assets/dpl.css">
-<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/tree/assets/dpl.css">
+<script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
 </head>
 <body>
 <div style="width:90%;margin:0 auto;">
@@ -21,7 +21,7 @@
 </div>
 
 <script type="text/javascript">
-KISSY.use(['tree', 'node', 'util'], function (S, Tree, $, util) {
+require(['tree', 'node', 'util'], function (Tree, $, util) {
     var data = {  //在这个示例使用的是模拟的本地数据，当树结构比较大的时候可以用ajax去服务器拉取数据“懒加载”
         content: "淘宝网",
         children: [

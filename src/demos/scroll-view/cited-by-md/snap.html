@@ -7,9 +7,12 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-touch-fullscreen" content="yes">
 <title>自动滚到到下一元素</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/scroll-view/assets/dpl.css">
-<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"  data-config="{combine:true}"></script>
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/scroll-view/assets/dpl.css">
+<script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"  data-config="{combine:true}"></script>
     <style>
+        body{
+            background: #fff;
+        }
         body{
         margin: 0;
         padding: 0;
@@ -42,7 +45,7 @@
 </div>
 
 <script type="text/javascript">
-    KISSY.use(['scroll-view'], function(S, ScrollView){
+    require(['scroll-view'], function(ScrollView){
         var content = '';
         for (var i = 0; i < 10; i++) {
             content += '<p>This is ' + i + ' block</p>';

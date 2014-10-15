@@ -114,13 +114,13 @@
         span { color:red; }
     &lt;&#x2F;style&gt;
 
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;k&#x2F;1.4.4&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
   &lt;button id=&#x27;getJSON&#x27;&gt;get json from script&lt;&#x2F;button&gt;
 
 &lt;script&gt;
-    KISSY.use(&#x27;node,io&#x27;,function(S,Node,IO){
+    require([&#x27;node&#x27;,&#x27;io&#x27;],function(Node,IO){
         var $=Node.all;
         $(&quot;#getJSON&quot;).on(&quot;click&quot;,function(){
             

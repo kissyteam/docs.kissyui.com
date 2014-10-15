@@ -110,9 +110,9 @@
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;title&gt;简单使用Resizable&lt;&#x2F;title&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt;
-&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;  data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed-debug.js&quot;  data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;style type=&quot;text&#x2F;css&quot;&gt;
 &#x2F;** 钩子handlers的样式*&#x2F;
 .ks-resizable-handler {
@@ -218,7 +218,7 @@ z-index: 1;
 &lt;&#x2F;div&gt;
 
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-	KISSY.use([&#x27;node&#x27;, &#x27;resizable&#x27;], function(S, $, Resizable) {
+	require([&#x27;node&#x27;, &#x27;resizable&#x27;], function($, Resizable) {
 	    var r = new Resizable({
 	        node:&quot;#something-can-resize&quot;,
 	        &#x2F;&#x2F; 指定可拖动的位置

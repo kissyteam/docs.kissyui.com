@@ -4,9 +4,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>普通菜单 using json</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/menu/assets/dpl.css">
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/menu/assets/dpl.css">
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
 <h1>普通菜单 using json</h1>
@@ -14,7 +14,7 @@
     
 </div>
 <script type="text/javascript">
-    KISSY.use(['menu', 'separator'], function(S, Menu, Separator){
+    require(['menu', 'separator'], function(Menu, Separator){
         var myMenu = new Menu({
             render : '#container',
             width : 150,

@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <link href="http://g.tbcdn.cn/kissy/edge/2014.08.26/css/dpl/base.css" rel="stylesheet"/>
-    <link href="http://g.tbcdn.cn/kissy/edge/2014.08.26/navigation-view/assets/dpl.css" rel="stylesheet">
-    <link href="http://g.tbcdn.cn/kissy/edge/2014.08.26/scroll-view/assets/dpl.css" rel="stylesheet">
-    <script src="http://g.tbcdn.cn/kissy/edge/2014.08.26/seed-debug.js"></script>
+    <link href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css" rel="stylesheet"/>
+    <link href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/navigation-view/assets/dpl.css" rel="stylesheet">
+    <link href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/scroll-view/assets/dpl.css" rel="stylesheet">
+    <script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
     <style>
         body,html {
             height: 100%;
@@ -128,7 +128,7 @@ if (location.href.indexOf('useHashChange') !== -1) {
     history.pushState = null;
 }
 
-modulex.add('page-view', ['scroll-view', 'scroll-view/plugin/scrollbar'], function(require,exports,module){
+define('page-view', ['scroll-view', 'scroll-view/plugin/scrollbar'], function(require,exports,module){
     var ScrollView = require('scroll-view');
     var ScrollBar = require('scroll-view/plugin/scrollbar');
     module.exports = ScrollView.extend({
@@ -155,7 +155,7 @@ modulex.add('page-view', ['scroll-view', 'scroll-view/plugin/scrollbar'], functi
         });
 });
 
-modulex.use(['util', 'navigation-view', 'navigation-view/bar', 'node', 'event/gesture/tap', 'event/gesture/basic', 'router', 'promise', 'page-view'], function (util,NavigationView, Bar, $, TapGesture, BasicGesture, router, Promise, PageView) {
+require(['util', 'navigation-view', 'navigation-view/bar', 'node', 'event-dom/gesture/tap', 'event-dom/gesture/basic', 'router', 'promise', 'page-view'], function (util,NavigationView, Bar, $, TapGesture, BasicGesture, router, Promise, PageView) {
     var S = modulex;
         var tap = TapGesture.TAP;
         var win = $(window);
@@ -246,13 +246,13 @@ modulex.use(['util', 'navigation-view', 'navigation-view/bar', 'node', 'event/ge
 
        var TBIndexView = PageView.extend({
             enter: function (cfg) {
-                // modulex.log('enter index ' + (cfg.fromCache ? 'from cache!' : ''));
+                // console.log('enter index ' + (cfg.fromCache ? 'from cache!' : ''));
                 win.on('resize', this.sync, this);
                 this.sync();
             },
 
             leave: function () {
-                modulex.log('leave index');
+                console.log('leave index');
                 win.detach('resize', this.sync, this);
             },
 
@@ -266,7 +266,7 @@ modulex.use(['util', 'navigation-view', 'navigation-view/bar', 'node', 'event/ge
                 });
 
                 this.onScroll(function (top) {
-                    // modulex.log(top);
+                    // console.log(top);
                 });
             },
 
@@ -308,13 +308,13 @@ modulex.use(['util', 'navigation-view', 'navigation-view/bar', 'node', 'event/ge
 
         var TBAnimView = PageView.extend({
             enter: function (cfg) {
-                modulex.log('enter detail ' + (cfg.fromCache ? 'from cache!' : ''));
+                console.log('enter detail ' + (cfg.fromCache ? 'from cache!' : ''));
                 win.on('resize', this.sync, this);
                 this.sync();
             },
 
             leave: function () {
-                modulex.log('leave detail');
+                console.log('leave detail');
                 win.detach('resize', this.sync, this);
             },
 

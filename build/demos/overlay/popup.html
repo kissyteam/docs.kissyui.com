@@ -110,10 +110,10 @@
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
 &lt;title&gt;内容提示框popup&lt;&#x2F;title&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;overlay&#x2F;assets&#x2F;dpl.css&quot;&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;overlay&#x2F;assets&#x2F;dpl.css&quot;&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed-debug.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;div class=&quot;container&quot;&gt;
@@ -132,7 +132,7 @@
     &lt;&#x2F;div&gt;
 &lt;&#x2F;script&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-    KISSY.use([&#x27;overlay&#x27;, &#x27;button&#x27;, &#x27;node&#x27;], function(S, Overlay, Button, $){
+    require([&#x27;overlay&#x27;, &#x27;button&#x27;, &#x27;node&#x27;], function(Overlay, Button, $){
         var myPopup = new Overlay.Popup({
             width : 200,
             trigger : &#x27;#popup&#x27;,

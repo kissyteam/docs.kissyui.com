@@ -6,10 +6,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-touch-fullscreen" content="yes">
 <title>简单使用tree</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/tree/assets/dpl.css">
-<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/tree/assets/dpl.css">
+<script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
 </head>
 <body>
 <div style="width:90%;margin:0 auto;">
@@ -23,7 +23,7 @@
 </div>
 
 <script type="text/javascript">
-  KISSY.use(['tree', 'node'], function(S, Tree, $){
+  require(['tree', 'node'], function(Tree, $){
     var tree = new Tree({
         content: "淘宝网",
         expanded: true,

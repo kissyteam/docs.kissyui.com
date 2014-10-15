@@ -6,10 +6,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-touch-fullscreen" content="yes">
 <title>Toolbar三级导航</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/menubutton/assets/dpl.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/menu/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/menubutton/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/menu/assets/dpl.css">
 <style type="text/css">
 .ks-toolbar {
   background-color: #f2f2f2;
@@ -81,7 +81,7 @@
 }
 
 </style>
-<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+<script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
 </head>
 <body>
 <div style="width:90%;margin:0 auto;">
@@ -93,7 +93,7 @@
 </div>
 
 <script type="text/javascript">
-    KISSY.use(['toolbar', 'button', 'menubutton'], function(S, Toolbar){
+    require(['toolbar', 'button', 'menubutton'], function(Toolbar){
         var simpleToolbar = new Toolbar({
             render : '#wrap',
             width : '80%',

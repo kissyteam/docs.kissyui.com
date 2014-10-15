@@ -118,7 +118,7 @@ outline: none;
 }
 
 </style>
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
 <h1>自定义样式-menubutton</h1>
@@ -126,7 +126,7 @@ outline: none;
 <div id="context" style="width: 200px;margin-left:50px;">
 </div>
 <script type="text/javascript">
-    KISSY.use(['menu', 'separator', 'node'], function (S, Menu, Separator, $) {
+    require(['menu', 'separator', 'node'], function (Menu, Separator, $) {
         var context = $("#context");
         var b, bb;
         var sb = new Menu.PopupMenu({

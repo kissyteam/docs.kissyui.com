@@ -4,16 +4,16 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>简单菜单按钮/从已有元素生成</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/menubutton/assets/dpl.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/menu/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/menubutton/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/menu/assets/dpl.css">
 <style type="text/css">
     .ks-button-focused{
         border-color:orange;
     }
 </style>
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js" data-config="{combine:true}"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js" data-config="{combine:true}"></script>
 </head>
 <body>
 <h1>简单菜单按钮/从已有元素生成</h1>
@@ -94,7 +94,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    KISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){
+    require(['menu', 'menubutton'], function(Menu, MenuButton){
         var myMenuButton1 = new MenuButton({  //全新生成节点
             content : '我的淘宝',
             render : '#container',

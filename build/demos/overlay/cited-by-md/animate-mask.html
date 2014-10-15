@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>mask动画示例</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css">
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js" data-config="{combine:true}"></script>
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/overlay/assets/dpl.css">
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js" data-config="{combine:true}"></script>
 </head>
 <body>
 <div class="container">
@@ -16,7 +16,7 @@
     <div class="ks-button ks-button-primary" id="open">弹出对话框</div>
 </div>
 <script type="text/javascript">
-    KISSY.use(['overlay', 'button'], function(S, Overlay, Button){
+    require(['overlay', 'button'], function(Overlay, Button){
         var modalDialog = new Overlay.Dialog({
             headerContent : '我是头部',
             width : 500,

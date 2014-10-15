@@ -113,9 +113,12 @@
     &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
     &lt;meta name=&quot;apple-touch-fullscreen&quot; content=&quot;yes&quot;&gt;
     &lt;title&gt;横向滚动-图片Gallery&lt;&#x2F;title&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;scroll-view&#x2F;assets&#x2F;dpl.css&quot;&gt;
-    &lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;  data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;scroll-view&#x2F;assets&#x2F;dpl.css&quot;&gt;
+    &lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed-debug.js&quot;  data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
     &lt;style&gt;
+        body{
+            background: #fff;
+        }
         body, ul, li {
             padding: 0;
             margin: 0;
@@ -146,7 +149,7 @@
 &lt;body&gt;
 &lt;div id=&quot;header&quot;&gt;横向滚动-图片Gallery&lt;&#x2F;div&gt;
 &lt;script&gt;
-    KISSY.use([&#x27;scroll-view&#x27;], function(S, ScrollView){
+    require([&#x27;scroll-view&#x27;], function(ScrollView){
 
         var str = &#x27;&lt;div id=&quot;pic&quot; style=&quot;width:1280px;height:550px;&quot;&gt;&#x27;
                 + &#x27;&lt;img src=&quot;http:&#x2F;&#x2F;gd2.alicdn.com&#x2F;bao&#x2F;uploaded&#x2F;i2&#x2F;TB15MxhGXXXXXa_XpXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg_.webp&quot;&gt;&#x27;

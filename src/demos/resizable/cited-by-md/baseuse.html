@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8"/>
 <title>简单使用Resizable</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css">
-<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"  data-config="{combine:true}"></script>
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css">
+<script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"  data-config="{combine:true}"></script>
 <style type="text/css">
 /** 钩子handlers的样式*/
 .ks-resizable-handler {
@@ -112,7 +112,7 @@ z-index: 1;
 </div>
 
 <script type="text/javascript">
-	KISSY.use(['node', 'resizable'], function(S, $, Resizable) {
+	require(['node', 'resizable'], function($, Resizable) {
 	    var r = new Resizable({
 	        node:"#something-can-resize",
 	        // 指定可拖动的位置

@@ -4,9 +4,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>对话框-拖动、伸缩、限制</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/overlay/assets/dpl.css">
 <style type="text/css">
 .ks-dialog, .ks-overlay {
 position: absolute; /*防止移位带来的闪烁*/
@@ -97,7 +97,7 @@ overflow: hidden;
     cursor: ne-resize;
 }
 </style>
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js" data-config="{combine:true}"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js" data-config="{combine:true}"></script>
 </head>
 <body>
 <div class="container">
@@ -111,7 +111,7 @@ overflow: hidden;
     </div>
 </div>
 <script type="text/javascript">
-    KISSY.use(['overlay', 'button', 'component/plugin/resize', 'component/plugin/drag', 'dd/plugin/constrain'], function(S, Overlay, Button, Resize, Drag, Constrain){
+    require(['overlay', 'button', 'component/plugin/resize', 'component/plugin/drag', 'dd/plugin/constrain'], function(Overlay, Button, Resize, Drag, Constrain){
         var modalDialog = new Overlay.Dialog({
             headerContent : '我是头部',
             width : 300,

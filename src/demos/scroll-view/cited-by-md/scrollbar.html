@@ -8,9 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="apple-touch-fullscreen" content="yes">
     <title>滚动容器边栏显示滚动条</title>
-    <link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/scroll-view/assets/dpl.css">
-    <script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"  data-config="{combine:true}"></script>
+    <link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/scroll-view/assets/dpl.css">
+    <script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"  data-config="{combine:true}"></script>
     <style>
+        body{
+            background: #fff;
+        }
         body, ul, li {
             padding: 0;
             margin: 0;
@@ -95,7 +98,7 @@
 <div id="footer"></div>
 
 <script>
-    KISSY.use(['node', 'scroll-view', 'scroll-view/plugin/scrollbar'], function (S, $, ScrollView, ScrollbarPlugin) {
+    require(['node', 'scroll-view', 'scroll-view/plugin/scrollbar'], function ($, ScrollView, ScrollbarPlugin) {
         var content = '';
         for (var i = 1; i < 40; i++) {
             content += '<p>line ' + i + '</p>'

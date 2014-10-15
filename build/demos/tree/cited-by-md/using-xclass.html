@@ -6,10 +6,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-touch-fullscreen" content="yes">
 <title>using xclass生成树节点</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css">
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/tree/assets/dpl.css">
-<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/tree/assets/dpl.css">
+<script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
 </head>
 <body>
 <div style="width:90%;margin:0 auto;">
@@ -24,7 +24,7 @@
 </div>
 
 <script type="text/javascript">
-    KISSY.use(['tree', 'node'], function(S, Tree, $){
+    require(['tree', 'node'], function(Tree, $){
         var tree = new Tree({
             content: "淘宝网",
             expanded: true,
@@ -64,19 +64,19 @@
         tree.render();
 
         tree.on("expand", function (e) {
-            S.log("expand : " + e.target.get("content"));
-            S.log("expandIconEl");
-            S.log(e.target.get("expandIconEl"));
-            S.log("iconEl");
-            S.log(e.target.get("iconEl"));
+            console.log("expand : " + e.target.get("content"));
+            console.log("expandIconEl");
+            console.log(e.target.get("expandIconEl"));
+            console.log("iconEl");
+            console.log(e.target.get("iconEl"));
         });
 
         tree.on("collapse", function (e) {
-            S.log("collapse : " + e.target.get("content"));
+            console.log("collapse : " + e.target.get("content"));
         });
 
         tree.on("click", function (e) {
-            S.log("action : " + e.target.get("content"));
+            console.log("action : " + e.target.get("content"));
         });
 
         $("#expandAll").on("click", function () {
