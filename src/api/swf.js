@@ -10,7 +10,7 @@
 @param config {Object}
 @example
 ```
-KISSY.use('swf',function(S,SWF){
+require(['swf'],function(SWF){
     // use SWF
     var swf=new SWF({
         src:'xx.swf',

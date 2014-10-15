@@ -6,7 +6,7 @@
 /**
 * 硬件环境关键特性检测，这类功能通常在判断硬件环境时使用，如：
 ```
-KISSY.use('feature', function(S, Feature){
+require(['feature'], function(Feature){
 	if(Feature.isIELessThan(9)){
 		//do something
 	}
@@ -20,7 +20,7 @@ KISSY.use('feature', function(S, Feature){
 * 判断当前宿主环境是否支持手势事件
 *
 *   ```
-*   KISSY.Features.isDeviceMotionSupported();
+*   Features.isDeviceMotionSupported();
 *   ```
 *
 * @method isDeviceMotionSupported

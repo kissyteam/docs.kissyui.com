@@ -8,7 +8,7 @@
 
 使用示例：
 
-	modulex.use(['node', 'event-dom/gesture/swipe'], function($, GestureSwipe){
+	require(['node', 'event-dom/gesture/swipe'], function($, GestureSwipe){
 		$(window).on(GestureSwipe.SWIPE, function(ev){
 			//swiped
 	});

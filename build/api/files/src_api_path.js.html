@@ -447,7 +447,7 @@
 @class Path
 @static
 &#x60;&#x60;&#x60;
-KISSY.use(&#x27;path&#x27;,function(S,Path){
+require([&#x27;path&#x27;],function(Path){
         Path.do_sth();// 执行操作
 });
 &#x60;&#x60;&#x60;
@@ -523,10 +523,10 @@ Path.relative(&#x27;x/t/z&#x27;,&#x27;x/&#x27;); // =&gt; &#x27;../../&#x27;
 @static
 @example
 &#x60;&#x60;&#x60;
-KISSY.Path.resolve(&#x27;wwwroot&#x27;, &#x27;static_files/png/&#x27;, &#x27;../gif/image.gif&#x27;)
+Path.resolve(&#x27;wwwroot&#x27;, &#x27;static_files/png/&#x27;, &#x27;../gif/image.gif&#x27;)
 // =&gt; &#x27;wwwroot/static_files/gif/image.gif&#x27;
 
-KISSY.Path.resolve(&#x27;/foo/bar&#x27;, &#x27;/tmp/file/&#x27;)
+Path.resolve(&#x27;/foo/bar&#x27;, &#x27;/tmp/file/&#x27;)
 // =&gt;   &#x27;/tmp/file&#x27;
 &#x60;&#x60;&#x60;
 */

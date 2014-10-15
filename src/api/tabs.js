@@ -9,7 +9,7 @@
 @extends Component.Container
 @param config {Object}
 @example
-	KISSY.use(['tabs'], function(S, Tabs){
+	require(['tabs'], function(Tabs){
         var myTabs = new Tabs({
             render : '#container',
             width : '60%',

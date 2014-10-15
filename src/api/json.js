@@ -17,9 +17,12 @@
 @example
 注意 json 字符串的格式，属性必须要双引号括起来
 ```
-KISSY.JSON.parse('{"x":1}'); // => ok
-KISSY.JSON.parse("{'x':1}"); // => exception : SyntaxError
-KISSY.JSON.parse("{x:1}"); // => exception : SyntaxError
+require(['json'],function(JSON){
+	JSON.parse('{"x":1}'); // => ok
+	JSON.parse("{'x':1}"); // => exception : SyntaxError
+	JSON.parse("{x:1}"); // => exception : SyntaxError
+})
+
 ```
 */
 
@@ -33,8 +36,8 @@ KISSY.JSON.parse("{x:1}"); // => exception : SyntaxError
 @return {String} 返回JSON字符串
 @example
 ```
-KISSY.JSON.stringify({"x":1}); // => '{"x":1}'
-KISSY.JSON.stringify({x:1}); // => '{"x":1}'
-KISSY.JSON.stringify({'x':1}); // => '{"x":1}'
+JSON.stringify({"x":1}); // => '{"x":1}'
+JSON.stringify({x:1}); // => '{"x":1}'
+JSON.stringify({'x':1}); // => '{"x":1}'
 ```
 */

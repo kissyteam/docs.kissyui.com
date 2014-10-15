@@ -454,7 +454,7 @@
 <div class="box intro">
     <p>滑动手势事件。当用户在屏幕上“有效”滑动时触发（足够短的时间内滑动足够的距离）。引入模块则可以使用相应事件</p>
 <p>使用示例：</p>
-<pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;event-dom/gesture/swipe&#39;], function($, GestureSwipe){
+<pre class="code prettyprint"><code>require([&#39;node&#39;, &#39;event-dom/gesture/swipe&#39;], function($, GestureSwipe){
     $(window).on(GestureSwipe.SWIPE, function(ev){
         //swiped
 });</code></pre>

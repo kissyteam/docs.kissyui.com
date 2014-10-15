@@ -17,7 +17,7 @@
 	}
 
 	//js
-	KISSY.use(['node', 'resizable', 'resizable/plugin/proxy'], function(S, $, Resizable, ResizableProxy) {
+	require(['node', 'resizable', 'resizable/plugin/proxy'], function($, Resizable, ResizableProxy) {
 	    var r = new Resizable({
 	        node:"#something-can-resize",
 	        // 指定可拖动的位置

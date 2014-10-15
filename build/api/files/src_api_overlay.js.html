@@ -443,7 +443,7 @@
 */
 
 /**
-悬浮层。使用前先引入overlay样式&#x60;http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css&#x60;或利用prefixCls自定义样式。
+悬浮层。使用前先引入overlay样式&#x60;http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/overlay/assets/dpl.css&#x60;或利用prefixCls自定义样式。
 @class Overlay
 @constructor
 @extends Component.Container
@@ -451,7 +451,7 @@
 @uses Component.Extension.Align
 @param config {Object}
 @example
-    KISSY.use([&#x27;overlay&#x27;, &#x27;button&#x27;], function(S, Overlay, Button){
+    require([&#x27;overlay&#x27;, &#x27;button&#x27;], function(Overlay, Button){
         var modalDialog = new Overlay.Dialog({
             headerContent : &#x27;我是头部&#x27;,
             width : 500,
@@ -537,7 +537,7 @@ mask的相关配置：
 @extends Overlay
 @param config {Object}
 @example
-    KISSY.use([&#x27;overlay&#x27;, &#x27;button&#x27;], function(S, Overlay, Button){
+    require([&#x27;overlay&#x27;, &#x27;button&#x27;], function(Overlay, Button){
         var modalDialog = new Overlay.Dialog({
             headerContent : &#x27;我是头部&#x27;,
             width : 500,
@@ -626,7 +626,7 @@ mask的相关配置：
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/script&gt;
-    KISSY.use([&#x27;overlay&#x27;, &#x27;button&#x27;, &#x27;node&#x27;], function(S, Overlay, Button, $){
+    require([&#x27;overlay&#x27;, &#x27;button&#x27;, &#x27;node&#x27;], function(Overlay, Button, $){
         var myPopup = new Overlay.Popup({
             width : 200,
             trigger : &#x27;#popup&#x27;,

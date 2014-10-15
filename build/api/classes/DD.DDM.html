@@ -457,7 +457,7 @@
 
 <div class="box intro">
     <p>拖放的中央控制对象, 所有的拖放实例的事件都会向其冒泡，通常用来监听所有拖放示例的事件做相应处理</p>
-<pre class="code prettyprint"><code>KISSY.use([&#39;dd&#39;], function(S, DD){
+<pre class="code prettyprint"><code>require([&#39;dd&#39;], function(DD){
     var DDM = DD.DDM;
 
         DDM.on(&#39;dragstart&#39;, function(ev){
@@ -1151,7 +1151,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
+                <pre class="code prettyprint"><code>require([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
     function Custom(id){
         this.id = id;
         this.publish(&quot;run&quot;,{
@@ -1230,7 +1230,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;base&#39;, function(S, Base) {
+                <pre class="code prettyprint"><code>require([&#39;base&#39;], function(Base) {
     var A = Base.extend({
         m: function (value) {
             return &#39;am:&#39; + value;
@@ -2326,7 +2326,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
+                <pre class="code prettyprint"><code>require([&#39;overlay&#39;, &#39;component/plugin/resize&#39;],function(Overlay,Resize){
     new Overlay({
         content:&#39;test&#39;
     }).plug(new Resize({
@@ -3061,7 +3061,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
+                <pre class="code prettyprint"><code>require([&#39;overlay&#39;,&#39;component/plugin/resize&#39;],function(Overlay,Resize){
     var o= new Overlay({
         content:&#39;test&#39;
     }).plug(new Resize({

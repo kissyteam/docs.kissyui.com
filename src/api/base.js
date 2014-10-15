@@ -15,7 +15,7 @@ KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 
 @param config {Object}
 @example
 ```
-KISSY.use('base', function(S, Base) {
+require(['base'], function(Base) {
     var myClass = Base.extend({},{
         ATTRS : {
             size: {
@@ -114,7 +114,7 @@ or
 @method callSuper
 @example
 ```
-KISSY.use('base', function(S, Base) {
+require(['base'], function(Base) {
     var A = Base.extend({
         m: function (value) {
             return 'am:' + value;
@@ -147,7 +147,7 @@ KISSY.use('base', function(S, Base) {
 @return 自身
 @example
 ```
-KISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){
+require(['overlay', 'component/plugin/resize'],function(Overlay,Resize){
     new Overlay({
         content:'test'
     }).plug(new Resize({
@@ -164,7 +164,7 @@ KISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){
 @return 自身
 @example
 ```
-KISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){
+require(['overlay','component/plugin/resize'],function(Overlay,Resize){
     var o= new Overlay({
         content:'test'
     }).plug(new Resize({

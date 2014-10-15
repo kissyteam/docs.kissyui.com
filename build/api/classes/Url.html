@@ -454,7 +454,7 @@
 <div class="box intro">
     <p>操作url
 使用示例：</p>
-<pre class="code prettyprint"><code>KISSY.use([&#39;url&#39;], function(S, Url){
+<pre class="code prettyprint"><code>require([&#39;url&#39;], function(Url){
     var websiteUrl = &#39;http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&amp;date=2014.09.10#method_resolve&#39;;
     var urlDataObj = Url.parse(websiteUrl); 
     // 得到的urlDataObj如下：
@@ -652,7 +652,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use([&#39;url&#39;], function(S, Url){
+                <pre class="code prettyprint"><code>require([&#39;url&#39;], function(Url){
     var websiteUrl = &#39;http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&amp;date=2014.09.10#method_resolve&#39;;
     var urlDataObj = Url.parse(websiteUrl); 
     urlDataObj.search = undefined;
@@ -826,7 +826,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use([&#39;url&#39;],function(S, Url){
+                <pre class="code prettyprint"><code>require([&#39;url&#39;],function(Url){
     Url.resolve(&#39;docs.kissyui.com/guides/&#39;,&#39;overlay/index.html&#39;); //docs.kissyui.com/guides/overlay/index.html
 })</code></pre>
 

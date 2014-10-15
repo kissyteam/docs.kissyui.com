@@ -450,7 +450,7 @@
 @extends DD.Draggable
 @example
 &#x60;&#x60;&#x60;
-KISSY.use(&#x27;overlay,component/plugin/drag&#x27;,function(S,Overlay,Drag){
+require([&#x27;overlay&#x27;,&#x27;component/plugin/drag&#x27;],function(Overlay,Drag){
     new Overlay({
         plugins:[ new Drag({
             handlers: [&#x27;.ks-overlay-header&#x27;]

@@ -9,7 +9,7 @@
 @extends ComboBox
 @param config {Object}
 @example
-	modulex.use(['combobox', 'combobox/multiword'], function(ComboBox, ComboBoxMultiWord){
+	require(['combobox', 'combobox/multiword'], function(ComboBox, ComboBoxMultiWord){
 		var myComboBoxMultiWord = new ComboBoxMultiWord({
 	        render : '#container',
 	        dataSource : new ComboBox.LocalDataSource({

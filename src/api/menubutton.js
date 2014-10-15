@@ -9,7 +9,7 @@
 @extends Button
 @param config {Object}
 @example
-	KISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){
+	require(['menu', 'menubutton'], function(Menu, MenuButton){
         var myMenuButton1 = new MenuButton({  //全新生成节点
             content : '我的淘宝',
             render : '#container',
@@ -110,7 +110,7 @@
 @constructor
 @param config {Object}
 @example
-	KISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){
+	require(['menu', 'menubutton'], function(Menu, MenuButton){
 		// 调用 MenuButton.Select.decorate 接口替换已有的 select 元素
         var select = MenuButton.Select.decorate('#decorateSelect', {
             width:80,
@@ -197,7 +197,7 @@
 @namespace MenuButton
 @param config {Object}
 @example
-	KISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){
+	require(['menu', 'menubutton'], function(Menu, MenuButton){
         //全新生成
         var select2 = new MenuButton.Select({
         	render : '#container',

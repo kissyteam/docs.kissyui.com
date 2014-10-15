@@ -457,9 +457,12 @@
 @example
 注意 json 字符串的格式，属性必须要双引号括起来
 &#x60;&#x60;&#x60;
-KISSY.JSON.parse(&#x27;{&quot;x&quot;:1}&#x27;); // =&gt; ok
-KISSY.JSON.parse(&quot;{&#x27;x&#x27;:1}&quot;); // =&gt; exception : SyntaxError
-KISSY.JSON.parse(&quot;{x:1}&quot;); // =&gt; exception : SyntaxError
+require([&#x27;json&#x27;],function(JSON){
+	JSON.parse(&#x27;{&quot;x&quot;:1}&#x27;); // =&gt; ok
+	JSON.parse(&quot;{&#x27;x&#x27;:1}&quot;); // =&gt; exception : SyntaxError
+	JSON.parse(&quot;{x:1}&quot;); // =&gt; exception : SyntaxError
+})
+
 &#x60;&#x60;&#x60;
 */
 
@@ -473,9 +476,9 @@ KISSY.JSON.parse(&quot;{x:1}&quot;); // =&gt; exception : SyntaxError
 @return {String} 返回JSON字符串
 @example
 &#x60;&#x60;&#x60;
-KISSY.JSON.stringify({&quot;x&quot;:1}); // =&gt; &#x27;{&quot;x&quot;:1}&#x27;
-KISSY.JSON.stringify({x:1}); // =&gt; &#x27;{&quot;x&quot;:1}&#x27;
-KISSY.JSON.stringify({&#x27;x&#x27;:1}); // =&gt; &#x27;{&quot;x&quot;:1}&#x27;
+JSON.stringify({&quot;x&quot;:1}); // =&gt; &#x27;{&quot;x&quot;:1}&#x27;
+JSON.stringify({x:1}); // =&gt; &#x27;{&quot;x&quot;:1}&#x27;
+JSON.stringify({&#x27;x&#x27;:1}); // =&gt; &#x27;{&quot;x&quot;:1}&#x27;
 &#x60;&#x60;&#x60;
 */
     </pre>

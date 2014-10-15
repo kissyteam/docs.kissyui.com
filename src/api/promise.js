@@ -5,7 +5,7 @@
 /**
 ### 简单使用
 ```
-KISSY.use('promise',function(S,Promise){
+require(['promise'],function(Promise){
 	var d = new Promise.Defer();
     var promise = d.promise;
     promise.then(function (v) {

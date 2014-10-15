@@ -453,7 +453,7 @@
 
 <div class="box intro">
     <p>处理 DOM 事件。DomEvent处理标准的event事件，除此之外还拓展了下面介绍的 Events </p>
-<pre class="code prettyprint"><code>modulex.use(&#39;event-dom&#39;, function(DomEvent){
+<pre class="code prettyprint"><code>require(&#39;event-dom&#39;, function(DomEvent){
     DomEvent.on(document.body,{
         &#39;click&#39;:{
             fn:function(){
@@ -1791,7 +1791,7 @@ DomEvent.fire(&#39;#foo&#39;,&#39;click&#39;);</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;event/dom&#39;], function($, DomEvent){
+                <pre class="code prettyprint"><code>require([&#39;node&#39;, &#39;event/dom&#39;], function($, DomEvent){
     $(window).on(&quot;hashchange&quot;,function(){
         // location.hash -&gt; 当前 hash 值
     });

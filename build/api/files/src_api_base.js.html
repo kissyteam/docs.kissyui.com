@@ -455,7 +455,7 @@ KISSY 的base模块提供给我们一个基类Base, 整合了 attribute 功能, 
 @param config {Object}
 @example
 &#x60;&#x60;&#x60;
-KISSY.use(&#x27;base&#x27;, function(S, Base) {
+require([&#x27;base&#x27;], function(Base) {
     var myClass = Base.extend({},{
         ATTRS : {
             size: {
@@ -554,7 +554,7 @@ or
 @method callSuper
 @example
 &#x60;&#x60;&#x60;
-KISSY.use(&#x27;base&#x27;, function(S, Base) {
+require([&#x27;base&#x27;], function(Base) {
     var A = Base.extend({
         m: function (value) {
             return &#x27;am:&#x27; + value;
@@ -587,7 +587,7 @@ KISSY.use(&#x27;base&#x27;, function(S, Base) {
 @return 自身
 @example
 &#x60;&#x60;&#x60;
-KISSY.use(&#x27;overlay,component/plugin/resize&#x27;,function(S,Overlay,Resize){
+require([&#x27;overlay&#x27;, &#x27;component/plugin/resize&#x27;],function(Overlay,Resize){
     new Overlay({
         content:&#x27;test&#x27;
     }).plug(new Resize({
@@ -604,7 +604,7 @@ KISSY.use(&#x27;overlay,component/plugin/resize&#x27;,function(S,Overlay,Resize)
 @return 自身
 @example
 &#x60;&#x60;&#x60;
-KISSY.use(&#x27;overlay,component/plugin/resize&#x27;,function(S,Overlay,Resize){
+require([&#x27;overlay&#x27;,&#x27;component/plugin/resize&#x27;],function(Overlay,Resize){
     var o= new Overlay({
         content:&#x27;test&#x27;
     }).plug(new Resize({

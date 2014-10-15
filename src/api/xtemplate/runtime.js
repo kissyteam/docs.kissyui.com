@@ -10,12 +10,12 @@
 @param config {Object}
 @example
 ```
-KISSY.use('xtemplate',function(S,XTemplate){
+require(['xtemplate'],function(XTemplate){
     // use XTemplate
 });
 
 // 参数只能是离线编译过的模板
-KISSY.use('xtemplate/runtime',function(S,XTemplateRunTime){
+require(['xtemplate/runtime'],function(XTemplateRunTime){
     // use XTemplateRunTime
 });
 ```

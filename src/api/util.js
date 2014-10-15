@@ -21,7 +21,7 @@
 */
 
 /**
-* 在页面id元素生效时立刻执行回调函数fn，当需要比 KISSY.ready() 反应更快的探测到某个元素可用时使用
+* 在页面id元素生效时立刻执行回调函数fn
 * @method available
 * @static
 * @param id {String} 页面元素id
@@ -177,8 +177,6 @@ Util.each(obj, function(v,k) {
 * @return subClass {Function} 需要的子类函数
 * @example
 *   ```
-var S = KISSY;
-
 function Bird(name) { this.name = name; }
 Bird.prototype.fly = function() { alert(this.name + ' is flying now!'); };
 
@@ -434,10 +432,10 @@ Util.log(o.c); // => 'c'
 * @param deep {Boolean} 是否进行深度 mix (deep copy)
 * @return {Object} receiver 属性接受者对象
 * __Note__
-* receiver 会被改变，如果想要保留原始的 receiver ，可以使用 KISSY.merge()
+* receiver 会被改变，如果想要保留原始的 receiver ，可以使用 Util.merge()
 * `var object=S.merge(object1,object2);`
 *
-* S.mix 默认不是递归进行的. 如果其中一个属性为对象或者数组，那么他将会被接下来对象的同名属性对应的值所代替，即值不会被合并。 如果设置了参数 deep = true ，那么会对数组和简单对象( `KISSY.isPlainObject()` )递归合并
+* S.mix 默认不是递归进行的. 如果其中一个属性为对象或者数组，那么他将会被接下来对象的同名属性对应的值所代替，即值不会被合并。 如果设置了参数 deep = true ，那么会对数组和简单对象( `Util.isPlainObject()` )递归合并
 * supplier undefined 的属性值不会被复制，不过对象从原型继承下来下的值则会被复制
 * 该方法仅适用于 javascript 对象，不要再浏览器对象上调用，例如 node.style
 *
@@ -505,8 +503,8 @@ Util.log(object1); // => { apple: 0, banana: { weight: 52, price: 200 }, cherry:
 * 根据参数创建命名空间对象
 * @method namespace
 * @static 
-* @param n1 {String}  命名空间字符串, 如 "fp.search" 或 "KISSY.fp.ad"
-* @param [global=false] 是否第一个点之前的字符串作为全局变量, 默认 false 添加到 KISSY
+* @param n1 {String}  命名空间字符串, 如 "fp.search" 或 "fp.ad"
+* @param [global=false] 是否第一个点之前的字符串作为全局变量, 默认 false
 * @return {Object} 最后创建的命名空间对象
 */
 
@@ -696,7 +694,7 @@ Util.later(say, 350);  // 超过300ms后, 终于执行
 * @param str {String} 包含 html 实体字符的字符串
 * @return {String} 替换实体字符后的字符串
 * @example
-* `KISSY.unEscapeHTML("&lt;a&gt;x&lt;/a&gt;"); // =>  "<a>x</a>"`
+* `Util.unEscapeHTML("&lt;a&gt;x&lt;/a&gt;"); // =>  "<a>x</a>"`
 * __Note__
 * 该函数只会 unescape 以下字符序列（正则式
 * `&amp; &lt; &gt; &#x60; &#x2F; &quot; &#x27; &#\d{1,5}`

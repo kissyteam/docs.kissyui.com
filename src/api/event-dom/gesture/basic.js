@@ -8,7 +8,7 @@
 
 使用示例：
 
-	modulex.use(['node', 'event-dom/gesture/basic'], function($, GestureBasic){
+	require(['node', 'event-dom/gesture/basic'], function($, GestureBasic){
 		$(window).on(GestureBasic.START, function(ev){
 			//touch start...
 		});

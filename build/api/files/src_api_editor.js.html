@@ -453,7 +453,7 @@ editor拥有各种常用的编辑器插件 —— editor-plugins ，KISSY@5.0+�
 @extends Component.Control
 @param config {Object}
 @example
-    KISSY.use(&#x27;node,editor,kg/editor-plugins/1.1.2/font-size,kg/editor-plugins/1.1.2/source-area,kg/editor-plugins/1.1.2/image&#x27;, function(S, Node, Editor, FontSize, SourceArea, Image){
+    require([&#x27;node&#x27;,&#x27;editor,&#x27;kg/editor-plugins/1.1.2/font-size&#x27;,&#x27;kg/editor-plugins/1.1.2/source-area&#x27;,&#x27;kg/editor-plugins/1.1.2/image&#x27;], function(Node, Editor, FontSize, SourceArea, Image){
         var myEditor = new Editor({
             focused : true,
             attachForm : true,
@@ -702,7 +702,7 @@ editor.addSelect(&quot;plugin2&quot;, {
 @param textarea {String|HTMLElement} 已有的textarea元素
 @param cfg {Object} 编辑器的配置对象，配置键值意义和Editor构造器的一样
 @example
-    KISSY.use([&#x27;editor&#x27;], function(S, Editor){
+    require([&#x27;editor&#x27;], function(Editor){
         var myEditorFromTextarea = Editor.decorate(&#x27;#my-textarea&#x27;,{
             focused : true,
             attachForm: true

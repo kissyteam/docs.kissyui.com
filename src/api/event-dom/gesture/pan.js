@@ -8,7 +8,7 @@
 
 使用示例：
 
-	modulex.use(['node', 'event-dom/gesture/pan'], function($, GesturePan){
+	require(['node', 'event-dom/gesture/pan'], function($, GesturePan){
 		$('#test').on(GesturePan.PAN_START, function(ev){
 			//pan start...
 		});

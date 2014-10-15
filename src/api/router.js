@@ -8,7 +8,7 @@
 
 使用示例：
 
-	modulex.use(['node', 'router'], function($, Router){
+	require(['node', 'router'], function($, Router){
 		Router.config({  //路由全局配置
 	        triggerRoute: true,  // 触发当前地址对应的 route 操作
 	        urlRoot: location.pathname

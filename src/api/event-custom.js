@@ -11,7 +11,7 @@ __Note__
 
 注意 CustomEvent.Target 仅用于 mix/augment ，不可以直接使用。使用示例：
 ```
-modulex.use(['util', 'event-custom'], function(Util, CustomEvent){
+require(['util', 'event-custom'], function(Util, CustomEvent){
 	function Dog(name){
 		this.name = name;
 	}
@@ -58,7 +58,7 @@ modulex.use(['util', 'event-custom'], function(Util, CustomEvent){
 @param target {Object} 事件往上冒泡的事件源
 @example
 ```
-modulex.use(['util', 'event/custom'], function(Util, CustomEvent) {
+require(['util', 'event/custom'], function(Util, CustomEvent) {
     function Custom(id){
         this.id = id;
         this.publish("run",{

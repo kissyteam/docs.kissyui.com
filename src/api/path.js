@@ -7,7 +7,7 @@
 @class Path
 @static
 ```
-KISSY.use('path',function(S,Path){
+require(['path'],function(Path){
         Path.do_sth();// 执行操作
 });
 ```
@@ -83,10 +83,10 @@ Path.relative('x/t/z','x/'); // => '../../'
 @static
 @example
 ```
-KISSY.Path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif')
+Path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif')
 // => 'wwwroot/static_files/gif/image.gif'
 
-KISSY.Path.resolve('/foo/bar', '/tmp/file/')
+Path.resolve('/foo/bar', '/tmp/file/')
 // =>   '/tmp/file'
 ```
 */

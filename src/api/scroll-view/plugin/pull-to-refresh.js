@@ -12,7 +12,7 @@ ScrollView的下拉刷新插件
 @param config {Object}
 @example
 ```
-KISSY.use(['node', 'scroll-view', 'scroll-view/plugin/scrollbar', 'scroll-view/plugin/pull-to-refresh'], function (S, $, ScrollView, ScrollbarPlugin, PullToRefresh) {
+require(['node', 'scroll-view', 'scroll-view/plugin/scrollbar', 'scroll-view/plugin/pull-to-refresh'], function ($, ScrollView, ScrollbarPlugin, PullToRefresh) {
     var str = '',
         num = 1;
     for (; num < 40; num++) {

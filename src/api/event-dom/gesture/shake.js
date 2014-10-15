@@ -8,7 +8,7 @@
 
 使用示例：
 
-	modulex.use(['node', 'event-dom/gesture/shake'], function($, GestureShake){
+	require(['node', 'event-dom/gesture/shake'], function($, GestureShake){
 		$(window).on(GestureShake.SHAKE, function(ev){
 			//device is shaked...
 	});

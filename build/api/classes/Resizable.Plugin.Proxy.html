@@ -552,7 +552,7 @@
 }
 
 //js
-KISSY.use([&#39;node&#39;, &#39;resizable&#39;, &#39;resizable/plugin/proxy&#39;], function(S, $, Resizable, ResizableProxy) {
+require([&#39;node&#39;, &#39;resizable&#39;, &#39;resizable/plugin/proxy&#39;], function($, Resizable, ResizableProxy) {
     var r = new Resizable({
         node:&quot;#something-can-resize&quot;,
         // 指定可拖动的位置
@@ -1186,7 +1186,7 @@ KISSY.use([&#39;node&#39;, &#39;resizable&#39;, &#39;resizable/plugin/proxy&#39;
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
+                <pre class="code prettyprint"><code>require([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
     function Custom(id){
         this.id = id;
         this.publish(&quot;run&quot;,{
@@ -1265,7 +1265,7 @@ KISSY.use([&#39;node&#39;, &#39;resizable&#39;, &#39;resizable/plugin/proxy&#39;
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;base&#39;, function(S, Base) {
+                <pre class="code prettyprint"><code>require([&#39;base&#39;], function(Base) {
     var A = Base.extend({
         m: function (value) {
             return &#39;am:&#39; + value;
@@ -2361,7 +2361,7 @@ KISSY.use([&#39;node&#39;, &#39;resizable&#39;, &#39;resizable/plugin/proxy&#39;
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
+                <pre class="code prettyprint"><code>require([&#39;overlay&#39;, &#39;component/plugin/resize&#39;],function(Overlay,Resize){
     new Overlay({
         content:&#39;test&#39;
     }).plug(new Resize({
@@ -3096,7 +3096,7 @@ KISSY.use([&#39;node&#39;, &#39;resizable&#39;, &#39;resizable/plugin/proxy&#39;
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
+                <pre class="code prettyprint"><code>require([&#39;overlay&#39;,&#39;component/plugin/resize&#39;],function(Overlay,Resize){
     var o= new Overlay({
         content:&#39;test&#39;
     }).plug(new Resize({

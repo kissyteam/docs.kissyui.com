@@ -8,9 +8,9 @@
 @extends Component.Control
 @param config {Object}
 @example
-	//首先引入KISSY提供的base样式和button样式 http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css 和 http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css
+	//首先引入KISSY提供的base样式和button样式 http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css 和 http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css
 	
-	KISSY.use('button', function(S, Button){
+	require(['button'], function(Button){
 		var button1 = new Button({
 			content : 'ButtonContent',
 			render : '#container',

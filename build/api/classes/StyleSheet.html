@@ -541,7 +541,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use([&#39;node&#39;, &#39;stylesheet&#39;], function(S, $, StyleSheet){
+                <pre class="code prettyprint"><code>require([&#39;node&#39;, &#39;stylesheet&#39;], function( $, StyleSheet){
     var linkStyleSheet = new StyleSheet(&#39;#linkcss&#39;);
     $(&#39;#change-link-css&#39;).on(&#39;click&#39;, function(ev){
         linkStyleSheet.set(&#39;.link&#39;,{
@@ -903,7 +903,7 @@
 
             <div class="example-content">
                 <p><code>&#x60;</code>
-KISSY.use(&#39;stylesheet&#39;,function(S,StyleSheet){
+require([&#39;stylesheet&#39;],function(StyleSheet){
     // use stylesheet
       <link id='existing'>
         a {
@@ -1111,7 +1111,7 @@ stylesheet.get(&#39;a&#39;); // =&gt; color:red</code></pre>
 
             <div class="example-content">
                 <p><code>&#x60;</code>
-KISSY.use(&#39;stylesheet&#39;,function(S,StyleSheet){
+require([&#39;stylesheet&#39;],function(StyleSheet){
     // use stylesheet
       <link id='existing'>
         a {

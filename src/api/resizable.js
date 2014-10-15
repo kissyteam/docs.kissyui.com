@@ -85,7 +85,7 @@
 	}
 
 	//javascript
-	KISSY.use(['node', 'resizable'], function(S, $, Resizable) {
+	require(['node', 'resizable'], function($, Resizable) {
 	    var r = new Resizable({
 	        node:"#something-can-resize",
 	        // 指定可拖动的位置

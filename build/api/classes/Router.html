@@ -463,7 +463,7 @@
 <div class="box intro">
     <p>一个类似express的路由管理器</p>
 <p>使用示例：</p>
-<pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;router&#39;], function($, Router){
+<pre class="code prettyprint"><code>require([&#39;node&#39;, &#39;router&#39;], function($, Router){
     Router.config({  //路由全局配置
         triggerRoute: true,  // 触发当前地址对应的 route 操作
         urlRoot: location.pathname
@@ -730,7 +730,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
+                <pre class="code prettyprint"><code>require([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
     function Custom(id){
         this.id = id;
         this.publish(&quot;run&quot;,{

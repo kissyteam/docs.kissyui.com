@@ -454,7 +454,7 @@
 <div class="box intro">
     <p>旋转手势事件，触屏上开始用双指旋转某个 dom 元素大小时触发。引入模块则可以使用相应事件</p>
 <p>使用示例：</p>
-<pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;event-dom/gesture/rotate&#39;], function($, GestureRotate){
+<pre class="code prettyprint"><code>require([&#39;node&#39;, &#39;event-dom/gesture/rotate&#39;], function($, GestureRotate){
     $(#test).on(GestureRotate.ROTATE_START, function(ev){
         //rotate start...
     });

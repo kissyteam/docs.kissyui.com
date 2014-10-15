@@ -2,7 +2,7 @@
 
 ## 1，引入种子文件
 
-	<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js" data-config="{combine:true}"></script>
+	<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 
 种子文件是一个**非常小**的 JS 文件，通过他可以动态加载 KISSY 的模块文件，因为体积很小，推荐将种子文件至于`<head>`标签内。
 `data-config="{combine:true}"` 表示启用服务器 combo 机制，可用于减少网络请求数目。

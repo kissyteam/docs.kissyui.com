@@ -446,7 +446,7 @@
 /**
 处理 DOM 事件。DomEvent处理标准的event事件，除此之外还拓展了下面介绍的 Events 
 &#x60;&#x60;&#x60;
-modulex.use(&#x27;event-dom&#x27;, function(DomEvent){
+require(&#x27;event-dom&#x27;, function(DomEvent){
     DomEvent.on(document.body,{
         &#x27;click&#x27;:{
             fn:function(){
@@ -686,7 +686,7 @@ fireHandler 和 fire 的区别在于:
 
 @example
 &#x60;&#x60;&#x60;
-modulex.use([&#x27;node&#x27;, &#x27;event/dom&#x27;], function($, DomEvent){
+require([&#x27;node&#x27;, &#x27;event/dom&#x27;], function($, DomEvent){
     $(window).on(&quot;hashchange&quot;,function(){
         // location.hash -&gt; 当前 hash 值
     });

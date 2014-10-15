@@ -8,7 +8,7 @@
 
 使用示例：
 
-	modulex.use(['node', 'event-dom/gesture/rotate'], function($, GestureRotate){
+	require(['node', 'event-dom/gesture/rotate'], function($, GestureRotate){
 		$(#test).on(GestureRotate.ROTATE_START, function(ev){
 			//rotate start...
 		});

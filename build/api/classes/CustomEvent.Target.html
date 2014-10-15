@@ -455,7 +455,7 @@
     <p>通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件。此外，如果要自定义事件也可以直接拓展 Base。</p>
 <p><strong>Note</strong></p>
 <p>注意 CustomEvent.Target 仅用于 mix/augment ，不可以直接使用。使用示例：</p>
-<pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event-custom&#39;], function(Util, CustomEvent){
+<pre class="code prettyprint"><code>require([&#39;util&#39;, &#39;event-custom&#39;], function(Util, CustomEvent){
     function Dog(name){
         this.name = name;
     }
@@ -642,7 +642,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
+                <pre class="code prettyprint"><code>require([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
     function Custom(id){
         this.id = id;
         this.publish(&quot;run&quot;,{

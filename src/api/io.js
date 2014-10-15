@@ -37,7 +37,7 @@ new IO({
   url: "test.html",
   cache: false,
   success: function(html){
-    KISSY.one("#results").html(html);
+    $("#results").html(html);
   }
 });
 ```

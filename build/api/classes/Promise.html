@@ -453,7 +453,7 @@
 
 <div class="box intro">
     <h3 id="-">简单使用</h3>
-<pre class="code prettyprint"><code>KISSY.use(&#39;promise&#39;,function(S,Promise){
+<pre class="code prettyprint"><code>require([&#39;promise&#39;],function(Promise){
     var d = new Promise.Defer();
     var promise = d.promise;
     promise.then(function (v) {

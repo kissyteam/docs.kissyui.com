@@ -641,9 +641,11 @@
 
             <div class="example-content">
                 <p>注意 json 字符串的格式，属性必须要双引号括起来</p>
-<pre class="code prettyprint"><code>KISSY.JSON.parse(&#39;{&quot;x&quot;:1}&#39;); // =&gt; ok
-KISSY.JSON.parse(&quot;{&#39;x&#39;:1}&quot;); // =&gt; exception : SyntaxError
-KISSY.JSON.parse(&quot;{x:1}&quot;); // =&gt; exception : SyntaxError</code></pre>
+<pre class="code prettyprint"><code>require([&#39;json&#39;],function(JSON){
+    JSON.parse(&#39;{&quot;x&quot;:1}&#39;); // =&gt; ok
+    JSON.parse(&quot;{&#39;x&#39;:1}&quot;); // =&gt; exception : SyntaxError
+    JSON.parse(&quot;{x:1}&quot;); // =&gt; exception : SyntaxError
+})</code></pre>
 
             </div>
         </div>
@@ -801,9 +803,9 @@ KISSY.JSON.parse(&quot;{x:1}&quot;); // =&gt; exception : SyntaxError</code></pr
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.JSON.stringify({&quot;x&quot;:1}); // =&gt; &#39;{&quot;x&quot;:1}&#39;
-KISSY.JSON.stringify({x:1}); // =&gt; &#39;{&quot;x&quot;:1}&#39;
-KISSY.JSON.stringify({&#39;x&#39;:1}); // =&gt; &#39;{&quot;x&quot;:1}&#39;</code></pre>
+                <pre class="code prettyprint"><code>JSON.stringify({&quot;x&quot;:1}); // =&gt; &#39;{&quot;x&quot;:1}&#39;
+JSON.stringify({x:1}); // =&gt; &#39;{&quot;x&quot;:1}&#39;
+JSON.stringify({&#39;x&#39;:1}); // =&gt; &#39;{&quot;x&quot;:1}&#39;</code></pre>
 
             </div>
         </div>

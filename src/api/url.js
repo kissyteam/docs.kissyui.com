@@ -7,7 +7,7 @@
 操作url
 使用示例：
 	
-	KISSY.use(['url'], function(S, Url){
+	require(['url'], function(Url){
 		var websiteUrl = 'http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10#method_resolve';
 		var urlDataObj = Url.parse(websiteUrl); 
 		// 得到的urlDataObj如下：
@@ -53,7 +53,7 @@
 @param url {String} 从Url.parse得到的url对象
 @param serializeArray {Boolean} 如果url.search === undefined 且 url.query含数组的话，转化成的url字符串是否需要在数组key后加上 [] 标识。默认为true
 @example
-	KISSY.use(['url'], function(S, Url){
+	require(['url'], function(Url){
 		var websiteUrl = 'http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10#method_resolve';
 		var urlDataObj = Url.parse(websiteUrl); 
 		urlDataObj.search = undefined;
@@ -71,7 +71,7 @@
 得到绝对地址的url，算法逻辑参考[nodeJs](http://nodejs.org/api/path.html#path_path_resolve_from_to)
 @method resolve
 @example
-	KISSY.use(['url'],function(S, Url){
+	require(['url'],function(Url){
 		Url.resolve('docs.kissyui.com/guides/','overlay/index.html'); //docs.kissyui.com/guides/overlay/index.html
 	})
 */

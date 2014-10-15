@@ -452,7 +452,7 @@
 @example
 
 &#x60;&#x60;&#x60;
-modulex.use([&#x27;combobox&#x27;], function(ComboBox){
+require([&#x27;combobox&#x27;], function(ComboBox){
     var basicComboBox = new ComboBox({
         render : &#x27;#container&#x27;,
         dataSource : new ComboBox.LocalDataSource({
@@ -541,7 +541,7 @@ modulex.use([&#x27;combobox&#x27;], function(ComboBox){
 默认 false. 是否当自动补全菜单出现时高亮第一项
 @example
 &#x60;&#x60;&#x60;
-modulex.use([&#x27;node&#x27;, &#x27;combobox&#x27;], function ($, ComboBox) {
+require([&#x27;node&#x27;, &#x27;combobox&#x27;], function ($, ComboBox) {
     var data = [&quot;a123456&quot;, &quot;b12345&quot;, &quot;c3464356&quot;, &quot;d23434&quot;];
 
     var basicComboBox = new ComboBox({
@@ -612,7 +612,7 @@ modulex.use([&#x27;node&#x27;, &#x27;combobox&#x27;], function ($, ComboBox) {
 @example
     
 &#x60;&#x60;&#x60;
-modulex.use([&#x27;combobox&#x27;], function(ComboBox){
+require([&#x27;combobox&#x27;], function(ComboBox){
     var basicComboBox = new ComboBox({
         render : &#x27;#container&#x27;,
         dataSource : new ComboBox.LocalDataSource({
@@ -673,7 +673,7 @@ function parser(inputVal, data) {
 @namespace ComboBox
 @param config {Object}
 @example
-    modulex.use([&#x27;combobox&#x27;], function(ComboBox){
+    require([&#x27;combobox&#x27;], function(ComboBox){
         var combobox = new ComboBox({
             srcNode : &#x27;#combobox&#x27;,
             placeholder : &#x27;input..&#x27;,

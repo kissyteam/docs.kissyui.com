@@ -467,7 +467,7 @@
 
 
 <div class="box intro">
-    <p>悬浮层。使用前先引入overlay样式<code>http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css</code>或利用prefixCls自定义样式。</p>
+    <p>悬浮层。使用前先引入overlay样式<code>http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/overlay/assets/dpl.css</code>或利用prefixCls自定义样式。</p>
 
 </div>
 
@@ -556,7 +556,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use([&#39;overlay&#39;, &#39;button&#39;], function(S, Overlay, Button){
+                <pre class="code prettyprint"><code>require([&#39;overlay&#39;, &#39;button&#39;], function(Overlay, Button){
     var modalDialog = new Overlay.Dialog({
         headerContent : &#39;我是头部&#39;,
         width : 500,
@@ -1603,7 +1603,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
+                <pre class="code prettyprint"><code>require([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
     function Custom(id){
         this.id = id;
         this.publish(&quot;run&quot;,{
@@ -1880,7 +1880,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;base&#39;, function(S, Base) {
+                <pre class="code prettyprint"><code>require([&#39;base&#39;], function(Base) {
     var A = Base.extend({
         m: function (value) {
             return &#39;am:&#39; + value;
@@ -3475,7 +3475,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
+                <pre class="code prettyprint"><code>require([&#39;overlay&#39;, &#39;component/plugin/resize&#39;],function(Overlay,Resize){
     new Overlay({
         content:&#39;test&#39;
     }).plug(new Resize({
@@ -4629,7 +4629,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
+                <pre class="code prettyprint"><code>require([&#39;overlay&#39;,&#39;component/plugin/resize&#39;],function(Overlay,Resize){
     var o= new Overlay({
         content:&#39;test&#39;
     }).plug(new Resize({

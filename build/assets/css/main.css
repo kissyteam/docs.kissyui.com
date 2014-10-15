@@ -2,6 +2,9 @@ body{
   font-size: 14px;
   color: #dcf1ff;
 }
+.main ul {
+  color: #333;
+}
 /*-----------header-------------*/
 
 .header{

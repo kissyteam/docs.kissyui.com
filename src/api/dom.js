@@ -164,7 +164,6 @@ __Note__
 
 @example
 ```
-var S = KISSY, DOM = S.DOM;
 var c=DOM.create("<input type='checkbox' checked='checked'/>");
 DOM.attr(c,"checked") // => "checked"
 DOM.prop(c,"checked") // => true
@@ -210,7 +209,7 @@ __在 ie 下对于 selectionStart/End 做了兼容处理，[demo](/5.0/examples/
 @return 获取符合选择器的第一个元素所的 value 值. 无值时, 返回空字符串.
 @example
 ```
-KISSY.use("dom",function(S,DOM){
+require(["dom"],function(DOM){
         // 获取 id 是 J_username 的元素的 value 值
         DOM.val("#J_username");
 });
@@ -225,7 +224,7 @@ KISSY.use("dom",function(S,DOM){
 @param value {String} 将要设置的 value 值
 @example
 ```
-KISSY.use("dom",function(S,DOM){
+require(["dom"],function(DOM){
         // 将 id 是 J_username 的元素的 value 值设置成“张三”
         DOM.val("#J_username","张三");
 });
@@ -290,18 +289,21 @@ __Note__
 -后者是获取元素真实渲染到页面上的样式值, 是个计算值.
 @example
 ```
-var tag = S.guid("float");
-DOM.addStyleSheet("." + tag + " {float:left}")
+require(['util', 'dom'], function(Util, DOM){
+    var tag = Util.guid("float");
+    DOM.addStyleSheet("." + tag + " {float:left}")
 
-var d = DOM.create("<div class='" + tag + "' style='float:right'><" + "/div>")
-DOM.append(d, document.body);
-S.log(DOM.css(d, "float"));     // "right"
-S.log(DOM.style(d, "float"));   // "right"
+    var d = DOM.create("<div class='" + tag + "' style='float:right'><" + "/div>")
+    DOM.append(d, document.body);
+    console.log(DOM.css(d, "float"));     // "right"
+    console.log(DOM.style(d, "float"));   // "right"
 
-DOM.css(d, "float", "");
+    DOM.css(d, "float", "");
 
-S.log(DOM.css(d, "float"));     // "left"
-S.log(DOM.style(d, "float"));   // ""
+    console.log(DOM.css(d, "float"));     // "left"
+    console.log(DOM.style(d, "float"));   // ""
+})
+
 ```
 */
 
@@ -337,8 +339,7 @@ __Note__
     <div id="test" style="width: 80%; height: 20px"></div>
 </div>
 <script>
-    var S = KISSY, DOM = S.DOM,
-    elem = S.get('#test');
+    var elem = S.get('#test');
 
     DOM.style(elem, 'width'); // 返回 80%
     DOM.css(elem, 'width'); // 返回 80px
@@ -565,8 +566,7 @@ __Note__
 @return {HTMLElement} 符合选择器的第一个元素的祖先元素
 @example
 ```
-var S = KISSY, DOM = S.DOM,
-elem = S.get('#id');
+var elem = S.get('#id');
 
 // 返回 elem.parentNode
 DOM.parent(elem);
@@ -667,8 +667,6 @@ DOM.parent(elem, function(p) {
 @return {HTMLFragment|HTMLElement} 创建出的 dom 节点或碎片列表
 @example
 ```
-var S = KISSY, DOM = S.DOM;
-
 // 等价 document.createElement('div')
 DOM.create('<div>');
 DOM.create('<div />');
@@ -680,7 +678,6 @@ DOM.create('text');
 // 创建时, 同时添加属性值
 DOM.create('<a>', { href: 'hot.html', title: 'Hot Page' });
 
-// KISSY v1.1.5+,  创建时, 支持添加更多的属性；
 // 新增属性有： val, css, html, text, data, width, height, offset
 DOM.create('<a>', { href: 'hot.html',
                     title: 'Hot Page',
@@ -802,7 +799,6 @@ __Note__
 - 该函数并不能读取 data-xx 伪属性，例如 <div data-x="y"></div>
 @example
 ```
-var S = KISSY, DOM = S.DOM;
 
 // 设置所有 img 的名为 data-size 的 expando , 值为 400;
 DOM.data('img', 'data-size', 400);
@@ -838,7 +834,6 @@ DOM.data("p") // => 返回存储对象
 @param name {String} 扩展属性名称. 如果指定 name, 则只删除名为 name 的 expando . 如果不指定 name, 则删除元素的整个 expando
 @example
 ```
-var S = KISSY, DOM = S.DOM;
 
 // 删除 img 元素的名为 data-size 的 expando;
 DOM.removeData('img', 'data-size');
@@ -857,7 +852,6 @@ DOM.removeData('img');
 @return {Boolean} 是否具有扩展属性
 @example
 ```
-var S = KISSY, DOM = S.DOM;
 
 // 给所有的段落节点设置扩展属性 ``x`` , 值为 ``y``
 DOM.data("p","x","y");

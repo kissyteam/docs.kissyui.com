@@ -1,6 +1,11 @@
 /**
-* UA模块将UA挂在在全局对象KISSY上，通过 KISSY.UA 的属性，你可以获取浏览器等用户代理的信息。
+* UA模块可以获取浏览器等用户代理的信息。
 * @module ua
+* @example
+	
+	require(['ua'], function(UA){
+		//use UA
+	})
 */
 
 /**
@@ -10,6 +15,12 @@
     - 如果不是当前引擎或浏览器，返回 0 或者 undefined
     - 如果当前浏览器版本号无法准确判定，均返回 0.1
 *   
+* 示例：
+	
+	require(['ua'], function(UA){
+		//use UA
+	})
+	
 * @class UA
 * @static
 */

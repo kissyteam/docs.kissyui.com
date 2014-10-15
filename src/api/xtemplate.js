@@ -1,5 +1,5 @@
 /**
-富逻辑的 KISSY 模板引擎
+富逻辑的模板引擎，可独立使用。更多信息请查看[xtemplate on github](https://github.com/kissyteam/xtemplate)
 兼容 mustache
 @module xtemplate
 */
@@ -11,12 +11,12 @@
 @param config {Object}
 @example
 ```
-KISSY.use('xtemplate',function(S,XTemplate){
+require(['xtemplate'],function(XTemplate){
     // use XTemplate
 });
 
 // 参数只能是离线编译过的模板
-KISSY.use('xtemplate/runtime',function(S,XTemplate){
+require(['xtemplate/runtime'],function(XTemplate){
     // use XTemplate
 });
 ```

@@ -545,7 +545,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use([&#39;scroll-view&#39;], function(S, ScrollView){
+                <pre class="code prettyprint"><code>require([&#39;scroll-view&#39;], function(ScrollView){
     var content = &#39;&#39;;
     for (var i = 0; i &lt; 10; i++) {
         content += &#39;&lt;p&gt;This is &#39; + i + &#39; block&lt;/p&gt;&#39;;
@@ -1587,7 +1587,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
+                <pre class="code prettyprint"><code>require([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
     function Custom(id){
         this.id = id;
         this.publish(&quot;run&quot;,{
@@ -1715,7 +1715,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;base&#39;, function(S, Base) {
+                <pre class="code prettyprint"><code>require([&#39;base&#39;], function(Base) {
     var A = Base.extend({
         m: function (value) {
             return &#39;am:&#39; + value;
@@ -3347,7 +3347,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
+                <pre class="code prettyprint"><code>require([&#39;overlay&#39;, &#39;component/plugin/resize&#39;],function(Overlay,Resize){
     new Overlay({
         content:&#39;test&#39;
     }).plug(new Resize({
@@ -4817,7 +4817,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
+                <pre class="code prettyprint"><code>require([&#39;overlay&#39;,&#39;component/plugin/resize&#39;],function(Overlay,Resize){
     var o= new Overlay({
         content:&#39;test&#39;
     }).plug(new Resize({

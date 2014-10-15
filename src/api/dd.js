@@ -16,7 +16,7 @@
 @param config {Object}
 @example
 
-	KISSY.use(['dd'],function(S, DD){
+	require(['dd'],function(DD){
         var drag=new DD.Draggable({
             node:'#test-drag',
             cursor:'move',
@@ -173,7 +173,7 @@ new Draggable({
 @param config {Object}
 @example
 
-	KISSY.use(['dd'], function(S, DD){
+	require(['dd'], function(DD){
 		var Droppable = DD.Droppable;
 		var drop = new Droppable({
 			node : '#dropArea'
@@ -233,7 +233,7 @@ new Draggable({
 /**
 拖放的中央控制对象, 所有的拖放实例的事件都会向其冒泡，通常用来监听所有拖放示例的事件做相应处理
 
-	KISSY.use(['dd'], function(S, DD){
+	require(['dd'], function(DD){
 		var DDM = DD.DDM;
 	
 			DDM.on('dragstart', function(ev){
@@ -355,7 +355,7 @@ new Draggable({
 @namespace DD
 @param config {Object}
 @example
-	KISSY.use(['dd'],function(S, DD){
+	require(['dd'],function(DD){
 		var DraggableDelegate = DD.DraggableDelegate;
 		new DraggableDelegate({
             container:"#container3",

@@ -368,7 +368,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "node",
             "name": "node",
-            "description": "node 包括 dom , event , anim 模块的所有功能, 推荐采用 Node 模块"
+            "description": "node 包括 dom , event-dom , anim 模块的所有功能, 推荐采用 Node 模块"
         },
         {
             "displayName": "overlay",
@@ -441,7 +441,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "ua",
             "name": "ua",
-            "description": "UA模块将UA挂在在全局对象KISSY上，通过 KISSY.UA 的属性，你可以获取浏览器等用户代理的信息。"
+            "description": "UA模块可以获取浏览器等用户代理的信息。"
         },
         {
             "displayName": "url",
@@ -456,7 +456,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "xtemplate",
             "name": "xtemplate",
-            "description": "富逻辑的 KISSY 模板引擎\n兼容 mustache"
+            "description": "富逻辑的模板引擎，可独立使用。更多信息请查看[xtemplate on github](https://github.com/kissyteam/xtemplate)\n兼容 mustache"
         },
         {
             "displayName": "xtemplate/runtime",

@@ -1518,7 +1518,7 @@
             "tag": "module",
             "file": "src/api/node.js",
             "line": 6,
-            "description": "node 包括 dom , event , anim 模块的所有功能, 推荐采用 Node 模块"
+            "description": "node 包括 dom , event-dom , anim 模块的所有功能, 推荐采用 Node 模块"
         },
         "overlay": {
             "name": "overlay",
@@ -1690,8 +1690,11 @@
             "namespaces": {},
             "tag": "module",
             "file": "src/api/ua.js",
-            "line": 6,
-            "description": "UA模块将UA挂在在全局对象KISSY上，通过 KISSY.UA 的属性，你可以获取浏览器等用户代理的信息。"
+            "line": 11,
+            "description": "UA模块可以获取浏览器等用户代理的信息。",
+            "example": [
+                "\n\t\n\trequire(['ua'], function(UA){\n\t\t//use UA\n\t})"
+            ]
         },
         "url": {
             "name": "url",
@@ -1730,7 +1733,7 @@
             "tag": "module",
             "file": "src/api/xtemplate.js",
             "line": 7,
-            "description": "富逻辑的 KISSY 模板引擎\n兼容 mustache"
+            "description": "富逻辑的模板引擎，可独立使用。更多信息请查看[xtemplate on github](https://github.com/kissyteam/xtemplate)\n兼容 mustache"
         }
     },
     "classes": {
@@ -1757,7 +1760,7 @@
                 }
             ],
             "example": [
-                "\n\tmodulex.use(['combobox', 'combobox/multiword'], function(ComboBox, ComboBoxMultiWord){\n\t\tvar myComboBoxMultiWord = new ComboBoxMultiWord({\n\t        render : '#container',\n\t        dataSource : new ComboBox.LocalDataSource({\n\t            data : ['a1234', 'b2345', 'c3456', 'd4567']\n\t        }),\n\t        maxItemCount : 4,\n\t        format : function(query, data){  //自定义下拉菜单属性\n\t            var ret = [];\n\t            for(var i = 0; i < data.length; i++){\n\t                ret[i] = {\n\t                    content:(data[i] + \"\")\n\t                        .replace(query, '<strong>' + query + '</strong>'),\n\t                    disabled:(i % 2 ? true : false)\n\t                }\n\t            }\n\t            return ret;\n\t        }\n\t    })\n\t})"
+                "\n\trequire(['combobox', 'combobox/multiword'], function(ComboBox, ComboBoxMultiWord){\n\t\tvar myComboBoxMultiWord = new ComboBoxMultiWord({\n\t        render : '#container',\n\t        dataSource : new ComboBox.LocalDataSource({\n\t            data : ['a1234', 'b2345', 'c3456', 'd4567']\n\t        }),\n\t        maxItemCount : 4,\n\t        format : function(query, data){  //自定义下拉菜单属性\n\t            var ret = [];\n\t            for(var i = 0; i < data.length; i++){\n\t                ret[i] = {\n\t                    content:(data[i] + \"\")\n\t                        .replace(query, '<strong>' + query + '</strong>'),\n\t                    disabled:(i % 2 ? true : false)\n\t                }\n\t            }\n\t            return ret;\n\t        }\n\t    })\n\t})"
             ]
         },
         "Component.Extension.Align": {
@@ -1855,7 +1858,7 @@
             "is_constructor": 1,
             "extends": "DD.Draggable",
             "example": [
-                "\n```\nKISSY.use('overlay,component/plugin/drag',function(S,Overlay,Drag){\n    new Overlay({\n        plugins:[ new Drag({\n            handlers: ['.ks-overlay-header']\n        }) ]\n    });\n});\n```"
+                "\n```\nrequire(['overlay','component/plugin/drag'],function(Overlay,Drag){\n    new Overlay({\n        plugins:[ new Drag({\n            handlers: ['.ks-overlay-header']\n        }) ]\n    });\n});\n```"
             ]
         },
         "Component.Plugin.Resize": {
@@ -1874,7 +1877,7 @@
             "is_constructor": 1,
             "extends": "Resizable",
             "example": [
-                "\n\n\t//component/plugin/resize 插件需要应用的样式\n\t.ks-overlay .ks-resizable-handler {\n\t    overflow: hidden;\n\t    font-size: 0;\n\t    line-height: 0;\n\t    position: absolute;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-b {\n\t    height: 6px;\n\t    width: 100%; \n\t    bottom: 0;\n\t    left: 0;\n\t    cursor: n-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-t {\n\t    height: 6px;\n\t    width: 100%;\n\t    top: 0;\n\t    left: 0;\n\t    cursor: n-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-l {\n\t    height: 100%;\n\t    -height: expression(this.parentNode.offsetHeight);\n\t    width: 6px; \n\t    top: 0;\n\t    left: 0;\n\t    cursor: e-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-r {\n\t    height: 100%;\n\t    -height: expression(this.parentNode.offsetHeight); \n\t    width: 6px;\n\t    position: absolute;\n\t    top: 0;\n\t    right: 0;\n\t    cursor: e-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-bl {\n\t    height: 6px;\n\t    width: 6px; \n\t    z-index: 1;\n\t    bottom: 0;\n\t    left: 0;\n\t    cursor: sw-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-br {\n\t    height: 6px;\n\t    width: 6px;\n\t    z-index: 1; \n\t    bottom: 0;\n\t    right: 0;\n\t    cursor: se-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-tl {\n\t    height: 6px;\n\t    width: 6px;\n\t    z-index: 1; \n\t    top: 0;\n\t    left: 0;\n\t    cursor: nw-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-tr {\n\t    height: 6px;\n\t    width: 6px;\n\t    z-index: 1; \n\t    top: 0;\n\t    right: 0;\n\t    cursor: ne-resize;\n\t}\n\n\n\tKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n\t    new Overlay({\n\t        plugins:[\n\t            new Resize({\n\t                minWidth:100,\n\t                maxWidth:200,\n\t                handlers:['l','r']\n\t            })\n\t        ]\n\t    });\n\t});"
+                "\n\n\t//component/plugin/resize 插件需要应用的样式\n\t.ks-overlay .ks-resizable-handler {\n\t    overflow: hidden;\n\t    font-size: 0;\n\t    line-height: 0;\n\t    position: absolute;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-b {\n\t    height: 6px;\n\t    width: 100%; \n\t    bottom: 0;\n\t    left: 0;\n\t    cursor: n-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-t {\n\t    height: 6px;\n\t    width: 100%;\n\t    top: 0;\n\t    left: 0;\n\t    cursor: n-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-l {\n\t    height: 100%;\n\t    -height: expression(this.parentNode.offsetHeight);\n\t    width: 6px; \n\t    top: 0;\n\t    left: 0;\n\t    cursor: e-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-r {\n\t    height: 100%;\n\t    -height: expression(this.parentNode.offsetHeight); \n\t    width: 6px;\n\t    position: absolute;\n\t    top: 0;\n\t    right: 0;\n\t    cursor: e-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-bl {\n\t    height: 6px;\n\t    width: 6px; \n\t    z-index: 1;\n\t    bottom: 0;\n\t    left: 0;\n\t    cursor: sw-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-br {\n\t    height: 6px;\n\t    width: 6px;\n\t    z-index: 1; \n\t    bottom: 0;\n\t    right: 0;\n\t    cursor: se-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-tl {\n\t    height: 6px;\n\t    width: 6px;\n\t    z-index: 1; \n\t    top: 0;\n\t    left: 0;\n\t    cursor: nw-resize;\n\t}\n\n\t.ks-overlay .ks-resizable-handler-tr {\n\t    height: 6px;\n\t    width: 6px;\n\t    z-index: 1; \n\t    top: 0;\n\t    right: 0;\n\t    cursor: ne-resize;\n\t}\n\n\n\trequire(['overlay','component/plugin/resize'],function(Overlay,Resize){\n\t    new Overlay({\n\t        plugins:[\n\t            new Resize({\n\t                minWidth:100,\n\t                maxWidth:200,\n\t                handlers:['l','r']\n\t            })\n\t        ]\n\t    });\n\t});"
             ]
         },
         "Component.Container": {
@@ -2024,7 +2027,7 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use('date/popup-picker',function(S, PopupDatePicker){\n    // use PopupDatePicker\n});\n```"
+                "\n```\nrequire(['date/popup-picker'],function(PopupDatePicker){\n    // use PopupDatePicker\n});\n```"
             ]
         },
         "DD.Plugin.Constrain": {
@@ -2049,7 +2052,7 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use(\"dd,dd/plugin/constrain\",function(S,DD,Constrain){\n   new DD.Draggable({\n       node:'#drag',\n       plugins:[ new Constrain({\n           constrain:window // 限制拖动区域为视窗区域\n       }) ]\n   });\n});\n\nKISSY.use(\"dd,dd/plugin/constrain\",function(S,DD,Constrain){\n    var constrain = new Constrain({\n      constrain : '#container' //限制拖动区域为 container 元素\n    });\n    new DD.Draggable({\n        node:'#drag',\n        plugins:[ constrain ]  \n    });\n\n    constrain.set(\"constrain\", \"window\");  //改变限制拖动区域\n });\n ```"
+                "\n```\nrequire(['dd','dd/plugin/constrain'],function(DD,Constrain){\n   new DD.Draggable({\n       node:'#drag',\n       plugins:[ new Constrain({\n           constrain:window // 限制拖动区域为视窗区域\n       }) ]\n   });\n});\n\nrequire('dd', 'dd/plugin/constrain',function(DD,Constrain){\n    var constrain = new Constrain({\n      constrain : '#container' //限制拖动区域为 container 元素\n    });\n    new DD.Draggable({\n        node:'#drag',\n        plugins:[ constrain ]  \n    });\n\n    constrain.set(\"constrain\", \"window\");  //改变限制拖动区域\n });\n ```"
             ]
         },
         "DD.Plugin.Proxy": {
@@ -2075,7 +2078,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['dd', 'dd/plugin/proxy'],function(S, DD, Proxy){\n        var drag=new DD.Draggable({\n            node:'#test-drag',\n            cursor:'move',\n            move:true\n        });\n\n        //使用proxy插件来跟踪鼠标移动\n        drag.plug(Proxy);\n    });"
+                "\n\trequire(['dd', 'dd/plugin/proxy'],function(DD, Proxy){\n        var drag=new DD.Draggable({\n            node:'#test-drag',\n            cursor:'move',\n            move:true\n        });\n\n        //使用proxy插件来跟踪鼠标移动\n        drag.plug(Proxy);\n    });"
             ]
         },
         "DD.Plugin.Scroll": {
@@ -2112,7 +2115,7 @@
             "namespace": "",
             "file": "src/api/event-dom/gesture/basic.js",
             "line": 6,
-            "description": "基本手势事件。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/basic'], function($, GestureBasic){\n\t\t$(window).on(GestureBasic.START, function(ev){\n\t\t\t//touch start...\n\t\t});\n\t\t$(window).on(GestureBasic.MOVE, function(ev){\n\t\t\t//touch move...\n\t\t});\n\t\t$(window).on(GestureBasic.END, function(ev){\n\t\t\t//touch end...\n\t\t});\n\t});",
+            "description": "基本手势事件。引入模块则可以使用相应事件\n\n使用示例：\n\n\trequire(['node', 'event-dom/gesture/basic'], function($, GestureBasic){\n\t\t$(window).on(GestureBasic.START, function(ev){\n\t\t\t//touch start...\n\t\t});\n\t\t$(window).on(GestureBasic.MOVE, function(ev){\n\t\t\t//touch move...\n\t\t});\n\t\t$(window).on(GestureBasic.END, function(ev){\n\t\t\t//touch end...\n\t\t});\n\t});",
             "static": 1
         },
         "GestureEdgePan": {
@@ -2127,7 +2130,7 @@
             "namespace": "",
             "file": "src/api/event-dom/gesture/edge-pan.js",
             "line": 6,
-            "description": "在窗口边缘区域往窗口中心区域拖进的拖动手势事件。当将元素在窗口边缘区域往窗口中心区域拖进时触发，默认边缘区域为窗口上下左右四个方向顶端往窗口中心靠近的 '60px' 的区域。例如，窗口宽度为320，那么横坐标 0~60 和 260~320 这段区域就是边缘区域的一部分，当某元素在这个区域往窗口中心区域拖进时触发事件。\n引入模块则可以使用相应事件。\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/edge-pan', 'dd'], function($, GestureEdgePan, DD){\n\t\tnew DD.Draggable({   //使得 #test 元素能被拖动\n\t\t\tnode : '#test',\n\t\t\tmove:true\n\t\t});\n\n\t\t$('#test').on(GestureEdgePan.EDGE_PAN_START, function(ev){ //在边缘区域往窗口中心区域开始拖进时触发\n\t\t\t//edge pan start...\n\t\t});\n\t\t$('#test').on(GestureEdgePan.EDGE_PAN, function(ev){  //在边缘区域往窗口中心区域拖进中时触发，如果已经超过边缘区域也会一直触发直到放开鼠标\n\t\t\t//edge paning...\n\t\t});\n\t\t$('#test').on(GestureEdgePan.EDGE_PAN_END, function(ev){  //在边缘区域往窗口中心区域拖进，放开鼠标时触发，如果已经超过边缘区域也会一直触发直到放开鼠标\n\t\t\t//edge pan end...\n\t\t});\n\t});",
+            "description": "在窗口边缘区域往窗口中心区域拖进的拖动手势事件。当将元素在窗口边缘区域往窗口中心区域拖进时触发，默认边缘区域为窗口上下左右四个方向顶端往窗口中心靠近的 '60px' 的区域。例如，窗口宽度为320，那么横坐标 0~60 和 260~320 这段区域就是边缘区域的一部分，当某元素在这个区域往窗口中心区域拖进时触发事件。\n引入模块则可以使用相应事件。\n\n使用示例：\n\n\trequire(['node', 'event-dom/gesture/edge-pan', 'dd'], function($, GestureEdgePan, DD){\n\t\tnew DD.Draggable({   //使得 #test 元素能被拖动\n\t\t\tnode : '#test',\n\t\t\tmove:true\n\t\t});\n\n\t\t$('#test').on(GestureEdgePan.EDGE_PAN_START, function(ev){ //在边缘区域往窗口中心区域开始拖进时触发\n\t\t\t//edge pan start...\n\t\t});\n\t\t$('#test').on(GestureEdgePan.EDGE_PAN, function(ev){  //在边缘区域往窗口中心区域拖进中时触发，如果已经超过边缘区域也会一直触发直到放开鼠标\n\t\t\t//edge paning...\n\t\t});\n\t\t$('#test').on(GestureEdgePan.EDGE_PAN_END, function(ev){  //在边缘区域往窗口中心区域拖进，放开鼠标时触发，如果已经超过边缘区域也会一直触发直到放开鼠标\n\t\t\t//edge pan end...\n\t\t});\n\t});",
             "static": 1
         },
         "GesturePan": {
@@ -2142,7 +2145,7 @@
             "namespace": "",
             "file": "src/api/event-dom/gesture/pan.js",
             "line": 6,
-            "description": "拖动手势事件。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/pan'], function($, GesturePan){\n\t\t$('#test').on(GesturePan.PAN_START, function(ev){\n\t\t\t//pan start...\n\t\t});\n\t\t$('#test').on(GesturePan.PAN, function(ev){\n\t\t\t//paning...\n\t\t});\n\t\t$('#test').on(GesturePan.PAN_END, function(ev){\n\t\t\t//pan end...\n\t\t});\n\t});",
+            "description": "拖动手势事件。引入模块则可以使用相应事件\n\n使用示例：\n\n\trequire(['node', 'event-dom/gesture/pan'], function($, GesturePan){\n\t\t$('#test').on(GesturePan.PAN_START, function(ev){\n\t\t\t//pan start...\n\t\t});\n\t\t$('#test').on(GesturePan.PAN, function(ev){\n\t\t\t//paning...\n\t\t});\n\t\t$('#test').on(GesturePan.PAN_END, function(ev){\n\t\t\t//pan end...\n\t\t});\n\t});",
             "static": 1
         },
         "GesturePinch": {
@@ -2157,7 +2160,7 @@
             "namespace": "",
             "file": "src/api/event-dom/gesture/pinch.js",
             "line": 6,
-            "description": "pinch手势事件，触屏上开始用双指调整某个 dom 元素大小时触发。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/pinch'], function($, GesturePinch){\n\t\t$(#test).on(GesturePinch.PINCH_START, function(ev){\n\t\t\t//pinch start...\n\t\t});\n\t\t$(#test).on(GesturePinch.PINCH, function(ev){\n\t\t\t//pinching...\n\t\t});\n\t\t$(#test).on(GesturePinch.PINCH_END, function(ev){\n\t\t\t//pinch end...\n\t\t});\n\t});",
+            "description": "pinch手势事件，触屏上开始用双指调整某个 dom 元素大小时触发。引入模块则可以使用相应事件\n\n使用示例：\n\n\trequire(['node', 'event-dom/gesture/pinch'], function($, GesturePinch){\n\t\t$(#test).on(GesturePinch.PINCH_START, function(ev){\n\t\t\t//pinch start...\n\t\t});\n\t\t$(#test).on(GesturePinch.PINCH, function(ev){\n\t\t\t//pinching...\n\t\t});\n\t\t$(#test).on(GesturePinch.PINCH_END, function(ev){\n\t\t\t//pinch end...\n\t\t});\n\t});",
             "static": 1
         },
         "GestureRotate": {
@@ -2172,7 +2175,7 @@
             "namespace": "",
             "file": "src/api/event-dom/gesture/rotate.js",
             "line": 6,
-            "description": "旋转手势事件，触屏上开始用双指旋转某个 dom 元素大小时触发。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/rotate'], function($, GestureRotate){\n\t\t$(#test).on(GestureRotate.ROTATE_START, function(ev){\n\t\t\t//rotate start...\n\t\t});\n\t\t$(#test).on(GestureRotate.ROTATE, function(ev){\n\t\t\t//rotating...\n\t\t});\n\t\t$(#test).on(GestureRotate.ROTATE_END, function(ev){\n\t\t\t//rotate end...\n\t\t});\n\t});",
+            "description": "旋转手势事件，触屏上开始用双指旋转某个 dom 元素大小时触发。引入模块则可以使用相应事件\n\n使用示例：\n\n\trequire(['node', 'event-dom/gesture/rotate'], function($, GestureRotate){\n\t\t$(#test).on(GestureRotate.ROTATE_START, function(ev){\n\t\t\t//rotate start...\n\t\t});\n\t\t$(#test).on(GestureRotate.ROTATE, function(ev){\n\t\t\t//rotating...\n\t\t});\n\t\t$(#test).on(GestureRotate.ROTATE_END, function(ev){\n\t\t\t//rotate end...\n\t\t});\n\t});",
             "static": 1
         },
         "GestureShake": {
@@ -2187,7 +2190,7 @@
             "namespace": "",
             "file": "src/api/event-dom/gesture/shake.js",
             "line": 6,
-            "description": "摇动手势事件。当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/shake'], function($, GestureShake){\n\t\t$(window).on(GestureShake.SHAKE, function(ev){\n\t\t\t//device is shaked...\n\t});",
+            "description": "摇动手势事件。当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备。引入模块则可以使用相应事件\n\n使用示例：\n\n\trequire(['node', 'event-dom/gesture/shake'], function($, GestureShake){\n\t\t$(window).on(GestureShake.SHAKE, function(ev){\n\t\t\t//device is shaked...\n\t});",
             "static": 1
         },
         "GestureSwipe": {
@@ -2202,7 +2205,7 @@
             "namespace": "",
             "file": "src/api/event-dom/gesture/swipe.js",
             "line": 6,
-            "description": "滑动手势事件。当用户在屏幕上“有效”滑动时触发（足够短的时间内滑动足够的距离）。引入模块则可以使用相应事件\n\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/swipe'], function($, GestureSwipe){\n\t\t$(window).on(GestureSwipe.SWIPE, function(ev){\n\t\t\t//swiped\n\t});",
+            "description": "滑动手势事件。当用户在屏幕上“有效”滑动时触发（足够短的时间内滑动足够的距离）。引入模块则可以使用相应事件\n\n使用示例：\n\n\trequire(['node', 'event-dom/gesture/swipe'], function($, GestureSwipe){\n\t\t$(window).on(GestureSwipe.SWIPE, function(ev){\n\t\t\t//swiped\n\t});",
             "static": 1
         },
         "GestureTap": {
@@ -2217,7 +2220,7 @@
             "namespace": "",
             "file": "src/api/event-dom/gesture/tap.js",
             "line": 6,
-            "description": "点击手势事件\n使用示例：\n\n\tmodulex.use(['node', 'event-dom/gesture/tap'], function($, GestureTap){\n\t\t$('#test').on(GestureTap.TAP, function(ev){\n\t\t\t//taped...\n\t\t})\n\t})",
+            "description": "点击手势事件\n使用示例：\n\n\trequire(['node', 'event-dom/gesture/tap'], function($, GestureTap){\n\t\t$('#test').on(GestureTap.TAP, function(ev){\n\t\t\t//taped...\n\t\t})\n\t})",
             "static": 1
         },
         "NavigationViewBar": {
@@ -2243,7 +2246,7 @@
                 }
             ],
             "example": [
-                "\n\tmodulex.use(['navigation-view', 'component/control'], function(NavigationView, Control){\n\t\tvar navigationView = new NavigationView({\n            loadingHtml: '<div class=\"ks-navigation-view-loading-outer\">' +\n                '<div class=\"ks-navigation-view-loading-inner\"></div>' +\n                '</div>',\n            render: 'body'\n        }).render();\n\n\t\tvar bar = new Bar({\n            navigationView: navigationView,\n            elBefore: navigationView.get('contentEl')\n        }).render();\n\n        var PageView = Control.extend({\n\t\t\tcreateDom : function(){\n\t\t\t\t//your code\n\t\t\t},\n\t\t\tbindUI : function(){\n\t\t\n\t\t\t},\n\t\t\tenter : function(){\n\t\n\t\t\t}\n\t\t\t//....more function\n        },{\n\t\t\txclass : 'page-view'\n        });\n\n        navigationView.push({\n\t\t\txclass : 'page-view',\n\t\t\ttitle : 'PageView Title'\n        });\n\t})"
+                "\n\trequire(['navigation-view', 'component/control'], function(NavigationView, Control){\n\t\tvar navigationView = new NavigationView({\n            loadingHtml: '<div class=\"ks-navigation-view-loading-outer\">' +\n                '<div class=\"ks-navigation-view-loading-inner\"></div>' +\n                '</div>',\n            render: 'body'\n        }).render();\n\n\t\tvar bar = new Bar({\n            navigationView: navigationView,\n            elBefore: navigationView.get('contentEl')\n        }).render();\n\n        var PageView = Control.extend({\n\t\t\tcreateDom : function(){\n\t\t\t\t//your code\n\t\t\t},\n\t\t\tbindUI : function(){\n\t\t\n\t\t\t},\n\t\t\tenter : function(){\n\t\n\t\t\t}\n\t\t\t//....more function\n        },{\n\t\t\txclass : 'page-view'\n        });\n\n        navigationView.push({\n\t\t\txclass : 'page-view',\n\t\t\ttitle : 'PageView Title'\n        });\n\t})"
             ]
         },
         "Resizable.Plugin.Proxy": {
@@ -2269,7 +2272,7 @@
                 }
             ],
             "example": [
-                "\n\t//css\n\t.ks-resizable-proxy {\n\t    border: 1px dashed #426FD9;\n\t    position: absolute;\n\t}\n\n\t//js\n\tKISSY.use(['node', 'resizable', 'resizable/plugin/proxy'], function(S, $, Resizable, ResizableProxy) {\n\t    var r = new Resizable({\n\t        node:\"#something-can-resize\",\n\t        // 指定可拖动的位置\n\t        handlers:[\"b\",\"t\",\"r\",\"l\",\"tr\",\"tl\",\"br\",\"bl\"],\n\t        // 可选, 设置最小/最大 宽高\n\t        minHeight:100,\n\t        minWidth:100,\n\t        maxHeight:300,\n\t        maxWidth:400,\n            plugins : [\n                new ResizableProxy({\n                    destroyOnEnd:true,\n                    hideNodeOnResize:false\n                })\n            ]\n\t    });\n\t});"
+                "\n\t//css\n\t.ks-resizable-proxy {\n\t    border: 1px dashed #426FD9;\n\t    position: absolute;\n\t}\n\n\t//js\n\trequire(['node', 'resizable', 'resizable/plugin/proxy'], function($, Resizable, ResizableProxy) {\n\t    var r = new Resizable({\n\t        node:\"#something-can-resize\",\n\t        // 指定可拖动的位置\n\t        handlers:[\"b\",\"t\",\"r\",\"l\",\"tr\",\"tl\",\"br\",\"bl\"],\n\t        // 可选, 设置最小/最大 宽高\n\t        minHeight:100,\n\t        minWidth:100,\n\t        maxHeight:300,\n\t        maxWidth:400,\n            plugins : [\n                new ResizableProxy({\n                    destroyOnEnd:true,\n                    hideNodeOnResize:false\n                })\n            ]\n\t    });\n\t});"
             ]
         },
         "ScrollView.Plugin.PullToRefresh": {
@@ -2295,7 +2298,7 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use(['node', 'scroll-view', 'scroll-view/plugin/scrollbar', 'scroll-view/plugin/pull-to-refresh'], function (S, $, ScrollView, ScrollbarPlugin, PullToRefresh) {\n    var str = '',\n        num = 1;\n    for (; num < 40; num++) {\n        str += '<p>line ' + num + '</p>'\n    }\n    $('#thelist').html(str);\n\n    var scrollView = new ScrollView({\n        srcNode: '#wrapper',\n        plugins: [ ScrollbarPlugin,\n            new PullToRefresh({\n                pullUpLoadFn: function (callback) {  //滚动到低端后继续上拉将进入这个函数\n                    setTimeout(function () {\n                        scrollView.get('contentEl')\n                                .append('<p>line ' + num++ + '</p>');\n                        scrollView.sync();\n                        callback();\n                    }, 500);\n                },\n                pullingUpHtml : '上拉刷新',\n                releasingUpHtml : '松手加载',\n                loadingUpHtml : '正在努力加载...',\n                pullDownLoadFn : function(callback){  //滚动到顶端后继续下拉将进入这个函数\n                    setTimeout(function () {\n                        scrollView.get('contentEl')\n                                .prepend('<p>line ' + num++ + '</p>');\n                        scrollView.sync();\n                        callback();\n                    }, 500);\n                }\n            })\n        ]\n    }).render();\n});\n```"
+                "\n```\nrequire(['node', 'scroll-view', 'scroll-view/plugin/scrollbar', 'scroll-view/plugin/pull-to-refresh'], function ($, ScrollView, ScrollbarPlugin, PullToRefresh) {\n    var str = '',\n        num = 1;\n    for (; num < 40; num++) {\n        str += '<p>line ' + num + '</p>'\n    }\n    $('#thelist').html(str);\n\n    var scrollView = new ScrollView({\n        srcNode: '#wrapper',\n        plugins: [ ScrollbarPlugin,\n            new PullToRefresh({\n                pullUpLoadFn: function (callback) {  //滚动到低端后继续上拉将进入这个函数\n                    setTimeout(function () {\n                        scrollView.get('contentEl')\n                                .append('<p>line ' + num++ + '</p>');\n                        scrollView.sync();\n                        callback();\n                    }, 500);\n                },\n                pullingUpHtml : '上拉刷新',\n                releasingUpHtml : '松手加载',\n                loadingUpHtml : '正在努力加载...',\n                pullDownLoadFn : function(callback){  //滚动到顶端后继续下拉将进入这个函数\n                    setTimeout(function () {\n                        scrollView.get('contentEl')\n                                .prepend('<p>line ' + num++ + '</p>');\n                        scrollView.sync();\n                        callback();\n                    }, 500);\n                }\n            })\n        ]\n    }).render();\n});\n```"
             ]
         },
         "ScrollView.Plugin.ScrollBar": {
@@ -2321,7 +2324,7 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use('scroll-view,scroll-view/plugin/scrollbar', function (S, ScrollView, ScrollbarPlugin) {\n    var scrollView = new ScrollView({\n        width: 320,\n        height: 219,\n        plugins: [new ScrollbarPlugin({\n            autoHideX: true,\n            autoHideY: false\n        })],\n        content: content\n    }).render();\n}\n```"
+                "\n```\nrequire(['scroll-view','scroll-view/plugin/scrollbar'], function (ScrollView, ScrollbarPlugin) {\n    var scrollView = new ScrollView({\n        width: 320,\n        height: 219,\n        plugins: [new ScrollbarPlugin({\n            autoHideX: true,\n            autoHideY: false\n        })],\n        content: content\n    }).render();\n}\n```"
             ]
         },
         "ScrollView": {
@@ -2346,7 +2349,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['scroll-view'], function(S, ScrollView){\n        var content = '';\n        for (var i = 0; i < 10; i++) {\n            content += '<p>This is ' + i + ' block</p>';\n        }\n        var myScrollView = new ScrollView({\n            width : 318,\n            height : 300,\n            render : '#scroll-view-contaienr',\n            content : content\n        });\n        myScrollView.render();\n    })"
+                "\n\trequire(['scroll-view'], function(ScrollView){\n        var content = '';\n        for (var i = 0; i < 10; i++) {\n            content += '<p>This is ' + i + ' block</p>';\n        }\n        var myScrollView = new ScrollView({\n            width : 318,\n            height : 300,\n            render : '#scroll-view-contaienr',\n            content : content\n        });\n        myScrollView.render();\n    })"
             ]
         },
         "XTemplate.RunTime": {
@@ -2375,7 +2378,7 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use('xtemplate',function(S,XTemplate){\n    // use XTemplate\n});\n\n// 参数只能是离线编译过的模板\nKISSY.use('xtemplate/runtime',function(S,XTemplateRunTime){\n    // use XTemplateRunTime\n});\n```\n### Note\n如果引用的是xtemplate/runtime模块，参数则只能是离线编译过的模板，其他配置和方法一样"
+                "\n```\nrequire(['xtemplate'],function(XTemplate){\n    // use XTemplate\n});\n\n// 参数只能是离线编译过的模板\nrequire(['xtemplate/runtime'],function(XTemplateRunTime){\n    // use XTemplateRunTime\n});\n```\n### Note\n如果引用的是xtemplate/runtime模块，参数则只能是离线编译过的模板，其他配置和方法一样"
             ]
         },
         "Anim": {
@@ -2452,7 +2455,7 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use('base', function(S, Base) {\n    var myClass = Base.extend({},{\n        ATTRS : {\n            size: {\n                value: 0,\n                setter: function(v) {\n                    if (S.isString(v) && v.indexOf('inch')!== -1) {\n                        return parseFloat(v)*10/3;\n                    }\n                    return parseFloat(v);\n                },\n                getter: function(v) {\n                    return v;\n                }\n            }\n        }\n     });\n\n    var cls = new myClass();\n\n    // 绑定事件\n    cls.on('afterSizeChange', function(ev){\n        console.log('change '+ ev.attrName + ': '+ev.prevVal+' --> '+ev.newVal);\n    });\n\n    // 设置属性\n    cls.set('size', 20);\n\n    // 获取属性\n    alert(cls.get('size'));\n\n    // 重置\n    cls.reset();\n    alert(cls.get('size'));\n});\n```"
+                "\n```\nrequire(['base'], function(Base) {\n    var myClass = Base.extend({},{\n        ATTRS : {\n            size: {\n                value: 0,\n                setter: function(v) {\n                    if (S.isString(v) && v.indexOf('inch')!== -1) {\n                        return parseFloat(v)*10/3;\n                    }\n                    return parseFloat(v);\n                },\n                getter: function(v) {\n                    return v;\n                }\n            }\n        }\n     });\n\n    var cls = new myClass();\n\n    // 绑定事件\n    cls.on('afterSizeChange', function(ev){\n        console.log('change '+ ev.attrName + ': '+ev.prevVal+' --> '+ev.newVal);\n    });\n\n    // 设置属性\n    cls.set('size', 20);\n\n    // 获取属性\n    alert(cls.get('size'));\n\n    // 重置\n    cls.reset();\n    alert(cls.get('size'));\n});\n```"
             ]
         },
         "Button": {
@@ -2477,7 +2480,7 @@
                 }
             ],
             "example": [
-                "\n\t//首先引入KISSY提供的base样式和button样式 http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css 和 http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css\n\t\n\tKISSY.use('button', function(S, Button){\n\t\tvar button1 = new Button({\n\t\t\tcontent : 'ButtonContent',\n\t\t\trender : '#container',\n\t\t\twidth : '150px',\n\t\t\telCls : 'ks-button-success'\n\t\t});\n\t\tbutton1.render();\n\t})\t"
+                "\n\t//首先引入KISSY提供的base样式和button样式 http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css 和 http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css\n\t\n\trequire(['button'], function(Button){\n\t\tvar button1 = new Button({\n\t\t\tcontent : 'ButtonContent',\n\t\t\trender : '#container',\n\t\t\twidth : '150px',\n\t\t\telCls : 'ks-button-success'\n\t\t});\n\t\tbutton1.render();\n\t})\t"
             ]
         },
         "Color": {
@@ -2523,7 +2526,7 @@
                 }
             ],
             "example": [
-                "\n```\nmodulex.use(['combobox'], function(ComboBox){\n    var basicComboBox = new ComboBox({\n        render : '#container',\n        dataSource : new ComboBox.LocalDataSource({\n            data : ['a1234', 'b2345', 'c3456', 'd4567']\n        }),\n        maxItemCount : 4,\n        format : function(query, data){  //自定义下拉菜单属性\n            var ret = [];\n            for(var i = 0; i < data.length; i++){\n                ret[i] = {\n                    content:(data[i] + \"\")\n                        .replace(query, '<strong>' + query + '</strong>'),\n                    disabled:(i % 2 ? true : false)\n                }\n            }\n            return ret;\n        }\n    })\n})\n```"
+                "\n```\nrequire(['combobox'], function(ComboBox){\n    var basicComboBox = new ComboBox({\n        render : '#container',\n        dataSource : new ComboBox.LocalDataSource({\n            data : ['a1234', 'b2345', 'c3456', 'd4567']\n        }),\n        maxItemCount : 4,\n        format : function(query, data){  //自定义下拉菜单属性\n            var ret = [];\n            for(var i = 0; i < data.length; i++){\n                ret[i] = {\n                    content:(data[i] + \"\")\n                        .replace(query, '<strong>' + query + '</strong>'),\n                    disabled:(i % 2 ? true : false)\n                }\n            }\n            return ret;\n        }\n    })\n})\n```"
             ]
         },
         "ComboBox.LocalDataSource": {
@@ -2548,7 +2551,7 @@
                 }
             ],
             "example": [
-                "\n    \n```\nmodulex.use(['combobox'], function(ComboBox){\n    var basicComboBox = new ComboBox({\n        render : '#container',\n        dataSource : new ComboBox.LocalDataSource({\n            data : ['a1234', 'b2345', 'c3456', 'd4567']\n        }),\n        maxItemCount : 4,\n        format : function(query, data){  //自定义下拉菜单属性\n            var ret = [];\n            for(var i = 0; i < data.length; i++){\n                ret[i] = {\n                    content:(data[i] + \"\")\n                        .replace(query, '<strong>' + query + '</strong>'),\n                    disabled:(i % 2 ? true : false)\n                }\n            }\n            return ret;\n        }\n    })\n})\n```"
+                "\n    \n```\nrequire(['combobox'], function(ComboBox){\n    var basicComboBox = new ComboBox({\n        render : '#container',\n        dataSource : new ComboBox.LocalDataSource({\n            data : ['a1234', 'b2345', 'c3456', 'd4567']\n        }),\n        maxItemCount : 4,\n        format : function(query, data){  //自定义下拉菜单属性\n            var ret = [];\n            for(var i = 0; i < data.length; i++){\n                ret[i] = {\n                    content:(data[i] + \"\")\n                        .replace(query, '<strong>' + query + '</strong>'),\n                    disabled:(i % 2 ? true : false)\n                }\n            }\n            return ret;\n        }\n    })\n})\n```"
             ]
         },
         "ComboBox.RemoteDataSource": {
@@ -2573,7 +2576,7 @@
                 }
             ],
             "example": [
-                "\n    modulex.use(['combobox'], function(ComboBox){\n        var combobox = new ComboBox({\n            srcNode : '#combobox',\n            placeholder : 'input..',\n            prefixCls : 'search-',\n            dataSource : new ComboBox.RemoteDataSource({  //从淘宝获取数据\n                xhrCfg: {\n                    url: 'http://suggest.taobao.com/sug',\n                    dataType: 'jsonp',\n                    data: {\n                        k: 1,\n                        code: \"utf-8\"\n                    }\n                },\n                paramName: \"q\",\n                parse: function (query, results) {\n                    // 返回结果对象数组\n                    return results.result;\n                },\n                cache: true\n            }),\n            format : function(query, data){  //自定义下拉菜单属性\n                var ret = [];\n                for(var i = 0; i < data.length; i++){\n                    ret[i] = {\n                        content : data[i][0].replace(query, '<span class=\"item-text\">' + query + '</span>'),\n                        textContent : data[i][0]\n                    };\n                }\n                return ret;\n            }\n        });\n        combobox.render();\n    })"
+                "\n    require(['combobox'], function(ComboBox){\n        var combobox = new ComboBox({\n            srcNode : '#combobox',\n            placeholder : 'input..',\n            prefixCls : 'search-',\n            dataSource : new ComboBox.RemoteDataSource({  //从淘宝获取数据\n                xhrCfg: {\n                    url: 'http://suggest.taobao.com/sug',\n                    dataType: 'jsonp',\n                    data: {\n                        k: 1,\n                        code: \"utf-8\"\n                    }\n                },\n                paramName: \"q\",\n                parse: function (query, results) {\n                    // 返回结果对象数组\n                    return results.result;\n                },\n                cache: true\n            }),\n            format : function(query, data){  //自定义下拉菜单属性\n                var ret = [];\n                for(var i = 0; i < data.length; i++){\n                    ret[i] = {\n                        content : data[i][0].replace(query, '<span class=\"item-text\">' + query + '</span>'),\n                        textContent : data[i][0]\n                    };\n                }\n                return ret;\n            }\n        });\n        combobox.render();\n    })"
             ]
         },
         "Cookie": {
@@ -2614,7 +2617,7 @@
                 }
             ],
             "example": [
-                "\n\n\tKISSY.use(['dd'],function(S, DD){\n        var drag=new DD.Draggable({\n            node:'#test-drag',\n            cursor:'move',\n            move:true\n        });\n    });"
+                "\n\n\trequire(['dd'],function(DD){\n        var drag=new DD.Draggable({\n            node:'#test-drag',\n            cursor:'move',\n            move:true\n        });\n    });"
             ]
         },
         "DD.Droppable": {
@@ -2640,7 +2643,7 @@
                 }
             ],
             "example": [
-                "\n\n\tKISSY.use(['dd'], function(S, DD){\n\t\tvar Droppable = DD.Droppable;\n\t\tvar drop = new Droppable({\n\t\t\tnode : '#dropArea'\n\t\t});\n\t\tdrop.on('drophit', function(ev){\n\t\t\t//do something\n\t\t})\n\t})"
+                "\n\n\trequire(['dd'], function(DD){\n\t\tvar Droppable = DD.Droppable;\n\t\tvar drop = new Droppable({\n\t\t\tnode : '#dropArea'\n\t\t});\n\t\tdrop.on('drophit', function(ev){\n\t\t\t//do something\n\t\t})\n\t})"
             ]
         },
         "DD.DDM": {
@@ -2655,7 +2658,7 @@
             "namespace": "DD",
             "file": "src/api/dd.js",
             "line": 233,
-            "description": "拖放的中央控制对象, 所有的拖放实例的事件都会向其冒泡，通常用来监听所有拖放示例的事件做相应处理\n\n\tKISSY.use(['dd'], function(S, DD){\n\t\tvar DDM = DD.DDM;\n\t\n\t\t\tDDM.on('dragstart', function(ev){\n\t\t\t\t//do something\n\t\t\t});\n\t\t\tDDM.on('dragend', function(ev){\n\t\t\t\t//do something\n\t\t\t});\n\t})",
+            "description": "拖放的中央控制对象, 所有的拖放实例的事件都会向其冒泡，通常用来监听所有拖放示例的事件做相应处理\n\n\trequire(['dd'], function(DD){\n\t\tvar DDM = DD.DDM;\n\t\n\t\t\tDDM.on('dragstart', function(ev){\n\t\t\t\t//do something\n\t\t\t});\n\t\t\tDDM.on('dragend', function(ev){\n\t\t\t\t//do something\n\t\t\t});\n\t})",
             "extends": "Base",
             "static": 1
         },
@@ -2682,7 +2685,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['dd'],function(S, DD){\n\t\tvar DraggableDelegate = DD.DraggableDelegate;\n\t\tnew DraggableDelegate({\n            container:\"#container3\",\n            handlers:['.cheader'],\n            selector:'.component',\n            move:true\n        });\n\t})"
+                "\n\trequire(['dd'],function(DD){\n\t\tvar DraggableDelegate = DD.DraggableDelegate;\n\t\tnew DraggableDelegate({\n            container:\"#container3\",\n            handlers:['.cheader'],\n            selector:'.component',\n            move:true\n        });\n\t})"
             ]
         },
         "DD.DroppableDelegate": {
@@ -2746,7 +2749,7 @@
                 }
             ],
             "example": [
-                "\n    KISSY.use('node,editor,kg/editor-plugins/1.1.2/font-size,kg/editor-plugins/1.1.2/source-area,kg/editor-plugins/1.1.2/image', function(S, Node, Editor, FontSize, SourceArea, Image){\n        var myEditor = new Editor({\n            focused : true,\n            attachForm : true,\n            render : '#editorContainer',\n            width : '500px',\n            height : '500px',\n            plugins : [\n                FontSize,\n                SourceArea,\n                new Image({\n                    upload : {\n                        serverUrl: 'http://youurl.php',\n                        serverParams: {\n                            waterMark: function () {\n                                return Node.one(\"#ke_img_up_watermark_1\")[0].checked;\n                            }\n                        },\n                        suffix: \"png,jpg,jpeg,gif\",\n                        fileInput: \"Filedata\",\n                        sizeLimit: 1000, //k\n                        extraHTML: \"<p style='margin-top:10px;'><input type='checkbox' id='ke_img_up_watermark_1' checked='checked'> 图片加水印，防止别人盗用</p>\"\n                    }\n                })\n            ]\n        });\n    })"
+                "\n    require(['node','editor,'kg/editor-plugins/1.1.2/font-size','kg/editor-plugins/1.1.2/source-area','kg/editor-plugins/1.1.2/image'], function(Node, Editor, FontSize, SourceArea, Image){\n        var myEditor = new Editor({\n            focused : true,\n            attachForm : true,\n            render : '#editorContainer',\n            width : '500px',\n            height : '500px',\n            plugins : [\n                FontSize,\n                SourceArea,\n                new Image({\n                    upload : {\n                        serverUrl: 'http://youurl.php',\n                        serverParams: {\n                            waterMark: function () {\n                                return Node.one(\"#ke_img_up_watermark_1\")[0].checked;\n                            }\n                        },\n                        suffix: \"png,jpg,jpeg,gif\",\n                        fileInput: \"Filedata\",\n                        sizeLimit: 1000, //k\n                        extraHTML: \"<p style='margin-top:10px;'><input type='checkbox' id='ke_img_up_watermark_1' checked='checked'> 图片加水印，防止别人盗用</p>\"\n                    }\n                })\n            ]\n        });\n    })"
             ]
         },
         "CustomEvent.Target": {
@@ -2764,7 +2767,7 @@
             "namespace": "CustomEvent",
             "file": "src/api/event-custom.js",
             "line": 7,
-            "description": "通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件。此外，如果要自定义事件也可以直接拓展 Base。\n\n__Note__\n\n注意 CustomEvent.Target 仅用于 mix/augment ，不可以直接使用。使用示例：\n```\nmodulex.use(['util', 'event-custom'], function(Util, CustomEvent){\n\tfunction Dog(name){\n\t\tthis.name = name;\n\t}\n\tUtil.augment(Dog, CustomEvent.Target, {\n\t\tshout : function(){\n\t\t\tthis.fire('shout',{\n\t\t\t\tcontent : 'I am hungry...'\n\t\t\t});\n\t\t}\n\t});\n\tvar myDog = new Dog('cuteDog');\n\tmyDog.on('shout', function(ev){\n\t\talert(this.name + 'say that ' + ev.conent);\n\t});\n\n\tmyDog.shout();\n})\n\n```"
+            "description": "通过将该对象混入普通对象就可以使得普通对象和 dom 节点一样也能触发, 添加和删除事件。此外，如果要自定义事件也可以直接拓展 Base。\n\n__Note__\n\n注意 CustomEvent.Target 仅用于 mix/augment ，不可以直接使用。使用示例：\n```\nrequire(['util', 'event-custom'], function(Util, CustomEvent){\n\tfunction Dog(name){\n\t\tthis.name = name;\n\t}\n\tUtil.augment(Dog, CustomEvent.Target, {\n\t\tshout : function(){\n\t\t\tthis.fire('shout',{\n\t\t\t\tcontent : 'I am hungry...'\n\t\t\t});\n\t\t}\n\t});\n\tvar myDog = new Dog('cuteDog');\n\tmyDog.on('shout', function(ev){\n\t\talert(this.name + 'say that ' + ev.conent);\n\t});\n\n\tmyDog.shout();\n})\n\n```"
         },
         "DomEvent": {
             "name": "DomEvent",
@@ -2778,7 +2781,7 @@
             "namespace": "",
             "file": "src/api/event-dom.js",
             "line": 6,
-            "description": "处理 DOM 事件。DomEvent处理标准的event事件，除此之外还拓展了下面介绍的 Events \n```\nmodulex.use('event-dom', function(DomEvent){\n    DomEvent.on(document.body,{\n        'click':{\n            fn:function(){\n                alert('hello,kissy..');\n            },\n            // filter: '', // delegate,\n            once:true // 绑定一次\n        },\n        'mouseenter':function(){}\n    });\n\n    //写法相当于\n    DomEvent.on(document.body, 'click', function(){\n\t\talert('hello,kissy..');\n    })\n})\n```",
+            "description": "处理 DOM 事件。DomEvent处理标准的event事件，除此之外还拓展了下面介绍的 Events \n```\nrequire('event-dom', function(DomEvent){\n    DomEvent.on(document.body,{\n        'click':{\n            fn:function(){\n                alert('hello,kissy..');\n            },\n            // filter: '', // delegate,\n            once:true // 绑定一次\n        },\n        'mouseenter':function(){}\n    });\n\n    //写法相当于\n    DomEvent.on(document.body, 'click', function(){\n\t\talert('hello,kissy..');\n    })\n})\n```",
             "static": 1
         },
         "Feature": {
@@ -2793,7 +2796,7 @@
             "namespace": "",
             "file": "src/api/feature.js",
             "line": 6,
-            "description": "硬件环境关键特性检测，这类功能通常在判断硬件环境时使用，如：\n```\nKISSY.use('feature', function(S, Feature){\n\tif(Feature.isIELessThan(9)){\n\t\t//do something\n\t}\n})\n```",
+            "description": "硬件环境关键特性检测，这类功能通常在判断硬件环境时使用，如：\n```\nrequire(['feature'], function(Feature){\n\tif(Feature.isIELessThan(9)){\n\t\t//do something\n\t}\n})\n```",
             "static": 1
         },
         "FilterMenu": {
@@ -2819,7 +2822,7 @@
                 }
             ],
             "example": [
-                "\n\t//从已存在html节点生成\n\tKISSY.use('filter-menu', function(S, FilterMenu){\n        var filterMenu = new FilterMenu({\n            srcNode: '#filterMenuExist',\n            width: 200,\n           \tallowMultiple : true\n        });\n\n        filterMenu.render();\n\t})\n\n\t//全新节点生成\n\tKISSY.use('menu,filter-menu', function(S, Menu, FilterMenu){\n\t\tvar m1 = new Menu.Item({\n            selectable: true,\n            content: \"女鞋\",\n            pinyin: \"nx\"\n        });\n        var m4 = new Menu.Item({\n\n            selectable: true,\n            content: \"女装女服\",\n            pinyin: \"nznf\"\n        });\n        var m2 = new Menu.Item({\n\n            selectable: true, content: \"家居服务\",\n            elCls: \"hasChildren\",\n            pinyin: \"jjfw\"\n        });\n        var m3 = new Menu.Item({\n\n            selectable: true,\n            content: \"手机\",\n            elCls: \"hasChildren\",\n            pinyin: \"sj\"\n        });\n\n        var filterMenu = new FilterMenu({\n            render: \"#container\",\n            width: 500,\n            placeholder: \"请输入中文或简拼\"\n        });\n        filterMenu.addChild(m1);\n        filterMenu.addChild(m2);\n        filterMenu.addChild(m3);\n        filterMenu.addChild(m4);\n        \n        filterMenu.render();\n\t})"
+                "\n\t//从已存在html节点生成\n\trequire(['filter-menu'], function(FilterMenu){\n        var filterMenu = new FilterMenu({\n            srcNode: '#filterMenuExist',\n            width: 200,\n           \tallowMultiple : true\n        });\n\n        filterMenu.render();\n\t})\n\n\t//全新节点生成\n\trequire(['menu','filter-menu'], function(Menu, FilterMenu){\n\t\tvar m1 = new Menu.Item({\n            selectable: true,\n            content: \"女鞋\",\n            pinyin: \"nx\"\n        });\n        var m4 = new Menu.Item({\n\n            selectable: true,\n            content: \"女装女服\",\n            pinyin: \"nznf\"\n        });\n        var m2 = new Menu.Item({\n\n            selectable: true, content: \"家居服务\",\n            elCls: \"hasChildren\",\n            pinyin: \"jjfw\"\n        });\n        var m3 = new Menu.Item({\n\n            selectable: true,\n            content: \"手机\",\n            elCls: \"hasChildren\",\n            pinyin: \"sj\"\n        });\n\n        var filterMenu = new FilterMenu({\n            render: \"#container\",\n            width: 500,\n            placeholder: \"请输入中文或简拼\"\n        });\n        filterMenu.addChild(m1);\n        filterMenu.addChild(m2);\n        filterMenu.addChild(m3);\n        filterMenu.addChild(m4);\n        \n        filterMenu.render();\n\t})"
             ]
         },
         "IO": {
@@ -2845,7 +2848,7 @@
                 }
             ],
             "example": [
-                "\n载入并执行一段脚本\n```\nnew IO({\n   type: \"GET\",\n   url: \"test.js\",\n   dataType: \"script\"\n });\n ```\n 发送数据给服务器，服务器返回后通知用户\n ```\n new IO({\n   type: \"POST\",\n   url: \"some.php\",\n   data: {\n    x:'y'\n   },\n   success: function(msg){\n     alert( \"Data Saved: \" + msg );\n   }\n });\n ```\n 取得最新的 html 并显示\n ```\n new IO({\n  url: \"test.html\",\n  cache: false,\n  success: function(html){\n    KISSY.one(\"#results\").html(html);\n  }\n});\n```\n发送 xml 文档给服务器\n```\nvar xmlDocument=S.parseXML(\"<a>h</a>\");\n\nnew IO({\n   url: \"page.php\",\n   processData: false,\n   contentType:'text/xml',\n   data: xmlDocument,\n   type:'post'\n });\n ```\n 通过 xhr 发送 form 内容,自动序列化 form 为查询串通过 xhr 发送给服务器端\n ```\n <form>\n    <input name='test' value='v' />\n</form>\n\n<script>\n    new IO({\n        url:'send.php',\n        form:'#test',\n        type:'post',\n        dataType:'json',\n        success:function(d,s,xhr){\n            alert('success');\n        }\n    });\n</script>\n```"
+                "\n载入并执行一段脚本\n```\nnew IO({\n   type: \"GET\",\n   url: \"test.js\",\n   dataType: \"script\"\n });\n ```\n 发送数据给服务器，服务器返回后通知用户\n ```\n new IO({\n   type: \"POST\",\n   url: \"some.php\",\n   data: {\n    x:'y'\n   },\n   success: function(msg){\n     alert( \"Data Saved: \" + msg );\n   }\n });\n ```\n 取得最新的 html 并显示\n ```\n new IO({\n  url: \"test.html\",\n  cache: false,\n  success: function(html){\n    $(\"#results\").html(html);\n  }\n});\n```\n发送 xml 文档给服务器\n```\nvar xmlDocument=S.parseXML(\"<a>h</a>\");\n\nnew IO({\n   url: \"page.php\",\n   processData: false,\n   contentType:'text/xml',\n   data: xmlDocument,\n   type:'post'\n });\n ```\n 通过 xhr 发送 form 内容,自动序列化 form 为查询串通过 xhr 发送给服务器端\n ```\n <form>\n    <input name='test' value='v' />\n</form>\n\n<script>\n    new IO({\n        url:'send.php',\n        form:'#test',\n        type:'post',\n        dataType:'json',\n        success:function(d,s,xhr){\n            alert('success');\n        }\n    });\n</script>\n```"
             ]
         },
         "Json": {
@@ -2885,7 +2888,7 @@
                 }
             ],
             "example": [
-                "\n\t//先引入样式文件：\n\t//http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css\n\t//http://g.tbcdn.cn/kissy/edge/2014.07.16/menu/assets/dpl.css\n\tKISSY.use(['menu', 'separator'], function(S, Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
+                "\n\t//先引入样式文件：\n\t//http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css\n\t//http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/menu/assets/dpl.css\n\trequire(['menu', 'separator'], function(Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
             ]
         },
         "Menu.Item": {
@@ -2911,7 +2914,7 @@
                 }
             ],
             "example": [
-                "\n    KISSY.use(['menu'], function(S, Menu){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
+                "\n    require(['menu'], function(Menu){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
             ]
         },
         "Menu.SubMenu": {
@@ -2937,7 +2940,7 @@
                 }
             ],
             "example": [
-                "\n    KISSY.use(['menu', 'separator'], function(S, Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',  //通过 xclass 来生产 Menu.SubMenu\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
+                "\n    require(['menu', 'separator'], function(Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',  //通过 xclass 来生产 Menu.SubMenu\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
             ]
         },
         "Menu.PopupMenu": {
@@ -2968,7 +2971,7 @@
                 }
             ],
             "example": [
-                "    \n    KISSY.use(['menu', 'separator'], function(S, Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
+                "    \n    require(['menu', 'separator'], function(Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
             ]
         },
         "Menu.CheckItem": {
@@ -2994,7 +2997,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['menu', 'separator'], function(S, Menu, Separator){\n        new Menu({\n            render:\"#container\",\n            width : 150,\n            children:[\n                {\n                    xclass:'check-menuitem',\n                    content:\"checkable menuitem\"\n                },\n                {\n                    xclass:'separator'\n                },\n                {\n                    xclass:'submenu',\n                    content:'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children:[\n                            {\n                                xclass:'check-menuitem',\n                                content:\"checkable menuitem1\"\n                            },\n                            {\n                                xclass:'check-menuitem',\n                                content:\"checkable menuitem2\"\n                            }\n                        ]\n                    })\n                }\n            ]\n        }).render();\n    });"
+                "\n\trequire(['menu', 'separator'], function(Menu, Separator){\n        new Menu({\n            render:\"#container\",\n            width : 150,\n            children:[\n                {\n                    xclass:'check-menuitem',\n                    content:\"checkable menuitem\"\n                },\n                {\n                    xclass:'separator'\n                },\n                {\n                    xclass:'submenu',\n                    content:'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children:[\n                            {\n                                xclass:'check-menuitem',\n                                content:\"checkable menuitem1\"\n                            },\n                            {\n                                xclass:'check-menuitem',\n                                content:\"checkable menuitem2\"\n                            }\n                        ]\n                    })\n                }\n            ]\n        }).render();\n    });"
             ]
         },
         "Menu.RadioItem": {
@@ -3020,7 +3023,7 @@
             ],
             "extends": "Menu.Item",
             "example": [
-                "\n    KISSY.use(['menu', 'separator'], function(S, Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.RadioItem({  //通过构造器来生成 Menu.RadioItem 单选节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'radio-menuitem',  //通过xclass来生成 Menu.RadioItem 单选节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'radio-menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'radio-menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
+                "\n    require(['menu', 'separator'], function(Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.RadioItem({  //通过构造器来生成 Menu.RadioItem 单选节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'radio-menuitem',  //通过xclass来生成 Menu.RadioItem 单选节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'radio-menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'radio-menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
             ]
         },
         "MenuButton": {
@@ -3046,7 +3049,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){\n        var myMenuButton1 = new MenuButton({  //全新生成节点\n            content : '我的淘宝',\n            render : '#container',\n            matchElWidth : false,\n            menu : {\n                xclass : 'popupmenu',\n                children : [\n                    {\n                        xclass : 'menuitem',   //通过xclass来生成menuitem\n                        content : '已买到的宝贝'\n                    },\n                    new Menu.Item({            //通过构造器来生成menuitem\n                        content : '已卖出的宝贝'\n                    })\n                ],\n                listeners : {\n                    click : function(ev){\n                        S.log(ev.target.get('content'));\n                    }\n                }\n            }\n        });\n        myMenuButton1.render();\n    });"
+                "\n\trequire(['menu', 'menubutton'], function(Menu, MenuButton){\n        var myMenuButton1 = new MenuButton({  //全新生成节点\n            content : '我的淘宝',\n            render : '#container',\n            matchElWidth : false,\n            menu : {\n                xclass : 'popupmenu',\n                children : [\n                    {\n                        xclass : 'menuitem',   //通过xclass来生成menuitem\n                        content : '已买到的宝贝'\n                    },\n                    new Menu.Item({            //通过构造器来生成menuitem\n                        content : '已卖出的宝贝'\n                    })\n                ],\n                listeners : {\n                    click : function(ev){\n                        S.log(ev.target.get('content'));\n                    }\n                }\n            }\n        });\n        myMenuButton1.render();\n    });"
             ]
         },
         "MenuButton.Select": {
@@ -3072,7 +3075,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){\n\t\t// 调用 MenuButton.Select.decorate 接口替换已有的 select 元素\n        var select = MenuButton.Select.decorate('#decorateSelect', {\n            width:80,\n            prefixCls:\"c2c-\",  //自定义的c2c主题样式\n            // 设置对齐方式, 与普通的 Align 大体一致\n            // 该配置同菜单配置项\n            menu:{\n                align:{\n                    points : ['bl', 'tl'],  //默认就是这个配置，可写可不写，或根据需要进行自定义定位\n                    offset:[0, -1]\n                },\n                height:150,\n                elStyle:{\n                    overflow:\"auto\",\n                    overflowX:\"hidden\"\n                }\n            }\n        });\n        select.on(\"click\", function (e) {\n            alert('当前值为: ' + select.get(\"value\"));\n        });\n\n\n        //全新生成\n        var select2 = new MenuButton.Select({\n        \trender : '#container',\n\t\t\tprefixCls : 'c2c',\n\t\t\twidth : 100,\n\t\t\tmenu : {\n\t\t\t\txclass : 'popupmenu',\n\t\t\t\talign : {\n\t\t\t\t\toffset : [0, -1]\n\t\t\t\t},\n\t\t\t\tchildren : [\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',\n\t\t\t\t\t\tcontent : '杭州'\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',\n\t\t\t\t\t\tcontent : '广州'\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n        });\n        select2.render();\n\t});"
+                "\n\trequire(['menu', 'menubutton'], function(Menu, MenuButton){\n\t\t// 调用 MenuButton.Select.decorate 接口替换已有的 select 元素\n        var select = MenuButton.Select.decorate('#decorateSelect', {\n            width:80,\n            prefixCls:\"c2c-\",  //自定义的c2c主题样式\n            // 设置对齐方式, 与普通的 Align 大体一致\n            // 该配置同菜单配置项\n            menu:{\n                align:{\n                    points : ['bl', 'tl'],  //默认就是这个配置，可写可不写，或根据需要进行自定义定位\n                    offset:[0, -1]\n                },\n                height:150,\n                elStyle:{\n                    overflow:\"auto\",\n                    overflowX:\"hidden\"\n                }\n            }\n        });\n        select.on(\"click\", function (e) {\n            alert('当前值为: ' + select.get(\"value\"));\n        });\n\n\n        //全新生成\n        var select2 = new MenuButton.Select({\n        \trender : '#container',\n\t\t\tprefixCls : 'c2c',\n\t\t\twidth : 100,\n\t\t\tmenu : {\n\t\t\t\txclass : 'popupmenu',\n\t\t\t\talign : {\n\t\t\t\t\toffset : [0, -1]\n\t\t\t\t},\n\t\t\t\tchildren : [\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',\n\t\t\t\t\t\tcontent : '杭州'\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',\n\t\t\t\t\t\tcontent : '广州'\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n        });\n        select2.render();\n\t});"
             ]
         },
         "MenuButton.Option": {
@@ -3098,7 +3101,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){\n        //全新生成\n        var select2 = new MenuButton.Select({\n        \trender : '#container',\n\t\t\tprefixCls : 'c2c',\n\t\t\twidth : 100,\n\t\t\tmenu : {\n\t\t\t\txclass : 'popupmenu',\n\t\t\t\talign : {\n\t\t\t\t\toffset : [0, -1]\n\t\t\t\t},\n\t\t\t\tchildren : [\n\t\t\t\t\tnew MenuButton.Option({   //构造器生成\n\t\t\t\t\t\tvalue : 'customValue',\n\t\t\t\t\t\tcontent : '北京',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t}),\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',  //xclass生成\n\t\t\t\t\t\tcontent : '杭州',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',\n\t\t\t\t\t\tcontent : '广州',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n        });\n        select2.render();\n\t});"
+                "\n\trequire(['menu', 'menubutton'], function(Menu, MenuButton){\n        //全新生成\n        var select2 = new MenuButton.Select({\n        \trender : '#container',\n\t\t\tprefixCls : 'c2c',\n\t\t\twidth : 100,\n\t\t\tmenu : {\n\t\t\t\txclass : 'popupmenu',\n\t\t\t\talign : {\n\t\t\t\t\toffset : [0, -1]\n\t\t\t\t},\n\t\t\t\tchildren : [\n\t\t\t\t\tnew MenuButton.Option({   //构造器生成\n\t\t\t\t\t\tvalue : 'customValue',\n\t\t\t\t\t\tcontent : '北京',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t}),\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',  //xclass生成\n\t\t\t\t\t\tcontent : '杭州',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',\n\t\t\t\t\t\tcontent : '广州',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n        });\n        select2.render();\n\t});"
             ]
         },
         "Modulex": {
@@ -3141,7 +3144,7 @@
                 }
             ],
             "example": [
-                "\n\tmodulex.use(['navigation-view', 'component/control'], function(NavigationView, Control){\n\t\tvar navigationView = new NavigationView({\n            loadingHtml: '<div class=\"ks-navigation-view-loading-outer\">' +\n                '<div class=\"ks-navigation-view-loading-inner\"></div>' +\n                '</div>',\n            render: 'body'\n        }).render();\n\n        var PageView = Control.extend({\n\t\t\tcreateDom : function(){\n\t\t\t\t//your code\n\t\t\t},\n\t\t\tbindUI : function(){\n\t\t\n\t\t\t},\n\t\t\tenter : function(){\n\t\n\t\t\t}\n\t\t\t//....more function\n        },{\n\t\t\txclass : 'page-view'\n        });\n\n        navigationView.push({\n\t\t\txclass : 'page-view',\n\t\t\ttitle : 'PageView Title'\n        });\n\t})"
+                "\n\trequire(['navigation-view', 'component/control'], function(NavigationView, Control){\n\t\tvar navigationView = new NavigationView({\n            loadingHtml: '<div class=\"ks-navigation-view-loading-outer\">' +\n                '<div class=\"ks-navigation-view-loading-inner\"></div>' +\n                '</div>',\n            render: 'body'\n        }).render();\n\n        var PageView = Control.extend({\n\t\t\tcreateDom : function(){\n\t\t\t\t//your code\n\t\t\t},\n\t\t\tbindUI : function(){\n\t\t\n\t\t\t},\n\t\t\tenter : function(){\n\t\n\t\t\t}\n\t\t\t//....more function\n        },{\n\t\t\txclass : 'page-view'\n        });\n\n        navigationView.push({\n\t\t\txclass : 'page-view',\n\t\t\ttitle : 'PageView Title'\n        });\n\t})"
             ]
         },
         "Node": {
@@ -3156,7 +3159,7 @@
             "namespace": "",
             "file": "src/api/node.js",
             "line": 6,
-            "description": "由node模块提供的类 Node,你只需要把 Node.all 看做 jquery 中的 $ 就可以了,非常方便",
+            "description": "由node模块提供的类 Node,你只需要把 Node 看做 jquery 中的 $ 就可以了,非常方便",
             "is_constructor": 1,
             "params": [
                 {
@@ -3194,7 +3197,7 @@
             "namespace": "",
             "file": "src/api/overlay.js",
             "line": 5,
-            "description": "悬浮层。使用前先引入overlay样式`http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css`或利用prefixCls自定义样式。",
+            "description": "悬浮层。使用前先引入overlay样式`http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/overlay/assets/dpl.css`或利用prefixCls自定义样式。",
             "is_constructor": 1,
             "extends": "Component.Container",
             "uses": [
@@ -3209,7 +3212,7 @@
                 }
             ],
             "example": [
-                "\n    KISSY.use(['overlay', 'button'], function(S, Overlay, Button){\n        var modalDialog = new Overlay.Dialog({\n            headerContent : '我是头部',\n            width : 500,\n            mask : true,\n            bodyContent : '<div>我是主体</div>',\n            align : {  //定位对话框\n                points : ['cc', 'cc']  //在可视区域正中央\n            }\n        });\n        modalDialog.show();\n    });"
+                "\n    require(['overlay', 'button'], function(Overlay, Button){\n        var modalDialog = new Overlay.Dialog({\n            headerContent : '我是头部',\n            width : 500,\n            mask : true,\n            bodyContent : '<div>我是主体</div>',\n            align : {  //定位对话框\n                points : ['cc', 'cc']  //在可视区域正中央\n            }\n        });\n        modalDialog.show();\n    });"
             ]
         },
         "Overlay.Dialog": {
@@ -3235,7 +3238,7 @@
                 }
             ],
             "example": [
-                "\n    KISSY.use(['overlay', 'button'], function(S, Overlay, Button){\n        var modalDialog = new Overlay.Dialog({\n            headerContent : '我是头部',\n            width : 500,\n            mask : true,\n            bodyContent : '<div>我是主体</div>',\n            align : {  //定位对话框\n                points : ['cc', 'cc']  //在可视区域正中央\n            }\n        });\n        modalDialog.show();\n    });"
+                "\n    require(['overlay', 'button'], function(Overlay, Button){\n        var modalDialog = new Overlay.Dialog({\n            headerContent : '我是头部',\n            width : 500,\n            mask : true,\n            bodyContent : '<div>我是主体</div>',\n            align : {  //定位对话框\n                points : ['cc', 'cc']  //在可视区域正中央\n            }\n        });\n        modalDialog.show();\n    });"
             ]
         },
         "Overlay.Popup": {
@@ -3261,7 +3264,7 @@
                 }
             ],
             "example": [
-                "\n    <script type=\"x-template\" id=\"popupTpl\">\n        <div class=\"ks-popup-arrow\"></div>\n        <div class=\"ks-popup-inner\"> <!-- 已定义好的内容提示框的样式-->\n            <h3 class=\"ks-popup-title\">This is Title</h3>\n\n            <div class=\"ks-popup-inner-content\">\n                <p>This is content...</p>\n            </div>\n        </div>\n    </script>\n    KISSY.use(['overlay', 'button', 'node'], function(S, Overlay, Button, $){\n        var myPopup = new Overlay.Popup({\n            width : 200,\n            trigger : '#popup',\n            triggerType : 'mouse',\n            content : $('#popupTpl').html(),\n            elCls: \"ks-popup-right\",  //添加内容提示框在右侧时的箭头图标样式\n            effect : {\n                effect : 'fade',\n                duration : 0.3\n            },\n            align: {\n                node: '#popup',  //相对按钮#popup定位\n                points: ['cr', 'cl']\n            }\n        });\n    });"
+                "\n    <script type=\"x-template\" id=\"popupTpl\">\n        <div class=\"ks-popup-arrow\"></div>\n        <div class=\"ks-popup-inner\"> <!-- 已定义好的内容提示框的样式-->\n            <h3 class=\"ks-popup-title\">This is Title</h3>\n\n            <div class=\"ks-popup-inner-content\">\n                <p>This is content...</p>\n            </div>\n        </div>\n    </script>\n    require(['overlay', 'button', 'node'], function(Overlay, Button, $){\n        var myPopup = new Overlay.Popup({\n            width : 200,\n            trigger : '#popup',\n            triggerType : 'mouse',\n            content : $('#popupTpl').html(),\n            elCls: \"ks-popup-right\",  //添加内容提示框在右侧时的箭头图标样式\n            effect : {\n                effect : 'fade',\n                duration : 0.3\n            },\n            align: {\n                node: '#popup',  //相对按钮#popup定位\n                points: ['cr', 'cl']\n            }\n        });\n    });"
             ]
         },
         "Path": {
@@ -3277,7 +3280,7 @@
             "file": "src/api/path.js",
             "line": 5,
             "description": "地址操作工具类",
-            "static": "```\nKISSY.use('path',function(S,Path){\n        Path.do_sth();// 执行操作\n});\n```"
+            "static": "```\nrequire(['path'],function(Path){\n        Path.do_sth();// 执行操作\n});\n```"
         },
         "Promise": {
             "name": "Promise",
@@ -3291,7 +3294,7 @@
             "namespace": "",
             "file": "src/api/promise.js",
             "line": 5,
-            "description": "### 简单使用\n```\nKISSY.use('promise',function(S,Promise){\n\tvar d = new Promise.Defer();\n    var promise = d.promise;\n    promise.then(function (v) {\n        return v + 1;\n    }).then(function (v) {\n            alert(v); // => 2\n        });\n    d.resolve(1); // 该位置也可以放在 then 前面\n});\n```",
+            "description": "### 简单使用\n```\nrequire(['promise'],function(Promise){\n\tvar d = new Promise.Defer();\n    var promise = d.promise;\n    promise.then(function (v) {\n        return v + 1;\n    }).then(function (v) {\n            alert(v); // => 2\n        });\n    d.resolve(1); // 该位置也可以放在 then 前面\n});\n```",
             "is_constructor": 1,
             "return": {
                 "description": "promise 实例，外部不允许初始化。要通过[Defer()](/5.0/api/classes/Promise.Defer.html)来获取"
@@ -3326,7 +3329,7 @@
             "namespace": "",
             "file": "src/api/querystring.js",
             "line": 6,
-            "description": "提供JSON对象与querystring相互转换的方法\n\n使用示例：\n\n\tmodulex.use(['querystring'], function(Querystring){\n\t    var obj = {\n\t\t\tfoo : 1,\n\t\t\tbar : [2, 3]\t\n\t    };\n\t    Querystring.stringify(obj); // foo=1&bar%5B%5D=2&bar%5B%5D=3 \n\n\t    var str = 'section=blog&tag=js&tag=doc';\n\t    Querystring.parse(str);  // {section: 'blog', tag: ['js', 'doc']}\n\t});",
+            "description": "提供JSON对象与querystring相互转换的方法\n\n使用示例：\n\n\trequire(['querystring'], function(Querystring){\n\t    var obj = {\n\t\t\tfoo : 1,\n\t\t\tbar : [2, 3]\t\n\t    };\n\t    Querystring.stringify(obj); // foo=1&bar%5B%5D=2&bar%5B%5D=3 \n\n\t    var str = 'section=blog&tag=js&tag=doc';\n\t    Querystring.parse(str);  // {section: 'blog', tag: ['js', 'doc']}\n\t});",
             "static": 1
         },
         "Resizable": {
@@ -3352,7 +3355,7 @@
                 }
             ],
             "example": [
-                "\n\t//css\n\t.ks-resizable-handler {\n\tposition: absolute;\n\toverflow: hidden;\n\tfont-size: 0;\n\tline-height: 0;\n\tz-index: 1;\n\t}\n\t.ks-resizable-handler-t,.ks-resizable-handler-b,  .ks-resizable-handler-r, .ks-resizable-handler-l {\n\t    opacity: 0.6;\n\t    filter: alpha(opacity = 60);\n\t    background-color: #F19EC2;\n\t}\n\t.ks-resizable-handler-t,.ks-resizable-handler-b {\n\t    left: 0;\n\t    height: 5px;\n\t    width: 100%;\n\t    cursor: n-resize;\n\t}\n\t.ks-resizable-handler-b {\n\t    bottom: 0;\n\t}\n\n\t.ks-resizable-handler-t {\n\t    top: 0;\n\t}\n\t.ks-resizable-handler-r, .ks-resizable-handler-l {\n\t    top: 0;\n\t    height: 100%;\n\t    -height: expression(this.parentNode.offsetHeight);\n\t    width: 5px;\n\t    cursor: e-resize;\n\t}\n\t.ks-resizable-handler-l {\n\t    left: 0;\n\t}\n\n\t.ks-resizable-handler-r {\n\t    right: 0;\n\t}\n\n\t.ks-resizable-handler-bl, .ks-resizable-handler-br, .ks-resizable-handler-tl, .ks-resizable-handler-tr {\n\t    position: absolute;\n\t    width: 5px;\n\t    height: 5px;\n\t    border: 1px solid #535353;\n\t    background-color: #E4007F;\n\t    z-index: 2;\n\t}\n\t.ks-resizable-handler-bl {\n\t    left: -3px;\n\t    bottom: -3px;\n\t    cursor: sw-resize;\n\t}\n\n\t.ks-resizable-handler-br {\n\t    right: -3px;\n\t    bottom: -3px;\n\t    cursor: nw-resize;\n\t}\n\n\t.ks-resizable-handler-tl {\n\t    left: -3px;\n\t    top: -3px;\n\t    cursor: nw-resize;\n\t}\n\n\t.ks-resizable-handler-tr {\n\t    right: -3px;\n\t    top: -3px;\n\t    cursor: sw-resize;\n\t}\n\n\t//javascript\n\tKISSY.use(['node', 'resizable'], function(S, $, Resizable) {\n\t    var r = new Resizable({\n\t        node:\"#something-can-resize\",\n\t        // 指定可拖动的位置\n\t        handlers:[\"b\",\"t\",\"r\",\"l\",\"tr\",\"tl\",\"br\",\"bl\"],\n\t        // 可选, 设置最小/最大 宽高\n\t        minHeight:100,\n\t        minWidth:100,\n\t        maxHeight:300,\n\t        maxWidth:400\n\t    });\n\t});"
+                "\n\t//css\n\t.ks-resizable-handler {\n\tposition: absolute;\n\toverflow: hidden;\n\tfont-size: 0;\n\tline-height: 0;\n\tz-index: 1;\n\t}\n\t.ks-resizable-handler-t,.ks-resizable-handler-b,  .ks-resizable-handler-r, .ks-resizable-handler-l {\n\t    opacity: 0.6;\n\t    filter: alpha(opacity = 60);\n\t    background-color: #F19EC2;\n\t}\n\t.ks-resizable-handler-t,.ks-resizable-handler-b {\n\t    left: 0;\n\t    height: 5px;\n\t    width: 100%;\n\t    cursor: n-resize;\n\t}\n\t.ks-resizable-handler-b {\n\t    bottom: 0;\n\t}\n\n\t.ks-resizable-handler-t {\n\t    top: 0;\n\t}\n\t.ks-resizable-handler-r, .ks-resizable-handler-l {\n\t    top: 0;\n\t    height: 100%;\n\t    -height: expression(this.parentNode.offsetHeight);\n\t    width: 5px;\n\t    cursor: e-resize;\n\t}\n\t.ks-resizable-handler-l {\n\t    left: 0;\n\t}\n\n\t.ks-resizable-handler-r {\n\t    right: 0;\n\t}\n\n\t.ks-resizable-handler-bl, .ks-resizable-handler-br, .ks-resizable-handler-tl, .ks-resizable-handler-tr {\n\t    position: absolute;\n\t    width: 5px;\n\t    height: 5px;\n\t    border: 1px solid #535353;\n\t    background-color: #E4007F;\n\t    z-index: 2;\n\t}\n\t.ks-resizable-handler-bl {\n\t    left: -3px;\n\t    bottom: -3px;\n\t    cursor: sw-resize;\n\t}\n\n\t.ks-resizable-handler-br {\n\t    right: -3px;\n\t    bottom: -3px;\n\t    cursor: nw-resize;\n\t}\n\n\t.ks-resizable-handler-tl {\n\t    left: -3px;\n\t    top: -3px;\n\t    cursor: nw-resize;\n\t}\n\n\t.ks-resizable-handler-tr {\n\t    right: -3px;\n\t    top: -3px;\n\t    cursor: sw-resize;\n\t}\n\n\t//javascript\n\trequire(['node', 'resizable'], function($, Resizable) {\n\t    var r = new Resizable({\n\t        node:\"#something-can-resize\",\n\t        // 指定可拖动的位置\n\t        handlers:[\"b\",\"t\",\"r\",\"l\",\"tr\",\"tl\",\"br\",\"bl\"],\n\t        // 可选, 设置最小/最大 宽高\n\t        minHeight:100,\n\t        minWidth:100,\n\t        maxHeight:300,\n\t        maxWidth:400\n\t    });\n\t});"
             ]
         },
         "Router": {
@@ -3367,7 +3370,7 @@
             "namespace": "",
             "file": "src/api/router.js",
             "line": 6,
-            "description": "一个类似express的路由管理器\n\n使用示例：\n\n\tmodulex.use(['node', 'router'], function($, Router){\n\t\tRouter.config({  //路由全局配置\n\t        triggerRoute: true,  // 触发当前地址对应的 route 操作\n\t        urlRoot: location.pathname\n\t\t});\n\n\t\tRouter.get('/', function(req, res, nextCallback){\n\t\t\t//显示根目录内容\n\t\t});\n\n\t\tRouter.get('/:path*', function(req){\n\t\t\t//req.params.path => 'test'\n\t\t\t//req.params[0] => '/test1/test2'\n\t\t\t//req.parmas[1] => 'test1/test2'\n\t\t});\n\n\t\tRouter.get('/detail/:id', function(req){\n\t\t\t//req.params.id => 88\n\t\t\t//req.query => { pa : 1, pe : 2 }\n\t\t})\n\n\t\tRouter.navigate(\"/test/test1/test2\");\n\t\tRouter.navigate('/detail/88?pa=1&pe=2');\n\n\t\tRouter.start(function(){\n\t        $('#loading').hide();\n\t\t});\n\t});",
+            "description": "一个类似express的路由管理器\n\n使用示例：\n\n\trequire(['node', 'router'], function($, Router){\n\t\tRouter.config({  //路由全局配置\n\t        triggerRoute: true,  // 触发当前地址对应的 route 操作\n\t        urlRoot: location.pathname\n\t\t});\n\n\t\tRouter.get('/', function(req, res, nextCallback){\n\t\t\t//显示根目录内容\n\t\t});\n\n\t\tRouter.get('/:path*', function(req){\n\t\t\t//req.params.path => 'test'\n\t\t\t//req.params[0] => '/test1/test2'\n\t\t\t//req.parmas[1] => 'test1/test2'\n\t\t});\n\n\t\tRouter.get('/detail/:id', function(req){\n\t\t\t//req.params.id => 88\n\t\t\t//req.query => { pa : 1, pe : 2 }\n\t\t})\n\n\t\tRouter.navigate(\"/test/test1/test2\");\n\t\tRouter.navigate('/detail/88?pa=1&pe=2');\n\n\t\tRouter.start(function(){\n\t        $('#loading').hide();\n\t\t});\n\t});",
             "static": 1,
             "uses": [
                 "CustomEvent.Target"
@@ -3421,7 +3424,7 @@
                 }
             ],
             "example": [
-                "\n    KISSY.use(['node', 'stylesheet'], function(S, $, StyleSheet){\n        var linkStyleSheet = new StyleSheet('#linkcss');\n        $('#change-link-css').on('click', function(ev){\n            linkStyleSheet.set('.link',{\n                color : 'red'\n            });\n        });\n\n        var innerStyleSheet = new StyleSheet('#my-style');\n        $('#change-style-css').on('click', function(ev){\n            innerStyleSheet.set('.style p',{\n                color : 'red'\n            });\n        });\n        $('#get-p-styletext').on('click', function(ev){\n            alert(innerStyleSheet.get('.style'));\n        });\n    });"
+                "\n    require(['node', 'stylesheet'], function( $, StyleSheet){\n        var linkStyleSheet = new StyleSheet('#linkcss');\n        $('#change-link-css').on('click', function(ev){\n            linkStyleSheet.set('.link',{\n                color : 'red'\n            });\n        });\n\n        var innerStyleSheet = new StyleSheet('#my-style');\n        $('#change-style-css').on('click', function(ev){\n            innerStyleSheet.set('.style p',{\n                color : 'red'\n            });\n        });\n        $('#get-p-styletext').on('click', function(ev){\n            alert(innerStyleSheet.get('.style'));\n        });\n    });"
             ]
         },
         "SWF": {
@@ -3447,7 +3450,7 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use('swf',function(S,SWF){\n    // use SWF\n    var swf=new SWF({\n        src:'xx.swf',\n        attrs:{\n            width:100\n        },\n        params:{\n            flashVars:{\n                x:1\n            }\n        },\n        render:'#container'\n    });\n\n    swf.get('el') // => 对应 swf dom 节点\n\n    swf.callSWF('save',[key,value]);  //调用swf的方法\n});\n```"
+                "\n```\nrequire(['swf'],function(SWF){\n    // use SWF\n    var swf=new SWF({\n        src:'xx.swf',\n        attrs:{\n            width:100\n        },\n        params:{\n            flashVars:{\n                x:1\n            }\n        },\n        render:'#container'\n    });\n\n    swf.get('el') // => 对应 swf dom 节点\n\n    swf.callSWF('save',[key,value]);  //调用swf的方法\n});\n```"
             ]
         },
         "Tabs": {
@@ -3473,7 +3476,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['tabs'], function(S, Tabs){\n        var myTabs = new Tabs({\n            render : '#container',\n            width : '60%',\n            items : [\n                {\n                    title : 'title of tab-1',\n                    content : 'tab-1 content'\n                },\n                {\n                    title : 'title of tab-2',\n                    content : 'tab-2 content',\n                    selected : true   //默认选中这个tab\n                },\n                {\n                    title : 'title of tab-3',\n                    content : 'tab-3 content',\n                    closable : true    //显示关闭按钮，点击删除tab\n                }\n            ]\n        }).render();\n    });"
+                "\n\trequire(['tabs'], function(Tabs){\n        var myTabs = new Tabs({\n            render : '#container',\n            width : '60%',\n            items : [\n                {\n                    title : 'title of tab-1',\n                    content : 'tab-1 content'\n                },\n                {\n                    title : 'title of tab-2',\n                    content : 'tab-2 content',\n                    selected : true   //默认选中这个tab\n                },\n                {\n                    title : 'title of tab-3',\n                    content : 'tab-3 content',\n                    closable : true    //显示关闭按钮，点击删除tab\n                }\n            ]\n        }).render();\n    });"
             ]
         },
         "Toolbar": {
@@ -3499,7 +3502,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['toolbar', 'button', 'menubutton'], function(S, Toolbar){\n        var simpleToolbar = new Toolbar({\n            render : '#wrap',\n            width : '80%',\n            children : [\n                {\n                    xclass : 'button',\n                    content : 'Home'\n                },\n                {\n                    xclass : 'button',\n                    content : 'QuickStart'\n                },\n                {\n                    xclass : 'menu-button',\n                    content : 'Docs',\n                    matchElWidth : false,\n                    menu : {\n                        children : [\n                            {\n                                content : 'API'\n                            },\n                            {\n                                content : 'Guide'\n                            }\n                        ]\n                    }\n                },\n                {\n                    xclass : 'button',\n                    content : 'Contribute'\n                }\n            ],\n            listeners : {\n                click : function(ev){\n                    console.log(ev.target.get('content'));\n                }\n            }\n        }).render();\n    });"
+                "\n\trequire(['toolbar', 'button', 'menubutton'], function(Toolbar){\n        var simpleToolbar = new Toolbar({\n            render : '#wrap',\n            width : '80%',\n            children : [\n                {\n                    xclass : 'button',\n                    content : 'Home'\n                },\n                {\n                    xclass : 'button',\n                    content : 'QuickStart'\n                },\n                {\n                    xclass : 'menu-button',\n                    content : 'Docs',\n                    matchElWidth : false,\n                    menu : {\n                        children : [\n                            {\n                                content : 'API'\n                            },\n                            {\n                                content : 'Guide'\n                            }\n                        ]\n                    }\n                },\n                {\n                    xclass : 'button',\n                    content : 'Contribute'\n                }\n            ],\n            listeners : {\n                click : function(ev){\n                    console.log(ev.target.get('content'));\n                }\n            }\n        }).render();\n    });"
             ]
         },
         "Tree": {
@@ -3528,7 +3531,7 @@
                 }
             ],
             "example": [
-                "\n\t//通过addChild添加子节点\n\tKISSY.use(['tree', 'node'], function(S, Tree, $){\n\t    var tree = new Tree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,  //是否显示根节点\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.Node({\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.Node({\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.Node({\n\t        // 即使没有儿子也强制指定为 folder 样式\n\t        isLeaf: false,\n\t        content: \"收藏的店铺\"\n\t    }));\n\t    tree.addChild(favorates);\n\t  });\n\n  \t//通过xclass生成节点(json)\n  \tKISSY.use(['tree', 'node'], function(S, Tree, $){\n        var tree = new Tree({\n            content: \"淘宝网\",\n            expanded: true,\n            children: [\n                {\n                    xclass : 'check-tree-node',\n                    content: \"收藏夹\",\n                    children: [\n                        {\n                            content: \"收藏的宝贝\"\n                        },\n                        {\n                            content: \"收藏的店铺\"\n                        }\n                    ]\n                },\n                {\n                    content: '我要买'\n                },\n                {\n                    xclass : 'tree-node',\n                    content: '我的淘宝',\n                    children: [\n                        {\n                            content: \"已买到的宝贝\"\n                        },\n                        {\n                            content: \"已买到的宝贝\"\n                        }\n                    ]\n                }\n            ],\n            // showRootNode:false,\n            render: \"#treeContainer\"\n        });\n\n        tree.render();\n        tree.on(\"expand\", function (e) {\n            S.log(\"expand : \" + e.target.get(\"content\"));\n            S.log(\"expandIconEl\");\n            S.log(e.target.get(\"expandIconEl\"));\n            S.log(\"iconEl\");\n            S.log(e.target.get(\"iconEl\"));\n        });\n        tree.on(\"collapse\", function (e) {\n            S.log(\"collapse : \" + e.target.get(\"content\"));\n        });\n    });"
+                "\n\t//通过addChild添加子节点\n\trequire(['tree', 'node'], function(Tree, $){\n\t    var tree = new Tree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,  //是否显示根节点\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.Node({\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.Node({\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.Node({\n\t        // 即使没有儿子也强制指定为 folder 样式\n\t        isLeaf: false,\n\t        content: \"收藏的店铺\"\n\t    }));\n\t    tree.addChild(favorates);\n\t  });\n\n  \t//通过xclass生成节点(json)\n  \trequire(['tree', 'node'], function(Tree, $){\n        var tree = new Tree({\n            content: \"淘宝网\",\n            expanded: true,\n            children: [\n                {\n                    xclass : 'check-tree-node',\n                    content: \"收藏夹\",\n                    children: [\n                        {\n                            content: \"收藏的宝贝\"\n                        },\n                        {\n                            content: \"收藏的店铺\"\n                        }\n                    ]\n                },\n                {\n                    content: '我要买'\n                },\n                {\n                    xclass : 'tree-node',\n                    content: '我的淘宝',\n                    children: [\n                        {\n                            content: \"已买到的宝贝\"\n                        },\n                        {\n                            content: \"已买到的宝贝\"\n                        }\n                    ]\n                }\n            ],\n            // showRootNode:false,\n            render: \"#treeContainer\"\n        });\n\n        tree.render();\n        tree.on(\"expand\", function (e) {\n            S.log(\"expand : \" + e.target.get(\"content\"));\n            S.log(\"expandIconEl\");\n            S.log(e.target.get(\"expandIconEl\"));\n            S.log(\"iconEl\");\n            S.log(e.target.get(\"iconEl\"));\n        });\n        tree.on(\"collapse\", function (e) {\n            S.log(\"collapse : \" + e.target.get(\"content\"));\n        });\n    });"
             ]
         },
         "Tree.Node": {
@@ -3554,7 +3557,7 @@
                 }
             ],
             "example": [
-                "\n\t//通过addChild添加子节点\n\tKISSY.use(['tree', 'node'], function(S, Tree, $){\n\t    var tree = new Tree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,  //是否显示根节点\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.Node({\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.Node({\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.Node({\n\t        // 即使没有儿子也强制指定为 folder 样式\n\t        isLeaf: false,\n\t        content: \"收藏的店铺\"\n\t    }));\n\t    tree.addChild(favorates);\n\t});"
+                "\n\t//通过addChild添加子节点\n\trequire(['tree', 'node'], function(Tree, $){\n\t    var tree = new Tree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,  //是否显示根节点\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.Node({\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.Node({\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.Node({\n\t        // 即使没有儿子也强制指定为 folder 样式\n\t        isLeaf: false,\n\t        content: \"收藏的店铺\"\n\t    }));\n\t    tree.addChild(favorates);\n\t});"
             ]
         },
         "Tree.CheckNode": {
@@ -3580,7 +3583,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['tree', 'node'], function(S, Tree, $){\n\t    var tree = new Tree.CheckTree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.CheckNode({\n\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.CheckNode({\n\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.CheckNode({\n\t        content: \"收藏的店铺\"\n\t    }));\n\n\t    tree.addChild(favorates);\n\t});"
+                "\n\trequire(['tree', 'node'], function(Tree, $){\n\t    var tree = new Tree.CheckTree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.CheckNode({\n\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.CheckNode({\n\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.CheckNode({\n\t        content: \"收藏的店铺\"\n\t    }));\n\n\t    tree.addChild(favorates);\n\t});"
             ]
         },
         "Tree.CheckTree": {
@@ -3609,7 +3612,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['tree', 'node'], function(S, Tree, $){\n\t    var tree = new Tree.CheckTree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.CheckNode({\n\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.CheckNode({\n\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.CheckNode({\n\t        content: \"收藏的店铺\"\n\t    }));\n\n\t    tree.addChild(favorates);\n\t});"
+                "\n\trequire(['tree', 'node'], function(Tree, $){\n\t    var tree = new Tree.CheckTree({\n\t        content: \"淘宝网\",\n\t        expanded: true,\n\t        // showRootNode:false,\n\t        render: \"#treeContainer\"\n\t    });\n\t    var favorates = new Tree.CheckNode({\n\n\t        content: \"收藏夹\",\n\t        tree: tree\n\t    });\n\t    favorates.addChild(new Tree.CheckNode({\n\n\t        content: \"收藏的宝贝\"\n\t    }));\n\t    favorates.addChild(new Tree.CheckNode({\n\t        content: \"收藏的店铺\"\n\t    }));\n\n\t    tree.addChild(favorates);\n\t});"
             ]
         },
         "Tree.Manager": {
@@ -3648,8 +3651,8 @@
             "module": "ua",
             "namespace": "",
             "file": "src/api/ua.js",
-            "line": 6,
-            "description": "通过 UA 的属性，你可以获取浏览器等用户代理的信息。可以首先使用 UA.shell 返回的标识符判断当前浏览器类型，若需浏览器具体版本信息，可以再通过 UA[UA.shell] 取出版本号。属性值遵循以下规则：\n  \n   - 表示当前引擎或浏览器的版本。版本号 1.2.3.4 会转换为数值 1.234\n   - 如果不是当前引擎或浏览器，返回 0 或者 undefined\n   - 如果当前浏览器版本号无法准确判定，均返回 0.1",
+            "line": 11,
+            "description": "通过 UA 的属性，你可以获取浏览器等用户代理的信息。可以首先使用 UA.shell 返回的标识符判断当前浏览器类型，若需浏览器具体版本信息，可以再通过 UA[UA.shell] 取出版本号。属性值遵循以下规则：\n  \n   - 表示当前引擎或浏览器的版本。版本号 1.2.3.4 会转换为数值 1.234\n   - 如果不是当前引擎或浏览器，返回 0 或者 undefined\n   - 如果当前浏览器版本号无法准确判定，均返回 0.1\n  \n示例：\n\t\n\trequire(['ua'], function(UA){\n\t\t//use UA\n\t})",
             "static": 1
         },
         "Url": {
@@ -3664,7 +3667,7 @@
             "namespace": "",
             "file": "src/api/url.js",
             "line": 6,
-            "description": "操作url\n使用示例：\n\t\n\tKISSY.use(['url'], function(S, Url){\n\t\tvar websiteUrl = 'http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10#method_resolve';\n\t\tvar urlDataObj = Url.parse(websiteUrl); \n\t\t// 得到的urlDataObj如下：\n\t\t// {\n\t\t//  auth: undefined\n\t\t// \thash: \"#method_resolve\"\n\t\t// \thost: \"docs.kissyui.com\"\n\t\t// \thostname: \"docs.kissyui.com\"\n\t\t// \thref: \"http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10#method_resolve\"\n\t\t// \tpath: \"/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10\"\n\t\t// \tpathname: \"/5.0/api/classes/Path.html\"\n\t\t// \tport: undefined\n\t\t// \tprotocol: \"http:\"\n\t\t// \tquery: \"test=iamtestcontent&date=2014.09.10\"\n\t\t// \tsearch: \"?test=iamtestcontent&date=2014.09.10\"\n\t\t// \tslashes: true\n\t\t// }\n\n\t\turlDataObj.search = undefined;\n\t\turlDataObj.query = {\n\t\t\tname : 'weekeight',\n\t\t\tlove : 'kissy'\n\t\t};\n\n\t\tvar newUrl = Url.format(urlDataObj);  //得到的newUrl是 http://docs.kissyui.com/5.0/api/classes/Path.html?name=weekeight&love=kissy#method_resolve\n\n\t})",
+            "description": "操作url\n使用示例：\n\t\n\trequire(['url'], function(Url){\n\t\tvar websiteUrl = 'http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10#method_resolve';\n\t\tvar urlDataObj = Url.parse(websiteUrl); \n\t\t// 得到的urlDataObj如下：\n\t\t// {\n\t\t//  auth: undefined\n\t\t// \thash: \"#method_resolve\"\n\t\t// \thost: \"docs.kissyui.com\"\n\t\t// \thostname: \"docs.kissyui.com\"\n\t\t// \thref: \"http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10#method_resolve\"\n\t\t// \tpath: \"/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10\"\n\t\t// \tpathname: \"/5.0/api/classes/Path.html\"\n\t\t// \tport: undefined\n\t\t// \tprotocol: \"http:\"\n\t\t// \tquery: \"test=iamtestcontent&date=2014.09.10\"\n\t\t// \tsearch: \"?test=iamtestcontent&date=2014.09.10\"\n\t\t// \tslashes: true\n\t\t// }\n\n\t\turlDataObj.search = undefined;\n\t\turlDataObj.query = {\n\t\t\tname : 'weekeight',\n\t\t\tlove : 'kissy'\n\t\t};\n\n\t\tvar newUrl = Url.format(urlDataObj);  //得到的newUrl是 http://docs.kissyui.com/5.0/api/classes/Path.html?name=weekeight&love=kissy#method_resolve\n\n\t})",
             "static": 1
         },
         "Util": {
@@ -3708,7 +3711,7 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use('xtemplate',function(S,XTemplate){\n    // use XTemplate\n});\n\n// 参数只能是离线编译过的模板\nKISSY.use('xtemplate/runtime',function(S,XTemplate){\n    // use XTemplate\n});\n```\n### Note\n如果引用的是xtemplate/runtime模块，参数则只能是离线编译过的模板"
+                "\n```\nrequire(['xtemplate'],function(XTemplate){\n    // use XTemplate\n});\n\n// 参数只能是离线编译过的模板\nrequire(['xtemplate/runtime'],function(XTemplate){\n    // use XTemplate\n});\n```\n### Note\n如果引用的是xtemplate/runtime模块，参数则只能是离线编译过的模板"
             ]
         }
     },
@@ -7367,7 +7370,7 @@
             "itemtype": "method",
             "name": "callSuper",
             "example": [
-                "\n```\nKISSY.use('base', function(S, Base) {\n    var A = Base.extend({\n        m: function (value) {\n            return 'am:' + value;\n        },\n        m2: function (value) {\n            return 'am2:' + value;\n        }\n    });\n\n    var B = A.extend({\n        m: function(value) {\n            return 'bm:(' + this.callSuper(value) + ')';\n        },\n        m2: function(value) {\n            return 'bm2(' + this.callSuper.apply(this, arguments) + ')';\n        }\n    });\n\n    var b = new B();\n    console.log(b.m(1));\n    console.log(b.m2(2));\n});\n```"
+                "\n```\nrequire(['base'], function(Base) {\n    var A = Base.extend({\n        m: function (value) {\n            return 'am:' + value;\n        },\n        m2: function (value) {\n            return 'am2:' + value;\n        }\n    });\n\n    var B = A.extend({\n        m: function(value) {\n            return 'bm:(' + this.callSuper(value) + ')';\n        },\n        m2: function(value) {\n            return 'bm2(' + this.callSuper.apply(this, arguments) + ')';\n        }\n    });\n\n    var b = new B();\n    console.log(b.m(1));\n    console.log(b.m2(2));\n});\n```"
             ],
             "class": "Base",
             "module": "base"
@@ -7389,7 +7392,7 @@
                 "description": "自身"
             },
             "example": [
-                "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    new Overlay({\n        content:'test'\n    }).plug(new Resize({\n        handlers:['t','t']\n    }));\n});\n```"
+                "\n```\nrequire(['overlay', 'component/plugin/resize'],function(Overlay,Resize){\n    new Overlay({\n        content:'test'\n    }).plug(new Resize({\n        handlers:['t','t']\n    }));\n});\n```"
             ],
             "class": "Base",
             "module": "base"
@@ -7411,7 +7414,7 @@
                 "description": "自身"
             },
             "example": [
-                "\n```\nKISSY.use('overlay,component/plugin/resize',function(S,Overlay,Resize){\n    var o= new Overlay({\n        content:'test'\n    }).plug(new Resize({\n        handlers:['t','t']\n    }));\n\n    o.unplug('component/plugin/resize'); // 卸载 resize 插件\n});\n```"
+                "\n```\nrequire(['overlay','component/plugin/resize'],function(Overlay,Resize){\n    var o= new Overlay({\n        content:'test'\n    }).plug(new Resize({\n        handlers:['t','t']\n    }));\n\n    o.unplug('component/plugin/resize'); // 卸载 resize 插件\n});\n```"
             ],
             "class": "Base",
             "module": "base"
@@ -7813,7 +7816,7 @@
             "line": 100,
             "description": "默认 false. 是否当自动补全菜单出现时高亮第一项",
             "example": [
-                "\n```\nmodulex.use(['node', 'combobox'], function ($, ComboBox) {\n    var data = [\"a123456\", \"b12345\", \"c3464356\", \"d23434\"];\n\n    var basicComboBox = new ComboBox({\n        width:100,\n        srcNode:$(\"#combobox\"),\n        // 初始就聚焦\n        focused:true,\n        hasTrigger:false,\n        dataSource:new ComboBox.LocalDataSource({\n            data:data\n        })\n    });\n    basicComboBox.render();\n\n    // 得到焦点时展示全部\n    basicComboBox.get(\"input\").on(\"focus\", function () {\n        basicComboBox.sendRequest('');\n    });\n}\n```"
+                "\n```\nrequire(['node', 'combobox'], function ($, ComboBox) {\n    var data = [\"a123456\", \"b12345\", \"c3464356\", \"d23434\"];\n\n    var basicComboBox = new ComboBox({\n        width:100,\n        srcNode:$(\"#combobox\"),\n        // 初始就聚焦\n        focused:true,\n        hasTrigger:false,\n        dataSource:new ComboBox.LocalDataSource({\n            data:data\n        })\n    });\n    basicComboBox.render();\n\n    // 得到焦点时展示全部\n    basicComboBox.get(\"input\").on(\"focus\", function () {\n        basicComboBox.sendRequest('');\n    });\n}\n```"
             ],
             "itemtype": "attribute",
             "name": "autoHighlightFirst",
@@ -9403,14 +9406,14 @@
                 "description": "对应 property 的值\n\n__Note__\n- 对于不存在的 property , 该方法返回 undefined\n- 注意区别该方法与 dom.attr, 也即区别 [DOM property 与 attribute](http://javascript.info/tutorial/attributes-and-custom-properties)\n- 请使用 [dom.data](#method_data) 方法来处理自定义属性, 而不要使用 dom.prop 方法, 否则在 ie<9 下会有内存泄露\n- prop 方法可以改变 DOM 元素的状态而不改变其对应的序列化 html 属性 ( IE <9 除外)\n- 例如设置 input 或 button 的 disabled property 或者 checkbox 的 checked property . 最常见的情况即是用 prop 来设置 disabled 以及 checked 而不是 dom.attr . 而 dom.val 方法用来设置和读取 value property"
             },
             "example": [
-                "\n```\nvar S = KISSY, DOM = S.DOM;\nvar c=DOM.create(\"<input type='checkbox' checked='checked'/>\");\nDOM.attr(c,\"checked\") // => \"checked\"\nDOM.prop(c,\"checked\") // => true\nDOM.attr(c,\"nodeName\") // => null\nDOM.prop(c,\"nodeName\").toLowerCase() // => input\n```"
+                "\n```\nvar c=DOM.create(\"<input type='checkbox' checked='checked'/>\");\nDOM.attr(c,\"checked\") // => \"checked\"\nDOM.prop(c,\"checked\") // => true\nDOM.attr(c,\"nodeName\") // => null\nDOM.prop(c,\"nodeName\").toLowerCase() // => input\n```"
             ],
             "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src/api/dom.js",
-            "line": 176,
+            "line": 175,
             "description": "给符合选择器的所有元素设置 property 值",
             "itemtype": "method",
             "name": "prop",
@@ -9436,7 +9439,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 185,
+            "line": 184,
             "description": "给符合选择器的所有元素设置 property 值",
             "itemtype": "method",
             "name": "prop",
@@ -9461,7 +9464,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 197,
+            "line": 196,
             "description": "判断符合选择器的第一个元素是否含有特定 property 属性",
             "itemtype": "method",
             "name": "hasProp",
@@ -9486,7 +9489,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 205,
+            "line": 204,
             "description": "获取符合选择器的第一个元素所的 value 值",
             "itemtype": "method",
             "name": "val",
@@ -9502,14 +9505,14 @@
                 "description": "获取符合选择器的第一个元素所的 value 值. 无值时, 返回空字符串."
             },
             "example": [
-                "\n```\nKISSY.use(\"dom\",function(S,DOM){\n        // 获取 id 是 J_username 的元素的 value 值\n        DOM.val(\"#J_username\");\n});\n```"
+                "\n```\nrequire([\"dom\"],function(DOM){\n        // 获取 id 是 J_username 的元素的 value 值\n        DOM.val(\"#J_username\");\n});\n```"
             ],
             "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src/api/dom.js",
-            "line": 220,
+            "line": 219,
             "description": "给符合选择器的所有元素设置 value 值",
             "itemtype": "method",
             "name": "val",
@@ -9527,14 +9530,14 @@
                 }
             ],
             "example": [
-                "\n```\nKISSY.use(\"dom\",function(S,DOM){\n        // 将 id 是 J_username 的元素的 value 值设置成“张三”\n        DOM.val(\"#J_username\",\"张三\");\n});\n```"
+                "\n```\nrequire([\"dom\"],function(DOM){\n        // 将 id 是 J_username 的元素的 value 值设置成“张三”\n        DOM.val(\"#J_username\",\"张三\");\n});\n```"
             ],
             "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src/api/dom.js",
-            "line": 235,
+            "line": 234,
             "description": "获取符合选择器的第一个元素所包含的文本值",
             "itemtype": "method",
             "name": "text",
@@ -9554,7 +9557,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 243,
+            "line": 242,
             "description": "给符合选择器的所有元素设置文本值.",
             "itemtype": "method",
             "name": "text",
@@ -9576,7 +9579,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 253,
+            "line": 252,
             "description": "获取符合选择器的第一个元素的样式值",
             "itemtype": "method",
             "name": "css",
@@ -9602,7 +9605,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 262,
+            "line": 261,
             "description": "给符合选择器的所有元素设置样式值",
             "itemtype": "method",
             "name": "css",
@@ -9629,7 +9632,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 271,
+            "line": 270,
             "description": "给符合选择器的所有元素设置样式值",
             "itemtype": "method",
             "name": "css",
@@ -9651,7 +9654,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 279,
+            "line": 278,
             "description": "获取符合选择器的第一个元素 style 属性中 name 的值",
             "itemtype": "method",
             "name": "style",
@@ -9673,14 +9676,14 @@
                 "type": "String"
             },
             "example": [
-                "\n```\nvar tag = S.guid(\"float\");\nDOM.addStyleSheet(\".\" + tag + \" {float:left}\")\n\nvar d = DOM.create(\"<div class='\" + tag + \"' style='float:right'><\" + \"/div>\")\nDOM.append(d, document.body);\nS.log(DOM.css(d, \"float\"));     // \"right\"\nS.log(DOM.style(d, \"float\"));   // \"right\"\n\nDOM.css(d, \"float\", \"\");\n\nS.log(DOM.css(d, \"float\"));     // \"left\"\nS.log(DOM.style(d, \"float\"));   // \"\"\n```"
+                "\n```\nrequire(['util', 'dom'], function(Util, DOM){\n    var tag = Util.guid(\"float\");\n    DOM.addStyleSheet(\".\" + tag + \" {float:left}\")\n\n    var d = DOM.create(\"<div class='\" + tag + \"' style='float:right'><\" + \"/div>\")\n    DOM.append(d, document.body);\n    console.log(DOM.css(d, \"float\"));     // \"right\"\n    console.log(DOM.style(d, \"float\"));   // \"right\"\n\n    DOM.css(d, \"float\", \"\");\n\n    console.log(DOM.css(d, \"float\"));     // \"left\"\n    console.log(DOM.style(d, \"float\"));   // \"\"\n})\n\n```"
             ],
             "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src/api/dom.js",
-            "line": 308,
+            "line": 310,
             "description": "给符合选择器的所有元素, 给其 style 属性中名为 name 的样式设置值为 value.",
             "itemtype": "method",
             "name": "style",
@@ -9707,7 +9710,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 317,
+            "line": 319,
             "description": "给符合选择器的所有元素, 给其 style 属性中名为 name 的样式设置值为 value.",
             "itemtype": "method",
             "name": "style",
@@ -9729,7 +9732,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 325,
+            "line": 327,
             "description": "获取符合选择器的第一个元素的宽度值",
             "itemtype": "method",
             "name": "width",
@@ -9746,14 +9749,14 @@
                 "type": "Number"
             },
             "example": [
-                "\n```\n<div style=\"width: 100px;\">\n    <div id=\"test\" style=\"width: 80%; height: 20px\"></div>\n</div>\n<script>\n    var S = KISSY, DOM = S.DOM,\n    elem = S.get('#test');\n\n    DOM.style(elem, 'width'); // 返回 80%\n    DOM.css(elem, 'width'); // 返回 80px\n    DOM.css(elem, 'height'); // 返回 20px\n\n    DOM.width(elem); // 返回 80\n    DOM.height(elem); // 返回 20\n</script>\n```"
+                "\n```\n<div style=\"width: 100px;\">\n    <div id=\"test\" style=\"width: 80%; height: 20px\"></div>\n</div>\n<script>\n    var elem = S.get('#test');\n\n    DOM.style(elem, 'width'); // 返回 80%\n    DOM.css(elem, 'width'); // 返回 80px\n    DOM.css(elem, 'height'); // 返回 20px\n\n    DOM.width(elem); // 返回 80\n    DOM.height(elem); // 返回 20\n</script>\n```"
             ],
             "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src/api/dom.js",
-            "line": 353,
+            "line": 354,
             "description": "获取符合选择器的第一个元素的宽度值",
             "itemtype": "method",
             "name": "width",
@@ -9775,7 +9778,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 361,
+            "line": 362,
             "description": "获取符合选择器的第一个元素的宽度值",
             "itemtype": "method",
             "name": "height",
@@ -9796,7 +9799,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 369,
+            "line": 370,
             "description": "获取符合选择器的第一个元素的高度值",
             "itemtype": "method",
             "name": "height",
@@ -9818,7 +9821,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 377,
+            "line": 378,
             "description": "获取符合选择器的第一个元素的宽度值, 注意: 该值包含 padding",
             "itemtype": "method",
             "name": "innerWidth",
@@ -9839,7 +9842,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 385,
+            "line": 386,
             "description": "获取符合选择器的第一个元素的高度值, 注意: 该值包含 padding",
             "itemtype": "method",
             "name": "innerHeight",
@@ -9860,7 +9863,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 393,
+            "line": 394,
             "description": "获取符合选择器的第一个元素的宽度值, 注意: 值除了包含元素本身宽度和 padding 外, 还包含 border或margin",
             "itemtype": "method",
             "name": "outerWidth",
@@ -9886,7 +9889,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 402,
+            "line": 403,
             "description": "获取符合选择器的第一个元素的高度值, 注意: 值除了包含元素本身宽度和 padding 外, 还包含 border或margin",
             "itemtype": "method",
             "name": "outerHeight",
@@ -9912,7 +9915,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 411,
+            "line": 412,
             "description": "将 cssText 字符串作为内联样式表内容添加到文档中",
             "itemtype": "method",
             "name": "addStyleSheet",
@@ -9935,7 +9938,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 419,
+            "line": 420,
             "description": "显示符合选择器的所有元素",
             "itemtype": "method",
             "name": "show",
@@ -9952,7 +9955,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 426,
+            "line": 427,
             "description": "隐藏符合选择器的所有元素",
             "itemtype": "method",
             "name": "hide",
@@ -9969,7 +9972,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 433,
+            "line": 434,
             "description": "将符合选择器的所有元素切换显示/隐藏两个状态",
             "itemtype": "method",
             "name": "toggle",
@@ -9986,7 +9989,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 440,
+            "line": 441,
             "description": "获取符合选择器的第一个元素相对页面文档左上角的偏移值",
             "itemtype": "method",
             "name": "offset",
@@ -10007,7 +10010,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 450,
+            "line": 451,
             "description": "设置符合选择器的第一个元素相对页面文档左上角的偏移值",
             "itemtype": "method",
             "name": "offset",
@@ -10029,7 +10032,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 458,
+            "line": 459,
             "description": "获取窗口或元素的 scrollTop 值",
             "itemtype": "method",
             "name": "scrollTop",
@@ -10050,7 +10053,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 466,
+            "line": 467,
             "description": "设置窗口 scrollTop 值",
             "itemtype": "method",
             "name": "scrollTop",
@@ -10071,7 +10074,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 474,
+            "line": 475,
             "description": "设置窗口或元素的 scrollTop 值",
             "itemtype": "method",
             "name": "scrollTop",
@@ -10097,7 +10100,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 483,
+            "line": 484,
             "description": "获取窗口或元素的 scrollLeft 值",
             "itemtype": "method",
             "name": "scrollLeft",
@@ -10118,7 +10121,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 491,
+            "line": 492,
             "description": "设置窗口 scrollLeft 值",
             "itemtype": "method",
             "name": "scrollLeft",
@@ -10139,7 +10142,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 499,
+            "line": 500,
             "description": "设置窗口或元素的 scrollLeft 值",
             "itemtype": "method",
             "name": "scrollLeft",
@@ -10165,7 +10168,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 508,
+            "line": 509,
             "description": "获取页面文档 document 的总高度",
             "itemtype": "method",
             "name": "docHeight",
@@ -10179,7 +10182,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 515,
+            "line": 516,
             "description": "获取页面文档 document 的总宽度",
             "itemtype": "method",
             "name": "docWidth",
@@ -10193,7 +10196,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 522,
+            "line": 523,
             "description": "获取当前可视区域(viewport)的高度值",
             "itemtype": "method",
             "name": "viewpointHeight",
@@ -10207,7 +10210,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 529,
+            "line": 530,
             "description": "获取当前可视区域(viewport)的宽度值",
             "itemtype": "method",
             "name": "viewpointWidth",
@@ -10221,7 +10224,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 536,
+            "line": 537,
             "description": "使当前选择器匹配的第一个元素出现在指定容器可视区域内",
             "itemtype": "method",
             "name": "scrollIntoView",
@@ -10259,7 +10262,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 546,
+            "line": 547,
             "description": "获取元素在另一批元素的位置信息",
             "itemtype": "method",
             "name": "index",
@@ -10286,7 +10289,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 559,
+            "line": 560,
             "description": "获取符合选择器的第一个元素的祖先元素",
             "itemtype": "method",
             "name": "parent",
@@ -10308,7 +10311,7 @@
                 "type": "HTMLElement"
             },
             "example": [
-                "\n```\nvar S = KISSY, DOM = S.DOM,\nelem = S.get('#id');\n\n// 返回 elem.parentNode\nDOM.parent(elem);\n\n// 返回 elem.parentNode.parentNode\nDOM.parent(elem, 2);\n\n// 寻找 elem 的祖先节点, 返回第一个拥有 container class 值的祖先\nDOM.parent(elem, '.container');\n\n// 寻找 elem 的祖先节点, 返回所有拥有 container class 值的祖先\nDOM.parent(elem, ['.container']);\n\n// 寻找 elem 的祖先节点, 返回第一个 tagName 为 ul 的祖先\nDOM.parent(elem, 'ul');\n\n// 寻找 elem 的祖先节点, 返回第一个 rel 属性为 data 值的祖先\nDOM.parent(elem, function(p) {\n    return DOM.attr(p, 'rel') == 'data';\n});\n```"
+                "\n```\nvar elem = S.get('#id');\n\n// 返回 elem.parentNode\nDOM.parent(elem);\n\n// 返回 elem.parentNode.parentNode\nDOM.parent(elem, 2);\n\n// 寻找 elem 的祖先节点, 返回第一个拥有 container class 值的祖先\nDOM.parent(elem, '.container');\n\n// 寻找 elem 的祖先节点, 返回所有拥有 container class 值的祖先\nDOM.parent(elem, ['.container']);\n\n// 寻找 elem 的祖先节点, 返回第一个 tagName 为 ul 的祖先\nDOM.parent(elem, 'ul');\n\n// 寻找 elem 的祖先节点, 返回第一个 rel 属性为 data 值的祖先\nDOM.parent(elem, function(p) {\n    return DOM.attr(p, 'rel') == 'data';\n});\n```"
             ],
             "class": "Dom",
             "module": "dom"
@@ -10524,14 +10527,14 @@
                 "type": "HTMLFragment|HTMLElement"
             },
             "example": [
-                "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 等价 document.createElement('div')\nDOM.create('<div>');\nDOM.create('<div />');\nDOM.create('<div></div>');\n\n// 等价 document.createTextNode('text')\nDOM.create('text');\n\n// 创建时, 同时添加属性值\nDOM.create('<a>', { href: 'hot.html', title: 'Hot Page' });\n\n// KISSY v1.1.5+,  创建时, 支持添加更多的属性；\n// 新增属性有： val, css, html, text, data, width, height, offset\nDOM.create('<a>', { href: 'hot.html',\n                    title: 'Hot Page',\n                    css: {color: 'blue'},\n                    text: 'Test Link'\n          });\n\n// 直接内联属性\nDOM.create('<img src=\"logo.png\" alt=\"logo\" />');\n```"
+                "\n```\n// 等价 document.createElement('div')\nDOM.create('<div>');\nDOM.create('<div />');\nDOM.create('<div></div>');\n\n// 等价 document.createTextNode('text')\nDOM.create('text');\n\n// 创建时, 同时添加属性值\nDOM.create('<a>', { href: 'hot.html', title: 'Hot Page' });\n\n// 新增属性有： val, css, html, text, data, width, height, offset\nDOM.create('<a>', { href: 'hot.html',\n                    title: 'Hot Page',\n                    css: {color: 'blue'},\n                    text: 'Test Link'\n          });\n\n// 直接内联属性\nDOM.create('<img src=\"logo.png\" alt=\"logo\" />');\n```"
             ],
             "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src/api/dom.js",
-            "line": 696,
+            "line": 693,
             "description": "获取符合选择器的第一个元素的 innerHTML",
             "itemtype": "method",
             "name": "html",
@@ -10552,7 +10555,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 704,
+            "line": 701,
             "description": "给符合选择器的所有元素设置 innerHTML 值",
             "itemtype": "method",
             "name": "html",
@@ -10580,7 +10583,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 715,
+            "line": 712,
             "description": "将符合选择器的所有元素从 DOM 中移除",
             "itemtype": "method",
             "name": "remove",
@@ -10597,7 +10600,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 725,
+            "line": 722,
             "description": "清除节点的所有子孙节点以及子孙节点上的事件和 data() 信息",
             "itemtype": "method",
             "name": "empty",
@@ -10614,7 +10617,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 732,
+            "line": 729,
             "description": "将 newNode 插入到 refNode 之前",
             "itemtype": "method",
             "name": "insertBefore",
@@ -10636,7 +10639,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 740,
+            "line": 737,
             "description": "将 newNode 插入到 refNode 之后",
             "itemtype": "method",
             "name": "insertAfter",
@@ -10658,7 +10661,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 748,
+            "line": 745,
             "description": "将 node 追加到 parent 子节点最后",
             "itemtype": "method",
             "name": "append",
@@ -10680,7 +10683,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 756,
+            "line": 753,
             "description": "将 node 追加到 parent 子节点最前",
             "itemtype": "method",
             "name": "prepend",
@@ -10702,7 +10705,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 764,
+            "line": 761,
             "description": "将 node 节点（数组）替换为新的节点（数组） newNode",
             "itemtype": "method",
             "name": "replaceWith",
@@ -10724,7 +10727,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 772,
+            "line": 769,
             "description": "获取符合选择器的第一个元素的扩展属性(expando)",
             "itemtype": "method",
             "name": "data",
@@ -10750,7 +10753,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 783,
+            "line": 780,
             "description": "给符合选择器的所有元素的扩展属性(expando).设置扩展属性 name 为 value",
             "itemtype": "method",
             "name": "data",
@@ -10776,7 +10779,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 792,
+            "line": 789,
             "description": "给符合选择器的所有元素的扩展属性(expando).设置扩展属性 name 为 value",
             "itemtype": "method",
             "name": "data",
@@ -10794,14 +10797,14 @@
                 }
             ],
             "example": [
-                "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 设置所有 img 的名为 data-size 的 expando , 值为 400;\nDOM.data('img', 'data-size', 400);\n\n// 获取第一个 img 元素中, 名为 data-size 的 expando 值;\nDOM.data('img', 'data-size');\n\nvar p=DOM.create(\"<p>\");\n\nDOM.hasData(p); // => false\n\nvar store=DOM.data(p); // => store={}\n\nstore.x=\"y\"; // => 相当于 DOM.data(p,\"x\",\"y\");\n\nDOM.removeData(p,\"x\");\n\nDOM.data(p,\"x\"); // => undefined\n\nDOM.hasData(p,\"x\"); // => false\n\nDOM.hasData(p) // => false\n\nDOM.data(\"p\") // => 返回存储对象\n```"
+                "\n```\n\n// 设置所有 img 的名为 data-size 的 expando , 值为 400;\nDOM.data('img', 'data-size', 400);\n\n// 获取第一个 img 元素中, 名为 data-size 的 expando 值;\nDOM.data('img', 'data-size');\n\nvar p=DOM.create(\"<p>\");\n\nDOM.hasData(p); // => false\n\nvar store=DOM.data(p); // => store={}\n\nstore.x=\"y\"; // => 相当于 DOM.data(p,\"x\",\"y\");\n\nDOM.removeData(p,\"x\");\n\nDOM.data(p,\"x\"); // => undefined\n\nDOM.hasData(p,\"x\"); // => false\n\nDOM.hasData(p) // => false\n\nDOM.data(\"p\") // => 返回存储对象\n```"
             ],
             "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src/api/dom.js",
-            "line": 833,
+            "line": 829,
             "description": "将符合选择器的所有元素的对应扩展属性( expando )删除",
             "itemtype": "method",
             "name": "removeData",
@@ -10819,14 +10822,14 @@
                 }
             ],
             "example": [
-                "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 删除 img 元素的名为 data-size 的 expando;\nDOM.removeData('img', 'data-size');\n\n// 删除 img 元素的 expando;\nDOM.removeData('img');\n```"
+                "\n```\n\n// 删除 img 元素的名为 data-size 的 expando;\nDOM.removeData('img', 'data-size');\n\n// 删除 img 元素的 expando;\nDOM.removeData('img');\n```"
             ],
             "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src/api/dom.js",
-            "line": 851,
+            "line": 846,
             "description": "判断是否符合选择器的所有元素中的一个存在对应的扩展属性( expando )值",
             "itemtype": "method",
             "name": "hasData",
@@ -10848,14 +10851,14 @@
                 "type": "Boolean"
             },
             "example": [
-                "\n```\nvar S = KISSY, DOM = S.DOM;\n\n// 给所有的段落节点设置扩展属性 ``x`` , 值为 ``y``\nDOM.data(\"p\",\"x\",\"y\");\n\nDOM.hasData(\"p\"); // => true , 设置过扩展属性\n\nDOM.hasData(\"p\",\"x\") // => true , 设置过扩展属性 ``x`` 的值\n\nDOM.hasData(\"p\",\"z\") // => false , 没有设置过扩展属性 ``z`` 的值\n\nDOM.removeData(\"p\",\"x\"); // => 删除扩展属性 ``x`` 的值\n\nDOM.hasData(\"p\",\"x\"); //=> false\n\nDOM.hasData(\"p\"); //=> false\n```"
+                "\n```\n\n// 给所有的段落节点设置扩展属性 ``x`` , 值为 ``y``\nDOM.data(\"p\",\"x\",\"y\");\n\nDOM.hasData(\"p\"); // => true , 设置过扩展属性\n\nDOM.hasData(\"p\",\"x\") // => true , 设置过扩展属性 ``x`` 的值\n\nDOM.hasData(\"p\",\"z\") // => false , 没有设置过扩展属性 ``z`` 的值\n\nDOM.removeData(\"p\",\"x\"); // => 删除扩展属性 ``x`` 的值\n\nDOM.hasData(\"p\",\"x\"); //=> false\n\nDOM.hasData(\"p\"); //=> false\n```"
             ],
             "class": "Dom",
             "module": "dom"
         },
         {
             "file": "src/api/dom.js",
-            "line": 879,
+            "line": 873,
             "description": "使符合选择器的所有元素都不可以作为选择区域的开始",
             "itemtype": "method",
             "name": "unselectable",
@@ -10872,7 +10875,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 889,
+            "line": 883,
             "description": "获取符合选择器的所有子节点（包括文字节点）",
             "itemtype": "method",
             "name": "contents",
@@ -10898,7 +10901,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 898,
+            "line": 892,
             "description": "用 wrapperNode 分别包装符合 selector 的节点",
             "itemtype": "method",
             "name": "wrap",
@@ -10923,7 +10926,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 928,
+            "line": 922,
             "description": "用 wrapperNode 包装所有符合 selector 的节点",
             "itemtype": "method",
             "name": "wrapAll",
@@ -10948,7 +10951,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 956,
+            "line": 950,
             "description": "移除符合 selector 的节点的父节点",
             "itemtype": "method",
             "name": "unwrap",
@@ -10968,7 +10971,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 985,
+            "line": 979,
             "description": "用 wrapperNode 分别包装符合 selector 的节点的子节点",
             "itemtype": "method",
             "name": "wrapInner",
@@ -10993,7 +10996,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 1015,
+            "line": 1009,
             "description": "获取符合选择器的第一个元素的小写 nodeName 值",
             "itemtype": "method",
             "name": "nodeName",
@@ -11014,7 +11017,7 @@
         },
         {
             "file": "src/api/dom.js",
-            "line": 1023,
+            "line": 1017,
             "description": "获取符合选择器的第一个元素的 outerHTML",
             "itemtype": "method",
             "name": "outerHTML",
@@ -11433,7 +11436,7 @@
                 }
             ],
             "example": [
-                "\n    KISSY.use(['editor'], function(S, Editor){\n        var myEditorFromTextarea = Editor.decorate('#my-textarea',{\n            focused : true,\n            attachForm: true\n        })\n    })"
+                "\n    require(['editor'], function(Editor){\n        var myEditorFromTextarea = Editor.decorate('#my-textarea',{\n            focused : true,\n            attachForm: true\n        })\n    })"
             ],
             "class": "Editor",
             "module": "editor"
@@ -11668,7 +11671,7 @@
                 }
             ],
             "example": [
-                "\n```\nmodulex.use(['util', 'event/custom'], function(Util, CustomEvent) {\n    function Custom(id){\n        this.id = id;\n        this.publish(\"run\",{\n            bubbles:1\n        });\n    }\n\n    Util.augment(Custom, CustomEvent.Target);\n\n    var c1 = new Custom(\"c1\");\n\n    var c2 = new Custom(\"c1\");\n\n    c1.addTarget(c2);\n\n    c2.on(\"run\",function(e){\n        S.log(e.target.id +\" fires event run\"); // => c1 fires event run\n    });\n\n    c1.fire(\"run\");\n});\n```"
+                "\n```\nrequire(['util', 'event/custom'], function(Util, CustomEvent) {\n    function Custom(id){\n        this.id = id;\n        this.publish(\"run\",{\n            bubbles:1\n        });\n    }\n\n    Util.augment(Custom, CustomEvent.Target);\n\n    var c1 = new Custom(\"c1\");\n\n    var c2 = new Custom(\"c1\");\n\n    c1.addTarget(c2);\n\n    c2.on(\"run\",function(e){\n        S.log(e.target.id +\" fires event run\"); // => c1 fires event run\n    });\n\n    c1.fire(\"run\");\n});\n```"
             ],
             "class": "CustomEvent.Target",
             "module": "event-custom",
@@ -11983,7 +11986,7 @@
             "itemtype": "event",
             "name": "hashchange",
             "example": [
-                "\n```\nmodulex.use(['node', 'event/dom'], function($, DomEvent){\n    $(window).on(\"hashchange\",function(){\n        // location.hash -> 当前 hash 值\n    });\n})\n\n```"
+                "\n```\nrequire(['node', 'event/dom'], function($, DomEvent){\n    $(window).on(\"hashchange\",function(){\n        // location.hash -> 当前 hash 值\n    });\n})\n\n```"
             ],
             "class": "DomEvent",
             "module": "event-dom"
@@ -12000,7 +12003,7 @@
         {
             "file": "src/api/feature.js",
             "line": 19,
-            "description": "判断当前宿主环境是否支持手势事件\n\n  ```\n  KISSY.Features.isDeviceMotionSupported();\n  ```",
+            "description": "判断当前宿主环境是否支持手势事件\n\n  ```\n  Features.isDeviceMotionSupported();\n  ```",
             "itemtype": "method",
             "name": "isDeviceMotionSupported",
             "static": 1,
@@ -12789,14 +12792,14 @@
                 "type": "Object"
             },
             "example": [
-                "\n注意 json 字符串的格式，属性必须要双引号括起来\n```\nKISSY.JSON.parse('{\"x\":1}'); // => ok\nKISSY.JSON.parse(\"{'x':1}\"); // => exception : SyntaxError\nKISSY.JSON.parse(\"{x:1}\"); // => exception : SyntaxError\n```"
+                "\n注意 json 字符串的格式，属性必须要双引号括起来\n```\nrequire(['json'],function(JSON){\n\tJSON.parse('{\"x\":1}'); // => ok\n\tJSON.parse(\"{'x':1}\"); // => exception : SyntaxError\n\tJSON.parse(\"{x:1}\"); // => exception : SyntaxError\n})\n\n```"
             ],
             "class": "Json",
             "module": "json"
         },
         {
             "file": "src/api/json.js",
-            "line": 26,
+            "line": 29,
             "description": "将json对象或者数组转化为字符串，序列化器",
             "itemtype": "method",
             "name": "stringify",
@@ -12825,7 +12828,7 @@
                 "type": "String"
             },
             "example": [
-                "\n```\nKISSY.JSON.stringify({\"x\":1}); // => '{\"x\":1}'\nKISSY.JSON.stringify({x:1}); // => '{\"x\":1}'\nKISSY.JSON.stringify({'x':1}); // => '{\"x\":1}'\n```"
+                "\n```\nJSON.stringify({\"x\":1}); // => '{\"x\":1}'\nJSON.stringify({x:1}); // => '{\"x\":1}'\nJSON.stringify({'x':1}); // => '{\"x\":1}'\n```"
             ],
             "class": "Json",
             "module": "json"
@@ -13572,14 +13575,14 @@
                 "type": "Node"
             },
             "example": [
-                "\n- 选择器上下文\n默认情况下是在文档根节点开始依据选择器字符串开始匹配元素查找. 但是一个上下文可以作为可选的第二个参数来限定查找范围, 例如在事件处理器 范围内进行查找匹配元素：\n```\nvar $=Node.all;\n$('div.foo').on(\"click\",function() {\n  $('span', this).addClass('bar');\n});\n```\n当对 span 的选择限定在 this 中时, 只有位于点击元素内的 span 节点会被设置格外的 class.也可以通过 $(this).all(\"span\") 来实现限定搜索范围\n- 使用原生 DOM 节点\n```\nvar $=Node.all;\n$('div.foo').on(\"click\",function() {\n  $(this).slideUp();\n});\n```"
+                "\n- 选择器上下文\n默认情况下是在文档根节点开始依据选择器字符串开始匹配元素查找. 但是一个上下文可以作为可选的第二个参数来限定查找范围, 例如在事件处理器 范围内进行查找匹配元素：\n```\n$('div.foo').on(\"click\",function() {\n  $('span', this).addClass('bar');\n});\n```\n当对 span 的选择限定在 this 中时, 只有位于点击元素内的 span 节点会被设置格外的 class.也可以通过 $(this).all(\"span\") 来实现限定搜索范围\n- 使用原生 DOM 节点\n```\n$('div.foo').on(\"click\",function() {\n  $(this).slideUp();\n});\n```"
             ],
             "class": "Node",
             "module": "node"
         },
         {
             "file": "src/api/node.js",
-            "line": 54,
+            "line": 52,
             "description": "返回匹配的第一个Node对象",
             "itemtype": "method",
             "name": "one",
@@ -13599,7 +13602,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 62,
+            "line": 60,
             "description": "得到当前节点列表内符合选择器字符串的子孙节点列表",
             "itemtype": "method",
             "name": "all",
@@ -13622,7 +13625,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 71,
+            "line": 69,
             "description": "得到当前节点列表内符合选择器字符串的子孙节点列表的第一个Node对象",
             "itemtype": "method",
             "name": "one",
@@ -13642,7 +13645,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 78,
+            "line": 76,
             "description": "得到该 Node 对象包含的原生节点数组",
             "itemtype": "method",
             "name": "getDomNodes",
@@ -13651,14 +13654,14 @@
                 "type": "Array<HTMLElement>"
             },
             "example": [
-                "\n```\n<p id='p1'>1</p><p id='p2'>2</p>\n\n<script>\n\tKISSY.use(\"node\",function(S,Node){\n\t\tvar $ = Node.all,\n\t\t    pdiv = $(\"p\"),\n\t\t    all=pdiv.getDOMNodes(); // => all == [document.getElementById(\"p1\"),document.getElementById(\"p2\")]\n\n\t})\n</script>\n```"
+                "\n```\n<p id='p1'>1</p><p id='p2'>2</p>\n\n<script>\n\trequire([\"node\"],function($){\n\t\tvar pdiv = $(\"p\"),\n\t\t    all=pdiv.getDOMNodes(); // => all == [document.getElementById(\"p1\"),document.getElementById(\"p2\")]\n\n\t})\n</script>\n```"
             ],
             "class": "Node",
             "module": "node"
         },
         {
             "file": "src/api/node.js",
-            "line": 97,
+            "line": 94,
             "description": "得到该 NodeList 对象包含的第一个原生节点",
             "itemtype": "method",
             "name": "getDomNode",
@@ -13671,19 +13674,19 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 103,
+            "line": 100,
             "description": "得到上一次 Node.one() / Node.all() 操作前的 Node 对象,引入该方法是为了更好的进行链式调用",
             "itemtype": "method",
             "name": "end",
             "example": [
-                "\n```\n<div class='d1'>\n    d1\n</div>\n\n<div class='d2'>\n    d2\n</div>\n\n<script>\n    KISSY.use('node', function (S,Node) {\n        var $ = Node.all;\n        $(\"body\").all(\".d1\").css(\"color\", \"red\").end().all(\".d2\").css(\"color\", \"green\");\n\n    });\n</script>\n```"
+                "\n```\n<div class='d1'>\n    d1\n</div>\n\n<div class='d2'>\n    d2\n</div>\n\n<script>\n    require(['node'], function ($) {\n        $(\"body\").all(\".d1\").css(\"color\", \"red\").end().all(\".d2\").css(\"color\", \"green\");\n\n    });\n</script>\n```"
             ],
             "class": "Node",
             "module": "node"
         },
         {
             "file": "src/api/node.js",
-            "line": 126,
+            "line": 122,
             "description": "比较当前节点列表和 others 代表的节点列表是否完全相同",
             "itemtype": "method",
             "name": "equals",
@@ -13703,7 +13706,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 133,
+            "line": 129,
             "description": "返回包含合并选择器字符串匹配的元素和当前节点列表元素的新 NodeList 对象",
             "itemtype": "method",
             "name": "add",
@@ -13727,7 +13730,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 150,
+            "line": 146,
             "description": "获取包含当前节点列表 index 位置处的单个原生节点的新 Node 对象",
             "itemtype": "method",
             "name": "item",
@@ -13747,7 +13750,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 157,
+            "line": 153,
             "description": "获取包含当前节点列表选定范围内原生节点的新 Node 对象,调用该方法并不会改变当前 Node 实例",
             "itemtype": "method",
             "name": "slice",
@@ -13773,7 +13776,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 165,
+            "line": 161,
             "description": "得到/设置当前节点列表第一个节点的滚动条的垂直位置",
             "itemtype": "method",
             "name": "scrollTop",
@@ -13793,7 +13796,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 174,
+            "line": 170,
             "description": "得到/设置当前节点列表第一个节点的滚动条的横向位置",
             "itemtype": "method",
             "name": "scrollLeft",
@@ -13813,7 +13816,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 183,
+            "line": 179,
             "description": "得到/设置当前节点列表第一个节点的计算高度，不含margin/padding/border",
             "itemtype": "method",
             "name": "height",
@@ -13833,7 +13836,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 192,
+            "line": 188,
             "description": "得到/设置当前节点列表第一个节点的计算宽度，不含margin/padding/border",
             "itemtype": "method",
             "name": "width",
@@ -13853,7 +13856,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 201,
+            "line": 197,
             "description": "将 cssText 字符串作为内联样式表内容添加到节点所属的文档中",
             "itemtype": "method",
             "name": "addStyleSheet",
@@ -13875,7 +13878,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 208,
+            "line": 204,
             "description": "将参数内容插入到当前节点列表中的每个元素的末尾.",
             "itemtype": "method",
             "name": "append",
@@ -13891,14 +13894,14 @@
                 "type": "Node"
             },
             "example": [
-                "\n```\n<h2>Greetings</h2>\n<div class=\"container\">\n  <div class=\"inner\">Hello</div>\n  <div class=\"inner\">Goodbye</div>\n</div>\n```\n```\nKISSY.use(\"node\",function(S,Node){\n    Node.all('.inner').append('<p>Test</p>');\n});\n\n```\n内层的每个 div 元素都得到了新内容\n```\n<h2>Greetings</h2>\n<div class=\"container\">\n  <div class=\"inner\">\n    Hello\n    <p>Test</p>\n  </div>\n  <div class=\"inner\">\n    Goodbye\n    <p>Test</p>\n  </div>\n</div>\n```\n### Note\n\n当把页面上已有的元素添加到目标容器中，若目标容器有多个，则只有第一个被添加进去的是参数节点，其他的都是参数节点的克隆节点"
+                "\n```\n<h2>Greetings</h2>\n<div class=\"container\">\n  <div class=\"inner\">Hello</div>\n  <div class=\"inner\">Goodbye</div>\n</div>\n```\n```\nrequire([\"node\"],function($){\n    $('.inner').append('<p>Test</p>');\n});\n\n```\n内层的每个 div 元素都得到了新内容\n```\n<h2>Greetings</h2>\n<div class=\"container\">\n  <div class=\"inner\">\n    Hello\n    <p>Test</p>\n  </div>\n  <div class=\"inner\">\n    Goodbye\n    <p>Test</p>\n  </div>\n</div>\n```\n### Note\n\n当把页面上已有的元素添加到目标容器中，若目标容器有多个，则只有第一个被添加进去的是参数节点，其他的都是参数节点的克隆节点"
             ],
             "class": "Node",
             "module": "node"
         },
         {
             "file": "src/api/node.js",
-            "line": 246,
+            "line": 242,
             "description": "将当前节点列表中的每个元素插入到容器列表的每个元素的最后一个子节点后面,功能与append已有，只是参数意义不同",
             "itemtype": "method",
             "name": "appendTo",
@@ -13918,7 +13921,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 255,
+            "line": 251,
             "description": "将参数内容插入到当前节点列表中的每个元素的开头.",
             "itemtype": "method",
             "name": "prepend",
@@ -13938,7 +13941,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 262,
+            "line": 258,
             "description": "将当前节点列表中的每个元素插入到容器列表的每个元素的最后一个子节点开头,功能与prependTo已有，只是参数意义不同",
             "itemtype": "method",
             "name": "prependTo",
@@ -13958,7 +13961,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 271,
+            "line": 267,
             "description": "将当前列表中的每个元素插入到目标元素之前",
             "itemtype": "method",
             "name": "insertBefore",
@@ -13978,7 +13981,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 280,
+            "line": 276,
             "description": "将当前列表中的每个元素插入到目标元素后面",
             "itemtype": "method",
             "name": "insertAfter",
@@ -13998,7 +14001,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 289,
+            "line": 285,
             "description": "将参数内容插入到当前列表中每个元素之前,功能和insertBefore一样，只是参数意义不同",
             "itemtype": "method",
             "name": "before",
@@ -14018,7 +14021,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 298,
+            "line": 294,
             "description": "将参数内容插入到当前列表中每个元素后面,功能和insertAfter一样，只是参数意义不同",
             "itemtype": "method",
             "name": "after",
@@ -14038,7 +14041,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 307,
+            "line": 303,
             "description": "在当前节点列表上开始动画",
             "itemtype": "method",
             "name": "animate",
@@ -14057,7 +14060,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 314,
+            "line": 310,
             "description": "停止当前节点列表的动画, end, clearQueue, queueName, 涵义同 Anim.stop().",
             "itemtype": "method",
             "name": "stop",
@@ -14077,7 +14080,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 321,
+            "line": 317,
             "description": "暂停当前节点列表的动画",
             "itemtype": "method",
             "name": "pause",
@@ -14097,7 +14100,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 328,
+            "line": 324,
             "description": "继续当前节点列表的动画",
             "itemtype": "method",
             "name": "resume",
@@ -14117,7 +14120,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 335,
+            "line": 331,
             "description": "判断当前 Node 对象是否在动画中, Node对象列表 中只要有一个 Node对象 在动画, 就会返回 true 值",
             "itemtype": "method",
             "name": "isRunning",
@@ -14130,7 +14133,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 341,
+            "line": 337,
             "description": "判断当前 Node 对象是否在暂停中, Node对象列表 中只要有一个 Node对象 在暂停, 就会返回 true 值",
             "itemtype": "method",
             "name": "isPaused",
@@ -14143,7 +14146,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 347,
+            "line": 343,
             "description": "当前节点列表元素以动画效果显示",
             "itemtype": "method",
             "name": "show",
@@ -14170,7 +14173,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 355,
+            "line": 351,
             "description": "当前节点列表元素以动画效果隐藏",
             "itemtype": "method",
             "name": "hide",
@@ -14197,7 +14200,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 363,
+            "line": 359,
             "description": "当前节点列表元素为显示时动画效果隐藏, 否则动画效果显示",
             "itemtype": "method",
             "name": "toggle",
@@ -14224,7 +14227,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 371,
+            "line": 367,
             "description": "当前节点列表元素以渐隐效果显示",
             "itemtype": "method",
             "name": "fadeIn",
@@ -14257,7 +14260,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 380,
+            "line": 376,
             "description": "当前节点列表元素以渐隐效果隐藏",
             "itemtype": "method",
             "name": "fadeOut",
@@ -14290,7 +14293,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 389,
+            "line": 385,
             "description": "当前节点列表元素为显示时, 切换显示或隐藏, 且动画效果为渐隐",
             "itemtype": "method",
             "name": "fadeToggle",
@@ -14323,7 +14326,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 398,
+            "line": 394,
             "description": "当前节点列表元素从上到下滑动显示",
             "itemtype": "method",
             "name": "slideDown",
@@ -14356,7 +14359,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 407,
+            "line": 403,
             "description": "当前节点列表元素从上到下滑动隐藏",
             "itemtype": "method",
             "name": "slideUp",
@@ -14389,7 +14392,7 @@
         },
         {
             "file": "src/api/node.js",
-            "line": 416,
+            "line": 412,
             "description": "当前节点列表元素为显示时, 切换显示或隐藏, 且动画效果为滑动展开折叠",
             "itemtype": "method",
             "name": "slideToggle",
@@ -14825,7 +14828,7 @@
             "name": "resolve",
             "static": 1,
             "example": [
-                "\n```\nKISSY.Path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif')\n// => 'wwwroot/static_files/gif/image.gif'\n\nKISSY.Path.resolve('/foo/bar', '/tmp/file/')\n// =>   '/tmp/file'\n```"
+                "\n```\nPath.resolve('wwwroot', 'static_files/png/', '../gif/image.gif')\n// => 'wwwroot/static_files/gif/image.gif'\n\nPath.resolve('/foo/bar', '/tmp/file/')\n// =>   '/tmp/file'\n```"
             ],
             "class": "Path",
             "module": "path"
@@ -15620,7 +15623,7 @@
                 "type": "String"
             },
             "example": [
-                "\n```\nKISSY.use('stylesheet',function(S,StyleSheet){\n    // use stylesheet\n      <link id='existing'>\n        a {\n            color:red;\n        }\n      </link>\n \n    var stylesheet = new StyleSheet({\n        el: '#existing'\n    });\n\n    stylesheet.get('a'); // => color:red\n});"
+                "\n```\nrequire(['stylesheet'],function(StyleSheet){\n    // use stylesheet\n      <link id='existing'>\n        a {\n            color:red;\n        }\n      </link>\n \n    var stylesheet = new StyleSheet({\n        el: '#existing'\n    });\n\n    stylesheet.get('a'); // => color:red\n});"
             ],
             "class": "StyleSheet",
             "module": "stylesheet"
@@ -15647,7 +15650,7 @@
                 "description": "当前实例"
             },
             "example": [
-                "\n```\nKISSY.use('stylesheet',function(S,StyleSheet){\n    // use stylesheet\n      <link id='existing'>\n        a {\n            color:red;\n        }\n      </link>\n      \n    var stylesheet = new StyleSheet({\n        el: '#existing'\n    });\n\n    stylesheet.set('a',{\n        color:'',\n        fontSize:'18px'\n    }).get('a'); // => font-size:18px;\n});"
+                "\n```\nrequire(['stylesheet'],function(StyleSheet){\n    // use stylesheet\n      <link id='existing'>\n        a {\n            color:red;\n        }\n      </link>\n      \n    var stylesheet = new StyleSheet({\n        el: '#existing'\n    });\n\n    stylesheet.set('a',{\n        color:'',\n        fontSize:'18px'\n    }).get('a'); // => font-size:18px;\n});"
             ],
             "class": "StyleSheet",
             "module": "stylesheet"
@@ -16559,7 +16562,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 17,
+            "line": 28,
             "description": "trident 的版本号。IE 浏览器 8 系列以下都无法准确探测 Trident 内核的版本号。",
             "itemtype": "property",
             "name": "trident",
@@ -16570,7 +16573,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 24,
+            "line": 35,
             "description": "webkit 的版本号",
             "itemtype": "property",
             "name": "webkit",
@@ -16581,7 +16584,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 31,
+            "line": 42,
             "description": "gecko 的版本号",
             "itemtype": "property",
             "name": "gecko",
@@ -16592,7 +16595,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 38,
+            "line": 49,
             "description": "presto 的版本号",
             "itemtype": "property",
             "name": "presto",
@@ -16603,7 +16606,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 45,
+            "line": 56,
             "description": "chrome 的版本号",
             "itemtype": "property",
             "name": "chrome",
@@ -16614,7 +16617,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 52,
+            "line": 63,
             "description": "safari 的版本号",
             "itemtype": "property",
             "name": "safari",
@@ -16625,7 +16628,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 59,
+            "line": 70,
             "description": "firefox 的版本号",
             "itemtype": "property",
             "name": "firefox",
@@ -16636,7 +16639,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 66,
+            "line": 77,
             "description": "ie 的版本号",
             "itemtype": "property",
             "name": "ie",
@@ -16647,7 +16650,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 73,
+            "line": 84,
             "description": "opera 的版本号",
             "itemtype": "property",
             "name": "opera",
@@ -16658,7 +16661,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 80,
+            "line": 91,
             "description": "mobile 的标志符。 若无法探测或非移动设备浏览器，将返回空字符串。",
             "itemtype": "property",
             "name": "mobile",
@@ -16669,7 +16672,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 87,
+            "line": 98,
             "description": "core 的标志符。此标识符表示浏览器的内核标识。若浏览器内核不是 trident, webkit, gecko, presto 将返回空字符串。",
             "itemtype": "property",
             "name": "core",
@@ -16680,7 +16683,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 94,
+            "line": 105,
             "description": "shell 的标志符。此标识符表示用户所用浏览器的外壳标识。\n此处的外壳表示广义的外壳，即 IE, Firefox, Chrome, Opera, Safari 等浏览器都属于外壳。可以利用此标识符直接识别浏览器类型。 可以首先使用 UA.shell 返回的标识符判断当前浏览器类型，若需浏览器具体版本信息，可以再通过 UA[UA.shell] 取出版本号。 * UA.core 返回字符串，目前支持 trident, webkit, gecko, presto 四大浏览器内核. * UA.shell 返回字符串，比如 firefox, opera, chrome, ie, safari * UA.mobile 返回字符串，目前支持 apple, nokia, android, opera mini/mobile 等设备/浏览器的探测.",
             "itemtype": "property",
             "name": "shell",
@@ -16691,7 +16694,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 102,
+            "line": 113,
             "description": "操作系统标志符。例如 windows android ios linux",
             "itemtype": "property",
             "name": "os",
@@ -16702,7 +16705,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 109,
+            "line": 120,
             "description": "ipad ios 版本号。例如 5.0",
             "itemtype": "property",
             "name": "ipad",
@@ -16713,7 +16716,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 116,
+            "line": 127,
             "description": "iphone ios 版本号。例如 5.0",
             "itemtype": "property",
             "name": "iphone",
@@ -16724,7 +16727,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 123,
+            "line": 134,
             "description": "ipod ios 版本号。例如 5.0",
             "itemtype": "property",
             "name": "ipod",
@@ -16735,7 +16738,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 130,
+            "line": 141,
             "description": "ios 版本号。例如 5.0",
             "itemtype": "property",
             "name": "ios",
@@ -16746,7 +16749,7 @@
         },
         {
             "file": "src/api/ua.js",
-            "line": 137,
+            "line": 148,
             "description": "android版本号。例如 5.0",
             "itemtype": "property",
             "name": "android",
@@ -16795,7 +16798,7 @@
                 }
             ],
             "example": [
-                "\n\tKISSY.use(['url'], function(S, Url){\n\t\tvar websiteUrl = 'http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10#method_resolve';\n\t\tvar urlDataObj = Url.parse(websiteUrl); \n\t\turlDataObj.search = undefined;\n\t\turlDataObj.query = {\n\t\t\tname : 'weekeight',\n\t\t\tlove : 'kissy',\n\t\t\tarr : [1,2,3]\n\t\t};\n\n\t\tvar newUrl = Url.format(urlDataObj);  //得到的newUrl是 http://docs.kissyui.com/5.0/api/classes/Path.html?name=weekeight&love=kissy&arr%5B%5D=1&arr%5B%5D=2&arr%5B%5D=3#method_resolve\n\t})"
+                "\n\trequire(['url'], function(Url){\n\t\tvar websiteUrl = 'http://docs.kissyui.com/5.0/api/classes/Path.html?test=iamtestcontent&date=2014.09.10#method_resolve';\n\t\tvar urlDataObj = Url.parse(websiteUrl); \n\t\turlDataObj.search = undefined;\n\t\turlDataObj.query = {\n\t\t\tname : 'weekeight',\n\t\t\tlove : 'kissy',\n\t\t\tarr : [1,2,3]\n\t\t};\n\n\t\tvar newUrl = Url.format(urlDataObj);  //得到的newUrl是 http://docs.kissyui.com/5.0/api/classes/Path.html?name=weekeight&love=kissy&arr%5B%5D=1&arr%5B%5D=2&arr%5B%5D=3#method_resolve\n\t})"
             ],
             "class": "Url",
             "module": "url"
@@ -16807,7 +16810,7 @@
             "itemtype": "method",
             "name": "resolve",
             "example": [
-                "\n\tKISSY.use(['url'],function(S, Url){\n\t\tUrl.resolve('docs.kissyui.com/guides/','overlay/index.html'); //docs.kissyui.com/guides/overlay/index.html\n\t})"
+                "\n\trequire(['url'],function(Url){\n\t\tUrl.resolve('docs.kissyui.com/guides/','overlay/index.html'); //docs.kissyui.com/guides/overlay/index.html\n\t})"
             ],
             "class": "Url",
             "module": "url"
@@ -16854,7 +16857,7 @@
         {
             "file": "src/api/util.js",
             "line": 23,
-            "description": "在页面id元素生效时立刻执行回调函数fn，当需要比 KISSY.ready() 反应更快的探测到某个元素可用时使用",
+            "description": "在页面id元素生效时立刻执行回调函数fn",
             "itemtype": "method",
             "name": "available",
             "static": 1,
@@ -17103,14 +17106,14 @@
                 "type": "Function"
             },
             "example": [
-                "\n  ```\nvar S = KISSY;\n\nfunction Bird(name) { this.name = name; }\nBird.prototype.fly = function() { alert(this.name + ' is flying now!'); };\n\nfunction Chicken(name) {\n   Chicken.superclass.constructor.call(this, name);\n}\nUtil.extend(Chicken, Bird,{\n   fly:function(){\n       Chicken.superclass.fly.call(this)\n       alert(\"it's my turn\");\n   }\n});\n\nnew Chicken('kissy').fly();\n  ```"
+                "\n  ```\nfunction Bird(name) { this.name = name; }\nBird.prototype.fly = function() { alert(this.name + ' is flying now!'); };\n\nfunction Chicken(name) {\n   Chicken.superclass.constructor.call(this, name);\n}\nUtil.extend(Chicken, Bird,{\n   fly:function(){\n       Chicken.superclass.fly.call(this)\n       alert(\"it's my turn\");\n   }\n});\n\nnew Chicken('kissy').fly();\n  ```"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 199,
+            "line": 197,
             "description": "遍历数组, 过滤出符合条件的数组项",
             "itemtype": "method",
             "name": "filter",
@@ -17145,7 +17148,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 218,
+            "line": 216,
             "description": "在全局作用域下执行代码字符串, 避免 eval 的作用域链",
             "itemtype": "method",
             "name": "globalEval",
@@ -17162,7 +17165,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 225,
+            "line": 223,
             "description": "返回全局唯一 id",
             "itemtype": "method",
             "name": "guid",
@@ -17183,7 +17186,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 233,
+            "line": 231,
             "description": "判断元素 elem 是否在数组 arr 中",
             "itemtype": "method",
             "name": "inArray",
@@ -17209,7 +17212,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 242,
+            "line": 240,
             "description": "返回元素 elem 在数组 arr 中的序号",
             "itemtype": "method",
             "name": "indexOf",
@@ -17235,7 +17238,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 251,
+            "line": 249,
             "description": "判断是否数组",
             "itemtype": "method",
             "name": "isArray",
@@ -17256,7 +17259,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 259,
+            "line": 257,
             "description": "判断是否布尔值",
             "itemtype": "method",
             "name": "isBoolean",
@@ -17277,7 +17280,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 267,
+            "line": 265,
             "description": "判断是否日期",
             "itemtype": "method",
             "name": "isDate",
@@ -17298,7 +17301,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 275,
+            "line": 273,
             "description": "判断是否空对象(没有任何可遍历的属性)",
             "itemtype": "method",
             "name": "isEmptyObject",
@@ -17319,7 +17322,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 283,
+            "line": 281,
             "description": "判断是否函数",
             "itemtype": "method",
             "name": "isFunction",
@@ -17340,7 +17343,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 291,
+            "line": 289,
             "description": "判断是否有效数值",
             "itemtype": "method",
             "name": "isNumber",
@@ -17361,7 +17364,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 299,
+            "line": 297,
             "description": "判断是否为对象",
             "itemtype": "method",
             "name": "isObject",
@@ -17382,7 +17385,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 307,
+            "line": 305,
             "description": "判断是否是普通对象, 通过 {} 或 new FunctionClass/Object() 创建的, 不包括内置对象以及宿主对象.",
             "itemtype": "method",
             "name": "isPlainObject",
@@ -17403,7 +17406,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 315,
+            "line": 313,
             "description": "判断是否正则表达式",
             "itemtype": "method",
             "name": "isRegExp",
@@ -17424,7 +17427,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 323,
+            "line": 321,
             "description": "判断是否字符串",
             "itemtype": "method",
             "name": "isString",
@@ -17445,7 +17448,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 331,
+            "line": 329,
             "description": "判断参数是否为浏览器 window",
             "itemtype": "method",
             "name": "isWindow",
@@ -17466,7 +17469,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 339,
+            "line": 337,
             "description": "将对象的所有属性名作为数组返回",
             "itemtype": "method",
             "name": "keys",
@@ -17487,7 +17490,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 347,
+            "line": 345,
             "description": "返回元素 elem 在数组 arr 中最后出现的序号",
             "itemtype": "method",
             "name": "lastIndexOf",
@@ -17513,7 +17516,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 356,
+            "line": 354,
             "description": "延迟执行指定函数 fn",
             "itemtype": "method",
             "name": "later",
@@ -17561,7 +17564,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 377,
+            "line": 375,
             "description": "输出调试信息",
             "itemtype": "method",
             "name": "log",
@@ -17588,7 +17591,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 388,
+            "line": 386,
             "description": "将对象 o 转换为数组.",
             "itemtype": "method",
             "name": "makeArray",
@@ -17609,7 +17612,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 396,
+            "line": 394,
             "description": "创建一个新数组, 数组结果是在对每个原数组元素调用指定函数的返回值.",
             "itemtype": "method",
             "name": "map",
@@ -17641,7 +17644,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 406,
+            "line": 404,
             "description": "将多个对象的成员合并到一个新对象上. 参数中, 后面的对象成员会覆盖前面的.",
             "itemtype": "method",
             "name": "merge",
@@ -17670,7 +17673,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 426,
+            "line": 424,
             "description": "将 supplier 对象的成员复制到 receiver 对象上.",
             "itemtype": "method",
             "name": "mix",
@@ -17704,7 +17707,7 @@
                 }
             ],
             "return": {
-                "description": "receiver 属性接受者对象\n__Note__\nreceiver 会被改变，如果想要保留原始的 receiver ，可以使用 KISSY.merge()\n`var object=S.merge(object1,object2);`\n\nS.mix 默认不是递归进行的. 如果其中一个属性为对象或者数组，那么他将会被接下来对象的同名属性对应的值所代替，即值不会被合并。 如果设置了参数 deep = true ，那么会对数组和简单对象( `KISSY.isPlainObject()` )递归合并\nsupplier undefined 的属性值不会被复制，不过对象从原型继承下来下的值则会被复制\n该方法仅适用于 javascript 对象，不要再浏览器对象上调用，例如 node.style\n\nmix 支持函数作为白名单参数\n  ```\nvar a = {},\nb = {\n   b1: 1,\n   b2: {\n       b2: 22\n   }\n};\n\nUtil.mix(a, b, {\n   deep: true,\n   whitelist: function (name, v) {\n       if (name == 'b1') {\n           return v;\n       }\n       if (this.b1 && name == 'b2') {\n           return v;\n       }\n       return undefined;\n   }\n});\n  ```",
+                "description": "receiver 属性接受者对象\n__Note__\nreceiver 会被改变，如果想要保留原始的 receiver ，可以使用 Util.merge()\n`var object=S.merge(object1,object2);`\n\nS.mix 默认不是递归进行的. 如果其中一个属性为对象或者数组，那么他将会被接下来对象的同名属性对应的值所代替，即值不会被合并。 如果设置了参数 deep = true ，那么会对数组和简单对象( `Util.isPlainObject()` )递归合并\nsupplier undefined 的属性值不会被复制，不过对象从原型继承下来下的值则会被复制\n该方法仅适用于 javascript 对象，不要再浏览器对象上调用，例如 node.style\n\nmix 支持函数作为白名单参数\n  ```\nvar a = {},\nb = {\n   b1: 1,\n   b2: {\n       b2: 22\n   }\n};\n\nUtil.mix(a, b, {\n   deep: true,\n   whitelist: function (name, v) {\n       if (name == 'b1') {\n           return v;\n       }\n       if (this.b1 && name == 'b2') {\n           return v;\n       }\n       return undefined;\n   }\n});\n  ```",
                 "type": "Object"
             },
             "example": [
@@ -17715,7 +17718,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 504,
+            "line": 502,
             "description": "根据参数创建命名空间对象",
             "itemtype": "method",
             "name": "namespace",
@@ -17723,12 +17726,12 @@
             "params": [
                 {
                     "name": "n1",
-                    "description": "命名空间字符串, 如 \"fp.search\" 或 \"KISSY.fp.ad\"",
+                    "description": "命名空间字符串, 如 \"fp.search\" 或 \"fp.ad\"",
                     "type": "String"
                 },
                 {
                     "name": "global",
-                    "description": "是否第一个点之前的字符串作为全局变量, 默认 false 添加到 KISSY",
+                    "description": "是否第一个点之前的字符串作为全局变量, 默认 false",
                     "optional": true,
                     "optdefault": "false"
                 }
@@ -17742,7 +17745,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 513,
+            "line": 511,
             "description": "返回 new Date().getTime()",
             "itemtype": "method",
             "name": "date",
@@ -17756,7 +17759,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 520,
+            "line": 518,
             "description": "将对象 o 转换为参数字符串, 用于发送 http 请求",
             "itemtype": "method",
             "name": "param",
@@ -17797,7 +17800,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 540,
+            "line": 538,
             "description": "将字符串转化为 xml 文档",
             "itemtype": "method",
             "name": "parseXML",
@@ -17817,7 +17820,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 554,
+            "line": 552,
             "description": "在 DOM 加载完毕时执行回调函数fn",
             "itemtype": "method",
             "name": "ready",
@@ -17834,7 +17837,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 561,
+            "line": 559,
             "description": "从左向右对每个数组元素调用给定函数，并把返回值累积起来",
             "itemtype": "method",
             "name": "reduce",
@@ -17867,7 +17870,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 635,
+            "line": 633,
             "description": "判断 str 是否以 prefix 开头",
             "itemtype": "method",
             "name": "startsWith",
@@ -17893,7 +17896,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 644,
+            "line": 642,
             "description": "将字符串中的占位符替换为对应的键值",
             "itemtype": "method",
             "name": "substitute",
@@ -17922,7 +17925,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 660,
+            "line": 658,
             "description": "ms 时间内只执行 fn 一次, 即使这段时间内 fn 被调用多次.",
             "itemtype": "method",
             "name": "throttle",
@@ -17956,7 +17959,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 684,
+            "line": 682,
             "description": "去除字符串两端的空白字符",
             "itemtype": "method",
             "name": "trim",
@@ -17977,7 +17980,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 692,
+            "line": 690,
             "description": "将字符串中的 html 实体字符替换成对应字符",
             "itemtype": "method",
             "name": "unEscapeHTML",
@@ -17994,14 +17997,14 @@
                 "type": "String"
             },
             "example": [
-                "\n`KISSY.unEscapeHTML(\"&lt;a&gt;x&lt;/a&gt;\"); // =>  \"<a>x</a>\"`\n__Note__\n该函数只会 unescape 以下字符序列（正则式\n`&amp; &lt; &gt; &#x60; &#x2F; &quot; &#x27; &#\\d{1,5}`"
+                "\n`Util.unEscapeHTML(\"&lt;a&gt;x&lt;/a&gt;\"); // =>  \"<a>x</a>\"`\n__Note__\n该函数只会 unescape 以下字符序列（正则式\n`&amp; &lt; &gt; &#x60; &#x2F; &quot; &#x27; &#\\d{1,5}`"
             ],
             "class": "Util",
             "module": "util"
         },
         {
             "file": "src/api/util.js",
-            "line": 705,
+            "line": 703,
             "description": "返回一个新数组, 仅包含 arr 去重后的值",
             "itemtype": "method",
             "name": "unique",
@@ -18027,7 +18030,7 @@
         },
         {
             "file": "src/api/util.js",
-            "line": 714,
+            "line": 712,
             "description": "将参数字符串 str 还原为对象",
             "itemtype": "method",
             "name": "unparam",

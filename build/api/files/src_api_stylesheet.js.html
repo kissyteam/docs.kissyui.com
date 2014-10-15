@@ -448,7 +448,7 @@
 @constructor
 @param config {Object}
 @example
-    KISSY.use([&#x27;node&#x27;, &#x27;stylesheet&#x27;], function(S, $, StyleSheet){
+    require([&#x27;node&#x27;, &#x27;stylesheet&#x27;], function( $, StyleSheet){
         var linkStyleSheet = new StyleSheet(&#x27;#linkcss&#x27;);
         $(&#x27;#change-link-css&#x27;).on(&#x27;click&#x27;, function(ev){
             linkStyleSheet.set(&#x27;.link&#x27;,{
@@ -503,7 +503,7 @@ link 元素节点
 @return {String}
 @example
 &#x60;&#x60;&#x60;
-KISSY.use(&#x27;stylesheet&#x27;,function(S,StyleSheet){
+require([&#x27;stylesheet&#x27;],function(StyleSheet){
     // use stylesheet
       &lt;link id=&#x27;existing&#x27;&gt;
         a {
@@ -527,7 +527,7 @@ KISSY.use(&#x27;stylesheet&#x27;,function(S,StyleSheet){
 @return 当前实例
 @example
 &#x60;&#x60;&#x60;
-KISSY.use(&#x27;stylesheet&#x27;,function(S,StyleSheet){
+require([&#x27;stylesheet&#x27;],function(StyleSheet){
     // use stylesheet
       &lt;link id=&#x27;existing&#x27;&gt;
         a {

@@ -450,7 +450,7 @@
 @param config {Object}
 @example
 	//从已存在html节点生成
-	KISSY.use(&#x27;filter-menu&#x27;, function(S, FilterMenu){
+	require([&#x27;filter-menu&#x27;], function(FilterMenu){
         var filterMenu = new FilterMenu({
             srcNode: &#x27;#filterMenuExist&#x27;,
             width: 200,
@@ -461,7 +461,7 @@
 	})
 
 	//全新节点生成
-	KISSY.use(&#x27;menu,filter-menu&#x27;, function(S, Menu, FilterMenu){
+	require([&#x27;menu&#x27;,&#x27;filter-menu&#x27;], function(Menu, FilterMenu){
 		var m1 = new Menu.Item({
             selectable: true,
             content: &quot;女鞋&quot;,

@@ -450,9 +450,9 @@
 @param config {Object}
 @example
 	//先引入样式文件：
-	//http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css
-	//http://g.tbcdn.cn/kissy/edge/2014.07.16/menu/assets/dpl.css
-	KISSY.use([&#x27;menu&#x27;, &#x27;separator&#x27;], function(S, Menu, Separator){
+	//http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css
+	//http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/menu/assets/dpl.css
+	require([&#x27;menu&#x27;, &#x27;separator&#x27;], function(Menu, Separator){
         var myMenu = new Menu({
             render : &#x27;#container&#x27;,
             width : 150,
@@ -520,7 +520,7 @@ menu.set(&quot;highlightedItem&quot;,null);
 @namespace Menu
 @param config {Object}
 @example
-    KISSY.use([&#x27;menu&#x27;], function(S, Menu){
+    require([&#x27;menu&#x27;], function(Menu){
         var myMenu = new Menu({
             render : &#x27;#container&#x27;,
             width : 150,
@@ -583,7 +583,7 @@ menu.set(&quot;highlightedItem&quot;,null);
 @namespace Menu
 @param config {Object}
 @example
-    KISSY.use([&#x27;menu&#x27;, &#x27;separator&#x27;], function(S, Menu, Separator){
+    require([&#x27;menu&#x27;, &#x27;separator&#x27;], function(Menu, Separator){
         var myMenu = new Menu({
             render : &#x27;#container&#x27;,
             width : 150,
@@ -655,7 +655,7 @@ menu.set(&quot;highlightedItem&quot;,null);
 @uses Component.Extension.ContentBox
 @param config {Object}
 @example    
-    KISSY.use([&#x27;menu&#x27;, &#x27;separator&#x27;], function(S, Menu, Separator){
+    require([&#x27;menu&#x27;, &#x27;separator&#x27;], function(Menu, Separator){
         var myMenu = new Menu({
             render : &#x27;#container&#x27;,
             width : 150,
@@ -722,7 +722,7 @@ menu.set(&quot;highlightedItem&quot;,null);
 @extends Menu.Item
 @param config {Object}
 @example
-	KISSY.use([&#x27;menu&#x27;, &#x27;separator&#x27;], function(S, Menu, Separator){
+	require([&#x27;menu&#x27;, &#x27;separator&#x27;], function(Menu, Separator){
         new Menu({
             render:&quot;#container&quot;,
             width : 150,
@@ -773,7 +773,7 @@ menu.set(&quot;highlightedItem&quot;,null);
 @param config {Object}
 @extends Menu.Item
 @example
-    KISSY.use([&#x27;menu&#x27;, &#x27;separator&#x27;], function(S, Menu, Separator){
+    require([&#x27;menu&#x27;, &#x27;separator&#x27;], function(Menu, Separator){
         var myMenu = new Menu({
             render : &#x27;#container&#x27;,
             width : 150,

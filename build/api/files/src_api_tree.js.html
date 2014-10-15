@@ -453,7 +453,7 @@
 @param config {Object}
 @example
 	//通过addChild添加子节点
-	KISSY.use([&#x27;tree&#x27;, &#x27;node&#x27;], function(S, Tree, $){
+	require([&#x27;tree&#x27;, &#x27;node&#x27;], function(Tree, $){
 	    var tree = new Tree({
 	        content: &quot;淘宝网&quot;,
 	        expanded: true,
@@ -476,7 +476,7 @@
 	  });
 
   	//通过xclass生成节点(json)
-  	KISSY.use([&#x27;tree&#x27;, &#x27;node&#x27;], function(S, Tree, $){
+  	require([&#x27;tree&#x27;, &#x27;node&#x27;], function(Tree, $){
         var tree = new Tree({
             content: &quot;淘宝网&quot;,
             expanded: true,
@@ -575,7 +575,7 @@ tree.on(&quot;click&quot;,function(e){
 @param config {Object}
 @example
 	//通过addChild添加子节点
-	KISSY.use([&#x27;tree&#x27;, &#x27;node&#x27;], function(S, Tree, $){
+	require([&#x27;tree&#x27;, &#x27;node&#x27;], function(Tree, $){
 	    var tree = new Tree({
 	        content: &quot;淘宝网&quot;,
 	        expanded: true,
@@ -673,7 +673,7 @@ tree.on(&quot;click&quot;,function(e){
 @namespace Tree
 @param config {Object}
 @example
-	KISSY.use([&#x27;tree&#x27;, &#x27;node&#x27;], function(S, Tree, $){
+	require([&#x27;tree&#x27;, &#x27;node&#x27;], function(Tree, $){
 	    var tree = new Tree.CheckTree({
 	        content: &quot;淘宝网&quot;,
 	        expanded: true,
@@ -717,7 +717,7 @@ tree.on(&quot;click&quot;,function(e){
 @uses Tree.Manager
 @param config {Object}
 @example
-	KISSY.use([&#x27;tree&#x27;, &#x27;node&#x27;], function(S, Tree, $){
+	require([&#x27;tree&#x27;, &#x27;node&#x27;], function(Tree, $){
 	    var tree = new Tree.CheckTree({
 	        content: &quot;淘宝网&quot;,
 	        expanded: true,

@@ -455,7 +455,7 @@
     <p>在窗口边缘区域往窗口中心区域拖进的拖动手势事件。当将元素在窗口边缘区域往窗口中心区域拖进时触发，默认边缘区域为窗口上下左右四个方向顶端往窗口中心靠近的 &#39;60px&#39; 的区域。例如，窗口宽度为320，那么横坐标 0~60 和 260~320 这段区域就是边缘区域的一部分，当某元素在这个区域往窗口中心区域拖进时触发事件。
 引入模块则可以使用相应事件。</p>
 <p>使用示例：</p>
-<pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;event-dom/gesture/edge-pan&#39;, &#39;dd&#39;], function($, GestureEdgePan, DD){
+<pre class="code prettyprint"><code>require([&#39;node&#39;, &#39;event-dom/gesture/edge-pan&#39;, &#39;dd&#39;], function($, GestureEdgePan, DD){
     new DD.Draggable({   //使得 #test 元素能被拖动
         node : &#39;#test&#39;,
         move:true

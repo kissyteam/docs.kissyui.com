@@ -8,7 +8,7 @@
 @constructor
 @param config {Object}
 @example
-    KISSY.use(['node', 'stylesheet'], function(S, $, StyleSheet){
+    require(['node', 'stylesheet'], function( $, StyleSheet){
         var linkStyleSheet = new StyleSheet('#linkcss');
         $('#change-link-css').on('click', function(ev){
             linkStyleSheet.set('.link',{
@@ -63,7 +63,7 @@ link 元素节点
 @return {String}
 @example
 ```
-KISSY.use('stylesheet',function(S,StyleSheet){
+require(['stylesheet'],function(StyleSheet){
     // use stylesheet
       <link id='existing'>
         a {
@@ -87,7 +87,7 @@ KISSY.use('stylesheet',function(S,StyleSheet){
 @return 当前实例
 @example
 ```
-KISSY.use('stylesheet',function(S,StyleSheet){
+require(['stylesheet'],function(StyleSheet){
     // use stylesheet
       <link id='existing'>
         a {

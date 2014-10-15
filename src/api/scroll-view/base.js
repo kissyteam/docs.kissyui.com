@@ -11,7 +11,7 @@
 @extends Component.Container
 @param config {Object} 配置对象，详情参考其Attribute
 @example
-	KISSY.use(['scroll-view'], function(S, ScrollView){
+	require(['scroll-view'], function(ScrollView){
         var content = '';
         for (var i = 0; i < 10; i++) {
             content += '<p>This is ' + i + ' block</p>';

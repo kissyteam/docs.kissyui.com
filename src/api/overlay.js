@@ -3,7 +3,7 @@
 */
 
 /**
-悬浮层。使用前先引入overlay样式`http://g.tbcdn.cn/kissy/edge/2014.07.16/overlay/assets/dpl.css`或利用prefixCls自定义样式。
+悬浮层。使用前先引入overlay样式`http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/overlay/assets/dpl.css`或利用prefixCls自定义样式。
 @class Overlay
 @constructor
 @extends Component.Container
@@ -11,7 +11,7 @@
 @uses Component.Extension.Align
 @param config {Object}
 @example
-    KISSY.use(['overlay', 'button'], function(S, Overlay, Button){
+    require(['overlay', 'button'], function(Overlay, Button){
         var modalDialog = new Overlay.Dialog({
             headerContent : '我是头部',
             width : 500,
@@ -97,7 +97,7 @@ mask的相关配置：
 @extends Overlay
 @param config {Object}
 @example
-    KISSY.use(['overlay', 'button'], function(S, Overlay, Button){
+    require(['overlay', 'button'], function(Overlay, Button){
         var modalDialog = new Overlay.Dialog({
             headerContent : '我是头部',
             width : 500,
@@ -186,7 +186,7 @@ mask的相关配置：
             </div>
         </div>
     </script>
-    KISSY.use(['overlay', 'button', 'node'], function(S, Overlay, Button, $){
+    require(['overlay', 'button', 'node'], function(Overlay, Button, $){
         var myPopup = new Overlay.Popup({
             width : 200,
             trigger : '#popup',

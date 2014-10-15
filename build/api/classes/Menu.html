@@ -546,9 +546,9 @@
 
             <div class="example-content">
                 <pre class="code prettyprint"><code>//先引入样式文件：
-//http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css
-//http://g.tbcdn.cn/kissy/edge/2014.07.16/menu/assets/dpl.css
-KISSY.use([&#39;menu&#39;, &#39;separator&#39;], function(S, Menu, Separator){
+//http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css
+//http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/menu/assets/dpl.css
+require([&#39;menu&#39;, &#39;separator&#39;], function(Menu, Separator){
     var myMenu = new Menu({
         render : &#39;#container&#39;,
         width : 150,
@@ -1572,7 +1572,7 @@ KISSY.use([&#39;menu&#39;, &#39;separator&#39;], function(S, Menu, Separator){
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>modulex.use([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
+                <pre class="code prettyprint"><code>require([&#39;util&#39;, &#39;event/custom&#39;], function(Util, CustomEvent) {
     function Custom(id){
         this.id = id;
         this.publish(&quot;run&quot;,{
@@ -1700,7 +1700,7 @@ KISSY.use([&#39;menu&#39;, &#39;separator&#39;], function(S, Menu, Separator){
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;base&#39;, function(S, Base) {
+                <pre class="code prettyprint"><code>require([&#39;base&#39;], function(Base) {
     var A = Base.extend({
         m: function (value) {
             return &#39;am:&#39; + value;
@@ -3197,7 +3197,7 @@ KISSY.use([&#39;menu&#39;, &#39;separator&#39;], function(S, Menu, Separator){
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
+                <pre class="code prettyprint"><code>require([&#39;overlay&#39;, &#39;component/plugin/resize&#39;],function(Overlay,Resize){
     new Overlay({
         content:&#39;test&#39;
     }).plug(new Resize({
@@ -4302,7 +4302,7 @@ KISSY.use([&#39;menu&#39;, &#39;separator&#39;], function(S, Menu, Separator){
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&#39;overlay,component/plugin/resize&#39;,function(S,Overlay,Resize){
+                <pre class="code prettyprint"><code>require([&#39;overlay&#39;,&#39;component/plugin/resize&#39;],function(Overlay,Resize){
     var o= new Overlay({
         content:&#39;test&#39;
     }).plug(new Resize({

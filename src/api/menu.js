@@ -10,9 +10,9 @@
 @param config {Object}
 @example
 	//先引入样式文件：
-	//http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css
-	//http://g.tbcdn.cn/kissy/edge/2014.07.16/menu/assets/dpl.css
-	KISSY.use(['menu', 'separator'], function(S, Menu, Separator){
+	//http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css
+	//http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/menu/assets/dpl.css
+	require(['menu', 'separator'], function(Menu, Separator){
         var myMenu = new Menu({
             render : '#container',
             width : 150,
@@ -80,7 +80,7 @@ menu.set("highlightedItem",null);
 @namespace Menu
 @param config {Object}
 @example
-    KISSY.use(['menu'], function(S, Menu){
+    require(['menu'], function(Menu){
         var myMenu = new Menu({
             render : '#container',
             width : 150,
@@ -143,7 +143,7 @@ menu.set("highlightedItem",null);
 @namespace Menu
 @param config {Object}
 @example
-    KISSY.use(['menu', 'separator'], function(S, Menu, Separator){
+    require(['menu', 'separator'], function(Menu, Separator){
         var myMenu = new Menu({
             render : '#container',
             width : 150,
@@ -215,7 +215,7 @@ menu.set("highlightedItem",null);
 @uses Component.Extension.ContentBox
 @param config {Object}
 @example    
-    KISSY.use(['menu', 'separator'], function(S, Menu, Separator){
+    require(['menu', 'separator'], function(Menu, Separator){
         var myMenu = new Menu({
             render : '#container',
             width : 150,
@@ -282,7 +282,7 @@ menu.set("highlightedItem",null);
 @extends Menu.Item
 @param config {Object}
 @example
-	KISSY.use(['menu', 'separator'], function(S, Menu, Separator){
+	require(['menu', 'separator'], function(Menu, Separator){
         new Menu({
             render:"#container",
             width : 150,
@@ -333,7 +333,7 @@ menu.set("highlightedItem",null);
 @param config {Object}
 @extends Menu.Item
 @example
-    KISSY.use(['menu', 'separator'], function(S, Menu, Separator){
+    require(['menu', 'separator'], function(Menu, Separator){
         var myMenu = new Menu({
             render : '#container',
             width : 150,

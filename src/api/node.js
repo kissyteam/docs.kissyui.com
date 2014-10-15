@@ -1,10 +1,10 @@
 /**
-node 包括 dom , event , anim 模块的所有功能, 推荐采用 Node 模块
+node 包括 dom , event-dom , anim 模块的所有功能, 推荐采用 Node 模块
 @module node
 */
 
 /**
-由node模块提供的类 Node,你只需要把 Node.all 看做 jquery 中的 $ 就可以了,非常方便
+由node模块提供的类 Node,你只需要把 Node 看做 jquery 中的 $ 就可以了,非常方便
 @class Node
 @constructor
 @param html {string|HTMLElement|Text|Window|HTMLDocument|HTMLCollection|ArrayList<HTMLElement>|Node} 不同类型有不同意义，如下：
@@ -36,7 +36,6 @@ node 包括 dom , event , anim 模块的所有功能, 推荐采用 Node 模块
 - 选择器上下文
 默认情况下是在文档根节点开始依据选择器字符串开始匹配元素查找. 但是一个上下文可以作为可选的第二个参数来限定查找范围, 例如在事件处理器 范围内进行查找匹配元素：
 ```
-var $=Node.all;
 $('div.foo').on("click",function() {
   $('span', this).addClass('bar');
 });
@@ -44,7 +43,6 @@ $('div.foo').on("click",function() {
 当对 span 的选择限定在 this 中时, 只有位于点击元素内的 span 节点会被设置格外的 class.也可以通过 $(this).all("span") 来实现限定搜索范围
 - 使用原生 DOM 节点
 ```
-var $=Node.all;
 $('div.foo').on("click",function() {
   $(this).slideUp();
 });
@@ -84,9 +82,8 @@ $('div.foo').on("click",function() {
 <p id='p1'>1</p><p id='p2'>2</p>
 
 <script>
-	KISSY.use("node",function(S,Node){
-		var $ = Node.all,
-		    pdiv = $("p"),
+	require(["node"],function($){
+		var pdiv = $("p"),
 		    all=pdiv.getDOMNodes(); // => all == [document.getElementById("p1"),document.getElementById("p2")]
 
 	})
@@ -114,8 +111,7 @@ $('div.foo').on("click",function() {
 </div>
 
 <script>
-    KISSY.use('node', function (S,Node) {
-        var $ = Node.all;
+    require(['node'], function ($) {
         $("body").all(".d1").css("color", "red").end().all(".d2").css("color", "green");
 
     });
@@ -219,8 +215,8 @@ $('div.foo').on("click",function() {
 </div>
 ```
 ```
-KISSY.use("node",function(S,Node){
-    Node.all('.inner').append('<p>Test</p>');
+require(["node"],function($){
+    $('.inner').append('<p>Test</p>');
 });
 
 ```

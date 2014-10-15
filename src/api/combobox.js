@@ -12,7 +12,7 @@
 @example
 
 ```
-modulex.use(['combobox'], function(ComboBox){
+require(['combobox'], function(ComboBox){
     var basicComboBox = new ComboBox({
         render : '#container',
         dataSource : new ComboBox.LocalDataSource({
@@ -101,7 +101,7 @@ modulex.use(['combobox'], function(ComboBox){
 默认 false. 是否当自动补全菜单出现时高亮第一项
 @example
 ```
-modulex.use(['node', 'combobox'], function ($, ComboBox) {
+require(['node', 'combobox'], function ($, ComboBox) {
     var data = ["a123456", "b12345", "c3464356", "d23434"];
 
     var basicComboBox = new ComboBox({
@@ -172,7 +172,7 @@ modulex.use(['node', 'combobox'], function ($, ComboBox) {
 @example
     
 ```
-modulex.use(['combobox'], function(ComboBox){
+require(['combobox'], function(ComboBox){
     var basicComboBox = new ComboBox({
         render : '#container',
         dataSource : new ComboBox.LocalDataSource({
@@ -233,7 +233,7 @@ function parser(inputVal, data) {
 @namespace ComboBox
 @param config {Object}
 @example
-    modulex.use(['combobox'], function(ComboBox){
+    require(['combobox'], function(ComboBox){
         var combobox = new ComboBox({
             srcNode : '#combobox',
             placeholder : 'input..',

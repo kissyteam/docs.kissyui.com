@@ -11,7 +11,7 @@
 @param config {Object}
 @example
 ```
-KISSY.use("dd,dd/plugin/constrain",function(S,DD,Constrain){
+require(['dd','dd/plugin/constrain'],function(DD,Constrain){
    new DD.Draggable({
        node:'#drag',
        plugins:[ new Constrain({
@@ -20,7 +20,7 @@ KISSY.use("dd,dd/plugin/constrain",function(S,DD,Constrain){
    });
 });
 
-KISSY.use("dd,dd/plugin/constrain",function(S,DD,Constrain){
+require('dd', 'dd/plugin/constrain',function(DD,Constrain){
     var constrain = new Constrain({
       constrain : '#container' //限制拖动区域为 container 元素
     });

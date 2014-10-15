@@ -2652,9 +2652,7 @@
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY, DOM = S.DOM;
-
-// 等价 document.createElement(&#39;div&#39;)
+                <pre class="code prettyprint"><code>// 等价 document.createElement(&#39;div&#39;)
 DOM.create(&#39;&lt;div&gt;&#39;);
 DOM.create(&#39;&lt;div /&gt;&#39;);
 DOM.create(&#39;&lt;div&gt;&lt;/div&gt;&#39;);
@@ -2665,7 +2663,6 @@ DOM.create(&#39;text&#39;);
 // 创建时, 同时添加属性值
 DOM.create(&#39;&lt;a&gt;&#39;, { href: &#39;hot.html&#39;, title: &#39;Hot Page&#39; });
 
-// KISSY v1.1.5+,  创建时, 支持添加更多的属性；
 // 新增属性有： val, css, html, text, data, width, height, offset
 DOM.create(&#39;&lt;a&gt;&#39;, { href: &#39;hot.html&#39;,
                     title: &#39;Hot Page&#39;,
@@ -3284,8 +3281,7 @@ DOM.create(&#39;&lt;img src=&quot;logo.png&quot; alt=&quot;logo&quot; /&gt;&#39;
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY, DOM = S.DOM;
-
+                <pre class="code prettyprint"><code>
 // 设置所有 img 的名为 data-size 的 expando , 值为 400;
 DOM.data(&#39;img&#39;, &#39;data-size&#39;, 400);
 
@@ -4440,8 +4436,7 @@ DOM.data(&quot;p&quot;) // =&gt; 返回存储对象</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY, DOM = S.DOM;
-
+                <pre class="code prettyprint"><code>
 // 给所有的段落节点设置扩展属性 <code>&#x60;x</code><code> , 值为 </code><code>y</code>`
 DOM.data(&quot;p&quot;,&quot;x&quot;,&quot;y&quot;);
 
@@ -6701,8 +6696,7 @@ DOM.hasData(&quot;p&quot;); //=&gt; false</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY, DOM = S.DOM,
-elem = S.get(&#39;#id&#39;);
+                <pre class="code prettyprint"><code>var elem = S.get(&#39;#id&#39;);
 
 // 返回 elem.parentNode
 DOM.parent(elem);
@@ -7211,8 +7205,7 @@ DOM.parent(elem, function(p) {
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY, DOM = S.DOM;
-var c=DOM.create(&quot;&lt;input type=&#39;checkbox&#39; checked=&#39;checked&#39;/&gt;&quot;);
+                <pre class="code prettyprint"><code>var c=DOM.create(&quot;&lt;input type=&#39;checkbox&#39; checked=&#39;checked&#39;/&gt;&quot;);
 DOM.attr(c,&quot;checked&quot;) // =&gt; &quot;checked&quot;
 DOM.prop(c,&quot;checked&quot;) // =&gt; true
 DOM.attr(c,&quot;nodeName&quot;) // =&gt; null
@@ -7888,8 +7881,7 @@ DOM.prop(c,&quot;nodeName&quot;).toLowerCase() // =&gt; input</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var S = KISSY, DOM = S.DOM;
-
+                <pre class="code prettyprint"><code>
 // 删除 img 元素的名为 data-size 的 expando;
 DOM.removeData(&#39;img&#39;, &#39;data-size&#39;);
 
@@ -9522,18 +9514,20 @@ DOM.removeData(&#39;img&#39;);</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var tag = S.guid(&quot;float&quot;);
-DOM.addStyleSheet(&quot;.&quot; + tag + &quot; {float:left}&quot;)
+                <pre class="code prettyprint"><code>require([&#39;util&#39;, &#39;dom&#39;], function(Util, DOM){
+    var tag = Util.guid(&quot;float&quot;);
+    DOM.addStyleSheet(&quot;.&quot; + tag + &quot; {float:left}&quot;)
 
-var d = DOM.create(&quot;&lt;div class=&#39;&quot; + tag + &quot;&#39; style=&#39;float:right&#39;&gt;&lt;&quot; + &quot;/div&gt;&quot;)
-DOM.append(d, document.body);
-S.log(DOM.css(d, &quot;float&quot;));     // &quot;right&quot;
-S.log(DOM.style(d, &quot;float&quot;));   // &quot;right&quot;
+    var d = DOM.create(&quot;&lt;div class=&#39;&quot; + tag + &quot;&#39; style=&#39;float:right&#39;&gt;&lt;&quot; + &quot;/div&gt;&quot;)
+    DOM.append(d, document.body);
+    console.log(DOM.css(d, &quot;float&quot;));     // &quot;right&quot;
+    console.log(DOM.style(d, &quot;float&quot;));   // &quot;right&quot;
 
-DOM.css(d, &quot;float&quot;, &quot;&quot;);
+    DOM.css(d, &quot;float&quot;, &quot;&quot;);
 
-S.log(DOM.css(d, &quot;float&quot;));     // &quot;left&quot;
-S.log(DOM.style(d, &quot;float&quot;));   // &quot;&quot;</code></pre>
+    console.log(DOM.css(d, &quot;float&quot;));     // &quot;left&quot;
+    console.log(DOM.style(d, &quot;float&quot;));   // &quot;&quot;
+})</code></pre>
 
             </div>
         </div>
@@ -10391,7 +10385,7 @@ S.log(DOM.style(d, &quot;float&quot;));   // &quot;&quot;</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&quot;dom&quot;,function(S,DOM){
+                <pre class="code prettyprint"><code>require([&quot;dom&quot;],function(DOM){
         // 将 id 是 J_username 的元素的 value 值设置成“张三”
         DOM.val(&quot;#J_username&quot;,&quot;张三&quot;);
 });</code></pre>
@@ -10504,7 +10498,7 @@ S.log(DOM.style(d, &quot;float&quot;));   // &quot;&quot;</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&quot;dom&quot;,function(S,DOM){
+                <pre class="code prettyprint"><code>require([&quot;dom&quot;],function(DOM){
         // 获取 id 是 J_username 的元素的 value 值
         DOM.val(&quot;#J_username&quot;);
 });</code></pre>
@@ -10869,8 +10863,7 @@ S.log(DOM.style(d, &quot;float&quot;));   // &quot;&quot;</code></pre>
     &lt;div id=&quot;test&quot; style=&quot;width: 80%; height: 20px&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;script&gt;
-    var S = KISSY, DOM = S.DOM,
-    elem = S.get(&#39;#test&#39;);
+    var elem = S.get(&#39;#test&#39;);
 
     DOM.style(elem, &#39;width&#39;); // 返回 80%
     DOM.css(elem, &#39;width&#39;); // 返回 80px

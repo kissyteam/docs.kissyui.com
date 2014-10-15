@@ -531,7 +531,7 @@
 	}
 
 
-	KISSY.use(&#x27;overlay,component/plugin/resize&#x27;,function(S,Overlay,Resize){
+	require([&#x27;overlay&#x27;,&#x27;component/plugin/resize&#x27;],function(Overlay,Resize){
 	    new Overlay({
 	        plugins:[
 	            new Resize({

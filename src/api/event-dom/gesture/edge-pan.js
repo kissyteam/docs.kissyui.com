@@ -9,7 +9,7 @@
 
 使用示例：
 
-	modulex.use(['node', 'event-dom/gesture/edge-pan', 'dd'], function($, GestureEdgePan, DD){
+	require(['node', 'event-dom/gesture/edge-pan', 'dd'], function($, GestureEdgePan, DD){
 		new DD.Draggable({   //使得 #test 元素能被拖动
 			node : '#test',
 			move:true

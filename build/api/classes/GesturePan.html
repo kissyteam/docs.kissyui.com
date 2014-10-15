@@ -454,7 +454,7 @@
 <div class="box intro">
     <p>拖动手势事件。引入模块则可以使用相应事件</p>
 <p>使用示例：</p>
-<pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;event-dom/gesture/pan&#39;], function($, GesturePan){
+<pre class="code prettyprint"><code>require([&#39;node&#39;, &#39;event-dom/gesture/pan&#39;], function($, GesturePan){
     $(&#39;#test&#39;).on(GesturePan.PAN_START, function(ev){
         //pan start...
     });

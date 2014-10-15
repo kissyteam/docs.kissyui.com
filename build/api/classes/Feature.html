@@ -453,7 +453,7 @@
 
 <div class="box intro">
     <p>硬件环境关键特性检测，这类功能通常在判断硬件环境时使用，如：</p>
-<pre class="code prettyprint"><code>KISSY.use(&#39;feature&#39;, function(S, Feature){
+<pre class="code prettyprint"><code>require([&#39;feature&#39;], function(Feature){
     if(Feature.isIELessThan(9)){
         //do something
     }
@@ -842,7 +842,7 @@
 
     <div class="description">
         <p>判断当前宿主环境是否支持手势事件</p>
-<pre class="code prettyprint"><code>  KISSY.Features.isDeviceMotionSupported();</code></pre>
+<pre class="code prettyprint"><code>  Features.isDeviceMotionSupported();</code></pre>
 
     </div>
 

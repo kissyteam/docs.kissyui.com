@@ -8,7 +8,7 @@ pinch手势事件，触屏上开始用双指调整某个 dom 元素大小时触�
 
 使用示例：
 
-	modulex.use(['node', 'event-dom/gesture/pinch'], function($, GesturePinch){
+	require(['node', 'event-dom/gesture/pinch'], function($, GesturePinch){
 		$(#test).on(GesturePinch.PINCH_START, function(ev){
 			//pinch start...
 		});

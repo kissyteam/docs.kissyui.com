@@ -12,7 +12,7 @@ ScrollView的滚动条插件,用来自定义滚动条
 @param config {Object}
 @example
 ```
-KISSY.use('scroll-view,scroll-view/plugin/scrollbar', function (S, ScrollView, ScrollbarPlugin) {
+require(['scroll-view','scroll-view/plugin/scrollbar'], function (ScrollView, ScrollbarPlugin) {
     var scrollView = new ScrollView({
         width: 320,
         height: 219,

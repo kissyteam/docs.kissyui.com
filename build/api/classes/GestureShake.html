@@ -454,7 +454,7 @@
 <div class="box intro">
     <p>摇动手势事件。当用户摇动设备后触发，前后左右在一定连续时间内以一定幅度摇动设备。引入模块则可以使用相应事件</p>
 <p>使用示例：</p>
-<pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;event-dom/gesture/shake&#39;], function($, GestureShake){
+<pre class="code prettyprint"><code>require([&#39;node&#39;, &#39;event-dom/gesture/shake&#39;], function($, GestureShake){
     $(window).on(GestureShake.SHAKE, function(ev){
         //device is shaked...
 });</code></pre>

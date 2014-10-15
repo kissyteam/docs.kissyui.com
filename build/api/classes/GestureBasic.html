@@ -454,7 +454,7 @@
 <div class="box intro">
     <p>基本手势事件。引入模块则可以使用相应事件</p>
 <p>使用示例：</p>
-<pre class="code prettyprint"><code>modulex.use([&#39;node&#39;, &#39;event-dom/gesture/basic&#39;], function($, GestureBasic){
+<pre class="code prettyprint"><code>require([&#39;node&#39;, &#39;event-dom/gesture/basic&#39;], function($, GestureBasic){
     $(window).on(GestureBasic.START, function(ev){
         //touch start...
     });

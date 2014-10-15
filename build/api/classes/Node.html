@@ -452,7 +452,7 @@
 
 
 <div class="box intro">
-    <p>由node模块提供的类 Node,你只需要把 Node.all 看做 jquery 中的 $ 就可以了,非常方便</p>
+    <p>由node模块提供的类 Node,你只需要把 Node 看做 jquery 中的 $ 就可以了,非常方便</p>
 
 </div>
 
@@ -1390,13 +1390,11 @@
             <div class="example-content">
                 <ul>
 <li>选择器上下文
-默认情况下是在文档根节点开始依据选择器字符串开始匹配元素查找. 但是一个上下文可以作为可选的第二个参数来限定查找范围, 例如在事件处理器 范围内进行查找匹配元素：<pre class="code prettyprint"><code>var $=Node.all;
-$(&#39;div.foo&#39;).on(&quot;click&quot;,function() {
+默认情况下是在文档根节点开始依据选择器字符串开始匹配元素查找. 但是一个上下文可以作为可选的第二个参数来限定查找范围, 例如在事件处理器 范围内进行查找匹配元素：<pre class="code prettyprint"><code>$(&#39;div.foo&#39;).on(&quot;click&quot;,function() {
 $(&#39;span&#39;, this).addClass(&#39;bar&#39;);
 });</code></pre>
 当对 span 的选择限定在 this 中时, 只有位于点击元素内的 span 节点会被设置格外的 class.也可以通过 $(this).all(&quot;span&quot;) 来实现限定搜索范围</li>
-<li>使用原生 DOM 节点<pre class="code prettyprint"><code>var $=Node.all;
-$(&#39;div.foo&#39;).on(&quot;click&quot;,function() {
+<li>使用原生 DOM 节点<pre class="code prettyprint"><code>$(&#39;div.foo&#39;).on(&quot;click&quot;,function() {
 $(this).slideUp();
 });</code></pre>
 </li>
@@ -1720,8 +1718,8 @@ $(this).slideUp();
   &lt;div class=&quot;inner&quot;&gt;Hello&lt;/div&gt;
   &lt;div class=&quot;inner&quot;&gt;Goodbye&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-<pre class="code prettyprint"><code>KISSY.use(&quot;node&quot;,function(S,Node){
-    Node.all(&#39;.inner&#39;).append(&#39;&lt;p&gt;Test&lt;/p&gt;&#39;);
+<pre class="code prettyprint"><code>require([&quot;node&quot;],function($){
+    $(&#39;.inner&#39;).append(&#39;&lt;p&gt;Test&lt;/p&gt;&#39;);
 });</code></pre>
 <p>内层的每个 div 元素都得到了新内容</p>
 <pre class="code prettyprint"><code>&lt;h2&gt;Greetings&lt;/h2&gt;
@@ -2009,8 +2007,7 @@ $(this).slideUp();
 &lt;/div&gt;
 
 &lt;script&gt;
-    KISSY.use(&#39;node&#39;, function (S,Node) {
-        var $ = Node.all;
+    require([&#39;node&#39;], function ($) {
         $(&quot;body&quot;).all(&quot;.d1&quot;).css(&quot;color&quot;, &quot;red&quot;).end().all(&quot;.d2&quot;).css(&quot;color&quot;, &quot;green&quot;);
 
     });
@@ -2697,9 +2694,8 @@ $(this).slideUp();
                 <pre class="code prettyprint"><code>&lt;p id=&#39;p1&#39;&gt;1&lt;/p&gt;&lt;p id=&#39;p2&#39;&gt;2&lt;/p&gt;
 
 &lt;script&gt;
-    KISSY.use(&quot;node&quot;,function(S,Node){
-        var $ = Node.all,
-            pdiv = $(&quot;p&quot;),
+    require([&quot;node&quot;],function($){
+        var pdiv = $(&quot;p&quot;),
             all=pdiv.getDOMNodes(); // =&gt; all == [document.getElementById(&quot;p1&quot;),document.getElementById(&quot;p2&quot;)]
 
     })

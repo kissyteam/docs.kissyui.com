@@ -10,7 +10,7 @@
 @extends Component.Control
 @param config {Object}
 @example
-	modulex.use(['navigation-view', 'component/control'], function(NavigationView, Control){
+	require(['navigation-view', 'component/control'], function(NavigationView, Control){
 		var navigationView = new NavigationView({
             loadingHtml: '<div class="ks-navigation-view-loading-outer">' +
                 '<div class="ks-navigation-view-loading-inner"></div>' +

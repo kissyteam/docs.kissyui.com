@@ -7,7 +7,7 @@
 点击手势事件
 使用示例：
 
-	modulex.use(['node', 'event-dom/gesture/tap'], function($, GestureTap){
+	require(['node', 'event-dom/gesture/tap'], function($, GestureTap){
 		$('#test').on(GestureTap.TAP, function(ev){
 			//taped...
 		})

@@ -8,7 +8,7 @@
 
 使用示例：
 
-	modulex.use(['querystring'], function(Querystring){
+	require(['querystring'], function(Querystring){
 	    var obj = {
 			foo : 1,
 			bar : [2, 3]	

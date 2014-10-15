@@ -82,7 +82,7 @@ KISSY 内置的参考样式（或利用prefixCls/elCls自定义样式）：
 @extends Component.Container
 @param config {Object}
 @example
-	KISSY.use(['toolbar', 'button', 'menubutton'], function(S, Toolbar){
+	require(['toolbar', 'button', 'menubutton'], function(Toolbar){
         var simpleToolbar = new Toolbar({
             render : '#wrap',
             width : '80%',

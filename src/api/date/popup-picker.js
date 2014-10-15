@@ -14,7 +14,7 @@
 @param config {Object}
 @example
 ```
-KISSY.use('date/popup-picker',function(S, PopupDatePicker){
+require(['date/popup-picker'],function(PopupDatePicker){
     // use PopupDatePicker
 });
 ```

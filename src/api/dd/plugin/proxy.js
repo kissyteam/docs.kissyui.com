@@ -10,7 +10,7 @@ Draggable 插件,可代理拖放对象
 @namespace DD.Plugin
 @param config {Object}
 @example
-	KISSY.use(['dd', 'dd/plugin/proxy'],function(S, DD, Proxy){
+	require(['dd', 'dd/plugin/proxy'],function(DD, Proxy){
         var drag=new DD.Draggable({
             node:'#test-drag',
             cursor:'move',

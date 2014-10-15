@@ -439,7 +439,7 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
-富逻辑的 KISSY 模板引擎
+富逻辑的模板引擎，可独立使用。更多信息请查看[xtemplate on github](https://github.com/kissyteam/xtemplate)
 兼容 mustache
 @module xtemplate
 */
@@ -451,12 +451,12 @@
 @param config {Object}
 @example
 &#x60;&#x60;&#x60;
-KISSY.use(&#x27;xtemplate&#x27;,function(S,XTemplate){
+require([&#x27;xtemplate&#x27;],function(XTemplate){
     // use XTemplate
 });
 
 // 参数只能是离线编译过的模板
-KISSY.use(&#x27;xtemplate/runtime&#x27;,function(S,XTemplate){
+require([&#x27;xtemplate/runtime&#x27;],function(XTemplate){
     // use XTemplate
 });
 &#x60;&#x60;&#x60;
