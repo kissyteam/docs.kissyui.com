@@ -65,91 +65,66 @@
 </div>
 	</div>
 	<div class="main">
-		<div class="guides-index">
+		<div class="guide">
 			<div class="logo-on-top clearfix">
 				<img src="/5.0/assets/img/logo-on-top.png">
 			</div>
-			<div class="inner">
-				<h1>KISSY User Guides</h1>
-				<ul class="modules clearfix">
-					
-					<li>
-						<a href="anim/index.html">anim</a>
-					</li>
-					
-					<li>
-						<a href="base/index.html">base</a>
-					</li>
-					
-					<li>
-						<a href="editor/index.html">editor</a>
-					</li>
-					
-					<li>
-						<a href="event-custom/index.html">event-custom</a>
-					</li>
-					
-					<li>
-						<a href="event-dom/index.html">event-dom</a>
-					</li>
-					
-					<li>
-						<a href="feature/index.html">feature</a>
-					</li>
-					
-					<li>
-						<a href="io/index.html">io</a>
-					</li>
-					
-					<li>
-						<a href="kissy-in-nodejs/index.html">kissy-in-nodejs</a>
-					</li>
-					
-					<li>
-						<a href="modulex/index.html">modulex</a>
-					</li>
-					
-					<li>
-						<a href="navigation-view/index.html">navigation-view</a>
-					</li>
-					
-					<li>
-						<a href="node/index.html">node</a>
-					</li>
-					
-					<li>
-						<a href="overlay/index.html">overlay</a>
-					</li>
-					
-					<li>
-						<a href="path/index.html">path</a>
-					</li>
-					
-					<li>
-						<a href="promise/index.html">promise</a>
-					</li>
-					
-					<li>
-						<a href="resizable/index.html">resizable</a>
-					</li>
-					
-					<li>
-						<a href="router/index.html">router</a>
-					</li>
-					
-					<li>
-						<a href="ua/index.html">ua</a>
-					</li>
-					
-					<li>
-						<a href="util/index.html">util</a>
-					</li>
-					
-					<li>
-						<a href="xtemplate/index.html">xtemplate</a>
-					</li>
-					
-				</ul>
+			<div class="inner clearfix">
+				<div id="sidebar">
+					<a class="link-apidocs btn btn-primary" href="../../api">API Docs</a>
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Outline</h3>
+						</div>
+						<div class="panel-body">
+							<ul class="outline">
+								<li class="level2"><a href="#概述">概述</a></li><li class="level2"><a href="#先决条件">先决条件</a></li><li class="level2"><a href="#使用指南">使用指南</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel panel-primary ajax-load ">
+						<div class="panel-heading">
+							<h3 class="panel-title">Features</h3>
+						</div>
+						<div class="panel-body">
+							<p><a href="../../guides/modulex/import-style.html">importStyle的使用</a></p><p><a href="../../guides/modulex/index.html">modulex 基本介绍</a></p>
+						</div>
+					</div>
+					<div class="panel panel-primary ajax-load hide">
+						<div class="panel-heading">
+							<h3 class="panel-title">Demos</h3>
+						</div>
+						<div class="panel-body">
+							
+						</div>
+					</div>
+				</div>
+				<div id="main-content">
+					<h1 id="importStyle的使用">importStyle的使用</h1><h2 id="概述">概述</h2><p>ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。</p>
+<h2 id="先决条件">先决条件</h2><ul>
+<li>头部引入<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js,import-style-min.js'</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre></li>
+<li>页面是基于 KISSY 模块规范开发的，如依赖css，需要显式在requires里声明</li>
+</ul>
+<h2 id="使用指南">使用指南</h2><pre><code><span class="hljs-keyword">require</span>.config(<span class="hljs-string">'modules'</span>, {
+  <span class="hljs-string">'components/nav/index'</span><span class="hljs-symbol">:</span> {<span class="hljs-symbol">requires:</span> [<span class="hljs-string">'components/nav/index.css'</span>]},
+  <span class="hljs-string">'components/layout/index'</span><span class="hljs-symbol">:</span> {<span class="hljs-symbol">requires:</span> [<span class="hljs-string">'components/layout/index.css'</span>]},
+  <span class="hljs-string">'components/home/index'</span><span class="hljs-symbol">:</span> {<span class="hljs-symbol">requires:</span> [<span class="hljs-string">'components/nav/index'</span>,<span class="hljs-string">'components/layout/index'</span>]}
+});
+
+<span class="hljs-keyword">require</span>.config({
+  <span class="hljs-string">'combine'</span><span class="hljs-symbol">:true</span>,
+  <span class="hljs-string">'packages'</span><span class="hljs-symbol">:</span>[{
+    <span class="hljs-string">'name'</span><span class="hljs-symbol">:<span class="hljs-string">'components'</span></span>,
+    <span class="hljs-string">'base'</span><span class="hljs-symbol">:<span class="hljs-string">'http://assets.etao.net/apps/e/hotel/130716'</span></span>,
+    <span class="hljs-string">'debug'</span><span class="hljs-symbol">:<span class="hljs-string">'true'</span></span>
+  }]
+});
+
+<span class="hljs-keyword">require</span>.importStyle(<span class="hljs-string">'components/home/index'</span>);  <span class="hljs-regexp">//</span>这样会把这个模块依赖的所有css文件加载加来
+</code></pre><p>上面是一淘酒店项目中摘出的ImportStyle使用Demo，可以看出使用方式很简单——提供模块依赖信息、包配置， 最后调用importStyle，传入模块列表即可。</p>
+
+				</div>
 			</div>
 		</div>
 	</div>

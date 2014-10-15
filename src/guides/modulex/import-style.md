@@ -6,20 +6,20 @@ ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件
 ## 先决条件
 - 头部引入
 ```
-<script src='http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js'></script>
+<script src='http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js,import-style-min.js'></script>
 ```
 - 页面是基于 KISSY 模块规范开发的，如依赖css，需要显式在requires里声明
 
 ## 使用指南
 
 ```
-KISSY.config('modules', {
+require.config('modules', {
   'components/nav/index': {requires: ['components/nav/index.css']},
   'components/layout/index': {requires: ['components/layout/index.css']},
   'components/home/index': {requires: ['components/nav/index','components/layout/index']}
 });
 
-KISSY.config({
+require.config({
   'combine':true,
   'packages':[{
     'name':'components',
@@ -28,6 +28,6 @@ KISSY.config({
   }]
 });
 
-KISSY.importStyle('components/home/index');
+require.importStyle('components/home/index');  //这样会把这个模块依赖的所有css文件加载加来
 ```
 上面是一淘酒店项目中摘出的ImportStyle使用Demo，可以看出使用方式很简单——提供模块依赖信息、包配置， 最后调用importStyle，传入模块列表即可。
