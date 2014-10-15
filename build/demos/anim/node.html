@@ -109,10 +109,13 @@
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;title&gt;Demo - 节点实例动画操作&lt;&#x2F;title&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;.&#x2F;assets&#x2F;custombutton.css&quot;&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;style type=&quot;text&#x2F;css&quot;&gt;
+	body{
+        background: #fff;
+    }
     .box {
         width: 160px;
         height: 160px;
@@ -140,7 +143,7 @@
 &lt;div id=&quot;demo_fade&quot;&gt;&lt;&#x2F;div&gt;
 
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-	KISSY.use([&#x27;node&#x27;,&#x27;button&#x27;], function(S, Node, Button){
+	require([&#x27;node&#x27;,&#x27;button&#x27;], function(Node, Button){
 		var anim_toggle = Node.one(&quot;#anim_toggle&quot;),
 	    anim_slide = Node.one(&quot;#anim_slide&quot;),
 	    anim_fade = Node.one(&quot;#anim_fade&quot;);
@@ -214,9 +217,12 @@
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;title&gt;Demo - 节点上的 stop 示例&lt;&#x2F;title&gt;
-&lt;link href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot; rel=&quot;stylesheet&quot;&#x2F;&gt;
+&lt;link href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot; rel=&quot;stylesheet&quot;&#x2F;&gt;
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;.&#x2F;assets&#x2F;custombutton.css&quot;&gt;
 &lt;style&gt;
+	body{
+        background: #fff;
+    }
 div.block {
     position: absolute;
     background-color: #abc;
@@ -227,14 +233,14 @@ div.block {
     margin: 5px;
 }
 &lt;&#x2F;style&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;div style=&quot;position:relative;height:72px;&quot;&gt;
     &lt;div class=&quot;block&quot;&gt;&lt;&#x2F;div&gt;
 &lt;&#x2F;div&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-	KISSY.use(&quot;node,button&quot;, function(S, Node, Button) {
+	require(&quot;node,button&quot;, function(Node, Button) {
 	    var $ = Node.all;
 
 	    var go = new Button({

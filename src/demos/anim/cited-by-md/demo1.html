@@ -3,10 +3,13 @@
 <head>
 <meta charset="utf-8"/>
 <title>Demo - 节点实例动画操作</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
 <link rel="stylesheet" type="text/css" href="./assets/custombutton.css">
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 <style type="text/css">
+	body{
+        background: #fff;
+    }
     .box {
         width: 160px;
         height: 160px;
@@ -34,7 +37,7 @@
 <div id="demo_fade"></div>
 
 <script type="text/javascript">
-	KISSY.use(['node','button'], function(S, Node, Button){
+	require(['node','button'], function(Node, Button){
 		var anim_toggle = Node.one("#anim_toggle"),
 	    anim_slide = Node.one("#anim_slide"),
 	    anim_fade = Node.one("#anim_fade");

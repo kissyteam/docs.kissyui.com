@@ -4,8 +4,11 @@
 <head>
 <meta charset="utf-8"/>
 <title>Demo - 滚动属性动画实例</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
 <style>
+    body{
+        background: #fff;
+    }
     .ks-button {
         display: inline-block;
         *display: inline;
@@ -89,7 +92,7 @@
         border: 5px solid #AABBCC;
     }
 </style>
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
 
@@ -105,7 +108,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    KISSY.use(['anim/timer', 'button'], function(S, TimerAnim, Button){
+    require(['anim/timer', 'button'], function(TimerAnim, Button){
         var b = new Button({
             content : 'run scroll animation'
         });

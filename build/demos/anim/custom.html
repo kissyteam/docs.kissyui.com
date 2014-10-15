@@ -110,16 +110,20 @@
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;title&gt;kissy anim demo&lt;&#x2F;title&gt;
+    &lt;style type=&quot;text&#x2F;css&quot;&gt;
+    	body{
+	        background: #fff;
+	    }
+    &lt;&#x2F;style&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;button id=&quot;start&quot;&gt;start&lt;&#x2F;button&gt;
 &lt;button id=&quot;stop&quot;&gt;stop&lt;&#x2F;button&gt;
 &lt;canvas id=&quot;Canvas&quot; style=&quot;border:1px solid #ccc;&quot; width=&quot;200&quot; height=&quot;200&quot;&gt;&lt;&#x2F;canvas&gt;
 
-&lt;script charset=&quot;utf-8&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script charset=&quot;utf-8&quot; src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-	KISSY.use([&#x27;anim&#x2F;timer&#x27;,&#x27;node&#x27;], function (S, TimerAnim, Node) {
-	    var $ = Node.all;
+	require([&#x27;anim&#x2F;timer&#x27;,&#x27;node&#x27;], function (TimerAnim, $) {
 	    var ctx = document.getElementById(&#x27;Canvas&#x27;).getContext(&#x27;2d&#x27;);
 
 	    function circle(cx, cy, r, opt) {
@@ -190,7 +194,12 @@
 &lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;style type=&quot;text&#x2F;css&quot;&gt;
+        body{
+            background: #fff;
+        }
+    &lt;&#x2F;style&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 
@@ -203,10 +212,10 @@ background-image: url(&quot;http:&#x2F;&#x2F;img03.taobaocdn.com&#x2F;tps&#x2F;i
 
 &lt;button id=&quot;run&quot;&gt;run&lt;&#x2F;button&gt;
 &lt;script&gt;
-KISSY.use([&#x27;node&#x27;, &#x27;anim&#x2F;timer&#x27;], function(S, Node, TimerAnim){
-    Node.one(&#x27;#run&#x27;).on(&#x27;click&#x27;, function () {
+require([&#x27;node&#x27;, &#x27;anim&#x2F;timer&#x27;], function($, TimerAnim){
+    $(&#x27;#run&#x27;).on(&#x27;click&#x27;, function () {
         this.disabled = true;
-        var t = Node.one(&#x27;#t&#x27;);
+        var t = $(&#x27;#t&#x27;);
         TimerAnim(&#x27;#t&#x27;,{
             height:190,
             left: {
@@ -270,6 +279,11 @@ KISSY.use([&#x27;node&#x27;, &#x27;anim&#x2F;timer&#x27;], function(S, Node, Tim
     &lt;title&gt;
         Circular movement
     &lt;&#x2F;title&gt;
+    &lt;style type=&quot;text&#x2F;css&quot;&gt;
+        body{
+            background: #fff;
+        }
+    &lt;&#x2F;style&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 
@@ -289,11 +303,11 @@ border-radius: 100px;
 &quot;&gt;
 &lt;&#x2F;div&gt;
 
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;script&gt;
-    KISSY.use(&#x27;node,anim&#x2F;timer&#x27;, function (S, Node, TimerAnim) {
-        var t = Node.all(&#x27;#t&#x27;),
-                t2 = Node.all(&#x27;#t2&#x27;),
+    require([&#x27;node&#x27;,&#x27;anim&#x2F;timer&#x27;], function ($, TimerAnim) {
+        var t = $(&#x27;#t&#x27;),
+                t2 = $(&#x27;#t2&#x27;),
                 R = 10, R2 = 100, N = 100;
         t.css({
             width: 2 * R,

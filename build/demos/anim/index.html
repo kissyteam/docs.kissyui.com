@@ -112,6 +112,9 @@
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
 &lt;title&gt;Demo - 基本动画示例&lt;&#x2F;title&gt;
 &lt;style&gt;
+    body{
+        background: #fff;
+    }
     #test1 {
         width: 10px;
         height: 20px;
@@ -122,14 +125,14 @@
         color: #999;
     }
 &lt;&#x2F;style&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot; data-config=&quot;{combine:false}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;button id=&quot;run&quot;&gt;开始动画&lt;&#x2F;button&gt;
 &lt;div id=&quot;test1&quot; &gt;^o^&lt;&#x2F;div&gt;
 
 &lt;script&gt;
-    KISSY.use(&quot;anim&#x2F;timer,node&quot;,function(S,Anim,Node){
+    require([&#x27;anim&#x27;,&#x27;node&#x27;],function(Anim,$){
          var anim = Anim(
             &#x27;#test1&#x27;,
             {
@@ -144,17 +147,18 @@
                 &#x27;opacity&#x27;: &#x27;.5&#x27;,
                 &#x27;font-size&#x27;: &#x27;48px&#x27;,
                 &#x27;padding&#x27;: &#x27;30px 0&#x27;,
-                &#x27;color&#x27;: &#x27;#FF3333&#x27;
+                &#x27;color&#x27;: &#x27;#FF3333&#x27;,
+                &#x27;position&#x27; : &#x27;absolute&#x27;
             },
             {
                 duration : 3,
-                easing : &quot;bounceOut&quot;,
+                easing : &quot;ease-out&quot;,
                 complete : function(){
                     alert(&quot;动画结束&quot;);
                 }
             });
 
-        Node.one(&quot;#run&quot;).on(&quot;click&quot;, function() {
+        $(&quot;#run&quot;).on(&quot;click&quot;, function() {
             anim.run();
         });
     });

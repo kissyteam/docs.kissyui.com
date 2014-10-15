@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Demo - 基本动画示例</title>
 <style>
+    body{
+        background: #fff;
+    }
     #test1 {
         width: 10px;
         height: 20px;
@@ -16,14 +19,14 @@
         color: #999;
     }
 </style>
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js" data-config="{combine:false}"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
 <button id="run">开始动画</button>
 <div id="test1" >^o^</div>
 
 <script>
-    KISSY.use("anim/timer,node",function(S,Anim,Node){
+    require(['anim','node'],function(Anim,$){
          var anim = Anim(
             '#test1',
             {
@@ -38,17 +41,18 @@
                 'opacity': '.5',
                 'font-size': '48px',
                 'padding': '30px 0',
-                'color': '#FF3333'
+                'color': '#FF3333',
+                'position' : 'absolute'
             },
             {
                 duration : 3,
-                easing : "bounceOut",
+                easing : "ease-out",
                 complete : function(){
                     alert("动画结束");
                 }
             });
 
-        Node.one("#run").on("click", function() {
+        $("#run").on("click", function() {
             anim.run();
         });
     });

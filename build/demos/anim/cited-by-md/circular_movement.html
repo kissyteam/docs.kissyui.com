@@ -9,6 +9,11 @@
     <title>
         Circular movement
     </title>
+    <style type="text/css">
+        body{
+            background: #fff;
+        }
+    </style>
 </head>
 <body>
 
@@ -28,11 +33,11 @@ border-radius: 100px;
 ">
 </div>
 
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js"></script>
 <script>
-    KISSY.use('node,anim/timer', function (S, Node, TimerAnim) {
-        var t = Node.all('#t'),
-                t2 = Node.all('#t2'),
+    require(['node','anim/timer'], function ($, TimerAnim) {
+        var t = $('#t'),
+                t2 = $('#t2'),
                 R = 10, R2 = 100, N = 100;
         t.css({
             width: 2 * R,

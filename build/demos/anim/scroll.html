@@ -110,8 +110,11 @@
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;title&gt;Demo - 滚动属性动画实例&lt;&#x2F;title&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
 &lt;style&gt;
+    body{
+        background: #fff;
+    }
     .ks-button {
         display: inline-block;
         *display: inline;
@@ -195,7 +198,7 @@
         border: 5px solid #AABBCC;
     }
 &lt;&#x2F;style&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 
@@ -211,7 +214,7 @@
     &lt;&#x2F;div&gt;
 &lt;&#x2F;div&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-    KISSY.use([&#x27;anim&#x2F;timer&#x27;, &#x27;button&#x27;], function(S, TimerAnim, Button){
+    require([&#x27;anim&#x2F;timer&#x27;, &#x27;button&#x27;], function(TimerAnim, Button){
         var b = new Button({
             content : &#x27;run scroll animation&#x27;
         });

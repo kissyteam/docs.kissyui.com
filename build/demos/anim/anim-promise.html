@@ -108,11 +108,14 @@
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; &#x2F;&gt;
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 
 &lt;style&gt;
+    body{
+        background: #fff;
+    }
     #t {
         width: 100px;
         height: 30px;
@@ -126,7 +129,7 @@
 &lt;div id=&quot;t&quot;&gt;&lt;&#x2F;div&gt;
 
 &lt;script&gt;
-KISSY.use([&#x27;node&#x27;, &#x27;anim&#x27;], function (S, Node, Anim) {
+require([&#x27;anim&#x27;], function (Anim) {
     var anim = new Anim(&#x27;#t&#x27;,
         {
             width: 300

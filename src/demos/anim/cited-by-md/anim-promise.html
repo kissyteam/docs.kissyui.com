@@ -2,11 +2,14 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
+    <script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js"></script>
 </head>
 <body>
 
 <style>
+    body{
+        background: #fff;
+    }
     #t {
         width: 100px;
         height: 30px;
@@ -20,7 +23,7 @@
 <div id="t"></div>
 
 <script>
-KISSY.use(['node', 'anim'], function (S, Node, Anim) {
+require(['anim'], function (Anim) {
     var anim = new Anim('#t',
         {
             width: 300

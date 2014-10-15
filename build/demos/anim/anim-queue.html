@@ -110,9 +110,12 @@
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;title&gt;Demo - 动画队列支持&lt;&#x2F;title&gt;
-&lt;link href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot; rel=&quot;stylesheet&quot;&#x2F;&gt;
+&lt;link href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot; rel=&quot;stylesheet&quot;&#x2F;&gt;
 &lt;link href=&quot;.&#x2F;assets&#x2F;custombutton.css&quot; rel=&quot;stylesheet&quot;&#x2F;&gt;
 &lt;style&gt;
+    body{
+        background: #fff;
+    }
     .playground {
         position: relative;
         width: 300px;
@@ -137,7 +140,7 @@
     .down {
         background: transparent url(assets&#x2F;down.png) no-repeat center center;
     }
-&lt;&#x2F;style&gt;&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;style&gt;&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;div class=&quot;playground&quot;&gt;
@@ -158,7 +161,7 @@
     window.image4.src=&quot;assets&#x2F;down.png&quot;;
 &lt;&#x2F;script&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-    KISSY.use([&#x27;anim&#x27;,&#x27;node&#x27;,&#x27;button&#x27;],function(S,Anim,Node,Button){
+    require([&#x27;anim&#x27;,&#x27;node&#x27;,&#x27;button&#x27;],function(Anim,Node,Button){
         var $ = Node.all;
 
         &#x2F;&#x2F; 创建几个状态的按钮

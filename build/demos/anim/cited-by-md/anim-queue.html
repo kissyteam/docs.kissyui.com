@@ -4,9 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <title>Demo - 动画队列支持</title>
-<link href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css" rel="stylesheet"/>
+<link href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css" rel="stylesheet"/>
 <link href="./assets/custombutton.css" rel="stylesheet"/>
 <style>
+    body{
+        background: #fff;
+    }
     .playground {
         position: relative;
         width: 300px;
@@ -31,7 +34,7 @@
     .down {
         background: transparent url(assets/down.png) no-repeat center center;
     }
-</style><script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+</style><script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
 <div class="playground">
@@ -52,7 +55,7 @@
     window.image4.src="assets/down.png";
 </script>
 <script type="text/javascript">
-    KISSY.use(['anim','node','button'],function(S,Anim,Node,Button){
+    require(['anim','node','button'],function(Anim,Node,Button){
         var $ = Node.all;
 
         // 创建几个状态的按钮

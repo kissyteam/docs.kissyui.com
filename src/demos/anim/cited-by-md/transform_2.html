@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <style>
         body {
-            background-color: #333;
+            background-color: #fff;
             overflow: hidden;
         }
 
@@ -40,9 +40,9 @@
 
 <div id="t2" class="t">
 </div>
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js"></script>
 <script>
-    KISSY.use('dom,anim,node', function (S, Dom, Anim, Node) {
+    require(['dom','anim','node'], function (Dom, Anim, Node) {
         var t = Dom.get('#t');
         var t2 = Dom.get('#t2');
         Dom.css(t, 'transform-origin', '0px 0px');

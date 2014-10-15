@@ -2,7 +2,12 @@
 <!doctype html>
 <html>
 <head>
-    <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
+    <script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js"></script>
+    <style type="text/css">
+        body{
+            background: #fff;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,10 +20,10 @@ background-image: url("http://img03.taobaocdn.com/tps/i3/T1UfsTXotcXXb6hPny-500-
 
 <button id="run">run</button>
 <script>
-KISSY.use(['node', 'anim/timer'], function(S, Node, TimerAnim){
-    Node.one('#run').on('click', function () {
+require(['node', 'anim/timer'], function($, TimerAnim){
+    $('#run').on('click', function () {
         this.disabled = true;
-        var t = Node.one('#t');
+        var t = $('#t');
         TimerAnim('#t',{
             height:190,
             left: {

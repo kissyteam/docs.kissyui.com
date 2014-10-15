@@ -771,6 +771,9 @@ li.docs:hover ul, li.more:hover ul{
 #api-doc .inner .yui3-u-3-4{
   position: relative;
 }
+.apidocs .param-description p{
+  overflow: hidden;
+}
 #api-doc h1{
   font-size: 24px;
   color: #fff;

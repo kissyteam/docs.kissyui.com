@@ -111,7 +111,7 @@
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;title&gt;transform&lt;&#x2F;title&gt;
-&lt;script charset=&quot;utf-8&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script charset=&quot;utf-8&quot; src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;style&gt;
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -142,6 +142,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
     line-height: 1;
+    background: #fff;
 }
 
 ol, ul {
@@ -419,7 +420,7 @@ footer {
     &lt;&#x2F;div&gt;
 &lt;&#x2F;section&gt;
 &lt;script&gt;
-KISSY.use([&#x27;node&#x27;], function (S, Node) {
+require([&#x27;node&#x27;], function (Node) {
     var $ = Node.all;
     $(&#x27;.square&#x27;).on(&#x27;mouseenter&#x27;,function(e){
         var currentTarget = $(e.currentTarget);
@@ -514,7 +515,7 @@ KISSY.use([&#x27;node&#x27;], function (S, Node) {
     &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
     &lt;style&gt;
         body {
-            background-color: #333;
+            background-color: #fff;
             overflow: hidden;
         }
 
@@ -550,9 +551,9 @@ KISSY.use([&#x27;node&#x27;], function (S, Node) {
 
 &lt;div id=&quot;t2&quot; class=&quot;t&quot;&gt;
 &lt;&#x2F;div&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;script&gt;
-    KISSY.use(&#x27;dom,anim,node&#x27;, function (S, Dom, Anim, Node) {
+    require([&#x27;dom&#x27;,&#x27;anim&#x27;,&#x27;node&#x27;], function (Dom, Anim, Node) {
         var t = Dom.get(&#x27;#t&#x27;);
         var t2 = Dom.get(&#x27;#t2&#x27;);
         Dom.css(t, &#x27;transform-origin&#x27;, &#x27;0px 0px&#x27;);

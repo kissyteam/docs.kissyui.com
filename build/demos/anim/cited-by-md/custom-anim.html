@@ -3,16 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title>kissy anim demo</title>
+    <style type="text/css">
+    	body{
+	        background: #fff;
+	    }
+    </style>
 </head>
 <body>
 <button id="start">start</button>
 <button id="stop">stop</button>
 <canvas id="Canvas" style="border:1px solid #ccc;" width="200" height="200"></canvas>
 
-<script charset="utf-8" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
+<script charset="utf-8" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js"></script>
 <script type="text/javascript">
-	KISSY.use(['anim/timer','node'], function (S, TimerAnim, Node) {
-	    var $ = Node.all;
+	require(['anim/timer','node'], function (TimerAnim, $) {
 	    var ctx = document.getElementById('Canvas').getContext('2d');
 
 	    function circle(cx, cy, r, opt) {
