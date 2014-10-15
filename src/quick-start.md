@@ -120,7 +120,7 @@ KISSY 提供 anim 模块，完成 DOM 元素的动画。
 
 模块其实就是一个对象，模块名可以忽略，我们会返回这个对象以便在使用模块时方便调用，最后是依赖配置。下面将介绍的Demo中我们把这个模块保存为 `opLotto.js`。同时，我们需要指定这个模块所属的包：
 
-	KISSY.config({
+	require.config({
 		packages: {
 			"modulePkgName":{
 				tag: "20140918",
@@ -175,7 +175,7 @@ gallery 鼓励分享，任何人都可以为 gallery 提交自己的组件。使
 
 要想开启动态Combo，在全局配置中增加一项 `combine : true` 开启动态合并：
 
-	KISSY.config({
+	require.config({
 		combine : true
 	});
 
@@ -272,7 +272,7 @@ KISSY 中对 Ajax 操作进行了一些封装，比如要发起一个 GET 请求
 
 在加载模块前，我们需要在主页面中对 KISSY 进行一下包配置
 
-	modulex.config({
+	require.config({
 	    packages: [
 	        {
 	            name: "modulePkgName",

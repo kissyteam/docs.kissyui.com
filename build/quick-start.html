@@ -166,7 +166,7 @@ define(<span class="hljs-keyword">function</span>(<span class="hljs-keyword">req
     <span class="hljs-keyword">return</span> opLotto;
 })
 </code></pre><p>模块其实就是一个对象，模块名可以忽略，我们会返回这个对象以便在使用模块时方便调用，最后是依赖配置。下面将介绍的Demo中我们把这个模块保存为 <code>opLotto.js</code>。同时，我们需要指定这个模块所属的包：</p>
-<pre><code><span class="hljs-tag">KISSY</span><span class="hljs-class">.config</span>(<span class="hljs-rules">{
+<pre><code><span class="hljs-tag">require</span><span class="hljs-class">.config</span>(<span class="hljs-rules">{
     <span class="hljs-rule"><span class="hljs-attribute">packages</span>:<span class="hljs-value"> {
         <span class="hljs-string">"modulePkgName"</span>:{
             tag: <span class="hljs-string">"20140918"</span>,
@@ -206,7 +206,7 @@ define(<span class="hljs-keyword">function</span>(<span class="hljs-keyword">req
 </ul>
 <p>动态合并，比如<code>require([&#39;overlay&#39;], function(Overlay){  })</code>会带来26个请求。</p>
 <p>要想开启动态Combo，在全局配置中增加一项 <code>combine : true</code> 开启动态合并：</p>
-<pre><code><span class="hljs-tag">KISSY</span><span class="hljs-class">.config</span>(<span class="hljs-rules">{
+<pre><code><span class="hljs-tag">require</span><span class="hljs-class">.config</span>(<span class="hljs-rules">{
     <span class="hljs-rule"><span class="hljs-attribute">combine </span>:<span class="hljs-value"> true
 </span></span></span>});
 </code></pre><p>或者这样开启：</p>
@@ -271,7 +271,7 @@ IO.get(<span class="hljs-string">'/5.0/demos/anim/cited-by-md/quickstartdata.jso
 </code></pre><p>模块其实就是一个对象，模块名可以忽略，我们会返回这个对象以便在使用模块时方便调用</p>
 <h3 id="依赖配置">依赖配置</h3><p>我们把这个模块保存为 opLotto.js，放在同目录的 modulePkgName 文件夹下</p>
 <p>在加载模块前，我们需要在主页面中对 KISSY 进行一下包配置</p>
-<pre><code><span class="hljs-tag">modulex</span><span class="hljs-class">.config</span>(<span class="hljs-rules">{
+<pre><code><span class="hljs-tag">require</span><span class="hljs-class">.config</span>(<span class="hljs-rules">{
     <span class="hljs-rule"><span class="hljs-attribute">packages</span>:<span class="hljs-value"> [
         {
             name: <span class="hljs-string">"modulePkgName"</span>,
