@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <title>Draggable 简单使用示例</title>
-<link rel="stylesheet" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
+<link rel="stylesheet" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
 <link rel="stylesheet" type="text/css" href="assets/box.css">
 <style type="text/css">
 #test-drag{
@@ -19,7 +19,7 @@
     *filter:alpha(opacity=60);
 }
 </style>
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
     <s class="box-bt"><b></b></s>
 </div>
     <script type="text/javascript">
-        KISSY.use(['dd', 'dd/plugin/proxy'],function(S, DD, Proxy, Constrain){
+        require(['dd', 'dd/plugin/proxy'],function(DD, Proxy, Constrain){
             var drag=new DD.Draggable({
                 node:'#test-drag',
                 cursor:'move',

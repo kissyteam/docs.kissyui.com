@@ -110,8 +110,8 @@
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;title&gt;Draggable 简单使用示例&lt;&#x2F;title&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;
@@ -131,7 +131,7 @@
 &lt;button id=&quot;cw&quot;&gt;constrain to window&lt;&#x2F;button&gt;
 &lt;button id=&quot;cn&quot;&gt;no constrain&lt;&#x2F;button&gt;
     &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-        KISSY.use([&#x27;dd&#x27;, &#x27;node&#x27;, &#x27;dd&#x2F;plugin&#x2F;constrain&#x27;], function (S, DD, Node,Constrain) {
+        require([&#x27;dd&#x27;, &#x27;node&#x27;, &#x27;dd&#x2F;plugin&#x2F;constrain&#x27;], function (DD, Node,Constrain) {
             var $ = Node.all;
 
             var constrain=new Constrain({

@@ -7,6 +7,11 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
+    <style type="text/css">
+    body{
+        background: #fff;
+    }
+    </style>
     <title>两列 portal 示例</title>
     <style>
         #cols {
@@ -90,10 +95,10 @@
 </div>
 
 
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
 <script>
 
-    KISSY.use("dd,util,node,dd/plugin/proxy,dd/plugin/scroll", function (S, DD,util, Node, Proxy, Scroll) {
+    require(['dd','util','node','dd/plugin/proxy','dd/plugin/scroll'], function (DD,util, Node, Proxy, Scroll) {
         var DDM = DD.DDM,
             $ = Node.all,
             DraggableDelegate = DD.DraggableDelegate,

@@ -113,17 +113,15 @@
           content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&gt;
     &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
     &lt;meta name=&quot;apple-touch-fullscreen&quot; content=&quot;yes&quot;&gt;
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 
 &lt;h1&gt;open in ios and shake your phone&lt;&#x2F;h1&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
 
-    var S = KISSY;
-
-    S.use(&#x27;event&#x27;, function (S, Event) {
-        Event.on(window, &#x27;shake&#x27;, function (e) {
+    require([&#x27;event-dom&#x27;, &#x27;event-dom&#x2F;gesture&#x2F;shake&#x27;], function (DomEvent, GestureShake) {
+        DomEvent.on(window, GestureShake.SHAKE, function (e) {
             alert(&#x27;i know u shake !&#x27;);
         });
     });

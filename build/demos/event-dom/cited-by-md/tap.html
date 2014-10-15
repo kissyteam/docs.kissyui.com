@@ -7,7 +7,12 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
-    <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+    <style type="text/css">
+    body{
+      background: #fff;
+    }
+    </style>
+    <script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
 
@@ -21,9 +26,9 @@
 
 <script>
 
-    KISSY.use('event', function (S, Event) {
+    require(['event-dom', 'event-dom/gesture/tap'], function (DomEvent, GestureTap) {
 
-        Event.on('#t', "tap singleTap doubleTap", function (e) {
+        DomEvent.on('#t', GestureTap.TAP, function (e) {
             alert(e.type + ' : fired');
         });
 

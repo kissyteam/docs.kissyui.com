@@ -14,7 +14,7 @@
             background: yellow;
         }
     </style>
-    <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+    <script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
 <button id="theone">Does nothing...</button>
@@ -22,7 +22,7 @@
 <button id="unbind">Unbind Click</button>
 <div style="display:none;">Click!</div>
 <script>
-    KISSY.use('node', function (S, Node) {
+    require(['node'], function (Node) {
         var $ = Node.all;
 
         function aClick() {

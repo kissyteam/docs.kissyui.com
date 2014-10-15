@@ -113,7 +113,12 @@
           content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;&gt;
     &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
     &lt;meta name=&quot;apple-touch-fullscreen&quot; content=&quot;yes&quot;&gt;
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;style type=&quot;text&#x2F;css&quot;&gt;
+    body{
+        background: #fff;
+    }
+    &lt;&#x2F;style&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;h1&gt;open in ios safari test pinch event&lt;&#x2F;h1&gt;
@@ -125,24 +130,24 @@
 &lt;&#x2F;div&gt;
 &lt;script&gt;
 
-    KISSY.use(&#x27;event&#x27;, function (S, Event) {
+    require([&#x27;event-dom&#x27;, &#x27;event-dom&#x2F;gesture&#x2F;pinch&#x27;], function (DomEvent, GesturePinch) {
 
-        Event.on(&#x27;#t&#x27;, &quot;pinch pinchStart pinchEnd&quot;, function (e) {
-            S.log(e.type + &#x27; : &#x27; + e.scale);
+        DomEvent.on(&#x27;#t&#x27;,&quot;pinch pinchStart pinchEnd&quot;, function (e) {
+            console.log(e.type + &#x27; : &#x27; + e.scale);
         });
 
         var o;
 
         var t = document.getElementById(&#x27;t&#x27;);
 
-        Event.on(&#x27;#t&#x27;, &#x27;pinchStart&#x27;, function () {
+        DomEvent.on(&#x27;#t&#x27;, &#x27;pinchStart&#x27;, function () {
             o = 1;
             if (t.style.webkitTransform) {
                 o = parseFloat(t.style.webkitTransform.replace(&#x2F;scale\(&#x2F;, &#x27;&#x27;));
             }
         });
 
-        Event.on(&#x27;#t&#x27;, &#x27;pinch&#x27;, function (e) {
+        DomEvent.on(&#x27;#t&#x27;, &#x27;pinch&#x27;, function (e) {
             t.style.webkitTransform = &#x27;scale(&#x27; + (o * e.scale) + &#x27;)&#x27;;
         });
 

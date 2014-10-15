@@ -9,6 +9,9 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <title>随拖动自动滚动容器</title>
     <style>
+        body{
+            background: #fff;
+        }
         .ks-dd-proxy {
             position: absolute;
             left: -9999px;
@@ -164,9 +167,9 @@
     </div>
 </div>
 
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
 <script>
-    KISSY.use("dd,dd/plugin/scroll", function (S, DD, Scroll) {
+    require(['dd','dd/plugin/scroll'], function (DD, Scroll) {
         var Draggable = DD.Draggable;
 
         (function () {

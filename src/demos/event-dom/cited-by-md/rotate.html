@@ -7,7 +7,12 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
-    <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+    <style type="text/css">
+    body{
+        background: #fff;
+    }
+    </style>
+    <script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
 
@@ -21,30 +26,16 @@
 
 <script>
 
-    KISSY.use('event', function (S, Event) {
-
-        Event.on('#t', "rotateEnd", function (e) {
-            S.log(e.type + ' : ' +
-                    e.originalEvent.changedTouches[0].target.nodeName + ' : ' +
-                    e.rotation + ' : ' + e.angle);
-            //S.log(e.type + ' : ' + e.rotation);
-        });
-
-        Event.on('#t', "rotate rotateStart", function (e) {
-            S.log(e.type + ' : ' +
-                    e.originalEvent.touches.length + ' : ' +
-                    e.rotation + ' : ' + e.angle);
-            //S.log(e.type + ' : ' + e.rotation);
-        });
+    require(['event-dom', 'event-dom/gesture/rotate'], function (DomEvent, GestureRotate) {
         var t = document.getElementById('t');
         var o;
-        Event.on('#t', 'rotateStart', function (e) {
+        DomEvent.on('#t', GestureRotate.ROTATE_START, function (e) {
             o = 0;
             if (t.style.WebkitTransform) {
                 o = parseInt(t.style.WebkitTransform.replace(/rotate\(/, ''));
             }
         });
-        Event.on('#t', 'rotate', function (e) {
+        DomEvent.on('#t', GestureRotate.ROTATE, function (e) {
             t.style.WebkitTransform = 'rotate(' + (o + parseInt(e.rotation))%360 + 'deg)';
         });
 

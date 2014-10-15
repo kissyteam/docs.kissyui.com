@@ -111,7 +111,9 @@
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;style&gt;
-
+        body{
+            background: #fff;
+        }
         button {
             margin: 10px;
         }
@@ -126,7 +128,7 @@
         }
     &lt;&#x2F;style&gt;
 
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;div class=&#x27;out&#x27; id=&#x27;i4&#x27;&gt;
@@ -138,7 +140,7 @@
 &lt;&#x2F;div&gt;
 &lt;div id=&#x27;log&#x27;&gt;&lt;&#x2F;div&gt;
 &lt;script&gt;
-    KISSY.use(&#x27;node&#x27;, function (S, Node) {
+    require([&#x27;node&#x27;], function (Node) {
         var $ = Node.all;
 
         $(&#x27;#i4&#x27;).delegate(&#x27;click&#x27;, &#x27;.inner&#x27;, function (e) {
@@ -169,7 +171,7 @@
         </div>
     </div>
 </div></p>
-<h2 id="事件委托 mouseenter/mouseleave">事件委托 mouseenter/mouseleave</h2><p><div class="ks-tabs ks-tabs-top" style="height:400px;">
+<h2 id="事件委托 mouseenter/mouseleave">事件委托 mouseenter/mouseleave</h2><p><div class="ks-tabs ks-tabs-top" style="height:500px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -184,7 +186,9 @@
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;style&gt;
-
+        body{
+            background: #fff;
+        }
         button {
             margin: 10px;
         }
@@ -199,7 +203,7 @@
         }
     &lt;&#x2F;style&gt;
 
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;div class=&#x27;out&#x27; id=&#x27;i4&#x27; style=&#x27;width:300px;height:300px;border:1px solid green;&#x27;&gt;
@@ -214,7 +218,7 @@
 &lt;hr&#x2F;&gt;
 &lt;div id=&#x27;log&#x27;&gt;&lt;&#x2F;div&gt;
 &lt;script&gt;
-    KISSY.use([&#x27;node&#x27;], function (S, Node) {
+    require([&#x27;node&#x27;], function (Node) {
         var $ = Node.all;
         $(&#x27;#i4&#x27;).delegate(&#x27;mouseenter mouseleave click&#x27;, &#x27;.inner&#x27;, function (e) {
             $(&#x27;#log&#x27;).prepend(e.type + &quot; : &quot; + e.currentTarget.id + &quot;&lt;br&#x2F;&gt;&quot;);
@@ -257,7 +261,9 @@
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;style&gt;
-
+        body{
+            background: #fff;
+        }
         button {
             margin: 10px;
         }
@@ -272,7 +278,7 @@
         }
     &lt;&#x2F;style&gt;
 
-    &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+    &lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;div class=&#x27;out&#x27; id=&#x27;i4&#x27;&gt;
@@ -284,7 +290,7 @@
 &lt;&#x2F;div&gt;
 &lt;div id=&#x27;log&#x27;&gt;&lt;&#x2F;div&gt;
 &lt;script&gt;
-    KISSY.use([&#x27;node&#x27;], function (S, Node) {
+    require([&#x27;node&#x27;], function (Node) {
         var $ = Node.all;
 
         $(&#x27;#i4&#x27;).delegate(&#x27;click&#x27;, &#x27;.inner&#x27;, function (e) {

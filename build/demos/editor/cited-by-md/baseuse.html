@@ -5,9 +5,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>简单使用Editor</title>
-<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
+<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
 <link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kg/editor-plugins/1.1.2/assets/editor.css"> <!--引入editor的插件样式-->
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 <script type="text/javascript" src="http://g.tbcdn.cn/kg/editor-plugins/1.1.2/mods.js"></script>  <!-- 引入插件模块依赖表避免模块串行加载，优化性能-->
 </head>
 <body>
@@ -16,7 +16,7 @@
     
 </div>
 <script type="text/javascript">
-    KISSY.config({
+    require.config({
         packages : [
             {
                 name : 'kg',   //1.1.2是当前editor-plugins的版本号，使用时请选择对应的版本号
@@ -24,7 +24,7 @@
             }
         ]
     });
-    KISSY.use('editor,kg/editor-plugins/1.1.2/source-area,kg/editor-plugins/1.1.2/font-size,kg/editor-plugins/1.1.2/code', function(S, Editor, SourceArea, FontSize, Code){
+    require(['editor','kg/editor-plugins/1.1.2/source-area','kg/editor-plugins/1.1.2/font-size','kg/editor-plugins/1.1.2/code'], function(Editor, SourceArea, FontSize, Code){
         var myEditor = new Editor({
             render : '#container',
             focused : true,

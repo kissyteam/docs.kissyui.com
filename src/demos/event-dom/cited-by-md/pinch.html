@@ -7,7 +7,12 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
-    <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+    <style type="text/css">
+    body{
+        background: #fff;
+    }
+    </style>
+    <script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
 <h1>open in ios safari test pinch event</h1>
@@ -19,24 +24,24 @@
 </div>
 <script>
 
-    KISSY.use('event', function (S, Event) {
+    require(['event-dom', 'event-dom/gesture/pinch'], function (DomEvent, GesturePinch) {
 
-        Event.on('#t', "pinch pinchStart pinchEnd", function (e) {
-            S.log(e.type + ' : ' + e.scale);
+        DomEvent.on('#t',"pinch pinchStart pinchEnd", function (e) {
+            console.log(e.type + ' : ' + e.scale);
         });
 
         var o;
 
         var t = document.getElementById('t');
 
-        Event.on('#t', 'pinchStart', function () {
+        DomEvent.on('#t', 'pinchStart', function () {
             o = 1;
             if (t.style.webkitTransform) {
                 o = parseFloat(t.style.webkitTransform.replace(/scale\(/, ''));
             }
         });
 
-        Event.on('#t', 'pinch', function (e) {
+        DomEvent.on('#t', 'pinch', function (e) {
             t.style.webkitTransform = 'scale(' + (o * e.scale) + ')';
         });
 

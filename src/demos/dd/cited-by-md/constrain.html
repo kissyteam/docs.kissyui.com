@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <title>Draggable 简单使用示例</title>
-<link rel="stylesheet" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+<link rel="stylesheet" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 <button id="cw">constrain to window</button>
 <button id="cn">no constrain</button>
     <script type="text/javascript">
-        KISSY.use(['dd', 'node', 'dd/plugin/constrain'], function (S, DD, Node,Constrain) {
+        require(['dd', 'node', 'dd/plugin/constrain'], function (DD, Node,Constrain) {
             var $ = Node.all;
 
             var constrain=new Constrain({

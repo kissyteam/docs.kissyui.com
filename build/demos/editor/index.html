@@ -111,9 +111,9 @@
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
 &lt;title&gt;简单使用Editor&lt;&#x2F;title&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kg&#x2F;editor-plugins&#x2F;1.1.2&#x2F;assets&#x2F;editor.css&quot;&gt; &lt;!--引入editor的插件样式--&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kg&#x2F;editor-plugins&#x2F;1.1.2&#x2F;mods.js&quot;&gt;&lt;&#x2F;script&gt;  &lt;!-- 引入插件模块依赖表避免模块串行加载，优化性能--&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
@@ -122,7 +122,7 @@
     
 &lt;&#x2F;div&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-    KISSY.config({
+    require.config({
         packages : [
             {
                 name : &#x27;kg&#x27;,   &#x2F;&#x2F;1.1.2是当前editor-plugins的版本号，使用时请选择对应的版本号
@@ -130,7 +130,7 @@
             }
         ]
     });
-    KISSY.use(&#x27;editor,kg&#x2F;editor-plugins&#x2F;1.1.2&#x2F;source-area,kg&#x2F;editor-plugins&#x2F;1.1.2&#x2F;font-size,kg&#x2F;editor-plugins&#x2F;1.1.2&#x2F;code&#x27;, function(S, Editor, SourceArea, FontSize, Code){
+    require([&#x27;editor&#x27;,&#x27;kg&#x2F;editor-plugins&#x2F;1.1.2&#x2F;source-area&#x27;,&#x27;kg&#x2F;editor-plugins&#x2F;1.1.2&#x2F;font-size&#x27;,&#x27;kg&#x2F;editor-plugins&#x2F;1.1.2&#x2F;code&#x27;], function(Editor, SourceArea, FontSize, Code){
         var myEditor = new Editor({
             render : &#x27;#container&#x27;,
             focused : true,

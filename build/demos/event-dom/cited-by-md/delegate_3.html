@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
     <style>
-
+        body{
+            background: #fff;
+        }
         button {
             margin: 10px;
         }
@@ -20,7 +22,7 @@
         }
     </style>
 
-    <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+    <script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
 <div class='out' id='i4'>
@@ -32,7 +34,7 @@
 </div>
 <div id='log'></div>
 <script>
-    KISSY.use(['node'], function (S, Node) {
+    require(['node'], function (Node) {
         var $ = Node.all;
 
         $('#i4').delegate('click', '.inner', function (e) {
