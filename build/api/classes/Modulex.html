@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Loader - API Documentation — KISSY v5.0 Documentation</title>
+    <title>Modulex - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/base.css">
     <link rel="stylesheet" href="/5.0/assets/css/main.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -180,8 +180,6 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Json href="/5.0/api/classes/Json.html">Json</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Loader href="/5.0/api/classes/Loader.html">Loader</a></li>
-            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu href="/5.0/api/classes/Menu.html">Menu</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=Menu.CheckItem href="/5.0/api/classes/Menu.CheckItem.html">Menu.CheckItem</a></li>
@@ -199,6 +197,8 @@
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=MenuButton.Option href="/5.0/api/classes/MenuButton.Option.html">MenuButton.Option</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=MenuButton.Select href="/5.0/api/classes/MenuButton.Select.html">MenuButton.Select</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=Modulex href="/5.0/api/classes/Modulex.html">Modulex</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=NavigationView href="/5.0/api/classes/NavigationView.html">NavigationView</a></li>
             
@@ -346,11 +346,11 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=json href="/5.0/api/modules/json.html">json</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=loader href="/5.0/api/modules/loader.html">loader</a></li>
-            
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=menu href="/5.0/api/modules/menu.html">menu</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=menubutton href="/5.0/api/modules/menubutton.html">menubutton</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=modulex href="/5.0/api/modules/modulex.html">modulex</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=navigation-view href="/5.0/api/modules/navigation-view.html">navigation-view</a></li>
             
@@ -434,7 +434,7 @@
                     <div class="apidocs">
                         <div id="docs-main">
                             <div class="content">
-                                <h1>Loader Class</h1>
+                                <h1>Modulex Class</h1>
 <div class="box meta">
     
 
@@ -442,7 +442,7 @@
 
     
         
-            Module: <a href="../modules/loader.html">loader</a>
+            Module: <a href="../modules/modulex.html">modulex</a>
         
     
 
@@ -452,8 +452,8 @@
 
 
 <div class="box intro">
-    <p>弥补 javascript 语言机制的不足, 提供类似其他语言原生的模块化机制.
-Loader中定义的所有方法都直接通过KISSY对象直接引用，如 <code>KISSY.add</code></p>
+    <p>modulex 是新一代的模块加载器，可独立使用。
+实际上，KISSY的种子文件 seed.js 是由 modulex + feature + ua + meta 四个部分组成的。seed.js是KISSY的种子文件，引用它则可以方便使用KISSY提供的各种模块，如 anim , dom , event-dom 等。而 modulex 是一个模块加载器，如果你只是需要模块加载功能，也可以直接使用 modulex。更多信息可以查看 <a href="https://github.com/kissyteam/modulex">modulex on github</a>。modulex 始终作为一个全局对象存在页面的生命周期。</p>
 
 </div>
 
@@ -482,15 +482,6 @@ Loader中定义的所有方法都直接通过KISSY对象直接引用，如 <code
                     <ul class="index-list methods">
                         
                             <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_add">add</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
                                 <a href="#method_config">config</a>
 
                                 
@@ -509,7 +500,7 @@ Loader中定义的所有方法都直接通过KISSY对象直接引用，如 <code
                             </li>
                         
                             <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_getLogger">getLogger</a>
+                                <a href="#method_define">define</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -527,23 +518,7 @@ Loader中定义的所有方法都直接通过KISSY对象直接引用，如 <code
                             </li>
                         
                             <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_importStyle">importStyle</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
                                 <a href="#method_require">require</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method" inwhichtab="methods">
-                                <a href="#method_use">use</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -567,241 +542,6 @@ Loader中定义的所有方法都直接通过KISSY对象直接引用，如 <code
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_add" class="method item">
-    <h3 class="name"><code>add</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code class="optional">[name]</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>fn</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code class="optional">[config]</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>添加模块</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[name]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>模块名
-<strong>Note</strong></p>
-<p>如果模块名name省略不写，部署阶段需要使用 <a href="https://github.com/daxingplay/grunt-kmc">KISSY Module Compiler</a></p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">fn</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>模块定义函数</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[config]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>模块的一些格外属性</p>
-
-                    </div>
-
-                    
-                        <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[requires]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>模块的一些依赖项, 如果需要载入 css 则, 数组项为 .css 结尾名字</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <ul>
-<li><p>添加模块</p>
-<pre class="code prettyprint"><code>KISSY.add(&quot;yourmod&quot;,function(S){},
- {
-     requires:[&#39;depMod1&#39;,&#39;depMod2&#39;,&#39;./mod.css&#39;] // 该模块的一些依赖项,
-                                                // 注意 css 为和模块 js 同目录下的 mod.css
- }
-);</code></pre>
-</li>
-<li><p>添加匿名模块</p>
-<pre class="code prettyprint"><code>KISSY.add(function(S){},
- {
-     requires:[&#39;depMod1&#39;,&#39;depMod2&#39;,&#39;./mod.css&#39;] // 该模块的一些依赖项,
-                                                // 注意 css 为和模块 js 同目录下的 mod.css
- }
-);</code></pre>
-</li>
-<li><p>如果依赖的模块 depMod1 以及 depMod2 的定义函数有返回值, 例如</p>
-<pre class="code prettyprint"><code>// depMod11.js
-KISSY.add(function(){
- function Mod(){}
- return Mod;
-});
-// depMod2.js
-KISSY.add(function(){
- function Mod(){}
- return Mod;
-});</code></pre>
-<p>那么该返回值会作为参数传入依赖 depMod1 以及 depMod2 的模块的定义函数, 例如</p>
-<pre class="code prettyprint"><code>KISSY.add(function(S,DepMod1,DepMod2){
- //use DepMod1 to refer depmod1&#39;s return value
-},{requires:[&quot;depmod1&quot;,&quot;depmod2&quot;]});</code></pre>
-</li>
-<li><p>当模块名称 name 为包内模块,则requires的模块名称可使用相对路径来引入包内其他模块</p>
-<pre class="code prettyprint"><code>// tc/mods/mod1.js
-// 依赖于 tc/mods/mod2
-KISSY.add(function(){},{requires:[&#39;./mod2&#39;]});</code></pre>
-</li>
-<li><p>也支持commonjs 的模块书写方式，如：</p>
-<pre class="code prettyprint"><code>/ a/b.js
-KISSY.add(function(S,require,exports,module){
- var c = require(&#39;a/c&#39;);
- return c; // or module.exports=c;
-});</code></pre>
-</li>
-</ul>
-<p><strong>Note</strong></p>
-<ul>
-<li>压缩模块
-若线上环境使用 kissy-min.js , 则请使用 closure compiler 对所有模块文件进行压缩, 例如 mod.js 压缩为 mod-min.js , 放在模块文件的同级目录下.</li>
-<li>代码更新机制
-由于动态加载的 js 文件不是写在页面中, 所以不能从页面添加时间戳, 并且1.2 loader新增的约定加载也不能配置具体模块文件路径, 因此 1.2 loader 提供了在包级别添加时间戳的机制.如：<pre class="code prettyprint"><code>KISSY.config({
- packages:{
-     //包名
-     &quot;1.2&quot;:{
-         base: &quot;http://xx.com/&quot;
-     }
- }
-});</code></pre>
-当更改包内模块后, 只需修改tag属性.<pre class="code prettyprint"><code>KISSY.config({
- packages:{
- //包名
-     &quot;1.2&quot;:{
-         tag:&quot;20110323&quot;,
-         base:&quot;http://xx.com/&quot;
-     }
- }
-});</code></pre>
-那么下载动态加载的 js 文件路径后面会自动加上： ?t=20110323.<blockquote>
-<p>也可以不修改时间戳 tag 而是直接修改 path , 这样的话每次更新都需要新建一个目录包括更新后的全部代码,不建议这样</p>
-</blockquote>
-</li>
-<li><h4 id="-">静态部署</h4>
-部署时也可以不采用动态加载, 仅仅将 kissy loader 作为代码组织的一种方式, 将所有的模块打包到一个文件静态引入放在页面中, 当使用 KISSY.use 时如果模块已经过静态引入在页面中, 则不会发送请求.</li>
-</ul>
-
-            </div>
-        </div>
-    
-</div>
-
-                
                     <div id="method_config" class="method item">
     <h3 class="name"><code>config</code></h3>
 
@@ -815,6 +555,12 @@ KISSY.add(function(S,require,exports,module){
                     
                 </li>
             
+                <li class="arg">
+                    
+                        <code>filter</code>
+                    
+                </li>
+            
             </ul><span class="paren">)</span>
         </div>
     
@@ -851,7 +597,7 @@ KISSY.add(function(S,require,exports,module){
     </div>
 
     <div class="description">
-        <p>设置或获取 KISSY 配置参数</p>
+        <p>设置或获取配置参数</p>
 
     </div>
 
@@ -870,27 +616,12 @@ KISSY.add(function(S,require,exports,module){
                     
 
                     <div class="param-description">
-                        <p>KISSY配置参数</p>
+                        <p>配置参数</p>
 
                     </div>
 
                     
                         <ul class="params-list">
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[debug]</code>
-                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>是否开启调试模式</p>
-
-                                </div>
-
-                                
-                            </li>
                             
                             <li class="param">
                                 
@@ -915,7 +646,7 @@ KISSY.add(function(S,require,exports,module){
                                 
 
                                 <div class="param-description">
-                                    <p>KISSY 框架所在的基地址</p>
+                                    <p>整个类库所在的基地址</p>
 
                                 </div>
 
@@ -1010,10 +741,9 @@ KISSY.add(function(S,require,exports,module){
 <p>包配置对象包括：</p>
 <ul>
 <li>group String类型 表示包所属的组名</li>
-<li>debug Boolean类型 包内的脚本请求是是否加 -min 后缀，默认和 KISSY.config(“debug”) 相同</li>
+<li>filter {String} 文件名后缀，如 a.js -&gt; a-debug.js</li>
 <li>tag 类型字符串, 最好为时间戳, 用于刷新客户端本包的模块文件缓存</li>
 <li>combine 类型Boolean, 如果总和 combine 设置为 true，但是单个包 combine 设置为 false，则该包内文件不进行自动 combo</li>
-<li>ignorePackageNameInUri 类型Boolean, 默认 false. 是否在请求的模块路径中省去 package name. 例如 use(&#39;xx/a&#39;) 配置 xx package 的 base 为 <code>http://test.com/</code> 则设置 ignorePackageNameInUri 后请求地址为： <code>http://test.com/a.js</code></li>
 <li>类型字符串, 表示包所在的 url 路径, 相对路径表示相对于当前页面路径.</li>
 <li>path 作用同 base 配置</li>
 <li>charset 类型字符串, 表示宝贝所有模块定义文件的编码格式, 默认 utf-8</li>
@@ -1037,6 +767,7 @@ KISSY.add(function(S,require,exports,module){
 <p>单个模块配置对象包括：</p>
 <ul>
 <li>requires 类型String,该模块的依赖模块名数组。当设置 combine 为 true 时需要配置，否则不建议配置.</li>
+<li>alias {String|Array} 模块别名，当为数组时，合并数组中所有模块返回。</li>
 <li>tag 类型 String，单个模块的时间戳。仅在 combine 为 false 时生效。 combine:true 时取对应包的 tag.</li>
 </ul>
 
@@ -1046,6 +777,22 @@ KISSY.add(function(S,require,exports,module){
                             </li>
                             
                         </ul>
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">filter</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>文件名后缀，如 a.js -&gt; a-debug.js</p>
+
+                    </div>
+
                     
                 </li>
             
@@ -1062,11 +809,11 @@ KISSY.add(function(S,require,exports,module){
             <div class="example-content">
                 <ul>
 <li><h4 id="-">总配置范例概览</h4>
-<pre class="code prettyprint"><code>KISSY.config({
+<pre class="code prettyprint"><code>require.config({
  // 开启自动 combo 模式
  combine:true,
  // kissy 库内置模块的时间戳
- tag:&#39;2012&#39;,
+ tag:&#39;2014&#39;,
  // kissy 的基准路径
  base:&#39;http://x.com/a&#39;,
  packages:{
@@ -1075,8 +822,8 @@ KISSY.add(function(S,require,exports,module){
          base:&#39;http://x.com/biz/&#39;,
          // x 包的时间戳
          tag:&#39;x&#39;,
-         // 开启 x 包 debug 模式
-         debug:true
+         // 添加后缀-debug
+         filter:debug
      },
      y:{
         // y 包的基准路径
@@ -1099,12 +846,12 @@ KISSY.add(function(S,require,exports,module){
 });</code></pre>
 </li>
 <li><h4 id="packages-">packages 范例: 包配置</h4>
-<pre class="code prettyprint"><code>KISSY.config({
+<pre class="code prettyprint"><code>require.config({
  packages:{
      // 包名
      &quot;tc&quot;: {
-         tag:&quot;20110323&quot;, // 动态加载包内的模块js文件时,
-                         // 自动加上 ?t=20110323, 用于文件更新
+         tag:&quot;20141015&quot;, // 动态加载包内的模块js文件时,
+                         // 自动加上 ?t=20141015, 用于文件更新
          base:&quot;../&quot;, // 包对应路径, 相对路径指相对于当前页面路径
          charset:&quot;gbk&quot; // 包里模块文件编码格式
      }
@@ -1115,7 +862,7 @@ KISSY.add(function(S,require,exports,module){
 <p><strong>Note : group组介绍概览</strong></p>
 <ul>
 <li><h4 id="-combo-group-combo-">简单使用(如果想将多个包combo到一起，需要通过配置参数group来实现。例如，对于以下包进行combo：)</h4>
-<pre class="code prettyprint"><code>KISSY.config({
+<pre class="code prettyprint"><code>require.config({
   packages:{
       &quot;pkg-a&quot;: {
           base: &quot;http://example.com/pkg-a&quot;,
@@ -1143,7 +890,7 @@ http://example.com/pkg-c/??mod1.js,...?t=20111111.js</code></pre>
 </li>
 <li><h4 id="-">容错</h4>
 <p>极端情况下，即使要combo的包路径path没有统一的前缀，也没有关系，KISSY可以自动识别和容错，分别对两个包进行combo。例如：</p>
-<pre class="code prettyprint"><code>KISSY.config({
+<pre class="code prettyprint"><code>require.config({
   packages:{
       &quot;pkg-a&quot;: {
           base: &quot;http://example.com/pkg-a&quot;,
@@ -1162,12 +909,6 @@ http://example.com/pkg-c/??mod1.js,...?t=20111111.js</code></pre>
 <p>combo后的URL如下：</p>
 <pre class="code prettyprint"><code>http://example.com/pkg-a/??mod1.js,mod2.js,...
 http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
-</li>
-<li><h4 id="-kissy-combo">和 kissy 一起 combo</h4>
-<p>如果你的应用代码和 kissy 部署在同一台机器上，那么应用代码还可以和 kissy 一起 combo</p>
-<blockquote>
-<p>KISSY.config(&#39;group&#39;,&#39;tb&#39;);   //// 所有包都 combo 到 tb 组</p>
-</blockquote>
 </li>
 </ul>
 
@@ -1302,27 +1043,13 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
 </div>
 
                 
-                    <div id="method_getLogger" class="method item">
-    <h3 class="name"><code>getLogger</code></h3>
+                    <div id="method_define" class="method item">
+    <h3 class="name"><code>define</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>str</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-        </span>
     
 
     
@@ -1355,50 +1082,12 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
     </div>
 
     <div class="description">
-        <p>将 str 作为输出的 log 的前缀</p>
+        <p>注册模块</p>
 
     </div>
 
     
-        <div class="params">
-            <h4>Parameters:</h4>
 
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">str</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>log 的前缀</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
-                    
-                    <p>logger对象</p>
-
-                
-            </div>
-        </div>
     
 
     
@@ -1406,24 +1095,46 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>var logger = KISSY.getLogger(&#39;KISSY&#39;);
-logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;</code></pre>
-<p><strong>Note</strong>
-可以在配置中设置logger的级别，以及是否显示，logger级别从低到高顺序是：debug &lt; info &lt; warn &lt; error</p>
-<p>当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先。 includes 和 excludes 配置类型为 Array ，每个配置对象配置项有maxLevel,minLevel,logger，注意他们是 &quot;与&quot; 的逻辑关系。</p>
-<pre class="code prettyprint"><code>KISSY.config(&#39;logger&#39;, {
-   includes: [
-       {
-           logger: /^xx\//
+                <p>define 函数可用 commonjs 规范或 amd 规范来使用。如下：</p>
+<h4 id="commonjs-">commonjs规范写法</h4>
+<h3 id="-define-name-deps-factory-"><code>define([name], [deps], factory)</code></h3>
+<ul>
+<li>name {String} 模块名称，可选</li>
+<li>deps {Array} 模块依赖，可选</li>
+<li>factory {Function|Object|String} 模块的主内容/逻辑。当为函数时，有三个参数 require,exports,module 。函数返回值就是注册的模块接口。</li>
+</ul>
+<p>示例1：</p>
+<pre class="code prettyprint"><code>   define(&#39;learnkissy&#39;, [&#39;node&#39;], function(require, exports, module){
+       var $ = require(&#39;node&#39;);
+
+       module.exports = function(){
+           console.log(&#39;Hi, KISSY&#39;);
        }
-   ],
-   excludes: [
-       {
-           logger: /^xx\//， //以xx/开头的不显示
-           maxLevel: &#39;info&#39; //不显示 info 及 info 以下的 log
+   });</code></pre>
+<p>示例2：</p>
+<p>开发阶段不写上模块名称name和模块依赖deps，在发布到线上前在使用 <a href="https://github.com/daxingplay/kmc">Kissy Mobule Compiler</a>  来生成模块名称和提取模块依赖。</p>
+<pre class="code prettyprint"><code>   define(function(require, exports, module){
+       var $ = require(&#39;node&#39;);
+
+       module.exports = function(){
+           console.log(&#39;Hi, KISSY&#39;);
        }
-   ]
-});</code></pre>
+   });</code></pre>
+<h4 id="amd-">amd规范写法</h4>
+<h3 id="-define-name-factory-deps-"><code>define([name], factory, [deps])</code></h3>
+<ul>
+<li>name {String} 模块名称，可选</li>
+<li>factory {Function|Object|String} 模块的主内容/逻辑。当为函数时，参数依次是模块依赖对象配置的模块接口。函数返回值就是注册的模块接口。</li>
+<li>deps {Object} 模块依赖对象配置</li>
+</ul>
+<p>示例1：</p>
+<pre class="code prettyprint"><code>   define(&#39;learnkissy&#39;, function($, Cookie){
+       return function(){
+           console.log(&#39;Hi, KISSY&#39;);
+       }
+   },{
+       requires : [&#39;node&#39;, &#39;cookie&#39;]
+   });</code></pre>
 
             </div>
         </div>
@@ -1616,113 +1327,6 @@ logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;</code></pre>
 </div>
 
                 
-                    <div id="method_importStyle" class="method item">
-    <h3 class="name"><code>importStyle</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>modName</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>阻塞加载 css 模块或 js 模块依赖的 css 模块, 和 KISSY.add 中的 require 配置一起使用.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">modName</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use(&quot;mod1,mod2/xx.css&quot;);</p>
-<p><strong>Note</strong></p>
-<p>ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。</p>
-<ul>
-<li>先决条件
-头部引入<code>&lt;script src=&#39;http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js&#39;&gt;&lt;/script&gt;</code></li>
-<li>使用指南</li>
-</ul>
-<pre><code>    KISSY.config(&#39;modules&#39;, {
-      &#39;components/nav/index&#39;: {requires: [&#39;components/nav/index.css&#39;]},
-      &#39;components/layout/index&#39;: {requires: [&#39;components/layout/index.css&#39;]},
-      &#39;components/home/index&#39;: {requires: [&#39;components/nav/index&#39;,&#39;components/layout/index&#39;]}
-    });
-
-    KISSY.config({
-      &#39;combine&#39;:true,
-      &#39;packages&#39;:[{
-        &#39;name&#39;:&#39;components&#39;,
-        &#39;base&#39;:&#39;http://assets.etao.net/apps/e/hotel/130716&#39;,
-        &#39;debug&#39;:&#39;true&#39;
-      }]
-    });
-
-    //下面是要我们手工维护的模块列表
-    KISSY.importStyle(&#39;components/home/index&#39;);</code></pre>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="method_require" class="method item">
     <h3 class="name"><code>require</code></h3>
 
@@ -1732,108 +1336,7 @@ logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;</code></pre>
             
                 <li class="arg">
                     
-                        <code>name</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-            
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>添加模块</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">name</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>模块名</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-        <div class="example">
-            <h4>Example:</h4>
-
-            <div class="example-content">
-                <p>require 是一个语法糖，提供了快捷引用已经注册的模块。</p>
-<pre class="code prettyprint"><code>KISSY.add(&quot;yourmod&quot;,function(S){
-       var Mod1 = S.require(&#39;depMod1&#39;);
-       var Mod2 = S.require(&#39;depMod2&#39;);
-   },{
-       requires:[&#39;depMod1&#39;,&#39;depMod2&#39;]
-   }
-);</code></pre>
-
-            </div>
-        </div>
-    
-</div>
-
-                
-                    <div id="method_use" class="method item">
-    <h3 class="name"><code>use</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>modName</code>
+                        <code>modNames</code>
                     
                 </li>
             
@@ -1879,7 +1382,7 @@ logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;</code></pre>
     </div>
 
     <div class="description">
-        <p>使用模块,和KISSY.add一起使用, 形成KISSY的模块加载体系</p>
+        <p>引用模块</p>
 
     </div>
 
@@ -1891,14 +1394,14 @@ logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;</code></pre>
             
                 <li class="param">
                     
-                        <code class="param-name">modName</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+                        <code class="param-name">modNames</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>以 , 分割的模块名称集合字符串,例如 KISSY.use(&quot;custommod,custommod2&quot;);</p>
+                        <p>如 require([&#39;dom&#39;, &#39;anim&#39;])</p>
 
                     </div>
 
@@ -1942,7 +1445,7 @@ logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;</code></pre>
                                 
 
                                 <div class="param-description">
-                                    <p>当前 use 失败时调用的函数，参数为失败的模块对象</p>
+                                    <p>当前 require 失败时调用的函数，参数为失败的模块对象</p>
 
                                 </div>
 
@@ -1964,18 +1467,18 @@ logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>KISSY.use(&quot;depMod1,depMod2&quot;,function(S,DepMod1,DepMod2){
+                <pre class="code prettyprint"><code>require([&#39;depMod1&#39;,&#39;depMod2&#39;],function(DepMod1,DepMod2){
 });
 
-KISSY.use(&quot;depMod1,depMod2&quot;,{
-   success:function(S,DepMod1,DepMod2){
+require([&#39;depMod1&#39;,&#39;depMod2&#39;],{
+   success:function(DepMod1,DepMod2){
    },
    error:function(){
-       var errorMods = KISSY.makeArray(arguments);
+
    }
 });</code></pre>
 <p><strong>Note</strong></p>
-<p>如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 use 即可, 如果模块名以 / 结尾, 则自动加后缀 index , 例如 use(&quot;mods/m1/&quot;) 相当于 use(&quot;mods/m1/index&quot;) , 即自动加载 m1 目录下的 index.js</p>
+<p>如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 require 即可, 如果模块名以 / 结尾, 则自动加后缀 index , 例如 require([&quot;mods/m1/&quot;]) 相当于 require([&quot;mods/m1/index&quot;]) , 即自动加载 m1 目录下的 index.js</p>
 
             </div>
         </div>

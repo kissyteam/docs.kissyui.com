@@ -84,7 +84,7 @@ define 函数可用 commonjs 规范或 amd 规范来使用。如下：
 ### `require.config(cfg)`
 
 - cfg {Object} 配置对象
- - [debug] {Boolean} 是否开启调试模式
+ - [filter] {String} 文件名后缀
  - [group] {String} 所有包的默认组配置，group的介绍详见下面的Note:group介绍
  - [base] {String} 整个类库所在的基地址
  - [comboMaxUrlLength=1024] {Number} Combo url 的最长长度，默认 1024
@@ -96,6 +96,7 @@ define 函数可用 commonjs 规范或 amd 规范来使用。如下：
    - group {String} 表示包所属的组名
    - debug B{oolean} 包内的脚本请求是是否加 -min 后缀，默认和 KISSY.config(“debug”) 相同
    - tag {String}, 最好为时间戳, 用于刷新客户端本包的模块文件缓存
+   - filter {String} 文件名后缀
    - combine {Boolean}, 如果总和 combine 设置为 true，但是单个包 combine 设置为 false，则该包内文件不进行自动 combo
    - base {String}, 表示包所在的 url 路径, 相对路径表示相对于当前页面路径.
    - path 作用同 base 配置
@@ -120,8 +121,8 @@ define 函数可用 commonjs 规范或 amd 规范来使用。如下：
 		     base:'http://x.com/biz/',
 		     // x 包的时间戳
 		     tag:'x',
-		     // 开启 x 包 debug 模式
-		     debug:true
+		     // 加载的文件后面添加-debug。如 a.js -> a-debug.js
+		     filter : 'debug'
 		 },
 		 y:{
 		    // y 包的基准路径

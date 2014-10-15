@@ -562,17 +562,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/api/loader.js": {
-            "name": "src/api/loader.js",
-            "modules": {
-                "loader": 1
-            },
-            "classes": {
-                "Loader": 1
-            },
-            "fors": {},
-            "namespaces": {}
-        },
         "src/api/menu.js": {
             "name": "src/api/menu.js",
             "modules": {
@@ -605,6 +594,17 @@
             "namespaces": {
                 "MenuButton": 1
             }
+        },
+        "src/api/modulex.js": {
+            "name": "src/api/modulex.js",
+            "modules": {
+                "modulex": 1
+            },
+            "classes": {
+                "Modulex": 1
+            },
+            "fors": {},
+            "namespaces": {}
         },
         "src/api/navigation-view.js": {
             "name": "src/api/navigation-view.js",
@@ -1447,19 +1447,6 @@
             "file": "src/api/json.js",
             "line": 5
         },
-        "loader": {
-            "name": "loader",
-            "submodules": {},
-            "classes": {
-                "Loader": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "src/api/loader.js",
-            "line": 6,
-            "description": "loader模块,定义KISSY初始对象及模块化机制用到的方法，所有方法都通过KISSY直接引用"
-        },
         "menu": {
             "name": "menu",
             "submodules": {},
@@ -1494,6 +1481,19 @@
             "tag": "module",
             "file": "src/api/menubutton.js",
             "line": 192
+        },
+        "modulex": {
+            "name": "modulex",
+            "submodules": {},
+            "classes": {
+                "Modulex": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/modulex.js",
+            "line": 6,
+            "description": "modulex 是新一代的模块加载器，可独立使用。"
         },
         "navigation-view": {
             "name": "navigation-view",
@@ -2862,21 +2862,6 @@
             "line": 5,
             "static": 1
         },
-        "Loader": {
-            "name": "Loader",
-            "shortname": "Loader",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "loader",
-            "namespace": "",
-            "file": "src/api/loader.js",
-            "line": 6,
-            "description": "弥补 javascript 语言机制的不足, 提供类似其他语言原生的模块化机制.\nLoader中定义的所有方法都直接通过KISSY对象直接引用，如 `KISSY.add`",
-            "static": 1
-        },
         "Menu": {
             "name": "Menu",
             "shortname": "Menu",
@@ -3115,6 +3100,21 @@
             "example": [
                 "\n\tKISSY.use(['menu', 'menubutton'], function(S, Menu, MenuButton){\n        //全新生成\n        var select2 = new MenuButton.Select({\n        \trender : '#container',\n\t\t\tprefixCls : 'c2c',\n\t\t\twidth : 100,\n\t\t\tmenu : {\n\t\t\t\txclass : 'popupmenu',\n\t\t\t\talign : {\n\t\t\t\t\toffset : [0, -1]\n\t\t\t\t},\n\t\t\t\tchildren : [\n\t\t\t\t\tnew MenuButton.Option({   //构造器生成\n\t\t\t\t\t\tvalue : 'customValue',\n\t\t\t\t\t\tcontent : '北京',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t}),\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',  //xclass生成\n\t\t\t\t\t\tcontent : '杭州',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\txclass : 'option',\n\t\t\t\t\t\tcontent : '广州',\n\t\t\t\t\t\tprefixCls:\"c2c-\"\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n        });\n        select2.render();\n\t});"
             ]
+        },
+        "Modulex": {
+            "name": "Modulex",
+            "shortname": "Modulex",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "modulex",
+            "namespace": "",
+            "file": "src/api/modulex.js",
+            "line": 6,
+            "description": "modulex 是新一代的模块加载器，可独立使用。\n实际上，KISSY的种子文件 seed.js 是由 modulex + feature + ua + meta 四个部分组成的。seed.js是KISSY的种子文件，引用它则可以方便使用KISSY提供的各种模块，如 anim , dom , event-dom 等。而 modulex 是一个模块加载器，如果你只是需要模块加载功能，也可以直接使用 modulex。更多信息可以查看 [modulex on github](https://github.com/kissyteam/modulex)。modulex 始终作为一个全局对象存在页面的生命周期。",
+            "static": 1
         },
         "NavigationView": {
             "name": "NavigationView",
@@ -12831,302 +12831,6 @@
             "module": "json"
         },
         {
-            "file": "src/api/loader.js",
-            "line": 13,
-            "description": "添加模块",
-            "itemtype": "method",
-            "name": "add",
-            "static": 1,
-            "params": [
-                {
-                    "name": "name",
-                    "description": "模块名\n__Note__\n\n如果模块名name省略不写，部署阶段需要使用 [KISSY Module Compiler](https://github.com/daxingplay/grunt-kmc)",
-                    "type": "String",
-                    "optional": true
-                },
-                {
-                    "name": "fn",
-                    "description": "模块定义函数",
-                    "type": "Function"
-                },
-                {
-                    "name": "config",
-                    "description": "模块的一些格外属性",
-                    "type": "Object",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "requires",
-                            "description": "模块的一些依赖项, 如果需要载入 css 则, 数组项为 .css 结尾名字",
-                            "type": "Array",
-                            "optional": true
-                        }
-                    ]
-                }
-            ],
-            "example": [
-                "\n\n- 添加模块\n```\nKISSY.add(\"yourmod\",function(S){},\n   {\n       requires:['depMod1','depMod2','./mod.css'] // 该模块的一些依赖项,\n                                                  // 注意 css 为和模块 js 同目录下的 mod.css\n   }\n);\n```\n\n- 添加匿名模块\n```\nKISSY.add(function(S){},\n   {\n       requires:['depMod1','depMod2','./mod.css'] // 该模块的一些依赖项,\n                                                  // 注意 css 为和模块 js 同目录下的 mod.css\n   }\n);\n```\n\n- 如果依赖的模块 depMod1 以及 depMod2 的定义函数有返回值, 例如\n```\n// depMod11.js\nKISSY.add(function(){\n   function Mod(){}\n   return Mod;\n});\n// depMod2.js\nKISSY.add(function(){\n   function Mod(){}\n   return Mod;\n});\n```\n那么该返回值会作为参数传入依赖 depMod1 以及 depMod2 的模块的定义函数, 例如\n```\nKISSY.add(function(S,DepMod1,DepMod2){\n   //use DepMod1 to refer depmod1's return value\n},{requires:[\"depmod1\",\"depmod2\"]});\n```\n\n- 当模块名称 name 为包内模块,则requires的模块名称可使用相对路径来引入包内其他模块\n```\n// tc/mods/mod1.js\n// 依赖于 tc/mods/mod2\nKISSY.add(function(){},{requires:['./mod2']});\n```\n\n- 也支持commonjs 的模块书写方式，如：\n```\n/ a/b.js\nKISSY.add(function(S,require,exports,module){\n   var c = require('a/c');\n   return c; // or module.exports=c;\n});\n```\n\n__Note__\n\n* 压缩模块\n若线上环境使用 kissy-min.js , 则请使用 closure compiler 对所有模块文件进行压缩, 例如 mod.js 压缩为 mod-min.js , 放在模块文件的同级目录下.\n* 代码更新机制\n由于动态加载的 js 文件不是写在页面中, 所以不能从页面添加时间戳, 并且1.2 loader新增的约定加载也不能配置具体模块文件路径, 因此 1.2 loader 提供了在包级别添加时间戳的机制.如：\n```\nKISSY.config({\n   packages:{\n       //包名\n       \"1.2\":{\n           base: \"http://xx.com/\"\n       }\n   }\n});\n```\n当更改包内模块后, 只需修改tag属性.\n```\nKISSY.config({\n   packages:{\n   //包名\n       \"1.2\":{\n           tag:\"20110323\",\n           base:\"http://xx.com/\"\n       }\n   }\n});\n```\n那么下载动态加载的 js 文件路径后面会自动加上： ?t=20110323.\n> 也可以不修改时间戳 tag 而是直接修改 path , 这样的话每次更新都需要新建一个目录包括更新后的全部代码,不建议这样\n* #### 静态部署\n部署时也可以不采用动态加载, 仅仅将 kissy loader 作为代码组织的一种方式, 将所有的模块打包到一个文件静态引入放在页面中, 当使用 KISSY.use 时如果模块已经过静态引入在页面中, 则不会发送请求."
-            ],
-            "class": "Loader",
-            "module": "loader"
-        },
-        {
-            "file": "src/api/loader.js",
-            "line": 116,
-            "description": "设置或获取 KISSY 配置参数",
-            "itemtype": "method",
-            "name": "config",
-            "static": 1,
-            "params": [
-                {
-                    "name": "config",
-                    "description": "KISSY配置参数",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "debug",
-                            "description": "是否开启调试模式",
-                            "type": "Boolean",
-                            "optional": true
-                        },
-                        {
-                            "name": "group",
-                            "description": "所有包的默认组配置，group的介绍详见下面的Note:group介绍",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "base",
-                            "description": "KISSY 框架所在的基地址",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "comboMaxUrlLength",
-                            "description": "Combo url 的最长长度，默认 1024",
-                            "type": "Number",
-                            "optional": true,
-                            "optdefault": "1024"
-                        },
-                        {
-                            "name": "comboPrefix",
-                            "description": "Combo 前缀，默认 ”??”",
-                            "type": "String",
-                            "optional": true,
-                            "optdefault": "\"??\""
-                        },
-                        {
-                            "name": "comboSep",
-                            "description": "Combo 分隔符，默认 ”,”",
-                            "type": "String",
-                            "optional": true,
-                            "optdefault": "\",\""
-                        },
-                        {
-                            "name": "tag",
-                            "description": "KISSY 内置模块请求的时间戳",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "combine",
-                            "description": "是否开启自动 combo 模式，默认 false 不开启. 自动 combo 模式要求 use 前配置好依赖关系",
-                            "type": "Boolean",
-                            "optional": true,
-                            "optdefault": "false"
-                        },
-                        {
-                            "name": "packages",
-                            "description": "以包名为键，包配置对象为值的键值对对象\n__Note__\n\n包配置对象包括：\n- group String类型 表示包所属的组名\n- debug Boolean类型 包内的脚本请求是是否加 -min 后缀，默认和 KISSY.config(“debug”) 相同\n- tag 类型字符串, 最好为时间戳, 用于刷新客户端本包的模块文件缓存\n- combine 类型Boolean, 如果总和 combine 设置为 true，但是单个包 combine 设置为 false，则该包内文件不进行自动 combo\n- ignorePackageNameInUri 类型Boolean, 默认 false. 是否在请求的模块路径中省去 package name. 例如 use('xx/a') 配置 xx package 的 base 为 `http://test.com/` 则设置 ignorePackageNameInUri 后请求地址为： `http://test.com/a.js`\n- 类型字符串, 表示包所在的 url 路径, 相对路径表示相对于当前页面路径.\n- path 作用同 base 配置\n- charset 类型字符串, 表示宝贝所有模块定义文件的编码格式, 默认 utf-8",
-                            "type": "Object",
-                            "optional": true
-                        },
-                        {
-                            "name": "modules",
-                            "description": "以单个模块为键，单个模块配置对象为值的键值对对象\n__Note__\n\n单个模块配置对象包括：\n- requires 类型String,该模块的依赖模块名数组。当设置 combine 为 true 时需要配置，否则不建议配置.\n- tag 类型 String，单个模块的时间戳。仅在 combine 为 false 时生效。 combine:true 时取对应包的 tag.",
-                            "type": "Object",
-                            "optional": true
-                        }
-                    ]
-                }
-            ],
-            "example": [
-                "\n* #### 总配置范例概览\n```\nKISSY.config({\n   // 开启自动 combo 模式\n   combine:true,\n   // kissy 库内置模块的时间戳\n   tag:'2012',\n   // kissy 的基准路径\n   base:'http://x.com/a',\n   packages:{\n       x:{\n           // x 包的基准路径\n           base:'http://x.com/biz/',\n           // x 包的时间戳\n           tag:'x',\n           // 开启 x 包 debug 模式\n           debug:true\n       },\n       y:{\n          // y 包的基准路径\n          base:'http://x.com/biz/',\n          // y 包不开启自动 combo\n          combine:false\n          // 不配置 tag，则取 kissy 内置模块的时间戳\n       }\n   },\n   modules:{\n       \"x/b1\":{\n           // \"x/b1\" 模块的依赖信息\n           requires:[\"x/b2\",\"x/b3\"]\n       },\n       \"y/b2\":{\n           // y/b2 模块单独的时间戳\n           tag:'234'\n       }\n   }\n});\n```\n\n* #### packages 范例: 包配置\n```\nKISSY.config({\n   packages:{\n       // 包名\n       \"tc\": {\n           tag:\"20110323\", // 动态加载包内的模块js文件时,\n                           // 自动加上 ?t=20110323, 用于文件更新\n           base:\"../\", // 包对应路径, 相对路径指相对于当前页面路径\n           charset:\"gbk\" // 包里模块文件编码格式\n       }\n   }\n});\n```\n\n__Note : group组介绍概览__\n\n- #### 简单使用(如果想将多个包combo到一起，需要通过配置参数group来实现。例如，对于以下包进行combo：)\n```\nKISSY.config({\n\tpackages:{\n\t\t\"pkg-a\": {\n\t\t    base: \"http://example.com/pkg-a\",\n\t\t    group: \"group1\",\n\t\t    combine: true,\n\t\t    tag: \"20120222\"\n\t\t},\n\t\t\"pkg-b\": {\n\t\t    base: \"http://example.com/pkg-b\",\n\t\t    group: \"group1\",\n\t\t    combine: true,\n\t\t    tag: \"20130303\"\n\t\t},\n\t\t\"pkg-c\": {\n\t\t    base: \"http://example.com/pkg-c\",\n\t\t    combine: true,\n\t\t    tag: \"20111111\"\n\t\t}\n\t}\n})\n```\n由于pkg-a和pkg-b的group设置为”group1”，则KISSY会对这两个包的模块进行combo。而pkg-c则单独combo。产生URL如下：\n```\nhttp://example.com/??pkg-a/mod1.js,pkg-a/mod2.js,pkg-b/mod1.js,...?t=-389697156.js\nhttp://example.com/pkg-c/??mod1.js,...?t=20111111.js\n```\n其中，时间戳?t=-389697156.js是根据pkg-a和pkg-b的时间戳tag来计算的。如果修改了其中一个包的时间戳，则combo后的时间戳也会变化。\n\n- #### 容错\n  极端情况下，即使要combo的包路径path没有统一的前缀，也没有关系，KISSY可以自动识别和容错，分别对两个包进行combo。例如：\n```\nKISSY.config({\n\tpackages:{\n\t\t\"pkg-a\": {\n\t\t    base: \"http://example.com/pkg-a\",\n\t\t    group: \"group2\",\n\t\t    combine: true,\n\t\t    tag: \"20120222\"\n\t\t},\n\t\t\"test\": {\n\t\t    base: \"http://g.tbcdn.cn\",\n\t\t    group: \"group2\",\n\t\t    combine: true,\n\t\t    tag: \"20130303\"\n\t\t}\n\t}\n})\n```\ncombo后的URL如下：\n```\nhttp://example.com/pkg-a/??mod1.js,mod2.js,...\nhttp://g.tbcdn.cn/test/??mod1.js,...\n```\n\n- #### 和 kissy 一起 combo\n如果你的应用代码和 kissy 部署在同一台机器上，那么应用代码还可以和 kissy 一起 combo\n> KISSY.config('group','tb');   //// 所有包都 combo 到 tb 组"
-            ],
-            "class": "Loader",
-            "module": "loader"
-        },
-        {
-            "file": "src/api/loader.js",
-            "line": 268,
-            "description": "设置或获取 KISSY 配置参数",
-            "itemtype": "method",
-            "name": "config",
-            "static": 1,
-            "params": [
-                {
-                    "name": "name",
-                    "description": "参数名称. 取值范围参见上面函数",
-                    "type": "String"
-                },
-                {
-                    "name": "value",
-                    "description": "参数值. 如果不设置则返回参数名称对应的参数值"
-                }
-            ],
-            "return": {
-                "description": "如果设置了参数值无返回。否则返回参数名称对应的参数值.",
-                "type": "Any"
-            },
-            "class": "Loader",
-            "module": "loader"
-        },
-        {
-            "file": "src/api/loader.js",
-            "line": 277,
-            "description": "动态加载目标地址的资源文件",
-            "itemtype": "method",
-            "name": "getScript",
-            "static": 1,
-            "params": [
-                {
-                    "name": "url",
-                    "description": "js/css 的资源地址",
-                    "type": "String"
-                },
-                {
-                    "name": "config",
-                    "description": "配置对象",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "charset",
-                            "description": "资源文件的字符编码",
-                            "type": "String"
-                        },
-                        {
-                            "name": "success",
-                            "description": "资源加载成功后回调函数",
-                            "type": "Function"
-                        },
-                        {
-                            "name": "error",
-                            "description": "超时或发生错误时回调函数. 当资源文件为 css 文件时不支持",
-                            "type": "Function"
-                        },
-                        {
-                            "name": "timeout",
-                            "description": "单位为秒, 默认无限大. 超时后触发 error 回调. 当资源文件为 css 文件是不支持",
-                            "type": "Number"
-                        }
-                    ]
-                }
-            ],
-            "return": {
-                "description": "创建的 link 节点或 script 节点",
-                "type": "HTMLElement"
-            },
-            "class": "Loader",
-            "module": "loader"
-        },
-        {
-            "file": "src/api/loader.js",
-            "line": 290,
-            "description": "使用模块,和KISSY.add一起使用, 形成KISSY的模块加载体系",
-            "itemtype": "method",
-            "name": "use",
-            "static": 1,
-            "params": [
-                {
-                    "name": "modName",
-                    "description": "以 , 分割的模块名称集合字符串,例如 KISSY.use(\"custommod,custommod2\");",
-                    "type": "String|Array"
-                },
-                {
-                    "name": "callback",
-                    "description": "回调对象，包括成功与失败回调配置",
-                    "type": "Object",
-                    "props": [
-                        {
-                            "name": "success",
-                            "description": "当 modNames 中所有模块加载完毕后执行的函数",
-                            "type": "Function"
-                        },
-                        {
-                            "name": "error",
-                            "description": "当前 use 失败时调用的函数，参数为失败的模块对象",
-                            "type": "Function"
-                        }
-                    ]
-                }
-            ],
-            "example": [
-                "\n```\nKISSY.use(\"depMod1,depMod2\",function(S,DepMod1,DepMod2){\n});\n\nKISSY.use(\"depMod1,depMod2\",{\n   success:function(S,DepMod1,DepMod2){\n   },\n   error:function(){\n       var errorMods = KISSY.makeArray(arguments);\n   }\n});\n```\n__Note__\n\n如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 use 即可, 如果模块名以 / 结尾, 则自动加后缀 index , 例如 use(\"mods/m1/\") 相当于 use(\"mods/m1/index\") , 即自动加载 m1 目录下的 index.js"
-            ],
-            "class": "Loader",
-            "module": "loader"
-        },
-        {
-            "file": "src/api/loader.js",
-            "line": 316,
-            "description": "阻塞加载 css 模块或 js 模块依赖的 css 模块, 和 KISSY.add 中的 require 配置一起使用.",
-            "itemtype": "method",
-            "name": "importStyle",
-            "params": [
-                {
-                    "name": "modName",
-                    "description": "以 , 分割的 js 模块或 css 模块名称集合字符串,例如 KISSY.use(\"mod1,mod2/xx.css\");\n\n__Note__\n\nImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件列表及组件的依赖关系，ImportStyle可以帮助你阻塞地加载所有依赖的样式。 如果你的应用需要颗粒化地做按需加载，ImportStyle会是非常顺手的工具。\n- 先决条件\n头部引入`<script src='http://g.tbcdn.cn/kissy/k/1.4.2/??seed-min.js,import-style-min.js'></script>`\n- 使用指南\n\n```\n\tKISSY.config('modules', {\n\t  'components/nav/index': {requires: ['components/nav/index.css']},\n\t  'components/layout/index': {requires: ['components/layout/index.css']},\n\t  'components/home/index': {requires: ['components/nav/index','components/layout/index']}\n\t});\n\n\tKISSY.config({\n\t  'combine':true,\n\t  'packages':[{\n\t    'name':'components',\n\t    'base':'http://assets.etao.net/apps/e/hotel/130716',\n\t    'debug':'true'\n\t  }]\n\t});\n\n\t//下面是要我们手工维护的模块列表\n\tKISSY.importStyle('components/home/index');\n```",
-                    "type": "String|Array"
-                }
-            ],
-            "class": "Loader",
-            "module": "loader"
-        },
-        {
-            "file": "src/api/loader.js",
-            "line": 349,
-            "description": "添加模块",
-            "itemtype": "method",
-            "name": "require",
-            "static": 1,
-            "params": [
-                {
-                    "name": "name",
-                    "description": "模块名",
-                    "type": "String"
-                }
-            ],
-            "example": [
-                "\nrequire 是一个语法糖，提供了快捷引用已经注册的模块。\n```\nKISSY.add(\"yourmod\",function(S){\n       var Mod1 = S.require('depMod1');\n       var Mod2 = S.require('depMod2');\n   },{\n       requires:['depMod1','depMod2']\n   }\n);\n```"
-            ],
-            "class": "Loader",
-            "module": "loader"
-        },
-        {
-            "file": "src/api/loader.js",
-            "line": 367,
-            "description": "将 str 作为输出的 log 的前缀",
-            "itemtype": "method",
-            "name": "getLogger",
-            "static": 1,
-            "params": [
-                {
-                    "name": "str",
-                    "description": "log 的前缀",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "logger对象",
-                "type": "Object"
-            },
-            "example": [
-                "\n  ```\nvar logger = KISSY.getLogger('KISSY');\nlogger.debug(\"test\"); // => \"KISSY: test\";\n  ```\n__Note__\n可以在配置中设置logger的级别，以及是否显示，logger级别从低到高顺序是：debug < info < warn < error\n\n当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先。 includes 和 excludes 配置类型为 Array ，每个配置对象配置项有maxLevel,minLevel,logger，注意他们是 \"与\" 的逻辑关系。\n```\nKISSY.config('logger', {\n   includes: [\n       {\n           logger: /^xx\\//\n       }\n   ],\n   excludes: [\n       {\n           logger: /^xx\\//， //以xx/开头的不显示\n           maxLevel: 'info' //不显示 info 及 info 以下的 log\n       }\n   ]\n});\n  ```"
-            ],
-            "class": "Loader",
-            "module": "loader"
-        },
-        {
             "file": "src/api/menu.js",
             "line": 55,
             "description": "当前高亮的儿子菜单项.",
@@ -13513,6 +13217,214 @@
             "class": "MenuButton.Option",
             "module": "menubutton",
             "namespace": "MenuButton"
+        },
+        {
+            "file": "src/api/modulex.js",
+            "line": 13,
+            "description": "注册模块",
+            "itemtype": "method",
+            "name": "define",
+            "static": 1,
+            "example": [
+                "\n\ndefine 函数可用 commonjs 规范或 amd 规范来使用。如下：\n\n#### commonjs规范写法\n\n### `define([name], [deps], factory)`\n\n- name {String} 模块名称，可选\n- deps {Array} 模块依赖，可选\n- factory {Function|Object|String} 模块的主内容/逻辑。当为函数时，有三个参数 require,exports,module 。函数返回值就是注册的模块接口。\n\n示例1：\n```\n   define('learnkissy', ['node'], function(require, exports, module){\n       var $ = require('node');\n\n       module.exports = function(){\n           console.log('Hi, KISSY');\n       }\n   });\n```\n示例2：\n\n开发阶段不写上模块名称name和模块依赖deps，在发布到线上前在使用 [Kissy Mobule Compiler](https://github.com/daxingplay/kmc)  来生成模块名称和提取模块依赖。\n```\n   define(function(require, exports, module){\n       var $ = require('node');\n\n       module.exports = function(){\n           console.log('Hi, KISSY');\n       }\n   });\n```\n#### amd规范写法\n\n### `define([name], factory, [deps])`\n\n- name {String} 模块名称，可选\n- factory {Function|Object|String} 模块的主内容/逻辑。当为函数时，参数依次是模块依赖对象配置的模块接口。函数返回值就是注册的模块接口。\n- deps {Object} 模块依赖对象配置\n\n示例1：\n```\n   define('learnkissy', function($, Cookie){\n       return function(){\n           console.log('Hi, KISSY');\n       }\n   },{\n       requires : ['node', 'cookie']\n   });\n```\n"
+            ],
+            "class": "Modulex",
+            "module": "modulex"
+        },
+        {
+            "file": "src/api/modulex.js",
+            "line": 72,
+            "description": "设置或获取配置参数",
+            "itemtype": "method",
+            "name": "config",
+            "static": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": "配置参数",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "group",
+                            "description": "所有包的默认组配置，group的介绍详见下面的Note:group介绍",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "base",
+                            "description": "整个类库所在的基地址",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "comboMaxUrlLength",
+                            "description": "Combo url 的最长长度，默认 1024",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "1024"
+                        },
+                        {
+                            "name": "comboPrefix",
+                            "description": "Combo 前缀，默认 ”??”",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "\"??\""
+                        },
+                        {
+                            "name": "comboSep",
+                            "description": "Combo 分隔符，默认 ”,”",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "\",\""
+                        },
+                        {
+                            "name": "tag",
+                            "description": "KISSY 内置模块请求的时间戳",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "combine",
+                            "description": "是否开启自动 combo 模式，默认 false 不开启. 自动 combo 模式要求 use 前配置好依赖关系",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "packages",
+                            "description": "以包名为键，包配置对象为值的键值对对象\n__Note__\n\n包配置对象包括：\n- group String类型 表示包所属的组名\n- filter {String} 文件名后缀，如 a.js -> a-debug.js\n- tag 类型字符串, 最好为时间戳, 用于刷新客户端本包的模块文件缓存\n- combine 类型Boolean, 如果总和 combine 设置为 true，但是单个包 combine 设置为 false，则该包内文件不进行自动 combo\n- 类型字符串, 表示包所在的 url 路径, 相对路径表示相对于当前页面路径.\n- path 作用同 base 配置\n- charset 类型字符串, 表示宝贝所有模块定义文件的编码格式, 默认 utf-8",
+                            "type": "Object",
+                            "optional": true
+                        },
+                        {
+                            "name": "modules",
+                            "description": "以单个模块为键，单个模块配置对象为值的键值对对象\n__Note__\n\n单个模块配置对象包括：\n- requires 类型String,该模块的依赖模块名数组。当设置 combine 为 true 时需要配置，否则不建议配置.\n- alias {String|Array} 模块别名，当为数组时，合并数组中所有模块返回。\n- tag 类型 String，单个模块的时间戳。仅在 combine 为 false 时生效。 combine:true 时取对应包的 tag.",
+                            "type": "Object",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "filter",
+                    "description": "文件名后缀，如 a.js -> a-debug.js",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n* #### 总配置范例概览\n```\nrequire.config({\n   // 开启自动 combo 模式\n   combine:true,\n   // kissy 库内置模块的时间戳\n   tag:'2014',\n   // kissy 的基准路径\n   base:'http://x.com/a',\n   packages:{\n       x:{\n           // x 包的基准路径\n           base:'http://x.com/biz/',\n           // x 包的时间戳\n           tag:'x',\n           // 添加后缀-debug\n           filter:debug\n       },\n       y:{\n          // y 包的基准路径\n          base:'http://x.com/biz/',\n          // y 包不开启自动 combo\n          combine:false\n          // 不配置 tag，则取 kissy 内置模块的时间戳\n       }\n   },\n   modules:{\n       \"x/b1\":{\n           // \"x/b1\" 模块的依赖信息\n           requires:[\"x/b2\",\"x/b3\"]\n       },\n       \"y/b2\":{\n           // y/b2 模块单独的时间戳\n           tag:'234'\n       }\n   }\n});\n```\n\n* #### packages 范例: 包配置\n```\nrequire.config({\n   packages:{\n       // 包名\n       \"tc\": {\n           tag:\"20141015\", // 动态加载包内的模块js文件时,\n                           // 自动加上 ?t=20141015, 用于文件更新\n           base:\"../\", // 包对应路径, 相对路径指相对于当前页面路径\n           charset:\"gbk\" // 包里模块文件编码格式\n       }\n   }\n});\n```\n\n__Note : group组介绍概览__\n\n- #### 简单使用(如果想将多个包combo到一起，需要通过配置参数group来实现。例如，对于以下包进行combo：)\n```\nrequire.config({\n\tpackages:{\n\t\t\"pkg-a\": {\n\t\t    base: \"http://example.com/pkg-a\",\n\t\t    group: \"group1\",\n\t\t    combine: true,\n\t\t    tag: \"20120222\"\n\t\t},\n\t\t\"pkg-b\": {\n\t\t    base: \"http://example.com/pkg-b\",\n\t\t    group: \"group1\",\n\t\t    combine: true,\n\t\t    tag: \"20130303\"\n\t\t},\n\t\t\"pkg-c\": {\n\t\t    base: \"http://example.com/pkg-c\",\n\t\t    combine: true,\n\t\t    tag: \"20111111\"\n\t\t}\n\t}\n})\n```\n由于pkg-a和pkg-b的group设置为”group1”，则KISSY会对这两个包的模块进行combo。而pkg-c则单独combo。产生URL如下：\n```\nhttp://example.com/??pkg-a/mod1.js,pkg-a/mod2.js,pkg-b/mod1.js,...?t=-389697156.js\nhttp://example.com/pkg-c/??mod1.js,...?t=20111111.js\n```\n其中，时间戳?t=-389697156.js是根据pkg-a和pkg-b的时间戳tag来计算的。如果修改了其中一个包的时间戳，则combo后的时间戳也会变化。\n\n- #### 容错\n  极端情况下，即使要combo的包路径path没有统一的前缀，也没有关系，KISSY可以自动识别和容错，分别对两个包进行combo。例如：\n```\nrequire.config({\n\tpackages:{\n\t\t\"pkg-a\": {\n\t\t    base: \"http://example.com/pkg-a\",\n\t\t    group: \"group2\",\n\t\t    combine: true,\n\t\t    tag: \"20120222\"\n\t\t},\n\t\t\"test\": {\n\t\t    base: \"http://g.tbcdn.cn\",\n\t\t    group: \"group2\",\n\t\t    combine: true,\n\t\t    tag: \"20130303\"\n\t\t}\n\t}\n})\n```\ncombo后的URL如下：\n```\nhttp://example.com/pkg-a/??mod1.js,mod2.js,...\nhttp://g.tbcdn.cn/test/??mod1.js,...\n```\n"
+            ],
+            "class": "Modulex",
+            "module": "modulex"
+        },
+        {
+            "file": "src/api/modulex.js",
+            "line": 221,
+            "description": "设置或获取 KISSY 配置参数",
+            "itemtype": "method",
+            "name": "config",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "参数名称. 取值范围参见上面函数",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "参数值. 如果不设置则返回参数名称对应的参数值"
+                }
+            ],
+            "return": {
+                "description": "如果设置了参数值无返回。否则返回参数名称对应的参数值.",
+                "type": "Any"
+            },
+            "class": "Modulex",
+            "module": "modulex"
+        },
+        {
+            "file": "src/api/modulex.js",
+            "line": 230,
+            "description": "动态加载目标地址的资源文件",
+            "itemtype": "method",
+            "name": "getScript",
+            "static": 1,
+            "params": [
+                {
+                    "name": "url",
+                    "description": "js/css 的资源地址",
+                    "type": "String"
+                },
+                {
+                    "name": "config",
+                    "description": "配置对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "charset",
+                            "description": "资源文件的字符编码",
+                            "type": "String"
+                        },
+                        {
+                            "name": "success",
+                            "description": "资源加载成功后回调函数",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "error",
+                            "description": "超时或发生错误时回调函数. 当资源文件为 css 文件时不支持",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "timeout",
+                            "description": "单位为秒, 默认无限大. 超时后触发 error 回调. 当资源文件为 css 文件是不支持",
+                            "type": "Number"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "创建的 link 节点或 script 节点",
+                "type": "HTMLElement"
+            },
+            "class": "Modulex",
+            "module": "modulex"
+        },
+        {
+            "file": "src/api/modulex.js",
+            "line": 243,
+            "description": "引用模块",
+            "itemtype": "method",
+            "name": "require",
+            "static": 1,
+            "params": [
+                {
+                    "name": "modNames",
+                    "description": "如 require(['dom', 'anim'])",
+                    "type": "Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "回调对象，包括成功与失败回调配置",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "success",
+                            "description": "当 modNames 中所有模块加载完毕后执行的函数",
+                            "type": "Function"
+                        },
+                        {
+                            "name": "error",
+                            "description": "当前 require 失败时调用的函数，参数为失败的模块对象",
+                            "type": "Function"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n```\nrequire(['depMod1','depMod2'],function(DepMod1,DepMod2){\n});\n\nrequire(['depMod1','depMod2'],{\n   success:function(DepMod1,DepMod2){\n   },\n   error:function(){\n       \n   }\n});\n```\n__Note__\n\n如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 require 即可, 如果模块名以 / 结尾, 则自动加后缀 index , 例如 require([\"mods/m1/\"]) 相当于 require([\"mods/m1/index\"]) , 即自动加载 m1 目录下的 index.js"
+            ],
+            "class": "Modulex",
+            "module": "modulex"
         },
         {
             "file": "src/api/navigation-view.js",

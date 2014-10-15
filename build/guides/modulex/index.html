@@ -149,7 +149,7 @@
 </code></pre><h3 id="让出define/require控制权">让出define/require控制权</h3><h3 id="<code>modulex.noConflict</code>"><code>modulex.noConflict</code></h3><p>引入 modulex 后（或引入KISSY种子文件seed.js），默认define/require 关键词是modulex使用，若需要让出它们的控制权给例如 requirejs , seajs 等类库使用，可调用 modulex.noConflict() 方法。</p>
 <h3 id="配置">配置</h3><h3 id="<code>require.config(cfg)</code>"><code>require.config(cfg)</code></h3><ul>
 <li>cfg {Object} 配置对象<ul>
-<li>[debug] {Boolean} 是否开启调试模式</li>
+<li>[filter] {String} 文件名后缀</li>
 <li>[group] {String} 所有包的默认组配置，group的介绍详见下面的Note:group介绍</li>
 <li>[base] {String} 整个类库所在的基地址</li>
 <li>[comboMaxUrlLength=1024] {Number} Combo url 的最长长度，默认 1024</li>
@@ -161,6 +161,7 @@
 <li>group {String} 表示包所属的组名</li>
 <li>debug B{oolean} 包内的脚本请求是是否加 -min 后缀，默认和 KISSY.config(“debug”) 相同</li>
 <li>tag {String}, 最好为时间戳, 用于刷新客户端本包的模块文件缓存</li>
+<li>filter {String} 文件名后缀</li>
 <li>combine {Boolean}, 如果总和 combine 设置为 true，但是单个包 combine 设置为 false，则该包内文件不进行自动 combo</li>
 <li>base {String}, 表示包所在的 url 路径, 相对路径表示相对于当前页面路径.</li>
 <li>path 作用同 base 配置</li>
@@ -190,8 +191,8 @@
          <span class="hljs-keyword">base</span>:<span class="hljs-string">'http://x.com/biz/'</span>,
          <span class="hljs-comment">// x 包的时间戳</span>
          tag:<span class="hljs-string">'x'</span>,
-         <span class="hljs-comment">// 开启 x 包 debug 模式</span>
-         debug:<span class="hljs-keyword">true</span>
+         <span class="hljs-comment">// 加载的文件后面添加-debug。如 a.js -&gt; a-debug.js</span>
+         filter : <span class="hljs-string">'debug'</span>
      },
      y:{
         <span class="hljs-comment">// y 包的基准路径</span>

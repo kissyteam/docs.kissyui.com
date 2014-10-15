@@ -47,7 +47,6 @@ YUI.add("yuidoc-meta", function(Y) {
         "GestureTap",
         "IO",
         "Json",
-        "Loader",
         "Menu",
         "Menu.CheckItem",
         "Menu.Item",
@@ -57,6 +56,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "MenuButton",
         "MenuButton.Option",
         "MenuButton.Select",
+        "Modulex",
         "NavigationView",
         "NavigationViewBar",
         "Node",
@@ -130,9 +130,9 @@ YUI.add("yuidoc-meta", function(Y) {
         "filter-menu",
         "io",
         "json",
-        "loader",
         "menu",
         "menubutton",
+        "modulex",
         "navigation-view",
         "navigation-view_bar",
         "node",
@@ -344,17 +344,17 @@ YUI.add("yuidoc-meta", function(Y) {
             "name": "json"
         },
         {
-            "displayName": "loader",
-            "name": "loader",
-            "description": "loader模块,定义KISSY初始对象及模块化机制用到的方法，所有方法都通过KISSY直接引用"
-        },
-        {
             "displayName": "menu",
             "name": "menu"
         },
         {
             "displayName": "menubutton",
             "name": "menubutton"
+        },
+        {
+            "displayName": "modulex",
+            "name": "modulex",
+            "description": "modulex 是新一代的模块加载器，可独立使用。"
         },
         {
             "displayName": "navigation-view",
