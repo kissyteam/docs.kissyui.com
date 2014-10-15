@@ -96,7 +96,7 @@
 				</div>
 				<div id="main-content">
 					<p></p>
-<h1 id="Base基本使用示例">Base基本使用示例</h1><p><div class="ks-tabs ks-tabs-top" style="height:400px;">
+<h1 id="Base基本使用示例">Base基本使用示例</h1><p><div class="ks-tabs ks-tabs-top" style="height:600px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -109,7 +109,12 @@
     &lt;head&gt;
         &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
         &lt;title&gt;KISSY Base DEMO&lt;&#x2F;title&gt;
-        &lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt; &lt;&#x2F;head&gt;
+        &lt;style type=&quot;text&#x2F;css&quot;&gt;
+        body{
+            background: #fff;
+        }
+        &lt;&#x2F;style&gt;
+        &lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt; &lt;&#x2F;head&gt;
     &lt;body&gt;
         &lt;h3&gt;下面例子共用三个类 Person&#x2F;Student&#x2F;Teacher ，其中 Student 和 Teacher 都是继承自 Person ，演示结果请打开控制台查看，具体细节查看demo代码。&lt;&#x2F;h3&gt;
         &lt;label for=&quot;J_input&quot;&gt;先选择角色再操作：&lt;&#x2F;label&gt;
@@ -146,7 +151,7 @@
         &lt;button id=&quot;downLevel&quot;&gt;downLevel&lt;&#x2F;button&gt;
 
         &lt;script&gt;
-        KISSY.use([&#x27;base&#x27;, &#x27;node&#x27;, &#x27;util&#x27;], function(S, Base, Node, Util) {
+        require([&#x27;base&#x27;, &#x27;node&#x27;, &#x27;util&#x27;], function(Base, Node, Util) {
             var Level = {
                 PRIMARY: 0,
                 INTERMEDIATE: 1,

@@ -3,8 +3,8 @@
 <head>
 	<meta charset='utf-8'>
 	<title>split button demo</title>
-	<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-	<!-- <link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css"> -->
+	<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+	<!-- <link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css"> -->
 	<link rel="stylesheet" type="text/css" href="assets/custombutton.css">
 	<link rel="stylesheet" type="text/css" href="assets/menubutton.css">
 	<link rel="stylesheet" type="text/css" href="assets/menu.css">
@@ -35,7 +35,7 @@
         margin-right: 10px;
     }
 	</style>
-	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+	<script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
 </head>
 <body>
 <div id="wrap" style="margin-left:50px;">
@@ -46,7 +46,7 @@
     </div>
 </div>
 <script type="text/javascript">
-	 KISSY.use("menubutton,button,menu,node", function (S, MenuButton, Button, Menu,$) {
+	 require(['menubutton','button','menu','node'], function (MenuButton, Button, Menu,$) {
         var b = new Button({
             id:'button-test1',
             content:"已买到的宝贝",

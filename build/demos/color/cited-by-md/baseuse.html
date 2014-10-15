@@ -4,7 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <title>Demo - color 的基本使用</title>
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+<style type="text/css">
+    body{
+        background: #fff;
+    }
+</style>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 
 <body>
@@ -33,7 +38,7 @@
     <input type="text" id="str">
     <button id="parse">Parse</button>
 <script type="text/javascript">
-    KISSY.use('node, event, color', function(S, Node, Event, Color) {
+    require(['node', 'color'], function(Node, Color) {
         var $ = Node.all;
         var color;
 

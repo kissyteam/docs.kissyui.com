@@ -3,7 +3,12 @@
     <head>
         <meta charset="utf-8"/>
         <title>KISSY Base DEMO</title>
-        <script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script> </head>
+        <style type="text/css">
+        body{
+            background: #fff;
+        }
+        </style>
+        <script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script> </head>
     <body>
         <h3>下面例子共用三个类 Person/Student/Teacher ，其中 Student 和 Teacher 都是继承自 Person ，演示结果请打开控制台查看，具体细节查看demo代码。</h3>
         <label for="J_input">先选择角色再操作：</label>
@@ -40,7 +45,7 @@
         <button id="downLevel">downLevel</button>
 
         <script>
-        KISSY.use(['base', 'node', 'util'], function(S, Base, Node, Util) {
+        require(['base', 'node', 'util'], function(Base, Node, Util) {
             var Level = {
                 PRIMARY: 0,
                 INTERMEDIATE: 1,

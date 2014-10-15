@@ -76,7 +76,7 @@
 			</div>
 			<div class="inner clearfix">
 				<div id="sidebar">
-					<a class="link-apidocs btn btn-primary" href="../../api/classes/Date.Picker.html">API Docs</a>
+					<a class="link-apidocs btn btn-primary" href="../../api/classes/DatePicker.html">API Docs</a>
 					<div class="panel panel-primary ajax-load hide">
 						<div class="panel-heading">
 							<h3 class="panel-title">Features</h3>
@@ -90,7 +90,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/date/date-picker.html">DatePicker 使用示例</a></p><p><a href="../../demos/date/gregorian-calendar.html">GregorianGalendar使用示例</a></p><p><a href="../../demos/date/index.html">DateFormat的使用示例</a></p><p><a href="../../demos/date/limit-selected-date.html">DatePicker限定选择日期</a></p><p><a href="../../demos/date/popup-date-picker.html">PopupDatePicker 使用示例</a></p>
+							<p><a href="../../demos/date/date-picker.html">DatePicker 使用示例</a></p><p><a href="../../demos/date/gregorian-calendar.html">GregorianGalendar使用示例</a></p><p><a href="../../demos/date/index.html">GregorianCalendarFormat的使用示例</a></p><p><a href="../../demos/date/limit-selected-date.html">DatePicker限定选择日期</a></p><p><a href="../../demos/date/popup-date-picker.html">DatePicker.Popup 使用示例</a></p>
 						</div>
 					</div>
 				</div>
@@ -110,8 +110,8 @@
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
 &lt;title&gt;DatePicker-限定选择时间&lt;&#x2F;title&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;style type=&quot;text&#x2F;css&quot;&gt;
     .ks-date-picker-disabled-cell .ks-date-picker-date{  &#x2F;*不能被选择的日期样式*&#x2F;
         color: #bfbfbf;  
@@ -122,18 +122,18 @@
 &lt;body&gt;
 &lt;h3&gt;DatePicker-限定选择时间&lt;&#x2F;h3&gt;
 &lt;p&gt;
-    DatePicker 是一个嵌入式的日历控件，如需使用悬浮式的日历控件请使用 date&#x2F;popup-picker 模块提供的 PopupDatePicker。
+    DatePicker 是一个嵌入式的日历控件，如需使用悬浮式的日历控件请使用 DatePicker.Popup。
 &lt;&#x2F;p&gt;
 &lt;p&gt;这个例子使用 disabledDate 这个配置来限定能被选择的日期，只能选择当前日期所在月份的前后三天&lt;&#x2F;p&gt;
 &lt;div id=&quot;holder&quot;&gt;&lt;&#x2F;div&gt;
 &lt;div id=&quot;result&quot;&gt;&lt;&#x2F;div&gt;
     &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-        &#x2F;&#x2F; KISSY.config(&#x27;lang&#x27;, &#x27;en-us&#x27;);  &#x2F;&#x2F;如果配置语言为英文，日历组件会自动显示为英文
-        KISSY.use(&#x27;node, date&#x2F;picker, date&#x2F;gregorian, date&#x2F;format, date&#x2F;picker&#x2F;assets&#x2F;dpl.css&#x27;, function(S, Node, DatePicker, DateGregorianGalendar, DateFormat) {
+        &#x2F;&#x2F; require.config(&#x27;lang&#x27;, &#x27;en-us&#x27;);  &#x2F;&#x2F;如果配置语言为英文，日历组件会自动显示为英文
+        require([&#x27;node&#x27;, &#x27;date-picker&#x27;, &#x27;gregorian-calendar&#x27;, &#x27;gregorian-calendar-format&#x27;, &#x27;date-picker&#x2F;assets&#x2F;dpl.css&#x27;], function(Node, DatePicker, GregorianCalendar, GregorianCalendarFormat) {
             var result = Node.all(&quot;#result&quot;);
 
-            var gregorian = new DateGregorianGalendar();
-            gregorian.setTime(+new Date());  &#x2F;&#x2F;当前时间的DateGregorianGalendar对象
+            var gregorian = new GregorianCalendar();
+            gregorian.setTime(+new Date());  &#x2F;&#x2F;当前时间的GregorianCalendar对象
 
             var picker = new DatePicker({
                 render: &quot;#holder&quot;,
@@ -152,7 +152,7 @@
             picker.on(&#x27;select&#x27;, function(e) {
                 var value = e.value;
                 if (value) {
-                    result.html(DateFormat.getDateInstance(DateFormat.Style.FULL).format(value));
+                    result.html(GregorianCalendarFormat.getDateInstance(GregorianCalendarFormat.Style.FULL).format(value));
                 } else {
                     result.html(null);
                 }

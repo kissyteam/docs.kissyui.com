@@ -109,16 +109,16 @@
 &lt;head&gt;
 	&lt;meta charset=&#x27;utf-8&#x27;&gt;
 	&lt;title&gt;简单使用Button&lt;&#x2F;title&gt;
-	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
-	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt;
-	&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt;
+	&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 	&lt;div class=&quot;wrap&quot; style=&quot;margin-left:50px;&quot;&gt;
 		&lt;h1&gt;简单使用Button&lt;&#x2F;h1&gt;
 		&lt;h3&gt;* 首先引入KISSY提供的 base样式 和 button样式 : &lt;&#x2F;h3&gt;
-		&lt;p&gt;&lt;code&gt;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&lt;&#x2F;code&gt;&gt;&lt;&#x2F;p&gt;
-		&lt;p&gt;&lt;code&gt;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;button&#x2F;assets&#x2F;dpl.css&lt;&#x2F;code&gt;&gt;&lt;&#x2F;p&gt;
+		&lt;p&gt;&lt;code&gt;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&lt;&#x2F;code&gt;&gt;&lt;&#x2F;p&gt;
+		&lt;p&gt;&lt;code&gt;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;button&#x2F;assets&#x2F;dpl.css&lt;&#x2F;code&gt;&gt;&lt;&#x2F;p&gt;
 		&lt;h3&gt;* 直接在html里加上相应的class来使用button:&lt;&#x2F;h3&gt;
 		&lt;div id=&quot;use-html&quot;&gt;
 			&lt;div class=&quot;ks-button&quot;&gt;Default&lt;&#x2F;div&gt;
@@ -134,7 +134,7 @@
 	&lt;&#x2F;div&gt;
 	
 	&lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-	KISSY.use(&#x27;button&#x27;, function(S, Button){
+	require([&#x27;button&#x27;], function(Button){
 		var button1 = new Button({
 			content : &#x27;Info&#x27;,
 			elCls : &#x27;ks-button-info&#x27;,

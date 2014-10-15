@@ -2,22 +2,22 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>PopupDatePicker 使用示例</title>
-<link rel="stylesheet" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed-debug.js"></script>
+<title>DatePicker.Popup 使用示例</title>
+<link rel="stylesheet" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed-debug.js"></script>
 </head>
 
 <body>
-<h3>PopupDatePicker 使用示例</h3>
+<h3>DatePicker.Popup 使用示例</h3>
 <p>
-    PopupDatePicker 是一个悬浮式的日历控件，如需使用嵌入式的日历控件请使用 date/picker 模块提供的 DatePicker。
+    DatePicker.Popup 是一个悬浮式的日历控件，如需使用嵌入式的日历控件请使用 DatePicker。
 </p>
 <input type="text" id="date">
 <button id="popup">选择日期</button>
     <script type="text/javascript">
-        KISSY.use('node, date/popup-picker, date/format,date/picker/assets/dpl.css', function(S, Node, PopupDatePicker, DateFormat) {
+        require(['node', 'date-picker', 'gregorian-calendar-format','date/picker/assets/dpl.css'], function(Node, DatePicker, GregorianCalendarFormat) {
             var input = Node.all('#date');
-            var dateFormat = DateFormat.getDateInstance(DateFormat.Style.FULL);
+            var dateFormat = GregorianCalendarFormat.getDateInstance(GregorianCalendarFormat.Style.FULL);
             var picker = null;
 
             Node.all('#popup').on('click', showPicker);
@@ -46,7 +46,7 @@
             }
 
             function createPicker() {
-                picker = new PopupDatePicker({
+                picker = new DatePicker.Popup({
                     shim:true
                 });
 

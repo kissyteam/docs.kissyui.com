@@ -3,8 +3,13 @@
 <head>
 	<meta charset='utf-8'>
 	<title>使用本地数据自动补全</title>
-	<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/combobox/assets/dpl-debug.css">
-	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
+	<style type="text/css">
+	body{
+		background: #fff;
+	}
+	</style>
+	<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/combobox/assets/dpl-debug.css">
+	<script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js"></script>
 	<style type="text/css">
 		.ks-popupmenu {
 		    background: #fff;
@@ -103,7 +108,7 @@
 	</div>
 	
 	<script type="text/javascript">
-	KISSY.use('combobox', function(S, ComboBox){
+	require(['combobox'], function(ComboBox){
 		var localData = ['a1234', 'b2345', 'c3456', 'd4567'],
 			localDataSource = new ComboBox.LocalDataSource({
 				data : localData

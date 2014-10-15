@@ -1,12 +1,11 @@
 /**
 公历模块,提供了时间转换，范围计算等功能。
-@module date/gregorian
+@module gregorian-calendar
 */
 
 /**
 公历
 @class GregorianCalendar
-@namespace Date
 @constructor
 @param params 参数列表，可以有不同的参数，如下：
 1. 参数组合1：

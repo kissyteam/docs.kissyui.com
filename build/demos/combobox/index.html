@@ -109,8 +109,13 @@
 &lt;head&gt;
 	&lt;meta charset=&#x27;utf-8&#x27;&gt;
 	&lt;title&gt;简单使用Combobox&lt;&#x2F;title&gt;
-	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;combobox&#x2F;assets&#x2F;dpl-debug.css&quot;&gt;
-	&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+	&lt;style type=&quot;text&#x2F;css&quot;&gt;
+	body{
+		background: #fff;
+	}
+	&lt;&#x2F;style&gt;
+	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;combobox&#x2F;assets&#x2F;dpl-debug.css&quot;&gt;
+	&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
 	&lt;style type=&quot;text&#x2F;css&quot;&gt;
 		.ks-popupmenu {
 		    background: #fff;
@@ -185,7 +190,7 @@
 	&lt;div class=&quot;wrap&quot; style=&quot;width:90%;margin:0 auto;&quot;&gt;
 		&lt;h1&gt;简单使用Combobox&lt;&#x2F;h1&gt;
 		&lt;p&gt;首先引入KISSY提供的combobox样式，或者根据需要自定义样式：&lt;&#x2F;p&gt;
-		&lt;p&gt;&lt;code&gt;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;combobox&#x2F;assets&#x2F;dpl-debug.css&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+		&lt;p&gt;&lt;code&gt;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;combobox&#x2F;assets&#x2F;dpl-debug.css&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
 		&lt;p&gt;输入 a&#x2F;b&#x2F;c&#x2F;d&#x2F;2  观察结果&lt;&#x2F;p&gt;
 		&lt;div id=&quot;container&quot;&gt;
 			
@@ -193,7 +198,7 @@
 	&lt;&#x2F;div&gt;
 	
 	&lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-	KISSY.use(&#x27;combobox&#x27;, function(S, ComboBox){
+	require([&#x27;combobox&#x27;], function(ComboBox){
 		var basicComboBox = new ComboBox({
 			render : &#x27;#container&#x27;,
 			dataSource : new ComboBox.LocalDataSource({

@@ -28,10 +28,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "DD.Plugin.Constrain",
         "DD.Plugin.Proxy",
         "DD.Plugin.Scroll",
-        "Date.Format",
-        "Date.GregorianCalendar",
-        "Date.Picker",
-        "Date.PopupDatePicker",
+        "DatePicker",
+        "DatePicker.Popup",
         "Dom",
         "DomEvent",
         "Editor",
@@ -45,6 +43,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "GestureShake",
         "GestureSwipe",
         "GestureTap",
+        "GregorianCalendar",
+        "GregorianCalendarFormat",
         "IO",
         "Json",
         "Menu",
@@ -106,10 +106,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "component_plugin_drag",
         "component_plugin_resize",
         "cookie",
-        "date_format",
-        "date_gregorian",
-        "date_picker",
-        "date_popup-picker",
+        "date-picker",
         "dd",
         "dd_plugin_constrain",
         "dd_plugin_proxy",
@@ -128,6 +125,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "event-dom_gesture_tap",
         "feature",
         "filter-menu",
+        "gregorian-calendar",
+        "gregorian-calendar-format",
         "io",
         "json",
         "menu",
@@ -231,23 +230,9 @@ YUI.add("yuidoc-meta", function(Y) {
             "description": "提供类Cookie"
         },
         {
-            "displayName": "date/format",
-            "name": "date_format"
-        },
-        {
-            "displayName": "date/gregorian",
-            "name": "date_gregorian",
-            "description": "公历模块,提供了时间转换，范围计算等功能。"
-        },
-        {
-            "displayName": "date/picker",
-            "name": "date_picker",
+            "displayName": "date-picker",
+            "name": "date-picker",
             "description": "嵌入式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能"
-        },
-        {
-            "displayName": "date/popup-picker",
-            "name": "date_popup-picker",
-            "description": "浮层式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能"
         },
         {
             "displayName": "dd",
@@ -333,6 +318,15 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "filter-menu",
             "name": "filter-menu"
+        },
+        {
+            "displayName": "gregorian-calendar",
+            "name": "gregorian-calendar",
+            "description": "公历模块,提供了时间转换，范围计算等功能。"
+        },
+        {
+            "displayName": "gregorian-calendar-format",
+            "name": "gregorian-calendar-format"
         },
         {
             "displayName": "io",

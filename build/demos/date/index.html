@@ -76,7 +76,7 @@
 			</div>
 			<div class="inner clearfix">
 				<div id="sidebar">
-					<a class="link-apidocs btn btn-primary" href="../../api/classes/Date.Format.html">API Docs</a>
+					<a class="link-apidocs btn btn-primary" href="../../api/classes/GregorianCalendarFormat.html">API Docs</a>
 					<div class="panel panel-primary ajax-load hide">
 						<div class="panel-heading">
 							<h3 class="panel-title">Features</h3>
@@ -90,13 +90,13 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/date/date-picker.html">DatePicker 使用示例</a></p><p><a href="../../demos/date/gregorian-calendar.html">GregorianGalendar使用示例</a></p><p><a href="../../demos/date/index.html">DateFormat的使用示例</a></p><p><a href="../../demos/date/limit-selected-date.html">DatePicker限定选择日期</a></p><p><a href="../../demos/date/popup-date-picker.html">PopupDatePicker 使用示例</a></p>
+							<p><a href="../../demos/date/date-picker.html">DatePicker 使用示例</a></p><p><a href="../../demos/date/gregorian-calendar.html">GregorianGalendar使用示例</a></p><p><a href="../../demos/date/index.html">GregorianCalendarFormat的使用示例</a></p><p><a href="../../demos/date/limit-selected-date.html">DatePicker限定选择日期</a></p><p><a href="../../demos/date/popup-date-picker.html">DatePicker.Popup 使用示例</a></p>
 						</div>
 					</div>
 				</div>
 				<div id="main-content">
 					<p></p>
-<h1 id="DateFormat的使用示例">DateFormat的使用示例</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
+<h1 id="GregorianCalendarFormat的使用示例">GregorianCalendarFormat的使用示例</h1><p><div class="ks-tabs ks-tabs-top" style="height:800px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -109,20 +109,25 @@
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
-&lt;title&gt;DateFormat的示例&lt;&#x2F;title&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;title&gt;GregorianCalendarFormat的示例&lt;&#x2F;title&gt;
+&lt;style type=&quot;text&#x2F;css&quot;&gt;
+    body{
+        background: #fff;
+    }
+&lt;&#x2F;style&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;
-   &lt;p&gt;说明：要注意区分 date&#x2F;format（时间格式化类） 和 date&#x2F;gregorian（时间类） 这两个模块的提供的Class: DateFormat和DateGregorian，DateFormat就是设定一些规则来确定DateGregorian的输出字符串形式，例如是这种日期时间完整格式(2014年8月14日 星期四 下午07时34分25秒 GMT+0800)或者日期时间中长度格式(2014-8-14 19:34:25)&lt;&#x2F;p&gt;
-   &lt;p&gt;不同的DateFormat对象使得DateGregorian输出的日期时间形式不同，如下：&lt;&#x2F;p&gt;
+   &lt;p&gt;说明：要注意区分 GregorianCalendarFormat（时间格式化类） 和 GregorianCalendar（时间类），GregorianCalendarFormat就是设定一些规则来确定GregorianCalendar的输出字符串形式，例如是这种日期时间完整格式(2014年8月14日 星期四 下午07时34分25秒 GMT+0800)或者日期时间中长度格式(2014-8-14 19:34:25)&lt;&#x2F;p&gt;
+   &lt;p&gt;不同的GregorianCalendarFormat对象使得GregorianCalendar输出的日期时间形式不同，如下：&lt;&#x2F;p&gt;
 
    &lt;p&gt;
        &lt;span&gt;当前时间：&lt;&#x2F;span&gt; &lt;span id=&quot;str&quot; style=&quot;color:#5c5;&quot;&gt;&lt;&#x2F;span&gt;
    &lt;&#x2F;p&gt;
    
 
-   &lt;p&gt;下面不同按钮调用不同的DateFormat对象来格式化Gregorian对象：&lt;&#x2F;p&gt;
+   &lt;p&gt;下面不同按钮调用不同的GregorianCalendarFormat对象来格式化GregorianCalendar对象：&lt;&#x2F;p&gt;
     &lt;div id=&quot;buttons&quot;&gt;
         &lt;button value=&quot;dtf_FULL&quot;&gt;日期时间完整格式&lt;&#x2F;button&gt;
         &lt;button value=&quot;dtf_LONG&quot;&gt;日期时间长格式&lt;&#x2F;button&gt;
@@ -155,29 +160,29 @@
     &lt;&#x2F;div&gt;
 
     &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-    KISSY.use([&#x27;node&#x27;, &#x27;event&#x27;, &#x27;date&#x2F;gregorian&#x27;, &#x27;date&#x2F;format&#x27;], function(S, Node, Event, DateGregorian, DateFormat) {
+    require([&#x27;node&#x27;, &#x27;event-dom&#x27;, &#x27;gregorian-calendar&#x27;, &#x27;gregorian-calendar-format&#x27;], function(Node, DomEvent, GregorianCalendar, GregorianCalendarFormat) {
             var $ = Node.all;
-            var Style = DateFormat.Style;
+            var Style = GregorianCalendarFormat.Style;
             var currentStyle = &quot;dtf_FULL&quot;;
             &#x2F;&#x2F;获得时间对象
-            var dategregorian_ins = new DateGregorian();
+            var dategregorian_ins = new GregorianCalendar();
             var calendar;
             &#x2F;&#x2F;给时间对象设定当前时间
             dategregorian_ins.setTime(+new Date());  &#x2F;&#x2F;注意dategregorian_ins.setTime的参数一定要是Number类型
 
             var formatInstanceStyle = {
-                dtf_FULL: DateFormat.getDateTimeInstance(Style.FULL, Style.FULL), &#x2F;&#x2F;日期时间完整格式
-                dtf_LONG: DateFormat.getDateTimeInstance(Style.LONG, Style.LONG), &#x2F;&#x2F;日期时间长格式
-                dtf_MEDIUM: DateFormat.getDateTimeInstance(Style.MEDIUM, Style.MEDIUM), &#x2F;&#x2F;日期时间中长度格式
-                dtf_SHORT: DateFormat.getDateTimeInstance(Style.SHORT, Style.SHORT), &#x2F;&#x2F;日期时间短长度格式
-                tf_FULL: DateFormat.getTimeInstance(Style.FULL), &#x2F;&#x2F;只格式化时间
-                df_MEDIUM: DateFormat.getDateInstance(Style.MEDIUM), &#x2F;&#x2F;只格式化日期
-                instance: DateFormat.getInstance() &#x2F;&#x2F;相当于DateFormat.getDateTimeInstance(Style.SHORT, Style.SHORT);
+                dtf_FULL: GregorianCalendarFormat.getDateTimeInstance(Style.FULL, Style.FULL), &#x2F;&#x2F;日期时间完整格式
+                dtf_LONG: GregorianCalendarFormat.getDateTimeInstance(Style.LONG, Style.LONG), &#x2F;&#x2F;日期时间长格式
+                dtf_MEDIUM: GregorianCalendarFormat.getDateTimeInstance(Style.MEDIUM, Style.MEDIUM), &#x2F;&#x2F;日期时间中长度格式
+                dtf_SHORT: GregorianCalendarFormat.getDateTimeInstance(Style.SHORT, Style.SHORT), &#x2F;&#x2F;日期时间短长度格式
+                tf_FULL: GregorianCalendarFormat.getTimeInstance(Style.FULL), &#x2F;&#x2F;只格式化时间
+                df_MEDIUM: GregorianCalendarFormat.getDateInstance(Style.MEDIUM), &#x2F;&#x2F;只格式化日期
+                instance: GregorianCalendarFormat.getInstance() &#x2F;&#x2F;相当于GregorianCalendarFormat.getDateTimeInstance(Style.SHORT, Style.SHORT);
             };
             &#x2F;&#x2F;format方法用法
             $(&quot;#str&quot;).text(formatInstanceStyle[&quot;dtf_FULL&quot;].format(dategregorian_ins));
 
-            Event.delegate(&quot;#buttons&quot;, &#x27;click&#x27;, &#x27;button&#x27;, function(event) {
+            DomEvent.delegate(&quot;#buttons&quot;, &#x27;click&#x27;, &#x27;button&#x27;, function(event) {
                 currentStyle = $(event.currentTarget).val();
                 var str = formatInstanceStyle[currentStyle].format(dategregorian_ins);
                 $(&quot;#str&quot;).text(str);
@@ -190,7 +195,7 @@
                 $(&quot;#gets button&quot;).removeAttr(&#x27;disabled&#x27;);
             });
 
-            Event.delegate(&#x27;#gets&#x27;, &#x27;click&#x27;, &#x27;button&#x27;, function(event) {
+            DomEvent.delegate(&#x27;#gets&#x27;, &#x27;click&#x27;, &#x27;button&#x27;, function(event) {
                 var func = $(event.currentTarget).val();
                 var value = calendar[func]();
                 alert(value);
@@ -209,9 +214,9 @@
             <div class="qrcode"></div>
             <div class="content">
                 <p class="title">查看移动端演示</p>
-                <p class="qrcode-addr" qrcodeaddr="http://docs.kissyui.com/5.0/demos/date/cited-by-md/dateformat.html" ="text">
+                <p class="qrcode-addr" qrcodeaddr="http://docs.kissyui.com/5.0/demos/date/cited-by-md/gregorian-calendar-format.html" ="text">
                     示例地址：
-                    <a href="http://docs.kissyui.com/5.0/demos/date/cited-by-md/dateformat.html" target="_blank">http://docs.kissyui.com/5.0/demos/date/cited-by-md/dateformat.html</a>
+                    <a href="http://docs.kissyui.com/5.0/demos/date/cited-by-md/gregorian-calendar-format.html" target="_blank">http://docs.kissyui.com/5.0/demos/date/cited-by-md/gregorian-calendar-format.html</a>
                 </p>
             </div>
         </div>

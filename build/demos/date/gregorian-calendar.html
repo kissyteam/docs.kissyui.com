@@ -76,7 +76,7 @@
 			</div>
 			<div class="inner clearfix">
 				<div id="sidebar">
-					<a class="link-apidocs btn btn-primary" href="../../api/classes/Date.Format.html">API Docs</a>
+					<a class="link-apidocs btn btn-primary" href="../../api/classes/GregorianCalendar.html">API Docs</a>
 					<div class="panel panel-primary ajax-load hide">
 						<div class="panel-heading">
 							<h3 class="panel-title">Features</h3>
@@ -90,7 +90,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/date/date-picker.html">DatePicker 使用示例</a></p><p><a href="../../demos/date/gregorian-calendar.html">GregorianGalendar使用示例</a></p><p><a href="../../demos/date/index.html">DateFormat的使用示例</a></p><p><a href="../../demos/date/limit-selected-date.html">DatePicker限定选择日期</a></p><p><a href="../../demos/date/popup-date-picker.html">PopupDatePicker 使用示例</a></p>
+							<p><a href="../../demos/date/date-picker.html">DatePicker 使用示例</a></p><p><a href="../../demos/date/gregorian-calendar.html">GregorianGalendar使用示例</a></p><p><a href="../../demos/date/index.html">GregorianCalendarFormat的使用示例</a></p><p><a href="../../demos/date/limit-selected-date.html">DatePicker限定选择日期</a></p><p><a href="../../demos/date/popup-date-picker.html">DatePicker.Popup 使用示例</a></p>
 						</div>
 					</div>
 				</div>
@@ -109,11 +109,16 @@
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
-&lt;title&gt;GregorianGalendar示例&lt;&#x2F;title&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
+&lt;title&gt;GregorianCalendar示例&lt;&#x2F;title&gt;
+&lt;style type=&quot;text&#x2F;css&quot;&gt;
+    body{
+        background: #fff;
+    }
+&lt;&#x2F;style&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot; data-config=&quot;{combine:true}&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
-   &lt;h3&gt;GregorianGalendar使用示例&lt;&#x2F;h3&gt;
+   &lt;h3&gt;GregorianCalendar使用示例&lt;&#x2F;h3&gt;
     &lt;input type=&quot;text&quot; id=&quot;year&quot; value=&quot;0&quot;&gt;年
     &lt;input type=&quot;text&quot; id=&quot;month&quot; value=&quot;0&quot;&gt;月
     &lt;input type=&quot;text&quot; id=&quot;day&quot; value=&quot;0&quot;&gt;日
@@ -123,7 +128,7 @@
     &lt;input type=&quot;text&quot; id=&quot;second&quot; value=&quot;0&quot;&gt;秒
     &lt;input type=&quot;text&quot; id=&quot;millisecond&quot; value=&quot;0&quot;&gt;毫秒
     &lt;br&#x2F;&gt;
-    &lt;p&gt;初始化GregorianGalendar，并将它设为当前时间(会自动更新上面的输入框)：
+    &lt;p&gt;初始化GregorianCalendar，并将它设为当前时间(会自动更新上面的输入框)：
     &lt;button id=&quot;setNow&quot;&gt;设为当前时间&lt;&#x2F;button&gt;
     &lt;&#x2F;p&gt;
     &lt;p&gt;也可以手动修改上面输入框，设置修改后的时间（需要填写完整）：
@@ -150,22 +155,22 @@
         &lt;&#x2F;div&gt;
     &lt;&#x2F;p&gt;
     &lt;p&gt;
-        操作GregorianGalendar对象：
+        操作GregorianCalendar对象：
         &lt;button id=&quot;addYear&quot; disabled=&quot;disabled&quot;&gt;增加一年&lt;&#x2F;button&gt;
     &lt;&#x2F;p&gt;
     &lt;p&gt;
-        操作GregorianGalendar对象：
+        操作GregorianCalendar对象：
         &lt;button id=&quot;addMonth&quot; disabled=&quot;disabled&quot;&gt;增加10个月&lt;&#x2F;button&gt;
     &lt;&#x2F;p&gt;
     &lt;p&gt;
-        操作GregorianGalendar对象：
+        操作GregorianCalendar对象：
         &lt;button id=&quot;rollMonth&quot; disabled=&quot;disabled&quot;&gt;roll 13个月&lt;&#x2F;button&gt;
     &lt;&#x2F;p&gt;
     &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-        KISSY.use([&#x27;node&#x27;, &#x27;date&#x2F;gregorian&#x27;], function(S, Node, GregorianGalendar){
+        require([&#x27;node&#x27;, &#x27;gregorian-calendar&#x27;], function(Node, GregorianCalendar){
             var $ = Node.all;
 
-            var gregorian = new GregorianGalendar();
+            var gregorian = new GregorianCalendar();
             $(&#x27;#setNow&#x27;).on(&#x27;click&#x27;, function(event){  &#x2F;&#x2F;设置为当前时间
                 gregorian.setTime(+new Date());  &#x2F;&#x2F;注意setTime的参数需要是 Number 类型
                 $(&quot;input#year&quot;).val(gregorian.getYear());
@@ -239,9 +244,9 @@
             <div class="qrcode"></div>
             <div class="content">
                 <p class="title">查看移动端演示</p>
-                <p class="qrcode-addr" qrcodeaddr="http://docs.kissyui.com/5.0/demos/date/cited-by-md/gregorian-galendar.html" ="text">
+                <p class="qrcode-addr" qrcodeaddr="http://docs.kissyui.com/5.0/demos/date/cited-by-md/gregorian-calendar.html" ="text">
                     示例地址：
-                    <a href="http://docs.kissyui.com/5.0/demos/date/cited-by-md/gregorian-galendar.html" target="_blank">http://docs.kissyui.com/5.0/demos/date/cited-by-md/gregorian-galendar.html</a>
+                    <a href="http://docs.kissyui.com/5.0/demos/date/cited-by-md/gregorian-calendar.html" target="_blank">http://docs.kissyui.com/5.0/demos/date/cited-by-md/gregorian-calendar.html</a>
                 </p>
             </div>
         </div>

@@ -3,8 +3,13 @@
 <head>
 	<meta charset='utf-8'>
 	<title>仿淘宝搜索框</title>
-	<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/combobox/assets/dpl-debug.css">
-	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/combobox/assets/dpl-debug.css">
+	<style type="text/css">
+	body{
+		background: #fff;
+	}
+	</style>
+	<script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js"></script>
 	<style type="text/css">
 		body {
 		    font: 12px/1.5 tahoma, arial;
@@ -174,7 +179,7 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-	KISSY.use('combobox', function(S, ComboBox){
+	require(['combobox'], function(ComboBox){
 		var combobox = new ComboBox({
 			srcNode : '#combobox',
 			placeholder : 'input..',

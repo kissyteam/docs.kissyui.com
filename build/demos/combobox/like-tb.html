@@ -109,8 +109,13 @@
 &lt;head&gt;
 	&lt;meta charset=&#x27;utf-8&#x27;&gt;
 	&lt;title&gt;仿淘宝搜索框&lt;&#x2F;title&gt;
-	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;combobox&#x2F;assets&#x2F;dpl-debug.css&quot;&gt;
-	&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;combobox&#x2F;assets&#x2F;dpl-debug.css&quot;&gt;
+	&lt;style type=&quot;text&#x2F;css&quot;&gt;
+	body{
+		background: #fff;
+	}
+	&lt;&#x2F;style&gt;
+	&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
 	&lt;style type=&quot;text&#x2F;css&quot;&gt;
 		body {
 		    font: 12px&#x2F;1.5 tahoma, arial;
@@ -280,7 +285,7 @@
 		&lt;&#x2F;div&gt;
 	&lt;&#x2F;div&gt;
 	&lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-	KISSY.use(&#x27;combobox&#x27;, function(S, ComboBox){
+	require([&#x27;combobox&#x27;], function(ComboBox){
 		var combobox = new ComboBox({
 			srcNode : &#x27;#combobox&#x27;,
 			placeholder : &#x27;input..&#x27;,

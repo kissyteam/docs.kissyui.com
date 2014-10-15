@@ -3,11 +3,16 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>GregorianGalendar示例</title>
-<script src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
+<title>GregorianCalendar示例</title>
+<style type="text/css">
+    body{
+        background: #fff;
+    }
+</style>
+<script src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js" data-config="{combine:true}"></script>
 </head>
 <body>
-   <h3>GregorianGalendar使用示例</h3>
+   <h3>GregorianCalendar使用示例</h3>
     <input type="text" id="year" value="0">年
     <input type="text" id="month" value="0">月
     <input type="text" id="day" value="0">日
@@ -17,7 +22,7 @@
     <input type="text" id="second" value="0">秒
     <input type="text" id="millisecond" value="0">毫秒
     <br/>
-    <p>初始化GregorianGalendar，并将它设为当前时间(会自动更新上面的输入框)：
+    <p>初始化GregorianCalendar，并将它设为当前时间(会自动更新上面的输入框)：
     <button id="setNow">设为当前时间</button>
     </p>
     <p>也可以手动修改上面输入框，设置修改后的时间（需要填写完整）：
@@ -44,22 +49,22 @@
         </div>
     </p>
     <p>
-        操作GregorianGalendar对象：
+        操作GregorianCalendar对象：
         <button id="addYear" disabled="disabled">增加一年</button>
     </p>
     <p>
-        操作GregorianGalendar对象：
+        操作GregorianCalendar对象：
         <button id="addMonth" disabled="disabled">增加10个月</button>
     </p>
     <p>
-        操作GregorianGalendar对象：
+        操作GregorianCalendar对象：
         <button id="rollMonth" disabled="disabled">roll 13个月</button>
     </p>
     <script type="text/javascript">
-        KISSY.use(['node', 'date/gregorian'], function(S, Node, GregorianGalendar){
+        require(['node', 'gregorian-calendar'], function(Node, GregorianCalendar){
             var $ = Node.all;
 
-            var gregorian = new GregorianGalendar();
+            var gregorian = new GregorianCalendar();
             $('#setNow').on('click', function(event){  //设置为当前时间
                 gregorian.setTime(+new Date());  //注意setTime的参数需要是 Number 类型
                 $("input#year").val(gregorian.getYear());

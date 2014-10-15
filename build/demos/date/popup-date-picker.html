@@ -76,7 +76,7 @@
 			</div>
 			<div class="inner clearfix">
 				<div id="sidebar">
-					<a class="link-apidocs btn btn-primary" href="../../api/classes/Date.PopupDatePicker.html">API Docs</a>
+					<a class="link-apidocs btn btn-primary" href="../../api/classes/DatePicker.Popup.html">API Docs</a>
 					<div class="panel panel-primary ajax-load hide">
 						<div class="panel-heading">
 							<h3 class="panel-title">Features</h3>
@@ -90,13 +90,13 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/date/date-picker.html">DatePicker 使用示例</a></p><p><a href="../../demos/date/gregorian-calendar.html">GregorianGalendar使用示例</a></p><p><a href="../../demos/date/index.html">DateFormat的使用示例</a></p><p><a href="../../demos/date/limit-selected-date.html">DatePicker限定选择日期</a></p><p><a href="../../demos/date/popup-date-picker.html">PopupDatePicker 使用示例</a></p>
+							<p><a href="../../demos/date/date-picker.html">DatePicker 使用示例</a></p><p><a href="../../demos/date/gregorian-calendar.html">GregorianGalendar使用示例</a></p><p><a href="../../demos/date/index.html">GregorianCalendarFormat的使用示例</a></p><p><a href="../../demos/date/limit-selected-date.html">DatePicker限定选择日期</a></p><p><a href="../../demos/date/popup-date-picker.html">DatePicker.Popup 使用示例</a></p>
 						</div>
 					</div>
 				</div>
 				<div id="main-content">
 					<p></p>
-<h1 id="PopupDatePicker 使用示例">PopupDatePicker 使用示例</h1><p><div class="ks-tabs ks-tabs-top" style="height:700px;">
+<h1 id="DatePicker.Popup 使用示例">DatePicker.Popup 使用示例</h1><p><div class="ks-tabs ks-tabs-top" style="height:700px;">
     <div class="ks-tabs-bar">
         <div class="ks-tabs-tab ks-button">Source</div>
         <div class="ks-tabs-tab ks-button ks-tabs-tab-selected">Output</div>
@@ -108,22 +108,22 @@
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&#x2F;&gt;
-&lt;title&gt;PopupDatePicker 使用示例&lt;&#x2F;title&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
-&lt;script src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;title&gt;DatePicker.Popup 使用示例&lt;&#x2F;title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;
-&lt;h3&gt;PopupDatePicker 使用示例&lt;&#x2F;h3&gt;
+&lt;h3&gt;DatePicker.Popup 使用示例&lt;&#x2F;h3&gt;
 &lt;p&gt;
-    PopupDatePicker 是一个悬浮式的日历控件，如需使用嵌入式的日历控件请使用 date&#x2F;picker 模块提供的 DatePicker。
+    DatePicker.Popup 是一个悬浮式的日历控件，如需使用嵌入式的日历控件请使用 DatePicker。
 &lt;&#x2F;p&gt;
 &lt;input type=&quot;text&quot; id=&quot;date&quot;&gt;
 &lt;button id=&quot;popup&quot;&gt;选择日期&lt;&#x2F;button&gt;
     &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-        KISSY.use(&#x27;node, date&#x2F;popup-picker, date&#x2F;format,date&#x2F;picker&#x2F;assets&#x2F;dpl.css&#x27;, function(S, Node, PopupDatePicker, DateFormat) {
+        require([&#x27;node&#x27;, &#x27;date-picker&#x27;, &#x27;gregorian-calendar-format&#x27;,&#x27;date&#x2F;picker&#x2F;assets&#x2F;dpl.css&#x27;], function(Node, DatePicker, GregorianCalendarFormat) {
             var input = Node.all(&#x27;#date&#x27;);
-            var dateFormat = DateFormat.getDateInstance(DateFormat.Style.FULL);
+            var dateFormat = GregorianCalendarFormat.getDateInstance(GregorianCalendarFormat.Style.FULL);
             var picker = null;
 
             Node.all(&#x27;#popup&#x27;).on(&#x27;click&#x27;, showPicker);
@@ -152,7 +152,7 @@
             }
 
             function createPicker() {
-                picker = new PopupDatePicker({
+                picker = new DatePicker.Popup({
                     shim:true
                 });
 

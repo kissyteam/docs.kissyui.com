@@ -3,9 +3,9 @@
 <head>
 	<meta charset='utf-8'>
 	<title>自定义Button样式</title>
-	<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css">
-	<link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/kissy/edge/2014.07.16/button/assets/dpl.css">
-	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css">
+	<link rel="stylesheet" type="text/css" href="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/button/assets/dpl.css">
+	<script type="text/javascript" src="http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/seed.js"></script>
 	<style type="text/css">
 	.my-style-button {
 		    text-align: center;
@@ -71,7 +71,7 @@
 	</div>
 	
 	<script type="text/javascript">
-	KISSY.use('button', function(S, Button){
+	require(['button'], function(Button){
 		var button1 = new Button({
 			content : 'Custom',
 			width : '100px',

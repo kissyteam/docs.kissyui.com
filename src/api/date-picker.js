@@ -1,12 +1,11 @@
 /**
 嵌入式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能
-@module date/picker
+@module date-picker
 */
 
 /**
-根据配置创建picker
-@class Picker
-@namespace Date
+嵌入式日历组件
+@class DatePicker
 @constructor
 @extends Component.Control
 @param config {Object}
@@ -77,6 +76,40 @@ picker.on('select', function (e) {
     } else {
         result.html('null');
     }
+});
+```
+*/
+
+
+
+/**
+浮层式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能
+@class Popup
+@namespace DatePicker
+@constructor
+@extends DatePicker
+@uses Align
+@uses Shim
+@param config {Object}
+@example
+```
+require(['date-picker'],function(DatePicker){
+    // use DatePicker.Popup
+});
+```
+*/
+
+/**
+当失去焦点是触发的事件
+
+- e {CustomEventObject} 自定义事件对象
+- e.value {GregorianCalendar} 时间对象
+
+@event blur
+@example
+```
+picker.on('blur', function (e) {
+    picker.hide();
 });
 ```
 */

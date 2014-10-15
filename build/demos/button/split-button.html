@@ -109,8 +109,8 @@
 &lt;head&gt;
 	&lt;meta charset=&#x27;utf-8&#x27;&gt;
 	&lt;title&gt;split button demo&lt;&#x2F;title&gt;
-	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
-	&lt;!-- &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt; --&gt;
+	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;css&#x2F;dpl&#x2F;base.css&quot;&gt;
+	&lt;!-- &lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;button&#x2F;assets&#x2F;dpl.css&quot;&gt; --&gt;
 	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;assets&#x2F;custombutton.css&quot;&gt;
 	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;assets&#x2F;menubutton.css&quot;&gt;
 	&lt;link rel=&quot;stylesheet&quot; type=&quot;text&#x2F;css&quot; href=&quot;assets&#x2F;menu.css&quot;&gt;
@@ -141,7 +141,7 @@
         margin-right: 10px;
     }
 	&lt;&#x2F;style&gt;
-	&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.tbcdn.cn&#x2F;kissy&#x2F;edge&#x2F;2014.07.16&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
+	&lt;script type=&quot;text&#x2F;javascript&quot; src=&quot;http:&#x2F;&#x2F;g.assets.daily.taobao.net&#x2F;kissy&#x2F;edge&#x2F;2014.10.13&#x2F;seed-debug.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 &lt;body&gt;
 &lt;div id=&quot;wrap&quot; style=&quot;margin-left:50px;&quot;&gt;
@@ -152,7 +152,7 @@
     &lt;&#x2F;div&gt;
 &lt;&#x2F;div&gt;
 &lt;script type=&quot;text&#x2F;javascript&quot;&gt;
-	 KISSY.use(&quot;menubutton,button,menu,node&quot;, function (S, MenuButton, Button, Menu,$) {
+	 require([&#x27;menubutton&#x27;,&#x27;button&#x27;,&#x27;menu&#x27;,&#x27;node&#x27;], function (MenuButton, Button, Menu,$) {
         var b = new Button({
             id:&#x27;button-test1&#x27;,
             content:&quot;已买到的宝贝&quot;,

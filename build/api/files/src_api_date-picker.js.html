@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/api/date/picker.js - API Documentation — KISSY v5.0 Documentation</title>
+    <title>src/api/date-picker.js - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/base.css">
     <link rel="stylesheet" href="/5.0/assets/css/main.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -126,13 +126,9 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=CustomEvent.Target href="/5.0/api/classes/CustomEvent.Target.html">CustomEvent.Target</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Date.Format href="/5.0/api/classes/Date.Format.html">Date.Format</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=DatePicker href="/5.0/api/classes/DatePicker.html">DatePicker</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Date.GregorianCalendar href="/5.0/api/classes/Date.GregorianCalendar.html">Date.GregorianCalendar</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Date.Picker href="/5.0/api/classes/Date.Picker.html">Date.Picker</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Date.PopupDatePicker href="/5.0/api/classes/Date.PopupDatePicker.html">Date.PopupDatePicker</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=DatePicker.Popup href="/5.0/api/classes/DatePicker.Popup.html">DatePicker.Popup</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=DD.DDM href="/5.0/api/classes/DD.DDM.html">DD.DDM</a></li>
             
@@ -175,6 +171,10 @@
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=GestureSwipe href="/5.0/api/classes/GestureSwipe.html">GestureSwipe</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=GestureTap href="/5.0/api/classes/GestureTap.html">GestureTap</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=GregorianCalendar href="/5.0/api/classes/GregorianCalendar.html">GregorianCalendar</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=GregorianCalendarFormat href="/5.0/api/classes/GregorianCalendarFormat.html">GregorianCalendarFormat</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=IO href="/5.0/api/classes/IO.html">IO</a></li>
             
@@ -298,13 +298,7 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=cookie href="/5.0/api/modules/cookie.html">cookie</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=date/format href="/5.0/api/modules/date_format.html">date/format</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=date/gregorian href="/5.0/api/modules/date_gregorian.html">date/gregorian</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=date/picker href="/5.0/api/modules/date_picker.html">date/picker</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=date/popup-picker href="/5.0/api/modules/date_popup-picker.html">date/popup-picker</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=date-picker href="/5.0/api/modules/date-picker.html">date-picker</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=dd href="/5.0/api/modules/dd.html">dd</a></li>
             
@@ -341,6 +335,10 @@
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=feature href="/5.0/api/modules/feature.html">feature</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=filter-menu href="/5.0/api/modules/filter-menu.html">filter-menu</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=gregorian-calendar href="/5.0/api/modules/gregorian-calendar.html">gregorian-calendar</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=gregorian-calendar-format href="/5.0/api/modules/gregorian-calendar-format.html">gregorian-calendar-format</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=io href="/5.0/api/modules/io.html">io</a></li>
             
@@ -434,19 +432,18 @@
                     <div class="apidocs">
                         <div id="docs-main">
                             <div class="content">
-                                <h1 class="file-heading">File: src/api/date/picker.js</h1>
+                                <h1 class="file-heading">File: src/api/date-picker.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
 嵌入式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能
-@module date/picker
+@module date-picker
 */
 
 /**
-根据配置创建picker
-@class Picker
-@namespace Date
+嵌入式日历组件
+@class DatePicker
 @constructor
 @extends Component.Control
 @param config {Object}
@@ -517,6 +514,40 @@ picker.on(&#x27;select&#x27;, function (e) {
     } else {
         result.html(&#x27;null&#x27;);
     }
+});
+&#x60;&#x60;&#x60;
+*/
+
+
+
+/**
+浮层式日历控件，支持基本的日期选择、时间选择、范围选择、日期格式化输出等常用功能
+@class Popup
+@namespace DatePicker
+@constructor
+@extends DatePicker
+@uses Align
+@uses Shim
+@param config {Object}
+@example
+&#x60;&#x60;&#x60;
+require([&#x27;date-picker&#x27;],function(DatePicker){
+    // use DatePicker.Popup
+});
+&#x60;&#x60;&#x60;
+*/
+
+/**
+当失去焦点是触发的事件
+
+- e {CustomEventObject} 自定义事件对象
+- e.value {GregorianCalendar} 时间对象
+
+@event blur
+@example
+&#x60;&#x60;&#x60;
+picker.on(&#x27;blur&#x27;, function (e) {
+    picker.hide();
 });
 &#x60;&#x60;&#x60;
 */

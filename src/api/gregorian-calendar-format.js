@@ -1,11 +1,10 @@
 /**
-@module date/format
+@module gregorian-calendar-format
 */
 
 /**
 根据传入参数，创建对应的 DateTimeFormat 对象
-@class Format
-@namespace Date
+@class GregorianCalendarFormat
 @constructor
 @param pattern {String} 时间模式（具体写法参见下面的表格）
 ![](/5.0/api/assets/img/project-img/date-format.jpg)

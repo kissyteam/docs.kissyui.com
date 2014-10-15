@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>date/format - API Documentation — KISSY v5.0 Documentation</title>
+    <title>GregorianCalendarFormat - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/base.css">
     <link rel="stylesheet" href="/5.0/assets/css/main.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -126,13 +126,9 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=CustomEvent.Target href="/5.0/api/classes/CustomEvent.Target.html">CustomEvent.Target</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Date.Format href="/5.0/api/classes/Date.Format.html">Date.Format</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=DatePicker href="/5.0/api/classes/DatePicker.html">DatePicker</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Date.GregorianCalendar href="/5.0/api/classes/Date.GregorianCalendar.html">Date.GregorianCalendar</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Date.Picker href="/5.0/api/classes/Date.Picker.html">Date.Picker</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=Date.PopupDatePicker href="/5.0/api/classes/Date.PopupDatePicker.html">Date.PopupDatePicker</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=DatePicker.Popup href="/5.0/api/classes/DatePicker.Popup.html">DatePicker.Popup</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=DD.DDM href="/5.0/api/classes/DD.DDM.html">DD.DDM</a></li>
             
@@ -175,6 +171,10 @@
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=GestureSwipe href="/5.0/api/classes/GestureSwipe.html">GestureSwipe</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=GestureTap href="/5.0/api/classes/GestureTap.html">GestureTap</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=GregorianCalendar href="/5.0/api/classes/GregorianCalendar.html">GregorianCalendar</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=GregorianCalendarFormat href="/5.0/api/classes/GregorianCalendarFormat.html">GregorianCalendarFormat</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=IO href="/5.0/api/classes/IO.html">IO</a></li>
             
@@ -298,13 +298,7 @@
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=cookie href="/5.0/api/modules/cookie.html">cookie</a></li>
             
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=date/format href="/5.0/api/modules/date_format.html">date/format</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=date/gregorian href="/5.0/api/modules/date_gregorian.html">date/gregorian</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=date/picker href="/5.0/api/modules/date_picker.html">date/picker</a></li>
-            
-                <li><a class="ks-menuitem-selectable ks-menuitem" content=date/popup-picker href="/5.0/api/modules/date_popup-picker.html">date/popup-picker</a></li>
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=date-picker href="/5.0/api/modules/date-picker.html">date-picker</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=dd href="/5.0/api/modules/dd.html">dd</a></li>
             
@@ -341,6 +335,10 @@
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=feature href="/5.0/api/modules/feature.html">feature</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=filter-menu href="/5.0/api/modules/filter-menu.html">filter-menu</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=gregorian-calendar href="/5.0/api/modules/gregorian-calendar.html">gregorian-calendar</a></li>
+            
+                <li><a class="ks-menuitem-selectable ks-menuitem" content=gregorian-calendar-format href="/5.0/api/modules/gregorian-calendar-format.html">gregorian-calendar-format</a></li>
             
                 <li><a class="ks-menuitem-selectable ks-menuitem" content=io href="/5.0/api/modules/io.html">io</a></li>
             
@@ -434,12 +432,17 @@
                     <div class="apidocs">
                         <div id="docs-main">
                             <div class="content">
-                                <h1 id="date_format">date/format Module</h1>
-<div class="box clearfix meta">
+                                <h1>GregorianCalendarFormat Class</h1>
+<div class="box meta">
     
 
     
 
+    
+        
+            Module: <a href="../modules/gregorian-calendar-format.html">gregorian-calendar-format</a>
+        
+    
 
     
 </div>
@@ -447,29 +450,1126 @@
 
 
 <div class="box intro">
-    
+    <p>根据传入参数，创建对应的 DateTimeFormat 对象</p>
+
 </div>
 
 
+    <div class="constructor">
+        <h2>Constructor</h2>
+        <div id="method_GregorianCalendarFormat" class="method item">
+    <h3 class="name"><code>GregorianCalendarFormat</code></h3>
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
             
-                <li class="module-class">
-                    <a href="../classes/Date.Format.html">
-                        Date.Format
-                    </a>
+                <li class="arg">
+                    
+                        <code>pattern</code>
+                    
                 </li>
             
-            </ul>
+                <li class="arg">
+                    
+                        <code>locale</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>timeZoneOffset</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
         
     </div>
 
-    <div class="yui3-u-1-2">
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">pattern</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时间模式（具体写法参见下面的表格）
+<img src="/5.0/api/assets/img/project-img/date-format.jpg" alt=""></p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">locale</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时区</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">timeZoneOffset</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时区时间偏移</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+    </div>
+
+
+<div id="classdocs" class="ks-tabs ks-tabs-top">
+    <ul class="ks-tabs-bar showmsgdetail">
+        <li class="ks-tabs-tab ks-button ks-tabs-tab-selected index">Index</li>
+
+        
+            <li class="ks-tabs-tab ks-button methods">Methods</li>
+        
+        
+        
+            <li class="ks-tabs-tab ks-button attrs">Attributes</li>
+        
+        
+    </ul>
+
+    <div class="ks-tabs-body">
+        <div id="index" class="ks-tabs-panel ks-tabs-panel-selected index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_format">format</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_getDateInstance">getDateInstance</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_getDateTimeInstance">getDateTimeInstance</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_getInstance">getInstance</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_getTimeInstance">getTimeInstance</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_parse">parse</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs">
+                        
+                            <li class="index-item attr" inwhichtab="attrs">
+                                <a href="#attr_Style">Style</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="ks-tabs-panel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method_format" class="method item">
+    <h3 class="name"><code>format</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>calender</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>格式化传入的日历中的时间</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">calender</code>
+                        <span class="type"><a href="../classes/GregorianCalendar.html" class="crosslink">GregorianCalendar</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要格式化时间的公历对象</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>//GregorianCalendar是另一个Class
+var gregorianCalendar = new GregorianCalendar();
+gregorianCalendar.setTime(new Date());
+var df = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.FULL);
+df.format(gregorianCalendar);  //例如现在的：2014年8月14日 星期四 下午05时23分36秒 GMT+0800
+
+var df2 = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.SHORT);
+df2.format(gregorianCalendar); //例如现在的：2014年8月14日 星期四 下午5:23
+
+var df3 = DateTimeFormat.getDateInstance(Style.FULL);
+df3.format(gregorianCalendar); //例如现在的：2014年8月14日 星期四</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_getDateInstance" class="method item">
+    <h3 class="name"><code>getDateInstance</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>dateStyle</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>locale</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>timeZoneOffset</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>获取当前日期在给定区域和时差及格式下的 DateTimeFormat 对象</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">dateStyle</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>日期格式,枚举型 DateTimeFormat.Style</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">locale</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时区</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">timeZoneOffset</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时区时间偏移</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getDateTimeInstance" class="method item">
+    <h3 class="name"><code>getDateTimeInstance</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>dateStyle</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>timeStyle</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>locale</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>timeZoneOffset</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>获取当前日期和时间在给定区域和时差及格式下的DateTimeFormat对象</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">dateStyle</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>日期格式,枚举型 DateTimeFormat.Style</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">timeStyle</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时间格式，枚举型 DateTimeFormat.Style</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">locale</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时区</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">timeZoneOffset</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时区时间偏移</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getInstance" class="method item">
+    <h3 class="name"><code>getInstance</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>locale</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>timeZoneOffset</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>获取当前日期和时间在给定区域和时差下的默认格式化的 DateTimeFormat 对象</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">locale</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时区</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">timeZoneOffset</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时区时间偏移</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>//相当于
+getDateTimeInstance(DateTimeStyle.SHORT, DateTimeStyle.SHORT, locale, timeZoneOffset)
+format后得到的字符串形如： 14-8-14 下午5:44</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_getTimeInstance" class="method item">
+    <h3 class="name"><code>getTimeInstance</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>timeStyle</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>locale</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>timeZoneOffset</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>获取当前时间在给定区域和时差及格式下的DateTimeFormat对象</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">timeStyle</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时间格式，枚举型 DateTimeFormat.Style</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">locale</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时区</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">timeZoneOffset</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>时区时间偏移</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_parse" class="method item">
+    <h3 class="name"><code>parse</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>dateStr</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/GregorianCalendar.html" class="crosslink">GregorianCalendar</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>解析时间字符串，转换成对应的公历对象</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">dateStr</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要解析的时间字符串</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="../classes/GregorianCalendar.html" class="crosslink">GregorianCalendar</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var df = DateTimeFormat.getDateTimeInstance(Style.FULL, Style.FULL);
+var str = &#39;2013年7月11日 星期四 下午12时31分19秒 GMT+0800&#39;;
+var cal = df.parse(str);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+            <div id="attrs" class="ks-tabs-panel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr_Style" class="attr item">
+    <a name="config_Style"></a> 
+    <h3 class="name"><code>Style</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>日期时间格式对象，形式如下：</p>
+<p>Style.FULL: yyyy年M月d日 EEEE ahh时mm分ss秒 GMTZ</p>
+<p>Style.LONG: yyyy年M月d日 ahh时mm分ss秒</p>
+<p>Style.MEDIUM: yyyy-M-d H:mm:ss    </p>
+<p>Style.SHORT: yy-M-d ah:mm</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
         
     </div>
 </div>
