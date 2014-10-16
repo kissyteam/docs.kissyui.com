@@ -144,8 +144,8 @@ KISSY 支持标准的[ARIA](http://www.w3.org/TR/wai-aria/)。即 KISSY 可以�
 	<div class='a b' id='a'></div>
 	<div class='a b' id='b'></div>
 	<script>
-		KISSY.use('node',function(S,Node){
-			Node.all(".a").equals(KISSY.all(".b")) // => true
+		require(['node'],function(Node){
+			Node.all(".a").equals(Node.all(".b")) // => true
 		})
 	</script>
 
@@ -241,7 +241,7 @@ KISSY 支持标准的[ARIA](http://www.w3.org/TR/wai-aria/)。即 KISSY 可以�
 	  <div class="inner">Goodbye</div>
 	</div>
 	<script>
-	KISSY.use("node",function(S,Node){
+	require(["node"],function(Node){
 		Node.all('.inner').append('<p>Test</p>');
 	});
 	</script>
@@ -417,7 +417,7 @@ KISSY 支持标准的[ARIA](http://www.w3.org/TR/wai-aria/)。即 KISSY 可以�
 
 对于Node集合过滤出符合条件的节点，返回Node集合
 
-	KISSY.use('node',function(S,Node)){
+	require(['node'],function(Node)){
 		var els = Node.all('a').filter('.container');
 		// 过滤出className为container的a标签
 	});

@@ -184,8 +184,8 @@ Node.<span class="hljs-constant">one</span>(<span class="hljs-string">"body"</sp
 <pre><code><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'a b'</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">'a'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">'a b'</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">'b'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
-    KISSY.use(<span class="hljs-string">'node'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Node)</span></span>{
-        Node.all(<span class="hljs-string">".a"</span>).equals(KISSY.all(<span class="hljs-string">".b"</span>)) <span class="hljs-comment">// =&gt; true</span>
+    <span class="hljs-built_in">require</span>([<span class="hljs-string">'node'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Node)</span></span>{
+        Node.all(<span class="hljs-string">".a"</span>).equals(Node.all(<span class="hljs-string">".b"</span>)) <span class="hljs-comment">// =&gt; true</span>
     })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre><h3 id="add()">add()</h3><p>将多个Node对象合并为一个集合返回，原有对象不会变化，参数和all保持一致</p>
@@ -239,7 +239,7 @@ Node<span class="hljs-built_in">.</span><span class="hljs-literal">all</span>(<s
       <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Goodbye<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
-    KISSY.use(<span class="hljs-string">"node"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Node)</span></span>{
+    <span class="hljs-built_in">require</span>([<span class="hljs-string">"node"</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Node)</span></span>{
         Node.all(<span class="hljs-string">'.inner'</span>).append(<span class="hljs-string">'&lt;p&gt;Test&lt;/p&gt;'</span>);
     });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
@@ -325,7 +325,7 @@ node.toggle(<span class="hljs-number">0.5</span>,<span class="hljs-function"><sp
 <h3 id="slideUp()">slideUp()</h3><p>当前节点从下到上活动显示，参数同fadeIn()</p>
 <h3 id="slideToggle()">slideToggle()</h3><p>当前节点上下滑动切换显示状态，参数同fadeIn()</p>
 <h3 id="filter()">filter()</h3><p>对于Node集合过滤出符合条件的节点，返回Node集合</p>
-<pre><code>KISSY.<span class="hljs-keyword">use</span>(<span class="hljs-string">'node'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(S,Node)</span>)</span>{
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'node'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Node)</span>)</span>{
     <span class="hljs-keyword">var</span> els = Node.all(<span class="hljs-string">'a'</span>).filter(<span class="hljs-string">'.container'</span>);
     <span class="hljs-comment">// 过滤出className为container的a标签</span>
 });
