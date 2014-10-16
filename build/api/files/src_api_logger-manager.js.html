@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>dd/plugin/proxy - API Documentation — KISSY v5.0 Documentation</title>
+    <title>src/api/logger-manager.js - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/base.css">
     <link rel="stylesheet" href="/5.0/assets/css/main.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -436,44 +436,110 @@
                     <div class="apidocs">
                         <div id="docs-main">
                             <div class="content">
-                                <h1 id="dd_plugin_proxy">dd/plugin/proxy Module</h1>
-<div class="box clearfix meta">
+                                <h1 class="file-heading">File: src/api/logger-manager.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+@module logger-manager
+*/
+
+/**
+控制台log输出
+
+示例1：
     
+    require([&#x27;logger-manager&#x27;], function(LoggerManager){
+        LoggerManager.log(&#x27;hello&#x27;, &#x27;warn&#x27;)
+    });
 
+示例2：
     
+    require([&#x27;logger-manager&#x27;], function(LoggerManager){
+        LoggerManager.config({
+            includes: [
+                {
+                    logger: /^KISSY/,
+                    minLevel : &#x27;info&#x27;,
+                    maxLevel : &#x27;warn&#x27;
+                }
+            ],
+            excludes: [
+                {
+                    logger: /^modulex/, //以xx/开头的不显示
+                    maxLevel: &#x27;info&#x27; //不显示 info 及 info 以下的 log
+                }
+            ]
+        })
+        var KissyLogger = LoggerManager.getLogger(&#x27;KISSY&#x27;);
+        KissyLogger.debug(&#x27;hello KISSY&#x27;);  //不会输出，因为配置了 minLevel : &#x27;info&#x27;
+        KissyLogger.info(&#x27;KISSY info&#x27;);  //输出  KISSY: KISSY info
+        KissyLogger.warn(&#x27;KISSY warn&#x27;);  //输出 KISSY: KISSY warn
+        KissyLogger.error(&#x27;KISSY error&#x27;);  //不会输出，因为配置了 maxLevel : &#x27;warn&#x27;
 
+        var ModulexLogger = LoggerManager.getLogger(&#x27;modulex&#x27;);  
+        ModulexLogger.debug(&#x27;hello modulex&#x27;);  // 不会输出
+    });
 
+@class LoggerManager
+@static
+*/
+
+/**
+* 生成一个log示例，将 str 作为输出的 log 的前缀。这个log示例有 .debug .info .warn .error 方法，通过这些方法来输出log。
+* @method getLogger
+* @static
+* @param str {String}  log 的前缀
+* @return {Object} logger对象
+* @example
+*   &#x60;&#x60;&#x60;
+var logger = KISSY.getLogger(&#x27;KISSY&#x27;);
+logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;
+*   &#x60;&#x60;&#x60;
+* __Note__
+* 可以在配置中设置logger的级别，以及是否显示，logger级别从低到高顺序是：debug &lt; info &lt; warn &lt; error
+
+当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先。 includes 和 excludes 配置类型为 Array ，每个配置对象配置项有maxLevel,minLevel,logger，注意他们是 &quot;与&quot; 的逻辑关系。
+* &#x60;&#x60;&#x60;
+LoggerManager.config({
+    includes: [
+        {
+            logger: /^xx\//
+        }
+    ],
+    excludes: [
+        {
+            logger: /^xx\//， //以xx/开头的不显示
+            maxLevel: &#x27;info&#x27; //不显示 info 及 info 以下的 log
+        }
+    ]
+});
+*   &#x60;&#x60;&#x60;
+*/
+
+/**
+增加log配置，控制输出。
+@method config
+@param cfg {Object} 配置对象
+@param cfg.includes {Array} 哪些logger会输出，包括属性 logger , minLevel , maxLevel
+@param cfg.excludes {Array} 哪些logger被排除输出，包括属性 logger , minLevel , maxLevel
+@example
     
-</div>
-
-
-
-<div class="box intro">
-    
-</div>
-
-
-
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/DD.Plugin.Proxy.html">
-                        DD.Plugin.Proxy
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+    LoggerManager.config({
+        includes: [
+            {
+                logger: /^xx\//
+            }
+        ],
+        excludes: [
+            {
+                logger: /^xx\//， //以xx/开头的不显示
+                maxLevel: &#x27;info&#x27; //不显示 info 及 info 以下的 log
+            }
+        ]
+    });
+*/
+    </pre>
 </div>
 
                             </div>

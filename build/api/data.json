@@ -546,6 +546,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/api/logger-manager.js": {
+            "name": "src/api/logger-manager.js",
+            "modules": {
+                "logger-manager": 1
+            },
+            "classes": {
+                "LoggerManager": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/api/menu.js": {
             "name": "src/api/menu.js",
             "modules": {
@@ -1411,6 +1422,18 @@
             "namespaces": {},
             "tag": "module",
             "file": "src/api/json.js",
+            "line": 5
+        },
+        "logger-manager": {
+            "name": "logger-manager",
+            "submodules": {},
+            "classes": {
+                "LoggerManager": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/api/logger-manager.js",
             "line": 5
         },
         "menu": {
@@ -2829,6 +2852,21 @@
             "namespace": "",
             "file": "src/api/json.js",
             "line": 5,
+            "static": 1
+        },
+        "LoggerManager": {
+            "name": "LoggerManager",
+            "shortname": "LoggerManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "logger-manager",
+            "namespace": "",
+            "file": "src/api/logger-manager.js",
+            "line": 5,
+            "description": "控制台log输出\n\n示例1：\n    \n    require(['logger-manager'], function(LoggerManager){\n        LoggerManager.log('hello', 'warn')\n    });\n\n示例2：\n    \n    require(['logger-manager'], function(LoggerManager){\n        LoggerManager.config({\n            includes: [\n                {\n                    logger: /^KISSY/,\n                    minLevel : 'info',\n                    maxLevel : 'warn'\n                }\n            ],\n            excludes: [\n                {\n                    logger: /^modulex/, //以xx/开头的不显示\n                    maxLevel: 'info' //不显示 info 及 info 以下的 log\n                }\n            ]\n        })\n        var KissyLogger = LoggerManager.getLogger('KISSY');\n        KissyLogger.debug('hello KISSY');  //不会输出，因为配置了 minLevel : 'info'\n        KissyLogger.info('KISSY info');  //输出  KISSY: KISSY info\n        KissyLogger.warn('KISSY warn');  //输出 KISSY: KISSY warn\n        KissyLogger.error('KISSY error');  //不会输出，因为配置了 maxLevel : 'warn'\n\n        var ModulexLogger = LoggerManager.getLogger('modulex');  \n        ModulexLogger.debug('hello modulex');  // 不会输出\n    });",
             "static": 1
         },
         "Menu": {
@@ -12713,6 +12751,61 @@
             ],
             "class": "Json",
             "module": "json"
+        },
+        {
+            "file": "src/api/logger-manager.js",
+            "line": 46,
+            "description": "生成一个log示例，将 str 作为输出的 log 的前缀。这个log示例有 .debug .info .warn .error 方法，通过这些方法来输出log。",
+            "itemtype": "method",
+            "name": "getLogger",
+            "static": 1,
+            "params": [
+                {
+                    "name": "str",
+                    "description": "log 的前缀",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "logger对象",
+                "type": "Object"
+            },
+            "example": [
+                "\n  ```\nvar logger = KISSY.getLogger('KISSY');\nlogger.debug(\"test\"); // => \"KISSY: test\";\n  ```\n__Note__\n可以在配置中设置logger的级别，以及是否显示，logger级别从低到高顺序是：debug < info < warn < error\n\n当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先。 includes 和 excludes 配置类型为 Array ，每个配置对象配置项有maxLevel,minLevel,logger，注意他们是 \"与\" 的逻辑关系。\n```\nLoggerManager.config({\n   includes: [\n       {\n           logger: /^xx\\//\n       }\n   ],\n   excludes: [\n       {\n           logger: /^xx\\//， //以xx/开头的不显示\n           maxLevel: 'info' //不显示 info 及 info 以下的 log\n       }\n   ]\n});\n  ```"
+            ],
+            "class": "LoggerManager",
+            "module": "logger-manager"
+        },
+        {
+            "file": "src/api/logger-manager.js",
+            "line": 78,
+            "description": "增加log配置，控制输出。",
+            "itemtype": "method",
+            "name": "config",
+            "params": [
+                {
+                    "name": "cfg",
+                    "description": "配置对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "includes",
+                            "description": "哪些logger会输出，包括属性 logger , minLevel , maxLevel",
+                            "type": "Array"
+                        },
+                        {
+                            "name": "excludes",
+                            "description": "哪些logger被排除输出，包括属性 logger , minLevel , maxLevel",
+                            "type": "Array"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n    \n    LoggerManager.config({\n        includes: [\n            {\n                logger: /^xx\\//\n            }\n        ],\n        excludes: [\n            {\n                logger: /^xx\\//， //以xx/开头的不显示\n                maxLevel: 'info' //不显示 info 及 info 以下的 log\n            }\n        ]\n    });"
+            ],
+            "class": "LoggerManager",
+            "module": "logger-manager"
         },
         {
             "file": "src/api/menu.js",

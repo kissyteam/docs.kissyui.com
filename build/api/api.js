@@ -47,6 +47,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "GregorianCalendarFormat",
         "IO",
         "Json",
+        "LoggerManager",
         "Menu",
         "Menu.CheckItem",
         "Menu.Item",
@@ -129,6 +130,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "gregorian-calendar-format",
         "io",
         "json",
+        "logger-manager",
         "menu",
         "menubutton",
         "modulex",
@@ -336,6 +338,10 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "json",
             "name": "json"
+        },
+        {
+            "displayName": "logger-manager",
+            "name": "logger-manager"
         },
         {
             "displayName": "menu",

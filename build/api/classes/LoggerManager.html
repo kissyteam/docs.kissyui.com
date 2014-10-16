@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>dd/plugin/proxy - API Documentation — KISSY v5.0 Documentation</title>
+    <title>LoggerManager - API Documentation — KISSY v5.0 Documentation</title>
     <link rel="stylesheet" href="/5.0/assets/css/base.css">
     <link rel="stylesheet" href="/5.0/assets/css/main.css">
     <link rel="stylesheet" href="/5.0/assets/css/component.css">
@@ -436,12 +436,17 @@
                     <div class="apidocs">
                         <div id="docs-main">
                             <div class="content">
-                                <h1 id="dd_plugin_proxy">dd/plugin/proxy Module</h1>
-<div class="box clearfix meta">
+                                <h1>LoggerManager Class</h1>
+<div class="box meta">
     
 
     
 
+    
+        
+            Module: <a href="../modules/logger-manager.html">logger-manager</a>
+        
+    
 
     
 </div>
@@ -449,29 +454,368 @@
 
 
 <div class="box intro">
-    
+    <p>控制台log输出</p>
+<p>示例1：</p>
+<pre class="code prettyprint"><code>require([&#39;logger-manager&#39;], function(LoggerManager){
+    LoggerManager.log(&#39;hello&#39;, &#39;warn&#39;)
+});</code></pre>
+<p>示例2：</p>
+<pre class="code prettyprint"><code>require([&#39;logger-manager&#39;], function(LoggerManager){
+    LoggerManager.config({
+        includes: [
+            {
+                logger: /^KISSY/,
+                minLevel : &#39;info&#39;,
+                maxLevel : &#39;warn&#39;
+            }
+        ],
+        excludes: [
+            {
+                logger: /^modulex/, //以xx/开头的不显示
+                maxLevel: &#39;info&#39; //不显示 info 及 info 以下的 log
+            }
+        ]
+    })
+    var KissyLogger = LoggerManager.getLogger(&#39;KISSY&#39;);
+    KissyLogger.debug(&#39;hello KISSY&#39;);  //不会输出，因为配置了 minLevel : &#39;info&#39;
+    KissyLogger.info(&#39;KISSY info&#39;);  //输出  KISSY: KISSY info
+    KissyLogger.warn(&#39;KISSY warn&#39;);  //输出 KISSY: KISSY warn
+    KissyLogger.error(&#39;KISSY error&#39;);  //不会输出，因为配置了 maxLevel : &#39;warn&#39;
+
+    var ModulexLogger = LoggerManager.getLogger(&#39;modulex&#39;);  
+    ModulexLogger.debug(&#39;hello modulex&#39;);  // 不会输出
+});</code></pre>
+
 </div>
 
 
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
+<div id="classdocs" class="ks-tabs ks-tabs-top">
+    <ul class="ks-tabs-bar showmsgdetail">
+        <li class="ks-tabs-tab ks-button ks-tabs-tab-selected index">Index</li>
 
-            <ul class="module-classes">
+        
+            <li class="ks-tabs-tab ks-button methods">Methods</li>
+        
+        
+        
+        
+    </ul>
+
+    <div class="ks-tabs-body">
+        <div id="index" class="ks-tabs-panel ks-tabs-panel-selected index">
+            <h2 class="off-left">Item Index</h2>
+
             
-                <li class="module-class">
-                    <a href="../classes/DD.Plugin.Proxy.html">
-                        DD.Plugin.Proxy
-                    </a>
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_config">config</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method" inwhichtab="methods">
+                                <a href="#method_getLogger">getLogger</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="ks-tabs-panel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method_config" class="method item">
+    <h3 class="name"><code>config</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>cfg</code>
+                    
                 </li>
             
-            </ul>
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
         
     </div>
 
-    <div class="yui3-u-1-2">
+    <div class="description">
+        <p>增加log配置，控制输出。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">cfg</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>配置对象</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">includes</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>哪些logger会输出，包括属性 logger , minLevel , maxLevel</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">excludes</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+                                
+
+                                <div class="param-description">
+                                    <p>哪些logger被排除输出，包括属性 logger , minLevel , maxLevel</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>LoggerManager.config({
+    includes: [
+        {
+            logger: /^xx\//
+        }
+    ],
+    excludes: [
+        {
+            logger: /^xx\//， //以xx/开头的不显示
+            maxLevel: &#39;info&#39; //不显示 info 及 info 以下的 log
+        }
+    ]
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_getLogger" class="method item">
+    <h3 class="name"><code>getLogger</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>str</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+            
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>生成一个log示例，将 str 作为输出的 log 的前缀。这个log示例有 .debug .info .warn .error 方法，通过这些方法来输出log。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">str</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>log 的前缀</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    
+                    <p>logger对象</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var logger = KISSY.getLogger(&#39;KISSY&#39;);
+logger.debug(&quot;test&quot;); // =&gt; &quot;KISSY: test&quot;;</code></pre>
+<p><strong>Note</strong>
+可以在配置中设置logger的级别，以及是否显示，logger级别从低到高顺序是：debug &lt; info &lt; warn &lt; error</p>
+<p>当一个 logger 同时被设置 includes 和 excludes 的时候，includes 优先。 includes 和 excludes 配置类型为 Array ，每个配置对象配置项有maxLevel,minLevel,logger，注意他们是 &quot;与&quot; 的逻辑关系。</p>
+<pre class="code prettyprint"><code>LoggerManager.config({
+   includes: [
+       {
+           logger: /^xx\//
+       }
+   ],
+   excludes: [
+       {
+           logger: /^xx\//， //以xx/开头的不显示
+           maxLevel: &#39;info&#39; //不显示 info 及 info 以下的 log
+       }
+   ]
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+
         
     </div>
 </div>
