@@ -4,7 +4,7 @@
 */
 
 /**
-* modulex 是新一代的模块加载器，可独立使用。
+* modulex 是新一代的模块加载器，可单独使用。
 * 实际上，KISSY的种子文件 seed.js 是由 modulex + feature + ua + meta 四个部分组成的。seed.js是KISSY的种子文件，引用它则可以方便使用KISSY提供的各种模块，如 anim , dom , event-dom 等。而 modulex 是一个模块加载器，如果你只是需要模块加载功能，也可以直接使用 modulex。更多信息可以查看 [modulex on github](https://github.com/kissyteam/modulex)。modulex 始终作为一个全局对象存在页面的生命周期。
 * @Class Modulex
 * @static

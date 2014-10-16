@@ -90,18 +90,18 @@
 							<p><a href="../../guides/modulex/import-style.html">importStyle的使用</a></p><p><a href="../../guides/modulex/index.html">modulex 基本介绍</a></p>
 						</div>
 					</div>
-					<div class="panel panel-primary ajax-load hide">
+					<div class="panel panel-primary ajax-load ">
 						<div class="panel-heading">
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							
+							<p><a href="../../demos/modulex/index.html">modulex简单使用</a></p>
 						</div>
 					</div>
 				</div>
 				<div id="main-content">
 					<p></p>
-<h1 id="modulex 基本介绍">modulex 基本介绍</h1><p>modulex 是新一代的模块加载器，可独立使用。实际上，KISSY的种子文件 seed.js 是由 modulex + feature + ua + meta 四个部分组成的。seed.js是KISSY的种子文件，引用它则可以方便使用KISSY提供的各种模块，如 anim , dom , event-dom 等。而 modulex 是一个模块加载器，如果你只是需要模块加载功能，也可以直接使用 modulex。更多信息可以查看 <a href="https://github.com/kissyteam/modulex">modulex on github</a>。modulex 始终作为一个全局对象存在页面的生命周期。</p>
+<h1 id="modulex 基本介绍">modulex 基本介绍</h1><p>modulex 是新一代的模块加载器，可单独使用。实际上，KISSY的种子文件 seed.js 是由 modulex + feature + ua + meta 四个部分组成的。如果选择使用KISSY，引入了seed.js则不再需要额外引入modulex。seed.js是KISSY的种子文件，引用它则可以方便使用KISSY提供的各种模块，如 anim , dom , event-dom 等。而 modulex 是一个模块加载器，如果你只是需要模块加载功能，也可以直接单独使用 modulex。更多信息可以查看 <a href="https://github.com/kissyteam/modulex">modulex on github</a>。modulex 始终作为一个全局对象存在页面的生命周期。</p>
 <h2 id="使用方法">使用方法</h2><h3 id="注册模块">注册模块</h3><h3 id="<code>define</code>"><code>define</code></h3><p>define 函数可用 commonjs 规范或 amd 规范来使用。如下：</p>
 <h4 id="commonjs规范写法">commonjs规范写法</h4><h3 id="<code>define([name], [deps], factory)</code>"><code>define([name], [deps], factory)</code></h3><ul>
 <li>name {String} 模块名称，可选</li>
