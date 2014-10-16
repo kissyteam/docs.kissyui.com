@@ -9,10 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="/{{{version}}}/assets/css/main.css">
 	<link rel="stylesheet" type="text/css" href="/{{{version}}}/assets/css/github.css"/>
 	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/edge/2014.07.16/seed.js" data-config="{combine:true}"></script>
-	<script type="text/javascript" src="/{{{version}}}/assets/js/ace-editor/ace.js"></script>
-	<script type="text/javascript" src="/{{{version}}}/assets/js/qrcodejs/qrcode.min.js"></script>
-	<script type="text/javascript" src="/{{{version}}}/assets/js/ajax-load.js"></script>
-
 	<link rel="stylesheet" href="/{{{version}}}/assets/css/component.css">
 </head>
 <body>
@@ -53,6 +49,9 @@
 	<div class="footer">
 		{{{include ("../../layouts/other-footer")}}}
 	</div>
+	<script type="text/javascript" src="/{{{version}}}/assets/js/ace-editor/ace.js"></script>
+	<script type="text/javascript" src="/{{{version}}}/assets/js/qrcodejs/qrcode.min.js"></script>
+	<script type="text/javascript" src="/{{{version}}}/assets/js/ajax-load.js"></script>
 </body>
 </html>
 
