@@ -2,9 +2,6 @@ body{
   font-size: 14px;
   color: #dcf1ff;
 }
-.main ul {
-  color: #333;
-}
 /*-----------header-------------*/
 
 .header{
@@ -93,7 +90,6 @@ div.gsc-input-box{
 .toolbar li.nav-other a{
   text-decoration: none;
   padding: 22px 13px 10px 13px;
-  height: 18px;
   display: inline-block;
 }
 .nav li a{
@@ -888,6 +884,9 @@ ul.module-classes li a:hover{
 }
 
 /*-------api docs sidebar------------*/
+.main #api-doc ul {
+  color: #333;
+}
 pre code {
   color: #333;
   font-size: 14px;

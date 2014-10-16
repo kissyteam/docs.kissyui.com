@@ -117,7 +117,7 @@
             <div class="right">
                 <p>KISSY愉悦升级</p>
                 <p>为你带来非一般的体验</p>
-                <a href="http://10.68.98.29/5.0">帮我了解更多</a>
+                <a target="_blank" href="http://10.125.51.131">帮我了解更多</a>
                 <h1>KISSY UP</h1>
             </div>
         </div>

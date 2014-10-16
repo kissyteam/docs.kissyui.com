@@ -7,11 +7,11 @@ KISSY.use('node,tabs,io,util', function(S, Node, Tabs, Io,Util){
 			var iframeWindow = item$.parent('.ks-tabs-body').all('.output')[0].contentWindow;
 			iframeWindow.document.body.innerHTML = '';
 			iframeWindow.document.write(demoHtml);
-
+			console.log('document.write done');
 			var editor = ace.edit(item$[0]);
 			editor.setTheme("ace/theme/github");
 	    	editor.getSession().setMode("ace/mode/html");
-
+	    	console.log('editor init done');
 	    	iframeWindow.editor = editor;
 		});
 
