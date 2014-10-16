@@ -101,9 +101,9 @@
 				</div>
 				<div id="main-content">
 					<p></p>
-<h1 id="Editor基本介绍">Editor基本介绍</h1><p>Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事件。在<a href="http://gallery.kissyui.com/">gallery</a>上拥有多种插件适合在不同场景下使用，如 kg/editor-plugins/1.1.2/font-size,kg/editor-plugins/1.1.2/image 等。更多插件及用法请看 <a href="http://gallery.kissyui.com/editor-plugins/doc/guide/index.html">editor-plugins文档</a>.</p>
-<p>注：KISSY提供了参考样式：基础样式： <code>http://g.tbcdn.cn/kissy/edge/2014.07.16/css/dpl/base.css</code>，
-插件样式：<code>http://g.tbcdn.cn/kg/editor-plugins/1.1.2/assets/editor.css</code>。在使用editor前引入，用户也可以根据需要自定义样式。</p>
+<h1 id="Editor基本介绍">Editor基本介绍</h1><p>Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事件。在<a href="http://gallery.kissyui.com/">gallery</a>上拥有多种插件适合在不同场景下使用，如 kg/editor-plugins/1.1.3/font-size,kg/editor-plugins/1.1.3/image 等。更多插件及用法请看 <a href="http://gallery.kissyui.com/editor-plugins/doc/guide/index.html">editor-plugins文档</a>.</p>
+<p>注：KISSY提供了参考样式：基础样式： <code>http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css</code>，
+插件样式：<code>http://g.tbcdn.cn/kg/editor-plugins/1.1.3/assets/editor.css</code>。在使用editor前引入，用户也可以根据需要自定义样式。</p>
 <h2 id="引用方法">引用方法</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'editor'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Editor)</span></span>{
     <span class="hljs-comment">//use editor</span>
 })
@@ -111,12 +111,12 @@
 <span class="hljs-built_in">require</span>.config({
     packages: [
         {
-            name: <span class="hljs-string">'kg/editor-plugins/1.1.2'</span>,  <span class="hljs-comment">//1.1.2是editor-plugins当前版本号，请选择相应的版本号使用</span>
-            base : <span class="hljs-string">'http://g.tbcdn.cn/kg/editor-plugins/1.1.2'</span>
+            name: <span class="hljs-string">'kg/editor-plugins/1.1.3'</span>,  <span class="hljs-comment">//1.1.3是editor-plugins当前版本号，请选择相应的版本号使用</span>
+            base : <span class="hljs-string">'http://g.tbcdn.cn/kg/editor-plugins/1.1.3'</span>
         }
     ]
 })
-<span class="hljs-built_in">require</span>([<span class="hljs-string">'editor'</span>, <span class="hljs-string">'kg/editor-plugins/1.1.2/font-size'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Editor, FontSize)</span></span>{
+<span class="hljs-built_in">require</span>([<span class="hljs-string">'editor'</span>, <span class="hljs-string">'kg/editor-plugins/1.1.3/font-size'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Editor, FontSize)</span></span>{
     <span class="hljs-keyword">var</span> myEditor = <span class="hljs-keyword">new</span> Editor({
         width : <span class="hljs-string">'80%'</span>,
         height : <span class="hljs-string">'500px'</span>,
