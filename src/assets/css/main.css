@@ -884,8 +884,11 @@ ul.module-classes li a:hover{
 }
 
 /*-------api docs sidebar------------*/
-.main #api-doc ul {
+.main #api-doc .intro ul {
   color: #333;
+}
+.main #api-doc .item ul{
+  color: #fff;
 }
 pre code {
   color: #333;

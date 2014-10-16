@@ -86,9 +86,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Tree.Node",
         "UA",
         "Url",
-        "Util",
-        "XTemplate",
-        "XTemplate.RunTime"
+        "Util"
     ],
     "modules": [
         "anim",
@@ -155,9 +153,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "tree",
         "ua",
         "url",
-        "util",
-        "xtemplate",
-        "xtemplate_runtime"
+        "util"
     ],
     "allModules": [
         {
@@ -452,15 +448,6 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "util",
             "name": "util",
             "description": "util模块，包含类Util"
-        },
-        {
-            "displayName": "xtemplate",
-            "name": "xtemplate",
-            "description": "富逻辑的模板引擎，可独立使用。更多信息请查看[xtemplate on github](https://github.com/kissyteam/xtemplate)\n兼容 mustache"
-        },
-        {
-            "displayName": "xtemplate/runtime",
-            "name": "xtemplate_runtime"
         }
     ]
 } };

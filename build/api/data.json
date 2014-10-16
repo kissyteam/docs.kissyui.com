@@ -309,19 +309,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/api/xtemplate/runtime.js": {
-            "name": "src/api/xtemplate/runtime.js",
-            "modules": {
-                "xtemplate/runtime": 1
-            },
-            "classes": {
-                "XTemplate.RunTime": 1
-            },
-            "fors": {},
-            "namespaces": {
-                "XTemplate": 1
-            }
-        },
         "src/api/anim.js": {
             "name": "src/api/anim.js",
             "modules": {
@@ -800,17 +787,6 @@
             },
             "fors": {},
             "namespaces": {}
-        },
-        "src/api/xtemplate.js": {
-            "name": "src/api/xtemplate.js",
-            "modules": {
-                "xtemplate": 1
-            },
-            "classes": {
-                "XTemplate": 1
-            },
-            "fors": {},
-            "namespaces": {}
         }
     },
     "modules": {
@@ -1154,20 +1130,6 @@
             "tag": "module",
             "file": "src/api/scroll-view/base.js",
             "line": 8
-        },
-        "xtemplate/runtime": {
-            "name": "xtemplate/runtime",
-            "submodules": {},
-            "classes": {
-                "XTemplate.RunTime": 1
-            },
-            "fors": {},
-            "namespaces": {
-                "XTemplate": 1
-            },
-            "tag": "module",
-            "file": "src/api/xtemplate/runtime.js",
-            "line": 5
         },
         "anim": {
             "name": "anim",
@@ -1710,19 +1672,6 @@
             "file": "src/api/util.js",
             "line": 6,
             "description": "util模块，包含类Util"
-        },
-        "xtemplate": {
-            "name": "xtemplate",
-            "submodules": {},
-            "classes": {
-                "XTemplate": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "src/api/xtemplate.js",
-            "line": 7,
-            "description": "富逻辑的模板引擎，可独立使用。更多信息请查看[xtemplate on github](https://github.com/kissyteam/xtemplate)\n兼容 mustache"
         }
     },
     "classes": {
@@ -2233,35 +2182,6 @@
             ],
             "example": [
                 "\n\trequire(['scroll-view'], function(ScrollView){\n        var content = '';\n        for (var i = 0; i < 10; i++) {\n            content += '<p>This is ' + i + ' block</p>';\n        }\n        var myScrollView = new ScrollView({\n            width : 318,\n            height : 300,\n            render : '#scroll-view-contaienr',\n            content : content\n        });\n        myScrollView.render();\n    })"
-            ]
-        },
-        "XTemplate.RunTime": {
-            "name": "XTemplate.RunTime",
-            "shortname": "XTemplate.RunTime",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "xtemplate/runtime",
-            "namespace": "XTemplate",
-            "file": "src/api/xtemplate/runtime.js",
-            "line": 5,
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "tpl",
-                    "description": "编译过的模板函数",
-                    "type": "String|Function"
-                },
-                {
-                    "name": "config",
-                    "description": "",
-                    "type": "Object"
-                }
-            ],
-            "example": [
-                "\n```\nrequire(['xtemplate'],function(XTemplate){\n    // use XTemplate\n});\n\n// 参数只能是离线编译过的模板\nrequire(['xtemplate/runtime'],function(XTemplateRunTime){\n    // use XTemplateRunTime\n});\n```\n### Note\n如果引用的是xtemplate/runtime模块，参数则只能是离线编译过的模板，其他配置和方法一样"
             ]
         },
         "Anim": {
@@ -3688,35 +3608,6 @@
             "line": 6,
             "description": "是underscore风格的工具集，提供一些常用的工具函数",
             "static": 1
-        },
-        "XTemplate": {
-            "name": "XTemplate",
-            "shortname": "XTemplate",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "xtemplate",
-            "namespace": "",
-            "file": "src/api/xtemplate.js",
-            "line": 7,
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "tpl",
-                    "description": "字符串模板或编译过的模板函数",
-                    "type": "String|Function"
-                },
-                {
-                    "name": "config",
-                    "description": "",
-                    "type": "Object"
-                }
-            ],
-            "example": [
-                "\n```\nrequire(['xtemplate'],function(XTemplate){\n    // use XTemplate\n});\n\n// 参数只能是离线编译过的模板\nrequire(['xtemplate/runtime'],function(XTemplate){\n    // use XTemplate\n});\n```\n### Note\n如果引用的是xtemplate/runtime模块，参数则只能是离线编译过的模板"
-            ]
         }
     },
     "classitems": [
@@ -5211,144 +5102,6 @@
             },
             "class": "ScrollView",
             "module": "scroll-view"
-        },
-        {
-            "file": "src/api/xtemplate/runtime.js",
-            "line": 27,
-            "description": "局部自定义命令的键值对，例如\n```\n{\n    'toLowerCase':function( scopes,option ){\n        return option.params[0].toLowerCase();\n    }\n}\n```",
-            "itemtype": "attribute",
-            "name": "command",
-            "type": "Object",
-            "class": "XTemplate.RunTime",
-            "module": "xtemplate/runtime",
-            "namespace": "XTemplate"
-        },
-        {
-            "file": "src/api/xtemplate/runtime.js",
-            "line": 39,
-            "description": "模版名称，可在 chrome dev tools 中看到以该值为名称的模板文件代码",
-            "itemtype": "attribute",
-            "name": "name",
-            "type": "String",
-            "class": "XTemplate.RunTime",
-            "module": "xtemplate/runtime",
-            "namespace": "XTemplate"
-        },
-        {
-            "file": "src/api/xtemplate/runtime.js",
-            "line": 44,
-            "description": "{Boolean} 是否缓存生成的模板函数，默认 true",
-            "itemtype": "attribute",
-            "name": "cache",
-            "type": "Boolean",
-            "default": "true",
-            "class": "XTemplate.RunTime",
-            "module": "xtemplate/runtime",
-            "namespace": "XTemplate"
-        },
-        {
-            "file": "src/api/xtemplate/runtime.js",
-            "line": 51,
-            "description": "删除指定的局部命令",
-            "itemtype": "method",
-            "name": "removeCommand",
-            "params": [
-                {
-                    "name": "commandName",
-                    "description": "命令名称",
-                    "type": "String"
-                }
-            ],
-            "class": "XTemplate.RunTime",
-            "module": "xtemplate/runtime",
-            "namespace": "XTemplate"
-        },
-        {
-            "file": "src/api/xtemplate/runtime.js",
-            "line": 57,
-            "description": "添加局部命令",
-            "itemtype": "method",
-            "name": "addCommand",
-            "params": [
-                {
-                    "name": "commandName",
-                    "description": "命令名称",
-                    "type": "String"
-                },
-                {
-                    "name": "fn",
-                    "description": "命令定义",
-                    "type": "Function"
-                }
-            ],
-            "class": "XTemplate.RunTime",
-            "module": "xtemplate/runtime",
-            "namespace": "XTemplate"
-        },
-        {
-            "file": "src/api/xtemplate/runtime.js",
-            "line": 65,
-            "description": "编译模板",
-            "itemtype": "method",
-            "name": "compile",
-            "params": [
-                {
-                    "name": "subTplName",
-                    "description": "子模板名称",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "编译过的模板函数",
-                "type": "Function"
-            },
-            "class": "XTemplate.RunTime",
-            "module": "xtemplate/runtime",
-            "namespace": "XTemplate"
-        },
-        {
-            "file": "src/api/xtemplate/runtime.js",
-            "line": 72,
-            "description": "渲染数据到模板",
-            "itemtype": "method",
-            "name": "render",
-            "params": [
-                {
-                    "name": "data",
-                    "description": "数据对象",
-                    "type": "Object"
-                }
-            ],
-            "return": {
-                "description": "数据融合模版后的字符串",
-                "type": "String"
-            },
-            "class": "XTemplate.RunTime",
-            "module": "xtemplate/runtime",
-            "namespace": "XTemplate"
-        },
-        {
-            "file": "src/api/xtemplate/runtime.js",
-            "line": 79,
-            "description": "添加全局命令",
-            "itemtype": "method",
-            "name": "addCommand",
-            "static": 1,
-            "params": [
-                {
-                    "name": "commandName",
-                    "description": "命令名称",
-                    "type": "String"
-                },
-                {
-                    "name": "fn",
-                    "description": "命令定义",
-                    "type": "Function"
-                }
-            ],
-            "class": "XTemplate.RunTime",
-            "module": "xtemplate/runtime",
-            "namespace": "XTemplate"
         },
         {
             "file": "src/api/anim.js",
@@ -18039,136 +17792,6 @@
             ],
             "class": "Util",
             "module": "util"
-        },
-        {
-            "file": "src/api/xtemplate.js",
-            "line": 28,
-            "description": "局部自定义命令的键值对，例如\n```\n{\n    'toLowerCase':function( scopes,option ){\n        return option.params[0].toLowerCase();\n    }\n}\n```",
-            "itemtype": "attribute",
-            "name": "command",
-            "type": "Object",
-            "class": "XTemplate",
-            "module": "xtemplate"
-        },
-        {
-            "file": "src/api/xtemplate.js",
-            "line": 40,
-            "description": "模版名称，可在 chrome dev tools 中看到以该值为名称的模板文件代码",
-            "itemtype": "attribute",
-            "name": "name",
-            "type": "String",
-            "class": "XTemplate",
-            "module": "xtemplate"
-        },
-        {
-            "file": "src/api/xtemplate.js",
-            "line": 45,
-            "description": "是否缓存生成的模板函数，默认 true",
-            "itemtype": "attribute",
-            "name": "cache",
-            "type": "Boolean",
-            "default": "true",
-            "class": "XTemplate",
-            "module": "xtemplate"
-        },
-        {
-            "file": "src/api/xtemplate.js",
-            "line": 51,
-            "description": "删除指定的局部命令",
-            "itemtype": "method",
-            "name": "removeCommand",
-            "params": [
-                {
-                    "name": "commandName",
-                    "description": "命令名称",
-                    "type": "String"
-                }
-            ],
-            "class": "XTemplate",
-            "module": "xtemplate"
-        },
-        {
-            "file": "src/api/xtemplate.js",
-            "line": 57,
-            "description": "添加局部命令",
-            "itemtype": "method",
-            "name": "addCommand",
-            "params": [
-                {
-                    "name": "commandName",
-                    "description": "命令名称",
-                    "type": "String"
-                },
-                {
-                    "name": "fn",
-                    "description": "命令定义",
-                    "type": "Function"
-                }
-            ],
-            "class": "XTemplate",
-            "module": "xtemplate"
-        },
-        {
-            "file": "src/api/xtemplate.js",
-            "line": 65,
-            "description": "编译模板",
-            "itemtype": "method",
-            "name": "compile",
-            "params": [
-                {
-                    "name": "subTplName",
-                    "description": "子模板名称",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "编译过的模板函数",
-                "type": "Function"
-            },
-            "class": "XTemplate",
-            "module": "xtemplate"
-        },
-        {
-            "file": "src/api/xtemplate.js",
-            "line": 72,
-            "description": "渲染数据到模板",
-            "itemtype": "method",
-            "name": "render",
-            "params": [
-                {
-                    "name": "data",
-                    "description": "数据对象",
-                    "type": "Object"
-                }
-            ],
-            "return": {
-                "description": "数据融合模版后的字符串",
-                "type": "String"
-            },
-            "class": "XTemplate",
-            "module": "xtemplate"
-        },
-        {
-            "file": "src/api/xtemplate.js",
-            "line": 79,
-            "description": "添加全局命令",
-            "itemtype": "method",
-            "name": "addCommand",
-            "static": 1,
-            "params": [
-                {
-                    "name": "commandName",
-                    "description": "命令名称",
-                    "type": "String"
-                },
-                {
-                    "name": "fn",
-                    "description": "命令定义",
-                    "type": "Function"
-                }
-            ],
-            "class": "XTemplate",
-            "module": "xtemplate"
         }
     ],
     "warnings": []
