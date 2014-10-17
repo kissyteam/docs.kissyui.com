@@ -43,10 +43,7 @@
                     <h4>通过 CDN 使用</h4>
                     <p>
                         <code>
-                            `http://g.alicdn.com/kissy/edge/2014.09.05/seed.js`
-                        </code>
-                        <code>
-                            `https://s.tbcdn.cn/g/kissy/edge/2014.09.05/seed.js`
+                            `//g.alicdn.com/kissy/k/5.0.0/seed.js`
                         </code>
                     </p>
                 </div>

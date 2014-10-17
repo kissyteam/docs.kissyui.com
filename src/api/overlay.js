@@ -3,7 +3,7 @@
 */
 
 /**
-悬浮层。使用前先引入overlay样式`http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/overlay/assets/dpl.css`或利用prefixCls自定义样式。
+悬浮层。使用前先引入overlay样式`//g.alicdn.cn/kissy/k/5.0.0/overlay/assets/dpl.css`或利用prefixCls自定义样式。
 @class Overlay
 @constructor
 @extends Component.Container

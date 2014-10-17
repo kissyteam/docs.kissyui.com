@@ -3,7 +3,7 @@
 
 Editor 继承自内部组件 Control，包含其全部配置,属性,方法,事件。在[gallery](http://gallery.kissyui.com/)上拥有多种插件适合在不同场景下使用，如 kg/editor-plugins/1.1.3/font-size,kg/editor-plugins/1.1.3/image 等。更多插件及用法请看 [editor-plugins文档](http://gallery.kissyui.com/editor-plugins/doc/guide/index.html).
 
-注：KISSY提供了参考样式：基础样式： `http://g.assets.daily.taobao.net/kissy/edge/2014.10.13/css/dpl/base.css`，
+注：KISSY提供了参考样式：基础样式： `//g.alicdn.cn/kissy/k/5.0.0/css/dpl/base.css`，
 插件样式：`http://g.tbcdn.cn/kg/editor-plugins/1.1.3/assets/editor.css`。在使用editor前引入，用户也可以根据需要自定义样式。
 
 ## 引用方法
