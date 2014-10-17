@@ -56,9 +56,9 @@
                         </code>
                     </p>
                 </div>
-             <!--    <div class="download">
-                    <a href="https://github.com/kissyteam/kissy/archive/v5.0.0-alpha.10.zip">下载 KISSY 5.0</a>
-                </div> -->
+                <div class="release">
+                    <a target="_blank" href="https://github.com/kissyteam/kissy/releases/tag/5.0.0">Release Note</a>
+                </div>
             </div>
             <div class="right">
                 <div class="msg">

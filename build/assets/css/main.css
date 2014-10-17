@@ -299,10 +299,10 @@ li.docs:hover ul, li.more:hover ul{
 .main .use .install{
   background: url(../img/2.png) no-repeat;
 }
-.main .use .download{
+.main .use .release{
   background: url(../img/3.png) no-repeat;
 }
-.main .use .download a{
+.main .use .release a{
   color: #3d3d3d;
   font-size: 14px;
 }
