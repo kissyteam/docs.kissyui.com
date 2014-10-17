@@ -7,7 +7,7 @@ Overlay 继承 Component.Container，拓展 Component.Extension.Shim 和 Compone
 
 引用方法：
 
-	//先引入overlay的样式`//g.alicdn.cn/kissy/k/5.0.0/overlay/assets/dpl.css`或利用prefixCls来自定义样式。
+	//先引入overlay的样式`//g.alicdn.com/kissy/k/5.0.0/overlay/assets/dpl.css`或利用prefixCls来自定义样式。
 	require(['overlay'],function(Overlay){
 		// use Overlay
 	});

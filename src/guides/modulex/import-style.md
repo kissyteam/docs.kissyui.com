@@ -6,7 +6,7 @@ ImportStyle是KISSY的模块样式引入工具。 提供页面上使用的组件
 ## 先决条件
 - 头部引入
 ```
-<script src='//g.alicdn.cn/kissy/k/5.0.0/seed.js,import-style-min.js'></script>
+<script src='//g.alicdn.com/kissy/k/5.0.0/seed.js,import-style-min.js'></script>
 ```
 - 页面是基于 KISSY 模块规范开发的，如依赖css，需要显式在requires里声明
 
