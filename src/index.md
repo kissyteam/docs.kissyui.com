@@ -11,7 +11,7 @@
                     版本切换: 
                     <select id="versions" onchange="location.href=document.getElementById('versions').value">
                         <option value="/5.0">v5.0</option>
-                        <option value="http://docs.kissyui.com/">v1.4.x</option>
+                        <option value="http://docs.kissyui.com/index-1.4.html">v1.4.x</option>
                         <option value="http://docs.kissyui.com/index-1.3.html">v1.3</option>
                         <option value="http://docs.kissyui.com/index-1.2.html">v1.2</option>
                         <option value="http://docs.kissyui.com/index-1.1.6.html">v1.16</option>
