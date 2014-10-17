@@ -91,7 +91,7 @@ KISSY 提供 anim 模块，完成 DOM 元素的动画。
 
 创建一个新模块：
 
-	//amd规范
+	//kmd规范，类似amd
 	define(function($, E, A, IO){
 		var opLotto = {
 			init: function(){

@@ -10,7 +10,7 @@ modulex 是新一代的模块加载器，可单独使用。实际上，KISSY的�
 
 ### `define`
 
-define 函数可用 commonjs 规范或 amd 规范来使用。如下：
+define 函数可用 commonjs 规范或 kmd(kissy module defination) 规范来使用，kmd是类似amd的一种模块定义规范。如下：
 
 #### commonjs规范写法
 
@@ -42,7 +42,7 @@ define 函数可用 commonjs 规范或 amd 规范来使用。如下：
 		}
 	});
 
-#### amd规范写法
+#### kmd规范写法，类似amd
 
 ### `define([name], factory, [deps])`
 

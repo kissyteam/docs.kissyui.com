@@ -102,7 +102,7 @@
 				<div id="main-content">
 					<p></p>
 <h1 id="modulex 基本介绍">modulex 基本介绍</h1><p>modulex 是新一代的模块加载器，可单独使用。实际上，KISSY的种子文件 seed.js 是由 modulex + feature + ua + meta 四个部分组成的。如果选择使用KISSY，引入了seed.js则不再需要额外引入modulex。seed.js是KISSY的种子文件，引用它则可以方便使用KISSY提供的各种模块，如 anim , dom , event-dom 等。而 modulex 是一个模块加载器，如果你只是需要模块加载功能，也可以直接单独使用 modulex。更多信息可以查看 <a href="https://github.com/kissyteam/modulex">modulex on github</a>。modulex 始终作为一个全局对象存在页面的生命周期。</p>
-<h2 id="使用方法">使用方法</h2><h3 id="注册模块">注册模块</h3><h3 id="<code>define</code>"><code>define</code></h3><p>define 函数可用 commonjs 规范或 amd 规范来使用。如下：</p>
+<h2 id="使用方法">使用方法</h2><h3 id="注册模块">注册模块</h3><h3 id="<code>define</code>"><code>define</code></h3><p>define 函数可用 commonjs 规范或 kmd(kissy module defination) 规范来使用，kmd是类似amd的一种模块定义规范。如下：</p>
 <h4 id="commonjs规范写法">commonjs规范写法</h4><h3 id="<code>define([name], [deps], factory)</code>"><code>define([name], [deps], factory)</code></h3><ul>
 <li>name {String} 模块名称，可选</li>
 <li>deps {Array} 模块依赖，可选</li>
@@ -125,7 +125,7 @@
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hi, KISSY'</span>);
     }
 });
-</code></pre><h4 id="amd规范写法">amd规范写法</h4><h3 id="<code>define([name], factory, [deps])</code>"><code>define([name], factory, [deps])</code></h3><ul>
+</code></pre><h4 id="kmd规范写法，类似amd">kmd规范写法，类似amd</h4><h3 id="<code>define([name], factory, [deps])</code>"><code>define([name], factory, [deps])</code></h3><ul>
 <li>name {String} 模块名称，可选</li>
 <li>factory {Function|Object|String} 模块的主内容/逻辑。当为函数时，参数依次是模块依赖对象配置的模块接口。函数返回值就是注册的模块接口。</li>
 <li>deps {Object} 模块依赖对象配置</li>
