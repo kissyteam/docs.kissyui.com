@@ -1461,7 +1461,8 @@ http://g.tbcdn.cn/test/??mod1.js,...</code></pre>
             <h4>Example:</h4>
 
             <div class="example-content">
-                <pre class="code prettyprint"><code>require([&#39;depMod1&#39;,&#39;depMod2&#39;],function(DepMod1,DepMod2){
+                <p>示例1：</p>
+<pre class="code prettyprint"><code>require([&#39;depMod1&#39;,&#39;depMod2&#39;],function(DepMod1,DepMod2){
 });
 
 require([&#39;depMod1&#39;,&#39;depMod2&#39;],{
@@ -1471,6 +1472,16 @@ require([&#39;depMod1&#39;,&#39;depMod2&#39;],{
 
    }
 });</code></pre>
+<p>异步引用模块 示例：</p>
+<pre class="code prettyprint"><code>   define(function(require, exports, module){
+       exports.onClick = function(){
+           var modsArr = [&#39;mod/a&#39;, &#39;mod/b&#39;];
+           require(modsArr, function(A, B){
+               //when mod/a , mod/b loaded...
+               //your code here
+           });
+       }
+   });</code></pre>
 <p><strong>Note</strong></p>
 <p>如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 require 即可, 如果模块名以 / 结尾, 则自动加后缀 index , 例如 require([&quot;mods/m1/&quot;]) 相当于 require([&quot;mods/m1/index&quot;]) , 即自动加载 m1 目录下的 index.js</p>
 

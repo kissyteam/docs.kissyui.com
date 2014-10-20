@@ -73,6 +73,20 @@ define 函数可用 commonjs 规范或 kmd(kissy module defination) 规范来使
 		//use Dom , Anim
 	}
 
+### 异步引用模块
+
+示例：
+	
+	define(function(require, exports, module){
+		exports.onClick = function(){
+			var modsArr = ['mod/a', 'mod/b'];
+			require(modsArr, function(A, B){
+				//when mod/a , mod/b loaded...
+				//your code here
+			});
+		}
+	});
+
 ### 让出define/require控制权
 
 ### `modulex.noConflict`

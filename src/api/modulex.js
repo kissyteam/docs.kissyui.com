@@ -249,6 +249,8 @@ http://g.tbcdn.cn/test/??mod1.js,...
 * @param callback.success {Function} 当 modNames 中所有模块加载完毕后执行的函数
 * @param callback.error {Function} 当前 require 失败时调用的函数，参数为失败的模块对象
 * @example
+示例1：
+
 * ```
 require(['depMod1','depMod2'],function(DepMod1,DepMod2){
 });
@@ -261,6 +263,19 @@ require(['depMod1','depMod2'],{
     }
 });
 * ```
+
+异步引用模块 示例：
+    
+        define(function(require, exports, module){
+            exports.onClick = function(){
+                var modsArr = ['mod/a', 'mod/b'];
+                require(modsArr, function(A, B){
+                    //when mod/a , mod/b loaded...
+                    //your code here
+                });
+            }
+        });
+
 * __Note__
 *
 * 如果使用经过配置的包内的模块, 则这些包内模块不需要事先注册, 直接 require 即可, 如果模块名以 / 结尾, 则自动加后缀 index , 例如 require(["mods/m1/"]) 相当于 require(["mods/m1/index"]) , 即自动加载 m1 目录下的 index.js
