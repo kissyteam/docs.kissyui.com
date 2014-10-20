@@ -78,7 +78,7 @@
 						</div>
 						<div class="panel-body">
 							<ul class="outline">
-								<li class="level2"><a href="#使用方法">使用方法</a></li><li class="level3"><a href="#注册模块">注册模块</a></li><li class="level3"><a href="#<code>define</code>"><code>define</code></a></li><li class="level3"><a href="#<code>define([name], [deps], factory)</code>"><code>define([name], [deps], factory)</code></a></li><li class="level3"><a href="#<code>define([name], factory, [deps])</code>"><code>define([name], factory, [deps])</code></a></li><li class="level3"><a href="#引用模块">引用模块</a></li><li class="level3"><a href="#<code>require(name, callback)</code>"><code>require(name, callback)</code></a></li><li class="level3"><a href="#在define中引用模块">在define中引用模块</a></li><li class="level3"><a href="#让出define/require控制权">让出define/require控制权</a></li><li class="level3"><a href="#<code>modulex.noConflict</code>"><code>modulex.noConflict</code></a></li><li class="level3"><a href="#配置">配置</a></li><li class="level3"><a href="#<code>require.config(cfg)</code>"><code>require.config(cfg)</code></a></li><li class="level3"><a href="#<code>require.config(name, value)</code>"><code>require.config(name, value)</code></a></li><li class="level3"><a href="#<code>modulex.getScript(url, config)</code>"><code>modulex.getScript(url, config)</code></a></li>
+								<li class="level2"><a href="#使用方法">使用方法</a></li><li class="level3"><a href="#注册模块">注册模块</a></li><li class="level3"><a href="#<code>define</code>"><code>define</code></a></li><li class="level3"><a href="#<code>define([name], [deps], factory)</code>"><code>define([name], [deps], factory)</code></a></li><li class="level3"><a href="#<code>define([name], factory, [deps])</code>"><code>define([name], factory, [deps])</code></a></li><li class="level3"><a href="#引用模块">引用模块</a></li><li class="level3"><a href="#<code>require(name, callback)</code>"><code>require(name, callback)</code></a></li><li class="level3"><a href="#在define中异步引用模块">在define中异步引用模块</a></li><li class="level3"><a href="#让出define/require控制权">让出define/require控制权</a></li><li class="level3"><a href="#<code>modulex.noConflict</code>"><code>modulex.noConflict</code></a></li><li class="level3"><a href="#配置">配置</a></li><li class="level3"><a href="#<code>require.config(cfg)</code>"><code>require.config(cfg)</code></a></li><li class="level3"><a href="#<code>require.config(name, value)</code>"><code>require.config(name, value)</code></a></li><li class="level3"><a href="#<code>modulex.getScript(url, config)</code>"><code>modulex.getScript(url, config)</code></a></li>
 							</ul>
 						</div>
 					</div>
@@ -146,7 +146,7 @@
 <pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'dom'</span>, <span class="hljs-string">'anim'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Dom, Anim)</span>)</span>{
     <span class="hljs-comment">//use Dom , Anim</span>
 }
-</code></pre><h3 id="在define中引用模块">在define中引用模块</h3><p>示例：</p>
+</code></pre><h3 id="在define中异步引用模块">在define中异步引用模块</h3><p>示例：</p>
 <pre><code>define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span></span>{
     exports.onClick = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
         <span class="hljs-keyword">var</span> modsArr = [<span class="hljs-string">'mod/a'</span>, <span class="hljs-string">'mod/b'</span>];

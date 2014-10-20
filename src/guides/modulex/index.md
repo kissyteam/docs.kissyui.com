@@ -73,7 +73,7 @@ define 函数可用 commonjs 规范或 kmd(kissy module defination) 规范来使
 		//use Dom , Anim
 	}
 
-### 在define中引用模块
+### 在define中异步引用模块
 
 示例：
 	
