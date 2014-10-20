@@ -264,7 +264,7 @@ require(['depMod1','depMod2'],{
 });
 * ```
 
-异步引用模块 示例：
+在define中引用模块 示例：
     
         define(function(require, exports, module){
             exports.onClick = function(){
