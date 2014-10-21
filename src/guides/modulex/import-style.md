@@ -28,6 +28,6 @@ require.config({
   }]
 });
 
-require.importStyle('components/home/index');  //这样会把这个模块依赖的所有css文件加载加来
+modulex.importStyle('components/home/index');  //这样会把这个模块依赖的所有css文件加载加来
 ```
 上面是一淘酒店项目中摘出的ImportStyle使用Demo，可以看出使用方式很简单——提供模块依赖信息、包配置， 最后调用importStyle，传入模块列表即可。
