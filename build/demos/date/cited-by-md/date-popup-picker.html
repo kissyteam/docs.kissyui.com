@@ -15,7 +15,7 @@
 <input type="text" id="date">
 <button id="popup">选择日期</button>
     <script type="text/javascript">
-        require(['node', 'date-picker', 'gregorian-calendar-format','date/picker/assets/dpl.css'], function(Node, DatePicker, GregorianCalendarFormat) {
+        require(['node', 'date-picker', 'gregorian-calendar-format','date-picker/assets/dpl.css'], function(Node, DatePicker, GregorianCalendarFormat) {
             var input = Node.all('#date');
             var dateFormat = GregorianCalendarFormat.getDateInstance(GregorianCalendarFormat.Style.FULL);
             var picker = null;
