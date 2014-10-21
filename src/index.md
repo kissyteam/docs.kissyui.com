@@ -3,8 +3,8 @@
         <div class="content">
             <img src="assets/img/large-logo.png">
             <div>
-                <p>KISSY is a powerful javascript framework for building cross end web application such as <br/>
-                desktop, mobile and pad.</p>
+                <p>KISSY is a powerful javascript framework for building cross end web application <br/>
+                 such as desktop, mobile and pad.</p>
             </div>
             <div class="change-version">
                 <label>

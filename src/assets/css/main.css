@@ -189,7 +189,6 @@ li.docs:hover ul, li.more:hover ul{
   display: inline-block;
   margin-top: 40px;
   padding: 0px 5px;
-  background: #175784;
   color: #fff;
   font-size: 13px;
 }
@@ -215,7 +214,7 @@ li.docs:hover ul, li.more:hover ul{
 .main .index-page .middle-wrap .whatiskissy{
   display: inline-block;
   width: 810px;
-  height: 275px;
+  height: 310px;
   padding: 50px 0px 30px 50px;
   background: #49a0df;
   position: absolute;
@@ -251,7 +250,7 @@ li.docs:hover ul, li.more:hover ul{
 .main .index-page .middle-wrap .use{
   display: inline-block;
   width: 810px;
-  height: 322px;
+  height: 280px;
   background: #ffe4db;
   position: absolute;
   left: 50%;
@@ -514,7 +513,7 @@ li.docs:hover ul, li.more:hover ul{
   color: #dcf1ff;
 }
 .main h4{
-  margin: 22px 0;
+  margin: 10px 0;
   font-size: 14px;
   color: #dcf1ff;
 }
