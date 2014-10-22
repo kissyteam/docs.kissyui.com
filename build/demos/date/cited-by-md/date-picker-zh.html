@@ -9,8 +9,8 @@
         background: #fff;
     }
 </style>
-<link rel="stylesheet" href="//g.alicdn.com/kissy/k/5.0.0/css/base.css">
-<script src="//g.alicdn.com/kissy/k/5.0.0/seed.js"></script>
+<link rel="stylesheet" href="http://g.alicdn.com/kissy/k/5.0.0/css/base.css">
+<script src="http://g.alicdn.com/kissy/k/5.0.0/seed.js"></script>
 </head>
 
 <body>
@@ -26,8 +26,8 @@
             var result = Node.all("#result");
             var picker = new DatePicker({
                 render: "#holder",
-                showClear : false,  // showClear 和 showToday 一定要一起配置成相同的才生效
-                showToday : false
+                showClear : true,  // showClear 和 showToday 一定要一起配置成相同的才生效
+                showToday : true
             }).render();
 
             picker.on('select', function(e) {
@@ -35,7 +35,7 @@
                 if (value) {
                     result.html(gregorianCalendarFormat.getDateInstance(gregorianCalendarFormat.Style.FULL).format(value));
                 } else {
-                    result.html(null);
+                    result.html('no date is selected...');
                 }
             });
         });

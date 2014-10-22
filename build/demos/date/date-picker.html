@@ -111,8 +111,8 @@
         background: #fff;
     }
 &lt;&#x2F;style&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;&#x2F;&#x2F;g.alicdn.com&#x2F;kissy&#x2F;k&#x2F;5.0.0&#x2F;css&#x2F;base.css&quot;&gt;
-&lt;script src=&quot;&#x2F;&#x2F;g.alicdn.com&#x2F;kissy&#x2F;k&#x2F;5.0.0&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http:&#x2F;&#x2F;g.alicdn.com&#x2F;kissy&#x2F;k&#x2F;5.0.0&#x2F;css&#x2F;base.css&quot;&gt;
+&lt;script src=&quot;http:&#x2F;&#x2F;g.alicdn.com&#x2F;kissy&#x2F;k&#x2F;5.0.0&#x2F;seed.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;
@@ -128,8 +128,8 @@
             var result = Node.all(&quot;#result&quot;);
             var picker = new DatePicker({
                 render: &quot;#holder&quot;,
-                showClear : false,  &#x2F;&#x2F; showClear 和 showToday 一定要一起配置成相同的才生效
-                showToday : false
+                showClear : true,  &#x2F;&#x2F; showClear 和 showToday 一定要一起配置成相同的才生效
+                showToday : true
             }).render();
 
             picker.on(&#x27;select&#x27;, function(e) {
@@ -137,7 +137,7 @@
                 if (value) {
                     result.html(gregorianCalendarFormat.getDateInstance(gregorianCalendarFormat.Style.FULL).format(value));
                 } else {
-                    result.html(null);
+                    result.html(&#x27;no date is selected...&#x27;);
                 }
             });
         });
