@@ -1,0 +1,23 @@
+{
+  "name": "docs.kissyui.com",
+  "version": "5.0.0",
+  "homepage": "https://github.com/kissyteam/docs.kissyui.com",
+  "authors": [
+    "秋知 <benfchen.cf@alibaba-inc.com>"
+  ],
+  "description": "document for kissy@5.0.0",
+  "keywords": [
+    "kissy"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "weekeight-combobox" : "weekeight-combobox#issue_1"
+  }
+}

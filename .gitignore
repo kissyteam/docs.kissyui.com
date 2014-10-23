@@ -19,3 +19,4 @@ out/
 node_modules/
 tmp/
 reports/
+bower_components/
