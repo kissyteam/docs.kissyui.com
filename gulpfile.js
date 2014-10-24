@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
 	yargs = require('yargs');
 
-var fs = require('fs'),
+var fs = require('fs-extra'),
 	util = require('./tools/util.js'),
 	buildDocs = require('./tools/builddocs.js'),
 	path = require('path'),
@@ -17,7 +17,13 @@ gulp.task('copyassets',function(){
 	util.exists('./src/assets','./build/assets',util.copy);
 });
 
-gulp.task('buildapi',function(){
+gulp.task('aggregateApiSource',function(cb){
+	var srcDir = path.resolve(__dirname, 'bower_components'),
+		buildDir = path.resolve(__dirname, 'tmpbuild');
+	buildDocs.aggregateApiSource(srcDir, buildDir, cb);
+});
+
+gulp.task('buildapi', ['aggregateApiSource'], function(){
 	//生成api文档
 	var yuidocPath = path.resolve('./node_modules/yuidocjs'),
 		yuidocConfig = JSON.parse(fs.readFileSync(yuidocPath+'/package.json').toString()),

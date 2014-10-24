@@ -1,4 +1,4 @@
-var fs = require('fs'),
+var fs = require('fs-extra'),
 	path = require('path'),
 	marked = require('marked'),
 	highlightJs = require('highlight.js'),
@@ -204,6 +204,20 @@ module.exports.buildDemos = function(srcUrl,config){
 	});
 };
 
+module.exports.aggregateApiSource = function(bowerComponentsDir, buildPath, callback){
+	if(!fs.existsSync(bowerComponentsDir)){
+		console.log(bowerComponentsDir + ' not exists');
+		return;
+	}
+	fs.readdirSync(bowerComponentsDir).forEach(function(modName){
+		var docsPathInMod = path.join(bowerComponentsDir, modName, 'docs');
+		if(!fs.existsSync(docsPathInMod)){
+			return false;
+		}
+		fs.copySync(path.normalize(docsPathInMod), buildPath);
+	});
+	callback();  //回调，通知gulp下一个任务(buildapi)可以开始执行了 。
+}
 
 module.exports.buildOthers = function(srcUrl,config){
 	version = config.version;

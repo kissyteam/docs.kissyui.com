@@ -18,6 +18,8 @@
     "tests"
   ],
   "dependencies": {
-    "weekeight-combobox" : "weekeight-combobox#issue_1"
+    "weekeight-combobox" : "weekeight-combobox#issue_1",
+    "weekeight-component" : "weekeight-component#issue_1",
+    "weekeight-dd" : "weekeight-dd#issue_1"
   }
 }
