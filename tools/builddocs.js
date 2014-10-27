@@ -214,6 +214,7 @@ module.exports.aggregateApiSource = function(bowerComponentsDir, buildPath, call
 		if(!fs.existsSync(docsPathInMod)){
 			return false;
 		}
+		fs.removeSync(buildPath);
 		fs.copySync(path.normalize(docsPathInMod), buildPath);
 	});
 	callback();  //回调，通知gulp下一个任务(buildapi)可以开始执行了 。

@@ -75,7 +75,7 @@ $('div.foo').on("click",function() {
 
 /**
 得到该 Node 对象包含的原生节点数组
-@method getDomNodes
+@method getDOMNodes
 @return {Array<HTMLElement>} 返回该 Node 对象包含的原生节点数组
 @example
 ```
@@ -93,7 +93,7 @@ $('div.foo').on("click",function() {
 
 /**
 得到该 NodeList 对象包含的第一个原生节点
-@method getDomNode
+@method getDOMNode
 @return {Array<HTMLElement>} 返回该 Node 对象包含的第一个原生节点
 */
 

@@ -13375,7 +13375,7 @@
             "line": 76,
             "description": "得到该 Node 对象包含的原生节点数组",
             "itemtype": "method",
-            "name": "getDomNodes",
+            "name": "getDOMNodes",
             "return": {
                 "description": "返回该 Node 对象包含的原生节点数组",
                 "type": "Array<HTMLElement>"
@@ -13391,7 +13391,7 @@
             "line": 94,
             "description": "得到该 NodeList 对象包含的第一个原生节点",
             "itemtype": "method",
-            "name": "getDomNode",
+            "name": "getDOMNode",
             "return": {
                 "description": "返回该 Node 对象包含的第一个原生节点",
                 "type": "Array<HTMLElement>"
