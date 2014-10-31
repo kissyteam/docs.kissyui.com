@@ -137,7 +137,7 @@ KISSY 提供 anim 模块，完成 DOM 元素的动画。
 		//...
 	});
 
-> 包配置相关信息请移步[KISSY模块规范](/5.0/guides/loader/kmd.html)
+> 包配置相关信息请移步[modulex](http://docs.kissyui.com/5.0/guides/modulex/index.html)
 
 ## 7，调用官方组件
 
