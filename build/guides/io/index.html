@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/io/index.html">IO的基本介绍</a></p>
+							<p><a href="..\..\guides\io\index.html">IO的基本介绍</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load ">
@@ -96,7 +96,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/io/index.html">io的基本使用</a></p>
+							<p><a href="..\..\demos\io\index.html">io的基本使用</a></p>
 						</div>
 					</div>
 				</div>
@@ -149,13 +149,13 @@
 <li>crossDomain: {Boolean} - 默认同域请求为 false,不同域间为 true。设置该值为 true，则强制 script 以及 jsonp 请求通过 script 节点发送，用于服务器重定向到其他域脚本的场景.</li>
 <li>data： {String|Object} - 如果为 Object 类型则会通过 param() 格式化为字符串。注意：data 不能为嵌套 object 等复杂类型，例如:</li>
 </ul>
-<pre><code>{<span class="hljs-typedef"><span class="hljs-keyword">data</span>:[<span class="hljs-container">{<span class="hljs-title">x</span>:1}</span>]} // 错误</span>
-{<span class="hljs-typedef"><span class="hljs-keyword">data</span>:[1]} // 正确</span>
+<pre><code>{<span class="hljs-string">data:</span>[{<span class="hljs-string">x:</span><span class="hljs-number">1</span>}]} <span class="hljs-comment">// 错误</span>
+{<span class="hljs-string">data:</span>[<span class="hljs-number">1</span>]} <span class="hljs-comment">// 正确</span>
 </code></pre><ul>
 <li>serializeArray：{Boolean} - 默认 true。表示序列化 data 时是否给数组值对应的键名加 [] ，例如</li>
 </ul>
-<pre><code><span class="hljs-literal">true</span> 时 {x:[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]} <span class="hljs-comment">//=&gt; x[]=1&amp;x[]=2</span>
-<span class="hljs-literal">false</span> 时 {x:[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]} <span class="hljs-comment">//=&gt; x=1&amp;x=2</span>
+<pre><code><span class="hljs-literal">true</span> 时 {<span class="hljs-string">x:</span>[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]} <span class="hljs-comment">//=&gt; x[]=1&amp;x[]=2</span>
+<span class="hljs-literal">false</span> 时 {<span class="hljs-string">x:</span>[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]} <span class="hljs-comment">//=&gt; x=1&amp;x=2</span>
 </code></pre><ul>
 <li>error：{Function} - error (null, textStatus, io) 请求失败时的回调函数.这个函数接受 2 个参数：<ul>
 <li>textStatus 表示错误信息，包括 “timeout” , “error” , “abort” 等</li>
@@ -185,11 +185,11 @@
 <li>type：{String} - 可取值 “get” 或者 “post”.</li>
 <li>xhrFields：{Object} - 设置到原生 xhr 对象的键值对.例如为了在标准浏览器进行跨域请求时携带cookie你可以设置 <a href="https://developer.mozilla.org/en/http_access_control#Requests_with_credentials">withCredentials</a> 为 true。比如下面的代码，这样 x.com 发送请求 y.com 会携带 y.com 的 cookie 信息.</li>
 </ul>
-<pre><code><span class="hljs-tag">new</span> <span class="hljs-tag">IO</span>(<span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">url</span>:<span class="hljs-value"><span class="hljs-string">"http://y.com/ping.php"</span>,
-    xhrFields:{
-        withCredentials: true
-    </span></span></span>}
+<pre><code><span class="hljs-tag">new</span> <span class="hljs-tag">IO</span>({
+    <span class="hljs-attribute">url</span>:<span class="hljs-string">"http://y.com/ping.php"</span>,
+    <span class="hljs-attribute">xhrFields</span>:{
+        <span class="hljs-attribute">withCredentials</span>: true
+    }
 });
 </code></pre><ul>
 <li>xdr：{Object} - 设置跨域的具体方式和细节，包括以下配置    <ul>
@@ -257,20 +257,20 @@ IO.on(<span class="hljs-string">"complete"</span>,<span class="hljs-function"><s
 <li>complete</li>
 </ul>
 <h4 id="example">example</h4><p>载入并执行一段脚本</p>
-<pre><code><span class="hljs-tag">new</span> <span class="hljs-tag">IO</span>(<span class="hljs-rules">{
-   <span class="hljs-rule"><span class="hljs-attribute">type</span>:<span class="hljs-value"> <span class="hljs-string">"GET"</span>,
-   url: <span class="hljs-string">"test.js"</span>,
-   dataType: <span class="hljs-string">"script"</span>
- </span></span></span>});
+<pre><code><span class="hljs-tag">new</span> <span class="hljs-tag">IO</span>({
+   <span class="hljs-attribute">type</span>: <span class="hljs-string">"GET"</span>,
+   <span class="hljs-attribute">url</span>: <span class="hljs-string">"test.js"</span>,
+   <span class="hljs-attribute">dataType</span>: <span class="hljs-string">"script"</span>
+ });
 </code></pre><p>发送数据给服务器，服务器返回后通知用户</p>
-<pre><code><span class="hljs-keyword">new</span> IO({
-   type: <span class="hljs-string">"POST"</span>,
-   url: <span class="hljs-string">"some.php"</span>,
-   data: {
-    x:<span class="hljs-string">'y'</span>
+<pre><code><span class="hljs-tag">new</span> <span class="hljs-tag">IO</span>({
+   <span class="hljs-attribute">type</span>: <span class="hljs-string">"POST"</span>,
+   <span class="hljs-attribute">url</span>: <span class="hljs-string">"some.php"</span>,
+   <span class="hljs-attribute">data</span>: {
+    <span class="hljs-attribute">x</span>:<span class="hljs-string">'y'</span>
    },
-   success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(msg)</span></span>{
-     alert( <span class="hljs-string">"Data Saved: "</span> + msg );
+   <span class="hljs-attribute">success</span>: <span class="hljs-function">function</span>(msg){
+     <span class="hljs-attribute">alert</span>( <span class="hljs-string">"Data Saved: "</span> + msg );
    }
  });
 </code></pre><p>取得最新的 html 并显示</p>
@@ -332,18 +332,18 @@ IO.on(<span class="hljs-string">"complete"</span>,<span class="hljs-function"><s
     <span class="hljs-rule"><span class="hljs-attribute">url</span>:<span class="hljs-value"><span class="hljs-string">'ping.php'</span>
 </span></span></span>});
 </code></pre><p>那么接下来的请求如果没有指定 url 配置，就会使用 ping.php</p>
-<pre><code><span class="hljs-function">IO</span>({
+<pre><code><span class="hljs-tag">IO</span>({
     <span class="hljs-comment">// url 没设置，就为 ping.php</span>
-    data <span class="hljs-value">: {name:<span class="hljs-string">'dan'</span>}
-});</span>
+    <span class="hljs-tag">data</span> : {<span class="hljs-attribute">name</span>:<span class="hljs-string">'dan'</span>}
+});
 </code></pre><h4 id="example">example</h4><p>设置默认的请求地址为 <code>/xmlhttp/</code> ，并使用 POST 方式。那么接下来的请求都会往<code>/xmlhttp/</code> 发送请求.</p>
-<pre><code><span class="hljs-tag">IO</span><span class="hljs-class">.setupConfig</span>(<span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">url</span>:<span class="hljs-value"><span class="hljs-string">'/xmlhttp/'</span>,
-    type:<span class="hljs-string">'post'</span>
-</span></span></span>});
+<pre><code><span class="hljs-tag">IO</span><span class="hljs-class">.setupConfig</span>({
+    <span class="hljs-attribute">url</span>:<span class="hljs-string">'/xmlhttp/'</span>,
+    <span class="hljs-attribute">type</span>:<span class="hljs-string">'post'</span>
+});
 
-<span class="hljs-tag">IO</span>(<span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">data</span>:<span class="hljs-value">{x:<span class="hljs-string">'mydata'</span></span></span></span>}
+<span class="hljs-tag">IO</span>({
+    <span class="hljs-tag">data</span>:{<span class="hljs-attribute">x</span>:<span class="hljs-string">'mydata'</span>}
 });
 </code></pre><h3 id="get() <code>&lt;static&gt;</code>">get() <code>&lt;static&gt;</code></h3><p><code>get ( url , [ data , callback , dataType ] ) =&gt; XHR</code></p>
 <p>发送 http get 请求</p>
@@ -421,12 +421,12 @@ IO.on(<span class="hljs-string">"complete"</span>,<span class="hljs-function"><s
 <p>post 请求从来不会被缓存，因此 io.cfg.cache 配置可以不用配置.</p>
 </blockquote>
 <h4 id="example">example</h4><p>请求页面 test.php , 但是忽略返回结果</p>
-<pre><code>IO.post(<span class="hljs-string">"test.php"</span>);
+<pre><code><span class="hljs-attribute">IO</span>.<span class="hljs-function">post</span>(<span class="hljs-string">"test.php"</span>);
 </code></pre><p>请求页面 test.php , 并附带一些参数传递给后端</p>
-<pre><code><span class="hljs-tag">IO</span><span class="hljs-class">.post</span>("<span class="hljs-tag">test</span><span class="hljs-class">.php</span>",<span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">name</span>:<span class="hljs-value"><span class="hljs-string">"john"</span>.
-    time:<span class="hljs-string">"2pm"</span>
-</span></span></span>});
+<pre><code><span class="hljs-attribute">IO</span>.<span class="hljs-function">post</span>(<span class="hljs-string">"test.php"</span>,{
+    <span class="hljs-attribute">name</span>:<span class="hljs-string">"john"</span>.
+    <span class="hljs-attribute">time</span>:<span class="hljs-string">"2pm"</span>
+});
 </code></pre><p>alert 请求成功后返回的结果，数据类型由响应的 content-type 决定</p>
 <pre><code>IO.post(<span class="hljs-string">"test.php"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(d)</span></span>{
     alert(d);

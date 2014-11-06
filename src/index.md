@@ -43,7 +43,7 @@
                     <h4>通过 CDN 使用</h4>
                     <p>
                         <code>
-                            `//g.alicdn.com/kissy/k/5.0.0/seed.js`
+                            `//g.alicdn.com/kissy/k/5.0.1/seed.js`
                         </code>
                     </p>
                 </div>
@@ -52,12 +52,12 @@
                     <p>
                         npm 安装 KISSY :
                         <code>
-                            npm install kissy@5.0.0
+                            npm install kissy@5.0.1
                         </code>
                     </p>
                 </div>
                 <div class="release">
-                    <a target="_blank" href="https://github.com/kissyteam/kissy/releases/tag/5.0.0">Release Note</a>
+                    <a target="_blank" href="https://github.com/kissyteam/kissy/releases/tag/5.0.1">Release Note</a>
                 </div>
             </div>
             <div class="right">

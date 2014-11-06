@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/node/index.html">Node的基本介绍</a></p>
+							<p><a href="..\..\guides\node\index.html">Node的基本介绍</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load hide">
@@ -129,7 +129,7 @@
     .html(<span class="hljs-string">'&lt;p&gt;&lt;/p&gt;'</span>)
     .on(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">function</span>() { /* <span class="hljs-keyword">...</span> */ });
 </code></pre><p>这种风格和jQuery保持一致。创建节点：</p>
-<pre><code>Node(<span class="hljs-string">"&lt;div&gt;hello kissy&lt;/div&gt;"</span>).appendTo(<span class="hljs-string">'body'</span>);
+<pre><code><span class="hljs-attribute">Node</span>(<span class="hljs-string">"&lt;div&gt;hello kissy&lt;/div&gt;"</span>).<span class="hljs-function">appendTo</span>(<span class="hljs-string">'body'</span>);
 </code></pre><p>这里的例子涉及查找子节点、父节点，找兄弟节点，修改内容，绑定事件，创建节点。</p>
 <h2 id="访问 Node 节点的属性">访问 Node 节点的属性</h2><pre><code><span class="hljs-keyword">var</span> imgNode = Node.one(<span class="hljs-string">'#preview'</span>);
 <span class="hljs-keyword">var</span> bigSrc = imgNode.attr(<span class="hljs-string">'src'</span>);<span class="hljs-comment">//得到imgNode的src属性</span>
@@ -137,9 +137,9 @@
 imgNode.attr(<span class="hljs-string">'src'</span>, <span class="hljs-string">'new.png'</span>);<span class="hljs-comment">// 设置src属性为一个新的值</span>
 imgNode.next().html(<span class="hljs-string">'hello world'</span>);<span class="hljs-comment">// 设置imgNode下一个兄弟节点的innerHTML</span>
 </code></pre><p>Node 实例通过<code>attr</code>方法来读写常见的属性。一些className和innerHTML相关的常用操作，被封装为addClass、replaceClass或者html方法。更多用法请参照下文API部分。</p>
-<h2 id="Node 事件操作">Node 事件操作</h2><pre><code>Node.one(<span class="hljs-string">'#demo'</span>).<span class="hljs-keyword">on</span>(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> {</span>
-    <span class="hljs-keyword">e</span>.halt();
-    alert(<span class="hljs-string">'event: '</span> + <span class="hljs-keyword">e</span>.<span class="hljs-built_in">type</span> + <span class="hljs-string">' target: '</span> + <span class="hljs-keyword">e</span>.target.tagName); 
+<h2 id="Node 事件操作">Node 事件操作</h2><pre><code>Node.one(<span class="hljs-string">'#demo'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span></span> {
+    e.halt();
+    alert(<span class="hljs-string">'event: '</span> + e.<span class="hljs-built_in">type</span> + <span class="hljs-string">' target: '</span> + e.target.tagName); 
 });
 </code></pre><p>回调传回一个门面对象<code>e</code>，注意 e 不是原生事件对象，是封装后的，这时<code>e.target</code>是裸的节点。除了preventDefault()和stopPropagation()之外，e还包含halt()方法，停止事件加阻止默认行为。</p>
 <h2 id="Node 方法">Node 方法</h2><p>Node 实例实现了一些快捷方法，用来方便用户更快捷的操作DOM节点。比如append、next、appendTo、addClass等等。</p>
@@ -169,12 +169,12 @@ node.attr({
     role: <span class="hljs-string">'menu'</span>, <span class="hljs-string">'aria-hidden'</span>: <span class="hljs-literal">true</span> 
 });
 </code></pre><hr>
-<h1 id="Node 的实例方法">Node 的实例方法</h1><h3 id="all()，one()">all()，one()</h3><pre><code>Node.<span class="hljs-constant">one</span>(<span class="hljs-string">'.filter'</span>);<span class="hljs-comment"> // 从document根节点开始查找一个节点</span>
-Node.all(<span class="hljs-string">'.filter'</span>);<span class="hljs-comment"> // 从document根节点开始查找一批节点</span>
-node.<span class="hljs-constant">one</span>(<span class="hljs-string">'.child'</span>);<span class="hljs-comment"> // 得到当前节点下的匹配选择器的一个节点</span>
-node.all(<span class="hljs-string">'.children'</span>);<span class="hljs-comment"> // 得到当前节点下的匹配选择器的节点列表</span>
-</code></pre><h3 id="getDOMNode()，getDOMNodes()">getDOMNode()，getDOMNodes()</h3><pre><code>node.getDOMNode();<span class="hljs-comment">// 得到一个原生节点</span>
-node.getDOMNodes();<span class="hljs-comment">// 得到一个原生节点组成的数组</span>
+<h1 id="Node 的实例方法">Node 的实例方法</h1><h3 id="all()，one()">all()，one()</h3><pre><code><span class="hljs-attribute">Node</span>.<span class="hljs-function">one</span>(<span class="hljs-string">'.filter'</span>); <span class="hljs-comment">// 从document根节点开始查找一个节点</span>
+<span class="hljs-attribute">Node</span>.<span class="hljs-function">all</span>(<span class="hljs-string">'.filter'</span>); <span class="hljs-comment">// 从document根节点开始查找一批节点</span>
+<span class="hljs-attribute">node</span>.<span class="hljs-function">one</span>(<span class="hljs-string">'.child'</span>); <span class="hljs-comment">// 得到当前节点下的匹配选择器的一个节点</span>
+<span class="hljs-attribute">node</span>.<span class="hljs-function">all</span>(<span class="hljs-string">'.children'</span>); <span class="hljs-comment">// 得到当前节点下的匹配选择器的节点列表</span>
+</code></pre><h3 id="getDOMNode()，getDOMNodes()">getDOMNode()，getDOMNodes()</h3><pre><code><span class="hljs-attribute">node</span>.<span class="hljs-function">getDOMNode</span>();<span class="hljs-comment">// 得到一个原生节点</span>
+<span class="hljs-attribute">node</span>.<span class="hljs-function">getDOMNodes</span>();<span class="hljs-comment">// 得到一个原生节点组成的数组</span>
 </code></pre><h3 id="end()">end()</h3><p>得到上一次 one() 和 all() 操作前的 Node 对象。引入该方法是为了更好的支持链式操作( chaining )，可以在一个语句内对不同层次得节点集合进行不同的操作.</p>
 <pre><code>Node.<span class="hljs-constant">one</span>(<span class="hljs-string">"body"</span>).all(<span class="hljs-string">".d1"</span>).css(<span class="hljs-string">"color"</span>, <span class="hljs-string">"red"</span>)<span class="hljs-comment">;// =&gt; 返回节点.d1</span>
 Node.<span class="hljs-constant">one</span>(<span class="hljs-string">"body"</span>).all(<span class="hljs-string">".d1"</span>).css(<span class="hljs-string">"color"</span>, <span class="hljs-string">"red"</span>).<span class="hljs-keyword">end</span>()<span class="hljs-comment">;// =&gt; 返回节点 body</span>
@@ -195,14 +195,14 @@ Node.<span class="hljs-constant">one</span>(<span class="hljs-string">"body"</sp
 <span class="hljs-built_in">var</span> <span class="hljs-literal">all</span><span class="hljs-subst">=</span> pdiv<span class="hljs-built_in">.</span>add(<span class="hljs-string">"div"</span>);  <span class="hljs-comment">//  pdiv 不会变化</span>
 <span class="hljs-literal">all</span><span class="hljs-built_in">.</span>css(<span class="hljs-string">"color"</span>,<span class="hljs-string">"red"</span>); <span class="hljs-comment">// =&gt; 1,2 都为红字</span>
 </code></pre><h3 id="item()">item()</h3><p>返回NodeList的某个下标表示的节点，得到的是封装后的Node节点，而非原生节点，得到原生节点直接用数组下标获取<code>S.all(&#39;.a&#39;)[0]</code></p>
-<pre><code>&lt;<span class="hljs-operator">div</span> class=<span class="hljs-string">'a'</span> id=<span class="hljs-string">'a'</span>&gt;&lt;/<span class="hljs-operator">div</span>&gt;
-&lt;<span class="hljs-operator">div</span> class=<span class="hljs-string">'a'</span> id=<span class="hljs-string">'b'</span>&gt;&lt;/<span class="hljs-operator">div</span>&gt;<span class="hljs-comment">
-// 取第0个节点</span>
-Node.all(<span class="hljs-string">".a"</span>).<span class="hljs-keyword">item</span>(<span class="hljs-number">0</span>).attr(<span class="hljs-string">"id"</span>) <span class="hljs-comment"> // =&gt; a</span><span class="hljs-comment">
-// 取第一个节点</span>
-Node.all(<span class="hljs-string">".a"</span>).<span class="hljs-keyword">item</span>(<span class="hljs-number">1</span>).attr(<span class="hljs-string">"id"</span>) <span class="hljs-comment"> // =&gt; b</span><span class="hljs-comment">
-// 取第二个节点</span>
-Node.all(<span class="hljs-string">".a"</span>).<span class="hljs-keyword">item</span>(<span class="hljs-number">2</span>) <span class="hljs-comment"> // =&gt; null</span>
+<pre><code>&lt;<span class="hljs-tag">div</span> class=<span class="hljs-string">'a'</span> id=<span class="hljs-string">'a'</span>&gt;&lt;/div&gt;
+&lt;<span class="hljs-tag">div</span> class=<span class="hljs-string">'a'</span> id=<span class="hljs-string">'b'</span>&gt;&lt;/div&gt;
+<span class="hljs-comment">// 取第0个节点</span>
+Node.<span class="hljs-function"><span class="hljs-title">all</span><span class="hljs-params">(<span class="hljs-string">".a"</span>)</span></span>.<span class="hljs-function"><span class="hljs-title">item</span><span class="hljs-params">(<span class="hljs-number">0</span>)</span></span>.<span class="hljs-function"><span class="hljs-title">attr</span><span class="hljs-params">(<span class="hljs-string">"id"</span>)</span></span>  <span class="hljs-comment">// =&gt; a</span>
+<span class="hljs-comment">// 取第一个节点</span>
+Node.<span class="hljs-function"><span class="hljs-title">all</span><span class="hljs-params">(<span class="hljs-string">".a"</span>)</span></span>.<span class="hljs-function"><span class="hljs-title">item</span><span class="hljs-params">(<span class="hljs-number">1</span>)</span></span>.<span class="hljs-function"><span class="hljs-title">attr</span><span class="hljs-params">(<span class="hljs-string">"id"</span>)</span></span>  <span class="hljs-comment">// =&gt; b</span>
+<span class="hljs-comment">// 取第二个节点</span>
+Node.<span class="hljs-function"><span class="hljs-title">all</span><span class="hljs-params">(<span class="hljs-string">".a"</span>)</span></span>.<span class="hljs-function"><span class="hljs-title">item</span><span class="hljs-params">(<span class="hljs-number">2</span>)</span></span>  <span class="hljs-comment">// =&gt; null</span>
 </code></pre><h3 id="slice()">slice()</h3><p>获取包含当前节点列表选定范围内原生节点的新 Node 对象</p>
 <pre><code><span class="hljs-keyword">var</span> <span class="hljs-keyword">as</span> = Node.all(<span class="hljs-string">".a"</span>);
 <span class="hljs-keyword">var</span> subs = <span class="hljs-keyword">as</span>.slice(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>); <span class="hljs-comment">// =&gt; subs != as</span>
@@ -211,10 +211,10 @@ subs.length <span class="hljs-comment">// =&gt; 2，subs 为被截取之后的�
 <pre><code><span class="hljs-built_in">var</span> p <span class="hljs-subst">=</span> Node<span class="hljs-built_in">.</span><span class="hljs-literal">all</span>(<span class="hljs-string">"p:first"</span>)<span class="hljs-built_in">.</span>scrollTop();
 alert(p);<span class="hljs-comment">// 返回第一个p元素的滚动条高度</span>
 </code></pre><p>设置当前节点的滚动条的高度</p>
-<pre><code>Node.<span class="hljs-constant">one</span>(<span class="hljs-string">'.filter'</span>).scrollTop(<span class="hljs-number">100</span>)<span class="hljs-comment">;// 设置元素.filter的滚动条高度为100</span>
+<pre><code><span class="hljs-attribute">Node</span>.<span class="hljs-function">one</span>(<span class="hljs-string">'.filter'</span>).<span class="hljs-function">scrollTop</span>(<span class="hljs-number">100</span>);<span class="hljs-comment">// 设置元素.filter的滚动条高度为100</span>
 </code></pre><p>一般这样获取页面的滚动条高度</p>
-<pre><code>Node.one(<span class="hljs-built_in">document</span>).scrollTop();
-DOM.scrollTop();<span class="hljs-comment">// 这两者完全一致</span>
+<pre><code><span class="hljs-attribute">Node</span>.<span class="hljs-function">one</span>(document).<span class="hljs-function">scrollTop</span>();
+<span class="hljs-attribute">DOM</span>.<span class="hljs-function">scrollTop</span>();<span class="hljs-comment">// 这两者完全一致</span>
 </code></pre><h3 id="scrollLeft()，用法同scrollTop()">scrollLeft()，用法同scrollTop()</h3><h3 id="height() 和 width()">height() 和 width()</h3><p>获得节点的计算高度或宽度，css(&#39;height&#39;) 和 height() 的区别在于 height() 返回不带单位的纯数值, 而 css(&#39;height&#39;) 则返回带单位的原始值(例如 40% ).</p>
 <p><img src="http://docs.kissyui.com/1.4/source/raw/api/node/height.png" alt=""></p>
 <p>该方法也可以用来得到 windw 和 document 的高度</p>
@@ -230,7 +230,7 @@ Node<span class="hljs-built_in">.</span><span class="hljs-literal">all</span>(<s
 </code></pre><p>附图：下图为浏览器常用尺寸的获取办法，这里是通过原生节点方式获取</p>
 <p><img src="http://gtms01.alicdn.com/tps/i1/T1mB1SFhlXXXcmL1nK-609-602.gif" alt=""></p>
 <h3 id="addStyleSheet()">addStyleSheet()</h3><p>添加样式表</p>
-<pre><code>node.addStyleSheet(<span class="hljs-string">'xx {_width:xx;}'</span>);<span class="hljs-comment">// 可以写css hack</span>
+<pre><code><span class="hljs-attribute">node</span>.<span class="hljs-function">addStyleSheet</span>(<span class="hljs-string">'xx {_width:xx;}'</span>);<span class="hljs-comment">// 可以写css hack</span>
 </code></pre><p>另外一种加样式的方法：</p>
 <pre><code>var styleEl = Node.all("<span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css"> <span class="hljs-tag">p</span> <span class="hljs-rules">{<span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value">red</span></span></span>} </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>").appendTo("head");
 </code></pre><h3 id="append()">append()</h3><p>将参数内容插入到当前节点列表中的每个元素的末尾.</p>
@@ -262,9 +262,9 @@ Node<span class="hljs-built_in">.</span><span class="hljs-literal">all</span>(<s
 </code></pre><p>如果当前节点列表只包括一个节点, 那么他将会被移到目标容器中(而不是克隆):</p>
 <h3 id="appendTo()">appendTo()</h3><p>将当前节点列表中的每个元素插入到容器列表的每个元素的最后一个子节点后面.</p>
 <p>我们可以创建元素后立即插入到多个已有元素:</p>
-<pre><code>Node.<span class="hljs-keyword">all</span>(<span class="hljs-string">'&lt;p&gt;Test&lt;/p&gt;'</span>).appendTo(<span class="hljs-string">'.inner'</span>);
+<pre><code>Node<span class="hljs-built_in">.</span><span class="hljs-literal">all</span>(<span class="hljs-string">'&lt;p&gt;Test&lt;/p&gt;'</span>)<span class="hljs-built_in">.</span>appendTo(<span class="hljs-string">'.inner'</span>);
 </code></pre><p>也可以把一个已有元素插入到另一个</p>
-<pre><code>Node.<span class="hljs-keyword">all</span>(<span class="hljs-string">'h2'</span>).appendTo(Node.<span class="hljs-keyword">all</span>(<span class="hljs-string">'.container'</span>));
+<pre><code>Node<span class="hljs-built_in">.</span><span class="hljs-literal">all</span>(<span class="hljs-string">'h2'</span>)<span class="hljs-built_in">.</span>appendTo(Node<span class="hljs-built_in">.</span><span class="hljs-literal">all</span>(<span class="hljs-string">'.container'</span>));
 </code></pre><p>如果容器列表只有一个节点, 那么当前节点列表会被移动到容器内(不是克隆):</p>
 <ul>
 <li><a href="http://docs.kissyui.com/1.4/source/raw/api/node/appendTo.html">把多个 span 插入到已有元素</a></li>
@@ -272,9 +272,9 @@ Node<span class="hljs-built_in">.</span><span class="hljs-literal">all</span>(<s
 <h3 id="prepend()">prepend()</h3><p>用法同append()，prepend()表示插入到最前</p>
 <h3 id="prependTo()">prependTo()</h3><p>用法同prependTo()，prependTo()表示插入到最前</p>
 <h3 id="insertBefore()">insertBefore()</h3><p>在某个节点之前插入节点</p>
-<pre><code>Node.<span class="hljs-keyword">all</span>(<span class="hljs-string">'&lt;p&gt;Test&lt;/p&gt;'</span>).insertBefore(<span class="hljs-string">'.inner'</span>);
+<pre><code>Node<span class="hljs-built_in">.</span><span class="hljs-literal">all</span>(<span class="hljs-string">'&lt;p&gt;Test&lt;/p&gt;'</span>)<span class="hljs-built_in">.</span>insertBefore(<span class="hljs-string">'.inner'</span>);
 </code></pre><p>也可以操作现有元素</p>
-<pre><code>Node.<span class="hljs-keyword">all</span>(<span class="hljs-string">'h2'</span>).insertBefore(Node.<span class="hljs-keyword">all</span>(<span class="hljs-string">'.container'</span>));
+<pre><code>Node<span class="hljs-built_in">.</span><span class="hljs-literal">all</span>(<span class="hljs-string">'h2'</span>)<span class="hljs-built_in">.</span>insertBefore(Node<span class="hljs-built_in">.</span><span class="hljs-literal">all</span>(<span class="hljs-string">'.container'</span>));
 </code></pre><p>如果目标节点只有一个, 那么当前节点就会移动到目标节点之前。</p>
 <h3 id="before()">before()</h3><p>和insertBefore()方法的功能一样, 只不过参数意义不同, insertBefore 表示当前节点列表被插入到参数目标节点之前, 而该方法则表示参数节点被插入到当前节点之前.</p>
 <h3 id="insertAfter()">insertAfter()</h3><p>用法类似于insertBefore()</p>
@@ -346,7 +346,7 @@ console<span class="hljs-built_in">.</span><span class="hljs-keyword">log</span>
     &lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"goodbye"</span>&gt;Goodbye&lt;/<span class="hljs-keyword">div</span>&gt;
 &lt;/<span class="hljs-keyword">div</span>&gt;
 </code></pre><p>如果将页面中已经存在的节点插入到其他位置，它会从原来的位置移除，类似：</p>
-<pre><code>Node.one(<span class="hljs-string">'.hello'</span>).appendTo(<span class="hljs-string">'.goodbye'</span>);
+<pre><code><span class="hljs-attribute">Node</span>.<span class="hljs-function">one</span>(<span class="hljs-string">'.hello'</span>).<span class="hljs-function">appendTo</span>(<span class="hljs-string">'.goodbye'</span>);
 </code></pre><p>DOM 结构变为：</p>
 <pre><code>&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"container"</span>&gt;
     &lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"goodbye"</span>&gt;
@@ -370,8 +370,8 @@ console<span class="hljs-built_in">.</span><span class="hljs-keyword">log</span>
 </code></pre><p>更进一步的你可以设置 deepWithDataAndEvent 来使得 clone 后元素的子孙元素也具备源元素对应子孙元素的 data 属性和事件绑定.注意这时 deep 参数也要设置为 true.</p>
 <pre><code>node.<span class="hljs-keyword">clone</span>(<span class="hljs-keyword">true</span>,<span class="hljs-keyword">true</span>,<span class="hljs-keyword">true</span>);
 </code></pre><p>源元素的对象以及数组类型的 data 属性只是引用被复制到 clone 后的元素，他们的值则会在源元素以及克隆元素间共享，如果想进行 deep copy，请手动进行</p>
-<pre><code><span class="hljs-keyword">var</span> elem=Node.one(<span class="hljs-string">".hello"</span>).attr(<span class="hljs-string">"custom"</span>,{x:<span class="hljs-number">1</span>});
-elem.<span class="hljs-keyword">clone</span>().attr(<span class="hljs-string">"custom"</span>,{x:<span class="hljs-number">2</span>});
+<pre><code><span class="hljs-built_in">var</span> elem=Node.one(<span class="hljs-string">".hello"</span>).<span class="hljs-built_in">attr</span>(<span class="hljs-string">"custom"</span>,{x:<span class="hljs-number">1</span>});
+elem.clone().<span class="hljs-built_in">attr</span>(<span class="hljs-string">"custom"</span>,{x:<span class="hljs-number">2</span>});
 </code></pre><h3 id="empty()">empty()</h3><p>清除节点的所有子孙节点以及子孙节点上的事件.</p>
 <h3 id="replaceWith()">replaceWith()</h3><p>将 node 节点（数组）替换为新的节点（数组） newNode</p>
 <h3 id="hasClass()">hasClass()</h3><p>判断当前节点是否包含某个className</p>
@@ -384,15 +384,15 @@ Node.one(<span class="hljs-string">'.container'</span>).replaceClass(<span class
 <h3 id="removeAttr()">removeAttr()</h3><p>移除节点的属性</p>
 <h3 id="attr()">attr()</h3><p>读写dom节点的属性</p>
 <pre><code><span class="hljs-comment">// 批量设置属性</span>
-node.attr({
-    { src: <span class="hljs-string">'kissy.png'</span>, width: <span class="hljs-number">400</span>, height: <span class="hljs-number">400</span> }
+<span class="hljs-tag">node</span><span class="hljs-class">.attr</span>({
+    { <span class="hljs-attribute">src</span>: <span class="hljs-string">'kissy.png'</span>, <span class="hljs-attribute">width</span>: <span class="hljs-number">400</span>, <span class="hljs-attribute">height</span>: <span class="hljs-number">400</span> }
 });
-node.attr(<span class="hljs-string">'id'</span>,<span class="hljs-string">'myId'</span>);<span class="hljs-comment">// 设置单个属性</span>
-node.attr(<span class="hljs-string">'id'</span>);<span class="hljs-comment">//=&gt;得到id的值</span>
+<span class="hljs-tag">node</span><span class="hljs-class">.attr</span>(<span class="hljs-string">'id'</span>,<span class="hljs-string">'myId'</span>);<span class="hljs-comment">// 设置单个属性</span>
+<span class="hljs-tag">node</span><span class="hljs-class">.attr</span>(<span class="hljs-string">'id'</span>);<span class="hljs-comment">//=&gt;得到id的值</span>
 </code></pre><h3 id="hasAttr()">hasAttr()</h3><p>判断节点是否包含某个属性</p>
 <h3 id="prop()">prop()</h3><p>读写dom节点的属性值，和attr的不同在于，prop()读写的是dom节点自身具有的属性，而attr()的范围更大，但相比于prop()在某些场景下不够精确。比如，我可以通过attr来设置一个自定义属性，prop则不行：</p>
-<pre><code>node.attr(<span class="hljs-string">'data-my-key'</span>,<span class="hljs-string">'my-value'</span>);<span class="hljs-comment">// 有效</span>
-node.prop(<span class="hljs-string">'data-my-key'</span>,<span class="hljs-string">'my-value'</span>);<span class="hljs-comment">// 无效</span>
+<pre><code><span class="hljs-attribute">node</span>.<span class="hljs-function">attr</span>(<span class="hljs-string">'data-my-key'</span>,<span class="hljs-string">'my-value'</span>);<span class="hljs-comment">// 有效</span>
+<span class="hljs-attribute">node</span>.<span class="hljs-function">prop</span>(<span class="hljs-string">'data-my-key'</span>,<span class="hljs-string">'my-value'</span>);<span class="hljs-comment">// 无效</span>
 </code></pre><p>例如设置 input 或 button 的 disabled property 或者 checkbox 的 checked property。最常见的情况即是用 prop 来设置 disabled 以及 checked 而不要用 attr() 方法 . 而 val() 方法用来设置和读取 value property.</p>
 <pre><code><span class="hljs-keyword">var</span> c = Node(<span class="hljs-string">"&lt;input type='checkbox' checked='checked'/&gt;"</span>);
 <span class="hljs-built_in">console</span>.log(c.attr(<span class="hljs-string">'checked'</span>));<span class="hljs-comment">//=&gt;'checked'</span>
@@ -406,16 +406,16 @@ c.val(<span class="hljs-string">"someValue"</span>); <span class="hljs-comment">
 </code></pre><h3 id="hasProp()">hasProp()</h3><p>判断节点是否原生具有某个属性</p>
 <p>当你使用该方法时, 请先考虑下是否是自定义 property , 如果是自定义 property 推荐采用 data() 系列方法. 如果是 DOM property , 一般直接判断 prop() 返回值即可</p>
 <h3 id="val()">val()</h3><p>读写元素的value值</p>
-<pre><code>node.<span class="hljs-keyword">val</span>(); <span class="hljs-comment">// 读</span>
-node.<span class="hljs-keyword">val</span>(<span class="hljs-symbol">'tes</span>t');<span class="hljs-comment">// 写</span>
+<pre><code><span class="hljs-attribute">node</span>.<span class="hljs-function">val</span>(); <span class="hljs-comment">// 读</span>
+<span class="hljs-attribute">node</span>.<span class="hljs-function">val</span>(<span class="hljs-string">'test'</span>);<span class="hljs-comment">// 写</span>
 </code></pre><h3 id="text()">text()</h3><p>读写元素的文本值</p>
 <h3 id="css()">css()</h3><p>读写dom节点的样式</p>
 <pre><code><span class="hljs-comment">// 写单个样式</span>
-node.css(<span class="hljs-string">'position'</span>,<span class="hljs-string">'absolute'</span>);
+<span class="hljs-attribute">node</span>.<span class="hljs-function">css</span>(<span class="hljs-string">'position'</span>,<span class="hljs-string">'absolute'</span>);
 <span class="hljs-comment">// 批量写样式</span>
-node.css({position: <span class="hljs-string">'absolute'</span>, top: <span class="hljs-string">'10px'</span>, left: <span class="hljs-string">'10px'</span>});
+<span class="hljs-tag">node</span><span class="hljs-class">.css</span>({<span class="hljs-attribute">position</span>: <span class="hljs-string">'absolute'</span>, <span class="hljs-attribute">top</span>: <span class="hljs-string">'10px'</span>, <span class="hljs-attribute">left</span>: <span class="hljs-string">'10px'</span>});
 <span class="hljs-comment">// 读样式</span>
-node.css(<span class="hljs-string">'position'</span>);
+<span class="hljs-tag">node</span><span class="hljs-class">.css</span>(<span class="hljs-string">'position'</span>);
 </code></pre><h3 id="offset()">offset()</h3><p>读写元素的位置</p>
 <pre><code><span class="hljs-comment">// 读位置</span>
 <span class="hljs-keyword">var</span> a = node.offset();
@@ -432,10 +432,10 @@ node.offset({
     <span class="hljs-string">'left'</span>:<span class="hljs-number">20</span>
 });
 </code></pre><h3 id="scrollIntoView()">scrollIntoView()</h3><p>将节点显示在视口范围内</p>
-<pre><code>node.scrollIntoView();<span class="hljs-comment">// 将node显示在视口范围内</span>
-node.scrollIntoView(<span class="hljs-literal">true</span>);<span class="hljs-comment">// 强制上端和左端与窗口上端和左端对齐</span>
-<span class="hljs-comment">//第二个参数：是否允许容器左右滚动以保证元素显示在其可视区域.</span>
-node.scrollIntoView(<span class="hljs-literal">true</span>,<span class="hljs-literal">true</span>);
+<pre><code><span class="hljs-keyword">node</span>.scrollIntoView();// 将<span class="hljs-keyword">node</span>显示在视口范围内
+<span class="hljs-keyword">node</span>.scrollIntoView(<span class="hljs-keyword">true</span>);// 强制上端和左端与窗口上端和左端对齐
+//第二个参数：是否允许容器左右滚动以保证元素显示在其可视区域.
+<span class="hljs-keyword">node</span>.scrollIntoView(<span class="hljs-keyword">true</span>,<span class="hljs-keyword">true</span>);
 </code></pre><h3 id="parent()">parent()</h3><p>查找祖先节点</p>
 <pre><code>node.<span class="hljs-keyword">parent</span>();<span class="hljs-comment">//返回父元素</span>
 node.<span class="hljs-keyword">parent</span>(<span class="hljs-string">'.container'</span>);<span class="hljs-comment">//返回满足选择器格式的父级元素，会一直向上找，直到document</span>
@@ -453,25 +453,25 @@ node.<span class="hljs-keyword">index</span>(<span class="hljs-string">'selector
 node.<span class="hljs-keyword">next</span>(<span class="hljs-string">'.class'</span>);<span class="hljs-regexp">//</span>返回下一个符合选择器的兄弟节点
 </code></pre><h3 id="prev()">prev()</h3><p>返回上一个同级兄弟节点，如果没有，返回null，用法参照next()</p>
 <h3 id="first()">first()</h3><p>返回node的第一个子节点</p>
-<pre><code>node.<span class="hljs-keyword">first</span>()<span class="hljs-comment">;//返回node第一个子节点</span>
+<pre><code><span class="hljs-attribute">node</span>.<span class="hljs-function">first</span>();<span class="hljs-comment">//返回node第一个子节点</span>
 </code></pre><h3 id="last()">last()</h3><p>返回node最后一个子节点，用法同first()</p>
 <h3 id="siblings()">siblings()</h3><p>获得node节点的兄弟节点</p>
-<pre><code>node.siblings();<span class="hljs-comment">//返回node所有兄弟节点</span>
-node.siblings(<span class="hljs-string">'.filter'</span>);<span class="hljs-comment">//获得符合‘.filter’的兄弟节点</span>
+<pre><code><span class="hljs-attribute">node</span>.<span class="hljs-function">siblings</span>();<span class="hljs-comment">//返回node所有兄弟节点</span>
+<span class="hljs-attribute">node</span>.<span class="hljs-function">siblings</span>(<span class="hljs-string">'.filter'</span>);<span class="hljs-comment">//获得符合‘.filter’的兄弟节点</span>
 </code></pre><h3 id="children()">children()</h3><p>返回node的所有子节点</p>
-<pre><code>node.children();<span class="hljs-comment">//返回所有子节点</span>
-node.children(<span class="hljs-string">'.filter'</span>);返回符合选择器的所有子节点
+<pre><code><span class="hljs-attribute">node</span>.<span class="hljs-function">children</span>();<span class="hljs-comment">//返回所有子节点</span>
+<span class="hljs-attribute">node</span>.<span class="hljs-function">children</span>(<span class="hljs-string">'.filter'</span>);返回符合选择器的所有子节点
 </code></pre><p>注意这里的子节点不包含文本节点</p>
 <h3 id="contains()">contains()</h3><p>判断node节点是否包含另外一个节点，参数可以是textNode。</p>
-<pre><code>node.<span class="hljs-operator">contains</span>(<span class="hljs-string">'.selector'</span>)<span class="hljs-comment">;// 是否包含选择器匹配的（第一个）节点</span>
-node.<span class="hljs-operator">contains</span>(otherNode)<span class="hljs-comment">;//传入node参数</span>
-node.<span class="hljs-operator">contains</span>([node1,node2])<span class="hljs-comment">;//传入数组</span>
-node.<span class="hljs-operator">contains</span>(domNode)<span class="hljs-comment">;//传入裸的节点亦可</span>
-node.<span class="hljs-operator">contains</span>(nodeList)<span class="hljs-comment">;//这时会判断nodeList的第一个元素是否和node具有包含关系</span>
+<pre><code><span class="hljs-attribute">node</span>.<span class="hljs-function">contains</span>(<span class="hljs-string">'.selector'</span>);<span class="hljs-comment">// 是否包含选择器匹配的（第一个）节点</span>
+<span class="hljs-attribute">node</span>.<span class="hljs-function">contains</span>(otherNode);<span class="hljs-comment">//传入node参数</span>
+<span class="hljs-attribute">node</span>.<span class="hljs-function">contains</span>([node1,node2]);<span class="hljs-comment">//传入数组</span>
+<span class="hljs-attribute">node</span>.<span class="hljs-function">contains</span>(domNode);<span class="hljs-comment">//传入裸的节点亦可</span>
+<span class="hljs-attribute">node</span>.<span class="hljs-function">contains</span>(nodeList);<span class="hljs-comment">//这时会判断nodeList的第一个元素是否和node具有包含关系</span>
 </code></pre><h3 id="html()">html()</h3><p>读写元素的innerHTML属性</p>
-<pre><code>    node.html();<span class="hljs-comment">//返回innerHTML</span>
-    node.html(<span class="hljs-string">'abc'</span>);<span class="hljs-comment">//设置node的innerHTML</span>
-    node.html(<span class="hljs-string">'abc&lt;script&gt;alert(22);&lt;/script&gt;'</span>,<span class="hljs-literal">true</span>);<span class="hljs-comment">// 执行innerHTML中的脚本</span>
+<pre><code>    <span class="hljs-attribute">node</span>.<span class="hljs-function">html</span>();<span class="hljs-comment">//返回innerHTML</span>
+    <span class="hljs-attribute">node</span>.<span class="hljs-function">html</span>(<span class="hljs-string">'abc'</span>);<span class="hljs-comment">//设置node的innerHTML</span>
+    <span class="hljs-attribute">node</span>.<span class="hljs-function">html</span>(<span class="hljs-string">'abc&lt;script&gt;alert(22);&lt;/script&gt;'</span>,true);<span class="hljs-comment">// 执行innerHTML中的脚本</span>
 </code></pre><h3 id="remove()">remove()</h3><p>从DOM树中删除当前节点</p>
 <h3 id="data()">data()</h3><p>读写DOM元素的扩展属性(expando)，embed, object, applet 这三个标签不能设置 expando。该函数并不能读取 data-xx 伪属性。</p>
 <pre><code><span class="hljs-title">node</span>.<span class="hljs-typedef"><span class="hljs-keyword">data</span><span class="hljs-container">('<span class="hljs-title">data</span>-<span class="hljs-title">size'</span>,'100')</span>;// <span class="hljs-keyword">data</span>-size 的 expando , 值为 100;</span>

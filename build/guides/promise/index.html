@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/promise/index.html">Promise的基本介绍</a></p>
+							<p><a href="..\..\guides\promise\index.html">Promise的基本介绍</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load ">
@@ -96,7 +96,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/promise/chains.html">链式传递的效果</a></p><p><a href="../../demos/promise/effect-callback-1.html">处理错误影响成功回调</a></p><p><a href="../../demos/promise/effect-callback-2.html">抛出异常影响失败回调</a></p><p><a href="../../demos/promise/index.html">promise 简单使用</a></p><p><a href="../../demos/promise/nest.html">回调嵌套处理</a></p><p><a href="../../demos/promise/noalias.html">resolve 和 then 没有顺序依赖</a></p><p><a href="../../demos/promise/pass-error.html">错误可以被传递</a></p><p><a href="../../demos/promise/use-done.html">done的使用</a></p><p><a href="../../demos/promise/use-with-io.html">Use with IO</a></p>
+							<p><a href="..\..\demos\promise\chains.html">链式传递的效果</a></p><p><a href="..\..\demos\promise\effect-callback-1.html">处理错误影响成功回调</a></p><p><a href="..\..\demos\promise\effect-callback-2.html">抛出异常影响失败回调</a></p><p><a href="..\..\demos\promise\index.html">promise 简单使用</a></p><p><a href="..\..\demos\promise\nest.html">回调嵌套处理</a></p><p><a href="..\..\demos\promise\noalias.html">resolve 和 then 没有顺序依赖</a></p><p><a href="..\..\demos\promise\pass-error.html">错误可以被传递</a></p><p><a href="..\..\demos\promise\use-done.html">done的使用</a></p><p><a href="..\..\demos\promise\use-with-io.html">Use with IO</a></p>
 						</div>
 					</div>
 				</div>
@@ -124,18 +124,18 @@ A.init();
 </ol>
 <h2 id="代码第二形态">代码第二形态</h2><p>这个单体暴露事件，由开发者去绑定事件，事件可以任意绑定</p>
 <pre><code><span class="hljs-comment">// 让 A 可暴露自定义事件</span>
-<span class="hljs-keyword">var</span> AFactory = <span class="hljs-keyword">new</span> <span class="hljs-function"><span class="hljs-keyword">Function</span></span>;
+<span class="hljs-keyword">var</span> AFactory = <span class="hljs-keyword">new</span> <span class="hljs-function"><span class="hljs-keyword">Function</span>;</span>
 augment(AFactory,CustomEvent);
 <span class="hljs-keyword">var</span> A = <span class="hljs-keyword">new</span> AFactory();
 
 <span class="hljs-comment">// 给 A 绑定自定义事件回调</span>
-A.on(<span class="hljs-string">'complete'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-comment">// 某个时机触发这个回调</span>
-});
+A.<span class="hljs-keyword">on</span>(<span class="hljs-string">'complete'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span><span class="hljs-comment">{
+    // 某个时机触发这个回调
+}</span>);</span>
 
-A.on(<span class="hljs-string">'error'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-comment">// 运行出错时的回调</span>
-});
+A.<span class="hljs-keyword">on</span>(<span class="hljs-string">'error'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span><span class="hljs-comment">{
+    // 运行出错时的回调
+}</span>);</span>
 
 A.run();
 </code></pre><p>这也很容易理解，这是编程模式中最常见的桥接模式，用来完成核心代码和功能代码之间的耦合和桥接。核心代码和功能代码之间就可以分别来维护了。但当 A 的功能很具体而且很内聚时，可以将这种模式简化为回调：</p>
@@ -154,9 +154,9 @@ A.run();
     <span class="hljs-comment">// 回调2    </span>
 });
 </code></pre><p>独立出Promise对象：</p>
-<pre><code><span class="hljs-reserved">var</span> A = {};<span class="hljs-regexp">/* A 的定义 */</span>
-<span class="hljs-reserved">var</span> p1 = <span class="hljs-keyword">new</span> Promise(A);
-p1.<span class="hljs-keyword">when</span>(<span class="hljs-regexp">/*条件*/</span>).<span class="hljs-keyword">then</span>(<span class="hljs-regexp">/*行为*/</span>);
+<pre><code><span class="hljs-keyword">var</span> A = {};<span class="hljs-comment">/* A 的定义 */</span>
+<span class="hljs-keyword">var</span> p1 = <span class="hljs-keyword">new</span> Promise(A);
+p1.<span class="hljs-keyword">when</span>(<span class="hljs-comment">/*条件*/</span>).<span class="hljs-keyword">then</span>(<span class="hljs-comment">/*行为*/</span>);
 </code></pre><h2 id="KISSY Promise 的用法">KISSY Promise 的用法</h2><p>通过沙箱来调用</p>
 <pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'promise'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Promise)</span></span>{
     <span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> Promise.Defer(); <span class="hljs-comment">// 使用 Promise</span>
@@ -196,15 +196,15 @@ p1.<span class="hljs-keyword">when</span>(<span class="hljs-regexp">/*条件*/</
 <p>返回当前 promise 是否成功了</p>
 <h2 id="isResolved() <code>&lt;static&gt;</code>">isResolved() <code>&lt;static&gt;</code></h2><p><code>isResolved () =&gt; Boolean</code></p>
 <p>静态方法，作用同上</p>
-<pre><code>Promise.isResolved(promise)
+<pre><code>Promise.<span class="hljs-function"><span class="hljs-title">isResolved</span><span class="hljs-params">(promise)</span></span>
 </code></pre><h2 id="isRejected()  <code>&lt;Promise 实例方法&gt;</code>">isRejected()  <code>&lt;Promise 实例方法&gt;</code></h2><p><code>isRejected () =&gt; Boolean</code></p>
 <p>返回当前 promise 是否失败了</p>
 <h2 id="isRejected() <code>&lt;static&gt;</code>">isRejected() <code>&lt;static&gt;</code></h2><p><code>isRejected () =&gt; Boolean</code></p>
 <p>静态方法，作用同上</p>
-<pre><code>Promise.isRejected(promise)
+<pre><code>Promise.<span class="hljs-function"><span class="hljs-title">isRejected</span><span class="hljs-params">(promise)</span></span>
 </code></pre><h2 id="isPromise() <code>&lt;static&gt;</code>">isPromise() <code>&lt;static&gt;</code></h2><p><code>isPromise() =&gt; Boolean</code></p>
 <p>静态方法，判断一个对象是否是Promise实例</p>
-<pre><code>Promise.isPromise(promise)
+<pre><code>Promise.<span class="hljs-function"><span class="hljs-title">isPromise</span><span class="hljs-params">(promise)</span></span>
 </code></pre><h2 id="when() <code>&lt;static&gt;</code>">when() <code>&lt;static&gt;</code></h2><p><code>when(obj, fulfilled, rejected) =&gt; Promise</code></p>
 <p>返回一个新的 promise。如果 obj 为 promise 类型，相当于 <code>obj.then(fulfilled, rejected)</code></p>
 <p>否则直接调用 <code>fulfilled(obj)</code>，并返回一个成功的 promise</p>

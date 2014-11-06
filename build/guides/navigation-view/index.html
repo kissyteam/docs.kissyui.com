@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/navigation-view/index.html">NavigationView的基本介绍</a></p>
+							<p><a href="..\..\guides\navigation-view\index.html">NavigationView的基本介绍</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load ">
@@ -96,7 +96,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/navigation-view/animation-router.html">结合使用 Router 展示视图动画效果</a></p><p><a href="../../demos/navigation-view/index.html">简单使用 NavigationView</a></p><p><a href="../../demos/navigation-view/infinite.html">无尽的视图示例</a></p><p><a href="../../demos/navigation-view/on-left-side.html">左边栏视图</a></p><p><a href="../../demos/navigation-view/view-with-loading.html">带loading中间态的视图</a></p>
+							<p><a href="..\..\demos\navigation-view\animation-router.html">结合使用 Router 展示视图动画效果</a></p><p><a href="..\..\demos\navigation-view\index.html">简单使用 NavigationView</a></p><p><a href="..\..\demos\navigation-view\infinite.html">无尽的视图示例</a></p><p><a href="..\..\demos\navigation-view\on-left-side.html">左边栏视图</a></p><p><a href="..\..\demos\navigation-view\view-with-loading.html">带loading中间态的视图</a></p>
 						</div>
 					</div>
 				</div>
@@ -114,7 +114,7 @@
 </code></pre><h2 id="载入模块">载入模块</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'navigation-view'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(NavigationView)</span></span>{
     <span class="hljs-comment">//use NavigationView</span>
 });
-</code></pre><h2 id="简单使用">简单使用</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'navigation-view'</span>, <span class="hljs-string">'navigation-view/bar'</span>, <span class="hljs-string">'scroll-view'</span>, <span class="hljs-string">'scroll-view/plugin/scrollbar'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(NavigationView, NavigationViewBar, ScrollView, ScrollBar)</span></span>{
+</code></pre><h2 id="简单使用">简单使用</h2><pre><code>require([<span class="hljs-string">'navigation-view'</span>, <span class="hljs-string">'navigation-view/bar'</span>, <span class="hljs-string">'scroll-view'</span>, <span class="hljs-string">'scroll-view/plugin/scrollbar'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(NavigationView, NavigationViewBar, ScrollView, ScrollBar)</span></span>{
     <span class="hljs-keyword">var</span> navigationView = <span class="hljs-keyword">new</span> NavigationView({
         loadingHtml: <span class="hljs-string">'&lt;div class="ks-navigation-view-loading-outer"&gt;'</span> +
             <span class="hljs-string">'&lt;div class="ks-navigation-view-loading-inner"&gt;&lt;/div&gt;'</span> +
@@ -124,7 +124,7 @@
 
     <span class="hljs-keyword">var</span> bar = <span class="hljs-keyword">new</span> NavigationViewBar({  <span class="hljs-comment">//添加工具栏“返回”按钮</span>
             navigationView: navigationView,
-            elBefore: navigationView.get(<span class="hljs-string">'contentEl'</span>)
+            elBefore: navigationView.<span class="hljs-keyword">get</span>(<span class="hljs-string">'contentEl'</span>)
         });
 
     <span class="hljs-keyword">var</span> PageView = ScrollView.extend({  <span class="hljs-comment">//拓展自ScrollView，则该视图可滑动浏览</span>

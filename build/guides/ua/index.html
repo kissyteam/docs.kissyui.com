@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/ua/index.html">UA基本介绍</a></p>
+							<p><a href="..\..\guides\ua\index.html">UA基本介绍</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load hide">
@@ -137,58 +137,58 @@
 <h3 id="ios  <code>&lt;static&gt;</code>">ios  <code>&lt;static&gt;</code></h3><p>{Number} - ios 版本号。例如 5.0</p>
 <h3 id="android  <code>&lt;static&gt;</code>">android  <code>&lt;static&gt;</code></h3><p>{Number} - android 版本号。例如 5.0</p>
 <hr>
-<h2 id="examples">examples</h2><h3 id="判断浏览器类型">判断浏览器类型</h3><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'ua'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UA)</span></span>{
-    <span class="hljs-keyword">if</span>(UA.chrome &gt; <span class="hljs-number">0</span>){
-        alert(<span class="hljs-string">'Your browser is chrome'</span>);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.safari &gt; <span class="hljs-number">0</span>){
-        alert(<span class="hljs-string">'Your browser is safari'</span>);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.opera &gt; <span class="hljs-number">0</span>){
-        alert(<span class="hljs-string">'Your browser is opera'</span>);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.firefox &gt; <span class="hljs-number">0</span>){
-        alert(<span class="hljs-string">'Your browser is firefox'</span>);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.ie &gt; <span class="hljs-number">0</span>){
-        alert(<span class="hljs-string">'Your browser is ie'</span>);
-    }<span class="hljs-keyword">else</span>{
-        alert(<span class="hljs-string">'Your browser is unknown'</span>);
+<h2 id="examples">examples</h2><h3 id="判断浏览器类型">判断浏览器类型</h3><pre><code><span class="hljs-tag">require</span>([<span class="hljs-string">'ua'</span>],<span class="hljs-function">function</span>(UA){
+    <span class="hljs-tag">if</span>(UA.chrome &gt; <span class="hljs-number">0</span>){
+        <span class="hljs-attribute">alert</span>(<span class="hljs-string">'Your browser is chrome'</span>);
+    }<span class="hljs-tag">else</span> <span class="hljs-tag">if</span>(UA.safari &gt; <span class="hljs-number">0</span>){
+        <span class="hljs-attribute">alert</span>(<span class="hljs-string">'Your browser is safari'</span>);
+    }<span class="hljs-tag">else</span> <span class="hljs-tag">if</span>(UA.opera &gt; <span class="hljs-number">0</span>){
+        <span class="hljs-attribute">alert</span>(<span class="hljs-string">'Your browser is opera'</span>);
+    }<span class="hljs-tag">else</span> <span class="hljs-tag">if</span>(UA.firefox &gt; <span class="hljs-number">0</span>){
+        <span class="hljs-attribute">alert</span>(<span class="hljs-string">'Your browser is firefox'</span>);
+    }<span class="hljs-tag">else</span> <span class="hljs-tag">if</span>(UA.ie &gt; <span class="hljs-number">0</span>){
+        <span class="hljs-attribute">alert</span>(<span class="hljs-string">'Your browser is ie'</span>);
+    }<span class="hljs-tag">else</span>{
+        <span class="hljs-attribute">alert</span>(<span class="hljs-string">'Your browser is unknown'</span>);
     }
 });
-</code></pre><h2 id="判断操作系统类型">判断操作系统类型</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'ua'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UA)</span></span>{
-    <span class="hljs-keyword">if</span>(UA.<span class="hljs-built_in">os</span> == <span class="hljs-string">'windows'</span>){
+</code></pre><h2 id="判断操作系统类型">判断操作系统类型</h2><pre><code>require([<span class="hljs-string">'ua'</span>],function(UA){
+    <span class="hljs-keyword">if</span>(UA.os == <span class="hljs-string">'windows'</span>){
         alert(<span class="hljs-string">'Your os is Windows'</span>);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.<span class="hljs-built_in">os</span> == <span class="hljs-string">'Linux'</span>){
+    }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(UA.os == <span class="hljs-string">'Linux'</span>)</span></span>{
         alert(<span class="hljs-string">'Your os is Linux'</span>);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.<span class="hljs-built_in">os</span> == <span class="hljs-string">'ios'</span>){
+    }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(UA.os == <span class="hljs-string">'ios'</span>)</span></span>{
         alert(<span class="hljs-string">'Your os is ios and version is'</span> + UA.ios);
         <span class="hljs-keyword">if</span>(UA.ipad &gt; <span class="hljs-number">0</span>){
             alert(<span class="hljs-string">'Your device is iPad'</span>);
-        }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.iphone &gt; <span class="hljs-number">0</span>){
+        }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(UA.iphone &gt; <span class="hljs-number">0</span>)</span></span>{
             alert(<span class="hljs-string">'Your device is iPhone'</span>);
-        }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.ipod &gt; <span class="hljs-number">0</span>){
+        }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(UA.ipod &gt; <span class="hljs-number">0</span>)</span></span>{
             alert(<span class="hljs-string">'Your device is iPod'</span>)
         }
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.<span class="hljs-built_in">os</span> == <span class="hljs-string">'android'</span>){
+    }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(UA.os == <span class="hljs-string">'android'</span>)</span></span>{
         alert(<span class="hljs-string">'Your os is Android'</span>);
     }
 });
-</code></pre><h3 id="判断mobile类型">判断mobile类型</h3><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'ua'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UA)</span></span>{
+</code></pre><h3 id="判断mobile类型">判断mobile类型</h3><pre><code>require([<span class="hljs-string">'ua'</span>],function(UA){
     <span class="hljs-keyword">if</span>(UA.mobile == <span class="hljs-string">'apple'</span>){
         alert(<span class="hljs-string">'Your device is Apple'</span>);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.mobile == <span class="hljs-string">'nokia'</span>){
+    }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(UA.mobile == <span class="hljs-string">'nokia'</span>)</span></span>{
         alert(<span class="hljs-string">'Your device is Nokia'</span>);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.mobile == <span class="hljs-string">'android'</span>){
+    }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(UA.mobile == <span class="hljs-string">'android'</span>)</span></span>{
         alert(<span class="hljs-string">'Your device is Android'</span>);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.mobile == <span class="hljs-string">'opera mini'</span> || UA.mobile == <span class="hljs-string">'opera mobi'</span>){
+    }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(UA.mobile == <span class="hljs-string">'opera mini'</span> || UA.mobile == <span class="hljs-string">'opera mobi'</span>)</span></span>{
         alert(<span class="hljs-string">'Your browser is opera mobile'</span>);
     }
 }); 
-</code></pre><h3 id="判断浏览器外壳">判断浏览器外壳</h3><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'ua'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UA)</span></span>{
+</code></pre><h3 id="判断浏览器外壳">判断浏览器外壳</h3><pre><code>require([<span class="hljs-string">'ua'</span>],function(UA){
     <span class="hljs-keyword">if</span>(UA.shell == <span class="hljs-string">'chrome'</span>){
         alert(<span class="hljs-string">'Your browser is chrome and the version is'</span> + UA[UA.shell]);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.shell == <span class="hljs-string">'se360'</span>){
+    }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(UA.shell == <span class="hljs-string">'se360'</span>)</span></span>{
         alert(<span class="hljs-string">'Your browser is 360浏览器'</span>);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.shell == <span class="hljs-string">'tt'</span>){
+    }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(UA.shell == <span class="hljs-string">'tt'</span>)</span></span>{
         alert(<span class="hljs-string">'Your browser is 腾讯TT浏览器'</span>);
-    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(UA.shell == <span class="hljs-string">'maxthon'</span>){
+    }<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span><span class="hljs-params">(UA.shell == <span class="hljs-string">'maxthon'</span>)</span></span>{
         alert(<span class="hljs-string">'Your browser is 遨游浏览器'</span>);
     }
 });

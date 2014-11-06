@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/anim/index.html">Anim基本介绍</a></p>
+							<p><a href="..\..\guides\anim\index.html">Anim基本介绍</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load ">
@@ -96,7 +96,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/anim/anim-promise.html">Anim 使用 Promise API 示例</a></p><p><a href="../../demos/anim/anim-queue.html">动画队列示例</a></p><p><a href="../../demos/anim/custom.html">自定义动画</a></p><p><a href="../../demos/anim/index.html">anim的基本使用</a></p><p><a href="../../demos/anim/node.html">节点上的动画</a></p><p><a href="../../demos/anim/scroll.html">滚动示例</a></p><p><a href="../../demos/anim/timeline.html">动画曲线可视化</a></p><p><a href="../../demos/anim/tranform.html">跨浏览器transform</a></p>
+							<p><a href="..\..\demos\anim\anim-promise.html">Anim 使用 Promise API 示例</a></p><p><a href="..\..\demos\anim\anim-queue.html">动画队列示例</a></p><p><a href="..\..\demos\anim\custom.html">自定义动画</a></p><p><a href="..\..\demos\anim\index.html">anim的基本使用</a></p><p><a href="..\..\demos\anim\node.html">节点上的动画</a></p><p><a href="..\..\demos\anim\scroll.html">滚动示例</a></p><p><a href="..\..\demos\anim\timeline.html">动画曲线可视化</a></p><p><a href="..\..\demos\anim\tranform.html">跨浏览器transform</a></p>
 						</div>
 					</div>
 				</div>
@@ -192,14 +192,14 @@
 <h3 id="isPaused()">isPaused()</h3><p>判断当前动画是否被停止</p>
 <h3 id="run()">run()</h3><p>开始当前动画</p>
 <h3 id="stop()">stop()</h3><p>结束当前动画</p>
-<pre><code><span class="hljs-comment">// 终止当前动画，动画会在当前帧直接停止（不触发 complete 回调）. </span>
-anim.stop(<span class="hljs-literal">false</span>);<span class="hljs-comment">//默认为false</span>
-<span class="hljs-comment">// 为 true 时, 动画停止时会立刻跳到最后一帧（触发 complete 回调）</span>
-anim.stop(<span class="hljs-literal">true</span>);
+<pre><code>// 终止当前动画，动画会在当前帧直接停止（不触发 complete 回调）. 
+anim.<span class="hljs-literal">stop</span>(<span class="hljs-keyword">false</span>);//默认为<span class="hljs-keyword">false</span>
+// 为 <span class="hljs-keyword">true</span> 时, 动画停止时会立刻跳到最后一帧（触发 complete 回调）
+anim.<span class="hljs-literal">stop</span>(<span class="hljs-keyword">true</span>);
 </code></pre><h3 id="pause()">pause()</h3><p>在动画实例上调用, 暂停当前动画实例的动画.</p>
 <h3 id="resume()">resume()</h3><p>继续当前动画实例的动画.</p>
 <h2 id="Anim 的静态方法">Anim 的静态方法</h2><h3 id="静态方法 isRunning(elem)">静态方法 isRunning(elem)</h3><p>判断elem上是否有动画对象在执行</p>
-<pre><code>Anim.isRunning(elem);
+<pre><code><span class="hljs-attribute">Anim</span>.<span class="hljs-function">isRunning</span>(elem);
 </code></pre><h3 id="静态方法 isPaused()">静态方法 isPaused()</h3><p>用于判断 elem 上是否有动画对象在暂停，用法同上</p>
 <h3 id="静态方法 stop()">静态方法 stop()</h3><p>停止某元素上的动画（集合）.调用方法。</p>
 <p><code>Anim.stop (elem, end, clearQueue, queueName)</code></p>

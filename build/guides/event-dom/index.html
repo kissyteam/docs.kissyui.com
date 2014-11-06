@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/event-dom/index.html">DomEvent基本介绍</a></p>
+							<p><a href="..\..\guides\event-dom\index.html">DomEvent基本介绍</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load ">
@@ -96,7 +96,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/event-dom/delegate.html">事件委托</a></p><p><a href="../../demos/event-dom/detach.html">事件移除</a></p><p><a href="../../demos/event-dom/focusin_out.html">focusin/focusout</a></p><p><a href="../../demos/event-dom/index.html">event-dom 模块基本示例</a></p><p><a href="../../demos/event-dom/pinch.html">pinch</a></p><p><a href="../../demos/event-dom/rotate.html">rotate</a></p><p><a href="../../demos/event-dom/shake.html">shake</a></p><p><a href="../../demos/event-dom/swipe.html">swipe</a></p><p><a href="../../demos/event-dom/tap.html">tap</a></p>
+							<p><a href="..\..\demos\event-dom\delegate.html">事件委托</a></p><p><a href="..\..\demos\event-dom\detach.html">事件移除</a></p><p><a href="..\..\demos\event-dom\focusin_out.html">focusin/focusout</a></p><p><a href="..\..\demos\event-dom\index.html">event-dom 模块基本示例</a></p><p><a href="..\..\demos\event-dom\pinch.html">pinch</a></p><p><a href="..\..\demos\event-dom\rotate.html">rotate</a></p><p><a href="..\..\demos\event-dom\shake.html">shake</a></p><p><a href="..\..\demos\event-dom\swipe.html">swipe</a></p><p><a href="..\..\demos\event-dom\tap.html">tap</a></p>
 						</div>
 					</div>
 				</div>
@@ -183,9 +183,9 @@ DomEvent.on(foo,<span class="hljs-string">'mouseenter mouseleave'</span>, <span 
     alert(nodeIns.html());
 });
 </code></pre><h3 id="事件移除">事件移除</h3><p>从符合匹配的 dom 节点中移去相应事件的事件处理器，用 on 绑定的事件处理器可以用 detach 解除绑定. 最简单的情况 detach(elem) 解除该元素上的所有绑定.</p>
-<pre><code>DomEvent.detach(foo);
+<pre><code><span class="hljs-attribute">DomEvent</span>.<span class="hljs-function">detach</span>(foo);
 </code></pre><p>上面的代码解除了 foo 元素上所有事件的事件处理器, 我们也可以解除某一个事件的全部事件处理器:</p>
-<pre><code>DomEvent.detach(foo,<span class="hljs-string">'click'</span>);
+<pre><code><span class="hljs-attribute">DomEvent</span>.<span class="hljs-function">detach</span>(foo,<span class="hljs-string">'click'</span>);
 </code></pre><p>当时如果程序对同一事件指定了不同的事件处理器, 这时就需要后面两个参数了</p>
 <pre><code>var <span class="hljs-operator"><span class="hljs-keyword">handler</span> = <span class="hljs-keyword">function</span>() {
     alert(<span class="hljs-string">'The quick brown fox jumps over the lazy dog.'</span>);</span>

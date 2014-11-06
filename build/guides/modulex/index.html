@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/modulex/import-style.html">importStyle的使用</a></p><p><a href="../../guides/modulex/index.html">modulex 基本介绍</a></p>
+							<p><a href="..\..\guides\modulex\import-style.html">importStyle的使用</a></p><p><a href="..\..\guides\modulex\index.html">modulex 基本介绍</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load ">
@@ -96,7 +96,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/modulex/index.html">modulex简单使用</a></p>
+							<p><a href="..\..\demos\modulex\index.html">modulex简单使用</a></p>
 						</div>
 					</div>
 				</div>
@@ -189,73 +189,73 @@
 </li>
 </ul>
 <p>总配置范例概览：</p>
-<pre><code>require.config({
+<pre><code><span class="hljs-tag">require</span><span class="hljs-class">.config</span>({
     <span class="hljs-comment">// 开启自动 combo 模式</span>
-    combine:<span class="hljs-keyword">true</span>,
+    <span class="hljs-attribute">combine</span>:true,
     <span class="hljs-comment">// kissy 库内置模块的时间戳</span>
-    tag:<span class="hljs-string">'2014'</span>,
+    <span class="hljs-attribute">tag</span>:<span class="hljs-string">'2014'</span>,
     <span class="hljs-comment">// 整个类库的基准路径</span>
-    <span class="hljs-keyword">base</span>:<span class="hljs-string">'http://x.com/a'</span>,
-    packages:{
-     x:{
+    <span class="hljs-attribute">base</span>:<span class="hljs-string">'http://x.com/a'</span>,
+    <span class="hljs-attribute">packages</span>:{
+     <span class="hljs-attribute">x</span>:{
          <span class="hljs-comment">// x 包的基准路径</span>
-         <span class="hljs-keyword">base</span>:<span class="hljs-string">'http://x.com/biz/'</span>,
+         <span class="hljs-attribute">base</span>:<span class="hljs-string">'http://x.com/biz/'</span>,
          <span class="hljs-comment">// x 包的时间戳</span>
-         tag:<span class="hljs-string">'x'</span>,
+         <span class="hljs-attribute">tag</span>:<span class="hljs-string">'x'</span>,
          <span class="hljs-comment">// 加载的文件后面添加-debug。如 a.js -&gt; a-debug.js</span>
-         filter : <span class="hljs-string">'debug'</span>
+         <span class="hljs-attribute">filter </span>: <span class="hljs-string">'debug'</span>
      },
-     y:{
+     <span class="hljs-attribute">y</span>:{
         <span class="hljs-comment">// y 包的基准路径</span>
-        <span class="hljs-keyword">base</span>:<span class="hljs-string">'http://x.com/biz/'</span>,
+        <span class="hljs-attribute">base</span>:<span class="hljs-string">'http://x.com/biz/'</span>,
         <span class="hljs-comment">// y 包不开启自动 combo</span>
-        combine:<span class="hljs-keyword">false</span>
+        <span class="hljs-attribute">combine</span>:false
         <span class="hljs-comment">// 不配置 tag，则取 kissy 内置模块的时间戳</span>
      }
     },
-    modules:{
-     <span class="hljs-string">"x/b1"</span>:{
+    <span class="hljs-attribute">modules</span>:{
+     "<span class="hljs-attribute">x</span>/b1":{
          <span class="hljs-comment">// "x/b1" 模块的依赖信息</span>
-         requires:[<span class="hljs-string">"x/b2"</span>,<span class="hljs-string">"x/b3"</span>]
+         <span class="hljs-attribute">requires</span>:[<span class="hljs-string">"x/b2"</span>,<span class="hljs-string">"x/b3"</span>]
      },
      <span class="hljs-string">"y/b2"</span>:{
          <span class="hljs-comment">// y/b2 模块单独的时间戳</span>
-         tag:<span class="hljs-string">'234'</span>
+         <span class="hljs-attribute">tag</span>:<span class="hljs-string">'234'</span>
      }
     }
 });
 </code></pre><p>packages包配置示例：</p>
-<pre><code><span class="hljs-keyword">require</span><span class="hljs-built_in">.</span>config({
-    packages:{
+<pre><code><span class="hljs-tag">require</span><span class="hljs-class">.config</span>({
+    <span class="hljs-tag">packages</span>:{
         <span class="hljs-comment">// 包名</span>
-        <span class="hljs-string">"tc"</span>: {
-            <span class="hljs-built_in">tag</span>:<span class="hljs-string">"20141015"</span>, <span class="hljs-comment">// 动态加载包内的模块js文件时,</span>
+        "<span class="hljs-attribute">tc</span>": {
+            <span class="hljs-attribute">tag</span>:<span class="hljs-string">"20141015"</span>, <span class="hljs-comment">// 动态加载包内的模块js文件时,</span>
                          <span class="hljs-comment">// 自动加上 ?t=20141015, 用于文件更新</span>
-            base:<span class="hljs-string">"../"</span>, <span class="hljs-comment">// 包的路径, 相对路径指相对于当前页面路径</span>
-            charset:<span class="hljs-string">"gbk"</span> <span class="hljs-comment">// 包里模块文件编码格式</span>
+            <span class="hljs-attribute">base</span>:<span class="hljs-string">"../"</span>, <span class="hljs-comment">// 包的路径, 相对路径指相对于当前页面路径</span>
+            <span class="hljs-attribute">charset</span>:<span class="hljs-string">"gbk"</span> <span class="hljs-comment">// 包里模块文件编码格式</span>
         }
     }
 });
 </code></pre><p>group组介绍示例1：</p>
 <p>简单使用(如果想将多个包combo到一起，需要通过配置参数group来实现。例如，对于以下包进行combo：)</p>
-<pre><code><span class="hljs-keyword">require</span><span class="hljs-built_in">.</span>config({
-    packages:{
-      <span class="hljs-string">"pkg-a"</span>: {
-          base: <span class="hljs-string">"http://example.com/pkg-a"</span>,
-          <span class="hljs-keyword">group</span>: <span class="hljs-string">"group1"</span>,
-          combine: <span class="hljs-literal">true</span>,
-          <span class="hljs-built_in">tag</span>: <span class="hljs-string">"20120222"</span>
+<pre><code><span class="hljs-tag">require</span><span class="hljs-class">.config</span>({
+    <span class="hljs-tag">packages</span>:{
+      "<span class="hljs-attribute">pkg-a</span>": {
+          <span class="hljs-attribute">base</span>: <span class="hljs-string">"http://example.com/pkg-a"</span>,
+          <span class="hljs-attribute">group</span>: <span class="hljs-string">"group1"</span>,
+          <span class="hljs-attribute">combine</span>: true,
+          <span class="hljs-attribute">tag</span>: <span class="hljs-string">"20120222"</span>
       },
       <span class="hljs-string">"pkg-b"</span>: {
-          base: <span class="hljs-string">"http://example.com/pkg-b"</span>,
-          <span class="hljs-keyword">group</span>: <span class="hljs-string">"group1"</span>,
-          combine: <span class="hljs-literal">true</span>,
-          <span class="hljs-built_in">tag</span>: <span class="hljs-string">"20130303"</span>
+          <span class="hljs-attribute">base</span>: <span class="hljs-string">"http://example.com/pkg-b"</span>,
+          <span class="hljs-attribute">group</span>: <span class="hljs-string">"group1"</span>,
+          <span class="hljs-attribute">combine</span>: true,
+          <span class="hljs-attribute">tag</span>: <span class="hljs-string">"20130303"</span>
       },
       <span class="hljs-string">"pkg-c"</span>: {
-          base: <span class="hljs-string">"http://example.com/pkg-c"</span>,
-          combine: <span class="hljs-literal">true</span>,
-          <span class="hljs-built_in">tag</span>: <span class="hljs-string">"20111111"</span>
+          <span class="hljs-attribute">base</span>: <span class="hljs-string">"http://example.com/pkg-c"</span>,
+          <span class="hljs-attribute">combine</span>: true,
+          <span class="hljs-attribute">tag</span>: <span class="hljs-string">"20111111"</span>
       }
     }
 })
@@ -282,16 +282,16 @@ http://example.com/pkg-c/??mod1.js,<span class="hljs-keyword">...</span>?t=<span
 });
 </code></pre><p>配置模块别名示例：</p>
 <pre><code><span class="hljs-comment">// 定义模块的别名</span>
-<span class="hljs-built_in">require</span>.config({
-    modules : {
-        <span class="hljs-string">'mod-a'</span>:{
-            alias:[<span class="hljs-string">'mod-b/1.2'</span>] <span class="hljs-comment">// 数组长度为1</span>
+<span class="hljs-tag">require</span><span class="hljs-class">.config</span>({
+    <span class="hljs-tag">modules</span> : {
+        '<span class="hljs-attribute">mod-a</span>':{
+            <span class="hljs-attribute">alias</span>:[<span class="hljs-string">'mod-b/1.2'</span>] <span class="hljs-comment">// 数组长度为1</span>
         }
     }
 });
 
 <span class="hljs-comment">// 正常使用模块</span>
-<span class="hljs-built_in">require</span>([<span class="hljs-string">'mod-a'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(ModA)</span></span>{ });
+<span class="hljs-tag">require</span>([<span class="hljs-string">'mod-a'</span>],<span class="hljs-function">function</span>(ModA){ });
 </code></pre><h3 id="<code>require.config(name, value)</code>"><code>require.config(name, value)</code></h3><p>设置或获取 KISSY 配置参数</p>
 <ul>
 <li>name {String} 参数名称. 取值范围参见上面函数</li>

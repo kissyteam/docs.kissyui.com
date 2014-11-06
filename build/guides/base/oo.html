@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/base/index.html">Base基本介绍</a></p><p><a href="../../guides/base/oo.html">KISSY中的面向对象</a></p>
+							<p><a href="..\..\guides\base\index.html">Base基本介绍</a></p><p><a href="..\..\guides\base\oo.html">KISSY中的面向对象</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load ">
@@ -96,7 +96,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/base/index.html">Base基本使用示例</a></p>
+							<p><a href="..\..\demos\base\index.html">Base基本使用示例</a></p>
 						</div>
 					</div>
 				</div>
@@ -139,17 +139,17 @@
 <p>该方法仅适用于 javascript 对象，不要在浏览器对象上调用，例如 node.style</p>
 </blockquote>
 <p>简单 mix</p>
-<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'util'</span>], <span class="hljs-reserved">function</span>(Util){
-    <span class="hljs-reserved">var</span> r = { <span class="hljs-attribute">a</span>: <span class="hljs-string">'a'</span>, <span class="hljs-attribute">b</span>: <span class="hljs-string">'b'</span> };
-    Util.mix(r, { <span class="hljs-attribute">c</span>: <span class="hljs-string">'c'</span> });
-    <span class="hljs-built_in">console</span>.log(r.c); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'c'</span>
+<pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'util'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Util)</span></span>{
+    <span class="hljs-keyword">var</span> r = { a: <span class="hljs-string">'a'</span>, b: <span class="hljs-string">'b'</span> };
+    Util.mix(r, { c: <span class="hljs-string">'c'</span> });
+    <span class="hljs-built_in">console</span>.log(r.c); <span class="hljs-comment">// =&gt; 'c'</span>
 
-    Util.mix(r, { <span class="hljs-attribute">a</span>: <span class="hljs-string">'a2'</span> }, <span class="hljs-literal">false</span>);
-    <span class="hljs-built_in">console</span>.log(r.a); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'a'</span>
+    Util.mix(r, { a: <span class="hljs-string">'a2'</span> }, <span class="hljs-literal">false</span>);
+    <span class="hljs-built_in">console</span>.log(r.a); <span class="hljs-comment">// =&gt; 'a'</span>
 
-    Util.mix(r, { <span class="hljs-attribute">e</span>: <span class="hljs-string">'e'</span>, <span class="hljs-attribute">f</span>: <span class="hljs-string">'f'</span> }, <span class="hljs-literal">true</span>, [<span class="hljs-string">'f'</span>]);
-    <span class="hljs-built_in">console</span>.log(r.e); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-literal">undefined</span>
-    <span class="hljs-built_in">console</span>.log(r.f); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'f'</span>
+    Util.mix(r, { e: <span class="hljs-string">'e'</span>, f: <span class="hljs-string">'f'</span> }, <span class="hljs-literal">true</span>, [<span class="hljs-string">'f'</span>]);
+    <span class="hljs-built_in">console</span>.log(r.e); <span class="hljs-comment">// =&gt; undefined</span>
+    <span class="hljs-built_in">console</span>.log(r.f); <span class="hljs-comment">// =&gt; 'f'</span>
 })
 </code></pre><p>深度mix</p>
 <pre><code><span class="hljs-keyword">var</span> object1 = {
@@ -172,16 +172,16 @@ Util.mix(object1,object2,<span class="hljs-literal">undefined</span>,<span class
 <p>事实上，这个方法是 augment 和 merge 的基础。可以看到，JS 中直接对对象进行各种操作其实非常方便，类什么的都是浮云。</p>
 <h3 id="merge">merge</h3><p><code>merge (s1,s2[,...]) =&gt; Object</code></p>
 <p>将多个对象的成员合并到一个新对象上. 参数中, 后面的对象成员会覆盖前面的。如果用mix混合对象时，receiver 会被改变，如果想要保留原始的 receiver ，可以使用 KISSY.merge()</p>
-<pre><code><span class="hljs-keyword">var</span> <span class="hljs-keyword">object</span>=Util.merge(object1,object2);
+<pre><code><span class="hljs-keyword">var</span> <span class="hljs-class"><span class="hljs-keyword">object</span><span class="hljs-title">=Util</span>.<span class="hljs-title">merge</span>(</span>object1,object2);
 </code></pre><p>简单例子：</p>
-<pre><code><span class="hljs-reserved">var</span> a = { <span class="hljs-attribute">a</span>: <span class="hljs-string">'a'</span> },
-b = { <span class="hljs-attribute">b</span>: <span class="hljs-string">'b'</span> },
-c = { <span class="hljs-attribute">b</span>: <span class="hljs-string">'b2'</span>, <span class="hljs-attribute">c</span>: <span class="hljs-string">'c'</span> };
+<pre><code><span class="hljs-keyword">var</span> a = { a: <span class="hljs-string">'a'</span> },
+b = { b: <span class="hljs-string">'b'</span> },
+c = { b: <span class="hljs-string">'b2'</span>, c: <span class="hljs-string">'c'</span> };
 
-<span class="hljs-reserved">var</span> o = Util.merge(a, b, c);
-<span class="hljs-built_in">console</span>.log(o.a); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'a'</span>
-<span class="hljs-built_in">console</span>.log(o.b); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'b2'</span>
-<span class="hljs-built_in">console</span>.log(o.c); <span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> <span class="hljs-string">'c'</span>
+<span class="hljs-keyword">var</span> o = Util.merge(a, b, c);
+<span class="hljs-built_in">console</span>.log(o.a); <span class="hljs-comment">// =&gt; 'a'</span>
+<span class="hljs-built_in">console</span>.log(o.b); <span class="hljs-comment">// =&gt; 'b2'</span>
+<span class="hljs-built_in">console</span>.log(o.c); <span class="hljs-comment">// =&gt; 'c'</span>
 </code></pre><p>简单情况下 merge 方法常用来合并配置信息. 推荐使用 Base 处理属性配置.</p>
 <h3 id="extend">extend</h3><p><code>extend (r,s[,px,sx]) =&gt; Function</code></p>
 <p>让函数对象 r 继承函数对象 s，参数</p>
@@ -193,7 +193,7 @@ c = { <span class="hljs-attribute">b</span>: <span class="hljs-string">'b2'</spa
 <p>  function Bird(name) { this.name = name; }
   Bird.prototype.fly = function() { alert(this.name + &#39; is flying now!&#39;); };</p>
 <p>  function Chicken(name) {</p>
-<pre><code>  <span class="hljs-type">Chicken</span>.<span class="hljs-keyword">super</span><span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">constructor</span>.<span class="hljs-title">call</span>(<span class="hljs-title">this</span>, <span class="hljs-title">name</span>);</span>
+<pre><code>  Chicken.superclass.constructor.<span class="hljs-keyword">call</span>(<span class="hljs-keyword">this</span>, name);
 </code></pre><p>  }
   Util.extend(Chicken, Bird,{</p>
 <pre><code>  fly:<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{

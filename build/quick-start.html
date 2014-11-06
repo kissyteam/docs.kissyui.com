@@ -167,13 +167,13 @@ define(<span class="hljs-keyword">function</span>(<span class="hljs-keyword">req
     <span class="hljs-keyword">return</span> opLotto;
 })
 </code></pre><p>模块其实就是一个对象，模块名可以忽略，我们会返回这个对象以便在使用模块时方便调用，最后是依赖配置。下面将介绍的Demo中我们把这个模块保存为 <code>opLotto.js</code>。同时，我们需要指定这个模块所属的包：</p>
-<pre><code><span class="hljs-tag">require</span><span class="hljs-class">.config</span>(<span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">packages</span>:<span class="hljs-value"> {
-        <span class="hljs-string">"modulePkgName"</span>:{
-            tag: <span class="hljs-string">"20140918"</span>,
-            base: <span class="hljs-string">"./"</span>,
-            charset: <span class="hljs-string">"gbk"</span>
-        </span></span></span>}
+<pre><code><span class="hljs-tag">require</span><span class="hljs-class">.config</span>({
+    <span class="hljs-tag">packages</span>: {
+        "<span class="hljs-attribute">modulePkgName</span>":{
+            <span class="hljs-attribute">tag</span>: <span class="hljs-string">"20140918"</span>,
+            <span class="hljs-attribute">base</span>: <span class="hljs-string">"./"</span>,
+            <span class="hljs-attribute">charset</span>: <span class="hljs-string">"gbk"</span>
+        }
     }
 });
 </code></pre><p>这样来调用模块逻辑：</p>
@@ -250,7 +250,7 @@ $(<span class="hljs-string">'button'</span>).on(<span class="hljs-string">'click
 })
 </code></pre><h3 id="Ajax">Ajax</h3><p>KISSY 中对 Ajax 操作进行了一些封装，比如要发起一个 GET 请求</p>
 <pre><code><span class="hljs-comment">//Line 170</span>
-IO.get(<span class="hljs-string">'/5.0/demos/anim/cited-by-md/quickstartdata.json'</span>, {<span class="hljs-string">'index'</span>: index}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+IO.<span class="hljs-keyword">get</span>(<span class="hljs-string">'/5.0/demos/anim/cited-by-md/quickstartdata.json'</span>, {<span class="hljs-string">'index'</span>: index}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
     <span class="hljs-keyword">var</span> url = data[index].url;
     $(<span class="hljs-string">'.detail'</span>).html(<span class="hljs-string">'&lt;img src="'</span> + url + <span class="hljs-string">'" /&gt;'</span>).fadeIn(<span class="hljs-number">0.5</span>);
 }, <span class="hljs-string">'json'</span>);

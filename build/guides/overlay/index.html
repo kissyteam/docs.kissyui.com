@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/overlay/index.html">Overlay基本介绍</a></p>
+							<p><a href="..\..\guides\overlay\index.html">Overlay基本介绍</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load ">
@@ -96,7 +96,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/overlay/animate-mask.html">mask动画示例</a></p><p><a href="../../demos/overlay/animate-target.html">target动画示例</a></p><p><a href="../../demos/overlay/common-overlay.html">多个触发元素公用一个弹出框</a></p><p><a href="../../demos/overlay/index.html">带遮罩的模态对话框</a></p><p><a href="../../demos/overlay/plugins-overlay.html">对话框-拖动、伸缩、限制</a></p><p><a href="../../demos/overlay/popup.html">内容提示框popup</a></p><p><a href="../../demos/overlay/tooltip.html">更小的内容提示tooltip</a></p>
+							<p><a href="..\..\demos\overlay\animate-mask.html">mask动画示例</a></p><p><a href="..\..\demos\overlay\animate-target.html">target动画示例</a></p><p><a href="..\..\demos\overlay\common-overlay.html">多个触发元素公用一个弹出框</a></p><p><a href="..\..\demos\overlay\index.html">带遮罩的模态对话框</a></p><p><a href="..\..\demos\overlay\plugins-overlay.html">对话框-拖动、伸缩、限制</a></p><p><a href="..\..\demos\overlay\popup.html">内容提示框popup</a></p><p><a href="..\..\demos\overlay\tooltip.html">更小的内容提示tooltip</a></p>
 						</div>
 					</div>
 				</div>
@@ -111,14 +111,14 @@
 <span class="hljs-built_in">require</span>([<span class="hljs-string">'overlay'</span>],<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Overlay)</span></span>{
     <span class="hljs-comment">// use Overlay</span>
 });
-</code></pre><h2 id="一个简单的调用">一个简单的调用</h2><pre><code><span class="hljs-built_in">require</span>([<span class="hljs-string">'overlay'</span>, <span class="hljs-string">'button'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Overlay, Button)</span></span>{
-    <span class="hljs-keyword">var</span> modalDialog = <span class="hljs-keyword">new</span> Overlay.Dialog({
-        headerContent : <span class="hljs-string">'我是头部'</span>,
-        width : <span class="hljs-number">500</span>,
-        mask : <span class="hljs-literal">true</span>,
-        bodyContent : <span class="hljs-string">'&lt;div&gt;我是主体&lt;/div&gt;'</span>,
-        align : {  <span class="hljs-comment">//定位对话框</span>
-            points : [<span class="hljs-string">'cc'</span>, <span class="hljs-string">'cc'</span>]  <span class="hljs-comment">//在可视区域正中央</span>
+</code></pre><h2 id="一个简单的调用">一个简单的调用</h2><pre><code>require([<span class="hljs-string">'overlay'</span>, <span class="hljs-string">'button'</span>], function(Overlay, Button){
+    var modalDialog = <span class="hljs-keyword">new</span> Overlay.Dialog({
+        <span class="hljs-string">headerContent :</span> <span class="hljs-string">'我是头部'</span>,
+        <span class="hljs-string">width :</span> <span class="hljs-number">500</span>,
+        <span class="hljs-string">mask :</span> <span class="hljs-literal">true</span>,
+        <span class="hljs-string">bodyContent :</span> <span class="hljs-string">'&lt;div&gt;我是主体&lt;/div&gt;'</span>,
+        <span class="hljs-string">align :</span> {  <span class="hljs-comment">//定位对话框</span>
+            <span class="hljs-string">points :</span> [<span class="hljs-string">'cc'</span>, <span class="hljs-string">'cc'</span>]  <span class="hljs-comment">//在可视区域正中央</span>
         }
     });
 
@@ -150,13 +150,13 @@
 <h4 id="xy">xy</h4><p>继承自Position，数组，相当于将数组第一个元素设置为 x 的值, 将数组的第二个元素设置为 y 的值.</p>
 <h4 id="align">align</h4><p>继承自Align，JSON对象，组件节点对齐的相关配置, 例如：</p>
 <pre><code>{
-    node: <span class="hljs-constant">null</span>,        <span class="hljs-comment"> // 类型选择器字符串, 对齐参考元素, falsy 值为可视区域</span>
-    points: [<span class="hljs-string">'tr'</span>,<span class="hljs-string">'tl'</span>],<span class="hljs-comment"> // 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐</span>
-    <span class="hljs-built_in">offset</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],     <span class="hljs-comment"> // 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,</span>
-                       <span class="hljs-comment"> // 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.</span>
-    overflow:{
-        adjustX:<span class="hljs-number">1</span>,<span class="hljs-comment"> // 当对象不能处于可显示区域时，自动调整横坐标</span>
-        adjustY:<span class="hljs-number">1</span><span class="hljs-comment"> // 当对象不能处于可显示区域时，自动调整纵坐标</span>
+    <span class="hljs-tag">node</span>: <span class="hljs-tag">null</span>,         <span class="hljs-comment">// 类型选择器字符串, 对齐参考元素, falsy 值为可视区域</span>
+    <span class="hljs-tag">points</span>: <span class="hljs-attr_selector">['tr','tl']</span>, <span class="hljs-comment">// 类型字符串数组, 表示 overlay 的 tl 与参考节点的 tr 对齐</span>
+    <span class="hljs-tag">offset</span>: <span class="hljs-attr_selector">[0, 0]</span>,      <span class="hljs-comment">// 类型整数数组, 表示 overlay 最终位置与经 node 和 points 计算后位置的偏移,</span>
+                        <span class="hljs-comment">// 数组第一个元素表示 x 轴偏移, 第二个元素表示 y 轴偏移.</span>
+    <span class="hljs-tag">overflow</span>:{
+        <span class="hljs-attribute">adjustX</span>:<span class="hljs-number">1</span>, <span class="hljs-comment">// 当对象不能处于可显示区域时，自动调整横坐标</span>
+        <span class="hljs-attribute">adjustY</span>:<span class="hljs-number">1</span> <span class="hljs-comment">// 当对象不能处于可显示区域时，自动调整纵坐标</span>
     }
 }
 </code></pre><p>points 字符串数组元素的取值范围为 t,b,c 与 l,r,c 的两两组合, 分别表示 top,bottom,center 与 left,right,center 的两两组合, 可以表示 9 种取值范围，如图，第一个字符取值 t,b,c , 第二个字符取值 l,r,c. </p>
@@ -170,10 +170,10 @@
 </ul>
 <p>举例：</p>
 <pre><code>{
-    target:<span class="hljs-string">''</span>,        <span class="hljs-comment">// {String|KISSY.Node} - 可选，动画的参考元素</span>
-    effect:<span class="hljs-string">'none'</span>,    <span class="hljs-comment">// {String} - 可选, 默认为'none', 'none'(无特效), 'fade'(渐隐显示), 'slide'(滑动显示).</span>
-    easing:<span class="hljs-string">''</span>,        <span class="hljs-comment">// {String} - 可选, 同 KISSY.Anim 的 easing 参数配置.</span>
-    <span class="hljs-built_in">duration</span>:<span class="hljs-number">3</span>        <span class="hljs-comment">// {Number} - 可选, 动画持续时间, 以秒为单位.</span>
+    <span class="hljs-attribute">target</span>:<span class="hljs-string">''</span>,        <span class="hljs-comment">// {String|KISSY.Node} - 可选，动画的参考元素</span>
+    <span class="hljs-attribute">effect</span>:<span class="hljs-string">'none'</span>,    <span class="hljs-comment">// {String} - 可选, 默认为'none', 'none'(无特效), 'fade'(渐隐显示), 'slide'(滑动显示).</span>
+    <span class="hljs-attribute">easing</span>:<span class="hljs-string">''</span>,        <span class="hljs-comment">// {String} - 可选, 同 KISSY.Anim 的 easing 参数配置.</span>
+    <span class="hljs-attribute">duration</span>:<span class="hljs-number">3</span>        <span class="hljs-comment">// {Number} - 可选, 动画持续时间, 以秒为单位.</span>
 }
 </code></pre><h4 id="closable">closable</h4><p>Boolean类型，对话框右上角是否包括关闭按钮</p>
 <h4 id="closeAction">closeAction</h4><p>字符串，点击关闭按钮的动作。默认 “hide” 隐藏，也可设置 “destroy” 销毁该组件.</p>

@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/editor/index.html">Editor基本介绍</a></p>
+							<p><a href="..\..\guides\editor\index.html">Editor基本介绍</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load ">
@@ -96,7 +96,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/editor/from-textarea.html">从已有的textarea创建editor</a></p><p><a href="../../demos/editor/index.html">简单使用Editor</a></p><p><a href="../../demos/editor/write-plugin.html">编写Editor插件</a></p>
+							<p><a href="..\..\demos\editor\from-textarea.html">从已有的textarea创建editor</a></p><p><a href="..\..\demos\editor\index.html">简单使用Editor</a></p><p><a href="..\..\demos\editor\write-plugin.html">编写Editor插件</a></p>
 						</div>
 					</div>
 				</div>
@@ -142,9 +142,9 @@
 <li>arg* 对应命令所需要的参数</li>
 </ul>
 <p>调用编辑器的响应命令功能，例如：</p>
-<pre><code><span class="hljs-keyword">editor</span>.execCommand(<span class="hljs-string">"fontSize"</span>,<span class="hljs-string">"10px"</span>); <span class="hljs-comment">//=&gt; 设置选区文字大小为10px.</span>
-<span class="hljs-keyword">editor</span>.execCommand(<span class="hljs-string">"fontSize"</span>,<span class="hljs-string">"10px"</span>); <span class="hljs-comment">//=&gt; 取消设置选区文字大小为10px.</span>
-<span class="hljs-keyword">editor</span>.queryCommandValue(<span class="hljs-string">"fontSize"</span>); <span class="hljs-comment">//=&gt; 返回 10px</span>
+<pre><code><span class="hljs-attribute">editor</span>.<span class="hljs-function">execCommand</span>(<span class="hljs-string">"fontSize"</span>,<span class="hljs-string">"10px"</span>); <span class="hljs-comment">//=&gt; 设置选区文字大小为10px.</span>
+<span class="hljs-attribute">editor</span>.<span class="hljs-function">execCommand</span>(<span class="hljs-string">"fontSize"</span>,<span class="hljs-string">"10px"</span>); <span class="hljs-comment">//=&gt; 取消设置选区文字大小为10px.</span>
+<span class="hljs-attribute">editor</span>.<span class="hljs-function">queryCommandValue</span>(<span class="hljs-string">"fontSize"</span>); <span class="hljs-comment">//=&gt; 返回 10px</span>
 </code></pre><h4 id="hasCommand(commandName)">hasCommand(commandName)</h4><ul>
 <li>commandName (String) 命令名称，由各个插件提供</li>
 </ul>

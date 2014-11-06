@@ -88,7 +88,7 @@
 							<h3 class="panel-title">Features</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../guides/base/index.html">Base基本介绍</a></p><p><a href="../../guides/base/oo.html">KISSY中的面向对象</a></p>
+							<p><a href="..\..\guides\base\index.html">Base基本介绍</a></p><p><a href="..\..\guides\base\oo.html">KISSY中的面向对象</a></p>
 						</div>
 					</div>
 					<div class="panel panel-primary ajax-load ">
@@ -96,7 +96,7 @@
 							<h3 class="panel-title">Demos</h3>
 						</div>
 						<div class="panel-body">
-							<p><a href="../../demos/base/index.html">Base基本使用示例</a></p>
+							<p><a href="..\..\demos\base\index.html">Base基本使用示例</a></p>
 						</div>
 					</div>
 				</div>
@@ -192,8 +192,8 @@ dog.<span class="hljs-keyword">set</span>(<span class="hljs-string">'name'</span
 <li>beforeBreedChange</li>
 <li>afterBreedChange</li>
 </ul>
-<pre><code>dog.<span class="hljs-keyword">on</span>(<span class="hljs-string">'afterBreedChange'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> {</span>
-    console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'我要从'</span> + <span class="hljs-keyword">e</span>.prevVal + <span class="hljs-string">'变成'</span> + <span class="hljs-keyword">e</span>.newVal + <span class="hljs-string">'啦！'</span>)
+<pre><code>dog.on(<span class="hljs-string">'afterBreedChange'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'我要从'</span> + e.prevVal + <span class="hljs-string">'变成'</span> + e.newVal + <span class="hljs-string">'啦！'</span>)
 })
 </code></pre><p>如何让一个已有的类获得Attr特性？</p>
 <pre><code><span class="hljs-comment">// Dog 是一个已有的类</span>
@@ -241,9 +241,9 @@ dog.on(<span class="hljs-string">'bark'</span>, <span class="hljs-function"><spa
     pluginDestructor:<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{}
 };
 </code></pre><p>直接传实例化的示例代码：</p>
-<pre><code><span class="hljs-keyword">new</span> Editor().plug({
-    pluginInitializer:<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{},
-    pluginDestructor:<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{}
+<pre><code><span class="hljs-tag">new</span> <span class="hljs-tag">Editor</span>()<span class="hljs-class">.plug</span>({
+    <span class="hljs-tag">pluginInitializer</span><span class="hljs-pseudo">:function</span>(){},
+    <span class="hljs-attribute">pluginDestructor</span>:<span class="hljs-function">function</span>(){}
 })
 </code></pre><p>与之对应的方法是<code>unplug(plugin)</code>，从plugins数组中移除plugin，并调用pluginDestructor析构函数。</p>
 <p>第三个方法<code>getPlugin(id)</code>是通过类plugin定义的的<code>p.get(&#39;pluginIn&#39;) || p.pluginId</code>来拿到plugin的实例。</p>
@@ -274,7 +274,7 @@ dog.plug(PluginA);<span class="hljs-comment">// 弹出'插件运行'</span>
     plugins:[PluginA]    
 });    
 </code></pre><p>卸载插件的方法：</p>
-<pre><code>dog.unplug(PluginA);
+<pre><code><span class="hljs-attribute">dog</span>.<span class="hljs-function">unplug</span>(PluginA);
 </code></pre><p>如果定义插件时指定了插件id，可以通过插件id来卸载插件</p>
 <pre><code><span class="hljs-keyword">var</span> PluginA = {
     <span class="hljs-comment">// 定义插件id</span>
