@@ -2283,7 +2283,7 @@
                 }
             ],
             "example": [
-                "\n\t//首先引入KISSY提供的base样式和button样式 //g.alicdn.com/kissy/k/5.0.0/css/base.css 和 //g.alicdn.com/kissy/k/5.0.0/button/assets/dpl.css\n\t\n\trequire(['button'], function(Button){\n\t\tvar button1 = new Button({\n\t\t\tcontent : 'ButtonContent',\n\t\t\trender : '#container',\n\t\t\twidth : '150px',\n\t\t\telCls : 'ks-button-success'\n\t\t});\n\t\tbutton1.render();\n\t})\t"
+                "\n\t//首先引入KISSY提供的base样式和button样式 //g.alicdn.com/kissy/k/5.0.1/css/base.css 和 //g.alicdn.com/kissy/k/5.0.1/button/assets/dpl.css\n\t\n\trequire(['button'], function(Button){\n\t\tvar button1 = new Button({\n\t\t\tcontent : 'ButtonContent',\n\t\t\trender : '#container',\n\t\t\twidth : '150px',\n\t\t\telCls : 'ks-button-success'\n\t\t});\n\t\tbutton1.render();\n\t})\t"
             ]
         },
         "Color": {
@@ -2812,7 +2812,7 @@
                 }
             ],
             "example": [
-                "\n\t//先引入样式文件：\n\t////g.alicdn.com/kissy/k/5.0.0/css/base.css\n\t////g.alicdn.com/kissy/k/5.0.0/menu/assets/dpl.css\n\trequire(['menu', 'separator'], function(Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
+                "\n\t//先引入样式文件：\n\t////g.alicdn.com/kissy/k/5.0.1/css/base.css\n\t////g.alicdn.com/kissy/k/5.0.1/menu/assets/dpl.css\n\trequire(['menu', 'separator'], function(Menu, Separator){\n        var myMenu = new Menu({\n            render : '#container',\n            width : 150,\n            children : [\n                new Menu.Item({  //通过构造器来生成 Menu.Item 节点\n                    content : 'item1'\n                }),\n                {\n                    xclass : 'menuitem',  //通过xclass来生成 Menu.Item 节点\n                    content : 'item2'\n                },\n                {\n                    xclass:'separator'    //分隔符\n                },\n                {\n                    xclass : 'submenu',\n                    content : 'submenu',\n                    menu : new Menu.PopupMenu({\n                        autoHideOnMouseLeave:true,\n                        width : 150,\n                        children : [\n                            {\n                                xclass : 'menuitem',\n                                content : 'item1InSubMenu'\n                            },\n                            {\n                                xclass : 'menuitem',\n                                content : 'item2InSubMenu'\n                            }\n                        ]\n                    })\n                }\n            ]\n        });\n\n        myMenu.render();\n    });"
             ]
         },
         "Menu.Item": {
@@ -3121,7 +3121,7 @@
             "namespace": "",
             "file": "src\\api\\overlay.js",
             "line": 5,
-            "description": "悬浮层。使用前先引入overlay样式`//g.alicdn.com/kissy/k/5.0.0/overlay/assets/dpl.css`或利用prefixCls自定义样式。",
+            "description": "悬浮层。使用前先引入overlay样式`//g.alicdn.com/kissy/k/5.0.1/overlay/assets/dpl.css`或利用prefixCls自定义样式。",
             "is_constructor": 1,
             "extends": "Component.Container",
             "uses": [

@@ -30,6 +30,7 @@ gulp.task('buildapi', ['aggregateApiSource'], function(){
 		yuidocCliPath = path.resolve(yuidocPath, yuidocConfig.bin.yuidoc),
 		cliString = 'node ' + yuidocCliPath;
 	process.exec(cliString);
+	fs.removeSync(path.resolve(__dirname, 'tmpbuild'));
 });
 
 gulp.task('buildguide',function(){

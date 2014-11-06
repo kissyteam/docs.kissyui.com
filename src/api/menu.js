@@ -10,8 +10,8 @@
 @param config {Object}
 @example
 	//先引入样式文件：
-	////g.alicdn.com/kissy/k/5.0.0/css/base.css
-	////g.alicdn.com/kissy/k/5.0.0/menu/assets/dpl.css
+	////g.alicdn.com/kissy/k/5.0.1/css/base.css
+	////g.alicdn.com/kissy/k/5.0.1/menu/assets/dpl.css
 	require(['menu', 'separator'], function(Menu, Separator){
         var myMenu = new Menu({
             render : '#container',

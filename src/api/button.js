@@ -8,7 +8,7 @@
 @extends Component.Control
 @param config {Object}
 @example
-	//首先引入KISSY提供的base样式和button样式 //g.alicdn.com/kissy/k/5.0.0/css/base.css 和 //g.alicdn.com/kissy/k/5.0.0/button/assets/dpl.css
+	//首先引入KISSY提供的base样式和button样式 //g.alicdn.com/kissy/k/5.0.1/css/base.css 和 //g.alicdn.com/kissy/k/5.0.1/button/assets/dpl.css
 	
 	require(['button'], function(Button){
 		var button1 = new Button({

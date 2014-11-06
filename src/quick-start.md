@@ -2,7 +2,7 @@
 
 ## 1，引入种子文件
 
-	<script src="//g.alicdn.com/kissy/k/5.0.0/seed.js" data-config="{combine:true}"></script>
+	<script src="//g.alicdn.com/kissy/k/5.0.1/seed.js" data-config="{combine:true}"></script>
 
 种子文件是一个**非常小**的 JS 文件，通过他可以动态加载 KISSY 的模块文件，因为体积很小，推荐将种子文件至于`<head>`标签内。
 `data-config="{combine:true}"` 表示启用服务器 combo 机制，可用于减少网络请求数目。
@@ -181,7 +181,7 @@ gallery 鼓励分享，任何人都可以为 gallery 提交自己的组件。使
 
 或者这样开启：
 
-	<script src="http://g.alicdn.com/kissy/edge/2014.09.05/seed.js" data-config="{combine:true}"></script>
+	<script src="//g.alicdn.com/kissy/edge/2014.09.05/seed.js" data-config="{combine:true}"></script>
 
 页面额外请求数变为3个了。
 
